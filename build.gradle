@@ -1,0 +1,55 @@
+plugins {
+    id 'maven-publish'
+    id 'java-library'
+}
+
+group = 'com.anduril'
+version = '1.0'
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'src'
+        }
+    }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'com.google.protobuf:protobuf-java:4.27.3'
+  implementation 'io.grpc:grpc-stub:1.65.1'
+  implementation 'io.grpc:grpc-protobuf:1.65.1'
+  implementation 'javax.annotation:javax.annotation-api:1.3.2'
+}
+
+jar {
+  enabled = true
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+  repositories {
+    maven {
+      name = "anduril-sdk-java"
+      url = "https://maven.pkg.github.com/anduril/anduril-java"
+      credentials {
+        username = System.getenv("USERNAME")
+        password = System.getenv("TOKEN")
+      }
+    }
+  }
+
+  publications {
+    mavenJava(MavenPublication) {
+      artifactId = 'anduril-sdk-java'
+      from components.java
+    }
+  }
+}
