@@ -189,14 +189,14 @@ public final class EntityManagerApiPubProto {
       "r.v1.RemoveEntityOverrideResponse\022m\n\014Del" +
       "eteEntity\022-.anduril.entitymanager.v1.Del" +
       "eteEntityRequest\032..anduril.entitymanager" +
-      ".v1.DeleteEntityResponseB\220\002\n\034com.anduril" +
+      ".v1.DeleteEntityResponseB\211\002\n\034com.anduril" +
       ".entitymanager.v1B\030EntityManagerApiPubPr" +
-      "otoP\001ZTgithub.com/dogun-anduril/anduril-" +
-      "sdk-go/src/anduril/entitymanager/v1;enti" +
-      "tymanagerv1\242\002\003AEX\252\002\030Anduril.Entitymanage" +
-      "r.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduri" +
-      "l\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduril" +
-      "::Entitymanager::V1b\006proto3"
+      "otoP\001ZMghe.anduril.dev/anduril/andurilap" +
+      "is-go/anduril/entitymanager/v1;entityman" +
+      "ager\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030" +
+      "Anduril\\Entitymanager\\V1\342\002$Anduril\\Entit" +
+      "ymanager\\V1\\GPBMetadata\352\002\032Anduril::Entit" +
+      "ymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

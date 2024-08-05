@@ -70,14 +70,13 @@ public final class OptionsPubProto {
       "\035.google.protobuf.FieldOptions\030\351\007 \001(\010R\013o" +
       "verridable:P\n\023componentIdentifier\022\035.goog" +
       "le.protobuf.FieldOptions\030\352\007 \001(\010R\023compone" +
-      "ntIdentifierB\207\002\n\034com.anduril.entitymanag" +
-      "er.v1B\017OptionsPubProtoP\001ZTgithub.com/dog" +
-      "un-anduril/anduril-sdk-go/src/anduril/en" +
-      "titymanager/v1;entitymanagerv1\242\002\003AEX\252\002\030A" +
-      "nduril.Entitymanager.V1\312\002\030Anduril\\Entity" +
-      "manager\\V1\342\002$Anduril\\Entitymanager\\V1\\GP" +
-      "BMetadata\352\002\032Anduril::Entitymanager::V1b\006" +
-      "proto3"
+      "ntIdentifierB\200\002\n\034com.anduril.entitymanag" +
+      "er.v1B\017OptionsPubProtoP\001ZMghe.anduril.de" +
+      "v/anduril/andurilapis-go/anduril/entitym" +
+      "anager/v1;entitymanager\242\002\003AEX\252\002\030Anduril." +
+      "Entitymanager.V1\312\002\030Anduril\\Entitymanager" +
+      "\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMetada" +
+      "ta\352\002\032Anduril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

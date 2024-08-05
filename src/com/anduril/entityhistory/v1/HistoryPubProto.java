@@ -139,14 +139,14 @@ public final class HistoryPubProto {
       "Y_TYPE_SNAPSHOT\020\002\022\032\n\026HISTORY_TYPE_COMPOS" +
       "ITE\020\003*h\n\rStorageSystem\022\032\n\026STORAGE_SYSTEM" +
       "_INVALID\020\000\022\035\n\031STORAGE_SYSTEM_PERSISTENT\020" +
-      "\001\022\034\n\030STORAGE_SYSTEM_EPHEMERAL\020\002B\207\002\n\034com." +
+      "\001\022\034\n\030STORAGE_SYSTEM_EPHEMERAL\020\002B\362\001\n\034com." +
       "anduril.entityhistory.v1B\017HistoryPubProt" +
-      "oP\001ZTgithub.com/dogun-anduril/anduril-sd" +
-      "k-go/src/anduril/entityhistory/v1;entity" +
-      "historyv1\242\002\003AEX\252\002\030Anduril.Entityhistory." +
-      "V1\312\002\030Anduril\\Entityhistory\\V1\342\002$Anduril\\" +
-      "Entityhistory\\V1\\GPBMetadata\352\002\032Anduril::" +
-      "Entityhistory::V1b\006proto3"
+      "oP\001Z?ghe.anduril.dev/anduril/andurilapis" +
+      "-go/anduril/entityhistory/v1\242\002\003AEX\252\002\030And" +
+      "uril.Entityhistory.V1\312\002\030Anduril\\Entityhi" +
+      "story\\V1\342\002$Anduril\\Entityhistory\\V1\\GPBM" +
+      "etadata\352\002\032Anduril::Entityhistory::V1b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

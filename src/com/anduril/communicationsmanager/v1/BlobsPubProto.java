@@ -50,15 +50,15 @@ public final class BlobsPubProto {
       "8\n\027BlobsIntegrationDetails\022\035\n\ndata_types" +
       "\030\001 \003(\tR\tdataTypes\"S\n\032BlobIntegrationRule" +
       "Details\0225\n\007filters\030\001 \003(\0132\033.anduril.blobs" +
-      ".v1.StatementR\007filtersB\275\002\n$com.anduril.c" +
+      ".v1.StatementR\007filtersB\240\002\n$com.anduril.c" +
       "ommunicationsmanager.v1B\rBlobsPubProtoP\001" +
-      "Zdgithub.com/dogun-anduril/anduril-sdk-g" +
-      "o/src/anduril/communicationsmanager/v1;c" +
-      "ommunicationsmanagerv1\242\002\003ACX\252\002 Anduril.C" +
-      "ommunicationsmanager.V1\312\002 Anduril\\Commun" +
-      "icationsmanager\\V1\342\002,Anduril\\Communicati" +
-      "onsmanager\\V1\\GPBMetadata\352\002\"Anduril::Com" +
-      "municationsmanager::V1b\006proto3"
+      "ZGghe.anduril.dev/anduril/andurilapis-go" +
+      "/anduril/communicationsmanager/v1\242\002\003ACX\252" +
+      "\002 Anduril.Communicationsmanager.V1\312\002 And" +
+      "uril\\Communicationsmanager\\V1\342\002,Anduril\\" +
+      "Communicationsmanager\\V1\\GPBMetadata\352\002\"A" +
+      "nduril::Communicationsmanager::V1b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

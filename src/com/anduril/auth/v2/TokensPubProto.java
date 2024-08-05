@@ -55,12 +55,12 @@ public final class TokensPubProto {
       "Token2t\n\006Tokens\022j\n\021RefreshOidcTokens\022).a" +
       "nduril.auth.v2.RefreshOidcTokensRequest\032" +
       "*.anduril.auth.v2.RefreshOidcTokensRespo" +
-      "nseB\307\001\n\023com.anduril.auth.v2B\016TokensPubPr" +
-      "otoP\001ZBgithub.com/dogun-anduril/anduril-" +
-      "sdk-go/src/anduril/auth/v2;authv2\242\002\003AAX\252" +
-      "\002\017Anduril.Auth.V2\312\002\017Anduril\\Auth\\V2\342\002\033An" +
-      "duril\\Auth\\V2\\GPBMetadata\352\002\021Anduril::Aut" +
-      "h::V2b\006proto3"
+      "nseB\300\001\n\023com.anduril.auth.v2B\016TokensPubPr" +
+      "otoP\001Z;ghe.anduril.dev/anduril/andurilap" +
+      "is-go/anduril/auth/v2;auth\242\002\003AAX\252\002\017Andur" +
+      "il.Auth.V2\312\002\017Anduril\\Auth\\V2\342\002\033Anduril\\A" +
+      "uth\\V2\\GPBMetadata\352\002\021Anduril::Auth::V2b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -138,12 +138,12 @@ public final class BlobsApiPubProto {
       "bResponse\022q\n\022StreamBlobMetadata\022+.anduri" +
       "l.blobs.v1.StreamBlobMetadataRequest\032,.a" +
       "nduril.blobs.v1.StreamBlobMetadataRespon" +
-      "se0\001B\320\001\n\024com.anduril.blobs.v1B\020BlobsApiP" +
-      "ubProtoP\001ZDgithub.com/dogun-anduril/andu" +
-      "ril-sdk-go/src/anduril/blobs/v1;blobsv1\242" +
-      "\002\003ABX\252\002\020Anduril.Blobs.V1\312\002\020Anduril\\Blobs" +
-      "\\V1\342\002\034Anduril\\Blobs\\V1\\GPBMetadata\352\002\022And" +
-      "uril::Blobs::V1b\006proto3"
+      "se0\001B\313\001\n\024com.anduril.blobs.v1B\020BlobsApiP" +
+      "ubProtoP\001Z?ghe.anduril.dev/anduril/andur" +
+      "ilapis-go/anduril/blobs/v1;blobsv1\242\002\003ABX" +
+      "\252\002\020Anduril.Blobs.V1\312\002\020Anduril\\Blobs\\V1\342\002" +
+      "\034Anduril\\Blobs\\V1\\GPBMetadata\352\002\022Anduril:" +
+      ":Blobs::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

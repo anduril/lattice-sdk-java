@@ -73,14 +73,14 @@ public final class PayloadsPubProto {
       "PERATIONAL_STATE_DEGRADED\020\003\022)\n%PAYLOAD_O" +
       "PERATIONAL_STATE_OPERATIONAL\020\004\022,\n(PAYLOA" +
       "D_OPERATIONAL_STATE_OUT_OF_SERVICE\020\005\022%\n!" +
-      "PAYLOAD_OPERATIONAL_STATE_UNKNOWN\020\006B\210\002\n\034" +
+      "PAYLOAD_OPERATIONAL_STATE_UNKNOWN\020\006B\201\002\n\034" +
       "com.anduril.entitymanager.v1B\020PayloadsPu" +
-      "bProtoP\001ZTgithub.com/dogun-anduril/andur" +
-      "il-sdk-go/src/anduril/entitymanager/v1;e" +
-      "ntitymanagerv1\242\002\003AEX\252\002\030Anduril.Entityman" +
-      "ager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$And" +
-      "uril\\Entitymanager\\V1\\GPBMetadata\352\002\032Andu" +
-      "ril::Entitymanager::V1b\006proto3"
+      "bProtoP\001ZMghe.anduril.dev/anduril/anduri" +
+      "lapis-go/anduril/entitymanager/v1;entity" +
+      "manager\242\002\003AEX\252\002\030Anduril.Entitymanager.V1" +
+      "\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\En" +
+      "titymanager\\V1\\GPBMetadata\352\002\032Anduril::En" +
+      "titymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

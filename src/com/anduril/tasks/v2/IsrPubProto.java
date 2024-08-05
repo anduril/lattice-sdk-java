@@ -232,12 +232,12 @@ public final class IsrPubProto {
       "T\020\002*\200\001\n\014OrbitPattern\022\031\n\025ORBIT_PATTERN_IN" +
       "VALID\020\000\022\030\n\024ORBIT_PATTERN_CIRCLE\020\001\022\033\n\027ORB" +
       "IT_PATTERN_RACETRACK\020\002\022\036\n\032ORBIT_PATTERN_" +
-      "FIGURE_EIGHT\020\003B\322\001\n\024com.anduril.tasks.v2B" +
-      "\013IsrPubProtoP\001ZKgithub.com/dogun-anduril" +
-      "/anduril-sdk-go/src/anduril/tasks/v2/sha" +
-      "red;tasksv2\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020A" +
-      "nduril\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMe" +
-      "tadata\352\002\022Anduril::Tasks::V2b\006proto3"
+      "FIGURE_EIGHT\020\003B\304\001\n\024com.anduril.tasks.v2B" +
+      "\013IsrPubProtoP\001Z=ghe.anduril.dev/anduril/" +
+      "andurilapis-go/anduril/tasks/v2;tasks\242\002\003" +
+      "ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\Tasks\\V" +
+      "2\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002\022Andur" +
+      "il::Tasks::V2b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

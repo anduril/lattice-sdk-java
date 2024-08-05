@@ -144,13 +144,13 @@ public final class SensorsPubProto {
       "RF\020\004\022\023\n\017SENSOR_TYPE_GPS\020\005\022\027\n\023SENSOR_TYPE" +
       "_PTU_POS\020\006\022\024\n\020SENSOR_TYPE_WISP\020\007\022\031\n\025SENS" +
       "OR_TYPE_PERIMETER\020\010\022\025\n\021SENSOR_TYPE_SONAR" +
-      "\020\tB\207\002\n\034com.anduril.entitymanager.v1B\017Sen" +
-      "sorsPubProtoP\001ZTgithub.com/dogun-anduril" +
-      "/anduril-sdk-go/src/anduril/entitymanage" +
-      "r/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril.Ent" +
-      "itymanager.V1\312\002\030Anduril\\Entitymanager\\V1" +
-      "\342\002$Anduril\\Entitymanager\\V1\\GPBMetadata\352" +
-      "\002\032Anduril::Entitymanager::V1b\006proto3"
+      "\020\tB\200\002\n\034com.anduril.entitymanager.v1B\017Sen" +
+      "sorsPubProtoP\001ZMghe.anduril.dev/anduril/" +
+      "andurilapis-go/anduril/entitymanager/v1;" +
+      "entitymanager\242\002\003AEX\252\002\030Anduril.Entitymana" +
+      "ger.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andu" +
+      "ril\\Entitymanager\\V1\\GPBMetadata\352\002\032Andur" +
+      "il::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -51,12 +51,12 @@ public final class CatalogPubProto {
       "inhibited\030\002 \001(\010R\020isAssetInhibited\"i\n\016Tas" +
       "kDefinition\0224\n\026task_specification_url\030\001 " +
       "\001(\tR\024taskSpecificationUrl\022!\n\014display_nam" +
-      "e\030\002 \001(\tR\013displayNameB\317\001\n\024com.anduril.tas" +
-      "ks.v2B\017CatalogPubProtoP\001ZDgithub.com/dog" +
-      "un-anduril/anduril-sdk-go/src/anduril/ta" +
-      "sks/v2;tasksv2\242\002\003ATX\252\002\020Anduril.Tasks.V2\312" +
-      "\002\020Anduril\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GP" +
-      "BMetadata\352\002\022Anduril::Tasks::V2b\006proto3"
+      "e\030\002 \001(\tR\013displayNameB\310\001\n\024com.anduril.tas" +
+      "ks.v2B\017CatalogPubProtoP\001Z=ghe.anduril.de" +
+      "v/anduril/andurilapis-go/anduril/tasks/v" +
+      "2;tasks\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Andur" +
+      "il\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetada" +
+      "ta\352\002\022Anduril::Tasks::V2b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

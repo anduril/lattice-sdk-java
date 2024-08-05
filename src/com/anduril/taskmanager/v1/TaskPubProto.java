@@ -219,14 +219,14 @@ public final class TaskPubProto {
       "\026\n\022EVENT_TYPE_CREATED\020\001\022\025\n\021EVENT_TYPE_UP" +
       "DATE\020\002\022\032\n\026EVENT_TYPE_PREEXISTING\020\003*M\n\010Ta" +
       "skView\022\025\n\021TASK_VIEW_INVALID\020\000\022\025\n\021TASK_VI" +
-      "EW_MANAGER\020\001\022\023\n\017TASK_VIEW_AGENT\020\002B\366\001\n\032co" +
+      "EW_MANAGER\020\001\022\023\n\017TASK_VIEW_AGENT\020\002B\357\001\n\032co" +
       "m.anduril.taskmanager.v1B\014TaskPubProtoP\001" +
-      "ZPgithub.com/dogun-anduril/anduril-sdk-g" +
-      "o/src/anduril/taskmanager/v1;taskmanager" +
-      "v1\242\002\003ATX\252\002\026Anduril.Taskmanager.V1\312\002\026Andu" +
-      "ril\\Taskmanager\\V1\342\002\"Anduril\\Taskmanager" +
-      "\\V1\\GPBMetadata\352\002\030Anduril::Taskmanager::" +
-      "V1b\006proto3"
+      "ZIghe.anduril.dev/anduril/andurilapis-go" +
+      "/anduril/taskmanager/v1;taskmanager\242\002\003AT" +
+      "X\252\002\026Anduril.Taskmanager.V1\312\002\026Anduril\\Tas" +
+      "kmanager\\V1\342\002\"Anduril\\Taskmanager\\V1\\GPB" +
+      "Metadata\352\002\030Anduril::Taskmanager::V1b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

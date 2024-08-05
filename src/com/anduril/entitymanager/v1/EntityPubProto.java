@@ -294,14 +294,13 @@ public final class EntityPubProto {
       "T\020\003*{\n\021InteractivityMode\022\036\n\032INTERACTIVIT" +
       "Y_MODE_INVALID\020\000\022\036\n\032INTERACTIVITY_MODE_D" +
       "EFAULT\020\001\022&\n\"INTERACTIVITY_MODE_DISABLED_" +
-      "ON_MAP\020\002B\206\002\n\034com.anduril.entitymanager.v" +
-      "1B\016EntityPubProtoP\001ZTgithub.com/dogun-an" +
-      "duril/anduril-sdk-go/src/anduril/entitym" +
-      "anager/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduri" +
-      "l.Entitymanager.V1\312\002\030Anduril\\Entitymanag" +
-      "er\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMeta" +
-      "data\352\002\032Anduril::Entitymanager::V1b\006proto" +
-      "3"
+      "ON_MAP\020\002B\377\001\n\034com.anduril.entitymanager.v" +
+      "1B\016EntityPubProtoP\001ZMghe.anduril.dev/and" +
+      "uril/andurilapis-go/anduril/entitymanage" +
+      "r/v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entit" +
+      "ymanager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002" +
+      "$Anduril\\Entitymanager\\V1\\GPBMetadata\352\002\032" +
+      "Anduril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

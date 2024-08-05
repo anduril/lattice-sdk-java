@@ -59,15 +59,14 @@ public final class EntityPubProto {
       "dorName\022\033\n\tdata_type\030\002 \003(\tR\010dataType\"[\n\034" +
       "EntityIntegrationRuleDetails\022;\n\006filter\030\001" +
       " \001(\0132#.anduril.entitymanager.v1.Statemen" +
-      "tR\006filterB\276\002\n$com.anduril.communications" +
-      "manager.v1B\016EntityPubProtoP\001Zdgithub.com" +
-      "/dogun-anduril/anduril-sdk-go/src/anduri" +
-      "l/communicationsmanager/v1;communication" +
-      "smanagerv1\242\002\003ACX\252\002 Anduril.Communication" +
-      "smanager.V1\312\002 Anduril\\Communicationsmana" +
-      "ger\\V1\342\002,Anduril\\Communicationsmanager\\V" +
-      "1\\GPBMetadata\352\002\"Anduril::Communicationsm" +
-      "anager::V1b\006proto3"
+      "tR\006filterB\241\002\n$com.anduril.communications" +
+      "manager.v1B\016EntityPubProtoP\001ZGghe.anduri" +
+      "l.dev/anduril/andurilapis-go/anduril/com" +
+      "municationsmanager/v1\242\002\003ACX\252\002 Anduril.Co" +
+      "mmunicationsmanager.V1\312\002 Anduril\\Communi" +
+      "cationsmanager\\V1\342\002,Anduril\\Communicatio" +
+      "nsmanager\\V1\\GPBMetadata\352\002\"Anduril::Comm" +
+      "unicationsmanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

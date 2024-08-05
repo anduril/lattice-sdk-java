@@ -212,15 +212,14 @@ public final class CommonPubProto {
       "entType\022\026\n\022EVENT_TYPE_INVALID\020\000\022\026\n\022EVENT" +
       "_TYPE_CREATED\020\001\022\025\n\021EVENT_TYPE_UPDATE\020\002\022\026" +
       "\n\022EVENT_TYPE_DELETED\020\003\022\032\n\026EVENT_TYPE_PRE" +
-      "EXISTING\020\004B\276\002\n$com.anduril.communication" +
-      "smanager.v1B\016CommonPubProtoP\001Zdgithub.co" +
-      "m/dogun-anduril/anduril-sdk-go/src/andur" +
-      "il/communicationsmanager/v1;communicatio" +
-      "nsmanagerv1\242\002\003ACX\252\002 Anduril.Communicatio" +
-      "nsmanager.V1\312\002 Anduril\\Communicationsman" +
-      "ager\\V1\342\002,Anduril\\Communicationsmanager\\" +
-      "V1\\GPBMetadata\352\002\"Anduril::Communications" +
-      "manager::V1b\006proto3"
+      "EXISTING\020\004B\241\002\n$com.anduril.communication" +
+      "smanager.v1B\016CommonPubProtoP\001ZGghe.andur" +
+      "il.dev/anduril/andurilapis-go/anduril/co" +
+      "mmunicationsmanager/v1\242\002\003ACX\252\002 Anduril.C" +
+      "ommunicationsmanager.V1\312\002 Anduril\\Commun" +
+      "icationsmanager\\V1\342\002,Anduril\\Communicati" +
+      "onsmanager\\V1\\GPBMetadata\352\002\"Anduril::Com" +
+      "municationsmanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

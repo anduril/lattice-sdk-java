@@ -95,12 +95,12 @@ public final class IdpPubProto {
       "unique_id\030\003 \001(\tR\010uniqueId\"\005\n\003PIV2Z\n\004Idps" +
       "\022R\n\tGetSSOURL\022!.anduril.auth.v2.GetSSOUR" +
       "LRequest\032\".anduril.auth.v2.GetSSOURLResp" +
-      "onseB\304\001\n\023com.anduril.auth.v2B\013IdpPubProt" +
-      "oP\001ZBgithub.com/dogun-anduril/anduril-sd" +
-      "k-go/src/anduril/auth/v2;authv2\242\002\003AAX\252\002\017" +
-      "Anduril.Auth.V2\312\002\017Anduril\\Auth\\V2\342\002\033Andu" +
-      "ril\\Auth\\V2\\GPBMetadata\352\002\021Anduril::Auth:" +
-      ":V2b\006proto3"
+      "onseB\275\001\n\023com.anduril.auth.v2B\013IdpPubProt" +
+      "oP\001Z;ghe.anduril.dev/anduril/andurilapis" +
+      "-go/anduril/auth/v2;auth\242\002\003AAX\252\002\017Anduril" +
+      ".Auth.V2\312\002\017Anduril\\Auth\\V2\342\002\033Anduril\\Aut" +
+      "h\\V2\\GPBMetadata\352\002\021Anduril::Auth::V2b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

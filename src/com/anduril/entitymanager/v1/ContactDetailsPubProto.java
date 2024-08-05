@@ -42,14 +42,14 @@ public final class ContactDetailsPubProto {
       "\n2anduril/entitymanager/v1/contact_detai" +
       "ls.pub.proto\022\030anduril.entitymanager.v1\"3" +
       "\n\016ContactDetails\022!\n\014phone_number\030\001 \001(\tR\013" +
-      "phoneNumberB\216\002\n\034com.anduril.entitymanage" +
-      "r.v1B\026ContactDetailsPubProtoP\001ZTgithub.c" +
-      "om/dogun-anduril/anduril-sdk-go/src/andu" +
-      "ril/entitymanager/v1;entitymanagerv1\242\002\003A" +
-      "EX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\" +
-      "Entitymanager\\V1\342\002$Anduril\\Entitymanager" +
-      "\\V1\\GPBMetadata\352\002\032Anduril::Entitymanager" +
-      "::V1b\006proto3"
+      "phoneNumberB\207\002\n\034com.anduril.entitymanage" +
+      "r.v1B\026ContactDetailsPubProtoP\001ZMghe.andu" +
+      "ril.dev/anduril/andurilapis-go/anduril/e" +
+      "ntitymanager/v1;entitymanager\242\002\003AEX\252\002\030An" +
+      "duril.Entitymanager.V1\312\002\030Anduril\\Entitym" +
+      "anager\\V1\342\002$Anduril\\Entitymanager\\V1\\GPB" +
+      "Metadata\352\002\032Anduril::Entitymanager::V1b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

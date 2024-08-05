@@ -71,14 +71,14 @@ public final class ClassificationPubProto {
       "ELS_CONTROLLED_UNCLASSIFIED\020\002\022&\n\"CLASSIF" +
       "ICATION_LEVELS_CONFIDENTIAL\020\003\022 \n\034CLASSIF" +
       "ICATION_LEVELS_SECRET\020\004\022$\n CLASSIFICATIO" +
-      "N_LEVELS_TOP_SECRET\020\005B\216\002\n\034com.anduril.en" +
+      "N_LEVELS_TOP_SECRET\020\005B\207\002\n\034com.anduril.en" +
       "titymanager.v1B\026ClassificationPubProtoP\001" +
-      "ZTgithub.com/dogun-anduril/anduril-sdk-g" +
-      "o/src/anduril/entitymanager/v1;entityman" +
-      "agerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312" +
-      "\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\Ent" +
-      "itymanager\\V1\\GPBMetadata\352\002\032Anduril::Ent" +
-      "itymanager::V1b\006proto3"
+      "ZMghe.anduril.dev/anduril/andurilapis-go" +
+      "/anduril/entitymanager/v1;entitymanager\242" +
+      "\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andur" +
+      "il\\Entitymanager\\V1\342\002$Anduril\\Entitymana" +
+      "ger\\V1\\GPBMetadata\352\002\032Anduril::Entitymana" +
+      "ger::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

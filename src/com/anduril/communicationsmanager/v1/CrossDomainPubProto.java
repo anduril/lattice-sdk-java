@@ -50,15 +50,15 @@ public final class CrossDomainPubProto {
       "\001 \001(\tR\006hostId\022\031\n\010cds_name\030\002 \001(\tR\007cdsName" +
       "\"h\n\016CdsDestination\022V\n\016registered_cds\030\001 \001" +
       "(\0132/.anduril.communicationsmanager.v1.Re" +
-      "gisteredCdsR\rregisteredCdsB\303\002\n$com.andur" +
+      "gisteredCdsR\rregisteredCdsB\246\002\n$com.andur" +
       "il.communicationsmanager.v1B\023CrossDomain" +
-      "PubProtoP\001Zdgithub.com/dogun-anduril/and" +
-      "uril-sdk-go/src/anduril/communicationsma" +
-      "nager/v1;communicationsmanagerv1\242\002\003ACX\252\002" +
-      " Anduril.Communicationsmanager.V1\312\002 Andu" +
-      "ril\\Communicationsmanager\\V1\342\002,Anduril\\C" +
-      "ommunicationsmanager\\V1\\GPBMetadata\352\002\"An" +
-      "duril::Communicationsmanager::V1b\006proto3"
+      "PubProtoP\001ZGghe.anduril.dev/anduril/andu" +
+      "rilapis-go/anduril/communicationsmanager" +
+      "/v1\242\002\003ACX\252\002 Anduril.Communicationsmanage" +
+      "r.V1\312\002 Anduril\\Communicationsmanager\\V1\342" +
+      "\002,Anduril\\Communicationsmanager\\V1\\GPBMe" +
+      "tadata\352\002\"Anduril::Communicationsmanager:" +
+      ":V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
