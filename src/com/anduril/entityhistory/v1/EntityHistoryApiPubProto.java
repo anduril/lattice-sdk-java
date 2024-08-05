@@ -121,14 +121,14 @@ public final class EntityHistoryApiPubProto {
       "angeR\ttimeRange2~\n\020EntityHistoryAPI\022j\n\013L" +
       "istHistory\022,.anduril.entityhistory.v1.Li" +
       "stHistoryRequest\032-.anduril.entityhistory" +
-      ".v1.ListHistoryResponseB\220\002\n\034com.anduril." +
+      ".v1.ListHistoryResponseB\373\001\n\034com.anduril." +
       "entityhistory.v1B\030EntityHistoryApiPubPro" +
-      "toP\001ZTgithub.com/dogun-anduril/anduril-s" +
-      "dk-go/src/anduril/entityhistory/v1;entit" +
-      "yhistoryv1\242\002\003AEX\252\002\030Anduril.Entityhistory" +
-      ".V1\312\002\030Anduril\\Entityhistory\\V1\342\002$Anduril" +
-      "\\Entityhistory\\V1\\GPBMetadata\352\002\032Anduril:" +
-      ":Entityhistory::V1b\006proto3"
+      "toP\001Z?ghe.anduril.dev/anduril/andurilapi" +
+      "s-go/anduril/entityhistory/v1\242\002\003AEX\252\002\030An" +
+      "duril.Entityhistory.V1\312\002\030Anduril\\Entityh" +
+      "istory\\V1\342\002$Anduril\\Entityhistory\\V1\\GPB" +
+      "Metadata\352\002\032Anduril::Entityhistory::V1b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

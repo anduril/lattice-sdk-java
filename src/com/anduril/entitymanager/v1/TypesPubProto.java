@@ -97,13 +97,13 @@ public final class TypesPubProto {
       "E_STATUS_DELETION_PENDING\020\005*`\n\014OverrideT" +
       "ype\022\031\n\025OVERRIDE_TYPE_INVALID\020\000\022\026\n\022OVERRI" +
       "DE_TYPE_LIVE\020\001\022\035\n\031OVERRIDE_TYPE_POST_EXP" +
-      "IRY\020\002B\205\002\n\034com.anduril.entitymanager.v1B\r" +
-      "TypesPubProtoP\001ZTgithub.com/dogun-anduri" +
-      "l/anduril-sdk-go/src/anduril/entitymanag" +
-      "er/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril.En" +
-      "titymanager.V1\312\002\030Anduril\\Entitymanager\\V" +
-      "1\342\002$Anduril\\Entitymanager\\V1\\GPBMetadata" +
-      "\352\002\032Anduril::Entitymanager::V1b\006proto3"
+      "IRY\020\002B\376\001\n\034com.anduril.entitymanager.v1B\r" +
+      "TypesPubProtoP\001ZMghe.anduril.dev/anduril" +
+      "/andurilapis-go/anduril/entitymanager/v1" +
+      ";entitymanager\242\002\003AEX\252\002\030Anduril.Entityman" +
+      "ager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$And" +
+      "uril\\Entitymanager\\V1\\GPBMetadata\352\002\032Andu" +
+      "ril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

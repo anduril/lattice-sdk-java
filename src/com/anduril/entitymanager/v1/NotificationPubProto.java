@@ -46,14 +46,14 @@ public final class NotificationPubProto {
       "\030\001 \001(\0132 .anduril.entitymanager.v1.Entity" +
       "R\006entity\022\035\n\nfield_path\030\002 \001(\tR\tfieldPath\022" +
       "D\n\nprovenance\030\003 \001(\0132$.anduril.entitymana" +
-      "ger.v1.ProvenanceR\nprovenanceB\214\002\n\034com.an" +
+      "ger.v1.ProvenanceR\nprovenanceB\205\002\n\034com.an" +
       "duril.entitymanager.v1B\024NotificationPubP" +
-      "rotoP\001ZTgithub.com/dogun-anduril/anduril" +
-      "-sdk-go/src/anduril/entitymanager/v1;ent" +
-      "itymanagerv1\242\002\003AEX\252\002\030Anduril.Entitymanag" +
-      "er.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andur" +
-      "il\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduri" +
-      "l::Entitymanager::V1b\006proto3"
+      "rotoP\001ZMghe.anduril.dev/anduril/andurila" +
+      "pis-go/anduril/entitymanager/v1;entityma" +
+      "nager\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002" +
+      "\030Anduril\\Entitymanager\\V1\342\002$Anduril\\Enti" +
+      "tymanager\\V1\\GPBMetadata\352\002\032Anduril::Enti" +
+      "tymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

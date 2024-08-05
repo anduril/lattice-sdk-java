@@ -151,14 +151,14 @@ public final class TaskManagerApiPubProto {
       "taskmanager.v1.UpdateStatusResponse\022h\n\013S" +
       "treamTasks\022*.anduril.taskmanager.v1.Stre" +
       "amTasksRequest\032+.anduril.taskmanager.v1." +
-      "StreamTasksResponse0\001B\200\002\n\032com.anduril.ta" +
-      "skmanager.v1B\026TaskManagerApiPubProtoP\001ZP" +
-      "github.com/dogun-anduril/anduril-sdk-go/" +
-      "src/anduril/taskmanager/v1;taskmanagerv1" +
-      "\242\002\003ATX\252\002\026Anduril.Taskmanager.V1\312\002\026Anduri" +
-      "l\\Taskmanager\\V1\342\002\"Anduril\\Taskmanager\\V" +
-      "1\\GPBMetadata\352\002\030Anduril::Taskmanager::V1" +
-      "b\006proto3"
+      "StreamTasksResponse0\001B\371\001\n\032com.anduril.ta" +
+      "skmanager.v1B\026TaskManagerApiPubProtoP\001ZI" +
+      "ghe.anduril.dev/anduril/andurilapis-go/a" +
+      "nduril/taskmanager/v1;taskmanager\242\002\003ATX\252" +
+      "\002\026Anduril.Taskmanager.V1\312\002\026Anduril\\Taskm" +
+      "anager\\V1\342\002\"Anduril\\Taskmanager\\V1\\GPBMe" +
+      "tadata\352\002\030Anduril::Taskmanager::V1b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

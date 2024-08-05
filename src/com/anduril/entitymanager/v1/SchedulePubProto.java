@@ -62,14 +62,14 @@ public final class SchedulePubProto {
       "tion_millis\030\002 \001(\004R\016durationMillis*n\n\014Sch" +
       "eduleType\022\031\n\025SCHEDULE_TYPE_INVALID\020\000\022\036\n\032" +
       "SCHEDULE_TYPE_ZONE_ENABLED\020\001\022#\n\037SCHEDULE" +
-      "_TYPE_ZONE_TEMP_ENABLED\020\002B\210\002\n\034com.anduri" +
-      "l.entitymanager.v1B\020SchedulePubProtoP\001ZT" +
-      "github.com/dogun-anduril/anduril-sdk-go/" +
-      "src/anduril/entitymanager/v1;entitymanag" +
-      "erv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030" +
-      "Anduril\\Entitymanager\\V1\342\002$Anduril\\Entit" +
-      "ymanager\\V1\\GPBMetadata\352\002\032Anduril::Entit" +
-      "ymanager::V1b\006proto3"
+      "_TYPE_ZONE_TEMP_ENABLED\020\002B\201\002\n\034com.anduri" +
+      "l.entitymanager.v1B\020SchedulePubProtoP\001ZM" +
+      "ghe.anduril.dev/anduril/andurilapis-go/a" +
+      "nduril/entitymanager/v1;entitymanager\242\002\003" +
+      "AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril" +
+      "\\Entitymanager\\V1\342\002$Anduril\\Entitymanage" +
+      "r\\V1\\GPBMetadata\352\002\032Anduril::Entitymanage" +
+      "r::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

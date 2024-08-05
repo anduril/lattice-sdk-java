@@ -306,14 +306,13 @@ public final class GeoentityPubProto {
       "MCMDetailType\022\033\n\027MCM_DETAIL_TYPE_INVALID" +
       "\020\000\022*\n&MCM_DETAIL_TYPE_NAMED_AREA_OF_INTE" +
       "REST\020\001\022+\n\'MCM_DETAIL_TYPE_TARGET_AREA_OF" +
-      "_INTEREST\020\002B\211\002\n\034com.anduril.entitymanage" +
-      "r.v1B\021GeoentityPubProtoP\001ZTgithub.com/do" +
-      "gun-anduril/anduril-sdk-go/src/anduril/e" +
-      "ntitymanager/v1;entitymanagerv1\242\002\003AEX\252\002\030" +
-      "Anduril.Entitymanager.V1\312\002\030Anduril\\Entit" +
-      "ymanager\\V1\342\002$Anduril\\Entitymanager\\V1\\G" +
-      "PBMetadata\352\002\032Anduril::Entitymanager::V1b" +
-      "\006proto3"
+      "_INTEREST\020\002B\202\002\n\034com.anduril.entitymanage" +
+      "r.v1B\021GeoentityPubProtoP\001ZMghe.anduril.d" +
+      "ev/anduril/andurilapis-go/anduril/entity" +
+      "manager/v1;entitymanager\242\002\003AEX\252\002\030Anduril" +
+      ".Entitymanager.V1\312\002\030Anduril\\Entitymanage" +
+      "r\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMetad" +
+      "ata\352\002\032Anduril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

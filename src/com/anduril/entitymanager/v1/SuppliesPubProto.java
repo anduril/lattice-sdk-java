@@ -90,14 +90,14 @@ public final class SuppliesPubProto {
       "\016\022\030\n\024DOD_CONDITION_CODE_N\020\017\022\030\n\024DOD_CONDI" +
       "TION_CODE_P\020\020\022\030\n\024DOD_CONDITION_CODE_R\020\021\022" +
       "\030\n\024DOD_CONDITION_CODE_T\020\022\022\030\n\024DOD_CONDITI" +
-      "ON_CODE_V\020\023\022\030\n\024DOD_CONDITION_CODE_X\020\024B\210\002" +
+      "ON_CODE_V\020\023\022\030\n\024DOD_CONDITION_CODE_X\020\024B\201\002" +
       "\n\034com.anduril.entitymanager.v1B\020Supplies" +
-      "PubProtoP\001ZTgithub.com/dogun-anduril/and" +
-      "uril-sdk-go/src/anduril/entitymanager/v1" +
-      ";entitymanagerv1\242\002\003AEX\252\002\030Anduril.Entitym" +
-      "anager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$A" +
-      "nduril\\Entitymanager\\V1\\GPBMetadata\352\002\032An" +
-      "duril::Entitymanager::V1b\006proto3"
+      "PubProtoP\001ZMghe.anduril.dev/anduril/andu" +
+      "rilapis-go/anduril/entitymanager/v1;enti" +
+      "tymanager\242\002\003AEX\252\002\030Anduril.Entitymanager." +
+      "V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\" +
+      "Entitymanager\\V1\\GPBMetadata\352\002\032Anduril::" +
+      "Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -53,12 +53,12 @@ public final class ObjectivePubProto {
       "ive\"\177\n\005Point\022%\n\016reference_name\030\001 \001(\tR\rre" +
       "ferenceName\022#\n\003lla\030\002 \001(\0132\021.anduril.type." +
       "LLAR\003lla\022*\n\021backing_entity_id\030\003 \001(\tR\017bac" +
-      "kingEntityIdB\321\001\n\024com.anduril.tasks.v2B\021O" +
-      "bjectivePubProtoP\001ZDgithub.com/dogun-and" +
-      "uril/anduril-sdk-go/src/anduril/tasks/v2" +
-      ";tasksv2\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Andu" +
-      "ril\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetad" +
-      "ata\352\002\022Anduril::Tasks::V2b\006proto3"
+      "kingEntityIdB\312\001\n\024com.anduril.tasks.v2B\021O" +
+      "bjectivePubProtoP\001Z=ghe.anduril.dev/andu" +
+      "ril/andurilapis-go/anduril/tasks/v2;task" +
+      "s\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\Tas" +
+      "ks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002\022A" +
+      "nduril::Tasks::V2b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

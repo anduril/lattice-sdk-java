@@ -55,13 +55,13 @@ public final class MediaPubProto {
       "Type\022\026\n\022MEDIA_TYPE_INVALID\020\000\022\030\n\024MEDIA_TY" +
       "PE_THUMBNAIL\020\001\022\024\n\020MEDIA_TYPE_IMAGE\020\002\022\024\n\020" +
       "MEDIA_TYPE_VIDEO\020\003\022\033\n\027MEDIA_TYPE_SLIPPY_" +
-      "TILES\020\004B\205\002\n\034com.anduril.entitymanager.v1" +
-      "B\rMediaPubProtoP\001ZTgithub.com/dogun-andu" +
-      "ril/anduril-sdk-go/src/anduril/entityman" +
-      "ager/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril." +
-      "Entitymanager.V1\312\002\030Anduril\\Entitymanager" +
-      "\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMetada" +
-      "ta\352\002\032Anduril::Entitymanager::V1b\006proto3"
+      "TILES\020\004B\376\001\n\034com.anduril.entitymanager.v1" +
+      "B\rMediaPubProtoP\001ZMghe.anduril.dev/andur" +
+      "il/andurilapis-go/anduril/entitymanager/" +
+      "v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entitym" +
+      "anager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$A" +
+      "nduril\\Entitymanager\\V1\\GPBMetadata\352\002\032An" +
+      "duril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

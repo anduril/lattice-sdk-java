@@ -60,13 +60,13 @@ public final class OntologyPubProto {
       "\001R\014platformType\022(\n\rspecific_type\030\004 \001(\tB\003" +
       "\310>\001R\014specificType\022>\n\010template\030\002 \001(\0162\".an" +
       "duril.entitymanager.v1.TemplateR\010templat" +
-      "eB\210\002\n\034com.anduril.entitymanager.v1B\020Onto" +
-      "logyPubProtoP\001ZTgithub.com/dogun-anduril" +
-      "/anduril-sdk-go/src/anduril/entitymanage" +
-      "r/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril.Ent" +
-      "itymanager.V1\312\002\030Anduril\\Entitymanager\\V1" +
-      "\342\002$Anduril\\Entitymanager\\V1\\GPBMetadata\352" +
-      "\002\032Anduril::Entitymanager::V1b\006proto3"
+      "eB\201\002\n\034com.anduril.entitymanager.v1B\020Onto" +
+      "logyPubProtoP\001ZMghe.anduril.dev/anduril/" +
+      "andurilapis-go/anduril/entitymanager/v1;" +
+      "entitymanager\242\002\003AEX\252\002\030Anduril.Entitymana" +
+      "ger.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andu" +
+      "ril\\Entitymanager\\V1\\GPBMetadata\352\002\032Andur" +
+      "il::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

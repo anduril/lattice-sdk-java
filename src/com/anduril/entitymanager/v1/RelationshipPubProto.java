@@ -107,14 +107,14 @@ public final class RelationshipPubProto {
       "Sensors\022X\n\032last_measurement_timestamp\030\002 " +
       "\001(\0132\032.google.protobuf.TimestampR\030lastMea" +
       "surementTimestamp\"\013\n\tConfigure\"\014\n\nGroupC" +
-      "hild\"\r\n\013GroupParent\"\014\n\nMergedFromB\214\002\n\034co" +
+      "hild\"\r\n\013GroupParent\"\014\n\nMergedFromB\205\002\n\034co" +
       "m.anduril.entitymanager.v1B\024Relationship" +
-      "PubProtoP\001ZTgithub.com/dogun-anduril/and" +
-      "uril-sdk-go/src/anduril/entitymanager/v1" +
-      ";entitymanagerv1\242\002\003AEX\252\002\030Anduril.Entitym" +
-      "anager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$A" +
-      "nduril\\Entitymanager\\V1\\GPBMetadata\352\002\032An" +
-      "duril::Entitymanager::V1b\006proto3"
+      "PubProtoP\001ZMghe.anduril.dev/anduril/andu" +
+      "rilapis-go/anduril/entitymanager/v1;enti" +
+      "tymanager\242\002\003AEX\252\002\030Anduril.Entitymanager." +
+      "V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\" +
+      "Entitymanager\\V1\\GPBMetadata\352\002\032Anduril::" +
+      "Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -42,14 +42,14 @@ public final class RateLimitPubProto {
       "\n-anduril/entitymanager/v1/rate_limit.pu" +
       "b.proto\022\030anduril.entitymanager.v1\"G\n\tRat" +
       "eLimit\022:\n\032update_per_entity_limit_ms\030\001 \001" +
-      "(\rR\026updatePerEntityLimitMsB\211\002\n\034com.andur" +
+      "(\rR\026updatePerEntityLimitMsB\202\002\n\034com.andur" +
       "il.entitymanager.v1B\021RateLimitPubProtoP\001" +
-      "ZTgithub.com/dogun-anduril/anduril-sdk-g" +
-      "o/src/anduril/entitymanager/v1;entityman" +
-      "agerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312" +
-      "\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\Ent" +
-      "itymanager\\V1\\GPBMetadata\352\002\032Anduril::Ent" +
-      "itymanager::V1b\006proto3"
+      "ZMghe.anduril.dev/anduril/andurilapis-go" +
+      "/anduril/entitymanager/v1;entitymanager\242" +
+      "\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andur" +
+      "il\\Entitymanager\\V1\342\002$Anduril\\Entitymana" +
+      "ger\\V1\\GPBMetadata\352\002\032Anduril::Entitymana" +
+      "ger::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

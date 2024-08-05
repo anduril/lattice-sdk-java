@@ -170,15 +170,14 @@ public final class IntegrationPubProto {
       "TUS_INVALID\020\000\022%\n!INTEGRATION_HEALTH_STAT" +
       "US_UNKNOWN\020\001\022%\n!INTEGRATION_HEALTH_STATU" +
       "S_HEALTHY\020\002\022\'\n#INTEGRATION_HEALTH_STATUS" +
-      "_UNHEALTHY\020\003B\303\002\n$com.anduril.communicati" +
-      "onsmanager.v1B\023IntegrationPubProtoP\001Zdgi" +
-      "thub.com/dogun-anduril/anduril-sdk-go/sr" +
-      "c/anduril/communicationsmanager/v1;commu" +
-      "nicationsmanagerv1\242\002\003ACX\252\002 Anduril.Commu" +
-      "nicationsmanager.V1\312\002 Anduril\\Communicat" +
-      "ionsmanager\\V1\342\002,Anduril\\Communicationsm" +
-      "anager\\V1\\GPBMetadata\352\002\"Anduril::Communi" +
-      "cationsmanager::V1b\006proto3"
+      "_UNHEALTHY\020\003B\246\002\n$com.anduril.communicati" +
+      "onsmanager.v1B\023IntegrationPubProtoP\001ZGgh" +
+      "e.anduril.dev/anduril/andurilapis-go/and" +
+      "uril/communicationsmanager/v1\242\002\003ACX\252\002 An" +
+      "duril.Communicationsmanager.V1\312\002 Anduril" +
+      "\\Communicationsmanager\\V1\342\002,Anduril\\Comm" +
+      "unicationsmanager\\V1\\GPBMetadata\352\002\"Andur" +
+      "il::Communicationsmanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

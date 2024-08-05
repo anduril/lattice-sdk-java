@@ -105,14 +105,14 @@ public final class LocationPubProto {
       "aternionR\013orientation\"s\n\005TMat3\022\020\n\003mxx\030\001 " +
       "\001(\002R\003mxx\022\020\n\003mxy\030\002 \001(\002R\003mxy\022\020\n\003mxz\030\003 \001(\002R" +
       "\003mxz\022\020\n\003myy\030\004 \001(\002R\003myy\022\020\n\003myz\030\005 \001(\002R\003myz" +
-      "\022\020\n\003mzz\030\006 \001(\002R\003mzzB\210\002\n\034com.anduril.entit" +
-      "ymanager.v1B\020LocationPubProtoP\001ZTgithub." +
-      "com/dogun-anduril/anduril-sdk-go/src/and" +
-      "uril/entitymanager/v1;entitymanagerv1\242\002\003" +
-      "AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril" +
-      "\\Entitymanager\\V1\342\002$Anduril\\Entitymanage" +
-      "r\\V1\\GPBMetadata\352\002\032Anduril::Entitymanage" +
-      "r::V1b\006proto3"
+      "\022\020\n\003mzz\030\006 \001(\002R\003mzzB\201\002\n\034com.anduril.entit" +
+      "ymanager.v1B\020LocationPubProtoP\001ZMghe.and" +
+      "uril.dev/anduril/andurilapis-go/anduril/" +
+      "entitymanager/v1;entitymanager\242\002\003AEX\252\002\030A" +
+      "nduril.Entitymanager.V1\312\002\030Anduril\\Entity" +
+      "manager\\V1\342\002$Anduril\\Entitymanager\\V1\\GP" +
+      "BMetadata\352\002\032Anduril::Entitymanager::V1b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

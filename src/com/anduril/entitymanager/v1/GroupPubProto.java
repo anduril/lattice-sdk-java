@@ -48,13 +48,13 @@ public final class GroupPubProto {
       "to\022\030anduril.entitymanager.v1\"R\n\014GroupDet" +
       "ails\0224\n\004team\030\001 \001(\0132\036.anduril.entitymanag" +
       "er.v1.TeamH\000R\004teamB\014\n\ngroup_type\"\006\n\004Team" +
-      "B\205\002\n\034com.anduril.entitymanager.v1B\rGroup" +
-      "PubProtoP\001ZTgithub.com/dogun-anduril/and" +
-      "uril-sdk-go/src/anduril/entitymanager/v1" +
-      ";entitymanagerv1\242\002\003AEX\252\002\030Anduril.Entitym" +
-      "anager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$A" +
-      "nduril\\Entitymanager\\V1\\GPBMetadata\352\002\032An" +
-      "duril::Entitymanager::V1b\006proto3"
+      "B\376\001\n\034com.anduril.entitymanager.v1B\rGroup" +
+      "PubProtoP\001ZMghe.anduril.dev/anduril/andu" +
+      "rilapis-go/anduril/entitymanager/v1;enti" +
+      "tymanager\242\002\003AEX\252\002\030Anduril.Entitymanager." +
+      "V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\" +
+      "Entitymanager\\V1\\GPBMetadata\352\002\032Anduril::" +
+      "Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

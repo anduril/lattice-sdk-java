@@ -51,12 +51,12 @@ public final class FilterPubProto {
       "ieldMatcherR\010notMatch\"s\n\014FieldMatcher\022)\n" +
       "\020integration_name\030\001 \001(\tR\017integrationName" +
       "\022\033\n\tmime_type\030\002 \001(\tR\010mimeType\022\033\n\tdata_ty" +
-      "pe\030\003 \001(\tR\010dataTypeB\316\001\n\024com.anduril.blobs" +
-      ".v1B\016FilterPubProtoP\001ZDgithub.com/dogun-" +
-      "anduril/anduril-sdk-go/src/anduril/blobs" +
-      "/v1;blobsv1\242\002\003ABX\252\002\020Anduril.Blobs.V1\312\002\020A" +
-      "nduril\\Blobs\\V1\342\002\034Anduril\\Blobs\\V1\\GPBMe" +
-      "tadata\352\002\022Anduril::Blobs::V1b\006proto3"
+      "pe\030\003 \001(\tR\010dataTypeB\311\001\n\024com.anduril.blobs" +
+      ".v1B\016FilterPubProtoP\001Z?ghe.anduril.dev/a" +
+      "nduril/andurilapis-go/anduril/blobs/v1;b" +
+      "lobsv1\242\002\003ABX\252\002\020Anduril.Blobs.V1\312\002\020Anduri" +
+      "l\\Blobs\\V1\342\002\034Anduril\\Blobs\\V1\\GPBMetadat" +
+      "a\352\002\022Anduril::Blobs::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

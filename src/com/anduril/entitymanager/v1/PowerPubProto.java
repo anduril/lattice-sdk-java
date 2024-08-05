@@ -93,14 +93,14 @@ public final class PowerPubProto {
       "OWER_STATUS_DISABLED\020\004\022\026\n\022POWER_STATUS_E" +
       "RROR\020\005*g\n\tPowerType\022\026\n\022POWER_TYPE_INVALI" +
       "D\020\000\022\026\n\022POWER_TYPE_UNKNOWN\020\001\022\022\n\016POWER_TYP" +
-      "E_GAS\020\002\022\026\n\022POWER_TYPE_BATTERY\020\003B\205\002\n\034com." +
+      "E_GAS\020\002\022\026\n\022POWER_TYPE_BATTERY\020\003B\376\001\n\034com." +
       "anduril.entitymanager.v1B\rPowerPubProtoP" +
-      "\001ZTgithub.com/dogun-anduril/anduril-sdk-" +
-      "go/src/anduril/entitymanager/v1;entityma" +
-      "nagerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1" +
-      "\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\En" +
-      "titymanager\\V1\\GPBMetadata\352\002\032Anduril::En" +
-      "titymanager::V1b\006proto3"
+      "\001ZMghe.anduril.dev/anduril/andurilapis-g" +
+      "o/anduril/entitymanager/v1;entitymanager" +
+      "\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andu" +
+      "ril\\Entitymanager\\V1\342\002$Anduril\\Entityman" +
+      "ager\\V1\\GPBMetadata\352\002\032Anduril::Entityman" +
+      "ager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

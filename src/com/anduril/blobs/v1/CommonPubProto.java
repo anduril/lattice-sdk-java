@@ -55,13 +55,13 @@ public final class CommonPubProto {
       "\nprovenance\030\006 \001(\0132 .anduril.blobs.v1.Blo" +
       "bProvenanceR\nprovenance\"X\n\016BlobProvenanc" +
       "e\022)\n\020integration_name\030\001 \001(\tR\017integration" +
-      "Name\022\033\n\tdata_type\030\002 \001(\tR\010dataTypeB\316\001\n\024co" +
-      "m.anduril.blobs.v1B\016CommonPubProtoP\001ZDgi" +
-      "thub.com/dogun-anduril/anduril-sdk-go/sr" +
-      "c/anduril/blobs/v1;blobsv1\242\002\003ABX\252\002\020Andur" +
-      "il.Blobs.V1\312\002\020Anduril\\Blobs\\V1\342\002\034Anduril" +
-      "\\Blobs\\V1\\GPBMetadata\352\002\022Anduril::Blobs::" +
-      "V1b\006proto3"
+      "Name\022\033\n\tdata_type\030\002 \001(\tR\010dataTypeB\311\001\n\024co" +
+      "m.anduril.blobs.v1B\016CommonPubProtoP\001Z?gh" +
+      "e.anduril.dev/anduril/andurilapis-go/and" +
+      "uril/blobs/v1;blobsv1\242\002\003ABX\252\002\020Anduril.Bl" +
+      "obs.V1\312\002\020Anduril\\Blobs\\V1\342\002\034Anduril\\Blob" +
+      "s\\V1\\GPBMetadata\352\002\022Anduril::Blobs::V1b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -52,14 +52,14 @@ public final class PrototypePubProto {
       "titymanager.v1.PrototypeExtensions.Exten" +
       "sionsEntryB\003\310>\001R\nextensions\032S\n\017Extension" +
       "sEntry\022\020\n\003key\030\001 \001(\tR\003key\022*\n\005value\030\002 \001(\0132" +
-      "\024.google.protobuf.AnyR\005value:\0028\001B\211\002\n\034com" +
+      "\024.google.protobuf.AnyR\005value:\0028\001B\202\002\n\034com" +
       ".anduril.entitymanager.v1B\021PrototypePubP" +
-      "rotoP\001ZTgithub.com/dogun-anduril/anduril" +
-      "-sdk-go/src/anduril/entitymanager/v1;ent" +
-      "itymanagerv1\242\002\003AEX\252\002\030Anduril.Entitymanag" +
-      "er.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andur" +
-      "il\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduri" +
-      "l::Entitymanager::V1b\006proto3"
+      "rotoP\001ZMghe.anduril.dev/anduril/andurila" +
+      "pis-go/anduril/entitymanager/v1;entityma" +
+      "nager\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002" +
+      "\030Anduril\\Entitymanager\\V1\342\002$Anduril\\Enti" +
+      "tymanager\\V1\\GPBMetadata\352\002\032Anduril::Enti" +
+      "tymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

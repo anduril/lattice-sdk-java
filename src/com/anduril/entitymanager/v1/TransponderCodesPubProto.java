@@ -71,14 +71,14 @@ public final class TransponderCodesPubProto {
       "E_INVALID\020\000\022\"\n\036INTERROGATION_RESPONSE_CO" +
       "RRECT\020\001\022$\n INTERROGATION_RESPONSE_INCORR" +
       "ECT\020\002\022&\n\"INTERROGATION_RESPONSE_NO_RESPO" +
-      "NSE\020\003B\220\002\n\034com.anduril.entitymanager.v1B\030" +
-      "TransponderCodesPubProtoP\001ZTgithub.com/d" +
-      "ogun-anduril/anduril-sdk-go/src/anduril/" +
-      "entitymanager/v1;entitymanagerv1\242\002\003AEX\252\002" +
-      "\030Anduril.Entitymanager.V1\312\002\030Anduril\\Enti" +
-      "tymanager\\V1\342\002$Anduril\\Entitymanager\\V1\\" +
-      "GPBMetadata\352\002\032Anduril::Entitymanager::V1" +
-      "b\006proto3"
+      "NSE\020\003B\211\002\n\034com.anduril.entitymanager.v1B\030" +
+      "TransponderCodesPubProtoP\001ZMghe.anduril." +
+      "dev/anduril/andurilapis-go/anduril/entit" +
+      "ymanager/v1;entitymanager\242\002\003AEX\252\002\030Anduri" +
+      "l.Entitymanager.V1\312\002\030Anduril\\Entitymanag" +
+      "er\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMeta" +
+      "data\352\002\032Anduril::Entitymanager::V1b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

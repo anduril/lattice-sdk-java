@@ -75,14 +75,14 @@ public final class HealthStatusPubProto {
       "ALTH_STATUS_INVALID\020\000\022\031\n\025HEALTH_STATUS_H" +
       "EALTHY\020\001\022\026\n\022HEALTH_STATUS_WARN\020\002\022\026\n\022HEAL" +
       "TH_STATUS_FAIL\020\003\022\031\n\025HEALTH_STATUS_OFFLIN" +
-      "E\020\004\022\033\n\027HEALTH_STATUS_NOT_READY\020\005B\214\002\n\034com" +
+      "E\020\004\022\033\n\027HEALTH_STATUS_NOT_READY\020\005B\205\002\n\034com" +
       ".anduril.entitymanager.v1B\024HealthStatusP" +
-      "ubProtoP\001ZTgithub.com/dogun-anduril/andu" +
-      "ril-sdk-go/src/anduril/entitymanager/v1;" +
-      "entitymanagerv1\242\002\003AEX\252\002\030Anduril.Entityma" +
-      "nager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$An" +
-      "duril\\Entitymanager\\V1\\GPBMetadata\352\002\032And" +
-      "uril::Entitymanager::V1b\006proto3"
+      "ubProtoP\001ZMghe.anduril.dev/anduril/andur" +
+      "ilapis-go/anduril/entitymanager/v1;entit" +
+      "ymanager\242\002\003AEX\252\002\030Anduril.Entitymanager.V" +
+      "1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\E" +
+      "ntitymanager\\V1\\GPBMetadata\352\002\032Anduril::E" +
+      "ntitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

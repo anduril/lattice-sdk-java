@@ -123,16 +123,15 @@ public final class CommunicationsManagerApiPubProto {
       "ionHealthUpdate\022@.anduril.communications" +
       "manager.v1.IntegrationHealthUpdateReques" +
       "t\032A.anduril.communicationsmanager.v1.Int" +
-      "egrationHealthUpdateResponseB\320\002\n$com.and" +
+      "egrationHealthUpdateResponseB\263\002\n$com.and" +
       "uril.communicationsmanager.v1B Communica" +
-      "tionsManagerApiPubProtoP\001Zdgithub.com/do" +
-      "gun-anduril/anduril-sdk-go/src/anduril/c" +
-      "ommunicationsmanager/v1;communicationsma" +
-      "nagerv1\242\002\003ACX\252\002 Anduril.Communicationsma" +
-      "nager.V1\312\002 Anduril\\Communicationsmanager" +
-      "\\V1\342\002,Anduril\\Communicationsmanager\\V1\\G" +
-      "PBMetadata\352\002\"Anduril::Communicationsmana" +
-      "ger::V1b\006proto3"
+      "tionsManagerApiPubProtoP\001ZGghe.anduril.d" +
+      "ev/anduril/andurilapis-go/anduril/commun" +
+      "icationsmanager/v1\242\002\003ACX\252\002 Anduril.Commu" +
+      "nicationsmanager.V1\312\002 Anduril\\Communicat" +
+      "ionsmanager\\V1\342\002,Anduril\\Communicationsm" +
+      "anager\\V1\\GPBMetadata\352\002\"Anduril::Communi" +
+      "cationsmanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

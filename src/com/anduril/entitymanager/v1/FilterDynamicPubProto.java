@@ -61,14 +61,14 @@ public final class FilterDynamicPubProto {
       "ectionComparator\022Y\n\021within_comparison\030\001 " +
       "\001(\0132*.anduril.entitymanager.v1.WithinCom" +
       "parisonH\000R\020withinComparisonB\014\n\ncompariso" +
-      "n\"\022\n\020WithinComparisonB\215\002\n\034com.anduril.en" +
+      "n\"\022\n\020WithinComparisonB\206\002\n\034com.anduril.en" +
       "titymanager.v1B\025FilterDynamicPubProtoP\001Z" +
-      "Tgithub.com/dogun-anduril/anduril-sdk-go" +
-      "/src/anduril/entitymanager/v1;entitymana" +
-      "gerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002" +
-      "\030Anduril\\Entitymanager\\V1\342\002$Anduril\\Enti" +
-      "tymanager\\V1\\GPBMetadata\352\002\032Anduril::Enti" +
-      "tymanager::V1b\006proto3"
+      "Mghe.anduril.dev/anduril/andurilapis-go/" +
+      "anduril/entitymanager/v1;entitymanager\242\002" +
+      "\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduri" +
+      "l\\Entitymanager\\V1\342\002$Anduril\\Entitymanag" +
+      "er\\V1\\GPBMetadata\352\002\032Anduril::Entitymanag" +
+      "er::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
