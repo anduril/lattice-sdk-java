@@ -17,5 +17,6 @@ jobs:
       with:
         github-token: ${{ secrets.github_token }}
         auto-version-bump: true
+        auto-version-bump-release: true
     - name: Print Version
       run: "echo 'New Version: ${{steps.bump.outputs.version}}'"
