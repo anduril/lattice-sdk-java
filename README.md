@@ -104,16 +104,18 @@ AndurilExample.java
 
 package com.demo;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import com.anduril.entitymanager.v1.EntityManagerAPIGrpc;
 import com.anduril.entitymanager.v1.EntityManagerAPIGrpc.EntityManagerAPIBlockingStub;
-import com.anduril.entitymanager.v1.EntityManagerAPIGrpc.EntityManagerAPIStub;
 import com.anduril.entitymanager.v1.GetEntityRequest;
-import com.anduril.entitymanager.v1.GetEntityResponse;
 
 import io.grpc.ClientInterceptor;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.Metadata;
+import io.grpc.Status;
 import io.grpc.stub.MetadataUtils;
 
 class AndurilExample {
@@ -122,14 +124,20 @@ class AndurilExample {
     
         Metadata header = new Metadata();
         Metadata.Key<String> key = Metadata.Key.of("authorization", Metadata.ASCII_STRING_MARSHALLER);
-        header.put(key, "Bearer <YOUR BEARER TOKEN>");
-    
+        // REPLACE BEARER TOKEN 
+        header.put(key, "Bearer <BEARER TOKEN");
+               
         // apply interceptor to apply auth headers to requests
         ClientInterceptor interceptor = MetadataUtils.newAttachHeadersInterceptor(header);
         EntityManagerAPIBlockingStub serviceStub = EntityManagerAPIGrpc.newBlockingStub(channel).withInterceptors(interceptor);
     
-        GetEntityRequest request = GetEntityRequest.newBuilder().setEntityId(entityId).build();
-        GetEntityResponse response = serviceStub.getEntity(request);
+        GetEntityRequest request = GetEntityRequest.newBuilder().setEntityId("ABC").build();
+        try {
+            serviceStub.getEntity(request);
+        } catch (Exception e) {
+            Status status = Status.fromThrowable(e);
+            Logger.getGlobal().log(Level.INFO, status.getDescription());
+        }
     }
 }
 ```
