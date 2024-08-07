@@ -1,13 +1,13 @@
 name: Gradle Package
 on:
   push:
-    branches: [master]
+    tags:        
+      - '*'  
   workflow_dispatch: {}
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
       packages: write
 
     steps:
@@ -26,15 +26,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    # Bump the version and re-commit
-    - name: Bump version
-      id: bump
-      uses: mickem/gh-action-bump-maven-version@v1.0.0
-
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
     # the publishing section of your build.gradle
     - name: Publish to GitHub Packages
-      if: steps.bump.outputs.bumped == false
       run: ./gradlew publish
       env:
         USERNAME: ${{ github.actor }}
