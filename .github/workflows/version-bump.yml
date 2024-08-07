@@ -25,6 +25,8 @@ jobs:
       contents: read
     steps:
     - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.ref_name }}
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
