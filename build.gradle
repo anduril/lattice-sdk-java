@@ -1,10 +1,16 @@
 plugins {
     id 'maven-publish'
     id 'java-library'
+    id 'java'
 }
 
 group = 'com.anduril'
 version = '1.0.0-SNAPSHOT18'
+
+compileJava   {
+  sourceCompatibility = '1.8'
+  targetCompatibility = '1.8'
+}
 
 sourceSets {
     main {
