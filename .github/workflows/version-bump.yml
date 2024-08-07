@@ -13,6 +13,9 @@ jobs:
     - uses: actions/checkout@v4
     - name: Bump Version
       id: bump
-      uses: fzacek/gradle-version-bump-action@v3
+      uses: Plugily-Projects/version-bump-action@v6
       with:
         github-token: ${{ secrets.github_token }}
+        auto-version-bump: true
+    - name: Print Version
+      run: "echo 'New Version: ${{steps.bump.outputs.version}}'"
