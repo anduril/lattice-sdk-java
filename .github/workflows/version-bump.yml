@@ -4,6 +4,9 @@ on:
     branches: [master]
   workflow_dispatch: {}
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 jobs:
   bump-version:
     runs-on: ubuntu-latest
