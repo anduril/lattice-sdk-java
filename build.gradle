@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.anduril'
-version = '1.0.0-SNAPSHOT1'
+version = '1.0.0-SNAPSHOT2'
 
 sourceSets {
     main {
