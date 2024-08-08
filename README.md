@@ -92,7 +92,7 @@ Once this is done, add your dependency to your project's POM. To get the latest 
     <dependency>
       <groupId>com.anduril</groupId>
       <artifactId>anduril-sdk-java</artifactId>
-      <version>1.0.0-SNAPSHOT6</version>
+      <version>1.0.0-SNAPSHOT20</version>
     </dependency>
 ```
 
