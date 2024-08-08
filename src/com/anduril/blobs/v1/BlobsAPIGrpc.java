@@ -8,14 +8,14 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
  * </pre>
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.65.1)",
+    value = "by gRPC proto compiler (version 1.54.1)",
     comments = "Source: anduril/blobs/v1/blobs_api.pub.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class BlobsAPIGrpc {
 
   private BlobsAPIGrpc() {}
 
-  public static final java.lang.String SERVICE_NAME = "anduril.blobs.v1.BlobsAPI";
+  public static final String SERVICE_NAME = "anduril.blobs.v1.BlobsAPI";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.anduril.blobs.v1.CreateBlobRequest,
@@ -589,9 +589,9 @@ public final class BlobsAPIGrpc {
   private static final class BlobsAPIMethodDescriptorSupplier
       extends BlobsAPIBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
-    private final java.lang.String methodName;
+    private final String methodName;
 
-    BlobsAPIMethodDescriptorSupplier(java.lang.String methodName) {
+    BlobsAPIMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 

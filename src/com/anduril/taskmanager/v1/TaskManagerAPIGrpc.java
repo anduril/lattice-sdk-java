@@ -9,14 +9,14 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
  * </pre>
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.65.1)",
+    value = "by gRPC proto compiler (version 1.54.1)",
     comments = "Source: anduril/taskmanager/v1/task_manager_api.pub.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class TaskManagerAPIGrpc {
 
   private TaskManagerAPIGrpc() {}
 
-  public static final java.lang.String SERVICE_NAME = "anduril.taskmanager.v1.TaskManagerAPI";
+  public static final String SERVICE_NAME = "anduril.taskmanager.v1.TaskManagerAPI";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.CreateTaskRequest,
@@ -174,6 +174,37 @@ public final class TaskManagerAPIGrpc {
     return getStreamTasksMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.ListenAsAgentRequest,
+      com.anduril.taskmanager.v1.ListenAsAgentResponse> getListenAsAgentMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListenAsAgent",
+      requestType = com.anduril.taskmanager.v1.ListenAsAgentRequest.class,
+      responseType = com.anduril.taskmanager.v1.ListenAsAgentResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.ListenAsAgentRequest,
+      com.anduril.taskmanager.v1.ListenAsAgentResponse> getListenAsAgentMethod() {
+    io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.ListenAsAgentRequest, com.anduril.taskmanager.v1.ListenAsAgentResponse> getListenAsAgentMethod;
+    if ((getListenAsAgentMethod = TaskManagerAPIGrpc.getListenAsAgentMethod) == null) {
+      synchronized (TaskManagerAPIGrpc.class) {
+        if ((getListenAsAgentMethod = TaskManagerAPIGrpc.getListenAsAgentMethod) == null) {
+          TaskManagerAPIGrpc.getListenAsAgentMethod = getListenAsAgentMethod =
+              io.grpc.MethodDescriptor.<com.anduril.taskmanager.v1.ListenAsAgentRequest, com.anduril.taskmanager.v1.ListenAsAgentResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListenAsAgent"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.anduril.taskmanager.v1.ListenAsAgentRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.anduril.taskmanager.v1.ListenAsAgentResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TaskManagerAPIMethodDescriptorSupplier("ListenAsAgent"))
+              .build();
+        }
+      }
+    }
+    return getListenAsAgentMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -273,11 +304,23 @@ public final class TaskManagerAPIGrpc {
     /**
      * <pre>
      * Stream all existing live (not yet done) Tasks and any new updates.
+     * Intended for clients to gain visibility into real time updates for live Tasks.
      * </pre>
      */
     default void streamTasks(com.anduril.taskmanager.v1.StreamTasksRequest request,
         io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.StreamTasksResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getStreamTasksMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
+     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC (no Flux access)
+     * </pre>
+     */
+    default void listenAsAgent(com.anduril.taskmanager.v1.ListenAsAgentRequest request,
+        io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.ListenAsAgentResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListenAsAgentMethod(), responseObserver);
     }
   }
 
@@ -367,12 +410,25 @@ public final class TaskManagerAPIGrpc {
     /**
      * <pre>
      * Stream all existing live (not yet done) Tasks and any new updates.
+     * Intended for clients to gain visibility into real time updates for live Tasks.
      * </pre>
      */
     public void streamTasks(com.anduril.taskmanager.v1.StreamTasksRequest request,
         io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.StreamTasksResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncServerStreamingCall(
           getChannel().newCall(getStreamTasksMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
+     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC (no Flux access)
+     * </pre>
+     */
+    public void listenAsAgent(com.anduril.taskmanager.v1.ListenAsAgentRequest request,
+        io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.ListenAsAgentResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getListenAsAgentMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -443,12 +499,25 @@ public final class TaskManagerAPIGrpc {
     /**
      * <pre>
      * Stream all existing live (not yet done) Tasks and any new updates.
+     * Intended for clients to gain visibility into real time updates for live Tasks.
      * </pre>
      */
     public java.util.Iterator<com.anduril.taskmanager.v1.StreamTasksResponse> streamTasks(
         com.anduril.taskmanager.v1.StreamTasksRequest request) {
       return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
           getChannel(), getStreamTasksMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
+     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC (no Flux access)
+     * </pre>
+     */
+    public java.util.Iterator<com.anduril.taskmanager.v1.ListenAsAgentResponse> listenAsAgent(
+        com.anduril.taskmanager.v1.ListenAsAgentRequest request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getListenAsAgentMethod(), getCallOptions(), request);
     }
   }
 
@@ -526,6 +595,7 @@ public final class TaskManagerAPIGrpc {
   private static final int METHODID_UPDATE_TASK = 2;
   private static final int METHODID_UPDATE_STATUS = 3;
   private static final int METHODID_STREAM_TASKS = 4;
+  private static final int METHODID_LISTEN_AS_AGENT = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -563,6 +633,10 @@ public final class TaskManagerAPIGrpc {
         case METHODID_STREAM_TASKS:
           serviceImpl.streamTasks((com.anduril.taskmanager.v1.StreamTasksRequest) request,
               (io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.StreamTasksResponse>) responseObserver);
+          break;
+        case METHODID_LISTEN_AS_AGENT:
+          serviceImpl.listenAsAgent((com.anduril.taskmanager.v1.ListenAsAgentRequest) request,
+              (io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.ListenAsAgentResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -617,6 +691,13 @@ public final class TaskManagerAPIGrpc {
               com.anduril.taskmanager.v1.StreamTasksRequest,
               com.anduril.taskmanager.v1.StreamTasksResponse>(
                 service, METHODID_STREAM_TASKS)))
+        .addMethod(
+          getListenAsAgentMethod(),
+          io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+            new MethodHandlers<
+              com.anduril.taskmanager.v1.ListenAsAgentRequest,
+              com.anduril.taskmanager.v1.ListenAsAgentResponse>(
+                service, METHODID_LISTEN_AS_AGENT)))
         .build();
   }
 
@@ -643,9 +724,9 @@ public final class TaskManagerAPIGrpc {
   private static final class TaskManagerAPIMethodDescriptorSupplier
       extends TaskManagerAPIBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
-    private final java.lang.String methodName;
+    private final String methodName;
 
-    TaskManagerAPIMethodDescriptorSupplier(java.lang.String methodName) {
+    TaskManagerAPIMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -670,6 +751,7 @@ public final class TaskManagerAPIGrpc {
               .addMethod(getUpdateTaskMethod())
               .addMethod(getUpdateStatusMethod())
               .addMethod(getStreamTasksMethod())
+              .addMethod(getListenAsAgentMethod())
               .build();
         }
       }
