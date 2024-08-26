@@ -395,7 +395,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=71
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=72
    * @return Whether the geopolygon field is set.
    */
   @java.lang.Override
@@ -409,7 +409,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=71
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=72
    * @return The geopolygon.
    */
   @java.lang.Override
@@ -1636,6 +1636,44 @@ private static final long serialVersionUID = 0L;
     return supplies_ == null ? com.anduril.entitymanager.v1.Supplies.getDefaultInstance() : supplies_;
   }
 
+  public static final int ORBIT_FIELD_NUMBER = 46;
+  private com.anduril.entitymanager.v1.Orbit orbit_;
+  /**
+   * <pre>
+   * Orbit information for space objects
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+   * @return Whether the orbit field is set.
+   */
+  @java.lang.Override
+  public boolean hasOrbit() {
+    return orbit_ != null;
+  }
+  /**
+   * <pre>
+   * Orbit information for space objects
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+   * @return The orbit.
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.Orbit getOrbit() {
+    return orbit_ == null ? com.anduril.entitymanager.v1.Orbit.getDefaultInstance() : orbit_;
+  }
+  /**
+   * <pre>
+   * Orbit information for space objects
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.OrbitOrBuilder getOrbitOrBuilder() {
+    return orbit_ == null ? com.anduril.entitymanager.v1.Orbit.getDefaultInstance() : orbit_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1772,6 +1810,9 @@ private static final long serialVersionUID = 0L;
     }
     if (noExpiry_ != false) {
       output.writeBool(43, noExpiry_);
+    }
+    if (orbit_ != null) {
+      output.writeMessage(46, getOrbit());
     }
     getUnknownFields().writeTo(output);
   }
@@ -1943,6 +1984,10 @@ private static final long serialVersionUID = 0L;
     if (noExpiry_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(43, noExpiry_);
+    }
+    if (orbit_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(46, getOrbit());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -2152,6 +2197,11 @@ private static final long serialVersionUID = 0L;
       if (!getSupplies()
           .equals(other.getSupplies())) return false;
     }
+    if (hasOrbit() != other.hasOrbit()) return false;
+    if (hasOrbit()) {
+      if (!getOrbit()
+          .equals(other.getOrbit())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -2320,6 +2370,10 @@ private static final long serialVersionUID = 0L;
     if (hasSupplies()) {
       hash = (37 * hash) + SUPPLIES_FIELD_NUMBER;
       hash = (53 * hash) + getSupplies().hashCode();
+    }
+    if (hasOrbit()) {
+      hash = (37 * hash) + ORBIT_FIELD_NUMBER;
+      hash = (53 * hash) + getOrbit().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -2645,6 +2699,11 @@ private static final long serialVersionUID = 0L;
         suppliesBuilder_.dispose();
         suppliesBuilder_ = null;
       }
+      orbit_ = null;
+      if (orbitBuilder_ != null) {
+        orbitBuilder_.dispose();
+        orbitBuilder_ = null;
+      }
       return this;
     }
 
@@ -2880,6 +2939,11 @@ private static final long serialVersionUID = 0L;
             ? supplies_
             : suppliesBuilder_.build();
       }
+      if (((from_bitField1_ & 0x00000200) != 0)) {
+        result.orbit_ = orbitBuilder_ == null
+            ? orbit_
+            : orbitBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3020,6 +3084,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasSupplies()) {
         mergeSupplies(other.getSupplies());
+      }
+      if (other.hasOrbit()) {
+        mergeOrbit(other.getOrbit());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -3326,6 +3393,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000020;
               break;
             } // case 344
+            case 370: {
+              input.readMessage(
+                  getOrbitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField1_ |= 0x00000200;
+              break;
+            } // case 370
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -4480,7 +4554,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=71
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=72
      * @return Whether the geopolygon field is set.
      */
     @java.lang.Deprecated public boolean hasGeopolygon() {
@@ -4493,7 +4567,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=71
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=72
      * @return The geopolygon.
      */
     @java.lang.Deprecated public com.anduril.entitymanager.v1.GeoPolygon getGeopolygon() {
@@ -9522,6 +9596,161 @@ private static final long serialVersionUID = 0L;
         supplies_ = null;
       }
       return suppliesBuilder_;
+    }
+
+    private com.anduril.entitymanager.v1.Orbit orbit_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.Orbit, com.anduril.entitymanager.v1.Orbit.Builder, com.anduril.entitymanager.v1.OrbitOrBuilder> orbitBuilder_;
+    /**
+     * <pre>
+     * Orbit information for space objects
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+     * @return Whether the orbit field is set.
+     */
+    public boolean hasOrbit() {
+      return ((bitField1_ & 0x00000200) != 0);
+    }
+    /**
+     * <pre>
+     * Orbit information for space objects
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+     * @return The orbit.
+     */
+    public com.anduril.entitymanager.v1.Orbit getOrbit() {
+      if (orbitBuilder_ == null) {
+        return orbit_ == null ? com.anduril.entitymanager.v1.Orbit.getDefaultInstance() : orbit_;
+      } else {
+        return orbitBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Orbit information for space objects
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+     */
+    public Builder setOrbit(com.anduril.entitymanager.v1.Orbit value) {
+      if (orbitBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        orbit_ = value;
+      } else {
+        orbitBuilder_.setMessage(value);
+      }
+      bitField1_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Orbit information for space objects
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+     */
+    public Builder setOrbit(
+        com.anduril.entitymanager.v1.Orbit.Builder builderForValue) {
+      if (orbitBuilder_ == null) {
+        orbit_ = builderForValue.build();
+      } else {
+        orbitBuilder_.setMessage(builderForValue.build());
+      }
+      bitField1_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Orbit information for space objects
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+     */
+    public Builder mergeOrbit(com.anduril.entitymanager.v1.Orbit value) {
+      if (orbitBuilder_ == null) {
+        if (((bitField1_ & 0x00000200) != 0) &&
+          orbit_ != null &&
+          orbit_ != com.anduril.entitymanager.v1.Orbit.getDefaultInstance()) {
+          getOrbitBuilder().mergeFrom(value);
+        } else {
+          orbit_ = value;
+        }
+      } else {
+        orbitBuilder_.mergeFrom(value);
+      }
+      bitField1_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Orbit information for space objects
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+     */
+    public Builder clearOrbit() {
+      bitField1_ = (bitField1_ & ~0x00000200);
+      orbit_ = null;
+      if (orbitBuilder_ != null) {
+        orbitBuilder_.dispose();
+        orbitBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Orbit information for space objects
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+     */
+    public com.anduril.entitymanager.v1.Orbit.Builder getOrbitBuilder() {
+      bitField1_ |= 0x00000200;
+      onChanged();
+      return getOrbitFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Orbit information for space objects
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+     */
+    public com.anduril.entitymanager.v1.OrbitOrBuilder getOrbitOrBuilder() {
+      if (orbitBuilder_ != null) {
+        return orbitBuilder_.getMessageOrBuilder();
+      } else {
+        return orbit_ == null ?
+            com.anduril.entitymanager.v1.Orbit.getDefaultInstance() : orbit_;
+      }
+    }
+    /**
+     * <pre>
+     * Orbit information for space objects
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.Orbit, com.anduril.entitymanager.v1.Orbit.Builder, com.anduril.entitymanager.v1.OrbitOrBuilder> 
+        getOrbitFieldBuilder() {
+      if (orbitBuilder_ == null) {
+        orbitBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.anduril.entitymanager.v1.Orbit, com.anduril.entitymanager.v1.Orbit.Builder, com.anduril.entitymanager.v1.OrbitOrBuilder>(
+                getOrbit(),
+                getParentForChildren(),
+                isClean());
+        orbit_ = null;
+      }
+      return orbitBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

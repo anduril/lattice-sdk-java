@@ -28,17 +28,21 @@ public interface OriginalDataOrBuilder extends
       getUrlBytes();
 
   /**
-   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
+   * @deprecated anduril.entitymanager.v1.OriginalData.tle is deprecated.
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=298
    * @return Whether the tle field is set.
    */
-  boolean hasTle();
+  @java.lang.Deprecated boolean hasTle();
   /**
-   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
+   * @deprecated anduril.entitymanager.v1.OriginalData.tle is deprecated.
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=298
    * @return The tle.
    */
-  com.anduril.entitymanager.v1.OriginalData.TLE getTle();
+  @java.lang.Deprecated com.anduril.entitymanager.v1.OriginalData.TLE getTle();
   /**
-   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
    */
-  com.anduril.entitymanager.v1.OriginalData.TLEOrBuilder getTleOrBuilder();
+  @java.lang.Deprecated com.anduril.entitymanager.v1.OriginalData.TLEOrBuilder getTleOrBuilder();
 }

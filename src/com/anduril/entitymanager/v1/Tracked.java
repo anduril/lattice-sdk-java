@@ -51,7 +51,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Tracked.track_quality is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=175
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=178
    * @return The trackQuality.
    */
   @java.lang.Override
@@ -197,7 +197,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=188
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=191
    * @return Whether the sensorDetails field is set.
    */
   @java.lang.Override
@@ -211,7 +211,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=188
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=191
    * @return The sensorDetails.
    */
   @java.lang.Override
@@ -905,7 +905,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.Tracked.track_quality is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=175
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=178
      * @return The trackQuality.
      */
     @java.lang.Override
@@ -919,7 +919,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.Tracked.track_quality is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=175
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=178
      * @param value The trackQuality to set.
      * @return This builder for chaining.
      */
@@ -937,7 +937,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.Tracked.track_quality is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=175
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=178
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearTrackQuality() {
@@ -1467,7 +1467,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=188
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=191
      * @return Whether the sensorDetails field is set.
      */
     @java.lang.Deprecated public boolean hasSensorDetails() {
@@ -1480,7 +1480,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=188
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=191
      * @return The sensorDetails.
      */
     @java.lang.Deprecated public com.anduril.entitymanager.v1.Sensors getSensorDetails() {

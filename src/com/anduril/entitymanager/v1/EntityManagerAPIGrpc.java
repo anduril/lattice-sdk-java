@@ -239,6 +239,68 @@ public final class EntityManagerAPIGrpc {
     return getDeleteEntityMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.anduril.entitymanager.v1.RelateEntityRequest,
+      com.anduril.entitymanager.v1.RelateEntityResponse> getRelateEntityMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RelateEntity",
+      requestType = com.anduril.entitymanager.v1.RelateEntityRequest.class,
+      responseType = com.anduril.entitymanager.v1.RelateEntityResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.anduril.entitymanager.v1.RelateEntityRequest,
+      com.anduril.entitymanager.v1.RelateEntityResponse> getRelateEntityMethod() {
+    io.grpc.MethodDescriptor<com.anduril.entitymanager.v1.RelateEntityRequest, com.anduril.entitymanager.v1.RelateEntityResponse> getRelateEntityMethod;
+    if ((getRelateEntityMethod = EntityManagerAPIGrpc.getRelateEntityMethod) == null) {
+      synchronized (EntityManagerAPIGrpc.class) {
+        if ((getRelateEntityMethod = EntityManagerAPIGrpc.getRelateEntityMethod) == null) {
+          EntityManagerAPIGrpc.getRelateEntityMethod = getRelateEntityMethod =
+              io.grpc.MethodDescriptor.<com.anduril.entitymanager.v1.RelateEntityRequest, com.anduril.entitymanager.v1.RelateEntityResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RelateEntity"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.anduril.entitymanager.v1.RelateEntityRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.anduril.entitymanager.v1.RelateEntityResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new EntityManagerAPIMethodDescriptorSupplier("RelateEntity"))
+              .build();
+        }
+      }
+    }
+    return getRelateEntityMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.anduril.entitymanager.v1.UnrelateEntityRequest,
+      com.anduril.entitymanager.v1.UnrelateEntityResponse> getUnrelateEntityMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UnrelateEntity",
+      requestType = com.anduril.entitymanager.v1.UnrelateEntityRequest.class,
+      responseType = com.anduril.entitymanager.v1.UnrelateEntityResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.anduril.entitymanager.v1.UnrelateEntityRequest,
+      com.anduril.entitymanager.v1.UnrelateEntityResponse> getUnrelateEntityMethod() {
+    io.grpc.MethodDescriptor<com.anduril.entitymanager.v1.UnrelateEntityRequest, com.anduril.entitymanager.v1.UnrelateEntityResponse> getUnrelateEntityMethod;
+    if ((getUnrelateEntityMethod = EntityManagerAPIGrpc.getUnrelateEntityMethod) == null) {
+      synchronized (EntityManagerAPIGrpc.class) {
+        if ((getUnrelateEntityMethod = EntityManagerAPIGrpc.getUnrelateEntityMethod) == null) {
+          EntityManagerAPIGrpc.getUnrelateEntityMethod = getUnrelateEntityMethod =
+              io.grpc.MethodDescriptor.<com.anduril.entitymanager.v1.UnrelateEntityRequest, com.anduril.entitymanager.v1.UnrelateEntityResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UnrelateEntity"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.anduril.entitymanager.v1.UnrelateEntityRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.anduril.entitymanager.v1.UnrelateEntityResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new EntityManagerAPIMethodDescriptorSupplier("UnrelateEntity"))
+              .build();
+        }
+      }
+    }
+    return getUnrelateEntityMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -367,6 +429,27 @@ public final class EntityManagerAPIGrpc {
         io.grpc.stub.StreamObserver<com.anduril.entitymanager.v1.DeleteEntityResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteEntityMethod(), responseObserver);
     }
+
+    /**
+     * <pre>
+     * Creates or Updates relationships on an Entity. All relationships that are being added in the request
+     * succeed or fail as a batch (i.e. if any one relationship is invalid, the request will fail).
+     * </pre>
+     */
+    default void relateEntity(com.anduril.entitymanager.v1.RelateEntityRequest request,
+        io.grpc.stub.StreamObserver<com.anduril.entitymanager.v1.RelateEntityResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRelateEntityMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Deletes relationships on an Entity.
+     * </pre>
+     */
+    default void unrelateEntity(com.anduril.entitymanager.v1.UnrelateEntityRequest request,
+        io.grpc.stub.StreamObserver<com.anduril.entitymanager.v1.UnrelateEntityResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUnrelateEntityMethod(), responseObserver);
+    }
   }
 
   /**
@@ -490,6 +573,29 @@ public final class EntityManagerAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteEntityMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * Creates or Updates relationships on an Entity. All relationships that are being added in the request
+     * succeed or fail as a batch (i.e. if any one relationship is invalid, the request will fail).
+     * </pre>
+     */
+    public void relateEntity(com.anduril.entitymanager.v1.RelateEntityRequest request,
+        io.grpc.stub.StreamObserver<com.anduril.entitymanager.v1.RelateEntityResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getRelateEntityMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Deletes relationships on an Entity.
+     * </pre>
+     */
+    public void unrelateEntity(com.anduril.entitymanager.v1.UnrelateEntityRequest request,
+        io.grpc.stub.StreamObserver<com.anduril.entitymanager.v1.UnrelateEntityResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUnrelateEntityMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -577,6 +683,27 @@ public final class EntityManagerAPIGrpc {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteEntityMethod(), getCallOptions(), request);
     }
+
+    /**
+     * <pre>
+     * Creates or Updates relationships on an Entity. All relationships that are being added in the request
+     * succeed or fail as a batch (i.e. if any one relationship is invalid, the request will fail).
+     * </pre>
+     */
+    public com.anduril.entitymanager.v1.RelateEntityResponse relateEntity(com.anduril.entitymanager.v1.RelateEntityRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getRelateEntityMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Deletes relationships on an Entity.
+     * </pre>
+     */
+    public com.anduril.entitymanager.v1.UnrelateEntityResponse unrelateEntity(com.anduril.entitymanager.v1.UnrelateEntityRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUnrelateEntityMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -658,6 +785,29 @@ public final class EntityManagerAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteEntityMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * Creates or Updates relationships on an Entity. All relationships that are being added in the request
+     * succeed or fail as a batch (i.e. if any one relationship is invalid, the request will fail).
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.anduril.entitymanager.v1.RelateEntityResponse> relateEntity(
+        com.anduril.entitymanager.v1.RelateEntityRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getRelateEntityMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * Deletes relationships on an Entity.
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.anduril.entitymanager.v1.UnrelateEntityResponse> unrelateEntity(
+        com.anduril.entitymanager.v1.UnrelateEntityRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUnrelateEntityMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_ENTITY = 0;
@@ -666,7 +816,9 @@ public final class EntityManagerAPIGrpc {
   private static final int METHODID_OVERRIDE_ENTITY = 3;
   private static final int METHODID_REMOVE_ENTITY_OVERRIDE = 4;
   private static final int METHODID_DELETE_ENTITY = 5;
-  private static final int METHODID_PUBLISH_ENTITIES = 6;
+  private static final int METHODID_RELATE_ENTITY = 6;
+  private static final int METHODID_UNRELATE_ENTITY = 7;
+  private static final int METHODID_PUBLISH_ENTITIES = 8;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -708,6 +860,14 @@ public final class EntityManagerAPIGrpc {
         case METHODID_DELETE_ENTITY:
           serviceImpl.deleteEntity((com.anduril.entitymanager.v1.DeleteEntityRequest) request,
               (io.grpc.stub.StreamObserver<com.anduril.entitymanager.v1.DeleteEntityResponse>) responseObserver);
+          break;
+        case METHODID_RELATE_ENTITY:
+          serviceImpl.relateEntity((com.anduril.entitymanager.v1.RelateEntityRequest) request,
+              (io.grpc.stub.StreamObserver<com.anduril.entitymanager.v1.RelateEntityResponse>) responseObserver);
+          break;
+        case METHODID_UNRELATE_ENTITY:
+          serviceImpl.unrelateEntity((com.anduril.entitymanager.v1.UnrelateEntityRequest) request,
+              (io.grpc.stub.StreamObserver<com.anduril.entitymanager.v1.UnrelateEntityResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -779,6 +939,20 @@ public final class EntityManagerAPIGrpc {
               com.anduril.entitymanager.v1.DeleteEntityRequest,
               com.anduril.entitymanager.v1.DeleteEntityResponse>(
                 service, METHODID_DELETE_ENTITY)))
+        .addMethod(
+          getRelateEntityMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.anduril.entitymanager.v1.RelateEntityRequest,
+              com.anduril.entitymanager.v1.RelateEntityResponse>(
+                service, METHODID_RELATE_ENTITY)))
+        .addMethod(
+          getUnrelateEntityMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.anduril.entitymanager.v1.UnrelateEntityRequest,
+              com.anduril.entitymanager.v1.UnrelateEntityResponse>(
+                service, METHODID_UNRELATE_ENTITY)))
         .build();
   }
 
@@ -834,6 +1008,8 @@ public final class EntityManagerAPIGrpc {
               .addMethod(getOverrideEntityMethod())
               .addMethod(getRemoveEntityOverrideMethod())
               .addMethod(getDeleteEntityMethod())
+              .addMethod(getRelateEntityMethod())
+              .addMethod(getUnrelateEntityMethod())
               .build();
         }
       }

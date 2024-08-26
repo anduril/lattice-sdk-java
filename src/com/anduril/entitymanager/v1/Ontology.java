@@ -22,7 +22,6 @@ private static final long serialVersionUID = 0L;
   private Ontology() {
     descriptors_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
-    krn_ = "";
     platformType_ = "";
     specificType_ = "";
     template_ = 0;
@@ -107,55 +106,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Deprecated public com.google.protobuf.ByteString
       getDescriptorsBytes(int index) {
     return descriptors_.getByteString(index);
-  }
-
-  public static final int KRN_FIELD_NUMBER = 5;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object krn_ = "";
-  /**
-   * <pre>
-   * KRN: Knowledge Resource Name
-   * A string that references the ontology of the entity defined in KnowledgeGraph.
-   * </pre>
-   *
-   * <code>string krn = 5 [json_name = "krn"];</code>
-   * @return The krn.
-   */
-  @java.lang.Override
-  public java.lang.String getKrn() {
-    java.lang.Object ref = krn_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      krn_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * KRN: Knowledge Resource Name
-   * A string that references the ontology of the entity defined in KnowledgeGraph.
-   * </pre>
-   *
-   * <code>string krn = 5 [json_name = "krn"];</code>
-   * @return The bytes for krn.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getKrnBytes() {
-    java.lang.Object ref = krn_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      krn_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
   }
 
   public static final int PLATFORM_TYPE_FIELD_NUMBER = 3;
@@ -312,9 +262,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(specificType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, specificType_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(krn_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, krn_);
-    }
     getUnknownFields().writeTo(output);
   }
 
@@ -342,9 +289,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(specificType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, specificType_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(krn_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, krn_);
-    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -362,8 +306,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getDescriptorsList()
         .equals(other.getDescriptorsList())) return false;
-    if (!getKrn()
-        .equals(other.getKrn())) return false;
     if (!getPlatformType()
         .equals(other.getPlatformType())) return false;
     if (!getSpecificType()
@@ -384,8 +326,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DESCRIPTORS_FIELD_NUMBER;
       hash = (53 * hash) + getDescriptorsList().hashCode();
     }
-    hash = (37 * hash) + KRN_FIELD_NUMBER;
-    hash = (53 * hash) + getKrn().hashCode();
     hash = (37 * hash) + PLATFORM_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getPlatformType().hashCode();
     hash = (37 * hash) + SPECIFIC_TYPE_FIELD_NUMBER;
@@ -527,7 +467,6 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       descriptors_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
-      krn_ = "";
       platformType_ = "";
       specificType_ = "";
       template_ = 0;
@@ -569,15 +508,12 @@ private static final long serialVersionUID = 0L;
         result.descriptors_ = descriptors_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.krn_ = krn_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.platformType_ = platformType_;
       }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.specificType_ = specificType_;
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.template_ = template_;
       }
     }
@@ -604,19 +540,14 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      if (!other.getKrn().isEmpty()) {
-        krn_ = other.krn_;
-        bitField0_ |= 0x00000002;
-        onChanged();
-      }
       if (!other.getPlatformType().isEmpty()) {
         platformType_ = other.platformType_;
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getSpecificType().isEmpty()) {
         specificType_ = other.specificType_;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.template_ != 0) {
@@ -656,24 +587,19 @@ private static final long serialVersionUID = 0L;
             } // case 10
             case 16: {
               template_ = input.readEnum();
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000008;
               break;
             } // case 16
             case 26: {
               platformType_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             } // case 26
             case 34: {
               specificType_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000004;
               break;
             } // case 34
-            case 42: {
-              krn_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 42
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -856,103 +782,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object krn_ = "";
-    /**
-     * <pre>
-     * KRN: Knowledge Resource Name
-     * A string that references the ontology of the entity defined in KnowledgeGraph.
-     * </pre>
-     *
-     * <code>string krn = 5 [json_name = "krn"];</code>
-     * @return The krn.
-     */
-    public java.lang.String getKrn() {
-      java.lang.Object ref = krn_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        krn_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * KRN: Knowledge Resource Name
-     * A string that references the ontology of the entity defined in KnowledgeGraph.
-     * </pre>
-     *
-     * <code>string krn = 5 [json_name = "krn"];</code>
-     * @return The bytes for krn.
-     */
-    public com.google.protobuf.ByteString
-        getKrnBytes() {
-      java.lang.Object ref = krn_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        krn_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * KRN: Knowledge Resource Name
-     * A string that references the ontology of the entity defined in KnowledgeGraph.
-     * </pre>
-     *
-     * <code>string krn = 5 [json_name = "krn"];</code>
-     * @param value The krn to set.
-     * @return This builder for chaining.
-     */
-    public Builder setKrn(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      krn_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * KRN: Knowledge Resource Name
-     * A string that references the ontology of the entity defined in KnowledgeGraph.
-     * </pre>
-     *
-     * <code>string krn = 5 [json_name = "krn"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearKrn() {
-      krn_ = getDefaultInstance().getKrn();
-      bitField0_ = (bitField0_ & ~0x00000002);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * KRN: Knowledge Resource Name
-     * A string that references the ontology of the entity defined in KnowledgeGraph.
-     * </pre>
-     *
-     * <code>string krn = 5 [json_name = "krn"];</code>
-     * @param value The bytes for krn to set.
-     * @return This builder for chaining.
-     */
-    public Builder setKrnBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      krn_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object platformType_ = "";
     /**
      * <pre>
@@ -1014,7 +843,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       platformType_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1030,7 +859,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPlatformType() {
       platformType_ = getDefaultInstance().getPlatformType();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1050,7 +879,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       platformType_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1116,7 +945,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       specificType_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1132,7 +961,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSpecificType() {
       specificType_ = getDefaultInstance().getSpecificType();
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1152,7 +981,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       specificType_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1180,7 +1009,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTemplateValue(int value) {
       template_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1210,7 +1039,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       template_ = value.getNumber();
       onChanged();
       return this;
@@ -1224,7 +1053,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTemplate() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000008);
       template_ = 0;
       onChanged();
       return this;
