@@ -236,7 +236,7 @@ public interface EntityOrBuilder extends
    *
    * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=71
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=72
    * @return Whether the geopolygon field is set.
    */
   @java.lang.Deprecated boolean hasGeopolygon();
@@ -247,7 +247,7 @@ public interface EntityOrBuilder extends
    *
    * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=71
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=72
    * @return The geopolygon.
    */
   @java.lang.Deprecated com.anduril.entitymanager.v1.GeoPolygon getGeopolygon();
@@ -1126,4 +1126,31 @@ public interface EntityOrBuilder extends
    * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
    */
   com.anduril.entitymanager.v1.SuppliesOrBuilder getSuppliesOrBuilder();
+
+  /**
+   * <pre>
+   * Orbit information for space objects
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+   * @return Whether the orbit field is set.
+   */
+  boolean hasOrbit();
+  /**
+   * <pre>
+   * Orbit information for space objects
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+   * @return The orbit.
+   */
+  com.anduril.entitymanager.v1.Orbit getOrbit();
+  /**
+   * <pre>
+   * Orbit information for space objects
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
+   */
+  com.anduril.entitymanager.v1.OrbitOrBuilder getOrbitOrBuilder();
 }

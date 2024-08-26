@@ -187,6 +187,31 @@ public enum AltIdType
    * <code>ALT_ID_TYPE_NORAD_CAT_ID = 20;</code>
    */
   ALT_ID_TYPE_NORAD_CAT_ID(20),
+  /**
+   * <pre>
+   * Space object name. If populated, use names from the UN Office
+   * of Outer Space Affairs designator index, otherwise set field to UNKNOWN.
+   * </pre>
+   *
+   * <code>ALT_ID_TYPE_UNOOSA_NAME = 23;</code>
+   */
+  ALT_ID_TYPE_UNOOSA_NAME(23),
+  /**
+   * <pre>
+   * Space object identifier. If populated, use the international spacecraft designator
+   * as published in the UN Office of Outer Space Affairs designator index, otherwise set to UNKNOWN.
+   * Recommended values have the format YYYYNNNP{PP}, where:
+   *  YYYY = Year of launch.
+   *  NNN = Three-digit serial number of launch
+   *  in year YYYY (with leading zeros).
+   *  P{PP} = At least one capital letter for the
+   *  identification of the part brought
+   *  into space by the launch.
+   * </pre>
+   *
+   * <code>ALT_ID_TYPE_UNOOSA_ID = 24;</code>
+   */
+  ALT_ID_TYPE_UNOOSA_ID(24),
   UNRECOGNIZED(-1),
   ;
 
@@ -364,6 +389,31 @@ public enum AltIdType
    * <code>ALT_ID_TYPE_NORAD_CAT_ID = 20;</code>
    */
   public static final int ALT_ID_TYPE_NORAD_CAT_ID_VALUE = 20;
+  /**
+   * <pre>
+   * Space object name. If populated, use names from the UN Office
+   * of Outer Space Affairs designator index, otherwise set field to UNKNOWN.
+   * </pre>
+   *
+   * <code>ALT_ID_TYPE_UNOOSA_NAME = 23;</code>
+   */
+  public static final int ALT_ID_TYPE_UNOOSA_NAME_VALUE = 23;
+  /**
+   * <pre>
+   * Space object identifier. If populated, use the international spacecraft designator
+   * as published in the UN Office of Outer Space Affairs designator index, otherwise set to UNKNOWN.
+   * Recommended values have the format YYYYNNNP{PP}, where:
+   *  YYYY = Year of launch.
+   *  NNN = Three-digit serial number of launch
+   *  in year YYYY (with leading zeros).
+   *  P{PP} = At least one capital letter for the
+   *  identification of the part brought
+   *  into space by the launch.
+   * </pre>
+   *
+   * <code>ALT_ID_TYPE_UNOOSA_ID = 24;</code>
+   */
+  public static final int ALT_ID_TYPE_UNOOSA_ID_VALUE = 24;
 
 
   public final int getNumber() {
@@ -411,6 +461,8 @@ public enum AltIdType
       case 18: return ALT_ID_TYPE_DODAAC;
       case 19: return ALT_ID_TYPE_UIC;
       case 20: return ALT_ID_TYPE_NORAD_CAT_ID;
+      case 23: return ALT_ID_TYPE_UNOOSA_NAME;
+      case 24: return ALT_ID_TYPE_UNOOSA_ID;
       default: return null;
     }
   }

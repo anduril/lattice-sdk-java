@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string source = 1 [json_name = "source", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=300
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=304
    * @return The source.
    */
   @java.lang.Override
@@ -78,7 +78,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string source = 1 [json_name = "source", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=300
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=304
    * @return The bytes for source.
    */
   @java.lang.Override
@@ -503,7 +503,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string source = 1 [json_name = "source", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=300
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=304
      * @return The source.
      */
     @java.lang.Deprecated public java.lang.String getSource() {
@@ -525,7 +525,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string source = 1 [json_name = "source", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=300
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=304
      * @return The bytes for source.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -548,7 +548,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string source = 1 [json_name = "source", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=300
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=304
      * @param value The source to set.
      * @return This builder for chaining.
      */
@@ -567,7 +567,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string source = 1 [json_name = "source", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=300
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=304
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearSource() {
@@ -583,7 +583,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string source = 1 [json_name = "source", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=300
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=304
      * @param value The bytes for source to set.
      * @return This builder for chaining.
      */

@@ -44,7 +44,7 @@ private static final long serialVersionUID = 0L;
             com.anduril.entitymanager.v1.OriginalData.class, com.anduril.entitymanager.v1.OriginalData.Builder.class);
   }
 
-  public interface TLEOrBuilder extends
+  @java.lang.Deprecated public interface TLEOrBuilder extends
       // @@protoc_insertion_point(interface_extends:anduril.entitymanager.v1.OriginalData.TLE)
       com.google.protobuf.MessageOrBuilder {
 
@@ -80,7 +80,7 @@ private static final long serialVersionUID = 0L;
    *
    * Protobuf type {@code anduril.entitymanager.v1.OriginalData.TLE}
    */
-  public static final class TLE extends
+  @java.lang.Deprecated public static final class TLE extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:anduril.entitymanager.v1.OriginalData.TLE)
       TLEOrBuilder {
@@ -770,26 +770,30 @@ private static final long serialVersionUID = 0L;
   public static final int TLE_FIELD_NUMBER = 2;
   private com.anduril.entitymanager.v1.OriginalData.TLE tle_;
   /**
-   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
+   * @deprecated anduril.entitymanager.v1.OriginalData.tle is deprecated.
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=298
    * @return Whether the tle field is set.
    */
   @java.lang.Override
-  public boolean hasTle() {
+  @java.lang.Deprecated public boolean hasTle() {
     return tle_ != null;
   }
   /**
-   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
+   * @deprecated anduril.entitymanager.v1.OriginalData.tle is deprecated.
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=298
    * @return The tle.
    */
   @java.lang.Override
-  public com.anduril.entitymanager.v1.OriginalData.TLE getTle() {
+  @java.lang.Deprecated public com.anduril.entitymanager.v1.OriginalData.TLE getTle() {
     return tle_ == null ? com.anduril.entitymanager.v1.OriginalData.TLE.getDefaultInstance() : tle_;
   }
   /**
-   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+   * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
    */
   @java.lang.Override
-  public com.anduril.entitymanager.v1.OriginalData.TLEOrBuilder getTleOrBuilder() {
+  @java.lang.Deprecated public com.anduril.entitymanager.v1.OriginalData.TLEOrBuilder getTleOrBuilder() {
     return tle_ == null ? com.anduril.entitymanager.v1.OriginalData.TLE.getDefaultInstance() : tle_;
   }
 
@@ -1222,17 +1226,21 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.OriginalData.TLE, com.anduril.entitymanager.v1.OriginalData.TLE.Builder, com.anduril.entitymanager.v1.OriginalData.TLEOrBuilder> tleBuilder_;
     /**
-     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
+     * @deprecated anduril.entitymanager.v1.OriginalData.tle is deprecated.
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=298
      * @return Whether the tle field is set.
      */
-    public boolean hasTle() {
+    @java.lang.Deprecated public boolean hasTle() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
+     * @deprecated anduril.entitymanager.v1.OriginalData.tle is deprecated.
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=298
      * @return The tle.
      */
-    public com.anduril.entitymanager.v1.OriginalData.TLE getTle() {
+    @java.lang.Deprecated public com.anduril.entitymanager.v1.OriginalData.TLE getTle() {
       if (tleBuilder_ == null) {
         return tle_ == null ? com.anduril.entitymanager.v1.OriginalData.TLE.getDefaultInstance() : tle_;
       } else {
@@ -1240,9 +1248,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
      */
-    public Builder setTle(com.anduril.entitymanager.v1.OriginalData.TLE value) {
+    @java.lang.Deprecated public Builder setTle(com.anduril.entitymanager.v1.OriginalData.TLE value) {
       if (tleBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1256,9 +1264,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
      */
-    public Builder setTle(
+    @java.lang.Deprecated public Builder setTle(
         com.anduril.entitymanager.v1.OriginalData.TLE.Builder builderForValue) {
       if (tleBuilder_ == null) {
         tle_ = builderForValue.build();
@@ -1270,9 +1278,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
      */
-    public Builder mergeTle(com.anduril.entitymanager.v1.OriginalData.TLE value) {
+    @java.lang.Deprecated public Builder mergeTle(com.anduril.entitymanager.v1.OriginalData.TLE value) {
       if (tleBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
           tle_ != null &&
@@ -1289,9 +1297,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
      */
-    public Builder clearTle() {
+    @java.lang.Deprecated public Builder clearTle() {
       bitField0_ = (bitField0_ & ~0x00000002);
       tle_ = null;
       if (tleBuilder_ != null) {
@@ -1302,17 +1310,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
      */
-    public com.anduril.entitymanager.v1.OriginalData.TLE.Builder getTleBuilder() {
+    @java.lang.Deprecated public com.anduril.entitymanager.v1.OriginalData.TLE.Builder getTleBuilder() {
       bitField0_ |= 0x00000002;
       onChanged();
       return getTleFieldBuilder().getBuilder();
     }
     /**
-     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
      */
-    public com.anduril.entitymanager.v1.OriginalData.TLEOrBuilder getTleOrBuilder() {
+    @java.lang.Deprecated public com.anduril.entitymanager.v1.OriginalData.TLEOrBuilder getTleOrBuilder() {
       if (tleBuilder_ != null) {
         return tleBuilder_.getMessageOrBuilder();
       } else {
@@ -1321,7 +1329,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];</code>
+     * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.OriginalData.TLE, com.anduril.entitymanager.v1.OriginalData.TLE.Builder, com.anduril.entitymanager.v1.OriginalData.TLEOrBuilder> 

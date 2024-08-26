@@ -14,7 +14,7 @@ public interface TrackedOrBuilder extends
    *
    * <code>uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Tracked.track_quality is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=175
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=178
    * @return The trackQuality.
    */
   @java.lang.Deprecated int getTrackQuality();
@@ -122,7 +122,7 @@ public interface TrackedOrBuilder extends
    *
    * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=188
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=191
    * @return Whether the sensorDetails field is set.
    */
   @java.lang.Deprecated boolean hasSensorDetails();
@@ -133,7 +133,7 @@ public interface TrackedOrBuilder extends
    *
    * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=188
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=191
    * @return The sensorDetails.
    */
   @java.lang.Deprecated com.anduril.entitymanager.v1.Sensors getSensorDetails();

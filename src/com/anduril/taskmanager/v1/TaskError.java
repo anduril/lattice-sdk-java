@@ -117,6 +117,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ERROR_DETAILS_FIELD_NUMBER = 3;
+  private com.google.protobuf.Any errorDetails_;
+  /**
+   * <pre>
+   * Any additional details regarding this error.
+   * </pre>
+   *
+   * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+   * @return Whether the errorDetails field is set.
+   */
+  @java.lang.Override
+  public boolean hasErrorDetails() {
+    return errorDetails_ != null;
+  }
+  /**
+   * <pre>
+   * Any additional details regarding this error.
+   * </pre>
+   *
+   * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+   * @return The errorDetails.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Any getErrorDetails() {
+    return errorDetails_ == null ? com.google.protobuf.Any.getDefaultInstance() : errorDetails_;
+  }
+  /**
+   * <pre>
+   * Any additional details regarding this error.
+   * </pre>
+   *
+   * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.AnyOrBuilder getErrorDetailsOrBuilder() {
+    return errorDetails_ == null ? com.google.protobuf.Any.getDefaultInstance() : errorDetails_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -137,6 +175,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
     }
+    if (errorDetails_ != null) {
+      output.writeMessage(3, getErrorDetails());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -152,6 +193,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
+    }
+    if (errorDetails_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getErrorDetails());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -171,6 +216,11 @@ private static final long serialVersionUID = 0L;
     if (code_ != other.code_) return false;
     if (!getMessage()
         .equals(other.getMessage())) return false;
+    if (hasErrorDetails() != other.hasErrorDetails()) return false;
+    if (hasErrorDetails()) {
+      if (!getErrorDetails()
+          .equals(other.getErrorDetails())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -186,6 +236,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + code_;
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
+    if (hasErrorDetails()) {
+      hash = (37 * hash) + ERROR_DETAILS_FIELD_NUMBER;
+      hash = (53 * hash) + getErrorDetails().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -321,6 +375,11 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       code_ = 0;
       message_ = "";
+      errorDetails_ = null;
+      if (errorDetailsBuilder_ != null) {
+        errorDetailsBuilder_.dispose();
+        errorDetailsBuilder_ = null;
+      }
       return this;
     }
 
@@ -360,6 +419,11 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.message_ = message_;
       }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.errorDetails_ = errorDetailsBuilder_ == null
+            ? errorDetails_
+            : errorDetailsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -381,6 +445,9 @@ private static final long serialVersionUID = 0L;
         message_ = other.message_;
         bitField0_ |= 0x00000002;
         onChanged();
+      }
+      if (other.hasErrorDetails()) {
+        mergeErrorDetails(other.getErrorDetails());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -418,6 +485,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 18
+            case 26: {
+              input.readMessage(
+                  getErrorDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -598,6 +672,161 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.Any errorDetails_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> errorDetailsBuilder_;
+    /**
+     * <pre>
+     * Any additional details regarding this error.
+     * </pre>
+     *
+     * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+     * @return Whether the errorDetails field is set.
+     */
+    public boolean hasErrorDetails() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * Any additional details regarding this error.
+     * </pre>
+     *
+     * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+     * @return The errorDetails.
+     */
+    public com.google.protobuf.Any getErrorDetails() {
+      if (errorDetailsBuilder_ == null) {
+        return errorDetails_ == null ? com.google.protobuf.Any.getDefaultInstance() : errorDetails_;
+      } else {
+        return errorDetailsBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Any additional details regarding this error.
+     * </pre>
+     *
+     * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+     */
+    public Builder setErrorDetails(com.google.protobuf.Any value) {
+      if (errorDetailsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        errorDetails_ = value;
+      } else {
+        errorDetailsBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Any additional details regarding this error.
+     * </pre>
+     *
+     * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+     */
+    public Builder setErrorDetails(
+        com.google.protobuf.Any.Builder builderForValue) {
+      if (errorDetailsBuilder_ == null) {
+        errorDetails_ = builderForValue.build();
+      } else {
+        errorDetailsBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Any additional details regarding this error.
+     * </pre>
+     *
+     * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+     */
+    public Builder mergeErrorDetails(com.google.protobuf.Any value) {
+      if (errorDetailsBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0) &&
+          errorDetails_ != null &&
+          errorDetails_ != com.google.protobuf.Any.getDefaultInstance()) {
+          getErrorDetailsBuilder().mergeFrom(value);
+        } else {
+          errorDetails_ = value;
+        }
+      } else {
+        errorDetailsBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Any additional details regarding this error.
+     * </pre>
+     *
+     * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+     */
+    public Builder clearErrorDetails() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      errorDetails_ = null;
+      if (errorDetailsBuilder_ != null) {
+        errorDetailsBuilder_.dispose();
+        errorDetailsBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Any additional details regarding this error.
+     * </pre>
+     *
+     * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+     */
+    public com.google.protobuf.Any.Builder getErrorDetailsBuilder() {
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return getErrorDetailsFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Any additional details regarding this error.
+     * </pre>
+     *
+     * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+     */
+    public com.google.protobuf.AnyOrBuilder getErrorDetailsOrBuilder() {
+      if (errorDetailsBuilder_ != null) {
+        return errorDetailsBuilder_.getMessageOrBuilder();
+      } else {
+        return errorDetails_ == null ?
+            com.google.protobuf.Any.getDefaultInstance() : errorDetails_;
+      }
+    }
+    /**
+     * <pre>
+     * Any additional details regarding this error.
+     * </pre>
+     *
+     * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
+        getErrorDetailsFieldBuilder() {
+      if (errorDetailsBuilder_ == null) {
+        errorDetailsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                getErrorDetails(),
+                getParentForChildren(),
+                isClean());
+        errorDetails_ = null;
+      }
+      return errorDetailsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

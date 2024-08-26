@@ -45,4 +45,31 @@ public interface TaskErrorOrBuilder extends
    */
   com.google.protobuf.ByteString
       getMessageBytes();
+
+  /**
+   * <pre>
+   * Any additional details regarding this error.
+   * </pre>
+   *
+   * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+   * @return Whether the errorDetails field is set.
+   */
+  boolean hasErrorDetails();
+  /**
+   * <pre>
+   * Any additional details regarding this error.
+   * </pre>
+   *
+   * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+   * @return The errorDetails.
+   */
+  com.google.protobuf.Any getErrorDetails();
+  /**
+   * <pre>
+   * Any additional details regarding this error.
+   * </pre>
+   *
+   * <code>.google.protobuf.Any error_details = 3 [json_name = "errorDetails"];</code>
+   */
+  com.google.protobuf.AnyOrBuilder getErrorDetailsOrBuilder();
 }
