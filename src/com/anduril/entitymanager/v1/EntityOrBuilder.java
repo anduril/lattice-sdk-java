@@ -236,7 +236,7 @@ public interface EntityOrBuilder extends
    *
    * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=72
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=71
    * @return Whether the geopolygon field is set.
    */
   @java.lang.Deprecated boolean hasGeopolygon();
@@ -247,7 +247,7 @@ public interface EntityOrBuilder extends
    *
    * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=72
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=71
    * @return The geopolygon.
    */
   @java.lang.Deprecated com.anduril.entitymanager.v1.GeoPolygon getGeopolygon();
@@ -892,51 +892,6 @@ public interface EntityOrBuilder extends
    * <code>.anduril.entitymanager.v1.VisualDetails visual_details = 34 [json_name = "visualDetails"];</code>
    */
   com.anduril.entitymanager.v1.VisualDetailsOrBuilder getVisualDetailsOrBuilder();
-
-  /**
-   * <pre>
-   * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-   *The following should be considered before use:
-   * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-   * You're responsible for handling key conflicts
-   * Any data on here is not supported by the battlespace awareness team
-   * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-   * 🙏
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-   * @return Whether the prototypeExtensions field is set.
-   */
-  boolean hasPrototypeExtensions();
-  /**
-   * <pre>
-   * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-   *The following should be considered before use:
-   * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-   * You're responsible for handling key conflicts
-   * Any data on here is not supported by the battlespace awareness team
-   * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-   * 🙏
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-   * @return The prototypeExtensions.
-   */
-  com.anduril.entitymanager.v1.PrototypeExtensions getPrototypeExtensions();
-  /**
-   * <pre>
-   * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-   *The following should be considered before use:
-   * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-   * You're responsible for handling key conflicts
-   * Any data on here is not supported by the battlespace awareness team
-   * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-   * 🙏
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-   */
-  com.anduril.entitymanager.v1.PrototypeExtensionsOrBuilder getPrototypeExtensionsOrBuilder();
 
   /**
    * <pre>

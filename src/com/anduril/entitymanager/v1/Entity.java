@@ -395,7 +395,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=72
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=71
    * @return Whether the geopolygon field is set.
    */
   @java.lang.Override
@@ -409,7 +409,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=72
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=71
    * @return The geopolygon.
    */
   @java.lang.Override
@@ -1314,62 +1314,6 @@ private static final long serialVersionUID = 0L;
     return visualDetails_ == null ? com.anduril.entitymanager.v1.VisualDetails.getDefaultInstance() : visualDetails_;
   }
 
-  public static final int PROTOTYPE_EXTENSIONS_FIELD_NUMBER = 35;
-  private com.anduril.entitymanager.v1.PrototypeExtensions prototypeExtensions_;
-  /**
-   * <pre>
-   * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-   *The following should be considered before use:
-   * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-   * You're responsible for handling key conflicts
-   * Any data on here is not supported by the battlespace awareness team
-   * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-   * 🙏
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-   * @return Whether the prototypeExtensions field is set.
-   */
-  @java.lang.Override
-  public boolean hasPrototypeExtensions() {
-    return prototypeExtensions_ != null;
-  }
-  /**
-   * <pre>
-   * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-   *The following should be considered before use:
-   * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-   * You're responsible for handling key conflicts
-   * Any data on here is not supported by the battlespace awareness team
-   * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-   * 🙏
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-   * @return The prototypeExtensions.
-   */
-  @java.lang.Override
-  public com.anduril.entitymanager.v1.PrototypeExtensions getPrototypeExtensions() {
-    return prototypeExtensions_ == null ? com.anduril.entitymanager.v1.PrototypeExtensions.getDefaultInstance() : prototypeExtensions_;
-  }
-  /**
-   * <pre>
-   * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-   *The following should be considered before use:
-   * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-   * You're responsible for handling key conflicts
-   * Any data on here is not supported by the battlespace awareness team
-   * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-   * 🙏
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-   */
-  @java.lang.Override
-  public com.anduril.entitymanager.v1.PrototypeExtensionsOrBuilder getPrototypeExtensionsOrBuilder() {
-    return prototypeExtensions_ == null ? com.anduril.entitymanager.v1.PrototypeExtensions.getDefaultInstance() : prototypeExtensions_;
-  }
-
   public static final int DIMENSIONS_FIELD_NUMBER = 36;
   private com.anduril.entitymanager.v1.Dimensions dimensions_;
   /**
@@ -1784,9 +1728,6 @@ private static final long serialVersionUID = 0L;
     if (visualDetails_ != null) {
       output.writeMessage(34, getVisualDetails());
     }
-    if (prototypeExtensions_ != null) {
-      output.writeMessage(35, getPrototypeExtensions());
-    }
     if (dimensions_ != null) {
       output.writeMessage(36, getDimensions());
     }
@@ -1948,10 +1889,6 @@ private static final long serialVersionUID = 0L;
     if (visualDetails_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(34, getVisualDetails());
-    }
-    if (prototypeExtensions_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(35, getPrototypeExtensions());
     }
     if (dimensions_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -2157,11 +2094,6 @@ private static final long serialVersionUID = 0L;
       if (!getVisualDetails()
           .equals(other.getVisualDetails())) return false;
     }
-    if (hasPrototypeExtensions() != other.hasPrototypeExtensions()) return false;
-    if (hasPrototypeExtensions()) {
-      if (!getPrototypeExtensions()
-          .equals(other.getPrototypeExtensions())) return false;
-    }
     if (hasDimensions() != other.hasDimensions()) return false;
     if (hasDimensions()) {
       if (!getDimensions()
@@ -2338,10 +2270,6 @@ private static final long serialVersionUID = 0L;
     if (hasVisualDetails()) {
       hash = (37 * hash) + VISUAL_DETAILS_FIELD_NUMBER;
       hash = (53 * hash) + getVisualDetails().hashCode();
-    }
-    if (hasPrototypeExtensions()) {
-      hash = (37 * hash) + PROTOTYPE_EXTENSIONS_FIELD_NUMBER;
-      hash = (53 * hash) + getPrototypeExtensions().hashCode();
     }
     if (hasDimensions()) {
       hash = (37 * hash) + DIMENSIONS_FIELD_NUMBER;
@@ -2659,11 +2587,6 @@ private static final long serialVersionUID = 0L;
         visualDetailsBuilder_.dispose();
         visualDetailsBuilder_ = null;
       }
-      prototypeExtensions_ = null;
-      if (prototypeExtensionsBuilder_ != null) {
-        prototypeExtensionsBuilder_.dispose();
-        prototypeExtensionsBuilder_ = null;
-      }
       dimensions_ = null;
       if (dimensionsBuilder_ != null) {
         dimensionsBuilder_.dispose();
@@ -2900,46 +2823,41 @@ private static final long serialVersionUID = 0L;
             : visualDetailsBuilder_.build();
       }
       if (((from_bitField1_ & 0x00000002) != 0)) {
-        result.prototypeExtensions_ = prototypeExtensionsBuilder_ == null
-            ? prototypeExtensions_
-            : prototypeExtensionsBuilder_.build();
-      }
-      if (((from_bitField1_ & 0x00000004) != 0)) {
         result.dimensions_ = dimensionsBuilder_ == null
             ? dimensions_
             : dimensionsBuilder_.build();
       }
-      if (((from_bitField1_ & 0x00000008) != 0)) {
+      if (((from_bitField1_ & 0x00000004) != 0)) {
         result.routeDetails_ = routeDetailsBuilder_ == null
             ? routeDetails_
             : routeDetailsBuilder_.build();
       }
-      if (((from_bitField1_ & 0x00000010) != 0)) {
+      if (((from_bitField1_ & 0x00000008) != 0)) {
         result.schedules_ = schedulesBuilder_ == null
             ? schedules_
             : schedulesBuilder_.build();
       }
-      if (((from_bitField1_ & 0x00000020) != 0)) {
+      if (((from_bitField1_ & 0x00000010) != 0)) {
         result.health_ = healthBuilder_ == null
             ? health_
             : healthBuilder_.build();
       }
-      if (((from_bitField1_ & 0x00000040) != 0)) {
+      if (((from_bitField1_ & 0x00000020) != 0)) {
         result.groupDetails_ = groupDetailsBuilder_ == null
             ? groupDetails_
             : groupDetailsBuilder_.build();
       }
-      if (((from_bitField1_ & 0x00000080) != 0)) {
+      if (((from_bitField1_ & 0x00000040) != 0)) {
         result.teamStatus_ = teamStatusBuilder_ == null
             ? teamStatus_
             : teamStatusBuilder_.build();
       }
-      if (((from_bitField1_ & 0x00000100) != 0)) {
+      if (((from_bitField1_ & 0x00000080) != 0)) {
         result.supplies_ = suppliesBuilder_ == null
             ? supplies_
             : suppliesBuilder_.build();
       }
-      if (((from_bitField1_ & 0x00000200) != 0)) {
+      if (((from_bitField1_ & 0x00000100) != 0)) {
         result.orbit_ = orbitBuilder_ == null
             ? orbit_
             : orbitBuilder_.build();
@@ -3060,9 +2978,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasVisualDetails()) {
         mergeVisualDetails(other.getVisualDetails());
-      }
-      if (other.hasPrototypeExtensions()) {
-        mergePrototypeExtensions(other.getPrototypeExtensions());
       }
       if (other.hasDimensions()) {
         mergeDimensions(other.getDimensions());
@@ -3332,60 +3247,53 @@ private static final long serialVersionUID = 0L;
               bitField1_ |= 0x00000001;
               break;
             } // case 274
-            case 282: {
-              input.readMessage(
-                  getPrototypeExtensionsFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField1_ |= 0x00000002;
-              break;
-            } // case 282
             case 290: {
               input.readMessage(
                   getDimensionsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField1_ |= 0x00000004;
+              bitField1_ |= 0x00000002;
               break;
             } // case 290
             case 298: {
               input.readMessage(
                   getRouteDetailsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField1_ |= 0x00000008;
+              bitField1_ |= 0x00000004;
               break;
             } // case 298
             case 306: {
               input.readMessage(
                   getSchedulesFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField1_ |= 0x00000010;
+              bitField1_ |= 0x00000008;
               break;
             } // case 306
             case 314: {
               input.readMessage(
                   getHealthFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField1_ |= 0x00000020;
+              bitField1_ |= 0x00000010;
               break;
             } // case 314
             case 322: {
               input.readMessage(
                   getGroupDetailsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField1_ |= 0x00000040;
+              bitField1_ |= 0x00000020;
               break;
             } // case 322
             case 330: {
               input.readMessage(
                   getTeamStatusFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField1_ |= 0x00000080;
+              bitField1_ |= 0x00000040;
               break;
             } // case 330
             case 338: {
               input.readMessage(
                   getSuppliesFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField1_ |= 0x00000100;
+              bitField1_ |= 0x00000080;
               break;
             } // case 338
             case 344: {
@@ -3397,7 +3305,7 @@ private static final long serialVersionUID = 0L;
               input.readMessage(
                   getOrbitFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField1_ |= 0x00000200;
+              bitField1_ |= 0x00000100;
               break;
             } // case 370
             default: {
@@ -4554,7 +4462,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=72
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=71
      * @return Whether the geopolygon field is set.
      */
     @java.lang.Deprecated public boolean hasGeopolygon() {
@@ -4567,7 +4475,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
      * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=72
+     *     See anduril/entitymanager/v1/entity.pub.proto;l=71
      * @return The geopolygon.
      */
     @java.lang.Deprecated public com.anduril.entitymanager.v1.GeoPolygon getGeopolygon() {
@@ -8304,215 +8212,6 @@ private static final long serialVersionUID = 0L;
       return visualDetailsBuilder_;
     }
 
-    private com.anduril.entitymanager.v1.PrototypeExtensions prototypeExtensions_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.PrototypeExtensions, com.anduril.entitymanager.v1.PrototypeExtensions.Builder, com.anduril.entitymanager.v1.PrototypeExtensionsOrBuilder> prototypeExtensionsBuilder_;
-    /**
-     * <pre>
-     * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-     *The following should be considered before use:
-     * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-     * You're responsible for handling key conflicts
-     * Any data on here is not supported by the battlespace awareness team
-     * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-     * 🙏
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-     * @return Whether the prototypeExtensions field is set.
-     */
-    public boolean hasPrototypeExtensions() {
-      return ((bitField1_ & 0x00000002) != 0);
-    }
-    /**
-     * <pre>
-     * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-     *The following should be considered before use:
-     * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-     * You're responsible for handling key conflicts
-     * Any data on here is not supported by the battlespace awareness team
-     * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-     * 🙏
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-     * @return The prototypeExtensions.
-     */
-    public com.anduril.entitymanager.v1.PrototypeExtensions getPrototypeExtensions() {
-      if (prototypeExtensionsBuilder_ == null) {
-        return prototypeExtensions_ == null ? com.anduril.entitymanager.v1.PrototypeExtensions.getDefaultInstance() : prototypeExtensions_;
-      } else {
-        return prototypeExtensionsBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-     *The following should be considered before use:
-     * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-     * You're responsible for handling key conflicts
-     * Any data on here is not supported by the battlespace awareness team
-     * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-     * 🙏
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-     */
-    public Builder setPrototypeExtensions(com.anduril.entitymanager.v1.PrototypeExtensions value) {
-      if (prototypeExtensionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        prototypeExtensions_ = value;
-      } else {
-        prototypeExtensionsBuilder_.setMessage(value);
-      }
-      bitField1_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-     *The following should be considered before use:
-     * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-     * You're responsible for handling key conflicts
-     * Any data on here is not supported by the battlespace awareness team
-     * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-     * 🙏
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-     */
-    public Builder setPrototypeExtensions(
-        com.anduril.entitymanager.v1.PrototypeExtensions.Builder builderForValue) {
-      if (prototypeExtensionsBuilder_ == null) {
-        prototypeExtensions_ = builderForValue.build();
-      } else {
-        prototypeExtensionsBuilder_.setMessage(builderForValue.build());
-      }
-      bitField1_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-     *The following should be considered before use:
-     * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-     * You're responsible for handling key conflicts
-     * Any data on here is not supported by the battlespace awareness team
-     * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-     * 🙏
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-     */
-    public Builder mergePrototypeExtensions(com.anduril.entitymanager.v1.PrototypeExtensions value) {
-      if (prototypeExtensionsBuilder_ == null) {
-        if (((bitField1_ & 0x00000002) != 0) &&
-          prototypeExtensions_ != null &&
-          prototypeExtensions_ != com.anduril.entitymanager.v1.PrototypeExtensions.getDefaultInstance()) {
-          getPrototypeExtensionsBuilder().mergeFrom(value);
-        } else {
-          prototypeExtensions_ = value;
-        }
-      } else {
-        prototypeExtensionsBuilder_.mergeFrom(value);
-      }
-      bitField1_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-     *The following should be considered before use:
-     * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-     * You're responsible for handling key conflicts
-     * Any data on here is not supported by the battlespace awareness team
-     * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-     * 🙏
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-     */
-    public Builder clearPrototypeExtensions() {
-      bitField1_ = (bitField1_ & ~0x00000002);
-      prototypeExtensions_ = null;
-      if (prototypeExtensionsBuilder_ != null) {
-        prototypeExtensionsBuilder_.dispose();
-        prototypeExtensionsBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-     *The following should be considered before use:
-     * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-     * You're responsible for handling key conflicts
-     * Any data on here is not supported by the battlespace awareness team
-     * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-     * 🙏
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-     */
-    public com.anduril.entitymanager.v1.PrototypeExtensions.Builder getPrototypeExtensionsBuilder() {
-      bitField1_ |= 0x00000002;
-      onChanged();
-      return getPrototypeExtensionsFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-     *The following should be considered before use:
-     * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-     * You're responsible for handling key conflicts
-     * Any data on here is not supported by the battlespace awareness team
-     * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-     * 🙏
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-     */
-    public com.anduril.entitymanager.v1.PrototypeExtensionsOrBuilder getPrototypeExtensionsOrBuilder() {
-      if (prototypeExtensionsBuilder_ != null) {
-        return prototypeExtensionsBuilder_.getMessageOrBuilder();
-      } else {
-        return prototypeExtensions_ == null ?
-            com.anduril.entitymanager.v1.PrototypeExtensions.getDefaultInstance() : prototypeExtensions_;
-      }
-    }
-    /**
-     * <pre>
-     * A generic component that should only be used by Anduril employees as a way of ferrying data without modelling it as a full component. USE WITH CAUTION!!
-     *The following should be considered before use:
-     * If you have the time available, liaise with the battlespace team (#battlespace-team) to determine if this should be modelled on an existing/new component
-     * You're responsible for handling key conflicts
-     * Any data on here is not supported by the battlespace awareness team
-     * The intention is for this to be used by short-lived prototypes where you may not have conviction in it's longevity
-     * 🙏
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.PrototypeExtensions prototype_extensions = 35 [json_name = "prototypeExtensions"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.PrototypeExtensions, com.anduril.entitymanager.v1.PrototypeExtensions.Builder, com.anduril.entitymanager.v1.PrototypeExtensionsOrBuilder> 
-        getPrototypeExtensionsFieldBuilder() {
-      if (prototypeExtensionsBuilder_ == null) {
-        prototypeExtensionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.anduril.entitymanager.v1.PrototypeExtensions, com.anduril.entitymanager.v1.PrototypeExtensions.Builder, com.anduril.entitymanager.v1.PrototypeExtensionsOrBuilder>(
-                getPrototypeExtensions(),
-                getParentForChildren(),
-                isClean());
-        prototypeExtensions_ = null;
-      }
-      return prototypeExtensionsBuilder_;
-    }
-
     private com.anduril.entitymanager.v1.Dimensions dimensions_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.Dimensions, com.anduril.entitymanager.v1.Dimensions.Builder, com.anduril.entitymanager.v1.DimensionsOrBuilder> dimensionsBuilder_;
@@ -8525,7 +8224,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dimensions field is set.
      */
     public boolean hasDimensions() {
-      return ((bitField1_ & 0x00000004) != 0);
+      return ((bitField1_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -8558,7 +8257,7 @@ private static final long serialVersionUID = 0L;
       } else {
         dimensionsBuilder_.setMessage(value);
       }
-      bitField1_ |= 0x00000004;
+      bitField1_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -8576,7 +8275,7 @@ private static final long serialVersionUID = 0L;
       } else {
         dimensionsBuilder_.setMessage(builderForValue.build());
       }
-      bitField1_ |= 0x00000004;
+      bitField1_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -8589,7 +8288,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDimensions(com.anduril.entitymanager.v1.Dimensions value) {
       if (dimensionsBuilder_ == null) {
-        if (((bitField1_ & 0x00000004) != 0) &&
+        if (((bitField1_ & 0x00000002) != 0) &&
           dimensions_ != null &&
           dimensions_ != com.anduril.entitymanager.v1.Dimensions.getDefaultInstance()) {
           getDimensionsBuilder().mergeFrom(value);
@@ -8599,7 +8298,7 @@ private static final long serialVersionUID = 0L;
       } else {
         dimensionsBuilder_.mergeFrom(value);
       }
-      bitField1_ |= 0x00000004;
+      bitField1_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -8611,7 +8310,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];</code>
      */
     public Builder clearDimensions() {
-      bitField1_ = (bitField1_ & ~0x00000004);
+      bitField1_ = (bitField1_ & ~0x00000002);
       dimensions_ = null;
       if (dimensionsBuilder_ != null) {
         dimensionsBuilder_.dispose();
@@ -8628,7 +8327,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];</code>
      */
     public com.anduril.entitymanager.v1.Dimensions.Builder getDimensionsBuilder() {
-      bitField1_ |= 0x00000004;
+      bitField1_ |= 0x00000002;
       onChanged();
       return getDimensionsFieldBuilder().getBuilder();
     }
@@ -8680,7 +8379,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the routeDetails field is set.
      */
     public boolean hasRouteDetails() {
-      return ((bitField1_ & 0x00000008) != 0);
+      return ((bitField1_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -8713,7 +8412,7 @@ private static final long serialVersionUID = 0L;
       } else {
         routeDetailsBuilder_.setMessage(value);
       }
-      bitField1_ |= 0x00000008;
+      bitField1_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -8731,7 +8430,7 @@ private static final long serialVersionUID = 0L;
       } else {
         routeDetailsBuilder_.setMessage(builderForValue.build());
       }
-      bitField1_ |= 0x00000008;
+      bitField1_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -8744,7 +8443,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRouteDetails(com.anduril.entitymanager.v1.RouteDetails value) {
       if (routeDetailsBuilder_ == null) {
-        if (((bitField1_ & 0x00000008) != 0) &&
+        if (((bitField1_ & 0x00000004) != 0) &&
           routeDetails_ != null &&
           routeDetails_ != com.anduril.entitymanager.v1.RouteDetails.getDefaultInstance()) {
           getRouteDetailsBuilder().mergeFrom(value);
@@ -8754,7 +8453,7 @@ private static final long serialVersionUID = 0L;
       } else {
         routeDetailsBuilder_.mergeFrom(value);
       }
-      bitField1_ |= 0x00000008;
+      bitField1_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -8766,7 +8465,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.RouteDetails route_details = 37 [json_name = "routeDetails"];</code>
      */
     public Builder clearRouteDetails() {
-      bitField1_ = (bitField1_ & ~0x00000008);
+      bitField1_ = (bitField1_ & ~0x00000004);
       routeDetails_ = null;
       if (routeDetailsBuilder_ != null) {
         routeDetailsBuilder_.dispose();
@@ -8783,7 +8482,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.RouteDetails route_details = 37 [json_name = "routeDetails"];</code>
      */
     public com.anduril.entitymanager.v1.RouteDetails.Builder getRouteDetailsBuilder() {
-      bitField1_ |= 0x00000008;
+      bitField1_ |= 0x00000004;
       onChanged();
       return getRouteDetailsFieldBuilder().getBuilder();
     }
@@ -8835,7 +8534,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the schedules field is set.
      */
     public boolean hasSchedules() {
-      return ((bitField1_ & 0x00000010) != 0);
+      return ((bitField1_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -8868,7 +8567,7 @@ private static final long serialVersionUID = 0L;
       } else {
         schedulesBuilder_.setMessage(value);
       }
-      bitField1_ |= 0x00000010;
+      bitField1_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -8886,7 +8585,7 @@ private static final long serialVersionUID = 0L;
       } else {
         schedulesBuilder_.setMessage(builderForValue.build());
       }
-      bitField1_ |= 0x00000010;
+      bitField1_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -8899,7 +8598,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSchedules(com.anduril.entitymanager.v1.Schedules value) {
       if (schedulesBuilder_ == null) {
-        if (((bitField1_ & 0x00000010) != 0) &&
+        if (((bitField1_ & 0x00000008) != 0) &&
           schedules_ != null &&
           schedules_ != com.anduril.entitymanager.v1.Schedules.getDefaultInstance()) {
           getSchedulesBuilder().mergeFrom(value);
@@ -8909,7 +8608,7 @@ private static final long serialVersionUID = 0L;
       } else {
         schedulesBuilder_.mergeFrom(value);
       }
-      bitField1_ |= 0x00000010;
+      bitField1_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -8921,7 +8620,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];</code>
      */
     public Builder clearSchedules() {
-      bitField1_ = (bitField1_ & ~0x00000010);
+      bitField1_ = (bitField1_ & ~0x00000008);
       schedules_ = null;
       if (schedulesBuilder_ != null) {
         schedulesBuilder_.dispose();
@@ -8938,7 +8637,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];</code>
      */
     public com.anduril.entitymanager.v1.Schedules.Builder getSchedulesBuilder() {
-      bitField1_ |= 0x00000010;
+      bitField1_ |= 0x00000008;
       onChanged();
       return getSchedulesFieldBuilder().getBuilder();
     }
@@ -8990,7 +8689,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the health field is set.
      */
     public boolean hasHealth() {
-      return ((bitField1_ & 0x00000020) != 0);
+      return ((bitField1_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -9023,7 +8722,7 @@ private static final long serialVersionUID = 0L;
       } else {
         healthBuilder_.setMessage(value);
       }
-      bitField1_ |= 0x00000020;
+      bitField1_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -9041,7 +8740,7 @@ private static final long serialVersionUID = 0L;
       } else {
         healthBuilder_.setMessage(builderForValue.build());
       }
-      bitField1_ |= 0x00000020;
+      bitField1_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -9054,7 +8753,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHealth(com.anduril.entitymanager.v1.Health value) {
       if (healthBuilder_ == null) {
-        if (((bitField1_ & 0x00000020) != 0) &&
+        if (((bitField1_ & 0x00000010) != 0) &&
           health_ != null &&
           health_ != com.anduril.entitymanager.v1.Health.getDefaultInstance()) {
           getHealthBuilder().mergeFrom(value);
@@ -9064,7 +8763,7 @@ private static final long serialVersionUID = 0L;
       } else {
         healthBuilder_.mergeFrom(value);
       }
-      bitField1_ |= 0x00000020;
+      bitField1_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -9076,7 +8775,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Health health = 39 [json_name = "health"];</code>
      */
     public Builder clearHealth() {
-      bitField1_ = (bitField1_ & ~0x00000020);
+      bitField1_ = (bitField1_ & ~0x00000010);
       health_ = null;
       if (healthBuilder_ != null) {
         healthBuilder_.dispose();
@@ -9093,7 +8792,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Health health = 39 [json_name = "health"];</code>
      */
     public com.anduril.entitymanager.v1.Health.Builder getHealthBuilder() {
-      bitField1_ |= 0x00000020;
+      bitField1_ |= 0x00000010;
       onChanged();
       return getHealthFieldBuilder().getBuilder();
     }
@@ -9145,7 +8844,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the groupDetails field is set.
      */
     public boolean hasGroupDetails() {
-      return ((bitField1_ & 0x00000040) != 0);
+      return ((bitField1_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -9178,7 +8877,7 @@ private static final long serialVersionUID = 0L;
       } else {
         groupDetailsBuilder_.setMessage(value);
       }
-      bitField1_ |= 0x00000040;
+      bitField1_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -9196,7 +8895,7 @@ private static final long serialVersionUID = 0L;
       } else {
         groupDetailsBuilder_.setMessage(builderForValue.build());
       }
-      bitField1_ |= 0x00000040;
+      bitField1_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -9209,7 +8908,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGroupDetails(com.anduril.entitymanager.v1.GroupDetails value) {
       if (groupDetailsBuilder_ == null) {
-        if (((bitField1_ & 0x00000040) != 0) &&
+        if (((bitField1_ & 0x00000020) != 0) &&
           groupDetails_ != null &&
           groupDetails_ != com.anduril.entitymanager.v1.GroupDetails.getDefaultInstance()) {
           getGroupDetailsBuilder().mergeFrom(value);
@@ -9219,7 +8918,7 @@ private static final long serialVersionUID = 0L;
       } else {
         groupDetailsBuilder_.mergeFrom(value);
       }
-      bitField1_ |= 0x00000040;
+      bitField1_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -9231,7 +8930,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];</code>
      */
     public Builder clearGroupDetails() {
-      bitField1_ = (bitField1_ & ~0x00000040);
+      bitField1_ = (bitField1_ & ~0x00000020);
       groupDetails_ = null;
       if (groupDetailsBuilder_ != null) {
         groupDetailsBuilder_.dispose();
@@ -9248,7 +8947,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];</code>
      */
     public com.anduril.entitymanager.v1.GroupDetails.Builder getGroupDetailsBuilder() {
-      bitField1_ |= 0x00000040;
+      bitField1_ |= 0x00000020;
       onChanged();
       return getGroupDetailsFieldBuilder().getBuilder();
     }
@@ -9300,7 +8999,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the teamStatus field is set.
      */
     public boolean hasTeamStatus() {
-      return ((bitField1_ & 0x00000080) != 0);
+      return ((bitField1_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -9333,7 +9032,7 @@ private static final long serialVersionUID = 0L;
       } else {
         teamStatusBuilder_.setMessage(value);
       }
-      bitField1_ |= 0x00000080;
+      bitField1_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -9351,7 +9050,7 @@ private static final long serialVersionUID = 0L;
       } else {
         teamStatusBuilder_.setMessage(builderForValue.build());
       }
-      bitField1_ |= 0x00000080;
+      bitField1_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -9364,7 +9063,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTeamStatus(com.anduril.entitymanager.v1.TeamStatus value) {
       if (teamStatusBuilder_ == null) {
-        if (((bitField1_ & 0x00000080) != 0) &&
+        if (((bitField1_ & 0x00000040) != 0) &&
           teamStatus_ != null &&
           teamStatus_ != com.anduril.entitymanager.v1.TeamStatus.getDefaultInstance()) {
           getTeamStatusBuilder().mergeFrom(value);
@@ -9374,7 +9073,7 @@ private static final long serialVersionUID = 0L;
       } else {
         teamStatusBuilder_.mergeFrom(value);
       }
-      bitField1_ |= 0x00000080;
+      bitField1_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -9386,7 +9085,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.TeamStatus team_status = 41 [json_name = "teamStatus"];</code>
      */
     public Builder clearTeamStatus() {
-      bitField1_ = (bitField1_ & ~0x00000080);
+      bitField1_ = (bitField1_ & ~0x00000040);
       teamStatus_ = null;
       if (teamStatusBuilder_ != null) {
         teamStatusBuilder_.dispose();
@@ -9403,7 +9102,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.TeamStatus team_status = 41 [json_name = "teamStatus"];</code>
      */
     public com.anduril.entitymanager.v1.TeamStatus.Builder getTeamStatusBuilder() {
-      bitField1_ |= 0x00000080;
+      bitField1_ |= 0x00000040;
       onChanged();
       return getTeamStatusFieldBuilder().getBuilder();
     }
@@ -9455,7 +9154,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the supplies field is set.
      */
     public boolean hasSupplies() {
-      return ((bitField1_ & 0x00000100) != 0);
+      return ((bitField1_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -9488,7 +9187,7 @@ private static final long serialVersionUID = 0L;
       } else {
         suppliesBuilder_.setMessage(value);
       }
-      bitField1_ |= 0x00000100;
+      bitField1_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -9506,7 +9205,7 @@ private static final long serialVersionUID = 0L;
       } else {
         suppliesBuilder_.setMessage(builderForValue.build());
       }
-      bitField1_ |= 0x00000100;
+      bitField1_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -9519,7 +9218,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSupplies(com.anduril.entitymanager.v1.Supplies value) {
       if (suppliesBuilder_ == null) {
-        if (((bitField1_ & 0x00000100) != 0) &&
+        if (((bitField1_ & 0x00000080) != 0) &&
           supplies_ != null &&
           supplies_ != com.anduril.entitymanager.v1.Supplies.getDefaultInstance()) {
           getSuppliesBuilder().mergeFrom(value);
@@ -9529,7 +9228,7 @@ private static final long serialVersionUID = 0L;
       } else {
         suppliesBuilder_.mergeFrom(value);
       }
-      bitField1_ |= 0x00000100;
+      bitField1_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -9541,7 +9240,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
      */
     public Builder clearSupplies() {
-      bitField1_ = (bitField1_ & ~0x00000100);
+      bitField1_ = (bitField1_ & ~0x00000080);
       supplies_ = null;
       if (suppliesBuilder_ != null) {
         suppliesBuilder_.dispose();
@@ -9558,7 +9257,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
      */
     public com.anduril.entitymanager.v1.Supplies.Builder getSuppliesBuilder() {
-      bitField1_ |= 0x00000100;
+      bitField1_ |= 0x00000080;
       onChanged();
       return getSuppliesFieldBuilder().getBuilder();
     }
@@ -9610,7 +9309,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the orbit field is set.
      */
     public boolean hasOrbit() {
-      return ((bitField1_ & 0x00000200) != 0);
+      return ((bitField1_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -9643,7 +9342,7 @@ private static final long serialVersionUID = 0L;
       } else {
         orbitBuilder_.setMessage(value);
       }
-      bitField1_ |= 0x00000200;
+      bitField1_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -9661,7 +9360,7 @@ private static final long serialVersionUID = 0L;
       } else {
         orbitBuilder_.setMessage(builderForValue.build());
       }
-      bitField1_ |= 0x00000200;
+      bitField1_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -9674,7 +9373,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOrbit(com.anduril.entitymanager.v1.Orbit value) {
       if (orbitBuilder_ == null) {
-        if (((bitField1_ & 0x00000200) != 0) &&
+        if (((bitField1_ & 0x00000100) != 0) &&
           orbit_ != null &&
           orbit_ != com.anduril.entitymanager.v1.Orbit.getDefaultInstance()) {
           getOrbitBuilder().mergeFrom(value);
@@ -9684,7 +9383,7 @@ private static final long serialVersionUID = 0L;
       } else {
         orbitBuilder_.mergeFrom(value);
       }
-      bitField1_ |= 0x00000200;
+      bitField1_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -9696,7 +9395,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
      */
     public Builder clearOrbit() {
-      bitField1_ = (bitField1_ & ~0x00000200);
+      bitField1_ = (bitField1_ & ~0x00000100);
       orbit_ = null;
       if (orbitBuilder_ != null) {
         orbitBuilder_.dispose();
@@ -9713,7 +9412,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
      */
     public com.anduril.entitymanager.v1.Orbit.Builder getOrbitBuilder() {
-      bitField1_ |= 0x00000200;
+      bitField1_ |= 0x00000100;
       onChanged();
       return getOrbitFieldBuilder().getBuilder();
     }
