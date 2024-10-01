@@ -30,14 +30,14 @@ public interface OriginalDataOrBuilder extends
   /**
    * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.OriginalData.tle is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=290
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=298
    * @return Whether the tle field is set.
    */
   @java.lang.Deprecated boolean hasTle();
   /**
    * <code>.anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];</code>
    * @deprecated anduril.entitymanager.v1.OriginalData.tle is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=290
+   *     See anduril/entitymanager/v1/entity.pub.proto;l=298
    * @return The tle.
    */
   @java.lang.Deprecated com.anduril.entitymanager.v1.OriginalData.TLE getTle();

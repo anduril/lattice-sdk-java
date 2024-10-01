@@ -4,42 +4,38 @@
 package com.anduril.entitymanager.v1;
 
 /**
- * <pre>
- * void response but with placeholder for future optional fields.
- * </pre>
- *
- * Protobuf type {@code anduril.entitymanager.v1.DeleteEntityResponse}
+ * Protobuf type {@code anduril.entitymanager.v1.PublishEntityResponse}
  */
-public final class DeleteEntityResponse extends
+public final class PublishEntityResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:anduril.entitymanager.v1.DeleteEntityResponse)
-    DeleteEntityResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:anduril.entitymanager.v1.PublishEntityResponse)
+    PublishEntityResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use DeleteEntityResponse.newBuilder() to construct.
-  private DeleteEntityResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use PublishEntityResponse.newBuilder() to construct.
+  private PublishEntityResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private DeleteEntityResponse() {
+  private PublishEntityResponse() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new DeleteEntityResponse();
+    return new PublishEntityResponse();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_DeleteEntityResponse_descriptor;
+    return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PublishEntityResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_DeleteEntityResponse_fieldAccessorTable
+    return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PublishEntityResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.anduril.entitymanager.v1.DeleteEntityResponse.class, com.anduril.entitymanager.v1.DeleteEntityResponse.Builder.class);
+            com.anduril.entitymanager.v1.PublishEntityResponse.class, com.anduril.entitymanager.v1.PublishEntityResponse.Builder.class);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -75,10 +71,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.anduril.entitymanager.v1.DeleteEntityResponse)) {
+    if (!(obj instanceof com.anduril.entitymanager.v1.PublishEntityResponse)) {
       return super.equals(obj);
     }
-    com.anduril.entitymanager.v1.DeleteEntityResponse other = (com.anduril.entitymanager.v1.DeleteEntityResponse) obj;
+    com.anduril.entitymanager.v1.PublishEntityResponse other = (com.anduril.entitymanager.v1.PublishEntityResponse) obj;
 
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
@@ -96,69 +92,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseFrom(byte[] data)
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseFrom(java.io.InputStream input)
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseDelimitedFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -171,7 +167,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.anduril.entitymanager.v1.DeleteEntityResponse prototype) {
+  public static Builder newBuilder(com.anduril.entitymanager.v1.PublishEntityResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -187,30 +183,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * void response but with placeholder for future optional fields.
-   * </pre>
-   *
-   * Protobuf type {@code anduril.entitymanager.v1.DeleteEntityResponse}
+   * Protobuf type {@code anduril.entitymanager.v1.PublishEntityResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:anduril.entitymanager.v1.DeleteEntityResponse)
-      com.anduril.entitymanager.v1.DeleteEntityResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:anduril.entitymanager.v1.PublishEntityResponse)
+      com.anduril.entitymanager.v1.PublishEntityResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_DeleteEntityResponse_descriptor;
+      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PublishEntityResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_DeleteEntityResponse_fieldAccessorTable
+      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PublishEntityResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.anduril.entitymanager.v1.DeleteEntityResponse.class, com.anduril.entitymanager.v1.DeleteEntityResponse.Builder.class);
+              com.anduril.entitymanager.v1.PublishEntityResponse.class, com.anduril.entitymanager.v1.PublishEntityResponse.Builder.class);
     }
 
-    // Construct using com.anduril.entitymanager.v1.DeleteEntityResponse.newBuilder()
+    // Construct using com.anduril.entitymanager.v1.PublishEntityResponse.newBuilder()
     private Builder() {
 
     }
@@ -229,17 +221,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_DeleteEntityResponse_descriptor;
+      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PublishEntityResponse_descriptor;
     }
 
     @java.lang.Override
-    public com.anduril.entitymanager.v1.DeleteEntityResponse getDefaultInstanceForType() {
-      return com.anduril.entitymanager.v1.DeleteEntityResponse.getDefaultInstance();
+    public com.anduril.entitymanager.v1.PublishEntityResponse getDefaultInstanceForType() {
+      return com.anduril.entitymanager.v1.PublishEntityResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.anduril.entitymanager.v1.DeleteEntityResponse build() {
-      com.anduril.entitymanager.v1.DeleteEntityResponse result = buildPartial();
+    public com.anduril.entitymanager.v1.PublishEntityResponse build() {
+      com.anduril.entitymanager.v1.PublishEntityResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -247,24 +239,24 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.anduril.entitymanager.v1.DeleteEntityResponse buildPartial() {
-      com.anduril.entitymanager.v1.DeleteEntityResponse result = new com.anduril.entitymanager.v1.DeleteEntityResponse(this);
+    public com.anduril.entitymanager.v1.PublishEntityResponse buildPartial() {
+      com.anduril.entitymanager.v1.PublishEntityResponse result = new com.anduril.entitymanager.v1.PublishEntityResponse(this);
       onBuilt();
       return result;
     }
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.anduril.entitymanager.v1.DeleteEntityResponse) {
-        return mergeFrom((com.anduril.entitymanager.v1.DeleteEntityResponse)other);
+      if (other instanceof com.anduril.entitymanager.v1.PublishEntityResponse) {
+        return mergeFrom((com.anduril.entitymanager.v1.PublishEntityResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.anduril.entitymanager.v1.DeleteEntityResponse other) {
-      if (other == com.anduril.entitymanager.v1.DeleteEntityResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.anduril.entitymanager.v1.PublishEntityResponse other) {
+      if (other == com.anduril.entitymanager.v1.PublishEntityResponse.getDefaultInstance()) return this;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -319,23 +311,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:anduril.entitymanager.v1.DeleteEntityResponse)
+    // @@protoc_insertion_point(builder_scope:anduril.entitymanager.v1.PublishEntityResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.DeleteEntityResponse)
-  private static final com.anduril.entitymanager.v1.DeleteEntityResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.PublishEntityResponse)
+  private static final com.anduril.entitymanager.v1.PublishEntityResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.anduril.entitymanager.v1.DeleteEntityResponse();
+    DEFAULT_INSTANCE = new com.anduril.entitymanager.v1.PublishEntityResponse();
   }
 
-  public static com.anduril.entitymanager.v1.DeleteEntityResponse getDefaultInstance() {
+  public static com.anduril.entitymanager.v1.PublishEntityResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<DeleteEntityResponse>
-      PARSER = new com.google.protobuf.AbstractParser<DeleteEntityResponse>() {
+  private static final com.google.protobuf.Parser<PublishEntityResponse>
+      PARSER = new com.google.protobuf.AbstractParser<PublishEntityResponse>() {
     @java.lang.Override
-    public DeleteEntityResponse parsePartialFrom(
+    public PublishEntityResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -354,17 +346,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<DeleteEntityResponse> parser() {
+  public static com.google.protobuf.Parser<PublishEntityResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<DeleteEntityResponse> getParserForType() {
+  public com.google.protobuf.Parser<PublishEntityResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.anduril.entitymanager.v1.DeleteEntityResponse getDefaultInstanceForType() {
+  public com.anduril.entitymanager.v1.PublishEntityResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

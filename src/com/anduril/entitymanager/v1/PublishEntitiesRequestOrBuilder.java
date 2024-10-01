@@ -9,13 +9,11 @@ public interface PublishEntitiesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Stream of fully formed entities to publish
-   * Required fields per entity:
+   * Required fields:
    *   * expiry_time - must be in the future, but less than 30 days from now
    *   * provenance.data_type
    *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
    *   * aliases.name
-   *   * ontology.template
    * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
    * if an entity_id is provided, will treat as update, otherwise create
    * </pre>
@@ -26,13 +24,11 @@ public interface PublishEntitiesRequestOrBuilder extends
   boolean hasEntity();
   /**
    * <pre>
-   * Stream of fully formed entities to publish
-   * Required fields per entity:
+   * Required fields:
    *   * expiry_time - must be in the future, but less than 30 days from now
    *   * provenance.data_type
    *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
    *   * aliases.name
-   *   * ontology.template
    * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
    * if an entity_id is provided, will treat as update, otherwise create
    * </pre>
@@ -43,13 +39,11 @@ public interface PublishEntitiesRequestOrBuilder extends
   com.anduril.entitymanager.v1.Entity getEntity();
   /**
    * <pre>
-   * Stream of fully formed entities to publish
-   * Required fields per entity:
+   * Required fields:
    *   * expiry_time - must be in the future, but less than 30 days from now
    *   * provenance.data_type
    *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
    *   * aliases.name
-   *   * ontology.template
    * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
    * if an entity_id is provided, will treat as update, otherwise create
    * </pre>

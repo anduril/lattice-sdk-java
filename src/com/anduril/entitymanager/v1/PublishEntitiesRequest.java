@@ -42,13 +42,11 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.Entity entity_;
   /**
    * <pre>
-   * Stream of fully formed entities to publish
-   * Required fields per entity:
+   * Required fields:
    *   * expiry_time - must be in the future, but less than 30 days from now
    *   * provenance.data_type
    *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
    *   * aliases.name
-   *   * ontology.template
    * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
    * if an entity_id is provided, will treat as update, otherwise create
    * </pre>
@@ -62,13 +60,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Stream of fully formed entities to publish
-   * Required fields per entity:
+   * Required fields:
    *   * expiry_time - must be in the future, but less than 30 days from now
    *   * provenance.data_type
    *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
    *   * aliases.name
-   *   * ontology.template
    * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
    * if an entity_id is provided, will treat as update, otherwise create
    * </pre>
@@ -82,13 +78,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Stream of fully formed entities to publish
-   * Required fields per entity:
+   * Required fields:
    *   * expiry_time - must be in the future, but less than 30 days from now
    *   * provenance.data_type
    *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
    *   * aliases.name
-   *   * ontology.template
    * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
    * if an entity_id is provided, will treat as update, otherwise create
    * </pre>
@@ -409,13 +403,11 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.Entity, com.anduril.entitymanager.v1.Entity.Builder, com.anduril.entitymanager.v1.EntityOrBuilder> entityBuilder_;
     /**
      * <pre>
-     * Stream of fully formed entities to publish
-     * Required fields per entity:
+     * Required fields:
      *   * expiry_time - must be in the future, but less than 30 days from now
      *   * provenance.data_type
      *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
      *   * aliases.name
-     *   * ontology.template
      * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
      * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
@@ -428,13 +420,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Stream of fully formed entities to publish
-     * Required fields per entity:
+     * Required fields:
      *   * expiry_time - must be in the future, but less than 30 days from now
      *   * provenance.data_type
      *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
      *   * aliases.name
-     *   * ontology.template
      * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
      * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
@@ -451,13 +441,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Stream of fully formed entities to publish
-     * Required fields per entity:
+     * Required fields:
      *   * expiry_time - must be in the future, but less than 30 days from now
      *   * provenance.data_type
      *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
      *   * aliases.name
-     *   * ontology.template
      * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
      * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
@@ -479,13 +467,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Stream of fully formed entities to publish
-     * Required fields per entity:
+     * Required fields:
      *   * expiry_time - must be in the future, but less than 30 days from now
      *   * provenance.data_type
      *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
      *   * aliases.name
-     *   * ontology.template
      * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
      * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
@@ -505,13 +491,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Stream of fully formed entities to publish
-     * Required fields per entity:
+     * Required fields:
      *   * expiry_time - must be in the future, but less than 30 days from now
      *   * provenance.data_type
      *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
      *   * aliases.name
-     *   * ontology.template
      * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
      * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
@@ -536,13 +520,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Stream of fully formed entities to publish
-     * Required fields per entity:
+     * Required fields:
      *   * expiry_time - must be in the future, but less than 30 days from now
      *   * provenance.data_type
      *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
      *   * aliases.name
-     *   * ontology.template
      * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
      * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
@@ -561,13 +543,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Stream of fully formed entities to publish
-     * Required fields per entity:
+     * Required fields:
      *   * expiry_time - must be in the future, but less than 30 days from now
      *   * provenance.data_type
      *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
      *   * aliases.name
-     *   * ontology.template
      * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
      * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
@@ -581,13 +561,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Stream of fully formed entities to publish
-     * Required fields per entity:
+     * Required fields:
      *   * expiry_time - must be in the future, but less than 30 days from now
      *   * provenance.data_type
      *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
      *   * aliases.name
-     *   * ontology.template
      * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
      * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
@@ -604,13 +582,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Stream of fully formed entities to publish
-     * Required fields per entity:
+     * Required fields:
      *   * expiry_time - must be in the future, but less than 30 days from now
      *   * provenance.data_type
      *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
      *   * aliases.name
-     *   * ontology.template
      * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
      * if an entity_id is provided, will treat as update, otherwise create
      * </pre>

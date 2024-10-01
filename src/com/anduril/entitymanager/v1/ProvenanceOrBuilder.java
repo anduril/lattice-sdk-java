@@ -9,7 +9,32 @@ public interface ProvenanceOrBuilder extends
 
   /**
    * <pre>
+   * A feed is a 1:1 or Many:1 mapping between a data type from a specific vendor
+   * and an output stream of entities. The feed_name identifies the feed definition
+   * in the Feeds API and must be globally unique per feed.
+   * </pre>
+   *
+   * <code>string feed_name = 7 [json_name = "feedName"];</code>
+   * @return The feedName.
+   */
+  java.lang.String getFeedName();
+  /**
+   * <pre>
+   * A feed is a 1:1 or Many:1 mapping between a data type from a specific vendor
+   * and an output stream of entities. The feed_name identifies the feed definition
+   * in the Feeds API and must be globally unique per feed.
+   * </pre>
+   *
+   * <code>string feed_name = 7 [json_name = "feedName"];</code>
+   * @return The bytes for feedName.
+   */
+  com.google.protobuf.ByteString
+      getFeedNameBytes();
+
+  /**
+   * <pre>
    * Name of the integration that produced this entity
+   * To be deprecated soon in favor of feed_name
    * </pre>
    *
    * <code>string integration_name = 5 [json_name = "integrationName"];</code>
@@ -19,6 +44,7 @@ public interface ProvenanceOrBuilder extends
   /**
    * <pre>
    * Name of the integration that produced this entity
+   * To be deprecated soon in favor of feed_name
    * </pre>
    *
    * <code>string integration_name = 5 [json_name = "integrationName"];</code>
@@ -30,6 +56,7 @@ public interface ProvenanceOrBuilder extends
   /**
    * <pre>
    * Source data type of this entity. Examples: ADSB, Link16, etc.
+   * To be deprecated soon in favor of feed_name
    * </pre>
    *
    * <code>string data_type = 6 [json_name = "dataType"];</code>
@@ -39,6 +66,7 @@ public interface ProvenanceOrBuilder extends
   /**
    * <pre>
    * Source data type of this entity. Examples: ADSB, Link16, etc.
+   * To be deprecated soon in favor of feed_name
    * </pre>
    *
    * <code>string data_type = 6 [json_name = "dataType"];</code>
@@ -88,7 +116,9 @@ public interface ProvenanceOrBuilder extends
 
   /**
    * <pre>
-   * Main update timer for the entity with the exception of overrides
+   * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+   * be the time that the source-reported time of validity of the data in the entity. This field must be
+   * updated with every change to the entity or else Entity Manager will discard the update.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
@@ -97,7 +127,9 @@ public interface ProvenanceOrBuilder extends
   boolean hasSourceUpdateTime();
   /**
    * <pre>
-   * Main update timer for the entity with the exception of overrides
+   * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+   * be the time that the source-reported time of validity of the data in the entity. This field must be
+   * updated with every change to the entity or else Entity Manager will discard the update.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
@@ -106,7 +138,9 @@ public interface ProvenanceOrBuilder extends
   com.google.protobuf.Timestamp getSourceUpdateTime();
   /**
    * <pre>
-   * Main update timer for the entity with the exception of overrides
+   * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+   * be the time that the source-reported time of validity of the data in the entity. This field must be
+   * updated with every change to the entity or else Entity Manager will discard the update.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>

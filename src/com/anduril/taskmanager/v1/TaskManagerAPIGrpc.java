@@ -5,7 +5,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 /**
  * <pre>
  * Task Manager is a service that performs state management associated with Tasks, and also the execution of Tasks
- *  on their designated agents.
+ * on their designated agents.
  * </pre>
  */
 @javax.annotation.Generated(
@@ -81,35 +81,35 @@ public final class TaskManagerAPIGrpc {
     return getGetTaskMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.UpdateTaskRequest,
-      com.anduril.taskmanager.v1.UpdateTaskResponse> getUpdateTaskMethod;
+  private static volatile io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.QueryTasksRequest,
+      com.anduril.taskmanager.v1.QueryTasksResponse> getQueryTasksMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "UpdateTask",
-      requestType = com.anduril.taskmanager.v1.UpdateTaskRequest.class,
-      responseType = com.anduril.taskmanager.v1.UpdateTaskResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "QueryTasks",
+      requestType = com.anduril.taskmanager.v1.QueryTasksRequest.class,
+      responseType = com.anduril.taskmanager.v1.QueryTasksResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.UpdateTaskRequest,
-      com.anduril.taskmanager.v1.UpdateTaskResponse> getUpdateTaskMethod() {
-    io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.UpdateTaskRequest, com.anduril.taskmanager.v1.UpdateTaskResponse> getUpdateTaskMethod;
-    if ((getUpdateTaskMethod = TaskManagerAPIGrpc.getUpdateTaskMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.QueryTasksRequest,
+      com.anduril.taskmanager.v1.QueryTasksResponse> getQueryTasksMethod() {
+    io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.QueryTasksRequest, com.anduril.taskmanager.v1.QueryTasksResponse> getQueryTasksMethod;
+    if ((getQueryTasksMethod = TaskManagerAPIGrpc.getQueryTasksMethod) == null) {
       synchronized (TaskManagerAPIGrpc.class) {
-        if ((getUpdateTaskMethod = TaskManagerAPIGrpc.getUpdateTaskMethod) == null) {
-          TaskManagerAPIGrpc.getUpdateTaskMethod = getUpdateTaskMethod =
-              io.grpc.MethodDescriptor.<com.anduril.taskmanager.v1.UpdateTaskRequest, com.anduril.taskmanager.v1.UpdateTaskResponse>newBuilder()
+        if ((getQueryTasksMethod = TaskManagerAPIGrpc.getQueryTasksMethod) == null) {
+          TaskManagerAPIGrpc.getQueryTasksMethod = getQueryTasksMethod =
+              io.grpc.MethodDescriptor.<com.anduril.taskmanager.v1.QueryTasksRequest, com.anduril.taskmanager.v1.QueryTasksResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateTask"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "QueryTasks"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.anduril.taskmanager.v1.UpdateTaskRequest.getDefaultInstance()))
+                  com.anduril.taskmanager.v1.QueryTasksRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.anduril.taskmanager.v1.UpdateTaskResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TaskManagerAPIMethodDescriptorSupplier("UpdateTask"))
+                  com.anduril.taskmanager.v1.QueryTasksResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TaskManagerAPIMethodDescriptorSupplier("QueryTasks"))
               .build();
         }
       }
     }
-    return getUpdateTaskMethod;
+    return getQueryTasksMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.UpdateStatusRequest,
@@ -141,37 +141,6 @@ public final class TaskManagerAPIGrpc {
       }
     }
     return getUpdateStatusMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.StreamTasksRequest,
-      com.anduril.taskmanager.v1.StreamTasksResponse> getStreamTasksMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "StreamTasks",
-      requestType = com.anduril.taskmanager.v1.StreamTasksRequest.class,
-      responseType = com.anduril.taskmanager.v1.StreamTasksResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.StreamTasksRequest,
-      com.anduril.taskmanager.v1.StreamTasksResponse> getStreamTasksMethod() {
-    io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.StreamTasksRequest, com.anduril.taskmanager.v1.StreamTasksResponse> getStreamTasksMethod;
-    if ((getStreamTasksMethod = TaskManagerAPIGrpc.getStreamTasksMethod) == null) {
-      synchronized (TaskManagerAPIGrpc.class) {
-        if ((getStreamTasksMethod = TaskManagerAPIGrpc.getStreamTasksMethod) == null) {
-          TaskManagerAPIGrpc.getStreamTasksMethod = getStreamTasksMethod =
-              io.grpc.MethodDescriptor.<com.anduril.taskmanager.v1.StreamTasksRequest, com.anduril.taskmanager.v1.StreamTasksResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "StreamTasks"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.anduril.taskmanager.v1.StreamTasksRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.anduril.taskmanager.v1.StreamTasksResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TaskManagerAPIMethodDescriptorSupplier("StreamTasks"))
-              .build();
-        }
-      }
-    }
-    return getStreamTasksMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.anduril.taskmanager.v1.ListenAsAgentRequest,
@@ -252,7 +221,7 @@ public final class TaskManagerAPIGrpc {
   /**
    * <pre>
    * Task Manager is a service that performs state management associated with Tasks, and also the execution of Tasks
-   *  on their designated agents.
+   * on their designated agents.
    * </pre>
    */
   public interface AsyncService {
@@ -279,16 +248,12 @@ public final class TaskManagerAPIGrpc {
 
     /**
      * <pre>
-     * Update definition of a Task, only works on Tasks that are not DONE or CANCEL_REQUESTED. Notes:
-     *  * send the current task_version in Task, API will increment definition_version, and reset status_version to 1.
-     *  * previous definition_version will have status set to REPLACED.
-     *  * depending on assignee, replacing the definition will either update if capable on backend,
-     *     or cancel previous and issue new.
+     * Find Tasks that match request criteria.
      * </pre>
      */
-    default void updateTask(com.anduril.taskmanager.v1.UpdateTaskRequest request,
-        io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.UpdateTaskResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateTaskMethod(), responseObserver);
+    default void queryTasks(com.anduril.taskmanager.v1.QueryTasksRequest request,
+        io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.QueryTasksResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getQueryTasksMethod(), responseObserver);
     }
 
     /**
@@ -299,17 +264,6 @@ public final class TaskManagerAPIGrpc {
     default void updateStatus(com.anduril.taskmanager.v1.UpdateStatusRequest request,
         io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.UpdateStatusResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateStatusMethod(), responseObserver);
-    }
-
-    /**
-     * <pre>
-     * Stream all existing live (not yet done) Tasks and any new updates.
-     * Intended for clients to gain visibility into real time updates for live Tasks.
-     * </pre>
-     */
-    default void streamTasks(com.anduril.taskmanager.v1.StreamTasksRequest request,
-        io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.StreamTasksResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getStreamTasksMethod(), responseObserver);
     }
 
     /**
@@ -328,7 +282,7 @@ public final class TaskManagerAPIGrpc {
    * Base class for the server implementation of the service TaskManagerAPI.
    * <pre>
    * Task Manager is a service that performs state management associated with Tasks, and also the execution of Tasks
-   *  on their designated agents.
+   * on their designated agents.
    * </pre>
    */
   public static abstract class TaskManagerAPIImplBase
@@ -343,7 +297,7 @@ public final class TaskManagerAPIGrpc {
    * A stub to allow clients to do asynchronous rpc calls to service TaskManagerAPI.
    * <pre>
    * Task Manager is a service that performs state management associated with Tasks, and also the execution of Tasks
-   *  on their designated agents.
+   * on their designated agents.
    * </pre>
    */
   public static final class TaskManagerAPIStub
@@ -383,17 +337,13 @@ public final class TaskManagerAPIGrpc {
 
     /**
      * <pre>
-     * Update definition of a Task, only works on Tasks that are not DONE or CANCEL_REQUESTED. Notes:
-     *  * send the current task_version in Task, API will increment definition_version, and reset status_version to 1.
-     *  * previous definition_version will have status set to REPLACED.
-     *  * depending on assignee, replacing the definition will either update if capable on backend,
-     *     or cancel previous and issue new.
+     * Find Tasks that match request criteria.
      * </pre>
      */
-    public void updateTask(com.anduril.taskmanager.v1.UpdateTaskRequest request,
-        io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.UpdateTaskResponse> responseObserver) {
+    public void queryTasks(com.anduril.taskmanager.v1.QueryTasksRequest request,
+        io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.QueryTasksResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getUpdateTaskMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getQueryTasksMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -405,18 +355,6 @@ public final class TaskManagerAPIGrpc {
         io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.UpdateStatusResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateStatusMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * Stream all existing live (not yet done) Tasks and any new updates.
-     * Intended for clients to gain visibility into real time updates for live Tasks.
-     * </pre>
-     */
-    public void streamTasks(com.anduril.taskmanager.v1.StreamTasksRequest request,
-        io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.StreamTasksResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
-          getChannel().newCall(getStreamTasksMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -436,7 +374,7 @@ public final class TaskManagerAPIGrpc {
    * A stub to allow clients to do synchronous rpc calls to service TaskManagerAPI.
    * <pre>
    * Task Manager is a service that performs state management associated with Tasks, and also the execution of Tasks
-   *  on their designated agents.
+   * on their designated agents.
    * </pre>
    */
   public static final class TaskManagerAPIBlockingStub
@@ -474,16 +412,12 @@ public final class TaskManagerAPIGrpc {
 
     /**
      * <pre>
-     * Update definition of a Task, only works on Tasks that are not DONE or CANCEL_REQUESTED. Notes:
-     *  * send the current task_version in Task, API will increment definition_version, and reset status_version to 1.
-     *  * previous definition_version will have status set to REPLACED.
-     *  * depending on assignee, replacing the definition will either update if capable on backend,
-     *     or cancel previous and issue new.
+     * Find Tasks that match request criteria.
      * </pre>
      */
-    public com.anduril.taskmanager.v1.UpdateTaskResponse updateTask(com.anduril.taskmanager.v1.UpdateTaskRequest request) {
+    public com.anduril.taskmanager.v1.QueryTasksResponse queryTasks(com.anduril.taskmanager.v1.QueryTasksRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getUpdateTaskMethod(), getCallOptions(), request);
+          getChannel(), getQueryTasksMethod(), getCallOptions(), request);
     }
 
     /**
@@ -494,18 +428,6 @@ public final class TaskManagerAPIGrpc {
     public com.anduril.taskmanager.v1.UpdateStatusResponse updateStatus(com.anduril.taskmanager.v1.UpdateStatusRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateStatusMethod(), getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * Stream all existing live (not yet done) Tasks and any new updates.
-     * Intended for clients to gain visibility into real time updates for live Tasks.
-     * </pre>
-     */
-    public java.util.Iterator<com.anduril.taskmanager.v1.StreamTasksResponse> streamTasks(
-        com.anduril.taskmanager.v1.StreamTasksRequest request) {
-      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
-          getChannel(), getStreamTasksMethod(), getCallOptions(), request);
     }
 
     /**
@@ -525,7 +447,7 @@ public final class TaskManagerAPIGrpc {
    * A stub to allow clients to do ListenableFuture-style rpc calls to service TaskManagerAPI.
    * <pre>
    * Task Manager is a service that performs state management associated with Tasks, and also the execution of Tasks
-   *  on their designated agents.
+   * on their designated agents.
    * </pre>
    */
   public static final class TaskManagerAPIFutureStub
@@ -565,17 +487,13 @@ public final class TaskManagerAPIGrpc {
 
     /**
      * <pre>
-     * Update definition of a Task, only works on Tasks that are not DONE or CANCEL_REQUESTED. Notes:
-     *  * send the current task_version in Task, API will increment definition_version, and reset status_version to 1.
-     *  * previous definition_version will have status set to REPLACED.
-     *  * depending on assignee, replacing the definition will either update if capable on backend,
-     *     or cancel previous and issue new.
+     * Find Tasks that match request criteria.
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.anduril.taskmanager.v1.UpdateTaskResponse> updateTask(
-        com.anduril.taskmanager.v1.UpdateTaskRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.anduril.taskmanager.v1.QueryTasksResponse> queryTasks(
+        com.anduril.taskmanager.v1.QueryTasksRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getUpdateTaskMethod(), getCallOptions()), request);
+          getChannel().newCall(getQueryTasksMethod(), getCallOptions()), request);
     }
 
     /**
@@ -592,10 +510,9 @@ public final class TaskManagerAPIGrpc {
 
   private static final int METHODID_CREATE_TASK = 0;
   private static final int METHODID_GET_TASK = 1;
-  private static final int METHODID_UPDATE_TASK = 2;
+  private static final int METHODID_QUERY_TASKS = 2;
   private static final int METHODID_UPDATE_STATUS = 3;
-  private static final int METHODID_STREAM_TASKS = 4;
-  private static final int METHODID_LISTEN_AS_AGENT = 5;
+  private static final int METHODID_LISTEN_AS_AGENT = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -622,17 +539,13 @@ public final class TaskManagerAPIGrpc {
           serviceImpl.getTask((com.anduril.taskmanager.v1.GetTaskRequest) request,
               (io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.GetTaskResponse>) responseObserver);
           break;
-        case METHODID_UPDATE_TASK:
-          serviceImpl.updateTask((com.anduril.taskmanager.v1.UpdateTaskRequest) request,
-              (io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.UpdateTaskResponse>) responseObserver);
+        case METHODID_QUERY_TASKS:
+          serviceImpl.queryTasks((com.anduril.taskmanager.v1.QueryTasksRequest) request,
+              (io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.QueryTasksResponse>) responseObserver);
           break;
         case METHODID_UPDATE_STATUS:
           serviceImpl.updateStatus((com.anduril.taskmanager.v1.UpdateStatusRequest) request,
               (io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.UpdateStatusResponse>) responseObserver);
-          break;
-        case METHODID_STREAM_TASKS:
-          serviceImpl.streamTasks((com.anduril.taskmanager.v1.StreamTasksRequest) request,
-              (io.grpc.stub.StreamObserver<com.anduril.taskmanager.v1.StreamTasksResponse>) responseObserver);
           break;
         case METHODID_LISTEN_AS_AGENT:
           serviceImpl.listenAsAgent((com.anduril.taskmanager.v1.ListenAsAgentRequest) request,
@@ -671,12 +584,12 @@ public final class TaskManagerAPIGrpc {
               com.anduril.taskmanager.v1.GetTaskResponse>(
                 service, METHODID_GET_TASK)))
         .addMethod(
-          getUpdateTaskMethod(),
+          getQueryTasksMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              com.anduril.taskmanager.v1.UpdateTaskRequest,
-              com.anduril.taskmanager.v1.UpdateTaskResponse>(
-                service, METHODID_UPDATE_TASK)))
+              com.anduril.taskmanager.v1.QueryTasksRequest,
+              com.anduril.taskmanager.v1.QueryTasksResponse>(
+                service, METHODID_QUERY_TASKS)))
         .addMethod(
           getUpdateStatusMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -684,13 +597,6 @@ public final class TaskManagerAPIGrpc {
               com.anduril.taskmanager.v1.UpdateStatusRequest,
               com.anduril.taskmanager.v1.UpdateStatusResponse>(
                 service, METHODID_UPDATE_STATUS)))
-        .addMethod(
-          getStreamTasksMethod(),
-          io.grpc.stub.ServerCalls.asyncServerStreamingCall(
-            new MethodHandlers<
-              com.anduril.taskmanager.v1.StreamTasksRequest,
-              com.anduril.taskmanager.v1.StreamTasksResponse>(
-                service, METHODID_STREAM_TASKS)))
         .addMethod(
           getListenAsAgentMethod(),
           io.grpc.stub.ServerCalls.asyncServerStreamingCall(
@@ -748,9 +654,8 @@ public final class TaskManagerAPIGrpc {
               .setSchemaDescriptor(new TaskManagerAPIFileDescriptorSupplier())
               .addMethod(getCreateTaskMethod())
               .addMethod(getGetTaskMethod())
-              .addMethod(getUpdateTaskMethod())
+              .addMethod(getQueryTasksMethod())
               .addMethod(getUpdateStatusMethod())
-              .addMethod(getStreamTasksMethod())
               .addMethod(getListenAsAgentMethod())
               .build();
         }

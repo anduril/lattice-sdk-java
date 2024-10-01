@@ -3,7 +3,7 @@
 
 package com.anduril.entitymanager.v1;
 
-public interface DeleteEntityResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:anduril.entitymanager.v1.DeleteEntityResponse)
+public interface PublishEntityResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:anduril.entitymanager.v1.PublishEntityResponse)
     com.google.protobuf.MessageOrBuilder {
 }

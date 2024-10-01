@@ -118,4 +118,73 @@ public interface HealthOrBuilder extends
    * <code>.google.protobuf.Timestamp update_time = 4 [json_name = "updateTime"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder();
+
+  /**
+   * <pre>
+   * Active alerts indicate a critical change in system state sent by the asset
+   * that must be made known to an operator or consumer of the common operating picture.
+   * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+   * indicate a component is in an unhealthy state. For example, an asset may trigger
+   * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+   * are cleared. In other words, only active alerts should be reported here.
+   * </pre>
+   *
+   * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+   */
+  java.util.List<com.anduril.entitymanager.v1.Alert> 
+      getActiveAlertsList();
+  /**
+   * <pre>
+   * Active alerts indicate a critical change in system state sent by the asset
+   * that must be made known to an operator or consumer of the common operating picture.
+   * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+   * indicate a component is in an unhealthy state. For example, an asset may trigger
+   * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+   * are cleared. In other words, only active alerts should be reported here.
+   * </pre>
+   *
+   * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+   */
+  com.anduril.entitymanager.v1.Alert getActiveAlerts(int index);
+  /**
+   * <pre>
+   * Active alerts indicate a critical change in system state sent by the asset
+   * that must be made known to an operator or consumer of the common operating picture.
+   * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+   * indicate a component is in an unhealthy state. For example, an asset may trigger
+   * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+   * are cleared. In other words, only active alerts should be reported here.
+   * </pre>
+   *
+   * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+   */
+  int getActiveAlertsCount();
+  /**
+   * <pre>
+   * Active alerts indicate a critical change in system state sent by the asset
+   * that must be made known to an operator or consumer of the common operating picture.
+   * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+   * indicate a component is in an unhealthy state. For example, an asset may trigger
+   * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+   * are cleared. In other words, only active alerts should be reported here.
+   * </pre>
+   *
+   * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+   */
+  java.util.List<? extends com.anduril.entitymanager.v1.AlertOrBuilder> 
+      getActiveAlertsOrBuilderList();
+  /**
+   * <pre>
+   * Active alerts indicate a critical change in system state sent by the asset
+   * that must be made known to an operator or consumer of the common operating picture.
+   * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+   * indicate a component is in an unhealthy state. For example, an asset may trigger
+   * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+   * are cleared. In other words, only active alerts should be reported here.
+   * </pre>
+   *
+   * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+   */
+  com.anduril.entitymanager.v1.AlertOrBuilder getActiveAlertsOrBuilder(
+      int index);
 }
