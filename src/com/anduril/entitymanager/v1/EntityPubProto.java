@@ -224,72 +224,73 @@ public final class EntityPubProto {
       "tampR\023lastMeasurementTime\022O\n\017line_of_bea" +
       "ring\030\t \001(\0132\'.anduril.entitymanager.v1.Li" +
       "neOfBearingR\rlineOfBearingJ\004\010\010\020\tR\021relati" +
-      "ve_position\"\244\002\n\nProvenance\022)\n\020integratio" +
-      "n_name\030\005 \001(\tR\017integrationName\022\033\n\tdata_ty" +
-      "pe\030\006 \001(\tR\010dataType\0228\n\006source\030\001 \001(\0162 .and" +
-      "uril.entitymanager.v1.SourceR\006source\022\033\n\t" +
-      "source_id\030\003 \001(\tR\010sourceId\022H\n\022source_upda" +
-      "te_time\030\002 \001(\0132\032.google.protobuf.Timestam" +
-      "pR\020sourceUpdateTime\022-\n\022source_descriptio" +
-      "n\030\004 \001(\tR\021sourceDescription\"\243\003\n\nIndicator" +
-      "s\0228\n\tsimulated\030\001 \001(\0132\032.google.protobuf.B" +
-      "oolValueR\tsimulated\0226\n\010exercise\030\002 \001(\0132\032." +
-      "google.protobuf.BoolValueR\010exercise\0228\n\te" +
-      "mergency\030\003 \001(\0132\032.google.protobuf.BoolVal" +
-      "ueR\temergency\022*\n\002c2\030\004 \001(\0132\032.google.proto" +
-      "buf.BoolValueR\002c2\022A\n\tdeletable\030\005 \001(\0162#.a" +
-      "nduril.entitymanager.v1.DeletableR\tdelet" +
-      "able\022?\n\negressable\030\006 \001(\0132\032.google.protob" +
-      "uf.BoolValueB\003\310>\001R\negressable\0229\n\007starred" +
-      "\030\007 \001(\0132\032.google.protobuf.BoolValueB\003\310>\001R" +
-      "\007starred\"\235\001\n\tOverrides\022>\n\010override\030\002 \003(\013" +
-      "2\".anduril.entitymanager.v1.OverrideR\010ov" +
-      "erride\022P\n\nprovenance\030\001 \003(\0132,.anduril.ent" +
-      "itymanager.v1.OverrideProvenanceB\002\030\001R\npr" +
-      "ovenance\"\245\003\n\010Override\022\035\n\nrequest_id\030\001 \001(" +
-      "\tR\trequestId\022\035\n\nfield_path\030\002 \001(\tR\tfieldP" +
-      "ath\022N\n\022masked_field_value\030\003 \001(\0132 .anduri" +
-      "l.entitymanager.v1.EntityR\020maskedFieldVa" +
-      "lue\022@\n\006status\030\004 \001(\0162(.anduril.entitymana" +
-      "ger.v1.OverrideStatusR\006status\022D\n\nprovena" +
-      "nce\030\005 \001(\0132$.anduril.entitymanager.v1.Pro" +
-      "venanceR\nprovenance\022:\n\004type\030\006 \001(\0162&.andu" +
-      "ril.entitymanager.v1.OverrideTypeR\004type\022" +
-      "G\n\021request_timestamp\030\007 \001(\0132\032.google.prot" +
-      "obuf.TimestampR\020requestTimestamp\"\236\001\n\022Ove" +
-      "rrideProvenance\022\035\n\nfield_path\030\001 \001(\tR\tfie" +
-      "ldPath\022\037\n\tsource_id\030\002 \001(\tB\002\030\001R\010sourceId\022" +
-      "D\n\nprovenance\030\003 \001(\0132$.anduril.entitymana" +
-      "ger.v1.ProvenanceR\nprovenance:\002\030\001\"\231\001\n\014Or" +
-      "iginalData\022\020\n\003url\030\001 \001(\tR\003url\022@\n\003tle\030\002 \001(" +
-      "\0132*.anduril.entitymanager.v1.OriginalDat" +
-      "a.TLEB\002\030\001R\003tle\0325\n\003TLE\022\024\n\005line1\030\001 \001(\tR\005li" +
-      "ne1\022\024\n\005line2\030\002 \001(\tR\005line2:\002\030\001\"w\n\013Alterna" +
-      "teId\022\032\n\006source\030\001 \001(\tB\002\030\001R\006source\022\016\n\002id\030\002" +
-      " \001(\tR\002id\022<\n\004type\030\003 \001(\0162#.anduril.entitym" +
-      "anager.v1.AltIdTypeB\003\320>\001R\004type\"\267\001\n\rVisua" +
-      "lDetails\022J\n\013range_rings\030\001 \001(\0132$.anduril." +
-      "entitymanager.v1.RangeRingsB\003\310>\001R\nrangeR" +
-      "ings\022Z\n\022interactivity_mode\030\002 \001(\0162+.andur" +
-      "il.entitymanager.v1.InteractivityModeR\021i" +
-      "nteractivityMode\"\263\001\n\nRangeRings\022B\n\016min_d" +
-      "istance_m\030\001 \001(\0132\034.google.protobuf.Double" +
-      "ValueR\014minDistanceM\022B\n\016max_distance_m\030\002 " +
-      "\001(\0132\034.google.protobuf.DoubleValueR\014maxDi" +
-      "stanceM\022\035\n\nring_count\030\003 \001(\rR\tringCount\"\014" +
-      "\n\nTeamStatus*b\n\tDeletable\022\025\n\021DELETABLE_I" +
-      "NVALID\020\000\022\022\n\016DELETABLE_TRUE\020\001\022\023\n\017DELETABL" +
-      "E_FALSE\020\002\022\025\n\021DELETABLE_REQUEST\020\003*{\n\021Inte" +
-      "ractivityMode\022\036\n\032INTERACTIVITY_MODE_INVA" +
-      "LID\020\000\022\036\n\032INTERACTIVITY_MODE_DEFAULT\020\001\022&\n" +
-      "\"INTERACTIVITY_MODE_DISABLED_ON_MAP\020\002B\376\001" +
-      "\n\034com.anduril.entitymanager.v1B\016EntityPu" +
-      "bProtoP\001ZLgithub.com/anduril/anduril-jav" +
-      "a/src/anduril/entitymanager/v1;entityman" +
-      "agerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312" +
-      "\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\Ent" +
-      "itymanager\\V1\\GPBMetadata\352\002\032Anduril::Ent" +
-      "itymanager::V1b\006proto3"
+      "ve_position\"\301\002\n\nProvenance\022\033\n\tfeed_name\030" +
+      "\007 \001(\tR\010feedName\022)\n\020integration_name\030\005 \001(" +
+      "\tR\017integrationName\022\033\n\tdata_type\030\006 \001(\tR\010d" +
+      "ataType\0228\n\006source\030\001 \001(\0162 .anduril.entity" +
+      "manager.v1.SourceR\006source\022\033\n\tsource_id\030\003" +
+      " \001(\tR\010sourceId\022H\n\022source_update_time\030\002 \001" +
+      "(\0132\032.google.protobuf.TimestampR\020sourceUp" +
+      "dateTime\022-\n\022source_description\030\004 \001(\tR\021so" +
+      "urceDescription\"\243\003\n\nIndicators\0228\n\tsimula" +
+      "ted\030\001 \001(\0132\032.google.protobuf.BoolValueR\ts" +
+      "imulated\0226\n\010exercise\030\002 \001(\0132\032.google.prot" +
+      "obuf.BoolValueR\010exercise\0228\n\temergency\030\003 " +
+      "\001(\0132\032.google.protobuf.BoolValueR\temergen" +
+      "cy\022*\n\002c2\030\004 \001(\0132\032.google.protobuf.BoolVal" +
+      "ueR\002c2\022A\n\tdeletable\030\005 \001(\0162#.anduril.enti" +
+      "tymanager.v1.DeletableR\tdeletable\022?\n\negr" +
+      "essable\030\006 \001(\0132\032.google.protobuf.BoolValu" +
+      "eB\003\310>\001R\negressable\0229\n\007starred\030\007 \001(\0132\032.go" +
+      "ogle.protobuf.BoolValueB\003\310>\001R\007starred\"\235\001" +
+      "\n\tOverrides\022>\n\010override\030\002 \003(\0132\".anduril." +
+      "entitymanager.v1.OverrideR\010override\022P\n\np" +
+      "rovenance\030\001 \003(\0132,.anduril.entitymanager." +
+      "v1.OverrideProvenanceB\002\030\001R\nprovenance\"\245\003" +
+      "\n\010Override\022\035\n\nrequest_id\030\001 \001(\tR\trequestI" +
+      "d\022\035\n\nfield_path\030\002 \001(\tR\tfieldPath\022N\n\022mask" +
+      "ed_field_value\030\003 \001(\0132 .anduril.entityman" +
+      "ager.v1.EntityR\020maskedFieldValue\022@\n\006stat" +
+      "us\030\004 \001(\0162(.anduril.entitymanager.v1.Over" +
+      "rideStatusR\006status\022D\n\nprovenance\030\005 \001(\0132$" +
+      ".anduril.entitymanager.v1.ProvenanceR\npr" +
+      "ovenance\022:\n\004type\030\006 \001(\0162&.anduril.entitym" +
+      "anager.v1.OverrideTypeR\004type\022G\n\021request_" +
+      "timestamp\030\007 \001(\0132\032.google.protobuf.Timest" +
+      "ampR\020requestTimestamp\"\236\001\n\022OverrideProven" +
+      "ance\022\035\n\nfield_path\030\001 \001(\tR\tfieldPath\022\037\n\ts" +
+      "ource_id\030\002 \001(\tB\002\030\001R\010sourceId\022D\n\nprovenan" +
+      "ce\030\003 \001(\0132$.anduril.entitymanager.v1.Prov" +
+      "enanceR\nprovenance:\002\030\001\"\231\001\n\014OriginalData\022" +
+      "\020\n\003url\030\001 \001(\tR\003url\022@\n\003tle\030\002 \001(\0132*.anduril" +
+      ".entitymanager.v1.OriginalData.TLEB\002\030\001R\003" +
+      "tle\0325\n\003TLE\022\024\n\005line1\030\001 \001(\tR\005line1\022\024\n\005line" +
+      "2\030\002 \001(\tR\005line2:\002\030\001\"w\n\013AlternateId\022\032\n\006sou" +
+      "rce\030\001 \001(\tB\002\030\001R\006source\022\016\n\002id\030\002 \001(\tR\002id\022<\n" +
+      "\004type\030\003 \001(\0162#.anduril.entitymanager.v1.A" +
+      "ltIdTypeB\003\320>\001R\004type\"\267\001\n\rVisualDetails\022J\n" +
+      "\013range_rings\030\001 \001(\0132$.anduril.entitymanag" +
+      "er.v1.RangeRingsB\003\310>\001R\nrangeRings\022Z\n\022int" +
+      "eractivity_mode\030\002 \001(\0162+.anduril.entityma" +
+      "nager.v1.InteractivityModeR\021interactivit" +
+      "yMode\"\263\001\n\nRangeRings\022B\n\016min_distance_m\030\001" +
+      " \001(\0132\034.google.protobuf.DoubleValueR\014minD" +
+      "istanceM\022B\n\016max_distance_m\030\002 \001(\0132\034.googl" +
+      "e.protobuf.DoubleValueR\014maxDistanceM\022\035\n\n" +
+      "ring_count\030\003 \001(\rR\tringCount\"\014\n\nTeamStatu" +
+      "s*b\n\tDeletable\022\025\n\021DELETABLE_INVALID\020\000\022\022\n" +
+      "\016DELETABLE_TRUE\020\001\022\023\n\017DELETABLE_FALSE\020\002\022\025" +
+      "\n\021DELETABLE_REQUEST\020\003*{\n\021InteractivityMo" +
+      "de\022\036\n\032INTERACTIVITY_MODE_INVALID\020\000\022\036\n\032IN" +
+      "TERACTIVITY_MODE_DEFAULT\020\001\022&\n\"INTERACTIV" +
+      "ITY_MODE_DISABLED_ON_MAP\020\002B\376\001\n\034com.andur" +
+      "il.entitymanager.v1B\016EntityPubProtoP\001ZLg" +
+      "ithub.com/anduril/anduril-java/src/andur" +
+      "il/entitymanager/v1;entitymanagerv1\242\002\003AE" +
+      "X\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\E" +
+      "ntitymanager\\V1\342\002$Anduril\\Entitymanager\\" +
+      "V1\\GPBMetadata\352\002\032Anduril::Entitymanager:" +
+      ":V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -356,7 +357,7 @@ public final class EntityPubProto {
     internal_static_anduril_entitymanager_v1_Provenance_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Provenance_descriptor,
-        new java.lang.String[] { "IntegrationName", "DataType", "Source", "SourceId", "SourceUpdateTime", "SourceDescription", });
+        new java.lang.String[] { "FeedName", "IntegrationName", "DataType", "Source", "SourceId", "SourceUpdateTime", "SourceDescription", });
     internal_static_anduril_entitymanager_v1_Indicators_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_anduril_entitymanager_v1_Indicators_fieldAccessorTable = new

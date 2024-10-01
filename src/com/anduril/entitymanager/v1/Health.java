@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     connectionStatus_ = 0;
     healthStatus_ = 0;
     components_ = java.util.Collections.emptyList();
+    activeAlerts_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -199,6 +200,92 @@ private static final long serialVersionUID = 0L;
     return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
+  public static final int ACTIVE_ALERTS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private java.util.List<com.anduril.entitymanager.v1.Alert> activeAlerts_;
+  /**
+   * <pre>
+   * Active alerts indicate a critical change in system state sent by the asset
+   * that must be made known to an operator or consumer of the common operating picture.
+   * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+   * indicate a component is in an unhealthy state. For example, an asset may trigger
+   * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+   * are cleared. In other words, only active alerts should be reported here.
+   * </pre>
+   *
+   * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.anduril.entitymanager.v1.Alert> getActiveAlertsList() {
+    return activeAlerts_;
+  }
+  /**
+   * <pre>
+   * Active alerts indicate a critical change in system state sent by the asset
+   * that must be made known to an operator or consumer of the common operating picture.
+   * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+   * indicate a component is in an unhealthy state. For example, an asset may trigger
+   * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+   * are cleared. In other words, only active alerts should be reported here.
+   * </pre>
+   *
+   * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.anduril.entitymanager.v1.AlertOrBuilder> 
+      getActiveAlertsOrBuilderList() {
+    return activeAlerts_;
+  }
+  /**
+   * <pre>
+   * Active alerts indicate a critical change in system state sent by the asset
+   * that must be made known to an operator or consumer of the common operating picture.
+   * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+   * indicate a component is in an unhealthy state. For example, an asset may trigger
+   * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+   * are cleared. In other words, only active alerts should be reported here.
+   * </pre>
+   *
+   * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+   */
+  @java.lang.Override
+  public int getActiveAlertsCount() {
+    return activeAlerts_.size();
+  }
+  /**
+   * <pre>
+   * Active alerts indicate a critical change in system state sent by the asset
+   * that must be made known to an operator or consumer of the common operating picture.
+   * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+   * indicate a component is in an unhealthy state. For example, an asset may trigger
+   * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+   * are cleared. In other words, only active alerts should be reported here.
+   * </pre>
+   *
+   * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.Alert getActiveAlerts(int index) {
+    return activeAlerts_.get(index);
+  }
+  /**
+   * <pre>
+   * Active alerts indicate a critical change in system state sent by the asset
+   * that must be made known to an operator or consumer of the common operating picture.
+   * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+   * indicate a component is in an unhealthy state. For example, an asset may trigger
+   * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+   * are cleared. In other words, only active alerts should be reported here.
+   * </pre>
+   *
+   * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.AlertOrBuilder getActiveAlertsOrBuilder(
+      int index) {
+    return activeAlerts_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -225,6 +312,9 @@ private static final long serialVersionUID = 0L;
     if (updateTime_ != null) {
       output.writeMessage(4, getUpdateTime());
     }
+    for (int i = 0; i < activeAlerts_.size(); i++) {
+      output.writeMessage(5, activeAlerts_.get(i));
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -250,6 +340,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getUpdateTime());
     }
+    for (int i = 0; i < activeAlerts_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, activeAlerts_.get(i));
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -274,6 +368,8 @@ private static final long serialVersionUID = 0L;
       if (!getUpdateTime()
           .equals(other.getUpdateTime())) return false;
     }
+    if (!getActiveAlertsList()
+        .equals(other.getActiveAlertsList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -296,6 +392,10 @@ private static final long serialVersionUID = 0L;
     if (hasUpdateTime()) {
       hash = (37 * hash) + UPDATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getUpdateTime().hashCode();
+    }
+    if (getActiveAlertsCount() > 0) {
+      hash = (37 * hash) + ACTIVE_ALERTS_FIELD_NUMBER;
+      hash = (53 * hash) + getActiveAlertsList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -444,6 +544,13 @@ private static final long serialVersionUID = 0L;
         updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
+      if (activeAlertsBuilder_ == null) {
+        activeAlerts_ = java.util.Collections.emptyList();
+      } else {
+        activeAlerts_ = null;
+        activeAlertsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -485,6 +592,15 @@ private static final long serialVersionUID = 0L;
         result.components_ = components_;
       } else {
         result.components_ = componentsBuilder_.build();
+      }
+      if (activeAlertsBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0)) {
+          activeAlerts_ = java.util.Collections.unmodifiableList(activeAlerts_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.activeAlerts_ = activeAlerts_;
+      } else {
+        result.activeAlerts_ = activeAlertsBuilder_.build();
       }
     }
 
@@ -550,6 +666,32 @@ private static final long serialVersionUID = 0L;
       if (other.hasUpdateTime()) {
         mergeUpdateTime(other.getUpdateTime());
       }
+      if (activeAlertsBuilder_ == null) {
+        if (!other.activeAlerts_.isEmpty()) {
+          if (activeAlerts_.isEmpty()) {
+            activeAlerts_ = other.activeAlerts_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureActiveAlertsIsMutable();
+            activeAlerts_.addAll(other.activeAlerts_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.activeAlerts_.isEmpty()) {
+          if (activeAlertsBuilder_.isEmpty()) {
+            activeAlertsBuilder_.dispose();
+            activeAlertsBuilder_ = null;
+            activeAlerts_ = other.activeAlerts_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+            activeAlertsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getActiveAlertsFieldBuilder() : null;
+          } else {
+            activeAlertsBuilder_.addAllMessages(other.activeAlerts_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -606,6 +748,19 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000008;
               break;
             } // case 34
+            case 42: {
+              com.anduril.entitymanager.v1.Alert m =
+                  input.readMessage(
+                      com.anduril.entitymanager.v1.Alert.parser(),
+                      extensionRegistry);
+              if (activeAlertsBuilder_ == null) {
+                ensureActiveAlertsIsMutable();
+                activeAlerts_.add(m);
+              } else {
+                activeAlertsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1243,6 +1398,408 @@ private static final long serialVersionUID = 0L;
         updateTime_ = null;
       }
       return updateTimeBuilder_;
+    }
+
+    private java.util.List<com.anduril.entitymanager.v1.Alert> activeAlerts_ =
+      java.util.Collections.emptyList();
+    private void ensureActiveAlertsIsMutable() {
+      if (!((bitField0_ & 0x00000010) != 0)) {
+        activeAlerts_ = new java.util.ArrayList<com.anduril.entitymanager.v1.Alert>(activeAlerts_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.anduril.entitymanager.v1.Alert, com.anduril.entitymanager.v1.Alert.Builder, com.anduril.entitymanager.v1.AlertOrBuilder> activeAlertsBuilder_;
+
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public java.util.List<com.anduril.entitymanager.v1.Alert> getActiveAlertsList() {
+      if (activeAlertsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(activeAlerts_);
+      } else {
+        return activeAlertsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public int getActiveAlertsCount() {
+      if (activeAlertsBuilder_ == null) {
+        return activeAlerts_.size();
+      } else {
+        return activeAlertsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public com.anduril.entitymanager.v1.Alert getActiveAlerts(int index) {
+      if (activeAlertsBuilder_ == null) {
+        return activeAlerts_.get(index);
+      } else {
+        return activeAlertsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public Builder setActiveAlerts(
+        int index, com.anduril.entitymanager.v1.Alert value) {
+      if (activeAlertsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureActiveAlertsIsMutable();
+        activeAlerts_.set(index, value);
+        onChanged();
+      } else {
+        activeAlertsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public Builder setActiveAlerts(
+        int index, com.anduril.entitymanager.v1.Alert.Builder builderForValue) {
+      if (activeAlertsBuilder_ == null) {
+        ensureActiveAlertsIsMutable();
+        activeAlerts_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        activeAlertsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public Builder addActiveAlerts(com.anduril.entitymanager.v1.Alert value) {
+      if (activeAlertsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureActiveAlertsIsMutable();
+        activeAlerts_.add(value);
+        onChanged();
+      } else {
+        activeAlertsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public Builder addActiveAlerts(
+        int index, com.anduril.entitymanager.v1.Alert value) {
+      if (activeAlertsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureActiveAlertsIsMutable();
+        activeAlerts_.add(index, value);
+        onChanged();
+      } else {
+        activeAlertsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public Builder addActiveAlerts(
+        com.anduril.entitymanager.v1.Alert.Builder builderForValue) {
+      if (activeAlertsBuilder_ == null) {
+        ensureActiveAlertsIsMutable();
+        activeAlerts_.add(builderForValue.build());
+        onChanged();
+      } else {
+        activeAlertsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public Builder addActiveAlerts(
+        int index, com.anduril.entitymanager.v1.Alert.Builder builderForValue) {
+      if (activeAlertsBuilder_ == null) {
+        ensureActiveAlertsIsMutable();
+        activeAlerts_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        activeAlertsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public Builder addAllActiveAlerts(
+        java.lang.Iterable<? extends com.anduril.entitymanager.v1.Alert> values) {
+      if (activeAlertsBuilder_ == null) {
+        ensureActiveAlertsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, activeAlerts_);
+        onChanged();
+      } else {
+        activeAlertsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public Builder clearActiveAlerts() {
+      if (activeAlertsBuilder_ == null) {
+        activeAlerts_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+      } else {
+        activeAlertsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public Builder removeActiveAlerts(int index) {
+      if (activeAlertsBuilder_ == null) {
+        ensureActiveAlertsIsMutable();
+        activeAlerts_.remove(index);
+        onChanged();
+      } else {
+        activeAlertsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public com.anduril.entitymanager.v1.Alert.Builder getActiveAlertsBuilder(
+        int index) {
+      return getActiveAlertsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public com.anduril.entitymanager.v1.AlertOrBuilder getActiveAlertsOrBuilder(
+        int index) {
+      if (activeAlertsBuilder_ == null) {
+        return activeAlerts_.get(index);  } else {
+        return activeAlertsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public java.util.List<? extends com.anduril.entitymanager.v1.AlertOrBuilder> 
+         getActiveAlertsOrBuilderList() {
+      if (activeAlertsBuilder_ != null) {
+        return activeAlertsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(activeAlerts_);
+      }
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public com.anduril.entitymanager.v1.Alert.Builder addActiveAlertsBuilder() {
+      return getActiveAlertsFieldBuilder().addBuilder(
+          com.anduril.entitymanager.v1.Alert.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public com.anduril.entitymanager.v1.Alert.Builder addActiveAlertsBuilder(
+        int index) {
+      return getActiveAlertsFieldBuilder().addBuilder(
+          index, com.anduril.entitymanager.v1.Alert.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Active alerts indicate a critical change in system state sent by the asset
+     * that must be made known to an operator or consumer of the common operating picture.
+     * Alerts are different from ComponentHealth messages--an active alert does not necessarily
+     * indicate a component is in an unhealthy state. For example, an asset may trigger
+     * an active alert based on fuel levels running low. Alerts should be removed from this list when their conditions
+     * are cleared. In other words, only active alerts should be reported here.
+     * </pre>
+     *
+     * <code>repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];</code>
+     */
+    public java.util.List<com.anduril.entitymanager.v1.Alert.Builder> 
+         getActiveAlertsBuilderList() {
+      return getActiveAlertsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.anduril.entitymanager.v1.Alert, com.anduril.entitymanager.v1.Alert.Builder, com.anduril.entitymanager.v1.AlertOrBuilder> 
+        getActiveAlertsFieldBuilder() {
+      if (activeAlertsBuilder_ == null) {
+        activeAlertsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.anduril.entitymanager.v1.Alert, com.anduril.entitymanager.v1.Alert.Builder, com.anduril.entitymanager.v1.AlertOrBuilder>(
+                activeAlerts_,
+                ((bitField0_ & 0x00000010) != 0),
+                getParentForChildren(),
+                isClean());
+        activeAlerts_ = null;
+      }
+      return activeAlertsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

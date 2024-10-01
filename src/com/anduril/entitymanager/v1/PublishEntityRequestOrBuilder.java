@@ -3,16 +3,16 @@
 
 package com.anduril.entitymanager.v1;
 
-public interface PutEntityRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:anduril.entitymanager.v1.PutEntityRequest)
+public interface PublishEntityRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:anduril.entitymanager.v1.PublishEntityRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
    * <pre>
-   * The entity to put.
-   * Required fields:
+   * Stream of fully formed entities to publish
+   * Required fields per entity:
    *   * expiry_time - must be in the future, but less than 30 days from now
-   *   * provenance.data_type
+   *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
    *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
    *   * aliases.name
    *   * ontology.template
@@ -26,10 +26,10 @@ public interface PutEntityRequestOrBuilder extends
   boolean hasEntity();
   /**
    * <pre>
-   * The entity to put.
-   * Required fields:
+   * Stream of fully formed entities to publish
+   * Required fields per entity:
    *   * expiry_time - must be in the future, but less than 30 days from now
-   *   * provenance.data_type
+   *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
    *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
    *   * aliases.name
    *   * ontology.template
@@ -43,10 +43,10 @@ public interface PutEntityRequestOrBuilder extends
   com.anduril.entitymanager.v1.Entity getEntity();
   /**
    * <pre>
-   * The entity to put.
-   * Required fields:
+   * Stream of fully formed entities to publish
+   * Required fields per entity:
    *   * expiry_time - must be in the future, but less than 30 days from now
-   *   * provenance.data_type
+   *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
    *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
    *   * aliases.name
    *   * ontology.template
@@ -57,26 +57,4 @@ public interface PutEntityRequestOrBuilder extends
    * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
    */
   com.anduril.entitymanager.v1.EntityOrBuilder getEntityOrBuilder();
-
-  /**
-   * <pre>
-   * An optional unique identifier for this entity supplied by integration.
-   * If provided, EntityId will be determined via consistent hash with provenance.data_type + unique_id
-   * </pre>
-   *
-   * <code>string unique_id = 2 [json_name = "uniqueId"];</code>
-   * @return The uniqueId.
-   */
-  java.lang.String getUniqueId();
-  /**
-   * <pre>
-   * An optional unique identifier for this entity supplied by integration.
-   * If provided, EntityId will be determined via consistent hash with provenance.data_type + unique_id
-   * </pre>
-   *
-   * <code>string unique_id = 2 [json_name = "uniqueId"];</code>
-   * @return The bytes for uniqueId.
-   */
-  com.google.protobuf.ByteString
-      getUniqueIdBytes();
 }

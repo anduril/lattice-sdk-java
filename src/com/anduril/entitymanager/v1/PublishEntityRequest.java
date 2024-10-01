@@ -4,49 +4,53 @@
 package com.anduril.entitymanager.v1;
 
 /**
- * Protobuf type {@code anduril.entitymanager.v1.PutEntityResponse}
+ * Protobuf type {@code anduril.entitymanager.v1.PublishEntityRequest}
  */
-public final class PutEntityResponse extends
+public final class PublishEntityRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:anduril.entitymanager.v1.PutEntityResponse)
-    PutEntityResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:anduril.entitymanager.v1.PublishEntityRequest)
+    PublishEntityRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use PutEntityResponse.newBuilder() to construct.
-  private PutEntityResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use PublishEntityRequest.newBuilder() to construct.
+  private PublishEntityRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private PutEntityResponse() {
+  private PublishEntityRequest() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new PutEntityResponse();
+    return new PublishEntityRequest();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PutEntityResponse_descriptor;
+    return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PublishEntityRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PutEntityResponse_fieldAccessorTable
+    return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PublishEntityRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.anduril.entitymanager.v1.PutEntityResponse.class, com.anduril.entitymanager.v1.PutEntityResponse.Builder.class);
+            com.anduril.entitymanager.v1.PublishEntityRequest.class, com.anduril.entitymanager.v1.PublishEntityRequest.Builder.class);
   }
 
   public static final int ENTITY_FIELD_NUMBER = 1;
   private com.anduril.entitymanager.v1.Entity entity_;
   /**
    * <pre>
-   * The updated entity.
-   * Automatically updated fields:
-   *   * is_live - always reset to true
-   *   * entity_id - new GUID on create
-   *   * created_time - set on create
+   * Stream of fully formed entities to publish
+   * Required fields per entity:
+   *   * expiry_time - must be in the future, but less than 30 days from now
+   *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+   *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+   *   * aliases.name
+   *   * ontology.template
+   * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+   * if an entity_id is provided, will treat as update, otherwise create
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -58,11 +62,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The updated entity.
-   * Automatically updated fields:
-   *   * is_live - always reset to true
-   *   * entity_id - new GUID on create
-   *   * created_time - set on create
+   * Stream of fully formed entities to publish
+   * Required fields per entity:
+   *   * expiry_time - must be in the future, but less than 30 days from now
+   *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+   *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+   *   * aliases.name
+   *   * ontology.template
+   * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+   * if an entity_id is provided, will treat as update, otherwise create
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -74,11 +82,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The updated entity.
-   * Automatically updated fields:
-   *   * is_live - always reset to true
-   *   * entity_id - new GUID on create
-   *   * created_time - set on create
+   * Stream of fully formed entities to publish
+   * Required fields per entity:
+   *   * expiry_time - must be in the future, but less than 30 days from now
+   *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+   *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+   *   * aliases.name
+   *   * ontology.template
+   * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+   * if an entity_id is provided, will treat as update, otherwise create
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -128,10 +140,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.anduril.entitymanager.v1.PutEntityResponse)) {
+    if (!(obj instanceof com.anduril.entitymanager.v1.PublishEntityRequest)) {
       return super.equals(obj);
     }
-    com.anduril.entitymanager.v1.PutEntityResponse other = (com.anduril.entitymanager.v1.PutEntityResponse) obj;
+    com.anduril.entitymanager.v1.PublishEntityRequest other = (com.anduril.entitymanager.v1.PublishEntityRequest) obj;
 
     if (hasEntity() != other.hasEntity()) return false;
     if (hasEntity()) {
@@ -158,69 +170,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseFrom(byte[] data)
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseFrom(java.io.InputStream input)
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseDelimitedFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.anduril.entitymanager.v1.PutEntityResponse parseFrom(
+  public static com.anduril.entitymanager.v1.PublishEntityRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -233,7 +245,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.anduril.entitymanager.v1.PutEntityResponse prototype) {
+  public static Builder newBuilder(com.anduril.entitymanager.v1.PublishEntityRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -249,26 +261,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code anduril.entitymanager.v1.PutEntityResponse}
+   * Protobuf type {@code anduril.entitymanager.v1.PublishEntityRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:anduril.entitymanager.v1.PutEntityResponse)
-      com.anduril.entitymanager.v1.PutEntityResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:anduril.entitymanager.v1.PublishEntityRequest)
+      com.anduril.entitymanager.v1.PublishEntityRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PutEntityResponse_descriptor;
+      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PublishEntityRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PutEntityResponse_fieldAccessorTable
+      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PublishEntityRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.anduril.entitymanager.v1.PutEntityResponse.class, com.anduril.entitymanager.v1.PutEntityResponse.Builder.class);
+              com.anduril.entitymanager.v1.PublishEntityRequest.class, com.anduril.entitymanager.v1.PublishEntityRequest.Builder.class);
     }
 
-    // Construct using com.anduril.entitymanager.v1.PutEntityResponse.newBuilder()
+    // Construct using com.anduril.entitymanager.v1.PublishEntityRequest.newBuilder()
     private Builder() {
 
     }
@@ -293,17 +305,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PutEntityResponse_descriptor;
+      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.internal_static_anduril_entitymanager_v1_PublishEntityRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.anduril.entitymanager.v1.PutEntityResponse getDefaultInstanceForType() {
-      return com.anduril.entitymanager.v1.PutEntityResponse.getDefaultInstance();
+    public com.anduril.entitymanager.v1.PublishEntityRequest getDefaultInstanceForType() {
+      return com.anduril.entitymanager.v1.PublishEntityRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.anduril.entitymanager.v1.PutEntityResponse build() {
-      com.anduril.entitymanager.v1.PutEntityResponse result = buildPartial();
+    public com.anduril.entitymanager.v1.PublishEntityRequest build() {
+      com.anduril.entitymanager.v1.PublishEntityRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -311,14 +323,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.anduril.entitymanager.v1.PutEntityResponse buildPartial() {
-      com.anduril.entitymanager.v1.PutEntityResponse result = new com.anduril.entitymanager.v1.PutEntityResponse(this);
+    public com.anduril.entitymanager.v1.PublishEntityRequest buildPartial() {
+      com.anduril.entitymanager.v1.PublishEntityRequest result = new com.anduril.entitymanager.v1.PublishEntityRequest(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.anduril.entitymanager.v1.PutEntityResponse result) {
+    private void buildPartial0(com.anduril.entitymanager.v1.PublishEntityRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.entity_ = entityBuilder_ == null
@@ -329,16 +341,16 @@ private static final long serialVersionUID = 0L;
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.anduril.entitymanager.v1.PutEntityResponse) {
-        return mergeFrom((com.anduril.entitymanager.v1.PutEntityResponse)other);
+      if (other instanceof com.anduril.entitymanager.v1.PublishEntityRequest) {
+        return mergeFrom((com.anduril.entitymanager.v1.PublishEntityRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.anduril.entitymanager.v1.PutEntityResponse other) {
-      if (other == com.anduril.entitymanager.v1.PutEntityResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.anduril.entitymanager.v1.PublishEntityRequest other) {
+      if (other == com.anduril.entitymanager.v1.PublishEntityRequest.getDefaultInstance()) return this;
       if (other.hasEntity()) {
         mergeEntity(other.getEntity());
       }
@@ -397,11 +409,15 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.Entity, com.anduril.entitymanager.v1.Entity.Builder, com.anduril.entitymanager.v1.EntityOrBuilder> entityBuilder_;
     /**
      * <pre>
-     * The updated entity.
-     * Automatically updated fields:
-     *   * is_live - always reset to true
-     *   * entity_id - new GUID on create
-     *   * created_time - set on create
+     * Stream of fully formed entities to publish
+     * Required fields per entity:
+     *   * expiry_time - must be in the future, but less than 30 days from now
+     *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+     *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+     *   * aliases.name
+     *   * ontology.template
+     * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+     * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -412,11 +428,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The updated entity.
-     * Automatically updated fields:
-     *   * is_live - always reset to true
-     *   * entity_id - new GUID on create
-     *   * created_time - set on create
+     * Stream of fully formed entities to publish
+     * Required fields per entity:
+     *   * expiry_time - must be in the future, but less than 30 days from now
+     *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+     *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+     *   * aliases.name
+     *   * ontology.template
+     * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+     * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -431,11 +451,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The updated entity.
-     * Automatically updated fields:
-     *   * is_live - always reset to true
-     *   * entity_id - new GUID on create
-     *   * created_time - set on create
+     * Stream of fully formed entities to publish
+     * Required fields per entity:
+     *   * expiry_time - must be in the future, but less than 30 days from now
+     *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+     *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+     *   * aliases.name
+     *   * ontology.template
+     * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+     * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -455,11 +479,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The updated entity.
-     * Automatically updated fields:
-     *   * is_live - always reset to true
-     *   * entity_id - new GUID on create
-     *   * created_time - set on create
+     * Stream of fully formed entities to publish
+     * Required fields per entity:
+     *   * expiry_time - must be in the future, but less than 30 days from now
+     *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+     *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+     *   * aliases.name
+     *   * ontology.template
+     * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+     * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -477,11 +505,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The updated entity.
-     * Automatically updated fields:
-     *   * is_live - always reset to true
-     *   * entity_id - new GUID on create
-     *   * created_time - set on create
+     * Stream of fully formed entities to publish
+     * Required fields per entity:
+     *   * expiry_time - must be in the future, but less than 30 days from now
+     *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+     *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+     *   * aliases.name
+     *   * ontology.template
+     * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+     * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -504,11 +536,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The updated entity.
-     * Automatically updated fields:
-     *   * is_live - always reset to true
-     *   * entity_id - new GUID on create
-     *   * created_time - set on create
+     * Stream of fully formed entities to publish
+     * Required fields per entity:
+     *   * expiry_time - must be in the future, but less than 30 days from now
+     *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+     *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+     *   * aliases.name
+     *   * ontology.template
+     * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+     * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -525,11 +561,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The updated entity.
-     * Automatically updated fields:
-     *   * is_live - always reset to true
-     *   * entity_id - new GUID on create
-     *   * created_time - set on create
+     * Stream of fully formed entities to publish
+     * Required fields per entity:
+     *   * expiry_time - must be in the future, but less than 30 days from now
+     *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+     *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+     *   * aliases.name
+     *   * ontology.template
+     * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+     * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -541,11 +581,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The updated entity.
-     * Automatically updated fields:
-     *   * is_live - always reset to true
-     *   * entity_id - new GUID on create
-     *   * created_time - set on create
+     * Stream of fully formed entities to publish
+     * Required fields per entity:
+     *   * expiry_time - must be in the future, but less than 30 days from now
+     *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+     *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+     *   * aliases.name
+     *   * ontology.template
+     * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+     * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -560,11 +604,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The updated entity.
-     * Automatically updated fields:
-     *   * is_live - always reset to true
-     *   * entity_id - new GUID on create
-     *   * created_time - set on create
+     * Stream of fully formed entities to publish
+     * Required fields per entity:
+     *   * expiry_time - must be in the future, but less than 30 days from now
+     *   * provenance.data_type [if using deprecated provenance.source, migrate to data_type.]
+     *   * provenance.source_update_time (can be earlier than rpc call if data entered is older)
+     *   * aliases.name
+     *   * ontology.template
+     * any additional required fields will be determined by template, see com.anduril.entitymanager.v1.Template
+     * if an entity_id is provided, will treat as update, otherwise create
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -595,23 +643,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:anduril.entitymanager.v1.PutEntityResponse)
+    // @@protoc_insertion_point(builder_scope:anduril.entitymanager.v1.PublishEntityRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.PutEntityResponse)
-  private static final com.anduril.entitymanager.v1.PutEntityResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.PublishEntityRequest)
+  private static final com.anduril.entitymanager.v1.PublishEntityRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.anduril.entitymanager.v1.PutEntityResponse();
+    DEFAULT_INSTANCE = new com.anduril.entitymanager.v1.PublishEntityRequest();
   }
 
-  public static com.anduril.entitymanager.v1.PutEntityResponse getDefaultInstance() {
+  public static com.anduril.entitymanager.v1.PublishEntityRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<PutEntityResponse>
-      PARSER = new com.google.protobuf.AbstractParser<PutEntityResponse>() {
+  private static final com.google.protobuf.Parser<PublishEntityRequest>
+      PARSER = new com.google.protobuf.AbstractParser<PublishEntityRequest>() {
     @java.lang.Override
-    public PutEntityResponse parsePartialFrom(
+    public PublishEntityRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -630,17 +678,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<PutEntityResponse> parser() {
+  public static com.google.protobuf.Parser<PublishEntityRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<PutEntityResponse> getParserForType() {
+  public com.google.protobuf.Parser<PublishEntityRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.anduril.entitymanager.v1.PutEntityResponse getDefaultInstanceForType() {
+  public com.anduril.entitymanager.v1.PublishEntityRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -35,15 +35,25 @@ public final class TaskManagerApiPubProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_taskmanager_v1_GetTaskResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_taskmanager_v1_UpdateTaskRequest_descriptor;
+    internal_static_anduril_taskmanager_v1_QueryTasksRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_taskmanager_v1_UpdateTaskRequest_fieldAccessorTable;
+      internal_static_anduril_taskmanager_v1_QueryTasksRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_taskmanager_v1_UpdateTaskResponse_descriptor;
+    internal_static_anduril_taskmanager_v1_QueryTasksRequest_TimeRange_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_taskmanager_v1_UpdateTaskResponse_fieldAccessorTable;
+      internal_static_anduril_taskmanager_v1_QueryTasksRequest_TimeRange_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_taskmanager_v1_QueryTasksRequest_StatusFilter_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_taskmanager_v1_QueryTasksRequest_StatusFilter_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_taskmanager_v1_QueryTasksResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_taskmanager_v1_QueryTasksResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_taskmanager_v1_UpdateStatusRequest_descriptor;
   static final 
@@ -54,16 +64,6 @@ public final class TaskManagerApiPubProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_taskmanager_v1_UpdateStatusResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_taskmanager_v1_StreamTasksRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_taskmanager_v1_StreamTasksRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_taskmanager_v1_StreamTasksResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_taskmanager_v1_StreamTasksResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_taskmanager_v1_ListenAsAgentRequest_descriptor;
   static final 
@@ -121,64 +121,67 @@ public final class TaskManagerApiPubProto {
       " \001(\rR\021definitionVersion\022=\n\ttask_view\030\003 \001" +
       "(\0162 .anduril.taskmanager.v1.TaskViewR\010ta" +
       "skView\"C\n\017GetTaskResponse\0220\n\004task\030\001 \001(\0132" +
-      "\034.anduril.taskmanager.v1.TaskR\004task\"y\n\021U" +
-      "pdateTaskRequest\0220\n\004task\030\001 \001(\0132\034.anduril" +
-      ".taskmanager.v1.TaskR\004task\0222\n\025is_execute" +
-      "d_elsewhere\030\007 \001(\010R\023isExecutedElsewhere\"F" +
-      "\n\022UpdateTaskResponse\0220\n\004task\030\001 \001(\0132\034.and" +
-      "uril.taskmanager.v1.TaskR\004task\"`\n\023Update" +
-      "StatusRequest\022I\n\rstatus_update\030\001 \001(\0132$.a" +
-      "nduril.taskmanager.v1.StatusUpdateR\014stat" +
-      "usUpdate\"H\n\024UpdateStatusResponse\0220\n\004task" +
-      "\030\001 \001(\0132\034.anduril.taskmanager.v1.TaskR\004ta" +
-      "sk\"\202\002\n\022StreamTasksRequest\022@\n\nrate_limit\030" +
-      "\001 \001(\0132!.anduril.taskmanager.v1.RateLimit" +
-      "R\trateLimit\0226\n\005views\030\002 \003(\0162 .anduril.tas" +
-      "kmanager.v1.TaskViewR\005views\0226\n\027heartbeat" +
-      "_period_millis\030\003 \001(\rR\025heartbeatPeriodMil" +
-      "lis\022:\n\031exclude_preexisting_tasks\030\004 \001(\010R\027" +
-      "excludePreexistingTasks\"\230\001\n\023StreamTasksR" +
-      "esponse\022@\n\ntask_event\030\001 \001(\0132!.anduril.ta" +
-      "skmanager.v1.TaskEventR\ttaskEvent\022?\n\thea" +
-      "rtbeat\030\002 \001(\0132!.anduril.taskmanager.v1.He" +
-      "artbeatR\theartbeat\"l\n\024ListenAsAgentReque" +
-      "st\022B\n\nentity_ids\030\001 \001(\0132!.anduril.taskman" +
-      "ager.v1.EntityIdsH\000R\tentityIdsB\020\n\016agent_" +
-      "selector\"\233\002\n\025ListenAsAgentResponse\022Q\n\017ex" +
-      "ecute_request\030\001 \001(\0132&.anduril.taskmanage" +
-      "r.v1.ExecuteRequestH\000R\016executeRequest\022N\n" +
-      "\016cancel_request\030\002 \001(\0132%.anduril.taskmana" +
-      "ger.v1.CancelRequestH\000R\rcancelRequest\022T\n" +
-      "\020complete_request\030\003 \001(\0132\'.anduril.taskma" +
-      "nager.v1.CompleteRequestH\000R\017completeRequ" +
-      "estB\t\n\007request\"C\n\tRateLimit\0226\n\030update_pe" +
-      "r_task_limit_ms\030\001 \001(\rR\024updatePerTaskLimi" +
-      "tMs\"E\n\tHeartbeat\0228\n\ttimestamp\030\001 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\ttimestamp\"*\n\tEn" +
-      "tityIds\022\035\n\nentity_ids\030\001 \003(\tR\tentityIds2\373" +
-      "\004\n\016TaskManagerAPI\022c\n\nCreateTask\022).anduri" +
-      "l.taskmanager.v1.CreateTaskRequest\032*.and" +
-      "uril.taskmanager.v1.CreateTaskResponse\022Z" +
-      "\n\007GetTask\022&.anduril.taskmanager.v1.GetTa" +
-      "skRequest\032\'.anduril.taskmanager.v1.GetTa" +
-      "skResponse\022c\n\nUpdateTask\022).anduril.taskm" +
-      "anager.v1.UpdateTaskRequest\032*.anduril.ta" +
-      "skmanager.v1.UpdateTaskResponse\022i\n\014Updat" +
-      "eStatus\022+.anduril.taskmanager.v1.UpdateS" +
-      "tatusRequest\032,.anduril.taskmanager.v1.Up" +
-      "dateStatusResponse\022h\n\013StreamTasks\022*.andu" +
-      "ril.taskmanager.v1.StreamTasksRequest\032+." +
-      "anduril.taskmanager.v1.StreamTasksRespon" +
-      "se0\001\022n\n\rListenAsAgent\022,.anduril.taskmana" +
-      "ger.v1.ListenAsAgentRequest\032-.anduril.ta" +
-      "skmanager.v1.ListenAsAgentResponse0\001B\370\001\n" +
-      "\032com.anduril.taskmanager.v1B\026TaskManager" +
-      "ApiPubProtoP\001ZHgithub.com/anduril/anduri" +
-      "l-java/src/anduril/taskmanager/v1;taskma" +
-      "nagerv1\242\002\003ATX\252\002\026Anduril.Taskmanager.V1\312\002" +
-      "\026Anduril\\Taskmanager\\V1\342\002\"Anduril\\Taskma" +
-      "nager\\V1\\GPBMetadata\352\002\030Anduril::Taskmana" +
-      "ger::V1b\006proto3"
+      "\034.anduril.taskmanager.v1.TaskR\004task\"\351\005\n\021" +
+      "QueryTasksRequest\022$\n\016parent_task_id\030\001 \001(" +
+      "\tR\014parentTaskId\022\035\n\npage_token\030\003 \001(\tR\tpag" +
+      "eToken\022[\n\rstatus_filter\030\004 \001(\01326.anduril." +
+      "taskmanager.v1.QueryTasksRequest.StatusF" +
+      "ilterR\014statusFilter\022_\n\021update_time_range" +
+      "\030\005 \001(\01323.anduril.taskmanager.v1.QueryTas" +
+      "ksRequest.TimeRangeR\017updateTimeRange\0224\n\004" +
+      "view\030\006 \001(\0162 .anduril.taskmanager.v1.Task" +
+      "ViewR\004view\032\227\001\n\tTimeRange\022F\n\021update_start" +
+      "_time\030\001 \001(\0132\032.google.protobuf.TimestampR" +
+      "\017updateStartTime\022B\n\017update_end_time\030\002 \001(" +
+      "\0132\032.google.protobuf.TimestampR\rupdateEnd" +
+      "Time\032\235\001\n\014StatusFilter\0226\n\006status\030\001 \003(\0162\036." +
+      "anduril.taskmanager.v1.StatusR\006status\022U\n" +
+      "\013filter_type\030\002 \001(\01624.anduril.taskmanager" +
+      ".v1.QueryTasksRequest.FilterTypeR\nfilter" +
+      "Type\"[\n\nFilterType\022\027\n\023FILTER_TYPE_INVALI" +
+      "D\020\000\022\031\n\025FILTER_TYPE_INCLUSIVE\020\001\022\031\n\025FILTER" +
+      "_TYPE_EXCLUSIVE\020\002J\004\010\002\020\003\"g\n\022QueryTasksRes" +
+      "ponse\0222\n\005tasks\030\001 \003(\0132\034.anduril.taskmanag" +
+      "er.v1.TaskR\005tasks\022\035\n\npage_token\030\002 \001(\tR\tp" +
+      "ageToken\"`\n\023UpdateStatusRequest\022I\n\rstatu" +
+      "s_update\030\001 \001(\0132$.anduril.taskmanager.v1." +
+      "StatusUpdateR\014statusUpdate\"H\n\024UpdateStat" +
+      "usResponse\0220\n\004task\030\001 \001(\0132\034.anduril.taskm" +
+      "anager.v1.TaskR\004task\"l\n\024ListenAsAgentReq" +
+      "uest\022B\n\nentity_ids\030\001 \001(\0132!.anduril.taskm" +
+      "anager.v1.EntityIdsH\000R\tentityIdsB\020\n\016agen" +
+      "t_selector\"\233\002\n\025ListenAsAgentResponse\022Q\n\017" +
+      "execute_request\030\001 \001(\0132&.anduril.taskmana" +
+      "ger.v1.ExecuteRequestH\000R\016executeRequest\022" +
+      "N\n\016cancel_request\030\002 \001(\0132%.anduril.taskma" +
+      "nager.v1.CancelRequestH\000R\rcancelRequest\022" +
+      "T\n\020complete_request\030\003 \001(\0132\'.anduril.task" +
+      "manager.v1.CompleteRequestH\000R\017completeRe" +
+      "questB\t\n\007request\"C\n\tRateLimit\0226\n\030update_" +
+      "per_task_limit_ms\030\001 \001(\rR\024updatePerTaskLi" +
+      "mitMs\"E\n\tHeartbeat\0228\n\ttimestamp\030\001 \001(\0132\032." +
+      "google.protobuf.TimestampR\ttimestamp\"*\n\t" +
+      "EntityIds\022\035\n\nentity_ids\030\001 \003(\tR\tentityIds" +
+      "2\221\004\n\016TaskManagerAPI\022c\n\nCreateTask\022).andu" +
+      "ril.taskmanager.v1.CreateTaskRequest\032*.a" +
+      "nduril.taskmanager.v1.CreateTaskResponse" +
+      "\022Z\n\007GetTask\022&.anduril.taskmanager.v1.Get" +
+      "TaskRequest\032\'.anduril.taskmanager.v1.Get" +
+      "TaskResponse\022c\n\nQueryTasks\022).anduril.tas" +
+      "kmanager.v1.QueryTasksRequest\032*.anduril." +
+      "taskmanager.v1.QueryTasksResponse\022i\n\014Upd" +
+      "ateStatus\022+.anduril.taskmanager.v1.Updat" +
+      "eStatusRequest\032,.anduril.taskmanager.v1." +
+      "UpdateStatusResponse\022n\n\rListenAsAgent\022,." +
+      "anduril.taskmanager.v1.ListenAsAgentRequ" +
+      "est\032-.anduril.taskmanager.v1.ListenAsAge" +
+      "ntResponse0\001B\370\001\n\032com.anduril.taskmanager" +
+      ".v1B\026TaskManagerApiPubProtoP\001ZHgithub.co" +
+      "m/anduril/anduril-java/src/anduril/taskm" +
+      "anager/v1;taskmanagerv1\242\002\003ATX\252\002\026Anduril." +
+      "Taskmanager.V1\312\002\026Anduril\\Taskmanager\\V1\342" +
+      "\002\"Anduril\\Taskmanager\\V1\\GPBMetadata\352\002\030A" +
+      "nduril::Taskmanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -212,18 +215,30 @@ public final class TaskManagerApiPubProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_taskmanager_v1_GetTaskResponse_descriptor,
         new java.lang.String[] { "Task", });
-    internal_static_anduril_taskmanager_v1_UpdateTaskRequest_descriptor =
+    internal_static_anduril_taskmanager_v1_QueryTasksRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_anduril_taskmanager_v1_UpdateTaskRequest_fieldAccessorTable = new
+    internal_static_anduril_taskmanager_v1_QueryTasksRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_taskmanager_v1_UpdateTaskRequest_descriptor,
-        new java.lang.String[] { "Task", "IsExecutedElsewhere", });
-    internal_static_anduril_taskmanager_v1_UpdateTaskResponse_descriptor =
+        internal_static_anduril_taskmanager_v1_QueryTasksRequest_descriptor,
+        new java.lang.String[] { "ParentTaskId", "PageToken", "StatusFilter", "UpdateTimeRange", "View", });
+    internal_static_anduril_taskmanager_v1_QueryTasksRequest_TimeRange_descriptor =
+      internal_static_anduril_taskmanager_v1_QueryTasksRequest_descriptor.getNestedTypes().get(0);
+    internal_static_anduril_taskmanager_v1_QueryTasksRequest_TimeRange_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_taskmanager_v1_QueryTasksRequest_TimeRange_descriptor,
+        new java.lang.String[] { "UpdateStartTime", "UpdateEndTime", });
+    internal_static_anduril_taskmanager_v1_QueryTasksRequest_StatusFilter_descriptor =
+      internal_static_anduril_taskmanager_v1_QueryTasksRequest_descriptor.getNestedTypes().get(1);
+    internal_static_anduril_taskmanager_v1_QueryTasksRequest_StatusFilter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_taskmanager_v1_QueryTasksRequest_StatusFilter_descriptor,
+        new java.lang.String[] { "Status", "FilterType", });
+    internal_static_anduril_taskmanager_v1_QueryTasksResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_anduril_taskmanager_v1_UpdateTaskResponse_fieldAccessorTable = new
+    internal_static_anduril_taskmanager_v1_QueryTasksResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_taskmanager_v1_UpdateTaskResponse_descriptor,
-        new java.lang.String[] { "Task", });
+        internal_static_anduril_taskmanager_v1_QueryTasksResponse_descriptor,
+        new java.lang.String[] { "Tasks", "PageToken", });
     internal_static_anduril_taskmanager_v1_UpdateStatusRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_anduril_taskmanager_v1_UpdateStatusRequest_fieldAccessorTable = new
@@ -236,44 +251,32 @@ public final class TaskManagerApiPubProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_taskmanager_v1_UpdateStatusResponse_descriptor,
         new java.lang.String[] { "Task", });
-    internal_static_anduril_taskmanager_v1_StreamTasksRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_anduril_taskmanager_v1_StreamTasksRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_taskmanager_v1_StreamTasksRequest_descriptor,
-        new java.lang.String[] { "RateLimit", "Views", "HeartbeatPeriodMillis", "ExcludePreexistingTasks", });
-    internal_static_anduril_taskmanager_v1_StreamTasksResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_anduril_taskmanager_v1_StreamTasksResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_taskmanager_v1_StreamTasksResponse_descriptor,
-        new java.lang.String[] { "TaskEvent", "Heartbeat", });
     internal_static_anduril_taskmanager_v1_ListenAsAgentRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_anduril_taskmanager_v1_ListenAsAgentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_taskmanager_v1_ListenAsAgentRequest_descriptor,
         new java.lang.String[] { "EntityIds", "AgentSelector", });
     internal_static_anduril_taskmanager_v1_ListenAsAgentResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_anduril_taskmanager_v1_ListenAsAgentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_taskmanager_v1_ListenAsAgentResponse_descriptor,
         new java.lang.String[] { "ExecuteRequest", "CancelRequest", "CompleteRequest", "Request", });
     internal_static_anduril_taskmanager_v1_RateLimit_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_anduril_taskmanager_v1_RateLimit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_taskmanager_v1_RateLimit_descriptor,
         new java.lang.String[] { "UpdatePerTaskLimitMs", });
     internal_static_anduril_taskmanager_v1_Heartbeat_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_anduril_taskmanager_v1_Heartbeat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_taskmanager_v1_Heartbeat_descriptor,
         new java.lang.String[] { "Timestamp", });
     internal_static_anduril_taskmanager_v1_EntityIds_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_anduril_taskmanager_v1_EntityIds_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_taskmanager_v1_EntityIds_descriptor,

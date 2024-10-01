@@ -66,16 +66,15 @@ public enum AltIdType
   ALT_ID_TYPE_ASSET_ID(5),
   /**
    * <pre>
-   * deprecated, do not use
+   * Use for Link 16 track identifiers for non-JTIDS Unit (JU) entities, such as assets (STN) and tracks (RefTN). Values range from AA000 to ZZ777.
    * </pre>
    *
-   * <code>ALT_ID_TYPE_LINK16_TRACK_NUMBER = 6 [deprecated = true];</code>
+   * <code>ALT_ID_TYPE_LINK16_TRACK_NUMBER = 6;</code>
    */
-  @java.lang.Deprecated
   ALT_ID_TYPE_LINK16_TRACK_NUMBER(6),
   /**
    * <pre>
-   * a Link 16 track number. This will allow a link 16 asset (STN) or track (RefTN) to be identified.
+   * Use for Link 16 JTIDS Unit (JU) identifiers. Applicable to assets representing JUs, with values ranging from 00001 to 77777.
    * </pre>
    *
    * <code>ALT_ID_TYPE_LINK16_JU = 7;</code>
@@ -269,15 +268,15 @@ public enum AltIdType
   public static final int ALT_ID_TYPE_ASSET_ID_VALUE = 5;
   /**
    * <pre>
-   * deprecated, do not use
+   * Use for Link 16 track identifiers for non-JTIDS Unit (JU) entities, such as assets (STN) and tracks (RefTN). Values range from AA000 to ZZ777.
    * </pre>
    *
-   * <code>ALT_ID_TYPE_LINK16_TRACK_NUMBER = 6 [deprecated = true];</code>
+   * <code>ALT_ID_TYPE_LINK16_TRACK_NUMBER = 6;</code>
    */
-  @java.lang.Deprecated public static final int ALT_ID_TYPE_LINK16_TRACK_NUMBER_VALUE = 6;
+  public static final int ALT_ID_TYPE_LINK16_TRACK_NUMBER_VALUE = 6;
   /**
    * <pre>
-   * a Link 16 track number. This will allow a link 16 asset (STN) or track (RefTN) to be identified.
+   * Use for Link 16 JTIDS Unit (JU) identifiers. Applicable to assets representing JUs, with values ranging from 00001 to 77777.
    * </pre>
    *
    * <code>ALT_ID_TYPE_LINK16_JU = 7;</code>

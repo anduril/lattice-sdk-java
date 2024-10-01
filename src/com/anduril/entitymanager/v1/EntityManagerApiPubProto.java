@@ -15,35 +15,15 @@ public final class EntityManagerApiPubProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_GetEntityRequest_descriptor;
+    internal_static_anduril_entitymanager_v1_PublishEntityRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_GetEntityRequest_fieldAccessorTable;
+      internal_static_anduril_entitymanager_v1_PublishEntityRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_GetEntityResponse_descriptor;
+    internal_static_anduril_entitymanager_v1_PublishEntityResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_GetEntityResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_StreamEntityComponentsRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_StreamEntityComponentsRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_StreamEntityComponentsResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_StreamEntityComponentsResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_PutEntityRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_PutEntityRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_PutEntityResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_PutEntityResponse_fieldAccessorTable;
+      internal_static_anduril_entitymanager_v1_PublishEntityResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_PublishEntitiesRequest_descriptor;
   static final 
@@ -54,6 +34,16 @@ public final class EntityManagerApiPubProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_PublishEntitiesResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_GetEntityRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_GetEntityRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_GetEntityResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_GetEntityResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_OverrideEntityRequest_descriptor;
   static final 
@@ -75,40 +65,15 @@ public final class EntityManagerApiPubProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_RemoveEntityOverrideResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_DeleteEntityRequest_descriptor;
+    internal_static_anduril_entitymanager_v1_StreamEntityComponentsRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_DeleteEntityRequest_fieldAccessorTable;
+      internal_static_anduril_entitymanager_v1_StreamEntityComponentsRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_DeleteEntityResponse_descriptor;
+    internal_static_anduril_entitymanager_v1_StreamEntityComponentsResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_DeleteEntityResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_RelateEntityRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_RelateEntityRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_RelationshipRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_RelationshipRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_RelateEntityResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_RelateEntityResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_UnrelateEntityRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_UnrelateEntityRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_UnrelateEntityResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_UnrelateEntityResponse_fieldAccessorTable;
+      internal_static_anduril_entitymanager_v1_StreamEntityComponentsResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_EntityEvent_descriptor;
   static final 
@@ -133,106 +98,78 @@ public final class EntityManagerApiPubProto {
       "1\032)anduril/entitymanager/v1/entity.pub.p" +
       "roto\032)anduril/entitymanager/v1/filter.pu" +
       "b.proto\032-anduril/entitymanager/v1/rate_l" +
-      "imit.pub.proto\032/anduril/entitymanager/v1" +
-      "/relationship.pub.proto\032(anduril/entitym" +
-      "anager/v1/types.pub.proto\032\037google/protob" +
-      "uf/timestamp.proto\"/\n\020GetEntityRequest\022\033" +
-      "\n\tentity_id\030\001 \001(\tR\010entityId\"M\n\021GetEntity" +
-      "Response\0228\n\006entity\030\001 \001(\0132 .anduril.entit" +
-      "ymanager.v1.EntityR\006entity\"\355\002\n\035StreamEnt" +
-      "ityComponentsRequest\0222\n\025components_to_in" +
-      "clude\030\001 \003(\tR\023componentsToInclude\0224\n\026incl" +
-      "ude_all_components\030\002 \001(\010R\024includeAllComp" +
-      "onents\022;\n\006filter\030\003 \001(\0132#.anduril.entitym" +
-      "anager.v1.StatementR\006filter\022B\n\nrate_limi" +
-      "t\030\004 \001(\0132#.anduril.entitymanager.v1.RateL" +
-      "imitR\trateLimit\0226\n\027heartbeat_period_mill" +
-      "is\030\005 \001(\rR\025heartbeatPeriodMillis\022)\n\020preex" +
-      "isting_only\030\006 \001(\010R\017preexistingOnly\"\255\001\n\036S" +
-      "treamEntityComponentsResponse\022H\n\014entity_" +
-      "event\030\001 \001(\0132%.anduril.entitymanager.v1.E" +
-      "ntityEventR\013entityEvent\022A\n\theartbeat\030\002 \001" +
-      "(\0132#.anduril.entitymanager.v1.HeartbeatR" +
-      "\theartbeat\"i\n\020PutEntityRequest\0228\n\006entity" +
-      "\030\001 \001(\0132 .anduril.entitymanager.v1.Entity" +
-      "R\006entity\022\033\n\tunique_id\030\002 \001(\tR\010uniqueId\"M\n" +
-      "\021PutEntityResponse\0228\n\006entity\030\001 \001(\0132 .and" +
-      "uril.entitymanager.v1.EntityR\006entity\"R\n\026" +
+      "imit.pub.proto\032(anduril/entitymanager/v1" +
+      "/types.pub.proto\032\037google/protobuf/timest" +
+      "amp.proto\"P\n\024PublishEntityRequest\0228\n\006ent" +
+      "ity\030\001 \001(\0132 .anduril.entitymanager.v1.Ent" +
+      "ityR\006entity\"\027\n\025PublishEntityResponse\"R\n\026" +
       "PublishEntitiesRequest\0228\n\006entity\030\001 \001(\0132 " +
       ".anduril.entitymanager.v1.EntityR\006entity" +
-      "\"\031\n\027PublishEntitiesResponse\"\266\001\n\025Override" +
-      "EntityRequest\0228\n\006entity\030\001 \001(\0132 .anduril." +
-      "entitymanager.v1.EntityR\006entity\022\035\n\nfield" +
-      "_path\030\002 \003(\tR\tfieldPath\022D\n\nprovenance\030\003 \001" +
-      "(\0132$.anduril.entitymanager.v1.Provenance" +
-      "R\nprovenance\"Z\n\026OverrideEntityResponse\022@" +
-      "\n\006status\030\001 \001(\0162(.anduril.entitymanager.v" +
-      "1.OverrideStatusR\006status\"Y\n\033RemoveEntity" +
-      "OverrideRequest\022\033\n\tentity_id\030\001 \001(\tR\010enti" +
-      "tyId\022\035\n\nfield_path\030\002 \003(\tR\tfieldPath\"\036\n\034R" +
-      "emoveEntityOverrideResponse\"2\n\023DeleteEnt" +
-      "ityRequest\022\033\n\tentity_id\030\001 \001(\tR\010entityId\"" +
-      "\026\n\024DeleteEntityResponse\"\207\001\n\023RelateEntity" +
-      "Request\022\033\n\tentity_id\030\001 \001(\tR\010entityId\022S\n\r" +
-      "relationships\030\002 \003(\0132-.anduril.entitymana" +
-      "ger.v1.RelationshipRequestR\rrelationship" +
-      "s\"\303\001\n\023RelationshipRequest\022*\n\021related_ent" +
-      "ity_id\030\001 \001(\tR\017relatedEntityId\022\'\n\017relatio" +
-      "nship_id\030\002 \001(\tR\016relationshipId\022W\n\021relati" +
-      "onship_type\030\003 \001(\0132*.anduril.entitymanage" +
-      "r.v1.RelationshipTypeR\020relationshipType\"" +
-      "P\n\024RelateEntityResponse\0228\n\006entity\030\001 \001(\0132" +
-      " .anduril.entitymanager.v1.EntityR\006entit" +
-      "y\"_\n\025UnrelateEntityRequest\022\033\n\tentity_id\030" +
-      "\001 \001(\tR\010entityId\022)\n\020relationship_ids\030\002 \003(" +
-      "\tR\017relationshipIds\"R\n\026UnrelateEntityResp" +
-      "onse\0228\n\006entity\030\001 \001(\0132 .anduril.entityman" +
-      "ager.v1.EntityR\006entity\"\273\001\n\013EntityEvent\022B" +
-      "\n\nevent_type\030\001 \001(\0162#.anduril.entitymanag" +
-      "er.v1.EventTypeR\teventType\022.\n\004time\030\002 \001(\013" +
-      "2\032.google.protobuf.TimestampR\004time\0228\n\006en" +
-      "tity\030\003 \001(\0132 .anduril.entitymanager.v1.En" +
-      "tityR\006entity\"E\n\tHeartbeat\0228\n\ttimestamp\030\001" +
-      " \001(\0132\032.google.protobuf.TimestampR\ttimest" +
-      "amp*\253\001\n\tEventType\022\026\n\022EVENT_TYPE_INVALID\020" +
-      "\000\022\026\n\022EVENT_TYPE_CREATED\020\001\022\025\n\021EVENT_TYPE_" +
-      "UPDATE\020\002\022\026\n\022EVENT_TYPE_DELETED\020\003\022\032\n\026EVEN" +
-      "T_TYPE_PREEXISTING\020\004\022#\n\037EVENT_TYPE_POST_" +
-      "EXPIRY_OVERRIDE\020\0052\270\010\n\020EntityManagerAPI\022d" +
-      "\n\tGetEntity\022*.anduril.entitymanager.v1.G" +
-      "etEntityRequest\032+.anduril.entitymanager." +
-      "v1.GetEntityResponse\022\215\001\n\026StreamEntityCom" +
-      "ponents\0227.anduril.entitymanager.v1.Strea" +
-      "mEntityComponentsRequest\0328.anduril.entit" +
-      "ymanager.v1.StreamEntityComponentsRespon" +
-      "se0\001\022d\n\tPutEntity\022*.anduril.entitymanage" +
-      "r.v1.PutEntityRequest\032+.anduril.entityma" +
-      "nager.v1.PutEntityResponse\022x\n\017PublishEnt" +
-      "ities\0220.anduril.entitymanager.v1.Publish" +
-      "EntitiesRequest\0321.anduril.entitymanager." +
-      "v1.PublishEntitiesResponse(\001\022s\n\016Override" +
-      "Entity\022/.anduril.entitymanager.v1.Overri" +
-      "deEntityRequest\0320.anduril.entitymanager." +
-      "v1.OverrideEntityResponse\022\205\001\n\024RemoveEnti" +
-      "tyOverride\0225.anduril.entitymanager.v1.Re" +
-      "moveEntityOverrideRequest\0326.anduril.enti" +
-      "tymanager.v1.RemoveEntityOverrideRespons" +
-      "e\022m\n\014DeleteEntity\022-.anduril.entitymanage" +
-      "r.v1.DeleteEntityRequest\032..anduril.entit" +
-      "ymanager.v1.DeleteEntityResponse\022m\n\014Rela" +
-      "teEntity\022-.anduril.entitymanager.v1.Rela" +
-      "teEntityRequest\032..anduril.entitymanager." +
-      "v1.RelateEntityResponse\022s\n\016UnrelateEntit" +
-      "y\022/.anduril.entitymanager.v1.UnrelateEnt" +
-      "ityRequest\0320.anduril.entitymanager.v1.Un" +
-      "relateEntityResponseB\210\002\n\034com.anduril.ent" +
-      "itymanager.v1B\030EntityManagerApiPubProtoP" +
-      "\001ZLgithub.com/anduril/anduril-java/src/a" +
-      "nduril/entitymanager/v1;entitymanagerv1\242" +
-      "\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andur" +
-      "il\\Entitymanager\\V1\342\002$Anduril\\Entitymana" +
-      "ger\\V1\\GPBMetadata\352\002\032Anduril::Entitymana" +
-      "ger::V1b\006proto3"
+      "\"\031\n\027PublishEntitiesResponse\"/\n\020GetEntity" +
+      "Request\022\033\n\tentity_id\030\001 \001(\tR\010entityId\"M\n\021" +
+      "GetEntityResponse\0228\n\006entity\030\001 \001(\0132 .andu" +
+      "ril.entitymanager.v1.EntityR\006entity\"\266\001\n\025" +
+      "OverrideEntityRequest\0228\n\006entity\030\001 \001(\0132 ." +
+      "anduril.entitymanager.v1.EntityR\006entity\022" +
+      "\035\n\nfield_path\030\002 \003(\tR\tfieldPath\022D\n\nproven" +
+      "ance\030\003 \001(\0132$.anduril.entitymanager.v1.Pr" +
+      "ovenanceR\nprovenance\"Z\n\026OverrideEntityRe" +
+      "sponse\022@\n\006status\030\001 \001(\0162(.anduril.entitym" +
+      "anager.v1.OverrideStatusR\006status\"Y\n\033Remo" +
+      "veEntityOverrideRequest\022\033\n\tentity_id\030\001 \001" +
+      "(\tR\010entityId\022\035\n\nfield_path\030\002 \003(\tR\tfieldP" +
+      "ath\"\036\n\034RemoveEntityOverrideResponse\"\355\002\n\035" +
+      "StreamEntityComponentsRequest\0222\n\025compone" +
+      "nts_to_include\030\001 \003(\tR\023componentsToInclud" +
+      "e\0224\n\026include_all_components\030\002 \001(\010R\024inclu" +
+      "deAllComponents\022;\n\006filter\030\003 \001(\0132#.anduri" +
+      "l.entitymanager.v1.StatementR\006filter\022B\n\n" +
+      "rate_limit\030\004 \001(\0132#.anduril.entitymanager" +
+      ".v1.RateLimitR\trateLimit\0226\n\027heartbeat_pe" +
+      "riod_millis\030\005 \001(\rR\025heartbeatPeriodMillis" +
+      "\022)\n\020preexisting_only\030\006 \001(\010R\017preexistingO" +
+      "nly\"\255\001\n\036StreamEntityComponentsResponse\022H" +
+      "\n\014entity_event\030\001 \001(\0132%.anduril.entityman" +
+      "ager.v1.EntityEventR\013entityEvent\022A\n\thear" +
+      "tbeat\030\002 \001(\0132#.anduril.entitymanager.v1.H" +
+      "eartbeatR\theartbeat\"\273\001\n\013EntityEvent\022B\n\ne" +
+      "vent_type\030\001 \001(\0162#.anduril.entitymanager." +
+      "v1.EventTypeR\teventType\022.\n\004time\030\002 \001(\0132\032." +
+      "google.protobuf.TimestampR\004time\0228\n\006entit" +
+      "y\030\003 \001(\0132 .anduril.entitymanager.v1.Entit" +
+      "yR\006entity\"E\n\tHeartbeat\0228\n\ttimestamp\030\001 \001(" +
+      "\0132\032.google.protobuf.TimestampR\ttimestamp" +
+      "*\253\001\n\tEventType\022\026\n\022EVENT_TYPE_INVALID\020\000\022\026" +
+      "\n\022EVENT_TYPE_CREATED\020\001\022\025\n\021EVENT_TYPE_UPD" +
+      "ATE\020\002\022\026\n\022EVENT_TYPE_DELETED\020\003\022\032\n\026EVENT_T" +
+      "YPE_PREEXISTING\020\004\022#\n\037EVENT_TYPE_POST_EXP" +
+      "IRY_OVERRIDE\020\0052\361\005\n\020EntityManagerAPI\022p\n\rP" +
+      "ublishEntity\022..anduril.entitymanager.v1." +
+      "PublishEntityRequest\032/.anduril.entityman" +
+      "ager.v1.PublishEntityResponse\022x\n\017Publish" +
+      "Entities\0220.anduril.entitymanager.v1.Publ" +
+      "ishEntitiesRequest\0321.anduril.entitymanag" +
+      "er.v1.PublishEntitiesResponse(\001\022d\n\tGetEn" +
+      "tity\022*.anduril.entitymanager.v1.GetEntit" +
+      "yRequest\032+.anduril.entitymanager.v1.GetE" +
+      "ntityResponse\022s\n\016OverrideEntity\022/.anduri" +
+      "l.entitymanager.v1.OverrideEntityRequest" +
+      "\0320.anduril.entitymanager.v1.OverrideEnti" +
+      "tyResponse\022\205\001\n\024RemoveEntityOverride\0225.an" +
+      "duril.entitymanager.v1.RemoveEntityOverr" +
+      "ideRequest\0326.anduril.entitymanager.v1.Re" +
+      "moveEntityOverrideResponse\022\215\001\n\026StreamEnt" +
+      "ityComponents\0227.anduril.entitymanager.v1" +
+      ".StreamEntityComponentsRequest\0328.anduril" +
+      ".entitymanager.v1.StreamEntityComponents" +
+      "Response0\001B\210\002\n\034com.anduril.entitymanager" +
+      ".v1B\030EntityManagerApiPubProtoP\001ZLgithub." +
+      "com/anduril/anduril-java/src/anduril/ent" +
+      "itymanager/v1;entitymanagerv1\242\002\003AEX\252\002\030An" +
+      "duril.Entitymanager.V1\312\002\030Anduril\\Entitym" +
+      "anager\\V1\342\002$Anduril\\Entitymanager\\V1\\GPB" +
+      "Metadata\352\002\032Anduril::Entitymanager::V1b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -240,132 +177,89 @@ public final class EntityManagerApiPubProto {
           com.anduril.entitymanager.v1.EntityPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.FilterPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.RateLimitPubProto.getDescriptor(),
-          com.anduril.entitymanager.v1.RelationshipPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.TypesPubProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
-    internal_static_anduril_entitymanager_v1_GetEntityRequest_descriptor =
+    internal_static_anduril_entitymanager_v1_PublishEntityRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_anduril_entitymanager_v1_GetEntityRequest_fieldAccessorTable = new
+    internal_static_anduril_entitymanager_v1_PublishEntityRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_GetEntityRequest_descriptor,
-        new java.lang.String[] { "EntityId", });
-    internal_static_anduril_entitymanager_v1_GetEntityResponse_descriptor =
+        internal_static_anduril_entitymanager_v1_PublishEntityRequest_descriptor,
+        new java.lang.String[] { "Entity", });
+    internal_static_anduril_entitymanager_v1_PublishEntityResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_anduril_entitymanager_v1_GetEntityResponse_fieldAccessorTable = new
+    internal_static_anduril_entitymanager_v1_PublishEntityResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_GetEntityResponse_descriptor,
-        new java.lang.String[] { "Entity", });
-    internal_static_anduril_entitymanager_v1_StreamEntityComponentsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_anduril_entitymanager_v1_StreamEntityComponentsRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_StreamEntityComponentsRequest_descriptor,
-        new java.lang.String[] { "ComponentsToInclude", "IncludeAllComponents", "Filter", "RateLimit", "HeartbeatPeriodMillis", "PreexistingOnly", });
-    internal_static_anduril_entitymanager_v1_StreamEntityComponentsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_anduril_entitymanager_v1_StreamEntityComponentsResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_StreamEntityComponentsResponse_descriptor,
-        new java.lang.String[] { "EntityEvent", "Heartbeat", });
-    internal_static_anduril_entitymanager_v1_PutEntityRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_anduril_entitymanager_v1_PutEntityRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_PutEntityRequest_descriptor,
-        new java.lang.String[] { "Entity", "UniqueId", });
-    internal_static_anduril_entitymanager_v1_PutEntityResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_anduril_entitymanager_v1_PutEntityResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_PutEntityResponse_descriptor,
-        new java.lang.String[] { "Entity", });
+        internal_static_anduril_entitymanager_v1_PublishEntityResponse_descriptor,
+        new java.lang.String[] { });
     internal_static_anduril_entitymanager_v1_PublishEntitiesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_anduril_entitymanager_v1_PublishEntitiesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_PublishEntitiesRequest_descriptor,
         new java.lang.String[] { "Entity", });
     internal_static_anduril_entitymanager_v1_PublishEntitiesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_anduril_entitymanager_v1_PublishEntitiesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_PublishEntitiesResponse_descriptor,
         new java.lang.String[] { });
+    internal_static_anduril_entitymanager_v1_GetEntityRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_anduril_entitymanager_v1_GetEntityRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_GetEntityRequest_descriptor,
+        new java.lang.String[] { "EntityId", });
+    internal_static_anduril_entitymanager_v1_GetEntityResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_anduril_entitymanager_v1_GetEntityResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_GetEntityResponse_descriptor,
+        new java.lang.String[] { "Entity", });
     internal_static_anduril_entitymanager_v1_OverrideEntityRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_anduril_entitymanager_v1_OverrideEntityRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_OverrideEntityRequest_descriptor,
         new java.lang.String[] { "Entity", "FieldPath", "Provenance", });
     internal_static_anduril_entitymanager_v1_OverrideEntityResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_anduril_entitymanager_v1_OverrideEntityResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_OverrideEntityResponse_descriptor,
         new java.lang.String[] { "Status", });
     internal_static_anduril_entitymanager_v1_RemoveEntityOverrideRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_anduril_entitymanager_v1_RemoveEntityOverrideRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_RemoveEntityOverrideRequest_descriptor,
         new java.lang.String[] { "EntityId", "FieldPath", });
     internal_static_anduril_entitymanager_v1_RemoveEntityOverrideResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_anduril_entitymanager_v1_RemoveEntityOverrideResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_RemoveEntityOverrideResponse_descriptor,
         new java.lang.String[] { });
-    internal_static_anduril_entitymanager_v1_DeleteEntityRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
-    internal_static_anduril_entitymanager_v1_DeleteEntityRequest_fieldAccessorTable = new
+    internal_static_anduril_entitymanager_v1_StreamEntityComponentsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_anduril_entitymanager_v1_StreamEntityComponentsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_DeleteEntityRequest_descriptor,
-        new java.lang.String[] { "EntityId", });
-    internal_static_anduril_entitymanager_v1_DeleteEntityResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
-    internal_static_anduril_entitymanager_v1_DeleteEntityResponse_fieldAccessorTable = new
+        internal_static_anduril_entitymanager_v1_StreamEntityComponentsRequest_descriptor,
+        new java.lang.String[] { "ComponentsToInclude", "IncludeAllComponents", "Filter", "RateLimit", "HeartbeatPeriodMillis", "PreexistingOnly", });
+    internal_static_anduril_entitymanager_v1_StreamEntityComponentsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_anduril_entitymanager_v1_StreamEntityComponentsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_DeleteEntityResponse_descriptor,
-        new java.lang.String[] { });
-    internal_static_anduril_entitymanager_v1_RelateEntityRequest_descriptor =
-      getDescriptor().getMessageTypes().get(14);
-    internal_static_anduril_entitymanager_v1_RelateEntityRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_RelateEntityRequest_descriptor,
-        new java.lang.String[] { "EntityId", "Relationships", });
-    internal_static_anduril_entitymanager_v1_RelationshipRequest_descriptor =
-      getDescriptor().getMessageTypes().get(15);
-    internal_static_anduril_entitymanager_v1_RelationshipRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_RelationshipRequest_descriptor,
-        new java.lang.String[] { "RelatedEntityId", "RelationshipId", "RelationshipType", });
-    internal_static_anduril_entitymanager_v1_RelateEntityResponse_descriptor =
-      getDescriptor().getMessageTypes().get(16);
-    internal_static_anduril_entitymanager_v1_RelateEntityResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_RelateEntityResponse_descriptor,
-        new java.lang.String[] { "Entity", });
-    internal_static_anduril_entitymanager_v1_UnrelateEntityRequest_descriptor =
-      getDescriptor().getMessageTypes().get(17);
-    internal_static_anduril_entitymanager_v1_UnrelateEntityRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_UnrelateEntityRequest_descriptor,
-        new java.lang.String[] { "EntityId", "RelationshipIds", });
-    internal_static_anduril_entitymanager_v1_UnrelateEntityResponse_descriptor =
-      getDescriptor().getMessageTypes().get(18);
-    internal_static_anduril_entitymanager_v1_UnrelateEntityResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_UnrelateEntityResponse_descriptor,
-        new java.lang.String[] { "Entity", });
+        internal_static_anduril_entitymanager_v1_StreamEntityComponentsResponse_descriptor,
+        new java.lang.String[] { "EntityEvent", "Heartbeat", });
     internal_static_anduril_entitymanager_v1_EntityEvent_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_anduril_entitymanager_v1_EntityEvent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_EntityEvent_descriptor,
         new java.lang.String[] { "EventType", "Time", "Entity", });
     internal_static_anduril_entitymanager_v1_Heartbeat_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_anduril_entitymanager_v1_Heartbeat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Heartbeat_descriptor,
@@ -373,7 +267,6 @@ public final class EntityManagerApiPubProto {
     com.anduril.entitymanager.v1.EntityPubProto.getDescriptor();
     com.anduril.entitymanager.v1.FilterPubProto.getDescriptor();
     com.anduril.entitymanager.v1.RateLimitPubProto.getDescriptor();
-    com.anduril.entitymanager.v1.RelationshipPubProto.getDescriptor();
     com.anduril.entitymanager.v1.TypesPubProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

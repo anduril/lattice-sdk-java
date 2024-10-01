@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Provenance() {
+    feedName_ = "";
     integrationName_ = "";
     dataType_ = "";
     source_ = 0;
@@ -47,12 +48,64 @@ private static final long serialVersionUID = 0L;
             com.anduril.entitymanager.v1.Provenance.class, com.anduril.entitymanager.v1.Provenance.Builder.class);
   }
 
+  public static final int FEED_NAME_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object feedName_ = "";
+  /**
+   * <pre>
+   * A feed is a 1:1 or Many:1 mapping between a data type from a specific vendor
+   * and an output stream of entities. The feed_name identifies the feed definition
+   * in the Feeds API and must be globally unique per feed.
+   * </pre>
+   *
+   * <code>string feed_name = 7 [json_name = "feedName"];</code>
+   * @return The feedName.
+   */
+  @java.lang.Override
+  public java.lang.String getFeedName() {
+    java.lang.Object ref = feedName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      feedName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * A feed is a 1:1 or Many:1 mapping between a data type from a specific vendor
+   * and an output stream of entities. The feed_name identifies the feed definition
+   * in the Feeds API and must be globally unique per feed.
+   * </pre>
+   *
+   * <code>string feed_name = 7 [json_name = "feedName"];</code>
+   * @return The bytes for feedName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFeedNameBytes() {
+    java.lang.Object ref = feedName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      feedName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int INTEGRATION_NAME_FIELD_NUMBER = 5;
   @SuppressWarnings("serial")
   private volatile java.lang.Object integrationName_ = "";
   /**
    * <pre>
    * Name of the integration that produced this entity
+   * To be deprecated soon in favor of feed_name
    * </pre>
    *
    * <code>string integration_name = 5 [json_name = "integrationName"];</code>
@@ -74,6 +127,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Name of the integration that produced this entity
+   * To be deprecated soon in favor of feed_name
    * </pre>
    *
    * <code>string integration_name = 5 [json_name = "integrationName"];</code>
@@ -100,6 +154,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Source data type of this entity. Examples: ADSB, Link16, etc.
+   * To be deprecated soon in favor of feed_name
    * </pre>
    *
    * <code>string data_type = 6 [json_name = "dataType"];</code>
@@ -121,6 +176,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Source data type of this entity. Examples: ADSB, Link16, etc.
+   * To be deprecated soon in favor of feed_name
    * </pre>
    *
    * <code>string data_type = 6 [json_name = "dataType"];</code>
@@ -218,7 +274,9 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp sourceUpdateTime_;
   /**
    * <pre>
-   * Main update timer for the entity with the exception of overrides
+   * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+   * be the time that the source-reported time of validity of the data in the entity. This field must be
+   * updated with every change to the entity or else Entity Manager will discard the update.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
@@ -230,7 +288,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Main update timer for the entity with the exception of overrides
+   * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+   * be the time that the source-reported time of validity of the data in the entity. This field must be
+   * updated with every change to the entity or else Entity Manager will discard the update.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
@@ -242,7 +302,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Main update timer for the entity with the exception of overrides
+   * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+   * be the time that the source-reported time of validity of the data in the entity. This field must be
+   * updated with every change to the entity or else Entity Manager will discard the update.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
@@ -331,6 +393,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, dataType_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(feedName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, feedName_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -360,6 +425,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, dataType_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(feedName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, feedName_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -375,6 +443,8 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.Provenance other = (com.anduril.entitymanager.v1.Provenance) obj;
 
+    if (!getFeedName()
+        .equals(other.getFeedName())) return false;
     if (!getIntegrationName()
         .equals(other.getIntegrationName())) return false;
     if (!getDataType()
@@ -400,6 +470,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + FEED_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getFeedName().hashCode();
     hash = (37 * hash) + INTEGRATION_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getIntegrationName().hashCode();
     hash = (37 * hash) + DATA_TYPE_FIELD_NUMBER;
@@ -547,6 +619,7 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
+      feedName_ = "";
       integrationName_ = "";
       dataType_ = "";
       source_ = 0;
@@ -591,23 +664,26 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.anduril.entitymanager.v1.Provenance result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.integrationName_ = integrationName_;
+        result.feedName_ = feedName_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.dataType_ = dataType_;
+        result.integrationName_ = integrationName_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.source_ = source_;
+        result.dataType_ = dataType_;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.sourceId_ = sourceId_;
+        result.source_ = source_;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sourceId_ = sourceId_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.sourceUpdateTime_ = sourceUpdateTimeBuilder_ == null
             ? sourceUpdateTime_
             : sourceUpdateTimeBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000040) != 0)) {
         result.sourceDescription_ = sourceDescription_;
       }
     }
@@ -624,14 +700,19 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.Provenance other) {
       if (other == com.anduril.entitymanager.v1.Provenance.getDefaultInstance()) return this;
+      if (!other.getFeedName().isEmpty()) {
+        feedName_ = other.feedName_;
+        bitField0_ |= 0x00000001;
+        onChanged();
+      }
       if (!other.getIntegrationName().isEmpty()) {
         integrationName_ = other.integrationName_;
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDataType().isEmpty()) {
         dataType_ = other.dataType_;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.source_ != 0) {
@@ -639,7 +720,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSourceId().isEmpty()) {
         sourceId_ = other.sourceId_;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasSourceUpdateTime()) {
@@ -647,7 +728,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSourceDescription().isEmpty()) {
         sourceDescription_ = other.sourceDescription_;
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -678,36 +759,41 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
               source_ = input.readEnum();
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               break;
             } // case 8
             case 18: {
               input.readMessage(
                   getSourceUpdateTimeFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000020;
               break;
             } // case 18
             case 26: {
               sourceId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               break;
             } // case 26
             case 34: {
               sourceDescription_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000040;
               break;
             } // case 34
             case 42: {
               integrationName_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
+              bitField0_ |= 0x00000002;
               break;
             } // case 42
             case 50: {
               dataType_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000004;
               break;
             } // case 50
+            case 58: {
+              feedName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 58
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -725,10 +811,113 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private java.lang.Object feedName_ = "";
+    /**
+     * <pre>
+     * A feed is a 1:1 or Many:1 mapping between a data type from a specific vendor
+     * and an output stream of entities. The feed_name identifies the feed definition
+     * in the Feeds API and must be globally unique per feed.
+     * </pre>
+     *
+     * <code>string feed_name = 7 [json_name = "feedName"];</code>
+     * @return The feedName.
+     */
+    public java.lang.String getFeedName() {
+      java.lang.Object ref = feedName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        feedName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * A feed is a 1:1 or Many:1 mapping between a data type from a specific vendor
+     * and an output stream of entities. The feed_name identifies the feed definition
+     * in the Feeds API and must be globally unique per feed.
+     * </pre>
+     *
+     * <code>string feed_name = 7 [json_name = "feedName"];</code>
+     * @return The bytes for feedName.
+     */
+    public com.google.protobuf.ByteString
+        getFeedNameBytes() {
+      java.lang.Object ref = feedName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        feedName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * A feed is a 1:1 or Many:1 mapping between a data type from a specific vendor
+     * and an output stream of entities. The feed_name identifies the feed definition
+     * in the Feeds API and must be globally unique per feed.
+     * </pre>
+     *
+     * <code>string feed_name = 7 [json_name = "feedName"];</code>
+     * @param value The feedName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFeedName(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      feedName_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A feed is a 1:1 or Many:1 mapping between a data type from a specific vendor
+     * and an output stream of entities. The feed_name identifies the feed definition
+     * in the Feeds API and must be globally unique per feed.
+     * </pre>
+     *
+     * <code>string feed_name = 7 [json_name = "feedName"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFeedName() {
+      feedName_ = getDefaultInstance().getFeedName();
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A feed is a 1:1 or Many:1 mapping between a data type from a specific vendor
+     * and an output stream of entities. The feed_name identifies the feed definition
+     * in the Feeds API and must be globally unique per feed.
+     * </pre>
+     *
+     * <code>string feed_name = 7 [json_name = "feedName"];</code>
+     * @param value The bytes for feedName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFeedNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      feedName_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object integrationName_ = "";
     /**
      * <pre>
      * Name of the integration that produced this entity
+     * To be deprecated soon in favor of feed_name
      * </pre>
      *
      * <code>string integration_name = 5 [json_name = "integrationName"];</code>
@@ -749,6 +938,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the integration that produced this entity
+     * To be deprecated soon in favor of feed_name
      * </pre>
      *
      * <code>string integration_name = 5 [json_name = "integrationName"];</code>
@@ -770,6 +960,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Name of the integration that produced this entity
+     * To be deprecated soon in favor of feed_name
      * </pre>
      *
      * <code>string integration_name = 5 [json_name = "integrationName"];</code>
@@ -780,13 +971,14 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       integrationName_ = value;
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Name of the integration that produced this entity
+     * To be deprecated soon in favor of feed_name
      * </pre>
      *
      * <code>string integration_name = 5 [json_name = "integrationName"];</code>
@@ -794,13 +986,14 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearIntegrationName() {
       integrationName_ = getDefaultInstance().getIntegrationName();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Name of the integration that produced this entity
+     * To be deprecated soon in favor of feed_name
      * </pre>
      *
      * <code>string integration_name = 5 [json_name = "integrationName"];</code>
@@ -812,7 +1005,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       integrationName_ = value;
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -821,6 +1014,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Source data type of this entity. Examples: ADSB, Link16, etc.
+     * To be deprecated soon in favor of feed_name
      * </pre>
      *
      * <code>string data_type = 6 [json_name = "dataType"];</code>
@@ -841,6 +1035,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Source data type of this entity. Examples: ADSB, Link16, etc.
+     * To be deprecated soon in favor of feed_name
      * </pre>
      *
      * <code>string data_type = 6 [json_name = "dataType"];</code>
@@ -862,6 +1057,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Source data type of this entity. Examples: ADSB, Link16, etc.
+     * To be deprecated soon in favor of feed_name
      * </pre>
      *
      * <code>string data_type = 6 [json_name = "dataType"];</code>
@@ -872,13 +1068,14 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       dataType_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Source data type of this entity. Examples: ADSB, Link16, etc.
+     * To be deprecated soon in favor of feed_name
      * </pre>
      *
      * <code>string data_type = 6 [json_name = "dataType"];</code>
@@ -886,13 +1083,14 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDataType() {
       dataType_ = getDefaultInstance().getDataType();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Source data type of this entity. Examples: ADSB, Link16, etc.
+     * To be deprecated soon in favor of feed_name
      * </pre>
      *
      * <code>string data_type = 6 [json_name = "dataType"];</code>
@@ -904,7 +1102,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       dataType_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -932,7 +1130,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceValue(int value) {
       source_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -962,7 +1160,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       source_ = value.getNumber();
       onChanged();
       return this;
@@ -976,7 +1174,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSource() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       source_ = 0;
       onChanged();
       return this;
@@ -1037,7 +1235,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       sourceId_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1051,7 +1249,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSourceId() {
       sourceId_ = getDefaultInstance().getSourceId();
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1069,7 +1267,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       sourceId_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1079,18 +1277,22 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> sourceUpdateTimeBuilder_;
     /**
      * <pre>
-     * Main update timer for the entity with the exception of overrides
+     * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+     * be the time that the source-reported time of validity of the data in the entity. This field must be
+     * updated with every change to the entity or else Entity Manager will discard the update.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
      * @return Whether the sourceUpdateTime field is set.
      */
     public boolean hasSourceUpdateTime() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
-     * Main update timer for the entity with the exception of overrides
+     * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+     * be the time that the source-reported time of validity of the data in the entity. This field must be
+     * updated with every change to the entity or else Entity Manager will discard the update.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
@@ -1105,7 +1307,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Main update timer for the entity with the exception of overrides
+     * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+     * be the time that the source-reported time of validity of the data in the entity. This field must be
+     * updated with every change to the entity or else Entity Manager will discard the update.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
@@ -1119,13 +1323,15 @@ private static final long serialVersionUID = 0L;
       } else {
         sourceUpdateTimeBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Main update timer for the entity with the exception of overrides
+     * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+     * be the time that the source-reported time of validity of the data in the entity. This field must be
+     * updated with every change to the entity or else Entity Manager will discard the update.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
@@ -1137,20 +1343,22 @@ private static final long serialVersionUID = 0L;
       } else {
         sourceUpdateTimeBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Main update timer for the entity with the exception of overrides
+     * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+     * be the time that the source-reported time of validity of the data in the entity. This field must be
+     * updated with every change to the entity or else Entity Manager will discard the update.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
      */
     public Builder mergeSourceUpdateTime(com.google.protobuf.Timestamp value) {
       if (sourceUpdateTimeBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0) &&
+        if (((bitField0_ & 0x00000020) != 0) &&
           sourceUpdateTime_ != null &&
           sourceUpdateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getSourceUpdateTimeBuilder().mergeFrom(value);
@@ -1160,19 +1368,21 @@ private static final long serialVersionUID = 0L;
       } else {
         sourceUpdateTimeBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Main update timer for the entity with the exception of overrides
+     * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+     * be the time that the source-reported time of validity of the data in the entity. This field must be
+     * updated with every change to the entity or else Entity Manager will discard the update.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
      */
     public Builder clearSourceUpdateTime() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000020);
       sourceUpdateTime_ = null;
       if (sourceUpdateTimeBuilder_ != null) {
         sourceUpdateTimeBuilder_.dispose();
@@ -1183,19 +1393,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Main update timer for the entity with the exception of overrides
+     * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+     * be the time that the source-reported time of validity of the data in the entity. This field must be
+     * updated with every change to the entity or else Entity Manager will discard the update.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getSourceUpdateTimeBuilder() {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return getSourceUpdateTimeFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Main update timer for the entity with the exception of overrides
+     * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+     * be the time that the source-reported time of validity of the data in the entity. This field must be
+     * updated with every change to the entity or else Entity Manager will discard the update.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
@@ -1210,7 +1424,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Main update timer for the entity with the exception of overrides
+     * The time, according to the source system, that the data in the entity was last modified. Generally, this should
+     * be the time that the source-reported time of validity of the data in the entity. This field must be
+     * updated with every change to the entity or else Entity Manager will discard the update.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
@@ -1284,7 +1500,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       sourceDescription_ = value;
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1298,7 +1514,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSourceDescription() {
       sourceDescription_ = getDefaultInstance().getSourceDescription();
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1316,7 +1532,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       sourceDescription_ = value;
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
