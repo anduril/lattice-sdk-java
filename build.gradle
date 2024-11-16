@@ -43,8 +43,8 @@ java {
 publishing {
   repositories {
     maven {
-      name = "anduril-sdk-java"
-      url = "https://maven.pkg.github.com/anduril/anduril-java"
+      name = "lattice-sdk-java"
+      url = "https://maven.pkg.github.com/anduril/lattice-sdk-java"
       credentials {
         username = System.getenv("USERNAME")
         password = System.getenv("TOKEN")
@@ -54,7 +54,7 @@ publishing {
 
   publications {
     mavenJava(MavenPublication) {
-      artifactId = 'anduril-sdk-java'
+      artifactId = 'lattice-sdk-java'
       from components.java
     }
   }
