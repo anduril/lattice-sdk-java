@@ -1,27 +1,15 @@
-name: Gradle release
+name: Gradle version bump
 on:
-  push:
-    branches: [master]
+  pull_request:
+    branches:
+      - 'master'
   workflow_dispatch: {}
 
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
 jobs:
-  bump-version:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-    - uses: actions/checkout@v4
-    - name: Bump Version
-      id: bump
-      uses: Plugily-Projects/version-bump-action@v9
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        auto-version-bump: true
   release:
-    needs: bump-version
     runs-on: ubuntu-latest
     permissions:
       packages: write
