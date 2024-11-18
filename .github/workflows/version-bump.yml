@@ -1,7 +1,8 @@
 name: Bump version
 on:
-  release:
-    types: [published]
+  pull-request:
+    types: [opened]
+    branches: [master]
   workflow_dispatch: {}
 
 concurrency:

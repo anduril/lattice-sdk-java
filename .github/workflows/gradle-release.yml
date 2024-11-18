@@ -1,8 +1,8 @@
-name: Gradle version bump
+name: Gradle release
 on:
   pull_request:
     branches:
-      - 'master'
+      - master
     types:
       - closed
   workflow_dispatch: {}
