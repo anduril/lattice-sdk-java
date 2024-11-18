@@ -31,11 +31,11 @@ public final class AttributionPubProto {
       "\n\"anduril/type/attribution.pub.proto\022\014an" +
       "duril.type\"D\n\013Attribution\022\034\n\ttimestamp\030\001" +
       " \001(\003R\ttimestamp\022\027\n\007user_id\030\002 \001(\tR\006userId" +
-      "B\252\001\n\020com.anduril.typeB\023AttributionPubPro" +
-      "toP\001Z0github.com/anduril/anduril-java/sr" +
-      "c/anduril/type\242\002\003ATX\252\002\014Anduril.Type\312\002\014An" +
-      "duril\\Type\342\002\030Anduril\\Type\\GPBMetadata\352\002\r" +
-      "Anduril::Typeb\006proto3"
+      "B\256\001\n\020com.anduril.typeB\023AttributionPubPro" +
+      "toP\001Z4github.com/anduril/lattice-sdk-jav" +
+      "a/src/anduril/type\242\002\003ATX\252\002\014Anduril.Type\312" +
+      "\002\014Anduril\\Type\342\002\030Anduril\\Type\\GPBMetadat" +
+      "a\352\002\rAnduril::Typeb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

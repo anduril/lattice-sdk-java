@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Indicators() {
-    deletable_ = 0;
   }
 
   @java.lang.Override
@@ -147,24 +146,6 @@ private static final long serialVersionUID = 0L;
     return c2_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : c2_;
   }
 
-  public static final int DELETABLE_FIELD_NUMBER = 5;
-  private int deletable_ = 0;
-  /**
-   * <code>.anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];</code>
-   * @return The enum numeric value on the wire for deletable.
-   */
-  @java.lang.Override public int getDeletableValue() {
-    return deletable_;
-  }
-  /**
-   * <code>.anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];</code>
-   * @return The deletable.
-   */
-  @java.lang.Override public com.anduril.entitymanager.v1.Deletable getDeletable() {
-    com.anduril.entitymanager.v1.Deletable result = com.anduril.entitymanager.v1.Deletable.forNumber(deletable_);
-    return result == null ? com.anduril.entitymanager.v1.Deletable.UNRECOGNIZED : result;
-  }
-
   public static final int EGRESSABLE_FIELD_NUMBER = 6;
   private com.google.protobuf.BoolValue egressable_;
   /**
@@ -270,9 +251,6 @@ private static final long serialVersionUID = 0L;
     if (c2_ != null) {
       output.writeMessage(4, getC2());
     }
-    if (deletable_ != com.anduril.entitymanager.v1.Deletable.DELETABLE_INVALID.getNumber()) {
-      output.writeEnum(5, deletable_);
-    }
     if (egressable_ != null) {
       output.writeMessage(6, getEgressable());
     }
@@ -303,10 +281,6 @@ private static final long serialVersionUID = 0L;
     if (c2_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getC2());
-    }
-    if (deletable_ != com.anduril.entitymanager.v1.Deletable.DELETABLE_INVALID.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(5, deletable_);
     }
     if (egressable_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -351,7 +325,6 @@ private static final long serialVersionUID = 0L;
       if (!getC2()
           .equals(other.getC2())) return false;
     }
-    if (deletable_ != other.deletable_) return false;
     if (hasEgressable() != other.hasEgressable()) return false;
     if (hasEgressable()) {
       if (!getEgressable()
@@ -389,8 +362,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + C2_FIELD_NUMBER;
       hash = (53 * hash) + getC2().hashCode();
     }
-    hash = (37 * hash) + DELETABLE_FIELD_NUMBER;
-    hash = (53 * hash) + deletable_;
     if (hasEgressable()) {
       hash = (37 * hash) + EGRESSABLE_FIELD_NUMBER;
       hash = (53 * hash) + getEgressable().hashCode();
@@ -552,7 +523,6 @@ private static final long serialVersionUID = 0L;
         c2Builder_.dispose();
         c2Builder_ = null;
       }
-      deletable_ = 0;
       egressable_ = null;
       if (egressableBuilder_ != null) {
         egressableBuilder_.dispose();
@@ -617,14 +587,11 @@ private static final long serialVersionUID = 0L;
             : c2Builder_.build();
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.deletable_ = deletable_;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.egressable_ = egressableBuilder_ == null
             ? egressable_
             : egressableBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
+      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.starred_ = starredBuilder_ == null
             ? starred_
             : starredBuilder_.build();
@@ -654,9 +621,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasC2()) {
         mergeC2(other.getC2());
-      }
-      if (other.deletable_ != 0) {
-        setDeletableValue(other.getDeletableValue());
       }
       if (other.hasEgressable()) {
         mergeEgressable(other.getEgressable());
@@ -718,23 +682,18 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000008;
               break;
             } // case 34
-            case 40: {
-              deletable_ = input.readEnum();
-              bitField0_ |= 0x00000010;
-              break;
-            } // case 40
             case 50: {
               input.readMessage(
                   getEgressableFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000010;
               break;
             } // case 50
             case 58: {
               input.readMessage(
                   getStarredFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000020;
               break;
             } // case 58
             default: {
@@ -1230,59 +1189,6 @@ private static final long serialVersionUID = 0L;
       return c2Builder_;
     }
 
-    private int deletable_ = 0;
-    /**
-     * <code>.anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];</code>
-     * @return The enum numeric value on the wire for deletable.
-     */
-    @java.lang.Override public int getDeletableValue() {
-      return deletable_;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];</code>
-     * @param value The enum numeric value on the wire for deletable to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDeletableValue(int value) {
-      deletable_ = value;
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];</code>
-     * @return The deletable.
-     */
-    @java.lang.Override
-    public com.anduril.entitymanager.v1.Deletable getDeletable() {
-      com.anduril.entitymanager.v1.Deletable result = com.anduril.entitymanager.v1.Deletable.forNumber(deletable_);
-      return result == null ? com.anduril.entitymanager.v1.Deletable.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];</code>
-     * @param value The deletable to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDeletable(com.anduril.entitymanager.v1.Deletable value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      bitField0_ |= 0x00000010;
-      deletable_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDeletable() {
-      bitField0_ = (bitField0_ & ~0x00000010);
-      deletable_ = 0;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.BoolValue egressable_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> egressableBuilder_;
@@ -1296,7 +1202,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the egressable field is set.
      */
     public boolean hasEgressable() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1331,7 +1237,7 @@ private static final long serialVersionUID = 0L;
       } else {
         egressableBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1350,7 +1256,7 @@ private static final long serialVersionUID = 0L;
       } else {
         egressableBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1364,7 +1270,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEgressable(com.google.protobuf.BoolValue value) {
       if (egressableBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0) &&
+        if (((bitField0_ & 0x00000010) != 0) &&
           egressable_ != null &&
           egressable_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
           getEgressableBuilder().mergeFrom(value);
@@ -1374,7 +1280,7 @@ private static final long serialVersionUID = 0L;
       } else {
         egressableBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1387,7 +1293,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue egressable = 6 [json_name = "egressable", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder clearEgressable() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000010);
       egressable_ = null;
       if (egressableBuilder_ != null) {
         egressableBuilder_.dispose();
@@ -1405,7 +1311,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue egressable = 6 [json_name = "egressable", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.google.protobuf.BoolValue.Builder getEgressableBuilder() {
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000010;
       onChanged();
       return getEgressableFieldBuilder().getBuilder();
     }
@@ -1459,7 +1365,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the starred field is set.
      */
     public boolean hasStarred() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1492,7 +1398,7 @@ private static final long serialVersionUID = 0L;
       } else {
         starredBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1510,7 +1416,7 @@ private static final long serialVersionUID = 0L;
       } else {
         starredBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1523,7 +1429,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStarred(com.google.protobuf.BoolValue value) {
       if (starredBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0) &&
+        if (((bitField0_ & 0x00000020) != 0) &&
           starred_ != null &&
           starred_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
           getStarredBuilder().mergeFrom(value);
@@ -1533,7 +1439,7 @@ private static final long serialVersionUID = 0L;
       } else {
         starredBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1545,7 +1451,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue starred = 7 [json_name = "starred", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder clearStarred() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000020);
       starred_ = null;
       if (starredBuilder_ != null) {
         starredBuilder_.dispose();
@@ -1562,7 +1468,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue starred = 7 [json_name = "starred", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.google.protobuf.BoolValue.Builder getStarredBuilder() {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000020;
       onChanged();
       return getStarredFieldBuilder().getBuilder();
     }

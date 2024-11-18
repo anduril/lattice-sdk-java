@@ -88,14 +88,14 @@ public final class HealthStatusPubProto {
       "TUS_OFFLINE\020\004\022\033\n\027HEALTH_STATUS_NOT_READY" +
       "\020\005*q\n\nAlertLevel\022\027\n\023ALERT_LEVEL_INVALID\020" +
       "\000\022\030\n\024ALERT_LEVEL_ADVISORY\020\001\022\027\n\023ALERT_LEV" +
-      "EL_CAUTION\020\002\022\027\n\023ALERT_LEVEL_WARNING\020\003B\204\002" +
+      "EL_CAUTION\020\002\022\027\n\023ALERT_LEVEL_WARNING\020\003B\210\002" +
       "\n\034com.anduril.entitymanager.v1B\024HealthSt" +
-      "atusPubProtoP\001ZLgithub.com/anduril/andur" +
-      "il-java/src/anduril/entitymanager/v1;ent" +
-      "itymanagerv1\242\002\003AEX\252\002\030Anduril.Entitymanag" +
-      "er.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andur" +
-      "il\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduri" +
-      "l::Entitymanager::V1b\006proto3"
+      "atusPubProtoP\001ZPgithub.com/anduril/latti" +
+      "ce-sdk-java/src/anduril/entitymanager/v1" +
+      ";entitymanagerv1\242\002\003AEX\252\002\030Anduril.Entitym" +
+      "anager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$A" +
+      "nduril\\Entitymanager\\V1\\GPBMetadata\352\002\032An" +
+      "duril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

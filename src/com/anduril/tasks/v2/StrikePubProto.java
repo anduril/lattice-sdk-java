@@ -86,13 +86,13 @@ public final class StrikePubProto {
       "yloads\0229\n\tobjective\030\002 \001(\0132\033.anduril.task" +
       "s.v2.ObjectiveR\tobjective\022E\n\021precision_r" +
       "elease\030\003 \001(\0132\026.google.protobuf.EmptyH\000R\020" +
-      "precisionReleaseB\020\n\016release_methodB\315\001\n\024c" +
-      "om.anduril.tasks.v2B\016StrikePubProtoP\001ZCg" +
-      "ithub.com/anduril/anduril-java/src/andur" +
-      "il/tasks/v2/shared;tasksv2\242\002\003ATX\252\002\020Andur" +
-      "il.Tasks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034Anduril" +
-      "\\Tasks\\V2\\GPBMetadata\352\002\022Anduril::Tasks::" +
-      "V2b\006proto3"
+      "precisionReleaseB\020\n\016release_methodB\321\001\n\024c" +
+      "om.anduril.tasks.v2B\016StrikePubProtoP\001ZGg" +
+      "ithub.com/anduril/lattice-sdk-java/src/a" +
+      "nduril/tasks/v2/shared;tasksv2\242\002\003ATX\252\002\020A" +
+      "nduril.Tasks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034And" +
+      "uril\\Tasks\\V2\\GPBMetadata\352\002\022Anduril::Tas" +
+      "ks::V2b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

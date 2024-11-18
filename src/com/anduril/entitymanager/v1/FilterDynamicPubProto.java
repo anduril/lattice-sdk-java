@@ -50,14 +50,14 @@ public final class FilterDynamicPubProto {
       "ectionComparator\022Y\n\021within_comparison\030\001 " +
       "\001(\0132*.anduril.entitymanager.v1.WithinCom" +
       "parisonH\000R\020withinComparisonB\014\n\ncompariso" +
-      "n\"\022\n\020WithinComparisonB\205\002\n\034com.anduril.en" +
+      "n\"\022\n\020WithinComparisonB\211\002\n\034com.anduril.en" +
       "titymanager.v1B\025FilterDynamicPubProtoP\001Z" +
-      "Lgithub.com/anduril/anduril-java/src/and" +
-      "uril/entitymanager/v1;entitymanagerv1\242\002\003" +
-      "AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril" +
-      "\\Entitymanager\\V1\342\002$Anduril\\Entitymanage" +
-      "r\\V1\\GPBMetadata\352\002\032Anduril::Entitymanage" +
-      "r::V1b\006proto3"
+      "Pgithub.com/anduril/lattice-sdk-java/src" +
+      "/anduril/entitymanager/v1;entitymanagerv" +
+      "1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030And" +
+      "uril\\Entitymanager\\V1\342\002$Anduril\\Entityma" +
+      "nager\\V1\\GPBMetadata\352\002\032Anduril::Entityma" +
+      "nager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

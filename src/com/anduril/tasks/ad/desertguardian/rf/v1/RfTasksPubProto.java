@@ -59,15 +59,15 @@ public final class RfTasksPubProto {
       "trolState\022\"\n\036EMISSION_CONTROL_STATE_INVA" +
       "LID\020\000\022\"\n\036EMISSION_CONTROL_STATE_ALLOWED\020" +
       "\001\022&\n\"EMISSION_CONTROL_STATE_NOT_ALLOWED\020" +
-      "\002B\307\002\n)com.anduril.tasks.ad.desertguardia" +
-      "n.rf.v1B\017RfTasksPubProtoP\001ZNgithub.com/a" +
-      "nduril/anduril-java/src/anduril/tasks/ad" +
-      "/desertguardian/rf/v1;rfv1\242\002\005ATADR\252\002%And" +
-      "uril.Tasks.Ad.Desertguardian.Rf.V1\312\002%And" +
-      "uril\\Tasks\\Ad\\Desertguardian\\Rf\\V1\342\0021And" +
-      "uril\\Tasks\\Ad\\Desertguardian\\Rf\\V1\\GPBMe" +
-      "tadata\352\002*Anduril::Tasks::Ad::Desertguard" +
-      "ian::Rf::V1b\006proto3"
+      "\002B\313\002\n)com.anduril.tasks.ad.desertguardia" +
+      "n.rf.v1B\017RfTasksPubProtoP\001ZRgithub.com/a" +
+      "nduril/lattice-sdk-java/src/anduril/task" +
+      "s/ad/desertguardian/rf/v1;rfv1\242\002\005ATADR\252\002" +
+      "%Anduril.Tasks.Ad.Desertguardian.Rf.V1\312\002" +
+      "%Anduril\\Tasks\\Ad\\Desertguardian\\Rf\\V1\342\002" +
+      "1Anduril\\Tasks\\Ad\\Desertguardian\\Rf\\V1\\G" +
+      "PBMetadata\352\002*Anduril::Tasks::Ad::Desertg" +
+      "uardian::Rf::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

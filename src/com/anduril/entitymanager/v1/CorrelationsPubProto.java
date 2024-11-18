@@ -59,14 +59,14 @@ public final class CorrelationsPubProto {
       "terpretation\022 \n\034SCORE_INTERPRETATION_INV" +
       "ALID\020\000\022!\n\035SCORE_INTERPRETATION_UNLIKELY\020" +
       "\001\022\037\n\033SCORE_INTERPRETATION_LIKELY\020\002\022$\n SC" +
-      "ORE_INTERPRETATION_VERY_LIKELY\020\003B\204\002\n\034com" +
+      "ORE_INTERPRETATION_VERY_LIKELY\020\003B\210\002\n\034com" +
       ".anduril.entitymanager.v1B\024CorrelationsP" +
-      "ubProtoP\001ZLgithub.com/anduril/anduril-ja" +
-      "va/src/anduril/entitymanager/v1;entityma" +
-      "nagerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1" +
-      "\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\En" +
-      "titymanager\\V1\\GPBMetadata\352\002\032Anduril::En" +
-      "titymanager::V1b\006proto3"
+      "ubProtoP\001ZPgithub.com/anduril/lattice-sd" +
+      "k-java/src/anduril/entitymanager/v1;enti" +
+      "tymanagerv1\242\002\003AEX\252\002\030Anduril.Entitymanage" +
+      "r.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduri" +
+      "l\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduril" +
+      "::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

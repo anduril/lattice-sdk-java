@@ -79,14 +79,14 @@ public final class SuppliesPubProto {
       "\016\022\030\n\024DOD_CONDITION_CODE_N\020\017\022\030\n\024DOD_CONDI" +
       "TION_CODE_P\020\020\022\030\n\024DOD_CONDITION_CODE_R\020\021\022" +
       "\030\n\024DOD_CONDITION_CODE_T\020\022\022\030\n\024DOD_CONDITI" +
-      "ON_CODE_V\020\023\022\030\n\024DOD_CONDITION_CODE_X\020\024B\200\002" +
+      "ON_CODE_V\020\023\022\030\n\024DOD_CONDITION_CODE_X\020\024B\204\002" +
       "\n\034com.anduril.entitymanager.v1B\020Supplies" +
-      "PubProtoP\001ZLgithub.com/anduril/anduril-j" +
-      "ava/src/anduril/entitymanager/v1;entitym" +
-      "anagerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V" +
-      "1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\E" +
-      "ntitymanager\\V1\\GPBMetadata\352\002\032Anduril::E" +
-      "ntitymanager::V1b\006proto3"
+      "PubProtoP\001ZPgithub.com/anduril/lattice-s" +
+      "dk-java/src/anduril/entitymanager/v1;ent" +
+      "itymanagerv1\242\002\003AEX\252\002\030Anduril.Entitymanag" +
+      "er.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andur" +
+      "il\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduri" +
+      "l::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

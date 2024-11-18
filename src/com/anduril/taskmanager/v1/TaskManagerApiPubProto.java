@@ -175,13 +175,13 @@ public final class TaskManagerApiPubProto {
       "UpdateStatusResponse\022n\n\rListenAsAgent\022,." +
       "anduril.taskmanager.v1.ListenAsAgentRequ" +
       "est\032-.anduril.taskmanager.v1.ListenAsAge" +
-      "ntResponse0\001B\370\001\n\032com.anduril.taskmanager" +
-      ".v1B\026TaskManagerApiPubProtoP\001ZHgithub.co" +
-      "m/anduril/anduril-java/src/anduril/taskm" +
-      "anager/v1;taskmanagerv1\242\002\003ATX\252\002\026Anduril." +
-      "Taskmanager.V1\312\002\026Anduril\\Taskmanager\\V1\342" +
-      "\002\"Anduril\\Taskmanager\\V1\\GPBMetadata\352\002\030A" +
-      "nduril::Taskmanager::V1b\006proto3"
+      "ntResponse0\001B\374\001\n\032com.anduril.taskmanager" +
+      ".v1B\026TaskManagerApiPubProtoP\001ZLgithub.co" +
+      "m/anduril/lattice-sdk-java/src/anduril/t" +
+      "askmanager/v1;taskmanagerv1\242\002\003ATX\252\002\026Andu" +
+      "ril.Taskmanager.V1\312\002\026Anduril\\Taskmanager" +
+      "\\V1\342\002\"Anduril\\Taskmanager\\V1\\GPBMetadata" +
+      "\352\002\030Anduril::Taskmanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

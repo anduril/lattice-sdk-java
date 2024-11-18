@@ -48,9 +48,7 @@ private static final long serialVersionUID = 0L;
   public enum TypeCase
       implements com.google.protobuf.Internal.EnumLite,
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-    TETHER(1),
     TRACKED_BY(2),
-    CONFIGURE(3),
     GROUP_CHILD(4),
     GROUP_PARENT(5),
     MERGED_FROM(6),
@@ -71,9 +69,7 @@ private static final long serialVersionUID = 0L;
 
     public static TypeCase forNumber(int value) {
       switch (value) {
-        case 1: return TETHER;
         case 2: return TRACKED_BY;
-        case 3: return CONFIGURE;
         case 4: return GROUP_CHILD;
         case 5: return GROUP_PARENT;
         case 6: return MERGED_FROM;
@@ -90,37 +86,6 @@ private static final long serialVersionUID = 0L;
   getTypeCase() {
     return TypeCase.forNumber(
         typeCase_);
-  }
-
-  public static final int TETHER_FIELD_NUMBER = 1;
-  /**
-   * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-   * @return Whether the tether field is set.
-   */
-  @java.lang.Override
-  public boolean hasTether() {
-    return typeCase_ == 1;
-  }
-  /**
-   * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-   * @return The tether.
-   */
-  @java.lang.Override
-  public com.anduril.entitymanager.v1.Tether getTether() {
-    if (typeCase_ == 1) {
-       return (com.anduril.entitymanager.v1.Tether) type_;
-    }
-    return com.anduril.entitymanager.v1.Tether.getDefaultInstance();
-  }
-  /**
-   * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-   */
-  @java.lang.Override
-  public com.anduril.entitymanager.v1.TetherOrBuilder getTetherOrBuilder() {
-    if (typeCase_ == 1) {
-       return (com.anduril.entitymanager.v1.Tether) type_;
-    }
-    return com.anduril.entitymanager.v1.Tether.getDefaultInstance();
   }
 
   public static final int TRACKED_BY_FIELD_NUMBER = 2;
@@ -152,37 +117,6 @@ private static final long serialVersionUID = 0L;
        return (com.anduril.entitymanager.v1.TrackedBy) type_;
     }
     return com.anduril.entitymanager.v1.TrackedBy.getDefaultInstance();
-  }
-
-  public static final int CONFIGURE_FIELD_NUMBER = 3;
-  /**
-   * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-   * @return Whether the configure field is set.
-   */
-  @java.lang.Override
-  public boolean hasConfigure() {
-    return typeCase_ == 3;
-  }
-  /**
-   * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-   * @return The configure.
-   */
-  @java.lang.Override
-  public com.anduril.entitymanager.v1.Configure getConfigure() {
-    if (typeCase_ == 3) {
-       return (com.anduril.entitymanager.v1.Configure) type_;
-    }
-    return com.anduril.entitymanager.v1.Configure.getDefaultInstance();
-  }
-  /**
-   * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-   */
-  @java.lang.Override
-  public com.anduril.entitymanager.v1.ConfigureOrBuilder getConfigureOrBuilder() {
-    if (typeCase_ == 3) {
-       return (com.anduril.entitymanager.v1.Configure) type_;
-    }
-    return com.anduril.entitymanager.v1.Configure.getDefaultInstance();
   }
 
   public static final int GROUP_CHILD_FIELD_NUMBER = 4;
@@ -292,14 +226,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (typeCase_ == 1) {
-      output.writeMessage(1, (com.anduril.entitymanager.v1.Tether) type_);
-    }
     if (typeCase_ == 2) {
       output.writeMessage(2, (com.anduril.entitymanager.v1.TrackedBy) type_);
-    }
-    if (typeCase_ == 3) {
-      output.writeMessage(3, (com.anduril.entitymanager.v1.Configure) type_);
     }
     if (typeCase_ == 4) {
       output.writeMessage(4, (com.anduril.entitymanager.v1.GroupChild) type_);
@@ -319,17 +247,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (typeCase_ == 1) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, (com.anduril.entitymanager.v1.Tether) type_);
-    }
     if (typeCase_ == 2) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (com.anduril.entitymanager.v1.TrackedBy) type_);
-    }
-    if (typeCase_ == 3) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, (com.anduril.entitymanager.v1.Configure) type_);
     }
     if (typeCase_ == 4) {
       size += com.google.protobuf.CodedOutputStream
@@ -360,17 +280,9 @@ private static final long serialVersionUID = 0L;
 
     if (!getTypeCase().equals(other.getTypeCase())) return false;
     switch (typeCase_) {
-      case 1:
-        if (!getTether()
-            .equals(other.getTether())) return false;
-        break;
       case 2:
         if (!getTrackedBy()
             .equals(other.getTrackedBy())) return false;
-        break;
-      case 3:
-        if (!getConfigure()
-            .equals(other.getConfigure())) return false;
         break;
       case 4:
         if (!getGroupChild()
@@ -399,17 +311,9 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     switch (typeCase_) {
-      case 1:
-        hash = (37 * hash) + TETHER_FIELD_NUMBER;
-        hash = (53 * hash) + getTether().hashCode();
-        break;
       case 2:
         hash = (37 * hash) + TRACKED_BY_FIELD_NUMBER;
         hash = (53 * hash) + getTrackedBy().hashCode();
-        break;
-      case 3:
-        hash = (37 * hash) + CONFIGURE_FIELD_NUMBER;
-        hash = (53 * hash) + getConfigure().hashCode();
         break;
       case 4:
         hash = (37 * hash) + GROUP_CHILD_FIELD_NUMBER;
@@ -559,14 +463,8 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      if (tetherBuilder_ != null) {
-        tetherBuilder_.clear();
-      }
       if (trackedByBuilder_ != null) {
         trackedByBuilder_.clear();
-      }
-      if (configureBuilder_ != null) {
-        configureBuilder_.clear();
       }
       if (groupChildBuilder_ != null) {
         groupChildBuilder_.clear();
@@ -618,17 +516,9 @@ private static final long serialVersionUID = 0L;
     private void buildPartialOneofs(com.anduril.entitymanager.v1.RelationshipType result) {
       result.typeCase_ = typeCase_;
       result.type_ = this.type_;
-      if (typeCase_ == 1 &&
-          tetherBuilder_ != null) {
-        result.type_ = tetherBuilder_.build();
-      }
       if (typeCase_ == 2 &&
           trackedByBuilder_ != null) {
         result.type_ = trackedByBuilder_.build();
-      }
-      if (typeCase_ == 3 &&
-          configureBuilder_ != null) {
-        result.type_ = configureBuilder_.build();
       }
       if (typeCase_ == 4 &&
           groupChildBuilder_ != null) {
@@ -657,16 +547,8 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.anduril.entitymanager.v1.RelationshipType other) {
       if (other == com.anduril.entitymanager.v1.RelationshipType.getDefaultInstance()) return this;
       switch (other.getTypeCase()) {
-        case TETHER: {
-          mergeTether(other.getTether());
-          break;
-        }
         case TRACKED_BY: {
           mergeTrackedBy(other.getTrackedBy());
-          break;
-        }
-        case CONFIGURE: {
-          mergeConfigure(other.getConfigure());
           break;
         }
         case GROUP_CHILD: {
@@ -711,13 +593,6 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              input.readMessage(
-                  getTetherFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              typeCase_ = 1;
-              break;
-            } // case 10
             case 18: {
               input.readMessage(
                   getTrackedByFieldBuilder().getBuilder(),
@@ -725,13 +600,6 @@ private static final long serialVersionUID = 0L;
               typeCase_ = 2;
               break;
             } // case 18
-            case 26: {
-              input.readMessage(
-                  getConfigureFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              typeCase_ = 3;
-              break;
-            } // case 26
             case 34: {
               input.readMessage(
                   getGroupChildFieldBuilder().getBuilder(),
@@ -784,148 +652,6 @@ private static final long serialVersionUID = 0L;
     }
 
     private int bitField0_;
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.Tether, com.anduril.entitymanager.v1.Tether.Builder, com.anduril.entitymanager.v1.TetherOrBuilder> tetherBuilder_;
-    /**
-     * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-     * @return Whether the tether field is set.
-     */
-    @java.lang.Override
-    public boolean hasTether() {
-      return typeCase_ == 1;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-     * @return The tether.
-     */
-    @java.lang.Override
-    public com.anduril.entitymanager.v1.Tether getTether() {
-      if (tetherBuilder_ == null) {
-        if (typeCase_ == 1) {
-          return (com.anduril.entitymanager.v1.Tether) type_;
-        }
-        return com.anduril.entitymanager.v1.Tether.getDefaultInstance();
-      } else {
-        if (typeCase_ == 1) {
-          return tetherBuilder_.getMessage();
-        }
-        return com.anduril.entitymanager.v1.Tether.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-     */
-    public Builder setTether(com.anduril.entitymanager.v1.Tether value) {
-      if (tetherBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        type_ = value;
-        onChanged();
-      } else {
-        tetherBuilder_.setMessage(value);
-      }
-      typeCase_ = 1;
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-     */
-    public Builder setTether(
-        com.anduril.entitymanager.v1.Tether.Builder builderForValue) {
-      if (tetherBuilder_ == null) {
-        type_ = builderForValue.build();
-        onChanged();
-      } else {
-        tetherBuilder_.setMessage(builderForValue.build());
-      }
-      typeCase_ = 1;
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-     */
-    public Builder mergeTether(com.anduril.entitymanager.v1.Tether value) {
-      if (tetherBuilder_ == null) {
-        if (typeCase_ == 1 &&
-            type_ != com.anduril.entitymanager.v1.Tether.getDefaultInstance()) {
-          type_ = com.anduril.entitymanager.v1.Tether.newBuilder((com.anduril.entitymanager.v1.Tether) type_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          type_ = value;
-        }
-        onChanged();
-      } else {
-        if (typeCase_ == 1) {
-          tetherBuilder_.mergeFrom(value);
-        } else {
-          tetherBuilder_.setMessage(value);
-        }
-      }
-      typeCase_ = 1;
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-     */
-    public Builder clearTether() {
-      if (tetherBuilder_ == null) {
-        if (typeCase_ == 1) {
-          typeCase_ = 0;
-          type_ = null;
-          onChanged();
-        }
-      } else {
-        if (typeCase_ == 1) {
-          typeCase_ = 0;
-          type_ = null;
-        }
-        tetherBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-     */
-    public com.anduril.entitymanager.v1.Tether.Builder getTetherBuilder() {
-      return getTetherFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-     */
-    @java.lang.Override
-    public com.anduril.entitymanager.v1.TetherOrBuilder getTetherOrBuilder() {
-      if ((typeCase_ == 1) && (tetherBuilder_ != null)) {
-        return tetherBuilder_.getMessageOrBuilder();
-      } else {
-        if (typeCase_ == 1) {
-          return (com.anduril.entitymanager.v1.Tether) type_;
-        }
-        return com.anduril.entitymanager.v1.Tether.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.Tether, com.anduril.entitymanager.v1.Tether.Builder, com.anduril.entitymanager.v1.TetherOrBuilder> 
-        getTetherFieldBuilder() {
-      if (tetherBuilder_ == null) {
-        if (!(typeCase_ == 1)) {
-          type_ = com.anduril.entitymanager.v1.Tether.getDefaultInstance();
-        }
-        tetherBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.anduril.entitymanager.v1.Tether, com.anduril.entitymanager.v1.Tether.Builder, com.anduril.entitymanager.v1.TetherOrBuilder>(
-                (com.anduril.entitymanager.v1.Tether) type_,
-                getParentForChildren(),
-                isClean());
-        type_ = null;
-      }
-      typeCase_ = 1;
-      onChanged();
-      return tetherBuilder_;
-    }
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.TrackedBy, com.anduril.entitymanager.v1.TrackedBy.Builder, com.anduril.entitymanager.v1.TrackedByOrBuilder> trackedByBuilder_;
@@ -1067,148 +793,6 @@ private static final long serialVersionUID = 0L;
       typeCase_ = 2;
       onChanged();
       return trackedByBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.Configure, com.anduril.entitymanager.v1.Configure.Builder, com.anduril.entitymanager.v1.ConfigureOrBuilder> configureBuilder_;
-    /**
-     * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-     * @return Whether the configure field is set.
-     */
-    @java.lang.Override
-    public boolean hasConfigure() {
-      return typeCase_ == 3;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-     * @return The configure.
-     */
-    @java.lang.Override
-    public com.anduril.entitymanager.v1.Configure getConfigure() {
-      if (configureBuilder_ == null) {
-        if (typeCase_ == 3) {
-          return (com.anduril.entitymanager.v1.Configure) type_;
-        }
-        return com.anduril.entitymanager.v1.Configure.getDefaultInstance();
-      } else {
-        if (typeCase_ == 3) {
-          return configureBuilder_.getMessage();
-        }
-        return com.anduril.entitymanager.v1.Configure.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-     */
-    public Builder setConfigure(com.anduril.entitymanager.v1.Configure value) {
-      if (configureBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        type_ = value;
-        onChanged();
-      } else {
-        configureBuilder_.setMessage(value);
-      }
-      typeCase_ = 3;
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-     */
-    public Builder setConfigure(
-        com.anduril.entitymanager.v1.Configure.Builder builderForValue) {
-      if (configureBuilder_ == null) {
-        type_ = builderForValue.build();
-        onChanged();
-      } else {
-        configureBuilder_.setMessage(builderForValue.build());
-      }
-      typeCase_ = 3;
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-     */
-    public Builder mergeConfigure(com.anduril.entitymanager.v1.Configure value) {
-      if (configureBuilder_ == null) {
-        if (typeCase_ == 3 &&
-            type_ != com.anduril.entitymanager.v1.Configure.getDefaultInstance()) {
-          type_ = com.anduril.entitymanager.v1.Configure.newBuilder((com.anduril.entitymanager.v1.Configure) type_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          type_ = value;
-        }
-        onChanged();
-      } else {
-        if (typeCase_ == 3) {
-          configureBuilder_.mergeFrom(value);
-        } else {
-          configureBuilder_.setMessage(value);
-        }
-      }
-      typeCase_ = 3;
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-     */
-    public Builder clearConfigure() {
-      if (configureBuilder_ == null) {
-        if (typeCase_ == 3) {
-          typeCase_ = 0;
-          type_ = null;
-          onChanged();
-        }
-      } else {
-        if (typeCase_ == 3) {
-          typeCase_ = 0;
-          type_ = null;
-        }
-        configureBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-     */
-    public com.anduril.entitymanager.v1.Configure.Builder getConfigureBuilder() {
-      return getConfigureFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-     */
-    @java.lang.Override
-    public com.anduril.entitymanager.v1.ConfigureOrBuilder getConfigureOrBuilder() {
-      if ((typeCase_ == 3) && (configureBuilder_ != null)) {
-        return configureBuilder_.getMessageOrBuilder();
-      } else {
-        if (typeCase_ == 3) {
-          return (com.anduril.entitymanager.v1.Configure) type_;
-        }
-        return com.anduril.entitymanager.v1.Configure.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.Configure, com.anduril.entitymanager.v1.Configure.Builder, com.anduril.entitymanager.v1.ConfigureOrBuilder> 
-        getConfigureFieldBuilder() {
-      if (configureBuilder_ == null) {
-        if (!(typeCase_ == 3)) {
-          type_ = com.anduril.entitymanager.v1.Configure.getDefaultInstance();
-        }
-        configureBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.anduril.entitymanager.v1.Configure, com.anduril.entitymanager.v1.Configure.Builder, com.anduril.entitymanager.v1.ConfigureOrBuilder>(
-                (com.anduril.entitymanager.v1.Configure) type_,
-                getParentForChildren(),
-                isClean());
-        type_ = null;
-      }
-      typeCase_ = 3;
-      onChanged();
-      return configureBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<

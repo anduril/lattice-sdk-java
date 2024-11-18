@@ -162,14 +162,14 @@ public final class EntityManagerApiPubProto {
       "ityComponents\0227.anduril.entitymanager.v1" +
       ".StreamEntityComponentsRequest\0328.anduril" +
       ".entitymanager.v1.StreamEntityComponents" +
-      "Response0\001B\210\002\n\034com.anduril.entitymanager" +
-      ".v1B\030EntityManagerApiPubProtoP\001ZLgithub." +
-      "com/anduril/anduril-java/src/anduril/ent" +
-      "itymanager/v1;entitymanagerv1\242\002\003AEX\252\002\030An" +
-      "duril.Entitymanager.V1\312\002\030Anduril\\Entitym" +
-      "anager\\V1\342\002$Anduril\\Entitymanager\\V1\\GPB" +
-      "Metadata\352\002\032Anduril::Entitymanager::V1b\006p" +
-      "roto3"
+      "Response0\001B\214\002\n\034com.anduril.entitymanager" +
+      ".v1B\030EntityManagerApiPubProtoP\001ZPgithub." +
+      "com/anduril/lattice-sdk-java/src/anduril" +
+      "/entitymanager/v1;entitymanagerv1\242\002\003AEX\252" +
+      "\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\Ent" +
+      "itymanager\\V1\342\002$Anduril\\Entitymanager\\V1" +
+      "\\GPBMetadata\352\002\032Anduril::Entitymanager::V" +
+      "1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

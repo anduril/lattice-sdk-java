@@ -70,4 +70,31 @@ public interface RangeRingsOrBuilder extends
    * @return The ringCount.
    */
   int getRingCount();
+
+  /**
+   * <pre>
+   * The color of range rings, specified in hex string.
+   * </pre>
+   *
+   * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+   * @return Whether the ringLineColor field is set.
+   */
+  boolean hasRingLineColor();
+  /**
+   * <pre>
+   * The color of range rings, specified in hex string.
+   * </pre>
+   *
+   * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+   * @return The ringLineColor.
+   */
+  com.anduril.type.Color getRingLineColor();
+  /**
+   * <pre>
+   * The color of range rings, specified in hex string.
+   * </pre>
+   *
+   * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+   */
+  com.anduril.type.ColorOrBuilder getRingLineColorOrBuilder();
 }

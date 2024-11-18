@@ -30,14 +30,14 @@ public final class DimensionsPubProto {
     java.lang.String[] descriptorData = {
       "\n-anduril/entitymanager/v1/dimensions.pu" +
       "b.proto\022\030anduril.entitymanager.v1\"\'\n\nDim" +
-      "ensions\022\031\n\010length_m\030\001 \001(\002R\007lengthMB\202\002\n\034c" +
+      "ensions\022\031\n\010length_m\030\001 \001(\002R\007lengthMB\206\002\n\034c" +
       "om.anduril.entitymanager.v1B\022DimensionsP" +
-      "ubProtoP\001ZLgithub.com/anduril/anduril-ja" +
-      "va/src/anduril/entitymanager/v1;entityma" +
-      "nagerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1" +
-      "\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\En" +
-      "titymanager\\V1\\GPBMetadata\352\002\032Anduril::En" +
-      "titymanager::V1b\006proto3"
+      "ubProtoP\001ZPgithub.com/anduril/lattice-sd" +
+      "k-java/src/anduril/entitymanager/v1;enti" +
+      "tymanagerv1\242\002\003AEX\252\002\030Anduril.Entitymanage" +
+      "r.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduri" +
+      "l\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduril" +
+      "::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

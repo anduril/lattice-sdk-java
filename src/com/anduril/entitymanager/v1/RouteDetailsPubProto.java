@@ -34,14 +34,14 @@ public final class RouteDetailsPubProto {
       "etails\022)\n\020destination_name\030\001 \001(\tR\017destin" +
       "ationName\022P\n\026estimated_arrival_time\030\002 \001(" +
       "\0132\032.google.protobuf.TimestampR\024estimated" +
-      "ArrivalTimeB\204\002\n\034com.anduril.entitymanage" +
-      "r.v1B\024RouteDetailsPubProtoP\001ZLgithub.com" +
-      "/anduril/anduril-java/src/anduril/entity" +
-      "manager/v1;entitymanagerv1\242\002\003AEX\252\002\030Andur" +
-      "il.Entitymanager.V1\312\002\030Anduril\\Entitymana" +
-      "ger\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMet" +
-      "adata\352\002\032Anduril::Entitymanager::V1b\006prot" +
-      "o3"
+      "ArrivalTimeB\210\002\n\034com.anduril.entitymanage" +
+      "r.v1B\024RouteDetailsPubProtoP\001ZPgithub.com" +
+      "/anduril/lattice-sdk-java/src/anduril/en" +
+      "titymanager/v1;entitymanagerv1\242\002\003AEX\252\002\030A" +
+      "nduril.Entitymanager.V1\312\002\030Anduril\\Entity" +
+      "manager\\V1\342\002$Anduril\\Entitymanager\\V1\\GP" +
+      "BMetadata\352\002\032Anduril::Entitymanager::V1b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
