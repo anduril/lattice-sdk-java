@@ -1,7 +1,7 @@
 name: Bump version
 on:
   pull_request:
-    types: [opened]
+    #types: [opened]
     branches: [master]
   workflow_dispatch: {}
 
@@ -15,6 +15,8 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.ref_name }}
     - name: Bump Version
       id: bump
       uses: Plugily-Projects/version-bump-action@v9
