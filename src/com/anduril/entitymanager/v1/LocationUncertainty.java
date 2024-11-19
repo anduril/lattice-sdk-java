@@ -46,7 +46,8 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.TMat3 positionEnuCov_;
   /**
    * <pre>
-   * Positional covariance represented by the upper triangle of the covariance matrix.
+   * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -58,7 +59,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Positional covariance represented by the upper triangle of the covariance matrix.
+   * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -70,7 +72,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Positional covariance represented by the upper triangle of the covariance matrix.
+   * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -84,7 +87,8 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.TMat3 velocityEnuCov_;
   /**
    * <pre>
-   * Velocity covariance represented by the upper triangle of the covariance matrix.
+   * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -96,7 +100,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Velocity covariance represented by the upper triangle of the covariance matrix.
+   * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -108,7 +113,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Velocity covariance represented by the upper triangle of the covariance matrix.
+   * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -541,7 +547,8 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.TMat3, com.anduril.entitymanager.v1.TMat3.Builder, com.anduril.entitymanager.v1.TMat3OrBuilder> positionEnuCovBuilder_;
     /**
      * <pre>
-     * Positional covariance represented by the upper triangle of the covariance matrix.
+     * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -552,7 +559,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Positional covariance represented by the upper triangle of the covariance matrix.
+     * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -567,7 +575,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Positional covariance represented by the upper triangle of the covariance matrix.
+     * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -587,7 +596,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Positional covariance represented by the upper triangle of the covariance matrix.
+     * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -605,7 +615,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Positional covariance represented by the upper triangle of the covariance matrix.
+     * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -628,7 +639,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Positional covariance represented by the upper triangle of the covariance matrix.
+     * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -645,7 +657,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Positional covariance represented by the upper triangle of the covariance matrix.
+     * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -657,7 +670,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Positional covariance represented by the upper triangle of the covariance matrix.
+     * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -672,7 +686,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Positional covariance represented by the upper triangle of the covariance matrix.
+     * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -696,7 +711,8 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.TMat3, com.anduril.entitymanager.v1.TMat3.Builder, com.anduril.entitymanager.v1.TMat3OrBuilder> velocityEnuCovBuilder_;
     /**
      * <pre>
-     * Velocity covariance represented by the upper triangle of the covariance matrix.
+     * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -707,7 +723,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Velocity covariance represented by the upper triangle of the covariance matrix.
+     * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -722,7 +739,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Velocity covariance represented by the upper triangle of the covariance matrix.
+     * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -742,7 +760,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Velocity covariance represented by the upper triangle of the covariance matrix.
+     * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -760,7 +779,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Velocity covariance represented by the upper triangle of the covariance matrix.
+     * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -783,7 +803,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Velocity covariance represented by the upper triangle of the covariance matrix.
+     * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -800,7 +821,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Velocity covariance represented by the upper triangle of the covariance matrix.
+     * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -812,7 +834,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Velocity covariance represented by the upper triangle of the covariance matrix.
+     * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -827,7 +850,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Velocity covariance represented by the upper triangle of the covariance matrix.
+     * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+     * only the diagonal of the matrix if the full covariance matrix is unknown.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>

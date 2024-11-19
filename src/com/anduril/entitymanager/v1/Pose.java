@@ -4,10 +4,6 @@
 package com.anduril.entitymanager.v1;
 
 /**
- * <pre>
- * Overrides anduril.type.Pose.
- * </pre>
- *
  * Protobuf type {@code anduril.entitymanager.v1.Pose}
  */
 public final class Pose extends
@@ -319,10 +315,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * Overrides anduril.type.Pose.
-   * </pre>
-   *
    * Protobuf type {@code anduril.entitymanager.v1.Pose}
    */
   public static final class Builder extends

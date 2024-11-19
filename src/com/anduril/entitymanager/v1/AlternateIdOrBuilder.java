@@ -8,30 +8,6 @@ public interface AlternateIdOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <pre>
-   * deprecated in favor of type
-   * </pre>
-   *
-   * <code>string source = 1 [json_name = "source", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=304
-   * @return The source.
-   */
-  @java.lang.Deprecated java.lang.String getSource();
-  /**
-   * <pre>
-   * deprecated in favor of type
-   * </pre>
-   *
-   * <code>string source = 1 [json_name = "source", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=304
-   * @return The bytes for source.
-   */
-  @java.lang.Deprecated com.google.protobuf.ByteString
-      getSourceBytes();
-
-  /**
    * <code>string id = 2 [json_name = "id"];</code>
    * @return The id.
    */

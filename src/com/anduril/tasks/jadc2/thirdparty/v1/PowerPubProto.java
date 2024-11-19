@@ -34,15 +34,15 @@ public final class PowerPubProto {
       " \001(\0162-.anduril.tasks.jadc2.thirdparty.v1" +
       ".PowerStateR\npowerState*N\n\nPowerState\022\027\n" +
       "\023POWER_STATE_INVALID\020\000\022\022\n\016POWER_STATE_ON" +
-      "\020\001\022\023\n\017POWER_STATE_OFF\020\002B\263\002\n%com.anduril." +
+      "\020\001\022\023\n\017POWER_STATE_OFF\020\002B\267\002\n%com.anduril." +
       "tasks.jadc2.thirdparty.v1B\rPowerPubProto" +
-      "P\001ZRgithub.com/anduril/anduril-java/src/" +
-      "anduril/tasks/jadc2/thirdparty/v1;thirdp" +
-      "artyv1\242\002\004ATJT\252\002!Anduril.Tasks.Jadc2.Thir" +
-      "dparty.V1\312\002!Anduril\\Tasks\\Jadc2\\Thirdpar" +
-      "ty\\V1\342\002-Anduril\\Tasks\\Jadc2\\Thirdparty\\V" +
-      "1\\GPBMetadata\352\002%Anduril::Tasks::Jadc2::T" +
-      "hirdparty::V1b\006proto3"
+      "P\001ZVgithub.com/anduril/lattice-sdk-java/" +
+      "src/anduril/tasks/jadc2/thirdparty/v1;th" +
+      "irdpartyv1\242\002\004ATJT\252\002!Anduril.Tasks.Jadc2." +
+      "Thirdparty.V1\312\002!Anduril\\Tasks\\Jadc2\\Thir" +
+      "dparty\\V1\342\002-Anduril\\Tasks\\Jadc2\\Thirdpar" +
+      "ty\\V1\\GPBMetadata\352\002%Anduril::Tasks::Jadc" +
+      "2::Thirdparty::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -4,10 +4,6 @@
 package com.anduril.entitymanager.v1;
 
 /**
- * <pre>
- * The configuration for this capability, published on the CAPABILITY_TOPIC_PAYLOAD_CONFIGURATION topic id.
- * </pre>
- *
  * Protobuf type {@code anduril.entitymanager.v1.PayloadConfiguration}
  */
 public final class PayloadConfiguration extends
@@ -472,10 +468,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * The configuration for this capability, published on the CAPABILITY_TOPIC_PAYLOAD_CONFIGURATION topic id.
-   * </pre>
-   *
    * Protobuf type {@code anduril.entitymanager.v1.PayloadConfiguration}
    */
   public static final class Builder extends

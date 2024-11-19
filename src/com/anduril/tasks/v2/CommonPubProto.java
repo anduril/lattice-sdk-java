@@ -71,12 +71,13 @@ public final class CommonPubProto {
       "ntrolAreaType\022\035\n\031CONTROL_AREA_TYPE_INVAL" +
       "ID\020\000\022\"\n\036CONTROL_AREA_TYPE_KEEP_IN_ZONE\020\001" +
       "\022#\n\037CONTROL_AREA_TYPE_KEEP_OUT_ZONE\020\002\022 \n" +
-      "\034CONTROL_AREA_TYPE_DITCH_ZONE\020\003B\306\001\n\024com." +
-      "anduril.tasks.v2B\016CommonPubProtoP\001Z<gith" +
-      "ub.com/anduril/anduril-java/src/anduril/" +
-      "tasks/v2;tasksv2\242\002\003ATX\252\002\020Anduril.Tasks.V" +
-      "2\312\002\020Anduril\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\" +
-      "GPBMetadata\352\002\022Anduril::Tasks::V2b\006proto3"
+      "\034CONTROL_AREA_TYPE_DITCH_ZONE\020\003B\312\001\n\024com." +
+      "anduril.tasks.v2B\016CommonPubProtoP\001Z@gith" +
+      "ub.com/anduril/lattice-sdk-java/src/andu" +
+      "ril/tasks/v2;tasksv2\242\002\003ATX\252\002\020Anduril.Tas" +
+      "ks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034Anduril\\Tasks" +
+      "\\V2\\GPBMetadata\352\002\022Anduril::Tasks::V2b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

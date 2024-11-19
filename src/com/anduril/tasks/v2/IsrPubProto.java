@@ -221,12 +221,12 @@ public final class IsrPubProto {
       "T\020\002*\200\001\n\014OrbitPattern\022\031\n\025ORBIT_PATTERN_IN" +
       "VALID\020\000\022\030\n\024ORBIT_PATTERN_CIRCLE\020\001\022\033\n\027ORB" +
       "IT_PATTERN_RACETRACK\020\002\022\036\n\032ORBIT_PATTERN_" +
-      "FIGURE_EIGHT\020\003B\312\001\n\024com.anduril.tasks.v2B" +
-      "\013IsrPubProtoP\001ZCgithub.com/anduril/andur" +
-      "il-java/src/anduril/tasks/v2/shared;task" +
-      "sv2\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\T" +
-      "asks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002" +
-      "\022Anduril::Tasks::V2b\006proto3"
+      "FIGURE_EIGHT\020\003B\316\001\n\024com.anduril.tasks.v2B" +
+      "\013IsrPubProtoP\001ZGgithub.com/anduril/latti" +
+      "ce-sdk-java/src/anduril/tasks/v2/shared;" +
+      "tasksv2\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Andur" +
+      "il\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetada" +
+      "ta\352\002\022Anduril::Tasks::V2b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

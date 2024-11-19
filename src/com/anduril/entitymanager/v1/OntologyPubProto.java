@@ -43,19 +43,18 @@ public final class OntologyPubProto {
       "\n\013environment\030\002 \001(\0162 .anduril.ontology.v" +
       "1.EnvironmentB\003\310>\001R\013environment\022G\n\013natio" +
       "nality\030\003 \001(\0162 .anduril.ontology.v1.Natio" +
-      "nalityB\003\310>\001R\013nationality\"\304\001\n\010Ontology\022$\n" +
-      "\013descriptors\030\001 \003(\tB\002\030\001R\013descriptors\022(\n\rp" +
-      "latform_type\030\003 \001(\tB\003\310>\001R\014platformType\022(\n" +
-      "\rspecific_type\030\004 \001(\tB\003\310>\001R\014specificType\022" +
-      ">\n\010template\030\002 \001(\0162\".anduril.entitymanage" +
-      "r.v1.TemplateR\010templateB\200\002\n\034com.anduril." +
-      "entitymanager.v1B\020OntologyPubProtoP\001ZLgi" +
-      "thub.com/anduril/anduril-java/src/anduri" +
-      "l/entitymanager/v1;entitymanagerv1\242\002\003AEX" +
-      "\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\En" +
-      "titymanager\\V1\342\002$Anduril\\Entitymanager\\V" +
-      "1\\GPBMetadata\352\002\032Anduril::Entitymanager::" +
-      "V1b\006proto3"
+      "nalityB\003\310>\001R\013nationality\"\261\001\n\010Ontology\022(\n" +
+      "\rplatform_type\030\003 \001(\tB\003\310>\001R\014platformType\022" +
+      "(\n\rspecific_type\030\004 \001(\tB\003\310>\001R\014specificTyp" +
+      "e\022>\n\010template\030\002 \001(\0162\".anduril.entitymana" +
+      "ger.v1.TemplateR\010templateJ\004\010\001\020\002R\013descrip" +
+      "torsB\204\002\n\034com.anduril.entitymanager.v1B\020O" +
+      "ntologyPubProtoP\001ZPgithub.com/anduril/la" +
+      "ttice-sdk-java/src/anduril/entitymanager" +
+      "/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril.Enti" +
+      "tymanager.V1\312\002\030Anduril\\Entitymanager\\V1\342" +
+      "\002$Anduril\\Entitymanager\\V1\\GPBMetadata\352\002" +
+      "\032Anduril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -75,7 +74,7 @@ public final class OntologyPubProto {
     internal_static_anduril_entitymanager_v1_Ontology_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Ontology_descriptor,
-        new java.lang.String[] { "Descriptors", "PlatformType", "SpecificType", "Template", });
+        new java.lang.String[] { "PlatformType", "SpecificType", "Template", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.anduril.entitymanager.v1.OptionsPubProto.overridable);

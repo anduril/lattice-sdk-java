@@ -46,13 +46,13 @@ public final class TaskApiPubProto {
       "id\030\001 \001(\tR\006taskId\022=\n\010assignee\030\002 \001(\0132!.and" +
       "uril.taskmanager.v1.PrincipalR\010assignee\"" +
       "*\n\017CompleteRequest\022\027\n\007task_id\030\001 \001(\tR\006tas" +
-      "kIdB\361\001\n\032com.anduril.taskmanager.v1B\017Task" +
-      "ApiPubProtoP\001ZHgithub.com/anduril/anduri" +
-      "l-java/src/anduril/taskmanager/v1;taskma" +
-      "nagerv1\242\002\003ATX\252\002\026Anduril.Taskmanager.V1\312\002" +
-      "\026Anduril\\Taskmanager\\V1\342\002\"Anduril\\Taskma" +
-      "nager\\V1\\GPBMetadata\352\002\030Anduril::Taskmana" +
-      "ger::V1b\006proto3"
+      "kIdB\365\001\n\032com.anduril.taskmanager.v1B\017Task" +
+      "ApiPubProtoP\001ZLgithub.com/anduril/lattic" +
+      "e-sdk-java/src/anduril/taskmanager/v1;ta" +
+      "skmanagerv1\242\002\003ATX\252\002\026Anduril.Taskmanager." +
+      "V1\312\002\026Anduril\\Taskmanager\\V1\342\002\"Anduril\\Ta" +
+      "skmanager\\V1\\GPBMetadata\352\002\030Anduril::Task" +
+      "manager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

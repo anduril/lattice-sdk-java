@@ -5,7 +5,7 @@ package com.anduril.entitymanager.v1;
 
 /**
  * <pre>
- * The relationships between this entity and other entities in the battlespace.
+ * The relationships between this entity and other entities in the common operational picture.
  * </pre>
  *
  * Protobuf type {@code anduril.entitymanager.v1.Relationships}
@@ -243,7 +243,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The relationships between this entity and other entities in the battlespace.
+   * The relationships between this entity and other entities in the common operational picture.
    * </pre>
    *
    * Protobuf type {@code anduril.entitymanager.v1.Relationships}

@@ -59,8 +59,9 @@ public interface PositionOrBuilder extends
 
   /**
    * <pre>
-   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-   * not set.
+   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+   * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+   * set lookup. If the value is not set from the upstream, this value is not set.
    * </pre>
    *
    * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -69,8 +70,9 @@ public interface PositionOrBuilder extends
   boolean hasAltitudeAglMeters();
   /**
    * <pre>
-   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-   * not set.
+   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+   * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+   * set lookup. If the value is not set from the upstream, this value is not set.
    * </pre>
    *
    * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -79,8 +81,9 @@ public interface PositionOrBuilder extends
   com.google.protobuf.DoubleValue getAltitudeAglMeters();
   /**
    * <pre>
-   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-   * not set.
+   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+   * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+   * set lookup. If the value is not set from the upstream, this value is not set.
    * </pre>
    *
    * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -119,7 +122,7 @@ public interface PositionOrBuilder extends
 
   /**
    * <pre>
-   * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+   * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
    * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
    * </pre>
    *
@@ -129,7 +132,7 @@ public interface PositionOrBuilder extends
   boolean hasPressureDepthMeters();
   /**
    * <pre>
-   * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+   * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
    * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
    * </pre>
    *
@@ -139,7 +142,7 @@ public interface PositionOrBuilder extends
   com.google.protobuf.DoubleValue getPressureDepthMeters();
   /**
    * <pre>
-   * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+   * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
    * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
    * </pre>
    *

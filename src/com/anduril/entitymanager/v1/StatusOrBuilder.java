@@ -9,8 +9,7 @@ public interface StatusOrBuilder extends
 
   /**
    * <pre>
-   * A string that describes the activity that the entity is performing. These values
-   * include, but are not limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE ACTIVITY values found in MIL-STD 6016F.
+   * A string that describes the activity that the entity is performing.
    * Examples include "RECONNAISSANCE", "INTERDICTION", "ELECTRONIC WARFARE (EW)", "RETURN TO BASE (RTB)", "PREPARING
    * FOR LAUNCH".
    * </pre>
@@ -21,8 +20,7 @@ public interface StatusOrBuilder extends
   java.lang.String getPlatformActivity();
   /**
    * <pre>
-   * A string that describes the activity that the entity is performing. These values
-   * include, but are not limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE ACTIVITY values found in MIL-STD 6016F.
+   * A string that describes the activity that the entity is performing.
    * Examples include "RECONNAISSANCE", "INTERDICTION", "ELECTRONIC WARFARE (EW)", "RETURN TO BASE (RTB)", "PREPARING
    * FOR LAUNCH".
    * </pre>
@@ -35,7 +33,7 @@ public interface StatusOrBuilder extends
 
   /**
    * <pre>
-   * A string that describes the role the entity is currently performing. E.g. "Team Member", "Commander" or
+   * A human-readable string that describes the role the entity is currently performing. E.g. "Team Member", "Commander".
    * </pre>
    *
    * <code>string role = 2 [json_name = "role"];</code>
@@ -44,7 +42,7 @@ public interface StatusOrBuilder extends
   java.lang.String getRole();
   /**
    * <pre>
-   * A string that describes the role the entity is currently performing. E.g. "Team Member", "Commander" or
+   * A human-readable string that describes the role the entity is currently performing. E.g. "Team Member", "Commander".
    * </pre>
    *
    * <code>string role = 2 [json_name = "role"];</code>

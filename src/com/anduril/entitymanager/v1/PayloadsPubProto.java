@@ -62,14 +62,14 @@ public final class PayloadsPubProto {
       "PERATIONAL_STATE_DEGRADED\020\003\022)\n%PAYLOAD_O" +
       "PERATIONAL_STATE_OPERATIONAL\020\004\022,\n(PAYLOA" +
       "D_OPERATIONAL_STATE_OUT_OF_SERVICE\020\005\022%\n!" +
-      "PAYLOAD_OPERATIONAL_STATE_UNKNOWN\020\006B\200\002\n\034" +
+      "PAYLOAD_OPERATIONAL_STATE_UNKNOWN\020\006B\204\002\n\034" +
       "com.anduril.entitymanager.v1B\020PayloadsPu" +
-      "bProtoP\001ZLgithub.com/anduril/anduril-jav" +
-      "a/src/anduril/entitymanager/v1;entityman" +
-      "agerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312" +
-      "\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\Ent" +
-      "itymanager\\V1\\GPBMetadata\352\002\032Anduril::Ent" +
-      "itymanager::V1b\006proto3"
+      "bProtoP\001ZPgithub.com/anduril/lattice-sdk" +
+      "-java/src/anduril/entitymanager/v1;entit" +
+      "ymanagerv1\242\002\003AEX\252\002\030Anduril.Entitymanager" +
+      ".V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril" +
+      "\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduril:" +
+      ":Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

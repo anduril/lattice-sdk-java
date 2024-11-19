@@ -210,13 +210,13 @@ public final class TaskPubProto {
       "D\020\001\022\025\n\021EVENT_TYPE_UPDATE\020\002\022\032\n\026EVENT_TYPE" +
       "_PREEXISTING\020\003*M\n\010TaskView\022\025\n\021TASK_VIEW_" +
       "INVALID\020\000\022\025\n\021TASK_VIEW_MANAGER\020\001\022\023\n\017TASK" +
-      "_VIEW_AGENT\020\002B\356\001\n\032com.anduril.taskmanage" +
-      "r.v1B\014TaskPubProtoP\001ZHgithub.com/anduril" +
-      "/anduril-java/src/anduril/taskmanager/v1" +
-      ";taskmanagerv1\242\002\003ATX\252\002\026Anduril.Taskmanag" +
-      "er.V1\312\002\026Anduril\\Taskmanager\\V1\342\002\"Anduril" +
-      "\\Taskmanager\\V1\\GPBMetadata\352\002\030Anduril::T" +
-      "askmanager::V1b\006proto3"
+      "_VIEW_AGENT\020\002B\362\001\n\032com.anduril.taskmanage" +
+      "r.v1B\014TaskPubProtoP\001ZLgithub.com/anduril" +
+      "/lattice-sdk-java/src/anduril/taskmanage" +
+      "r/v1;taskmanagerv1\242\002\003ATX\252\002\026Anduril.Taskm" +
+      "anager.V1\312\002\026Anduril\\Taskmanager\\V1\342\002\"And" +
+      "uril\\Taskmanager\\V1\\GPBMetadata\352\002\030Anduri" +
+      "l::Taskmanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

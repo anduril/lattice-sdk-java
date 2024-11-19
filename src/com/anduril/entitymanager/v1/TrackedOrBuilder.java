@@ -9,18 +9,6 @@ public interface TrackedOrBuilder extends
 
   /**
    * <pre>
-   * deprecated in favor of track_quality_wrapper to better indicate when TQ is actually missing vs 0 which is valid
-   * </pre>
-   *
-   * <code>uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Tracked.track_quality is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=170
-   * @return The trackQuality.
-   */
-  @java.lang.Deprecated int getTrackQuality();
-
-  /**
-   * <pre>
    * Quality score, 0-15, nil if none
    * </pre>
    *
@@ -114,37 +102,6 @@ public interface TrackedOrBuilder extends
    * <code>.anduril.entitymanager.v1.UInt32Range number_of_objects = 4 [json_name = "numberOfObjects"];</code>
    */
   com.anduril.entitymanager.v1.UInt32RangeOrBuilder getNumberOfObjectsOrBuilder();
-
-  /**
-   * <pre>
-   * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=183
-   * @return Whether the sensorDetails field is set.
-   */
-  @java.lang.Deprecated boolean hasSensorDetails();
-  /**
-   * <pre>
-   * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=183
-   * @return The sensorDetails.
-   */
-  @java.lang.Deprecated com.anduril.entitymanager.v1.Sensors getSensorDetails();
-  /**
-   * <pre>
-   * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-   */
-  @java.lang.Deprecated com.anduril.entitymanager.v1.SensorsOrBuilder getSensorDetailsOrBuilder();
 
   /**
    * <pre>

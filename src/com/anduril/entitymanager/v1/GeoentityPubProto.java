@@ -20,11 +20,6 @@ public final class GeoentityPubProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_GeoDetails_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_EmergencyDetails_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_EmergencyDetails_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_GeoShape_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -64,36 +59,6 @@ public final class GeoentityPubProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_GeoPolygonPosition_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_GeoVisualDetails_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_GeoVisualDetails_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_FSCMDetails_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_FSCMDetails_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_ACMDetails_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_ACMDetails_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_MCMDetails_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_MCMDetails_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_FiringAuthority_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_FiringAuthority_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_ControlAreaDetails_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_ControlAreaDetails_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -105,25 +70,12 @@ public final class GeoentityPubProto {
     java.lang.String[] descriptorData = {
       "\n,anduril/entitymanager/v1/geoentity.pub" +
       ".proto\022\030anduril.entitymanager.v1\032+anduri" +
-      "l/entitymanager/v1/location.pub.proto\032\034a" +
-      "nduril/type/color.pub.proto\032\036google/prot" +
-      "obuf/wrappers.proto\"\366\003\n\nGeoDetails\0225\n\004ty" +
-      "pe\030\001 \001(\0162!.anduril.entitymanager.v1.GeoT" +
-      "ypeR\004type\022J\n\temergency\030\002 \001(\0132*.anduril.e" +
-      "ntitymanager.v1.EmergencyDetailsH\000R\temer" +
-      "gency\022;\n\004fscm\030\004 \001(\0132%.anduril.entitymana" +
-      "ger.v1.FSCMDetailsH\000R\004fscm\022Q\n\014control_ar" +
-      "ea\030\005 \001(\0132,.anduril.entitymanager.v1.Cont" +
-      "rolAreaDetailsH\000R\013controlArea\0228\n\003acm\030\006 \001" +
-      "(\0132$.anduril.entitymanager.v1.ACMDetails" +
-      "H\000R\003acm\0228\n\003mcm\030\007 \001(\0132$.anduril.entityman" +
-      "ager.v1.MCMDetailsH\000R\003mcm\022Q\n\016visual_deta" +
-      "ils\030\003 \001(\0132*.anduril.entitymanager.v1.Geo" +
-      "VisualDetailsR\rvisualDetailsB\016\n\014type_det" +
-      "ails\"\221\001\n\020EmergencyDetails\022N\n\016emergency_t" +
-      "ype\030\001 \001(\0162\'.anduril.entitymanager.v1.Eme" +
-      "rgencyTypeR\remergencyType\022-\n\022personnel_i" +
-      "nvolved\030\002 \001(\rR\021personnelInvolved\"\324\002\n\010Geo" +
+      "l/entitymanager/v1/location.pub.proto\032\036g" +
+      "oogle/protobuf/wrappers.proto\"\240\001\n\nGeoDet" +
+      "ails\0225\n\004type\030\001 \001(\0162!.anduril.entitymanag" +
+      "er.v1.GeoTypeR\004typeJ\004\010\002\020\003J\004\010\003\020\004J\004\010\004\020\005J\004\010" +
+      "\005\020\006J\004\010\006\020\007J\004\010\007\020\010R\temergencyR\016visual_detai" +
+      "lsR\004fscmR\014control_areaR\003acmR\003mcm\"\324\002\n\010Geo" +
       "Shape\022:\n\005point\030\001 \001(\0132\".anduril.entityman" +
       "ager.v1.GeoPointH\000R\005point\0227\n\004line\030\002 \001(\0132" +
       "!.anduril.entitymanager.v1.GeoLineH\000R\004li" +
@@ -158,156 +110,25 @@ public final class GeoentityPubProto {
       "ns\"\214\001\n\022GeoPolygonPosition\022>\n\010position\030\001 " +
       "\001(\0132\".anduril.entitymanager.v1.PositionR" +
       "\010position\0226\n\010height_m\030\002 \001(\0132\033.google.pro" +
-      "tobuf.FloatValueR\007heightM\"z\n\020GeoVisualDe" +
-      "tails\0222\n\nfill_color\030\001 \001(\0132\023.anduril.type" +
-      ".ColorR\tfillColor\0222\n\nline_color\030\002 \001(\0132\023." +
-      "anduril.type.ColorR\tlineColor\"\244\004\n\013FSCMDe" +
-      "tails\022E\n\tfscm_type\030\001 \001(\0162(.anduril.entit" +
-      "ymanager.v1.FSCMDetailTypeR\010fscmType\022)\n\020" +
-      "fscm_description\030\002 \001(\tR\017fscmDescription\022" +
-      "T\n\020firing_authority\030\003 \001(\0132).anduril.enti" +
-      "tymanager.v1.FiringAuthorityR\017firingAuth" +
-      "ority\022e\n\025ammo_restriction_type\030\004 \001(\0162-.a" +
-      "nduril.entitymanager.v1.AmmoRestrictionT" +
-      "ypeB\002\030\001R\023ammoRestrictionType\022j\n\030restrict" +
-      "ive_measure_type\030\005 \001(\01620.anduril.entitym" +
-      "anager.v1.RestrictiveMeasureTypeR\026restri" +
-      "ctiveMeasureType\022]\n\023ammo_restrict_types\030" +
-      "\006 \003(\0162-.anduril.entitymanager.v1.AmmoRes" +
-      "trictionTypeR\021ammoRestrictTypes\022\033\n\tis_gr" +
-      "ound\030\007 \001(\010R\010isGround\"y\n\nACMDetails\022B\n\010ac" +
-      "m_type\030\001 \001(\0162\'.anduril.entitymanager.v1." +
-      "ACMDetailTypeR\007acmType\022\'\n\017acm_descriptio" +
-      "n\030\002 \001(\tR\016acmDescription\"y\n\nMCMDetails\022B\n" +
-      "\010mcm_type\030\001 \001(\0162\'.anduril.entitymanager." +
-      "v1.MCMDetailTypeR\007mcmType\022\'\n\017mcm_descrip" +
-      "tion\030\002 \001(\tR\016mcmDescription\"0\n\017FiringAuth" +
-      "ority\022\035\n\nentity_ids\030\001 \003(\tR\tentityIds\"S\n\022" +
-      "ControlAreaDetails\022=\n\004type\030\001 \001(\0162).andur" +
-      "il.entitymanager.v1.ControlAreaTypeR\004typ" +
-      "e*\351\001\n\007GeoType\022\024\n\020GEO_TYPE_INVALID\020\000\022\024\n\020G" +
-      "EO_TYPE_GENERAL\020\001\022\023\n\017GEO_TYPE_HAZARD\020\002\022\026" +
-      "\n\022GEO_TYPE_EMERGENCY\020\003\022\021\n\rGEO_TYPE_FSCM\020" +
-      "\004\022\034\n\030GEO_TYPE_ENGAGEMENT_ZONE\020\005\022\031\n\025GEO_T" +
-      "YPE_CONTROL_AREA\020\006\022\025\n\021GEO_TYPE_BULLSEYE\020" +
-      "\007\022\020\n\014GEO_TYPE_ACM\020\010\022\020\n\014GEO_TYPE_MCM\020\t*\262\002" +
-      "\n\rEmergencyType\022\032\n\026EMERGENCY_TYPE_INVALI" +
-      "D\020\000\022 \n\034EMERGENCY_TYPE_DOWN_AIRCRAFT\020\001\022\037\n" +
-      "\033EMERGENCY_TYPE_MAN_IN_WATER\020\002\022\033\n\027EMERGE" +
-      "NCY_TYPE_DITCHING\020\003\022\032\n\026EMERGENCY_TYPE_BA" +
-      "ILOUT\020\004\022%\n!EMERGENCY_TYPE_DISTRESSED_VEH" +
-      "ICLE\020\005\022\"\n\036EMERGENCY_TYPE_GROUND_INCIDENT" +
-      "\020\006\022\032\n\026EMERGENCY_TYPE_MEDICAL\020\007\022\"\n\036EMERGE" +
-      "NCY_TYPE_ISOLATED_PERSON\020\010*\241\002\n\017ControlAr" +
-      "eaType\022\035\n\031CONTROL_AREA_TYPE_INVALID\020\000\022\"\n" +
-      "\036CONTROL_AREA_TYPE_KEEP_IN_ZONE\020\001\022#\n\037CON" +
-      "TROL_AREA_TYPE_KEEP_OUT_ZONE\020\002\022 \n\034CONTRO" +
-      "L_AREA_TYPE_DITCH_ZONE\020\003\022+\n\'CONTROL_AREA" +
-      "_TYPE_OBSERVATION_EXCLUSION\020\004\022+\n\'CONTROL" +
-      "_AREA_TYPE_OBSERVATION_INCLUSION\020\005\022*\n&CO" +
-      "NTROL_AREA_TYPE_OBSERVATION_PRIORITY\020\006*\241" +
-      "\t\n\016FSCMDetailType\022\034\n\030FSCM_DETAIL_TYPE_IN" +
-      "VALID\020\000\022$\n FSCM_DETAIL_TYPE_DEAD_SPACE_A" +
-      "REA\020\001\022!\n\035FSCM_DETAIL_TYPE_NO_FIRE_AREA\020\002" +
-      "\022#\n\037FSCM_DETAIL_TYPE_FREE_FIRE_AREA\020\003\022*\n" +
-      "&FSCM_DETAIL_TYPE_RESTRICTIVE_FIRE_AREA\020" +
-      "\004\022#\n\037FSCM_DETAIL_TYPE_SAFE_FIRE_AREA\020\005\022/" +
-      "\n+FSCM_DETAIL_TYPE_AIRSPACE_COORDINATION" +
-      "_AREA\020\006\0224\n0FSCM_DETAIL_TYPE_FORWARD_EDGE" +
-      "_OF_THE_BATTLE_AREA\020\007\022&\n\"FSCM_DETAIL_TYP" +
-      "E_FIRE_SUPPORT_AREA\020\010\022*\n&FSCM_DETAIL_TYP" +
-      "E_PATROL_RECONNAISSANCE\020\t\022+\n\'FSCM_DETAIL" +
-      "_TYPE_ZONE_OF_RESPONSIBILITY\020\n\0220\n,FSCM_D" +
-      "ETAIL_TYPE_PRIORITY_CALL_FOR_FIRE_ZONE\020\013" +
-      "\022\"\n\036FSCM_DETAIL_TYPE_CENSORED_ZONE\020\014\022#\n\037" +
-      "FSCM_DETAIL_TYPE_ZONE_OF_ACTION\020\r\022+\n\'FSC" +
-      "M_DETAIL_TYPE_CRITICAL_FRIENDLY_ZONE\020\016\022(" +
-      "\n$FSCM_DETAIL_TYPE_PLATOON_AREA_HAZARD\020\017" +
-      "\022\'\n#FSCM_DETAIL_TYPE_TARGET_AREA_HAZARD\020" +
-      "\020\022/\n+FSCM_DETAIL_TYPE_RESTRICTED_OPERATI" +
-      "ONS_ZONE\020\021\022!\n\035FSCM_DETAIL_TYPE_AIR_CORRI" +
-      "DOR\020\022\022*\n&FSCM_DETAIL_TYPE_RESTRICTIVE_FI" +
-      "RE_LINE\020\023\0227\n3FSCM_DETAIL_TYPE_COORDINATE" +
-      "D_FIRE_LINE_NO_FIRE_LINE\020\024\022\"\n\036FSCM_DETAI" +
-      "L_TYPE_BOUNDARY_LINE\020\025\022!\n\035FSCM_DETAIL_TY" +
-      "PE_FORWARD_LINE\020\026\022&\n\"FSCM_DETAIL_TYPE_FI" +
-      "RE_SUPPORT_LINE\020\027\022&\n\"FSCM_DETAIL_TYPE_LI" +
-      "NE_OF_DEPARTURE\020\030\022$\n FSCM_DETAIL_TYPE_LI" +
-      "NE_OF_CONTACT\020\031\0226\n2FSCM_DETAIL_TYPE_LINE" +
-      "_OF_DEPARTURE_LINE_OF_CONTACT\020\032\022!\n\035FSCM_" +
-      "DETAIL_TYPE_ZONE_OF_FIRE\020\033*\346\t\n\rACMDetail" +
-      "Type\022\033\n\027ACM_DETAIL_TYPE_INVALID\020\000\022 \n\034ACM" +
-      "_DETAIL_TYPE_AIR_CORRIDOR\020\001\022&\n\"ACM_DETAI" +
-      "L_TYPE_MINIMUM_RISK_ROUTE\020\002\0220\n,ACM_DETAI" +
-      "L_TYPE_TEMPORARY_MINIMUM_RISK_ROUTE\020\003\022!\n" +
-      "\035ACM_DETAIL_TYPE_TRANSIT_ROUTE\020\004\022+\n\'ACM_" +
-      "DETAIL_TYPE_LOW_LEVEL_TRANSIT_ROUTE\020\005\022$\n" +
-      " ACM_DETAIL_TYPE_SPECIAL_CORRIDOR\020\006\022;\n7A" +
-      "CM_DETAIL_TYPE_STANDARD_USE_ARMY_AIRCRAF" +
-      "T_FLIGHT_ROUTE\020\007\022.\n*ACM_DETAIL_TYPE_REST" +
-      "RICTED_OPERATIONS_ZONE\020\010\022-\n)ACM_DETAIL_T" +
-      "YPE_AIR_TO_AIR_REFUELING_AREA\020\t\0225\n1ACM_D" +
-      "ETAIL_TYPE_AIRBORNE_COMMAND_AND_CONTROL_" +
-      "AREA\020\n\022/\n+ACM_DETAIL_TYPE_AIRBORNE_EARLY" +
-      "_WARNING_AREA\020\013\022*\n&ACM_DETAIL_TYPE_CLOSE" +
-      "_AIR_SUPPORT_AREA\020\014\022%\n!ACM_DETAIL_TYPE_C" +
-      "OMBAT_AIR_PATROL\020\r\022\035\n\031ACM_DETAIL_TYPE_DR" +
-      "OP_ZONE\020\016\022%\n!ACM_DETAIL_TYPE_ELECTRONIC_" +
-      "COMBAT\020\017\022 \n\034ACM_DETAIL_TYPE_LANDING_ZONE" +
-      "\020\020\022\037\n\033ACM_DETAIL_TYPE_PICKUP_ZONE\020\021\022\'\n#A" +
-      "CM_DETAIL_TYPE_RECONNAISSANCE_AREA\020\022\0221\n-" +
-      "ACM_DETAIL_TYPE_SPECIAL_OPERATIONS_FORCE" +
-      "_AREA\020\023\0225\n1ACM_DETAIL_TYPE_SURFACE_TO_SU" +
-      "RFACE_MISSILE_SYSTEM\020\024\0220\n,ACM_DETAIL_TYP" +
-      "E_SURFACE_TO_SURFACE_MUNITIONS\020\025\022*\n&ACM_" +
-      "DETAIL_TYPE_UNMANNED_AIRCRAFT_AREA\020\026\022)\n%" +
-      "ACM_DETAIL_TYPE_COORDINATING_ALTITUDE\020\027\022" +
-      "&\n\"ACM_DETAIL_TYPE_COORDINATION_LEVEL\020\030\022" +
-      "6\n2ACM_DETAIL_TYPE_HIGH_DENSITY_AIRSPACE" +
-      "_CONTROL_ZONE\020\031\022\037\n\033ACM_DETAIL_TYPE_NO_FL" +
-      "Y_AREA\020\032\022$\n ACM_DETAIL_TYPE_TRANSIT_CORR" +
-      "IDOR\020\033\022#\n\037ACM_DETAIL_TYPE_RETURN_TO_FORC" +
-      "E\020\034*\237\004\n\023AmmoRestrictionType\022!\n\035AMMO_REST" +
-      "RICTION_TYPE_INVALID\020\000\0222\n.AMMO_RESTRICTI" +
-      "ON_TYPE_HIGH_EXPLOSIVE_MUNITIONS\020\001\0229\n5AM" +
-      "MO_RESTRICTION_TYPE_IMPROVED_CONVENTIONA" +
-      "L_MUNITIONS\020\002\022,\n(AMMO_RESTRICTION_TYPE_C" +
-      "HEMICAL_MUNITIONS\020\003\022+\n\'AMMO_RESTRICTION_" +
-      "TYPE_NUCLEAR_MUNITIONS\020\004\0224\n0AMMO_RESTRIC" +
-      "TION_TYPE_WHITE_PHOSPHORUS_MUNITIONS\020\005\0220" +
-      "\n,AMMO_RESTRICTION_TYPE_ILLUMINATION_MUN" +
-      "ITIONS\020\006\0223\n/AMMO_RESTRICTION_TYPE_TERMIN" +
-      "AL_HOMING_MUNITIONS\020\007\022*\n&AMMO_RESTRICTIO" +
-      "N_TYPE_FASCAM_MUNITIONS\020\010\022)\n%AMMO_RESTRI" +
-      "CTION_TYPE_SMOKE_MUNITIONS\020\t\022\'\n#AMMO_RES" +
-      "TRICTION_TYPE_ALL_MUNITIONS\020\n*\273\003\n\026Restri" +
-      "ctiveMeasureType\022$\n RESTRICTIVE_MEASURE_" +
-      "TYPE_INVALID\020\000\022-\n)RESTRICTIVE_MEASURE_TY" +
-      "PE_STAY_INSIDE_AREA\020\001\022.\n*RESTRICTIVE_MEA" +
-      "SURE_TYPE_STAY_OUTSIDE_AREA\020\002\022,\n(RESTRIC" +
-      "TIVE_MEASURE_TYPE_STAY_ABOVE_AREA\020\003\022,\n(R" +
-      "ESTRICTIVE_MEASURE_TYPE_STAY_BELOW_AREA\020" +
-      "\004\022/\n+RESTRICTIVE_MEASURE_TYPE_STAY_NORTH" +
-      "_OF_LINE\020\005\022.\n*RESTRICTIVE_MEASURE_TYPE_S" +
-      "TAY_EAST_OF_LINE\020\006\022/\n+RESTRICTIVE_MEASUR" +
-      "E_TYPE_STAY_SOUTH_OF_LINE\020\007\022.\n*RESTRICTI" +
-      "VE_MEASURE_TYPE_STAY_WEST_OF_LINE\020\010*\205\001\n\r" +
-      "MCMDetailType\022\033\n\027MCM_DETAIL_TYPE_INVALID" +
-      "\020\000\022*\n&MCM_DETAIL_TYPE_NAMED_AREA_OF_INTE" +
-      "REST\020\001\022+\n\'MCM_DETAIL_TYPE_TARGET_AREA_OF" +
-      "_INTEREST\020\002B\201\002\n\034com.anduril.entitymanage" +
-      "r.v1B\021GeoentityPubProtoP\001ZLgithub.com/an" +
-      "duril/anduril-java/src/anduril/entityman" +
-      "ager/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril." +
-      "Entitymanager.V1\312\002\030Anduril\\Entitymanager" +
-      "\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMetada" +
-      "ta\352\002\032Anduril::Entitymanager::V1b\006proto3"
+      "tobuf.FloatValueR\007heightM*\351\001\n\007GeoType\022\024\n" +
+      "\020GEO_TYPE_INVALID\020\000\022\024\n\020GEO_TYPE_GENERAL\020" +
+      "\001\022\023\n\017GEO_TYPE_HAZARD\020\002\022\026\n\022GEO_TYPE_EMERG" +
+      "ENCY\020\003\022\021\n\rGEO_TYPE_FSCM\020\004\022\034\n\030GEO_TYPE_EN" +
+      "GAGEMENT_ZONE\020\005\022\031\n\025GEO_TYPE_CONTROL_AREA" +
+      "\020\006\022\025\n\021GEO_TYPE_BULLSEYE\020\007\022\020\n\014GEO_TYPE_AC" +
+      "M\020\010\022\020\n\014GEO_TYPE_MCM\020\tB\205\002\n\034com.anduril.en" +
+      "titymanager.v1B\021GeoentityPubProtoP\001ZPgit" +
+      "hub.com/anduril/lattice-sdk-java/src/and" +
+      "uril/entitymanager/v1;entitymanagerv1\242\002\003" +
+      "AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril" +
+      "\\Entitymanager\\V1\342\002$Anduril\\Entitymanage" +
+      "r\\V1\\GPBMetadata\352\002\032Anduril::Entitymanage" +
+      "r::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.anduril.entitymanager.v1.LocationPubProto.getDescriptor(),
-          com.anduril.type.ColorPubProto.getDescriptor(),
           com.google.protobuf.WrappersProto.getDescriptor(),
         });
     internal_static_anduril_entitymanager_v1_GeoDetails_descriptor =
@@ -315,99 +136,56 @@ public final class GeoentityPubProto {
     internal_static_anduril_entitymanager_v1_GeoDetails_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoDetails_descriptor,
-        new java.lang.String[] { "Type", "Emergency", "Fscm", "ControlArea", "Acm", "Mcm", "VisualDetails", "TypeDetails", });
-    internal_static_anduril_entitymanager_v1_EmergencyDetails_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_anduril_entitymanager_v1_EmergencyDetails_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_EmergencyDetails_descriptor,
-        new java.lang.String[] { "EmergencyType", "PersonnelInvolved", });
+        new java.lang.String[] { "Type", });
     internal_static_anduril_entitymanager_v1_GeoShape_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_anduril_entitymanager_v1_GeoShape_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoShape_descriptor,
         new java.lang.String[] { "Point", "Line", "Polygon", "Ellipse", "Ellipsoid", "Shape", });
     internal_static_anduril_entitymanager_v1_GeoPoint_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_anduril_entitymanager_v1_GeoPoint_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoPoint_descriptor,
         new java.lang.String[] { "Position", });
     internal_static_anduril_entitymanager_v1_GeoLine_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_anduril_entitymanager_v1_GeoLine_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoLine_descriptor,
         new java.lang.String[] { "Positions", });
     internal_static_anduril_entitymanager_v1_GeoPolygon_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_anduril_entitymanager_v1_GeoPolygon_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoPolygon_descriptor,
         new java.lang.String[] { "Rings", "IsRectangle", });
     internal_static_anduril_entitymanager_v1_GeoEllipse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_anduril_entitymanager_v1_GeoEllipse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoEllipse_descriptor,
         new java.lang.String[] { "SemiMajorAxisM", "SemiMinorAxisM", "OrientationD", "HeightM", });
     internal_static_anduril_entitymanager_v1_GeoEllipsoid_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_anduril_entitymanager_v1_GeoEllipsoid_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoEllipsoid_descriptor,
         new java.lang.String[] { "ForwardAxisM", "SideAxisM", "UpAxisM", });
     internal_static_anduril_entitymanager_v1_LinearRing_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_anduril_entitymanager_v1_LinearRing_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_LinearRing_descriptor,
         new java.lang.String[] { "Points", "Positions", });
     internal_static_anduril_entitymanager_v1_GeoPolygonPosition_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_anduril_entitymanager_v1_GeoPolygonPosition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoPolygonPosition_descriptor,
         new java.lang.String[] { "Position", "HeightM", });
-    internal_static_anduril_entitymanager_v1_GeoVisualDetails_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_anduril_entitymanager_v1_GeoVisualDetails_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_GeoVisualDetails_descriptor,
-        new java.lang.String[] { "FillColor", "LineColor", });
-    internal_static_anduril_entitymanager_v1_FSCMDetails_descriptor =
-      getDescriptor().getMessageTypes().get(11);
-    internal_static_anduril_entitymanager_v1_FSCMDetails_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_FSCMDetails_descriptor,
-        new java.lang.String[] { "FscmType", "FscmDescription", "FiringAuthority", "AmmoRestrictionType", "RestrictiveMeasureType", "AmmoRestrictTypes", "IsGround", });
-    internal_static_anduril_entitymanager_v1_ACMDetails_descriptor =
-      getDescriptor().getMessageTypes().get(12);
-    internal_static_anduril_entitymanager_v1_ACMDetails_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_ACMDetails_descriptor,
-        new java.lang.String[] { "AcmType", "AcmDescription", });
-    internal_static_anduril_entitymanager_v1_MCMDetails_descriptor =
-      getDescriptor().getMessageTypes().get(13);
-    internal_static_anduril_entitymanager_v1_MCMDetails_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_MCMDetails_descriptor,
-        new java.lang.String[] { "McmType", "McmDescription", });
-    internal_static_anduril_entitymanager_v1_FiringAuthority_descriptor =
-      getDescriptor().getMessageTypes().get(14);
-    internal_static_anduril_entitymanager_v1_FiringAuthority_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_FiringAuthority_descriptor,
-        new java.lang.String[] { "EntityIds", });
-    internal_static_anduril_entitymanager_v1_ControlAreaDetails_descriptor =
-      getDescriptor().getMessageTypes().get(15);
-    internal_static_anduril_entitymanager_v1_ControlAreaDetails_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_ControlAreaDetails_descriptor,
-        new java.lang.String[] { "Type", });
     com.anduril.entitymanager.v1.LocationPubProto.getDescriptor();
-    com.anduril.type.ColorPubProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
   }
 
