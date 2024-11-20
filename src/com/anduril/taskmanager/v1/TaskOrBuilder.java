@@ -389,8 +389,7 @@ public interface TaskOrBuilder extends
 
   /**
    * <pre>
-   * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-   * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+   * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
    * for replication of task data to other nodes running Task Manager.
    * </pre>
    *
@@ -400,8 +399,7 @@ public interface TaskOrBuilder extends
   boolean hasOwner();
   /**
    * <pre>
-   * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-   * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+   * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
    * for replication of task data to other nodes running Task Manager.
    * </pre>
    *
@@ -411,8 +409,7 @@ public interface TaskOrBuilder extends
   com.anduril.taskmanager.v1.Owner getOwner();
   /**
    * <pre>
-   * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-   * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+   * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
    * for replication of task data to other nodes running Task Manager.
    * </pre>
    *

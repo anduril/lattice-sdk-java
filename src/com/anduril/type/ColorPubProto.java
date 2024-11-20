@@ -32,12 +32,12 @@ public final class ColorPubProto {
       "type\032\036google/protobuf/wrappers.proto\"v\n\005" +
       "Color\022\020\n\003red\030\001 \001(\002R\003red\022\024\n\005green\030\002 \001(\002R\005" +
       "green\022\022\n\004blue\030\003 \001(\002R\004blue\0221\n\005alpha\030\004 \001(\013" +
-      "2\033.google.protobuf.FloatValueR\005alphaB\244\001\n" +
-      "\020com.anduril.typeB\rColorPubProtoP\001Z0gith" +
-      "ub.com/anduril/anduril-java/src/anduril/" +
-      "type\242\002\003ATX\252\002\014Anduril.Type\312\002\014Anduril\\Type" +
-      "\342\002\030Anduril\\Type\\GPBMetadata\352\002\rAnduril::T" +
-      "ypeb\006proto3"
+      "2\033.google.protobuf.FloatValueR\005alphaB\250\001\n" +
+      "\020com.anduril.typeB\rColorPubProtoP\001Z4gith" +
+      "ub.com/anduril/lattice-sdk-java/src/andu" +
+      "ril/type\242\002\003ATX\252\002\014Anduril.Type\312\002\014Anduril\\" +
+      "Type\342\002\030Anduril\\Type\\GPBMetadata\352\002\rAnduri" +
+      "l::Typeb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

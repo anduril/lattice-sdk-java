@@ -60,14 +60,14 @@ public final class ClassificationPubProto {
       "ELS_CONTROLLED_UNCLASSIFIED\020\002\022&\n\"CLASSIF" +
       "ICATION_LEVELS_CONFIDENTIAL\020\003\022 \n\034CLASSIF" +
       "ICATION_LEVELS_SECRET\020\004\022$\n CLASSIFICATIO" +
-      "N_LEVELS_TOP_SECRET\020\005B\206\002\n\034com.anduril.en" +
+      "N_LEVELS_TOP_SECRET\020\005B\212\002\n\034com.anduril.en" +
       "titymanager.v1B\026ClassificationPubProtoP\001" +
-      "ZLgithub.com/anduril/anduril-java/src/an" +
-      "duril/entitymanager/v1;entitymanagerv1\242\002" +
-      "\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduri" +
-      "l\\Entitymanager\\V1\342\002$Anduril\\Entitymanag" +
-      "er\\V1\\GPBMetadata\352\002\032Anduril::Entitymanag" +
-      "er::V1b\006proto3"
+      "ZPgithub.com/anduril/lattice-sdk-java/sr" +
+      "c/anduril/entitymanager/v1;entitymanager" +
+      "v1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030An" +
+      "duril\\Entitymanager\\V1\342\002$Anduril\\Entitym" +
+      "anager\\V1\\GPBMetadata\352\002\032Anduril::Entitym" +
+      "anager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

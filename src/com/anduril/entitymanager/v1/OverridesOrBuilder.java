@@ -30,48 +30,4 @@ public interface OverridesOrBuilder extends
    */
   com.anduril.entitymanager.v1.OverrideOrBuilder getOverrideOrBuilder(
       int index);
-
-  /**
-   * <pre>
-   * Deprecated: do not use
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-   */
-  @java.lang.Deprecated java.util.List<com.anduril.entitymanager.v1.OverrideProvenance> 
-      getProvenanceList();
-  /**
-   * <pre>
-   * Deprecated: do not use
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-   */
-  @java.lang.Deprecated com.anduril.entitymanager.v1.OverrideProvenance getProvenance(int index);
-  /**
-   * <pre>
-   * Deprecated: do not use
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-   */
-  @java.lang.Deprecated int getProvenanceCount();
-  /**
-   * <pre>
-   * Deprecated: do not use
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-   */
-  @java.lang.Deprecated java.util.List<? extends com.anduril.entitymanager.v1.OverrideProvenanceOrBuilder> 
-      getProvenanceOrBuilderList();
-  /**
-   * <pre>
-   * Deprecated: do not use
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-   */
-  @java.lang.Deprecated com.anduril.entitymanager.v1.OverrideProvenanceOrBuilder getProvenanceOrBuilder(
-      int index);
 }

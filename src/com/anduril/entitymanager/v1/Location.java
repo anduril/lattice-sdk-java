@@ -46,7 +46,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.Position position_;
   /**
    * <pre>
-   * see Position definition for details. We opt not to use anduril type for altitude clarity.
+   * see Position definition for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -58,7 +58,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * see Position definition for details. We opt not to use anduril type for altitude clarity.
+   * see Position definition for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -70,7 +70,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * see Position definition for details. We opt not to use anduril type for altitude clarity.
+   * see Position definition for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -689,7 +689,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.Position, com.anduril.entitymanager.v1.Position.Builder, com.anduril.entitymanager.v1.PositionOrBuilder> positionBuilder_;
     /**
      * <pre>
-     * see Position definition for details. We opt not to use anduril type for altitude clarity.
+     * see Position definition for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -700,7 +700,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * see Position definition for details. We opt not to use anduril type for altitude clarity.
+     * see Position definition for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -715,7 +715,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * see Position definition for details. We opt not to use anduril type for altitude clarity.
+     * see Position definition for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -735,7 +735,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * see Position definition for details. We opt not to use anduril type for altitude clarity.
+     * see Position definition for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -753,7 +753,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * see Position definition for details. We opt not to use anduril type for altitude clarity.
+     * see Position definition for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -776,7 +776,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * see Position definition for details. We opt not to use anduril type for altitude clarity.
+     * see Position definition for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -793,7 +793,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * see Position definition for details. We opt not to use anduril type for altitude clarity.
+     * see Position definition for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -805,7 +805,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * see Position definition for details. We opt not to use anduril type for altitude clarity.
+     * see Position definition for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -820,7 +820,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * see Position definition for details. We opt not to use anduril type for altitude clarity.
+     * see Position definition for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>

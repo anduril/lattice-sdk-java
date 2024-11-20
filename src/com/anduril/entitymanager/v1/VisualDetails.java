@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private VisualDetails() {
-    interactivityMode_ = 0;
   }
 
   @java.lang.Override
@@ -81,34 +80,6 @@ private static final long serialVersionUID = 0L;
     return rangeRings_ == null ? com.anduril.entitymanager.v1.RangeRings.getDefaultInstance() : rangeRings_;
   }
 
-  public static final int INTERACTIVITY_MODE_FIELD_NUMBER = 2;
-  private int interactivityMode_ = 0;
-  /**
-   * <pre>
-   * Control the operator's ability to interact with the entity on the UI (disable hover/click on map, etc.)
-   * Not a security/access flag
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];</code>
-   * @return The enum numeric value on the wire for interactivityMode.
-   */
-  @java.lang.Override public int getInteractivityModeValue() {
-    return interactivityMode_;
-  }
-  /**
-   * <pre>
-   * Control the operator's ability to interact with the entity on the UI (disable hover/click on map, etc.)
-   * Not a security/access flag
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];</code>
-   * @return The interactivityMode.
-   */
-  @java.lang.Override public com.anduril.entitymanager.v1.InteractivityMode getInteractivityMode() {
-    com.anduril.entitymanager.v1.InteractivityMode result = com.anduril.entitymanager.v1.InteractivityMode.forNumber(interactivityMode_);
-    return result == null ? com.anduril.entitymanager.v1.InteractivityMode.UNRECOGNIZED : result;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -126,9 +97,6 @@ private static final long serialVersionUID = 0L;
     if (rangeRings_ != null) {
       output.writeMessage(1, getRangeRings());
     }
-    if (interactivityMode_ != com.anduril.entitymanager.v1.InteractivityMode.INTERACTIVITY_MODE_INVALID.getNumber()) {
-      output.writeEnum(2, interactivityMode_);
-    }
     getUnknownFields().writeTo(output);
   }
 
@@ -141,10 +109,6 @@ private static final long serialVersionUID = 0L;
     if (rangeRings_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getRangeRings());
-    }
-    if (interactivityMode_ != com.anduril.entitymanager.v1.InteractivityMode.INTERACTIVITY_MODE_INVALID.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(2, interactivityMode_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -166,7 +130,6 @@ private static final long serialVersionUID = 0L;
       if (!getRangeRings()
           .equals(other.getRangeRings())) return false;
     }
-    if (interactivityMode_ != other.interactivityMode_) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -182,8 +145,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RANGE_RINGS_FIELD_NUMBER;
       hash = (53 * hash) + getRangeRings().hashCode();
     }
-    hash = (37 * hash) + INTERACTIVITY_MODE_FIELD_NUMBER;
-    hash = (53 * hash) + interactivityMode_;
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -322,7 +283,6 @@ private static final long serialVersionUID = 0L;
         rangeRingsBuilder_.dispose();
         rangeRingsBuilder_ = null;
       }
-      interactivityMode_ = 0;
       return this;
     }
 
@@ -361,9 +321,6 @@ private static final long serialVersionUID = 0L;
             ? rangeRings_
             : rangeRingsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.interactivityMode_ = interactivityMode_;
-      }
     }
 
     @java.lang.Override
@@ -380,9 +337,6 @@ private static final long serialVersionUID = 0L;
       if (other == com.anduril.entitymanager.v1.VisualDetails.getDefaultInstance()) return this;
       if (other.hasRangeRings()) {
         mergeRangeRings(other.getRangeRings());
-      }
-      if (other.interactivityMode_ != 0) {
-        setInteractivityModeValue(other.getInteractivityModeValue());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -417,11 +371,6 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000001;
               break;
             } // case 10
-            case 16: {
-              interactivityMode_ = input.readEnum();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 16
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -592,84 +541,6 @@ private static final long serialVersionUID = 0L;
         rangeRings_ = null;
       }
       return rangeRingsBuilder_;
-    }
-
-    private int interactivityMode_ = 0;
-    /**
-     * <pre>
-     * Control the operator's ability to interact with the entity on the UI (disable hover/click on map, etc.)
-     * Not a security/access flag
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];</code>
-     * @return The enum numeric value on the wire for interactivityMode.
-     */
-    @java.lang.Override public int getInteractivityModeValue() {
-      return interactivityMode_;
-    }
-    /**
-     * <pre>
-     * Control the operator's ability to interact with the entity on the UI (disable hover/click on map, etc.)
-     * Not a security/access flag
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];</code>
-     * @param value The enum numeric value on the wire for interactivityMode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setInteractivityModeValue(int value) {
-      interactivityMode_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Control the operator's ability to interact with the entity on the UI (disable hover/click on map, etc.)
-     * Not a security/access flag
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];</code>
-     * @return The interactivityMode.
-     */
-    @java.lang.Override
-    public com.anduril.entitymanager.v1.InteractivityMode getInteractivityMode() {
-      com.anduril.entitymanager.v1.InteractivityMode result = com.anduril.entitymanager.v1.InteractivityMode.forNumber(interactivityMode_);
-      return result == null ? com.anduril.entitymanager.v1.InteractivityMode.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Control the operator's ability to interact with the entity on the UI (disable hover/click on map, etc.)
-     * Not a security/access flag
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];</code>
-     * @param value The interactivityMode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setInteractivityMode(com.anduril.entitymanager.v1.InteractivityMode value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      bitField0_ |= 0x00000002;
-      interactivityMode_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Control the operator's ability to interact with the entity on the UI (disable hover/click on map, etc.)
-     * Not a security/access flag
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearInteractivityMode() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      interactivityMode_ = 0;
-      onChanged();
-      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

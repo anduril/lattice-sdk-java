@@ -9,57 +9,7 @@ public interface OntologyOrBuilder extends
 
   /**
    * <pre>
-   * DEPRECATED: list of possible descriptors in preferred order.
-   * </pre>
-   *
-   * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-   *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-   * @return A list containing the descriptors.
-   */
-  @java.lang.Deprecated java.util.List<java.lang.String>
-      getDescriptorsList();
-  /**
-   * <pre>
-   * DEPRECATED: list of possible descriptors in preferred order.
-   * </pre>
-   *
-   * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-   *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-   * @return The count of descriptors.
-   */
-  @java.lang.Deprecated int getDescriptorsCount();
-  /**
-   * <pre>
-   * DEPRECATED: list of possible descriptors in preferred order.
-   * </pre>
-   *
-   * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-   *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-   * @param index The index of the element to return.
-   * @return The descriptors at the given index.
-   */
-  @java.lang.Deprecated java.lang.String getDescriptors(int index);
-  /**
-   * <pre>
-   * DEPRECATED: list of possible descriptors in preferred order.
-   * </pre>
-   *
-   * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-   *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-   * @param index The index of the value to return.
-   * @return The bytes of the descriptors at the given index.
-   */
-  @java.lang.Deprecated com.google.protobuf.ByteString
-      getDescriptorsBytes(int index);
-
-  /**
-   * <pre>
-   * A string that describes the asset's high-level type with natural language. These values include, but are not
-   * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE PLATFORM TYPE values found in MIL-STD 6016F.
+   * A string that describes the entity's high-level type with natural language.
    * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
    * </pre>
    *
@@ -69,8 +19,7 @@ public interface OntologyOrBuilder extends
   java.lang.String getPlatformType();
   /**
    * <pre>
-   * A string that describes the asset's high-level type with natural language. These values include, but are not
-   * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE PLATFORM TYPE values found in MIL-STD 6016F.
+   * A string that describes the entity's high-level type with natural language.
    * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
    * </pre>
    *
@@ -82,8 +31,7 @@ public interface OntologyOrBuilder extends
 
   /**
    * <pre>
-   * A string that describes the asset's exact model or type. These values include, but are not
-   * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE SPECIFIC TYPE values found in MIL-STD 6016F.
+   * A string that describes the entity's exact model or type.
    * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
    * </pre>
    *
@@ -93,8 +41,7 @@ public interface OntologyOrBuilder extends
   java.lang.String getSpecificType();
   /**
    * <pre>
-   * A string that describes the asset's exact model or type. These values include, but are not
-   * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE SPECIFIC TYPE values found in MIL-STD 6016F.
+   * A string that describes the entity's exact model or type.
    * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
    * </pre>
    *

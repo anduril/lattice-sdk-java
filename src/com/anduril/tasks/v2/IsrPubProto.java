@@ -204,29 +204,28 @@ public final class IsrPubProto {
       "rizontal_fov\030\001 \001(\0132\034.google.protobuf.Dou" +
       "bleValueH\000R\020setHorizontalFov\022J\n\021set_magn" +
       "ification\030\002 \001(\0132\033.google.protobuf.FloatV" +
-      "alueH\000R\020setMagnificationB\006\n\004mode\"\206\001\n\007Mon" +
-      "itor\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks." +
-      "v2.ObjectiveR\tobjective\022\031\n\010track_id\030\002 \001(" +
-      "\tR\007trackId\022%\n\016track_producer\030\003 \001(\tR\rtrac" +
-      "kProducer\"\202\001\n\004Scan\0229\n\tobjective\030\001 \001(\0132\033." +
-      "anduril.tasks.v2.ObjectiveR\tobjective\022?\n" +
-      "\nparameters\030\002 \001(\0132\037.anduril.tasks.v2.ISR" +
-      "ParametersR\nparameters\"\224\001\n\026BattleDamageA" +
-      "ssessment\0229\n\tobjective\030\001 \001(\0132\033.anduril.t" +
-      "asks.v2.ObjectiveR\tobjective\022?\n\nparamete" +
-      "rs\030\002 \001(\0132\037.anduril.tasks.v2.ISRParameter" +
-      "sR\nparameters*l\n\016OrbitDirection\022%\n!ORBIT" +
-      "_DIRECTION_DIRECTION_INVALID\020\000\022\031\n\025ORBIT_" +
-      "DIRECTION_RIGHT\020\001\022\030\n\024ORBIT_DIRECTION_LEF" +
-      "T\020\002*\200\001\n\014OrbitPattern\022\031\n\025ORBIT_PATTERN_IN" +
-      "VALID\020\000\022\030\n\024ORBIT_PATTERN_CIRCLE\020\001\022\033\n\027ORB" +
-      "IT_PATTERN_RACETRACK\020\002\022\036\n\032ORBIT_PATTERN_" +
-      "FIGURE_EIGHT\020\003B\312\001\n\024com.anduril.tasks.v2B" +
-      "\013IsrPubProtoP\001ZCgithub.com/anduril/andur" +
-      "il-java/src/anduril/tasks/v2/shared;task" +
-      "sv2\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\T" +
-      "asks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002" +
-      "\022Anduril::Tasks::V2b\006proto3"
+      "alueH\000R\020setMagnificationB\006\n\004mode\"P\n\007Moni" +
+      "tor\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v" +
+      "2.ObjectiveR\tobjectiveJ\004\010\002\020\003J\004\010\003\020\004\"\202\001\n\004S" +
+      "can\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v" +
+      "2.ObjectiveR\tobjective\022?\n\nparameters\030\002 \001" +
+      "(\0132\037.anduril.tasks.v2.ISRParametersR\npar" +
+      "ameters\"\224\001\n\026BattleDamageAssessment\0229\n\tob" +
+      "jective\030\001 \001(\0132\033.anduril.tasks.v2.Objecti" +
+      "veR\tobjective\022?\n\nparameters\030\002 \001(\0132\037.andu" +
+      "ril.tasks.v2.ISRParametersR\nparameters*l" +
+      "\n\016OrbitDirection\022%\n!ORBIT_DIRECTION_DIRE" +
+      "CTION_INVALID\020\000\022\031\n\025ORBIT_DIRECTION_RIGHT" +
+      "\020\001\022\030\n\024ORBIT_DIRECTION_LEFT\020\002*\200\001\n\014OrbitPa" +
+      "ttern\022\031\n\025ORBIT_PATTERN_INVALID\020\000\022\030\n\024ORBI" +
+      "T_PATTERN_CIRCLE\020\001\022\033\n\027ORBIT_PATTERN_RACE" +
+      "TRACK\020\002\022\036\n\032ORBIT_PATTERN_FIGURE_EIGHT\020\003B" +
+      "\316\001\n\024com.anduril.tasks.v2B\013IsrPubProtoP\001Z" +
+      "Ggithub.com/anduril/lattice-sdk-java/src" +
+      "/anduril/tasks/v2/shared;tasksv2\242\002\003ATX\252\002" +
+      "\020Anduril.Tasks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034A" +
+      "nduril\\Tasks\\V2\\GPBMetadata\352\002\022Anduril::T" +
+      "asks::V2b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -343,7 +342,7 @@ public final class IsrPubProto {
     internal_static_anduril_tasks_v2_Monitor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_tasks_v2_Monitor_descriptor,
-        new java.lang.String[] { "Objective", "TrackId", "TrackProducer", });
+        new java.lang.String[] { "Objective", });
     internal_static_anduril_tasks_v2_Scan_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_anduril_tasks_v2_Scan_fieldAccessorTable = new

@@ -6,21 +6,4 @@ package com.anduril.entitymanager.v1;
 public interface GroupDetailsOrBuilder extends
     // @@protoc_insertion_point(interface_extends:anduril.entitymanager.v1.GroupDetails)
     com.google.protobuf.MessageOrBuilder {
-
-  /**
-   * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
-   * @return Whether the team field is set.
-   */
-  boolean hasTeam();
-  /**
-   * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
-   * @return The team.
-   */
-  com.anduril.entitymanager.v1.Team getTeam();
-  /**
-   * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
-   */
-  com.anduril.entitymanager.v1.TeamOrBuilder getTeamOrBuilder();
-
-  com.anduril.entitymanager.v1.GroupDetails.GroupTypeCase getGroupTypeCase();
 }

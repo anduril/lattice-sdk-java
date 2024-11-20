@@ -49,26 +49,6 @@ public interface SystemOrBuilder extends
 
   /**
    * <pre>
-   * The Asset ID of the System.
-   * </pre>
-   *
-   * <code>string asset_id = 3 [json_name = "assetId"];</code>
-   * @return The assetId.
-   */
-  java.lang.String getAssetId();
-  /**
-   * <pre>
-   * The Asset ID of the System.
-   * </pre>
-   *
-   * <code>string asset_id = 3 [json_name = "assetId"];</code>
-   * @return The bytes for assetId.
-   */
-  com.google.protobuf.ByteString
-      getAssetIdBytes();
-
-  /**
-   * <pre>
    * Whether the System Principal (for example, an Asset) can own scheduling.
    * This means we bypass manager-owned scheduling and defer to the system
    * Principal to handle scheduling and give us status updates for the Task.

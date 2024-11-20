@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Objective() {
-    producedByAssetId_ = "";
   }
 
   @java.lang.Override
@@ -195,53 +194,6 @@ private static final long serialVersionUID = 0L;
     return com.anduril.tasks.v2.Point.getDefaultInstance();
   }
 
-  public static final int PRODUCED_BY_ASSET_ID_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object producedByAssetId_ = "";
-  /**
-   * <pre>
-   * the asset (if known) which produced the objective (useful for time-series lookups of historical objectives).
-   * </pre>
-   *
-   * <code>string produced_by_asset_id = 2 [json_name = "producedByAssetId"];</code>
-   * @return The producedByAssetId.
-   */
-  @java.lang.Override
-  public java.lang.String getProducedByAssetId() {
-    java.lang.Object ref = producedByAssetId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      producedByAssetId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * the asset (if known) which produced the objective (useful for time-series lookups of historical objectives).
-   * </pre>
-   *
-   * <code>string produced_by_asset_id = 2 [json_name = "producedByAssetId"];</code>
-   * @return The bytes for producedByAssetId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getProducedByAssetIdBytes() {
-    java.lang.Object ref = producedByAssetId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      producedByAssetId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -259,9 +211,6 @@ private static final long serialVersionUID = 0L;
     if (objectiveCase_ == 1) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, objective_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(producedByAssetId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, producedByAssetId_);
-    }
     if (objectiveCase_ == 5) {
       output.writeMessage(5, (com.anduril.tasks.v2.Point) objective_);
     }
@@ -276,9 +225,6 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (objectiveCase_ == 1) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, objective_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(producedByAssetId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, producedByAssetId_);
     }
     if (objectiveCase_ == 5) {
       size += com.google.protobuf.CodedOutputStream
@@ -299,8 +245,6 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.tasks.v2.Objective other = (com.anduril.tasks.v2.Objective) obj;
 
-    if (!getProducedByAssetId()
-        .equals(other.getProducedByAssetId())) return false;
     if (!getObjectiveCase().equals(other.getObjectiveCase())) return false;
     switch (objectiveCase_) {
       case 1:
@@ -325,8 +269,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PRODUCED_BY_ASSET_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getProducedByAssetId().hashCode();
     switch (objectiveCase_) {
       case 1:
         hash = (37 * hash) + ENTITY_ID_FIELD_NUMBER;
@@ -475,7 +417,6 @@ private static final long serialVersionUID = 0L;
       if (pointBuilder_ != null) {
         pointBuilder_.clear();
       }
-      producedByAssetId_ = "";
       objectiveCase_ = 0;
       objective_ = null;
       return this;
@@ -512,9 +453,6 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial0(com.anduril.tasks.v2.Objective result) {
       int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.producedByAssetId_ = producedByAssetId_;
-      }
     }
 
     private void buildPartialOneofs(com.anduril.tasks.v2.Objective result) {
@@ -538,11 +476,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.tasks.v2.Objective other) {
       if (other == com.anduril.tasks.v2.Objective.getDefaultInstance()) return this;
-      if (!other.getProducedByAssetId().isEmpty()) {
-        producedByAssetId_ = other.producedByAssetId_;
-        bitField0_ |= 0x00000004;
-        onChanged();
-      }
       switch (other.getObjectiveCase()) {
         case ENTITY_ID: {
           objectiveCase_ = 1;
@@ -590,11 +523,6 @@ private static final long serialVersionUID = 0L;
               objective_ = s;
               break;
             } // case 10
-            case 18: {
-              producedByAssetId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 18
             case 42: {
               input.readMessage(
                   getPointFieldBuilder().getBuilder(),
@@ -933,98 +861,6 @@ private static final long serialVersionUID = 0L;
       objectiveCase_ = 5;
       onChanged();
       return pointBuilder_;
-    }
-
-    private java.lang.Object producedByAssetId_ = "";
-    /**
-     * <pre>
-     * the asset (if known) which produced the objective (useful for time-series lookups of historical objectives).
-     * </pre>
-     *
-     * <code>string produced_by_asset_id = 2 [json_name = "producedByAssetId"];</code>
-     * @return The producedByAssetId.
-     */
-    public java.lang.String getProducedByAssetId() {
-      java.lang.Object ref = producedByAssetId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        producedByAssetId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * the asset (if known) which produced the objective (useful for time-series lookups of historical objectives).
-     * </pre>
-     *
-     * <code>string produced_by_asset_id = 2 [json_name = "producedByAssetId"];</code>
-     * @return The bytes for producedByAssetId.
-     */
-    public com.google.protobuf.ByteString
-        getProducedByAssetIdBytes() {
-      java.lang.Object ref = producedByAssetId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        producedByAssetId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * the asset (if known) which produced the objective (useful for time-series lookups of historical objectives).
-     * </pre>
-     *
-     * <code>string produced_by_asset_id = 2 [json_name = "producedByAssetId"];</code>
-     * @param value The producedByAssetId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setProducedByAssetId(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      producedByAssetId_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * the asset (if known) which produced the objective (useful for time-series lookups of historical objectives).
-     * </pre>
-     *
-     * <code>string produced_by_asset_id = 2 [json_name = "producedByAssetId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearProducedByAssetId() {
-      producedByAssetId_ = getDefaultInstance().getProducedByAssetId();
-      bitField0_ = (bitField0_ & ~0x00000004);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * the asset (if known) which produced the objective (useful for time-series lookups of historical objectives).
-     * </pre>
-     *
-     * <code>string produced_by_asset_id = 2 [json_name = "producedByAssetId"];</code>
-     * @param value The bytes for producedByAssetId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setProducedByAssetIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      producedByAssetId_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
