@@ -8,21 +8,6 @@ public interface RelationshipTypeOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-   * @return Whether the tether field is set.
-   */
-  boolean hasTether();
-  /**
-   * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-   * @return The tether.
-   */
-  com.anduril.entitymanager.v1.Tether getTether();
-  /**
-   * <code>.anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];</code>
-   */
-  com.anduril.entitymanager.v1.TetherOrBuilder getTetherOrBuilder();
-
-  /**
    * <code>.anduril.entitymanager.v1.TrackedBy tracked_by = 2 [json_name = "trackedBy"];</code>
    * @return Whether the trackedBy field is set.
    */
@@ -36,21 +21,6 @@ public interface RelationshipTypeOrBuilder extends
    * <code>.anduril.entitymanager.v1.TrackedBy tracked_by = 2 [json_name = "trackedBy"];</code>
    */
   com.anduril.entitymanager.v1.TrackedByOrBuilder getTrackedByOrBuilder();
-
-  /**
-   * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-   * @return Whether the configure field is set.
-   */
-  boolean hasConfigure();
-  /**
-   * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-   * @return The configure.
-   */
-  com.anduril.entitymanager.v1.Configure getConfigure();
-  /**
-   * <code>.anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];</code>
-   */
-  com.anduril.entitymanager.v1.ConfigureOrBuilder getConfigureOrBuilder();
 
   /**
    * <code>.anduril.entitymanager.v1.GroupChild group_child = 4 [json_name = "groupChild"];</code>

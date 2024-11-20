@@ -42,23 +42,6 @@ private static final long serialVersionUID = 0L;
             com.anduril.entitymanager.v1.Tracked.class, com.anduril.entitymanager.v1.Tracked.Builder.class);
   }
 
-  public static final int TRACK_QUALITY_FIELD_NUMBER = 1;
-  private int trackQuality_ = 0;
-  /**
-   * <pre>
-   * deprecated in favor of track_quality_wrapper to better indicate when TQ is actually missing vs 0 which is valid
-   * </pre>
-   *
-   * <code>uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Tracked.track_quality is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=170
-   * @return The trackQuality.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public int getTrackQuality() {
-    return trackQuality_;
-  }
-
   public static final int TRACK_QUALITY_WRAPPER_FIELD_NUMBER = 2;
   private com.google.protobuf.Int32Value trackQualityWrapper_;
   /**
@@ -186,48 +169,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public com.anduril.entitymanager.v1.UInt32RangeOrBuilder getNumberOfObjectsOrBuilder() {
     return numberOfObjects_ == null ? com.anduril.entitymanager.v1.UInt32Range.getDefaultInstance() : numberOfObjects_;
-  }
-
-  public static final int SENSOR_DETAILS_FIELD_NUMBER = 5;
-  private com.anduril.entitymanager.v1.Sensors sensorDetails_;
-  /**
-   * <pre>
-   * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=183
-   * @return Whether the sensorDetails field is set.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public boolean hasSensorDetails() {
-    return sensorDetails_ != null;
-  }
-  /**
-   * <pre>
-   * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=183
-   * @return The sensorDetails.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.Sensors getSensorDetails() {
-    return sensorDetails_ == null ? com.anduril.entitymanager.v1.Sensors.getDefaultInstance() : sensorDetails_;
-  }
-  /**
-   * <pre>
-   * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.SensorsOrBuilder getSensorDetailsOrBuilder() {
-    return sensorDetails_ == null ? com.anduril.entitymanager.v1.Sensors.getDefaultInstance() : sensorDetails_;
   }
 
   public static final int RADAR_CROSS_SECTION_FIELD_NUMBER = 6;
@@ -364,9 +305,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (trackQuality_ != 0) {
-      output.writeUInt32(1, trackQuality_);
-    }
     if (trackQualityWrapper_ != null) {
       output.writeMessage(2, getTrackQualityWrapper());
     }
@@ -375,9 +313,6 @@ private static final long serialVersionUID = 0L;
     }
     if (numberOfObjects_ != null) {
       output.writeMessage(4, getNumberOfObjects());
-    }
-    if (sensorDetails_ != null) {
-      output.writeMessage(5, getSensorDetails());
     }
     if (radarCrossSection_ != null) {
       output.writeMessage(6, getRadarCrossSection());
@@ -397,10 +332,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (trackQuality_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt32Size(1, trackQuality_);
-    }
     if (trackQualityWrapper_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getTrackQualityWrapper());
@@ -412,10 +343,6 @@ private static final long serialVersionUID = 0L;
     if (numberOfObjects_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getNumberOfObjects());
-    }
-    if (sensorDetails_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, getSensorDetails());
     }
     if (radarCrossSection_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -444,8 +371,6 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.Tracked other = (com.anduril.entitymanager.v1.Tracked) obj;
 
-    if (getTrackQuality()
-        != other.getTrackQuality()) return false;
     if (hasTrackQualityWrapper() != other.hasTrackQualityWrapper()) return false;
     if (hasTrackQualityWrapper()) {
       if (!getTrackQualityWrapper()
@@ -460,11 +385,6 @@ private static final long serialVersionUID = 0L;
     if (hasNumberOfObjects()) {
       if (!getNumberOfObjects()
           .equals(other.getNumberOfObjects())) return false;
-    }
-    if (hasSensorDetails() != other.hasSensorDetails()) return false;
-    if (hasSensorDetails()) {
-      if (!getSensorDetails()
-          .equals(other.getSensorDetails())) return false;
     }
     if (hasRadarCrossSection() != other.hasRadarCrossSection()) return false;
     if (hasRadarCrossSection()) {
@@ -492,8 +412,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + TRACK_QUALITY_FIELD_NUMBER;
-    hash = (53 * hash) + getTrackQuality();
     if (hasTrackQualityWrapper()) {
       hash = (37 * hash) + TRACK_QUALITY_WRAPPER_FIELD_NUMBER;
       hash = (53 * hash) + getTrackQualityWrapper().hashCode();
@@ -505,10 +423,6 @@ private static final long serialVersionUID = 0L;
     if (hasNumberOfObjects()) {
       hash = (37 * hash) + NUMBER_OF_OBJECTS_FIELD_NUMBER;
       hash = (53 * hash) + getNumberOfObjects().hashCode();
-    }
-    if (hasSensorDetails()) {
-      hash = (37 * hash) + SENSOR_DETAILS_FIELD_NUMBER;
-      hash = (53 * hash) + getSensorDetails().hashCode();
     }
     if (hasRadarCrossSection()) {
       hash = (37 * hash) + RADAR_CROSS_SECTION_FIELD_NUMBER;
@@ -655,7 +569,6 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      trackQuality_ = 0;
       trackQualityWrapper_ = null;
       if (trackQualityWrapperBuilder_ != null) {
         trackQualityWrapperBuilder_.dispose();
@@ -670,11 +583,6 @@ private static final long serialVersionUID = 0L;
       if (numberOfObjectsBuilder_ != null) {
         numberOfObjectsBuilder_.dispose();
         numberOfObjectsBuilder_ = null;
-      }
-      sensorDetails_ = null;
-      if (sensorDetailsBuilder_ != null) {
-        sensorDetailsBuilder_.dispose();
-        sensorDetailsBuilder_ = null;
       }
       radarCrossSection_ = null;
       if (radarCrossSectionBuilder_ != null) {
@@ -725,39 +633,31 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.anduril.entitymanager.v1.Tracked result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.trackQuality_ = trackQuality_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.trackQualityWrapper_ = trackQualityWrapperBuilder_ == null
             ? trackQualityWrapper_
             : trackQualityWrapperBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.sensorHits_ = sensorHitsBuilder_ == null
             ? sensorHits_
             : sensorHitsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.numberOfObjects_ = numberOfObjectsBuilder_ == null
             ? numberOfObjects_
             : numberOfObjectsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.sensorDetails_ = sensorDetailsBuilder_ == null
-            ? sensorDetails_
-            : sensorDetailsBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.radarCrossSection_ = radarCrossSectionBuilder_ == null
             ? radarCrossSection_
             : radarCrossSectionBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.lastMeasurementTime_ = lastMeasurementTimeBuilder_ == null
             ? lastMeasurementTime_
             : lastMeasurementTimeBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
+      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.lineOfBearing_ = lineOfBearingBuilder_ == null
             ? lineOfBearing_
             : lineOfBearingBuilder_.build();
@@ -776,9 +676,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.Tracked other) {
       if (other == com.anduril.entitymanager.v1.Tracked.getDefaultInstance()) return this;
-      if (other.getTrackQuality() != 0) {
-        setTrackQuality(other.getTrackQuality());
-      }
       if (other.hasTrackQualityWrapper()) {
         mergeTrackQualityWrapper(other.getTrackQualityWrapper());
       }
@@ -787,9 +684,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasNumberOfObjects()) {
         mergeNumberOfObjects(other.getNumberOfObjects());
-      }
-      if (other.hasSensorDetails()) {
-        mergeSensorDetails(other.getSensorDetails());
       }
       if (other.hasRadarCrossSection()) {
         mergeRadarCrossSection(other.getRadarCrossSection());
@@ -826,58 +720,46 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 8: {
-              trackQuality_ = input.readUInt32();
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 8
             case 18: {
               input.readMessage(
                   getTrackQualityWrapperFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             } // case 18
             case 26: {
               input.readMessage(
                   getSensorHitsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             } // case 26
             case 34: {
               input.readMessage(
                   getNumberOfObjectsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000004;
               break;
             } // case 34
-            case 42: {
-              input.readMessage(
-                  getSensorDetailsFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000010;
-              break;
-            } // case 42
             case 50: {
               input.readMessage(
                   getRadarCrossSectionFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000008;
               break;
             } // case 50
             case 58: {
               input.readMessage(
                   getLastMeasurementTimeFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000010;
               break;
             } // case 58
             case 74: {
               input.readMessage(
                   getLineOfBearingFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000080;
+              bitField0_ |= 0x00000020;
               break;
             } // case 74
             default: {
@@ -897,56 +779,6 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int trackQuality_ ;
-    /**
-     * <pre>
-     * deprecated in favor of track_quality_wrapper to better indicate when TQ is actually missing vs 0 which is valid
-     * </pre>
-     *
-     * <code>uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Tracked.track_quality is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=170
-     * @return The trackQuality.
-     */
-    @java.lang.Override
-    @java.lang.Deprecated public int getTrackQuality() {
-      return trackQuality_;
-    }
-    /**
-     * <pre>
-     * deprecated in favor of track_quality_wrapper to better indicate when TQ is actually missing vs 0 which is valid
-     * </pre>
-     *
-     * <code>uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Tracked.track_quality is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=170
-     * @param value The trackQuality to set.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder setTrackQuality(int value) {
-
-      trackQuality_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * deprecated in favor of track_quality_wrapper to better indicate when TQ is actually missing vs 0 which is valid
-     * </pre>
-     *
-     * <code>uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Tracked.track_quality is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=170
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder clearTrackQuality() {
-      bitField0_ = (bitField0_ & ~0x00000001);
-      trackQuality_ = 0;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.Int32Value trackQualityWrapper_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> trackQualityWrapperBuilder_;
@@ -959,7 +791,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the trackQualityWrapper field is set.
      */
     public boolean hasTrackQualityWrapper() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -992,7 +824,7 @@ private static final long serialVersionUID = 0L;
       } else {
         trackQualityWrapperBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1010,7 +842,7 @@ private static final long serialVersionUID = 0L;
       } else {
         trackQualityWrapperBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1023,7 +855,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTrackQualityWrapper(com.google.protobuf.Int32Value value) {
       if (trackQualityWrapperBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
+        if (((bitField0_ & 0x00000001) != 0) &&
           trackQualityWrapper_ != null &&
           trackQualityWrapper_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
           getTrackQualityWrapperBuilder().mergeFrom(value);
@@ -1033,7 +865,7 @@ private static final long serialVersionUID = 0L;
       } else {
         trackQualityWrapperBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1045,7 +877,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value track_quality_wrapper = 2 [json_name = "trackQualityWrapper"];</code>
      */
     public Builder clearTrackQualityWrapper() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       trackQualityWrapper_ = null;
       if (trackQualityWrapperBuilder_ != null) {
         trackQualityWrapperBuilder_.dispose();
@@ -1062,7 +894,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value track_quality_wrapper = 2 [json_name = "trackQualityWrapper"];</code>
      */
     public com.google.protobuf.Int32Value.Builder getTrackQualityWrapperBuilder() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTrackQualityWrapperFieldBuilder().getBuilder();
     }
@@ -1114,7 +946,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sensorHits field is set.
      */
     public boolean hasSensorHits() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1147,7 +979,7 @@ private static final long serialVersionUID = 0L;
       } else {
         sensorHitsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1165,7 +997,7 @@ private static final long serialVersionUID = 0L;
       } else {
         sensorHitsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1178,7 +1010,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSensorHits(com.google.protobuf.Int32Value value) {
       if (sensorHitsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0) &&
+        if (((bitField0_ & 0x00000002) != 0) &&
           sensorHits_ != null &&
           sensorHits_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
           getSensorHitsBuilder().mergeFrom(value);
@@ -1188,7 +1020,7 @@ private static final long serialVersionUID = 0L;
       } else {
         sensorHitsBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1200,7 +1032,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value sensor_hits = 3 [json_name = "sensorHits"];</code>
      */
     public Builder clearSensorHits() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000002);
       sensorHits_ = null;
       if (sensorHitsBuilder_ != null) {
         sensorHitsBuilder_.dispose();
@@ -1217,7 +1049,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value sensor_hits = 3 [json_name = "sensorHits"];</code>
      */
     public com.google.protobuf.Int32Value.Builder getSensorHitsBuilder() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSensorHitsFieldBuilder().getBuilder();
     }
@@ -1274,7 +1106,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the numberOfObjects field is set.
      */
     public boolean hasNumberOfObjects() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1317,7 +1149,7 @@ private static final long serialVersionUID = 0L;
       } else {
         numberOfObjectsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1340,7 +1172,7 @@ private static final long serialVersionUID = 0L;
       } else {
         numberOfObjectsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1358,7 +1190,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNumberOfObjects(com.anduril.entitymanager.v1.UInt32Range value) {
       if (numberOfObjectsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0) &&
+        if (((bitField0_ & 0x00000004) != 0) &&
           numberOfObjects_ != null &&
           numberOfObjects_ != com.anduril.entitymanager.v1.UInt32Range.getDefaultInstance()) {
           getNumberOfObjectsBuilder().mergeFrom(value);
@@ -1368,7 +1200,7 @@ private static final long serialVersionUID = 0L;
       } else {
         numberOfObjectsBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1385,7 +1217,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.UInt32Range number_of_objects = 4 [json_name = "numberOfObjects"];</code>
      */
     public Builder clearNumberOfObjects() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000004);
       numberOfObjects_ = null;
       if (numberOfObjectsBuilder_ != null) {
         numberOfObjectsBuilder_.dispose();
@@ -1407,7 +1239,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.UInt32Range number_of_objects = 4 [json_name = "numberOfObjects"];</code>
      */
     public com.anduril.entitymanager.v1.UInt32Range.Builder getNumberOfObjectsBuilder() {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return getNumberOfObjectsFieldBuilder().getBuilder();
     }
@@ -1457,165 +1289,6 @@ private static final long serialVersionUID = 0L;
       return numberOfObjectsBuilder_;
     }
 
-    private com.anduril.entitymanager.v1.Sensors sensorDetails_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.Sensors, com.anduril.entitymanager.v1.Sensors.Builder, com.anduril.entitymanager.v1.SensorsOrBuilder> sensorDetailsBuilder_;
-    /**
-     * <pre>
-     * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=183
-     * @return Whether the sensorDetails field is set.
-     */
-    @java.lang.Deprecated public boolean hasSensorDetails() {
-      return ((bitField0_ & 0x00000010) != 0);
-    }
-    /**
-     * <pre>
-     * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Tracked.sensor_details is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=183
-     * @return The sensorDetails.
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.Sensors getSensorDetails() {
-      if (sensorDetailsBuilder_ == null) {
-        return sensorDetails_ == null ? com.anduril.entitymanager.v1.Sensors.getDefaultInstance() : sensorDetails_;
-      } else {
-        return sensorDetailsBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setSensorDetails(com.anduril.entitymanager.v1.Sensors value) {
-      if (sensorDetailsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        sensorDetails_ = value;
-      } else {
-        sensorDetailsBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setSensorDetails(
-        com.anduril.entitymanager.v1.Sensors.Builder builderForValue) {
-      if (sensorDetailsBuilder_ == null) {
-        sensorDetails_ = builderForValue.build();
-      } else {
-        sensorDetailsBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder mergeSensorDetails(com.anduril.entitymanager.v1.Sensors value) {
-      if (sensorDetailsBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0) &&
-          sensorDetails_ != null &&
-          sensorDetails_ != com.anduril.entitymanager.v1.Sensors.getDefaultInstance()) {
-          getSensorDetailsBuilder().mergeFrom(value);
-        } else {
-          sensorDetails_ = value;
-        }
-      } else {
-        sensorDetailsBuilder_.mergeFrom(value);
-      }
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder clearSensorDetails() {
-      bitField0_ = (bitField0_ & ~0x00000010);
-      sensorDetails_ = null;
-      if (sensorDetailsBuilder_ != null) {
-        sensorDetailsBuilder_.dispose();
-        sensorDetailsBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.Sensors.Builder getSensorDetailsBuilder() {
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return getSensorDetailsFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.SensorsOrBuilder getSensorDetailsOrBuilder() {
-      if (sensorDetailsBuilder_ != null) {
-        return sensorDetailsBuilder_.getMessageOrBuilder();
-      } else {
-        return sensorDetails_ == null ?
-            com.anduril.entitymanager.v1.Sensors.getDefaultInstance() : sensorDetails_;
-      }
-    }
-    /**
-     * <pre>
-     * deprecated. data from sensors actively tracking the entity are placed in the TrackedBy relationship.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.Sensors, com.anduril.entitymanager.v1.Sensors.Builder, com.anduril.entitymanager.v1.SensorsOrBuilder> 
-        getSensorDetailsFieldBuilder() {
-      if (sensorDetailsBuilder_ == null) {
-        sensorDetailsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.anduril.entitymanager.v1.Sensors, com.anduril.entitymanager.v1.Sensors.Builder, com.anduril.entitymanager.v1.SensorsOrBuilder>(
-                getSensorDetails(),
-                getParentForChildren(),
-                isClean());
-        sensorDetails_ = null;
-      }
-      return sensorDetailsBuilder_;
-    }
-
     private com.google.protobuf.DoubleValue radarCrossSection_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> radarCrossSectionBuilder_;
@@ -1629,7 +1302,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the radarCrossSection field is set.
      */
     public boolean hasRadarCrossSection() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1664,7 +1337,7 @@ private static final long serialVersionUID = 0L;
       } else {
         radarCrossSectionBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1683,7 +1356,7 @@ private static final long serialVersionUID = 0L;
       } else {
         radarCrossSectionBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1697,7 +1370,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRadarCrossSection(com.google.protobuf.DoubleValue value) {
       if (radarCrossSectionBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0) &&
+        if (((bitField0_ & 0x00000008) != 0) &&
           radarCrossSection_ != null &&
           radarCrossSection_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
           getRadarCrossSectionBuilder().mergeFrom(value);
@@ -1707,7 +1380,7 @@ private static final long serialVersionUID = 0L;
       } else {
         radarCrossSectionBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1720,7 +1393,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue radar_cross_section = 6 [json_name = "radarCrossSection"];</code>
      */
     public Builder clearRadarCrossSection() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000008);
       radarCrossSection_ = null;
       if (radarCrossSectionBuilder_ != null) {
         radarCrossSectionBuilder_.dispose();
@@ -1738,7 +1411,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue radar_cross_section = 6 [json_name = "radarCrossSection"];</code>
      */
     public com.google.protobuf.DoubleValue.Builder getRadarCrossSectionBuilder() {
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRadarCrossSectionFieldBuilder().getBuilder();
     }
@@ -1792,7 +1465,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastMeasurementTime field is set.
      */
     public boolean hasLastMeasurementTime() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1825,7 +1498,7 @@ private static final long serialVersionUID = 0L;
       } else {
         lastMeasurementTimeBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1843,7 +1516,7 @@ private static final long serialVersionUID = 0L;
       } else {
         lastMeasurementTimeBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1856,7 +1529,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastMeasurementTime(com.google.protobuf.Timestamp value) {
       if (lastMeasurementTimeBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0) &&
+        if (((bitField0_ & 0x00000010) != 0) &&
           lastMeasurementTime_ != null &&
           lastMeasurementTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getLastMeasurementTimeBuilder().mergeFrom(value);
@@ -1866,7 +1539,7 @@ private static final long serialVersionUID = 0L;
       } else {
         lastMeasurementTimeBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1878,7 +1551,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_measurement_time = 7 [json_name = "lastMeasurementTime"];</code>
      */
     public Builder clearLastMeasurementTime() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000010);
       lastMeasurementTime_ = null;
       if (lastMeasurementTimeBuilder_ != null) {
         lastMeasurementTimeBuilder_.dispose();
@@ -1895,7 +1568,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_measurement_time = 7 [json_name = "lastMeasurementTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastMeasurementTimeBuilder() {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000010;
       onChanged();
       return getLastMeasurementTimeFieldBuilder().getBuilder();
     }
@@ -1948,7 +1621,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lineOfBearing field is set.
      */
     public boolean hasLineOfBearing() {
-      return ((bitField0_ & 0x00000080) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1983,7 +1656,7 @@ private static final long serialVersionUID = 0L;
       } else {
         lineOfBearingBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2002,7 +1675,7 @@ private static final long serialVersionUID = 0L;
       } else {
         lineOfBearingBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2016,7 +1689,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLineOfBearing(com.anduril.entitymanager.v1.LineOfBearing value) {
       if (lineOfBearingBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) != 0) &&
+        if (((bitField0_ & 0x00000020) != 0) &&
           lineOfBearing_ != null &&
           lineOfBearing_ != com.anduril.entitymanager.v1.LineOfBearing.getDefaultInstance()) {
           getLineOfBearingBuilder().mergeFrom(value);
@@ -2026,7 +1699,7 @@ private static final long serialVersionUID = 0L;
       } else {
         lineOfBearingBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2039,7 +1712,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.LineOfBearing line_of_bearing = 9 [json_name = "lineOfBearing"];</code>
      */
     public Builder clearLineOfBearing() {
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000020);
       lineOfBearing_ = null;
       if (lineOfBearingBuilder_ != null) {
         lineOfBearingBuilder_.dispose();
@@ -2057,7 +1730,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.LineOfBearing line_of_bearing = 9 [json_name = "lineOfBearing"];</code>
      */
     public com.anduril.entitymanager.v1.LineOfBearing.Builder getLineOfBearingBuilder() {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000020;
       onChanged();
       return getLineOfBearingFieldBuilder().getBuilder();
     }

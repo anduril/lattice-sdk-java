@@ -32,14 +32,14 @@ public final class OrbitPubProto {
       "to\022\030anduril.entitymanager.v1\032\034anduril/ty" +
       "pe/orbit.pub.proto\"X\n\005Orbit\022O\n\023orbit_mea" +
       "n_elements\030\001 \001(\0132\037.anduril.type.OrbitMea" +
-      "nElementsR\021orbitMeanElementsB\375\001\n\034com.and" +
-      "uril.entitymanager.v1B\rOrbitPubProtoP\001ZL" +
-      "github.com/anduril/anduril-java/src/andu" +
-      "ril/entitymanager/v1;entitymanagerv1\242\002\003A" +
-      "EX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\" +
-      "Entitymanager\\V1\342\002$Anduril\\Entitymanager" +
-      "\\V1\\GPBMetadata\352\002\032Anduril::Entitymanager" +
-      "::V1b\006proto3"
+      "nElementsR\021orbitMeanElementsB\201\002\n\034com.and" +
+      "uril.entitymanager.v1B\rOrbitPubProtoP\001ZP" +
+      "github.com/anduril/lattice-sdk-java/src/" +
+      "anduril/entitymanager/v1;entitymanagerv1" +
+      "\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andu" +
+      "ril\\Entitymanager\\V1\342\002$Anduril\\Entityman" +
+      "ager\\V1\\GPBMetadata\352\002\032Anduril::Entityman" +
+      "ager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

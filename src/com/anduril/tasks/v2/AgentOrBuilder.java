@@ -8,18 +8,6 @@ public interface AgentOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string asset_id = 1 [json_name = "assetId"];</code>
-   * @return The assetId.
-   */
-  java.lang.String getAssetId();
-  /**
-   * <code>string asset_id = 1 [json_name = "assetId"];</code>
-   * @return The bytes for assetId.
-   */
-  com.google.protobuf.ByteString
-      getAssetIdBytes();
-
-  /**
    * <code>string entity_id = 2 [json_name = "entityId"];</code>
    * @return The entityId.
    */

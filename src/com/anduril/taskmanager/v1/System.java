@@ -22,7 +22,6 @@ private static final long serialVersionUID = 0L;
   private System() {
     serviceName_ = "";
     entityId_ = "";
-    assetId_ = "";
   }
 
   @java.lang.Override
@@ -139,53 +138,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ASSET_ID_FIELD_NUMBER = 3;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object assetId_ = "";
-  /**
-   * <pre>
-   * The Asset ID of the System.
-   * </pre>
-   *
-   * <code>string asset_id = 3 [json_name = "assetId"];</code>
-   * @return The assetId.
-   */
-  @java.lang.Override
-  public java.lang.String getAssetId() {
-    java.lang.Object ref = assetId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      assetId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * The Asset ID of the System.
-   * </pre>
-   *
-   * <code>string asset_id = 3 [json_name = "assetId"];</code>
-   * @return The bytes for assetId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getAssetIdBytes() {
-    java.lang.Object ref = assetId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      assetId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   public static final int MANAGES_OWN_SCHEDULING_FIELD_NUMBER = 4;
   private boolean managesOwnScheduling_ = false;
   /**
@@ -225,9 +177,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(entityId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, entityId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(assetId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, assetId_);
-    }
     if (managesOwnScheduling_ != false) {
       output.writeBool(4, managesOwnScheduling_);
     }
@@ -245,9 +194,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(entityId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, entityId_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(assetId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, assetId_);
     }
     if (managesOwnScheduling_ != false) {
       size += com.google.protobuf.CodedOutputStream
@@ -272,8 +218,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getServiceName())) return false;
     if (!getEntityId()
         .equals(other.getEntityId())) return false;
-    if (!getAssetId()
-        .equals(other.getAssetId())) return false;
     if (getManagesOwnScheduling()
         != other.getManagesOwnScheduling()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -291,8 +235,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getServiceName().hashCode();
     hash = (37 * hash) + ENTITY_ID_FIELD_NUMBER;
     hash = (53 * hash) + getEntityId().hashCode();
-    hash = (37 * hash) + ASSET_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getAssetId().hashCode();
     hash = (37 * hash) + MANAGES_OWN_SCHEDULING_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getManagesOwnScheduling());
@@ -431,7 +373,6 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       serviceName_ = "";
       entityId_ = "";
-      assetId_ = "";
       managesOwnScheduling_ = false;
       return this;
     }
@@ -473,9 +414,6 @@ private static final long serialVersionUID = 0L;
         result.entityId_ = entityId_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.assetId_ = assetId_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.managesOwnScheduling_ = managesOwnScheduling_;
       }
     }
@@ -500,11 +438,6 @@ private static final long serialVersionUID = 0L;
       if (!other.getEntityId().isEmpty()) {
         entityId_ = other.entityId_;
         bitField0_ |= 0x00000002;
-        onChanged();
-      }
-      if (!other.getAssetId().isEmpty()) {
-        assetId_ = other.assetId_;
-        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getManagesOwnScheduling() != false) {
@@ -546,14 +479,9 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 18
-            case 26: {
-              assetId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 26
             case 32: {
               managesOwnScheduling_ = input.readBool();
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000004;
               break;
             } // case 32
             default: {
@@ -757,98 +685,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object assetId_ = "";
-    /**
-     * <pre>
-     * The Asset ID of the System.
-     * </pre>
-     *
-     * <code>string asset_id = 3 [json_name = "assetId"];</code>
-     * @return The assetId.
-     */
-    public java.lang.String getAssetId() {
-      java.lang.Object ref = assetId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        assetId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The Asset ID of the System.
-     * </pre>
-     *
-     * <code>string asset_id = 3 [json_name = "assetId"];</code>
-     * @return The bytes for assetId.
-     */
-    public com.google.protobuf.ByteString
-        getAssetIdBytes() {
-      java.lang.Object ref = assetId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        assetId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The Asset ID of the System.
-     * </pre>
-     *
-     * <code>string asset_id = 3 [json_name = "assetId"];</code>
-     * @param value The assetId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAssetId(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      assetId_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The Asset ID of the System.
-     * </pre>
-     *
-     * <code>string asset_id = 3 [json_name = "assetId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAssetId() {
-      assetId_ = getDefaultInstance().getAssetId();
-      bitField0_ = (bitField0_ & ~0x00000004);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The Asset ID of the System.
-     * </pre>
-     *
-     * <code>string asset_id = 3 [json_name = "assetId"];</code>
-     * @param value The bytes for assetId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAssetIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      assetId_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-
     private boolean managesOwnScheduling_ ;
     /**
      * <pre>
@@ -882,7 +718,7 @@ private static final long serialVersionUID = 0L;
     public Builder setManagesOwnScheduling(boolean value) {
 
       managesOwnScheduling_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -899,7 +735,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearManagesOwnScheduling() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000004);
       managesOwnScheduling_ = false;
       onChanged();
       return this;

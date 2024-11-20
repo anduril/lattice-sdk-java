@@ -20,11 +20,6 @@ public final class EntityPubProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_Entity_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_Entities_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_Entities_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_Status_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -60,21 +55,6 @@ public final class EntityPubProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_Override_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_OverrideProvenance_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_OverrideProvenance_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_OriginalData_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_OriginalData_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_OriginalData_TLE_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_OriginalData_TLE_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_AlternateId_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -90,10 +70,40 @@ public final class EntityPubProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_RangeRings_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_TeamStatus_descriptor;
+    internal_static_anduril_entitymanager_v1_Correlation_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_TeamStatus_fieldAccessorTable;
+      internal_static_anduril_entitymanager_v1_Correlation_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_PrimaryCorrelation_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_PrimaryCorrelation_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_SecondaryCorrelation_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_SecondaryCorrelation_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_Decorrelation_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_Decorrelation_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_DecorrelatedAll_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_DecorrelatedAll_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_DecorrelatedSingle_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_DecorrelatedSingle_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_CorrelationMetadata_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_CorrelationMetadata_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -106,204 +116,204 @@ public final class EntityPubProto {
       "\n)anduril/entitymanager/v1/entity.pub.pr" +
       "oto\022\030anduril.entitymanager.v1\0321anduril/e" +
       "ntitymanager/v1/classification.pub.proto" +
-      "\0322anduril/entitymanager/v1/contact_detai" +
-      "ls.pub.proto\032/anduril/entitymanager/v1/c" +
-      "orrelations.pub.proto\032-anduril/entityman" +
-      "ager/v1/dimensions.pub.proto\032,anduril/en" +
-      "titymanager/v1/geoentity.pub.proto\032(andu" +
-      "ril/entitymanager/v1/group.pub.proto\0320an" +
-      "duril/entitymanager/v1/health_status.pub" +
-      ".proto\032+anduril/entitymanager/v1/locatio" +
-      "n.pub.proto\032(anduril/entitymanager/v1/me" +
-      "dia.pub.proto\032+anduril/entitymanager/v1/" +
-      "ontology.pub.proto\032*anduril/entitymanage" +
-      "r/v1/options.pub.proto\032(anduril/entityma" +
-      "nager/v1/orbit.pub.proto\032+anduril/entity" +
-      "manager/v1/payloads.pub.proto\032(anduril/e" +
-      "ntitymanager/v1/power.pub.proto\032/anduril" +
-      "/entitymanager/v1/relationship.pub.proto" +
-      "\0320anduril/entitymanager/v1/route_details" +
-      ".pub.proto\032+anduril/entitymanager/v1/sch" +
-      "edule.pub.proto\032*anduril/entitymanager/v" +
-      "1/sensors.pub.proto\032)anduril/entitymanag" +
-      "er/v1/signal.pub.proto\032+anduril/entityma" +
-      "nager/v1/supplies.pub.proto\0322anduril/ent" +
-      "itymanager/v1/target_priority.pub.proto\032" +
-      "4anduril/entitymanager/v1/transponder_co" +
-      "des.pub.proto\032(anduril/entitymanager/v1/" +
-      "types.pub.proto\032\"anduril/tasks/v2/catalo" +
-      "g.pub.proto\032\037google/protobuf/timestamp.p" +
-      "roto\032\036google/protobuf/wrappers.proto\"\245\025\n" +
-      "\006Entity\022\033\n\tentity_id\030\001 \001(\tR\010entityId\022 \n\013" +
-      "description\030\002 \001(\tR\013description\022\027\n\007is_liv" +
-      "e\030\003 \001(\010R\006isLive\022=\n\014created_time\030\004 \001(\0132\032." +
-      "google.protobuf.TimestampR\013createdTime\022;" +
-      "\n\013expiry_time\030\005 \001(\0132\032.google.protobuf.Ti" +
-      "mestampR\nexpiryTime\022\033\n\tno_expiry\030+ \001(\010R\010" +
-      "noExpiry\0228\n\006status\030\023 \001(\0132 .anduril.entit" +
-      "ymanager.v1.StatusR\006status\022>\n\010location\030\006" +
-      " \001(\0132\".anduril.entitymanager.v1.Location" +
-      "R\010location\022`\n\024location_uncertainty\030\017 \001(\013" +
-      "2-.anduril.entitymanager.v1.LocationUnce" +
-      "rtaintyR\023locationUncertainty\022H\n\ngeopolyg" +
-      "on\030\021 \001(\0132$.anduril.entitymanager.v1.GeoP" +
-      "olygonB\002\030\001R\ngeopolygon\022?\n\tgeo_shape\030\027 \001(" +
-      "\0132\".anduril.entitymanager.v1.GeoShapeR\010g" +
-      "eoShape\022E\n\013geo_details\030\030 \001(\0132$.anduril.e" +
-      "ntitymanager.v1.GeoDetailsR\ngeoDetails\022;" +
-      "\n\007aliases\030\007 \001(\0132!.anduril.entitymanager." +
-      "v1.AliasesR\007aliases\022;\n\007tracked\030\010 \001(\0132!.a" +
-      "nduril.entitymanager.v1.TrackedR\007tracked" +
-      "\022D\n\ncorrelated\030\t \001(\0132$.anduril.entityman" +
-      "ager.v1.CorrelatedR\ncorrelated\022<\n\010mil_vi" +
-      "ew\030\n \001(\0132!.anduril.entitymanager.v1.MilV" +
-      "iewR\007milView\022>\n\010ontology\030\013 \001(\0132\".anduril" +
-      ".entitymanager.v1.OntologyR\010ontology\022;\n\007" +
-      "sensors\030\024 \001(\0132!.anduril.entitymanager.v1" +
-      ".SensorsR\007sensors\022>\n\010payloads\030\025 \001(\0132\".an" +
-      "duril.entitymanager.v1.PayloadsR\010payload" +
-      "s\022E\n\013power_state\030\036 \001(\0132$.anduril.entitym" +
-      "anager.v1.PowerStateR\npowerState\022D\n\nprov" +
-      "enance\030\014 \001(\0132$.anduril.entitymanager.v1." +
-      "ProvenanceR\nprovenance\022A\n\toverrides\030\r \001(" +
-      "\0132#.anduril.entitymanager.v1.OverridesR\t" +
-      "overrides\022D\n\nindicators\030\016 \001(\0132$.anduril." +
-      "entitymanager.v1.IndicatorsR\nindicators\022" +
-      "K\n\roriginal_data\030\022 \001(\0132&.anduril.entitym" +
-      "anager.v1.OriginalDataR\014originalData\022Q\n\017" +
-      "target_priority\030\026 \001(\0132(.anduril.entityma" +
-      "nager.v1.TargetPriorityR\016targetPriority\022" +
-      "8\n\006signal\030\031 \001(\0132 .anduril.entitymanager." +
-      "v1.SignalR\006signal\022W\n\021transponder_codes\030\032" +
-      " \001(\0132*.anduril.entitymanager.v1.Transpon" +
-      "derCodesR\020transponderCodes\022B\n\007contact\030\033 " +
-      "\001(\0132(.anduril.entitymanager.v1.ContactDe" +
-      "tailsR\007contact\022Y\n\023data_classification\030\035 " +
-      "\001(\0132(.anduril.entitymanager.v1.Classific" +
-      "ationR\022dataClassification\022@\n\014task_catalo" +
-      "g\030\037 \001(\0132\035.anduril.tasks.v2.TaskCatalogR\013" +
-      "taskCatalog\0225\n\005media\030  \001(\0132\037.anduril.ent" +
-      "itymanager.v1.MediaR\005media\022M\n\rrelationsh" +
-      "ips\030! \001(\0132\'.anduril.entitymanager.v1.Rel" +
-      "ationshipsR\rrelationships\022N\n\016visual_deta" +
-      "ils\030\" \001(\0132\'.anduril.entitymanager.v1.Vis" +
-      "ualDetailsR\rvisualDetails\022D\n\ndimensions\030" +
-      "$ \001(\0132$.anduril.entitymanager.v1.Dimensi" +
-      "onsR\ndimensions\022K\n\rroute_details\030% \001(\0132&" +
-      ".anduril.entitymanager.v1.RouteDetailsR\014" +
-      "routeDetails\022A\n\tschedules\030& \001(\0132#.anduri" +
-      "l.entitymanager.v1.SchedulesR\tschedules\022" +
-      "8\n\006health\030\' \001(\0132 .anduril.entitymanager." +
-      "v1.HealthR\006health\022K\n\rgroup_details\030( \001(\013" +
-      "2&.anduril.entitymanager.v1.GroupDetails" +
-      "R\014groupDetails\022E\n\013team_status\030) \001(\0132$.an" +
-      "duril.entitymanager.v1.TeamStatusR\nteamS" +
-      "tatus\022>\n\010supplies\030* \001(\0132\".anduril.entity" +
-      "manager.v1.SuppliesR\010supplies\0225\n\005orbit\030." +
-      " \001(\0132\037.anduril.entitymanager.v1.OrbitR\005o" +
-      "rbitJ\004\010\020\020\021J\004\010\034\020\035J\004\010#\020$R\024prototype_extens" +
-      "ions\"H\n\010Entities\022<\n\010entities\030\001 \003(\0132 .and" +
-      "uril.entitymanager.v1.EntityR\010entities\"I" +
-      "\n\006Status\022+\n\021platform_activity\030\001 \001(\tR\020pla" +
-      "tformActivity\022\022\n\004role\030\002 \001(\tR\004role\"s\n\007Ali" +
-      "ases\022O\n\ralternate_ids\030\001 \003(\0132%.anduril.en" +
-      "titymanager.v1.AlternateIdB\003\310>\001R\014alterna" +
-      "teIds\022\027\n\004name\030\002 \001(\tB\003\310>\001R\004name\"\352\004\n\007Track" +
-      "ed\022\'\n\rtrack_quality\030\001 \001(\rB\002\030\001R\014trackQual" +
-      "ity\022O\n\025track_quality_wrapper\030\002 \001(\0132\033.goo" +
-      "gle.protobuf.Int32ValueR\023trackQualityWra" +
-      "pper\022<\n\013sensor_hits\030\003 \001(\0132\033.google.proto" +
-      "buf.Int32ValueR\nsensorHits\022Q\n\021number_of_" +
-      "objects\030\004 \001(\0132%.anduril.entitymanager.v1" +
-      ".UInt32RangeR\017numberOfObjects\022L\n\016sensor_" +
-      "details\030\005 \001(\0132!.anduril.entitymanager.v1" +
-      ".SensorsB\002\030\001R\rsensorDetails\022L\n\023radar_cro" +
-      "ss_section\030\006 \001(\0132\034.google.protobuf.Doubl" +
-      "eValueR\021radarCrossSection\022N\n\025last_measur" +
-      "ement_time\030\007 \001(\0132\032.google.protobuf.Times" +
-      "tampR\023lastMeasurementTime\022O\n\017line_of_bea" +
-      "ring\030\t \001(\0132\'.anduril.entitymanager.v1.Li" +
-      "neOfBearingR\rlineOfBearingJ\004\010\010\020\tR\021relati" +
-      "ve_position\"\301\002\n\nProvenance\022\033\n\tfeed_name\030" +
-      "\007 \001(\tR\010feedName\022)\n\020integration_name\030\005 \001(" +
-      "\tR\017integrationName\022\033\n\tdata_type\030\006 \001(\tR\010d" +
-      "ataType\0228\n\006source\030\001 \001(\0162 .anduril.entity" +
-      "manager.v1.SourceR\006source\022\033\n\tsource_id\030\003" +
-      " \001(\tR\010sourceId\022H\n\022source_update_time\030\002 \001" +
-      "(\0132\032.google.protobuf.TimestampR\020sourceUp" +
-      "dateTime\022-\n\022source_description\030\004 \001(\tR\021so" +
-      "urceDescription\"\243\003\n\nIndicators\0228\n\tsimula" +
-      "ted\030\001 \001(\0132\032.google.protobuf.BoolValueR\ts" +
-      "imulated\0226\n\010exercise\030\002 \001(\0132\032.google.prot" +
-      "obuf.BoolValueR\010exercise\0228\n\temergency\030\003 " +
-      "\001(\0132\032.google.protobuf.BoolValueR\temergen" +
-      "cy\022*\n\002c2\030\004 \001(\0132\032.google.protobuf.BoolVal" +
-      "ueR\002c2\022A\n\tdeletable\030\005 \001(\0162#.anduril.enti" +
-      "tymanager.v1.DeletableR\tdeletable\022?\n\negr" +
-      "essable\030\006 \001(\0132\032.google.protobuf.BoolValu" +
-      "eB\003\310>\001R\negressable\0229\n\007starred\030\007 \001(\0132\032.go" +
-      "ogle.protobuf.BoolValueB\003\310>\001R\007starred\"\235\001" +
-      "\n\tOverrides\022>\n\010override\030\002 \003(\0132\".anduril." +
-      "entitymanager.v1.OverrideR\010override\022P\n\np" +
-      "rovenance\030\001 \003(\0132,.anduril.entitymanager." +
-      "v1.OverrideProvenanceB\002\030\001R\nprovenance\"\245\003" +
-      "\n\010Override\022\035\n\nrequest_id\030\001 \001(\tR\trequestI" +
-      "d\022\035\n\nfield_path\030\002 \001(\tR\tfieldPath\022N\n\022mask" +
-      "ed_field_value\030\003 \001(\0132 .anduril.entityman" +
-      "ager.v1.EntityR\020maskedFieldValue\022@\n\006stat" +
-      "us\030\004 \001(\0162(.anduril.entitymanager.v1.Over" +
-      "rideStatusR\006status\022D\n\nprovenance\030\005 \001(\0132$" +
-      ".anduril.entitymanager.v1.ProvenanceR\npr" +
-      "ovenance\022:\n\004type\030\006 \001(\0162&.anduril.entitym" +
-      "anager.v1.OverrideTypeR\004type\022G\n\021request_" +
-      "timestamp\030\007 \001(\0132\032.google.protobuf.Timest" +
-      "ampR\020requestTimestamp\"\236\001\n\022OverrideProven" +
-      "ance\022\035\n\nfield_path\030\001 \001(\tR\tfieldPath\022\037\n\ts" +
-      "ource_id\030\002 \001(\tB\002\030\001R\010sourceId\022D\n\nprovenan" +
-      "ce\030\003 \001(\0132$.anduril.entitymanager.v1.Prov" +
-      "enanceR\nprovenance:\002\030\001\"\231\001\n\014OriginalData\022" +
-      "\020\n\003url\030\001 \001(\tR\003url\022@\n\003tle\030\002 \001(\0132*.anduril" +
-      ".entitymanager.v1.OriginalData.TLEB\002\030\001R\003" +
-      "tle\0325\n\003TLE\022\024\n\005line1\030\001 \001(\tR\005line1\022\024\n\005line" +
-      "2\030\002 \001(\tR\005line2:\002\030\001\"w\n\013AlternateId\022\032\n\006sou" +
-      "rce\030\001 \001(\tB\002\030\001R\006source\022\016\n\002id\030\002 \001(\tR\002id\022<\n" +
-      "\004type\030\003 \001(\0162#.anduril.entitymanager.v1.A" +
-      "ltIdTypeB\003\320>\001R\004type\"\267\001\n\rVisualDetails\022J\n" +
-      "\013range_rings\030\001 \001(\0132$.anduril.entitymanag" +
-      "er.v1.RangeRingsB\003\310>\001R\nrangeRings\022Z\n\022int" +
-      "eractivity_mode\030\002 \001(\0162+.anduril.entityma" +
-      "nager.v1.InteractivityModeR\021interactivit" +
-      "yMode\"\263\001\n\nRangeRings\022B\n\016min_distance_m\030\001" +
-      " \001(\0132\034.google.protobuf.DoubleValueR\014minD" +
-      "istanceM\022B\n\016max_distance_m\030\002 \001(\0132\034.googl" +
-      "e.protobuf.DoubleValueR\014maxDistanceM\022\035\n\n" +
-      "ring_count\030\003 \001(\rR\tringCount\"\014\n\nTeamStatu" +
-      "s*b\n\tDeletable\022\025\n\021DELETABLE_INVALID\020\000\022\022\n" +
-      "\016DELETABLE_TRUE\020\001\022\023\n\017DELETABLE_FALSE\020\002\022\025" +
-      "\n\021DELETABLE_REQUEST\020\003*{\n\021InteractivityMo" +
-      "de\022\036\n\032INTERACTIVITY_MODE_INVALID\020\000\022\036\n\032IN" +
-      "TERACTIVITY_MODE_DEFAULT\020\001\022&\n\"INTERACTIV" +
-      "ITY_MODE_DISABLED_ON_MAP\020\002B\376\001\n\034com.andur" +
-      "il.entitymanager.v1B\016EntityPubProtoP\001ZLg" +
-      "ithub.com/anduril/anduril-java/src/andur" +
-      "il/entitymanager/v1;entitymanagerv1\242\002\003AE" +
-      "X\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\E" +
-      "ntitymanager\\V1\342\002$Anduril\\Entitymanager\\" +
-      "V1\\GPBMetadata\352\002\032Anduril::Entitymanager:" +
-      ":V1b\006proto3"
+      "\032-anduril/entitymanager/v1/dimensions.pu" +
+      "b.proto\032,anduril/entitymanager/v1/geoent" +
+      "ity.pub.proto\032(anduril/entitymanager/v1/" +
+      "group.pub.proto\0320anduril/entitymanager/v" +
+      "1/health_status.pub.proto\032+anduril/entit" +
+      "ymanager/v1/location.pub.proto\032+anduril/" +
+      "entitymanager/v1/ontology.pub.proto\032*and" +
+      "uril/entitymanager/v1/options.pub.proto\032" +
+      "(anduril/entitymanager/v1/orbit.pub.prot" +
+      "o\032+anduril/entitymanager/v1/payloads.pub" +
+      ".proto\032(anduril/entitymanager/v1/power.p" +
+      "ub.proto\032/anduril/entitymanager/v1/relat" +
+      "ionship.pub.proto\0320anduril/entitymanager" +
+      "/v1/route_details.pub.proto\032+anduril/ent" +
+      "itymanager/v1/schedule.pub.proto\032*anduri" +
+      "l/entitymanager/v1/sensors.pub.proto\032)an" +
+      "duril/entitymanager/v1/signal.pub.proto\032" +
+      "+anduril/entitymanager/v1/supplies.pub.p" +
+      "roto\0322anduril/entitymanager/v1/target_pr" +
+      "iority.pub.proto\0324anduril/entitymanager/" +
+      "v1/transponder_codes.pub.proto\032(anduril/" +
+      "entitymanager/v1/types.pub.proto\032\"anduri" +
+      "l/tasks/v2/catalog.pub.proto\032\034anduril/ty" +
+      "pe/color.pub.proto\032\037google/protobuf/time" +
+      "stamp.proto\032\036google/protobuf/wrappers.pr" +
+      "oto\"\217\023\n\006Entity\022\033\n\tentity_id\030\001 \001(\tR\010entit" +
+      "yId\022 \n\013description\030\002 \001(\tR\013description\022\027\n" +
+      "\007is_live\030\003 \001(\010R\006isLive\022=\n\014created_time\030\004" +
+      " \001(\0132\032.google.protobuf.TimestampR\013create" +
+      "dTime\022;\n\013expiry_time\030\005 \001(\0132\032.google.prot" +
+      "obuf.TimestampR\nexpiryTime\0228\n\006status\030\023 \001" +
+      "(\0132 .anduril.entitymanager.v1.StatusR\006st" +
+      "atus\022>\n\010location\030\006 \001(\0132\".anduril.entitym" +
+      "anager.v1.LocationR\010location\022`\n\024location" +
+      "_uncertainty\030\017 \001(\0132-.anduril.entitymanag" +
+      "er.v1.LocationUncertaintyR\023locationUncer" +
+      "tainty\022?\n\tgeo_shape\030\027 \001(\0132\".anduril.enti" +
+      "tymanager.v1.GeoShapeR\010geoShape\022E\n\013geo_d" +
+      "etails\030\030 \001(\0132$.anduril.entitymanager.v1." +
+      "GeoDetailsR\ngeoDetails\022;\n\007aliases\030\007 \001(\0132" +
+      "!.anduril.entitymanager.v1.AliasesR\007alia" +
+      "ses\022;\n\007tracked\030\010 \001(\0132!.anduril.entityman" +
+      "ager.v1.TrackedR\007tracked\022G\n\013correlation\030" +
+      "/ \001(\0132%.anduril.entitymanager.v1.Correla" +
+      "tionR\013correlation\022<\n\010mil_view\030\n \001(\0132!.an" +
+      "duril.entitymanager.v1.MilViewR\007milView\022" +
+      ">\n\010ontology\030\013 \001(\0132\".anduril.entitymanage" +
+      "r.v1.OntologyR\010ontology\022;\n\007sensors\030\024 \001(\013" +
+      "2!.anduril.entitymanager.v1.SensorsR\007sen" +
+      "sors\022>\n\010payloads\030\025 \001(\0132\".anduril.entitym" +
+      "anager.v1.PayloadsR\010payloads\022E\n\013power_st" +
+      "ate\030\036 \001(\0132$.anduril.entitymanager.v1.Pow" +
+      "erStateR\npowerState\022D\n\nprovenance\030\014 \001(\0132" +
+      "$.anduril.entitymanager.v1.ProvenanceR\np" +
+      "rovenance\022A\n\toverrides\030\r \001(\0132#.anduril.e" +
+      "ntitymanager.v1.OverridesR\toverrides\022D\n\n" +
+      "indicators\030\016 \001(\0132$.anduril.entitymanager" +
+      ".v1.IndicatorsR\nindicators\022Q\n\017target_pri" +
+      "ority\030\026 \001(\0132(.anduril.entitymanager.v1.T" +
+      "argetPriorityR\016targetPriority\0228\n\006signal\030" +
+      "\031 \001(\0132 .anduril.entitymanager.v1.SignalR" +
+      "\006signal\022W\n\021transponder_codes\030\032 \001(\0132*.and" +
+      "uril.entitymanager.v1.TransponderCodesR\020" +
+      "transponderCodes\022Y\n\023data_classification\030" +
+      "\035 \001(\0132(.anduril.entitymanager.v1.Classif" +
+      "icationR\022dataClassification\022@\n\014task_cata" +
+      "log\030\037 \001(\0132\035.anduril.tasks.v2.TaskCatalog" +
+      "R\013taskCatalog\022M\n\rrelationships\030! \001(\0132\'.a" +
+      "nduril.entitymanager.v1.RelationshipsR\rr" +
+      "elationships\022N\n\016visual_details\030\" \001(\0132\'.a" +
+      "nduril.entitymanager.v1.VisualDetailsR\rv" +
+      "isualDetails\022D\n\ndimensions\030$ \001(\0132$.andur" +
+      "il.entitymanager.v1.DimensionsR\ndimensio" +
+      "ns\022K\n\rroute_details\030% \001(\0132&.anduril.enti" +
+      "tymanager.v1.RouteDetailsR\014routeDetails\022" +
+      "A\n\tschedules\030& \001(\0132#.anduril.entitymanag" +
+      "er.v1.SchedulesR\tschedules\0228\n\006health\030\' \001" +
+      "(\0132 .anduril.entitymanager.v1.HealthR\006he" +
+      "alth\022K\n\rgroup_details\030( \001(\0132&.anduril.en" +
+      "titymanager.v1.GroupDetailsR\014groupDetail" +
+      "s\022>\n\010supplies\030* \001(\0132\".anduril.entitymana" +
+      "ger.v1.SuppliesR\010supplies\0225\n\005orbit\030. \001(\013" +
+      "2\037.anduril.entitymanager.v1.OrbitR\005orbit" +
+      "J\004\010\t\020\nJ\004\010\020\020\021J\004\010\021\020\022J\004\010\022\020\023J\004\010\033\020\034J\004\010\034\020\035J\004\010 " +
+      "\020!J\004\010)\020*J\004\010+\020,R\ncorrelatedR\roriginal_dat" +
+      "aR\ngeopolygonR\005mediaR\007contactR\013team_stat" +
+      "usR\tno_expiry\"I\n\006Status\022+\n\021platform_acti" +
+      "vity\030\001 \001(\tR\020platformActivity\022\022\n\004role\030\002 \001" +
+      "(\tR\004role\"s\n\007Aliases\022O\n\ralternate_ids\030\001 \003" +
+      "(\0132%.anduril.entitymanager.v1.AlternateI" +
+      "dB\003\310>\001R\014alternateIds\022\027\n\004name\030\002 \001(\tB\003\310>\001R" +
+      "\004name\"\236\004\n\007Tracked\022O\n\025track_quality_wrapp" +
+      "er\030\002 \001(\0132\033.google.protobuf.Int32ValueR\023t" +
+      "rackQualityWrapper\022<\n\013sensor_hits\030\003 \001(\0132" +
+      "\033.google.protobuf.Int32ValueR\nsensorHits" +
+      "\022Q\n\021number_of_objects\030\004 \001(\0132%.anduril.en" +
+      "titymanager.v1.UInt32RangeR\017numberOfObje" +
+      "cts\022L\n\023radar_cross_section\030\006 \001(\0132\034.googl" +
+      "e.protobuf.DoubleValueR\021radarCrossSectio" +
+      "n\022N\n\025last_measurement_time\030\007 \001(\0132\032.googl" +
+      "e.protobuf.TimestampR\023lastMeasurementTim" +
+      "e\022O\n\017line_of_bearing\030\t \001(\0132\'.anduril.ent" +
+      "itymanager.v1.LineOfBearingR\rlineOfBeari" +
+      "ngJ\004\010\001\020\002J\004\010\005\020\006J\004\010\010\020\tR\rtrack_qualityR\016sen" +
+      "sor_detailsR\021relative_position\"\244\002\n\nProve" +
+      "nance\022)\n\020integration_name\030\005 \001(\tR\017integra" +
+      "tionName\022\033\n\tdata_type\030\006 \001(\tR\010dataType\0228\n" +
+      "\006source\030\001 \001(\0162 .anduril.entitymanager.v1" +
+      ".SourceR\006source\022\033\n\tsource_id\030\003 \001(\tR\010sour" +
+      "ceId\022H\n\022source_update_time\030\002 \001(\0132\032.googl" +
+      "e.protobuf.TimestampR\020sourceUpdateTime\022-" +
+      "\n\022source_description\030\004 \001(\tR\021sourceDescri" +
+      "ption\"\361\002\n\nIndicators\0228\n\tsimulated\030\001 \001(\0132" +
+      "\032.google.protobuf.BoolValueR\tsimulated\0226" +
+      "\n\010exercise\030\002 \001(\0132\032.google.protobuf.BoolV" +
+      "alueR\010exercise\0228\n\temergency\030\003 \001(\0132\032.goog" +
+      "le.protobuf.BoolValueR\temergency\022*\n\002c2\030\004" +
+      " \001(\0132\032.google.protobuf.BoolValueR\002c2\022?\n\n" +
+      "egressable\030\006 \001(\0132\032.google.protobuf.BoolV" +
+      "alueB\003\310>\001R\negressable\0229\n\007starred\030\007 \001(\0132\032" +
+      ".google.protobuf.BoolValueB\003\310>\001R\007starred" +
+      "J\004\010\005\020\006R\tdeletable\"]\n\tOverrides\022>\n\010overri" +
+      "de\030\002 \003(\0132\".anduril.entitymanager.v1.Over" +
+      "rideR\010overrideJ\004\010\001\020\002R\nprovenance\"\245\003\n\010Ove" +
+      "rride\022\035\n\nrequest_id\030\001 \001(\tR\trequestId\022\035\n\n" +
+      "field_path\030\002 \001(\tR\tfieldPath\022N\n\022masked_fi" +
+      "eld_value\030\003 \001(\0132 .anduril.entitymanager." +
+      "v1.EntityR\020maskedFieldValue\022@\n\006status\030\004 " +
+      "\001(\0162(.anduril.entitymanager.v1.OverrideS" +
+      "tatusR\006status\022D\n\nprovenance\030\005 \001(\0132$.andu" +
+      "ril.entitymanager.v1.ProvenanceR\nprovena" +
+      "nce\022:\n\004type\030\006 \001(\0162&.anduril.entitymanage" +
+      "r.v1.OverrideTypeR\004type\022G\n\021request_times" +
+      "tamp\030\007 \001(\0132\032.google.protobuf.TimestampR\020" +
+      "requestTimestamp\"i\n\013AlternateId\022\016\n\002id\030\002 " +
+      "\001(\tR\002id\022<\n\004type\030\003 \001(\0162#.anduril.entityma" +
+      "nager.v1.AltIdTypeB\003\320>\001R\004typeJ\004\010\001\020\002R\006sou" +
+      "rce\"[\n\rVisualDetails\022J\n\013range_rings\030\001 \001(" +
+      "\0132$.anduril.entitymanager.v1.RangeRingsB" +
+      "\003\310>\001R\nrangeRings\"\360\001\n\nRangeRings\022B\n\016min_d" +
+      "istance_m\030\001 \001(\0132\034.google.protobuf.Double" +
+      "ValueR\014minDistanceM\022B\n\016max_distance_m\030\002 " +
+      "\001(\0132\034.google.protobuf.DoubleValueR\014maxDi" +
+      "stanceM\022\035\n\nring_count\030\003 \001(\rR\tringCount\022;" +
+      "\n\017ring_line_color\030\004 \001(\0132\023.anduril.type.C" +
+      "olorR\rringLineColor\"\205\002\n\013Correlation\022H\n\007p" +
+      "rimary\030\001 \001(\0132,.anduril.entitymanager.v1." +
+      "PrimaryCorrelationH\000R\007primary\022N\n\tseconda" +
+      "ry\030\002 \001(\0132..anduril.entitymanager.v1.Seco" +
+      "ndaryCorrelationH\000R\tsecondary\022M\n\rdecorre" +
+      "lation\030\003 \001(\0132\'.anduril.entitymanager.v1." +
+      "DecorrelationR\rdecorrelationB\r\n\013correlat" +
+      "ion\"F\n\022PrimaryCorrelation\0220\n\024secondary_e" +
+      "ntity_ids\030\001 \003(\tR\022secondaryEntityIds\"\215\001\n\024" +
+      "SecondaryCorrelation\022*\n\021primary_entity_i" +
+      "d\030\001 \001(\tR\017primaryEntityId\022I\n\010metadata\030\002 \001" +
+      "(\0132-.anduril.entitymanager.v1.Correlatio" +
+      "nMetadataR\010metadata\"\257\001\n\rDecorrelation\022;\n" +
+      "\003all\030\001 \001(\0132).anduril.entitymanager.v1.De" +
+      "correlatedAllR\003all\022a\n\025decorrelated_entit" +
+      "ies\030\002 \003(\0132,.anduril.entitymanager.v1.Dec" +
+      "orrelatedSingleR\024decorrelatedEntities\"\\\n" +
+      "\017DecorrelatedAll\022I\n\010metadata\030\001 \001(\0132-.and" +
+      "uril.entitymanager.v1.CorrelationMetadat" +
+      "aR\010metadata\"|\n\022DecorrelatedSingle\022\033\n\tent" +
+      "ity_id\030\001 \001(\tR\010entityId\022I\n\010metadata\030\002 \001(\013" +
+      "2-.anduril.entitymanager.v1.CorrelationM" +
+      "etadataR\010metadata\"\373\001\n\023CorrelationMetadat" +
+      "a\022D\n\nprovenance\030\001 \001(\0132$.anduril.entityma" +
+      "nager.v1.ProvenanceR\nprovenance\022_\n\020repli" +
+      "cation_mode\030\002 \001(\01624.anduril.entitymanage" +
+      "r.v1.CorrelationReplicationModeR\017replica" +
+      "tionMode\022=\n\004type\030\003 \001(\0162).anduril.entitym" +
+      "anager.v1.CorrelationTypeR\004type*l\n\017Corre" +
+      "lationType\022\034\n\030CORRELATION_TYPE_INVALID\020\000" +
+      "\022\033\n\027CORRELATION_TYPE_MANUAL\020\001\022\036\n\032CORRELA" +
+      "TION_TYPE_AUTOMATED\020\002*\227\001\n\032CorrelationRep" +
+      "licationMode\022(\n$CORRELATION_REPLICATION_" +
+      "MODE_INVALID\020\000\022&\n\"CORRELATION_REPLICATIO" +
+      "N_MODE_LOCAL\020\001\022\'\n#CORRELATION_REPLICATIO" +
+      "N_MODE_GLOBAL\020\002B\202\002\n\034com.anduril.entityma" +
+      "nager.v1B\016EntityPubProtoP\001ZPgithub.com/a" +
+      "nduril/lattice-sdk-java/src/anduril/enti" +
+      "tymanager/v1;entitymanagerv1\242\002\003AEX\252\002\030And" +
+      "uril.Entitymanager.V1\312\002\030Anduril\\Entityma" +
+      "nager\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBM" +
+      "etadata\352\002\032Anduril::Entitymanager::V1b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.anduril.entitymanager.v1.ClassificationPubProto.getDescriptor(),
-          com.anduril.entitymanager.v1.ContactDetailsPubProto.getDescriptor(),
-          com.anduril.entitymanager.v1.CorrelationsPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.DimensionsPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.GeoentityPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.GroupPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.HealthStatusPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.LocationPubProto.getDescriptor(),
-          com.anduril.entitymanager.v1.MediaPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.OntologyPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.OptionsPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.OrbitPubProto.getDescriptor(),
@@ -319,6 +329,7 @@ public final class EntityPubProto {
           com.anduril.entitymanager.v1.TransponderCodesPubProto.getDescriptor(),
           com.anduril.entitymanager.v1.TypesPubProto.getDescriptor(),
           com.anduril.tasks.v2.CatalogPubProto.getDescriptor(),
+          com.anduril.type.ColorPubProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
           com.google.protobuf.WrappersProto.getDescriptor(),
         });
@@ -327,97 +338,109 @@ public final class EntityPubProto {
     internal_static_anduril_entitymanager_v1_Entity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Entity_descriptor,
-        new java.lang.String[] { "EntityId", "Description", "IsLive", "CreatedTime", "ExpiryTime", "NoExpiry", "Status", "Location", "LocationUncertainty", "Geopolygon", "GeoShape", "GeoDetails", "Aliases", "Tracked", "Correlated", "MilView", "Ontology", "Sensors", "Payloads", "PowerState", "Provenance", "Overrides", "Indicators", "OriginalData", "TargetPriority", "Signal", "TransponderCodes", "Contact", "DataClassification", "TaskCatalog", "Media", "Relationships", "VisualDetails", "Dimensions", "RouteDetails", "Schedules", "Health", "GroupDetails", "TeamStatus", "Supplies", "Orbit", });
-    internal_static_anduril_entitymanager_v1_Entities_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_anduril_entitymanager_v1_Entities_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_Entities_descriptor,
-        new java.lang.String[] { "Entities", });
+        new java.lang.String[] { "EntityId", "Description", "IsLive", "CreatedTime", "ExpiryTime", "Status", "Location", "LocationUncertainty", "GeoShape", "GeoDetails", "Aliases", "Tracked", "Correlation", "MilView", "Ontology", "Sensors", "Payloads", "PowerState", "Provenance", "Overrides", "Indicators", "TargetPriority", "Signal", "TransponderCodes", "DataClassification", "TaskCatalog", "Relationships", "VisualDetails", "Dimensions", "RouteDetails", "Schedules", "Health", "GroupDetails", "Supplies", "Orbit", });
     internal_static_anduril_entitymanager_v1_Status_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_anduril_entitymanager_v1_Status_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Status_descriptor,
         new java.lang.String[] { "PlatformActivity", "Role", });
     internal_static_anduril_entitymanager_v1_Aliases_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_anduril_entitymanager_v1_Aliases_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Aliases_descriptor,
         new java.lang.String[] { "AlternateIds", "Name", });
     internal_static_anduril_entitymanager_v1_Tracked_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_anduril_entitymanager_v1_Tracked_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Tracked_descriptor,
-        new java.lang.String[] { "TrackQuality", "TrackQualityWrapper", "SensorHits", "NumberOfObjects", "SensorDetails", "RadarCrossSection", "LastMeasurementTime", "LineOfBearing", });
+        new java.lang.String[] { "TrackQualityWrapper", "SensorHits", "NumberOfObjects", "RadarCrossSection", "LastMeasurementTime", "LineOfBearing", });
     internal_static_anduril_entitymanager_v1_Provenance_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_anduril_entitymanager_v1_Provenance_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Provenance_descriptor,
-        new java.lang.String[] { "FeedName", "IntegrationName", "DataType", "Source", "SourceId", "SourceUpdateTime", "SourceDescription", });
+        new java.lang.String[] { "IntegrationName", "DataType", "Source", "SourceId", "SourceUpdateTime", "SourceDescription", });
     internal_static_anduril_entitymanager_v1_Indicators_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_anduril_entitymanager_v1_Indicators_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Indicators_descriptor,
-        new java.lang.String[] { "Simulated", "Exercise", "Emergency", "C2", "Deletable", "Egressable", "Starred", });
+        new java.lang.String[] { "Simulated", "Exercise", "Emergency", "C2", "Egressable", "Starred", });
     internal_static_anduril_entitymanager_v1_Overrides_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_anduril_entitymanager_v1_Overrides_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Overrides_descriptor,
-        new java.lang.String[] { "Override", "Provenance", });
+        new java.lang.String[] { "Override", });
     internal_static_anduril_entitymanager_v1_Override_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_anduril_entitymanager_v1_Override_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Override_descriptor,
         new java.lang.String[] { "RequestId", "FieldPath", "MaskedFieldValue", "Status", "Provenance", "Type", "RequestTimestamp", });
-    internal_static_anduril_entitymanager_v1_OverrideProvenance_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_anduril_entitymanager_v1_OverrideProvenance_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_OverrideProvenance_descriptor,
-        new java.lang.String[] { "FieldPath", "SourceId", "Provenance", });
-    internal_static_anduril_entitymanager_v1_OriginalData_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_anduril_entitymanager_v1_OriginalData_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_OriginalData_descriptor,
-        new java.lang.String[] { "Url", "Tle", });
-    internal_static_anduril_entitymanager_v1_OriginalData_TLE_descriptor =
-      internal_static_anduril_entitymanager_v1_OriginalData_descriptor.getNestedTypes().get(0);
-    internal_static_anduril_entitymanager_v1_OriginalData_TLE_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_OriginalData_TLE_descriptor,
-        new java.lang.String[] { "Line1", "Line2", });
     internal_static_anduril_entitymanager_v1_AlternateId_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_anduril_entitymanager_v1_AlternateId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_AlternateId_descriptor,
-        new java.lang.String[] { "Source", "Id", "Type", });
+        new java.lang.String[] { "Id", "Type", });
     internal_static_anduril_entitymanager_v1_VisualDetails_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_anduril_entitymanager_v1_VisualDetails_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_VisualDetails_descriptor,
-        new java.lang.String[] { "RangeRings", "InteractivityMode", });
+        new java.lang.String[] { "RangeRings", });
     internal_static_anduril_entitymanager_v1_RangeRings_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_anduril_entitymanager_v1_RangeRings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_RangeRings_descriptor,
-        new java.lang.String[] { "MinDistanceM", "MaxDistanceM", "RingCount", });
-    internal_static_anduril_entitymanager_v1_TeamStatus_descriptor =
-      getDescriptor().getMessageTypes().get(14);
-    internal_static_anduril_entitymanager_v1_TeamStatus_fieldAccessorTable = new
+        new java.lang.String[] { "MinDistanceM", "MaxDistanceM", "RingCount", "RingLineColor", });
+    internal_static_anduril_entitymanager_v1_Correlation_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_anduril_entitymanager_v1_Correlation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_TeamStatus_descriptor,
-        new java.lang.String[] { });
+        internal_static_anduril_entitymanager_v1_Correlation_descriptor,
+        new java.lang.String[] { "Primary", "Secondary", "Decorrelation", "Correlation", });
+    internal_static_anduril_entitymanager_v1_PrimaryCorrelation_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_anduril_entitymanager_v1_PrimaryCorrelation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_PrimaryCorrelation_descriptor,
+        new java.lang.String[] { "SecondaryEntityIds", });
+    internal_static_anduril_entitymanager_v1_SecondaryCorrelation_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_anduril_entitymanager_v1_SecondaryCorrelation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_SecondaryCorrelation_descriptor,
+        new java.lang.String[] { "PrimaryEntityId", "Metadata", });
+    internal_static_anduril_entitymanager_v1_Decorrelation_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_anduril_entitymanager_v1_Decorrelation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_Decorrelation_descriptor,
+        new java.lang.String[] { "All", "DecorrelatedEntities", });
+    internal_static_anduril_entitymanager_v1_DecorrelatedAll_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_anduril_entitymanager_v1_DecorrelatedAll_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_DecorrelatedAll_descriptor,
+        new java.lang.String[] { "Metadata", });
+    internal_static_anduril_entitymanager_v1_DecorrelatedSingle_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_anduril_entitymanager_v1_DecorrelatedSingle_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_DecorrelatedSingle_descriptor,
+        new java.lang.String[] { "EntityId", "Metadata", });
+    internal_static_anduril_entitymanager_v1_CorrelationMetadata_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_anduril_entitymanager_v1_CorrelationMetadata_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_CorrelationMetadata_descriptor,
+        new java.lang.String[] { "Provenance", "ReplicationMode", "Type", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.anduril.entitymanager.v1.OptionsPubProto.componentIdentifier);
@@ -425,14 +448,11 @@ public final class EntityPubProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.anduril.entitymanager.v1.ClassificationPubProto.getDescriptor();
-    com.anduril.entitymanager.v1.ContactDetailsPubProto.getDescriptor();
-    com.anduril.entitymanager.v1.CorrelationsPubProto.getDescriptor();
     com.anduril.entitymanager.v1.DimensionsPubProto.getDescriptor();
     com.anduril.entitymanager.v1.GeoentityPubProto.getDescriptor();
     com.anduril.entitymanager.v1.GroupPubProto.getDescriptor();
     com.anduril.entitymanager.v1.HealthStatusPubProto.getDescriptor();
     com.anduril.entitymanager.v1.LocationPubProto.getDescriptor();
-    com.anduril.entitymanager.v1.MediaPubProto.getDescriptor();
     com.anduril.entitymanager.v1.OntologyPubProto.getDescriptor();
     com.anduril.entitymanager.v1.OptionsPubProto.getDescriptor();
     com.anduril.entitymanager.v1.OrbitPubProto.getDescriptor();
@@ -448,6 +468,7 @@ public final class EntityPubProto {
     com.anduril.entitymanager.v1.TransponderCodesPubProto.getDescriptor();
     com.anduril.entitymanager.v1.TypesPubProto.getDescriptor();
     com.anduril.tasks.v2.CatalogPubProto.getDescriptor();
+    com.anduril.type.ColorPubProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
   }

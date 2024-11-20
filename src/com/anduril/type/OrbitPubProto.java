@@ -92,11 +92,11 @@ public final class OrbitPubProto {
       "T_THEORY_INVALID\020\000\022\034\n\030MEAN_ELEMENT_THEOR" +
       "Y_SGP4\020\001*R\n\021EciReferenceFrame\022\037\n\033ECI_REF" +
       "ERENCE_FRAME_INVALID\020\000\022\034\n\030ECI_REFERENCE_" +
-      "FRAME_TEME\020\001B\244\001\n\020com.anduril.typeB\rOrbit" +
-      "PubProtoP\001Z0github.com/anduril/anduril-j" +
-      "ava/src/anduril/type\242\002\003ATX\252\002\014Anduril.Typ" +
-      "e\312\002\014Anduril\\Type\342\002\030Anduril\\Type\\GPBMetad" +
-      "ata\352\002\rAnduril::Typeb\006proto3"
+      "FRAME_TEME\020\001B\250\001\n\020com.anduril.typeB\rOrbit" +
+      "PubProtoP\001Z4github.com/anduril/lattice-s" +
+      "dk-java/src/anduril/type\242\002\003ATX\252\002\014Anduril" +
+      ".Type\312\002\014Anduril\\Type\342\002\030Anduril\\Type\\GPBM" +
+      "etadata\352\002\rAnduril::Typeb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

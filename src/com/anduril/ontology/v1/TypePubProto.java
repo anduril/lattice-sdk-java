@@ -128,13 +128,13 @@ public final class TypePubProto {
       "\027\n\023NATIONALITY_URUGUAY\020o\022\032\n\026NATIONALITY_" +
       "UZBEKISTAN\0204\022\031\n\025NATIONALITY_VENEZUELA\020V\022" +
       "\027\n\023NATIONALITY_VIETNAM\020G\022\025\n\021NATIONALITY_" +
-      "YEMEN\020[\022\030\n\024NATIONALITY_ZIMBABWE\020aB\331\001\n\027co" +
-      "m.anduril.ontology.v1B\014TypePubProtoP\001ZBg" +
-      "ithub.com/anduril/anduril-java/src/andur" +
-      "il/ontology/v1;ontologyv1\242\002\003AOX\252\002\023Anduri" +
-      "l.Ontology.V1\312\002\023Anduril\\Ontology\\V1\342\002\037An" +
-      "duril\\Ontology\\V1\\GPBMetadata\352\002\025Anduril:" +
-      ":Ontology::V1b\006proto3"
+      "YEMEN\020[\022\030\n\024NATIONALITY_ZIMBABWE\020aB\335\001\n\027co" +
+      "m.anduril.ontology.v1B\014TypePubProtoP\001ZFg" +
+      "ithub.com/anduril/lattice-sdk-java/src/a" +
+      "nduril/ontology/v1;ontologyv1\242\002\003AOX\252\002\023An" +
+      "duril.Ontology.V1\312\002\023Anduril\\Ontology\\V1\342" +
+      "\002\037Anduril\\Ontology\\V1\\GPBMetadata\352\002\025Andu" +
+      "ril::Ontology::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

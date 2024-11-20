@@ -5,7 +5,11 @@ package com.anduril.entitymanager.v1;
 
 /**
  * <pre>
- * WGS84 position.
+ * WGS84 position. Position includes four altitude references.
+ * The data model does not currently support Mean Sea Level (MSL) references,
+ * such as the Earth Gravitational Model 1996 (EGM-96) and the Earth Gravitational Model 2008 (EGM-08).
+ * If the only altitude reference available to your integration is MSL, convert it to
+ * Height Above Ellipsoid (HAE) and populate the altitude_hae_meters field.
  * </pre>
  *
  * Protobuf type {@code anduril.entitymanager.v1.Position}
@@ -117,8 +121,9 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.DoubleValue altitudeAglMeters_;
   /**
    * <pre>
-   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-   * not set.
+   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+   * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+   * set lookup. If the value is not set from the upstream, this value is not set.
    * </pre>
    *
    * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -130,8 +135,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-   * not set.
+   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+   * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+   * set lookup. If the value is not set from the upstream, this value is not set.
    * </pre>
    *
    * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -143,8 +149,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-   * not set.
+   * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+   * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+   * set lookup. If the value is not set from the upstream, this value is not set.
    * </pre>
    *
    * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -199,7 +206,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.DoubleValue pressureDepthMeters_;
   /**
    * <pre>
-   * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+   * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
    * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
    * </pre>
    *
@@ -212,7 +219,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+   * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
    * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
    * </pre>
    *
@@ -225,7 +232,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+   * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
    * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
    * </pre>
    *
@@ -472,7 +479,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * WGS84 position.
+   * WGS84 position. Position includes four altitude references.
+   * The data model does not currently support Mean Sea Level (MSL) references,
+   * such as the Earth Gravitational Model 1996 (EGM-96) and the Earth Gravitational Model 2008 (EGM-08).
+   * If the only altitude reference available to your integration is MSL, convert it to
+   * Height Above Ellipsoid (HAE) and populate the altitude_hae_meters field.
    * </pre>
    *
    * Protobuf type {@code anduril.entitymanager.v1.Position}
@@ -959,8 +970,9 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> altitudeAglMetersBuilder_;
     /**
      * <pre>
-     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-     * not set.
+     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+     * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+     * set lookup. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -971,8 +983,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-     * not set.
+     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+     * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+     * set lookup. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -987,8 +1000,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-     * not set.
+     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+     * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+     * set lookup. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -1008,8 +1022,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-     * not set.
+     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+     * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+     * set lookup. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -1027,8 +1042,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-     * not set.
+     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+     * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+     * set lookup. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -1051,8 +1067,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-     * not set.
+     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+     * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+     * set lookup. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -1069,8 +1086,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-     * not set.
+     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+     * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+     * set lookup. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -1082,8 +1100,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-     * not set.
+     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+     * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+     * set lookup. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -1098,8 +1117,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. If the value is not set from the upstream, this value is
-     * not set.
+     * Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the
+     * entity's height above the terrain. This is typically measured with a radar altimeter or by using a terrain tile
+     * set lookup. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue altitude_agl_meters = 4 [json_name = "altitudeAglMeters"];</code>
@@ -1287,7 +1307,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> pressureDepthMetersBuilder_;
     /**
      * <pre>
-     * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+     * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
      * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
@@ -1299,7 +1319,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+     * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
      * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
@@ -1315,7 +1335,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+     * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
      * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
@@ -1336,7 +1356,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+     * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
      * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
@@ -1355,7 +1375,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+     * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
      * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
@@ -1379,7 +1399,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+     * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
      * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
@@ -1397,7 +1417,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+     * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
      * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
@@ -1410,7 +1430,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+     * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
      * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
      * </pre>
      *
@@ -1426,7 +1446,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Depth in meters measures the depth of the entity from the surface of the water through sensor measurements based on differential pressure
+     * The depth of the entity from the surface of the water through sensor measurements based on differential pressure
      * between the interior and exterior of the vessel. If the value is not set from the upstream, this value is not set.
      * </pre>
      *

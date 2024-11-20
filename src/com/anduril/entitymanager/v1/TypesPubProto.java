@@ -87,14 +87,14 @@ public final class TypesPubProto {
       "\004\022$\n OVERRIDE_STATUS_DELETION_PENDING\020\005*" +
       "`\n\014OverrideType\022\031\n\025OVERRIDE_TYPE_INVALID" +
       "\020\000\022\026\n\022OVERRIDE_TYPE_LIVE\020\001\022\035\n\031OVERRIDE_T" +
-      "YPE_POST_EXPIRY\020\002B\375\001\n\034com.anduril.entity" +
-      "manager.v1B\rTypesPubProtoP\001ZLgithub.com/" +
-      "anduril/anduril-java/src/anduril/entitym" +
-      "anager/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduri" +
-      "l.Entitymanager.V1\312\002\030Anduril\\Entitymanag" +
-      "er\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMeta" +
-      "data\352\002\032Anduril::Entitymanager::V1b\006proto" +
-      "3"
+      "YPE_POST_EXPIRY\020\002B\201\002\n\034com.anduril.entity" +
+      "manager.v1B\rTypesPubProtoP\001ZPgithub.com/" +
+      "anduril/lattice-sdk-java/src/anduril/ent" +
+      "itymanager/v1;entitymanagerv1\242\002\003AEX\252\002\030An" +
+      "duril.Entitymanager.V1\312\002\030Anduril\\Entitym" +
+      "anager\\V1\342\002$Anduril\\Entitymanager\\V1\\GPB" +
+      "Metadata\352\002\032Anduril::Entitymanager::V1b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

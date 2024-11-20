@@ -210,13 +210,13 @@ public final class FilterPubProto {
       "ENSITIVE_EQUALITY_IN\020\n\022\033\n\027COMPARATOR_RAN" +
       "GE_CLOSED\020\014*I\n\016ListComparator\022\033\n\027LIST_CO" +
       "MPARATOR_INVALID\020\000\022\032\n\026LIST_COMPARATOR_AN" +
-      "Y_OF\020\001B\376\001\n\034com.anduril.entitymanager.v1B" +
-      "\016FilterPubProtoP\001ZLgithub.com/anduril/an" +
-      "duril-java/src/anduril/entitymanager/v1;" +
-      "entitymanagerv1\242\002\003AEX\252\002\030Anduril.Entityma" +
-      "nager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$An" +
-      "duril\\Entitymanager\\V1\\GPBMetadata\352\002\032And" +
-      "uril::Entitymanager::V1b\006proto3"
+      "Y_OF\020\001B\202\002\n\034com.anduril.entitymanager.v1B" +
+      "\016FilterPubProtoP\001ZPgithub.com/anduril/la" +
+      "ttice-sdk-java/src/anduril/entitymanager" +
+      "/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril.Enti" +
+      "tymanager.V1\312\002\030Anduril\\Entitymanager\\V1\342" +
+      "\002$Anduril\\Entitymanager\\V1\\GPBMetadata\352\002" +
+      "\032Anduril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

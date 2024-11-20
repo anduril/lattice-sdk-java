@@ -30,15 +30,4 @@ public interface TaskCatalogOrBuilder extends
    */
   com.anduril.tasks.v2.TaskDefinitionOrBuilder getTaskDefinitionsOrBuilder(
       int index);
-
-  /**
-   * <pre>
-   * Asset is inhibited by VCE.
-   * Asset can still receive tasks but not be able to act on them until inhibition status is lifted.
-   * </pre>
-   *
-   * <code>bool is_asset_inhibited = 2 [json_name = "isAssetInhibited"];</code>
-   * @return The isAssetInhibited.
-   */
-  boolean getIsAssetInhibited();
 }

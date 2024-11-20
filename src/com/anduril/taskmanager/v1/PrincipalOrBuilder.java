@@ -54,9 +54,7 @@ public interface PrincipalOrBuilder extends
 
   /**
    * <pre>
-   * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-   * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-   * this "on_behalf_of" Principal would represent the non-Flux node.
+   * The Principal _this_ Principal is acting on behalf of.
    *
    * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
    * </pre>
@@ -67,9 +65,7 @@ public interface PrincipalOrBuilder extends
   boolean hasOnBehalfOf();
   /**
    * <pre>
-   * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-   * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-   * this "on_behalf_of" Principal would represent the non-Flux node.
+   * The Principal _this_ Principal is acting on behalf of.
    *
    * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
    * </pre>
@@ -80,9 +76,7 @@ public interface PrincipalOrBuilder extends
   com.anduril.taskmanager.v1.Principal getOnBehalfOf();
   /**
    * <pre>
-   * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-   * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-   * this "on_behalf_of" Principal would represent the non-Flux node.
+   * The Principal _this_ Principal is acting on behalf of.
    *
    * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
    * </pre>

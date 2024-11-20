@@ -182,11 +182,11 @@ public final class CoordsPubProto {
       "myy\"|\n\016RigidTransform\0224\n\010rotation\030\003 \001(\0132" +
       "\030.anduril.type.QuaternionR\010rotation\0224\n\013t" +
       "ranslation\030\004 \001(\0132\022.anduril.type.Vec3R\013tr" +
-      "anslationB\245\001\n\020com.anduril.typeB\016CoordsPu" +
-      "bProtoP\001Z0github.com/anduril/anduril-jav" +
-      "a/src/anduril/type\242\002\003ATX\252\002\014Anduril.Type\312" +
-      "\002\014Anduril\\Type\342\002\030Anduril\\Type\\GPBMetadat" +
-      "a\352\002\rAnduril::Typeb\006proto3"
+      "anslationB\251\001\n\020com.anduril.typeB\016CoordsPu" +
+      "bProtoP\001Z4github.com/anduril/lattice-sdk" +
+      "-java/src/anduril/type\242\002\003ATX\252\002\014Anduril.T" +
+      "ype\312\002\014Anduril\\Type\342\002\030Anduril\\Type\\GPBMet" +
+      "adata\352\002\rAnduril::Typeb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -119,11 +119,13 @@ private static final long serialVersionUID = 0L;
    * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
+   * @deprecated anduril.entitymanager.v1.Sensor.field_of_view is deprecated.
+   *     See anduril/entitymanager/v1/sensors.pub.proto;l=29
    * @return Whether the fieldOfView field is set.
    */
   @java.lang.Override
-  public boolean hasFieldOfView() {
+  @java.lang.Deprecated public boolean hasFieldOfView() {
     return fieldOfView_ != null;
   }
   /**
@@ -131,11 +133,13 @@ private static final long serialVersionUID = 0L;
    * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
+   * @deprecated anduril.entitymanager.v1.Sensor.field_of_view is deprecated.
+   *     See anduril/entitymanager/v1/sensors.pub.proto;l=29
    * @return The fieldOfView.
    */
   @java.lang.Override
-  public com.anduril.entitymanager.v1.FieldOfView getFieldOfView() {
+  @java.lang.Deprecated public com.anduril.entitymanager.v1.FieldOfView getFieldOfView() {
     return fieldOfView_ == null ? com.anduril.entitymanager.v1.FieldOfView.getDefaultInstance() : fieldOfView_;
   }
   /**
@@ -143,10 +147,10 @@ private static final long serialVersionUID = 0L;
    * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
    */
   @java.lang.Override
-  public com.anduril.entitymanager.v1.FieldOfViewOrBuilder getFieldOfViewOrBuilder() {
+  @java.lang.Deprecated public com.anduril.entitymanager.v1.FieldOfViewOrBuilder getFieldOfViewOrBuilder() {
     return fieldOfView_ == null ? com.anduril.entitymanager.v1.FieldOfView.getDefaultInstance() : fieldOfView_;
   }
 
@@ -1057,10 +1061,12 @@ private static final long serialVersionUID = 0L;
      * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
+     * @deprecated anduril.entitymanager.v1.Sensor.field_of_view is deprecated.
+     *     See anduril/entitymanager/v1/sensors.pub.proto;l=29
      * @return Whether the fieldOfView field is set.
      */
-    public boolean hasFieldOfView() {
+    @java.lang.Deprecated public boolean hasFieldOfView() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
@@ -1068,10 +1074,12 @@ private static final long serialVersionUID = 0L;
      * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
+     * @deprecated anduril.entitymanager.v1.Sensor.field_of_view is deprecated.
+     *     See anduril/entitymanager/v1/sensors.pub.proto;l=29
      * @return The fieldOfView.
      */
-    public com.anduril.entitymanager.v1.FieldOfView getFieldOfView() {
+    @java.lang.Deprecated public com.anduril.entitymanager.v1.FieldOfView getFieldOfView() {
       if (fieldOfViewBuilder_ == null) {
         return fieldOfView_ == null ? com.anduril.entitymanager.v1.FieldOfView.getDefaultInstance() : fieldOfView_;
       } else {
@@ -1083,9 +1091,9 @@ private static final long serialVersionUID = 0L;
      * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
      */
-    public Builder setFieldOfView(com.anduril.entitymanager.v1.FieldOfView value) {
+    @java.lang.Deprecated public Builder setFieldOfView(com.anduril.entitymanager.v1.FieldOfView value) {
       if (fieldOfViewBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1103,9 +1111,9 @@ private static final long serialVersionUID = 0L;
      * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
      */
-    public Builder setFieldOfView(
+    @java.lang.Deprecated public Builder setFieldOfView(
         com.anduril.entitymanager.v1.FieldOfView.Builder builderForValue) {
       if (fieldOfViewBuilder_ == null) {
         fieldOfView_ = builderForValue.build();
@@ -1121,9 +1129,9 @@ private static final long serialVersionUID = 0L;
      * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
      */
-    public Builder mergeFieldOfView(com.anduril.entitymanager.v1.FieldOfView value) {
+    @java.lang.Deprecated public Builder mergeFieldOfView(com.anduril.entitymanager.v1.FieldOfView value) {
       if (fieldOfViewBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0) &&
           fieldOfView_ != null &&
@@ -1144,9 +1152,9 @@ private static final long serialVersionUID = 0L;
      * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
      */
-    public Builder clearFieldOfView() {
+    @java.lang.Deprecated public Builder clearFieldOfView() {
       bitField0_ = (bitField0_ & ~0x00000004);
       fieldOfView_ = null;
       if (fieldOfViewBuilder_ != null) {
@@ -1161,9 +1169,9 @@ private static final long serialVersionUID = 0L;
      * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
      */
-    public com.anduril.entitymanager.v1.FieldOfView.Builder getFieldOfViewBuilder() {
+    @java.lang.Deprecated public com.anduril.entitymanager.v1.FieldOfView.Builder getFieldOfViewBuilder() {
       bitField0_ |= 0x00000004;
       onChanged();
       return getFieldOfViewFieldBuilder().getBuilder();
@@ -1173,9 +1181,9 @@ private static final long serialVersionUID = 0L;
      * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
      */
-    public com.anduril.entitymanager.v1.FieldOfViewOrBuilder getFieldOfViewOrBuilder() {
+    @java.lang.Deprecated public com.anduril.entitymanager.v1.FieldOfViewOrBuilder getFieldOfViewOrBuilder() {
       if (fieldOfViewBuilder_ != null) {
         return fieldOfViewBuilder_.getMessageOrBuilder();
       } else {
@@ -1188,7 +1196,7 @@ private static final long serialVersionUID = 0L;
      * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.FieldOfView, com.anduril.entitymanager.v1.FieldOfView.Builder, com.anduril.entitymanager.v1.FieldOfViewOrBuilder> 

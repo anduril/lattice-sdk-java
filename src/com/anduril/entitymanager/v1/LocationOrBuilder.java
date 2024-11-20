@@ -9,7 +9,7 @@ public interface LocationOrBuilder extends
 
   /**
    * <pre>
-   * see Position definition for details. We opt not to use anduril type for altitude clarity.
+   * see Position definition for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -18,7 +18,7 @@ public interface LocationOrBuilder extends
   boolean hasPosition();
   /**
    * <pre>
-   * see Position definition for details. We opt not to use anduril type for altitude clarity.
+   * see Position definition for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
@@ -27,7 +27,7 @@ public interface LocationOrBuilder extends
   com.anduril.entitymanager.v1.Position getPosition();
   /**
    * <pre>
-   * see Position definition for details. We opt not to use anduril type for altitude clarity.
+   * see Position definition for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Position position = 1 [json_name = "position"];</code>
