@@ -9,26 +9,6 @@ public interface AgentOrBuilder extends
 
   /**
    * <pre>
-   * Asset ID of the agent.
-   * </pre>
-   *
-   * <code>string asset_id = 1 [json_name = "assetId"];</code>
-   * @return The assetId.
-   */
-  java.lang.String getAssetId();
-  /**
-   * <pre>
-   * Asset ID of the agent.
-   * </pre>
-   *
-   * <code>string asset_id = 1 [json_name = "assetId"];</code>
-   * @return The bytes for assetId.
-   */
-  com.google.protobuf.ByteString
-      getAssetIdBytes();
-
-  /**
-   * <pre>
    * Entity ID of the agent.
    * </pre>
    *

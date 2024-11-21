@@ -5,7 +5,7 @@ package com.anduril.taskmanager.v1;
 
 /**
  * <pre>
- * Flux message representing a Task create or update.
+ * Message representing a Task create or update.
  * </pre>
  *
  * Protobuf type {@code anduril.taskmanager.v1.DefinitionUpdate}
@@ -254,7 +254,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Flux message representing a Task create or update.
+   * Message representing a Task create or update.
    * </pre>
    *
    * Protobuf type {@code anduril.taskmanager.v1.DefinitionUpdate}

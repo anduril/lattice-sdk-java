@@ -30,14 +30,6 @@ public enum GeoType
   GEO_TYPE_EMERGENCY(3),
   /**
    * <pre>
-   * Fire support coordination measure
-   * </pre>
-   *
-   * <code>GEO_TYPE_FSCM = 4;</code>
-   */
-  GEO_TYPE_FSCM(4),
-  /**
-   * <pre>
    * Engagement zones allow for engaging an entity if it comes within the zone of another entity.
    * </pre>
    *
@@ -52,22 +44,6 @@ public enum GeoType
    * <code>GEO_TYPE_BULLSEYE = 7;</code>
    */
   GEO_TYPE_BULLSEYE(7),
-  /**
-   * <pre>
-   * Airspace Coordinating Measure
-   * </pre>
-   *
-   * <code>GEO_TYPE_ACM = 8;</code>
-   */
-  GEO_TYPE_ACM(8),
-  /**
-   * <pre>
-   * Maneuver Control Measure
-   * </pre>
-   *
-   * <code>GEO_TYPE_MCM = 9;</code>
-   */
-  GEO_TYPE_MCM(9),
   UNRECOGNIZED(-1),
   ;
 
@@ -89,14 +65,6 @@ public enum GeoType
   public static final int GEO_TYPE_EMERGENCY_VALUE = 3;
   /**
    * <pre>
-   * Fire support coordination measure
-   * </pre>
-   *
-   * <code>GEO_TYPE_FSCM = 4;</code>
-   */
-  public static final int GEO_TYPE_FSCM_VALUE = 4;
-  /**
-   * <pre>
    * Engagement zones allow for engaging an entity if it comes within the zone of another entity.
    * </pre>
    *
@@ -111,22 +79,6 @@ public enum GeoType
    * <code>GEO_TYPE_BULLSEYE = 7;</code>
    */
   public static final int GEO_TYPE_BULLSEYE_VALUE = 7;
-  /**
-   * <pre>
-   * Airspace Coordinating Measure
-   * </pre>
-   *
-   * <code>GEO_TYPE_ACM = 8;</code>
-   */
-  public static final int GEO_TYPE_ACM_VALUE = 8;
-  /**
-   * <pre>
-   * Maneuver Control Measure
-   * </pre>
-   *
-   * <code>GEO_TYPE_MCM = 9;</code>
-   */
-  public static final int GEO_TYPE_MCM_VALUE = 9;
 
 
   public final int getNumber() {
@@ -157,12 +109,9 @@ public enum GeoType
       case 1: return GEO_TYPE_GENERAL;
       case 2: return GEO_TYPE_HAZARD;
       case 3: return GEO_TYPE_EMERGENCY;
-      case 4: return GEO_TYPE_FSCM;
       case 5: return GEO_TYPE_ENGAGEMENT_ZONE;
       case 6: return GEO_TYPE_CONTROL_AREA;
       case 7: return GEO_TYPE_BULLSEYE;
-      case 8: return GEO_TYPE_ACM;
-      case 9: return GEO_TYPE_MCM;
       default: return null;
     }
   }

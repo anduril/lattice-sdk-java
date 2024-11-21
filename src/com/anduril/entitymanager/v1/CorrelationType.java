@@ -5,74 +5,60 @@ package com.anduril.entitymanager.v1;
 
 /**
  * <pre>
- * Indicates whether an entity can be deleted with the DeleteEntity API call
+ * The type of correlation indicating how it was made.
  * </pre>
  *
- * Protobuf enum {@code anduril.entitymanager.v1.Deletable}
+ * Protobuf enum {@code anduril.entitymanager.v1.CorrelationType}
  */
-public enum Deletable
+public enum CorrelationType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>DELETABLE_INVALID = 0;</code>
+   * <code>CORRELATION_TYPE_INVALID = 0;</code>
    */
-  DELETABLE_INVALID(0),
+  CORRELATION_TYPE_INVALID(0),
   /**
    * <pre>
-   * Entity can immediately be deleted.
+   * The correlation was made manually by a human.
+   * Manual is higher precedence than automated assuming the same replication mode.
    * </pre>
    *
-   * <code>DELETABLE_TRUE = 1;</code>
+   * <code>CORRELATION_TYPE_MANUAL = 1;</code>
    */
-  DELETABLE_TRUE(1),
+  CORRELATION_TYPE_MANUAL(1),
   /**
    * <pre>
-   * Entity is from another source that is known to not allow entities to be deleted
+   * The correlation was automatically made by a service or some other automated process.
+   * Automated is lower precedence than manual assuming the same replication mode.
    * </pre>
    *
-   * <code>DELETABLE_FALSE = 2;</code>
+   * <code>CORRELATION_TYPE_AUTOMATED = 2;</code>
    */
-  DELETABLE_FALSE(2),
-  /**
-   * <pre>
-   * Entity is from another source that requires the source to accept the request. The DeleteEntity API call
-   * will work asynchronously in this case.
-   * </pre>
-   *
-   * <code>DELETABLE_REQUEST = 3;</code>
-   */
-  DELETABLE_REQUEST(3),
+  CORRELATION_TYPE_AUTOMATED(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>DELETABLE_INVALID = 0;</code>
+   * <code>CORRELATION_TYPE_INVALID = 0;</code>
    */
-  public static final int DELETABLE_INVALID_VALUE = 0;
+  public static final int CORRELATION_TYPE_INVALID_VALUE = 0;
   /**
    * <pre>
-   * Entity can immediately be deleted.
+   * The correlation was made manually by a human.
+   * Manual is higher precedence than automated assuming the same replication mode.
    * </pre>
    *
-   * <code>DELETABLE_TRUE = 1;</code>
+   * <code>CORRELATION_TYPE_MANUAL = 1;</code>
    */
-  public static final int DELETABLE_TRUE_VALUE = 1;
+  public static final int CORRELATION_TYPE_MANUAL_VALUE = 1;
   /**
    * <pre>
-   * Entity is from another source that is known to not allow entities to be deleted
+   * The correlation was automatically made by a service or some other automated process.
+   * Automated is lower precedence than manual assuming the same replication mode.
    * </pre>
    *
-   * <code>DELETABLE_FALSE = 2;</code>
+   * <code>CORRELATION_TYPE_AUTOMATED = 2;</code>
    */
-  public static final int DELETABLE_FALSE_VALUE = 2;
-  /**
-   * <pre>
-   * Entity is from another source that requires the source to accept the request. The DeleteEntity API call
-   * will work asynchronously in this case.
-   * </pre>
-   *
-   * <code>DELETABLE_REQUEST = 3;</code>
-   */
-  public static final int DELETABLE_REQUEST_VALUE = 3;
+  public static final int CORRELATION_TYPE_AUTOMATED_VALUE = 2;
 
 
   public final int getNumber() {
@@ -89,7 +75,7 @@ public enum Deletable
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static Deletable valueOf(int value) {
+  public static CorrelationType valueOf(int value) {
     return forNumber(value);
   }
 
@@ -97,25 +83,24 @@ public enum Deletable
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static Deletable forNumber(int value) {
+  public static CorrelationType forNumber(int value) {
     switch (value) {
-      case 0: return DELETABLE_INVALID;
-      case 1: return DELETABLE_TRUE;
-      case 2: return DELETABLE_FALSE;
-      case 3: return DELETABLE_REQUEST;
+      case 0: return CORRELATION_TYPE_INVALID;
+      case 1: return CORRELATION_TYPE_MANUAL;
+      case 2: return CORRELATION_TYPE_AUTOMATED;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<Deletable>
+  public static com.google.protobuf.Internal.EnumLiteMap<CorrelationType>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      Deletable> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<Deletable>() {
-          public Deletable findValueByNumber(int number) {
-            return Deletable.forNumber(number);
+      CorrelationType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<CorrelationType>() {
+          public CorrelationType findValueByNumber(int number) {
+            return CorrelationType.forNumber(number);
           }
         };
 
@@ -136,9 +121,9 @@ public enum Deletable
     return com.anduril.entitymanager.v1.EntityPubProto.getDescriptor().getEnumTypes().get(0);
   }
 
-  private static final Deletable[] VALUES = values();
+  private static final CorrelationType[] VALUES = values();
 
-  public static Deletable valueOf(
+  public static CorrelationType valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -152,10 +137,10 @@ public enum Deletable
 
   private final int value;
 
-  private Deletable(int value) {
+  private CorrelationType(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:anduril.entitymanager.v1.Deletable)
+  // @@protoc_insertion_point(enum_scope:anduril.entitymanager.v1.CorrelationType)
 }
 

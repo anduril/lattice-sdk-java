@@ -4,16 +4,16 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
  * <pre>
- * The Entity Manager provides a UI centric data model for understanding the entities in a battle space.
- * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a life cycle,
+ * Entity Manager manages the lifecycle of the entities that comprise the common operational picture.
+ * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a lifecycle
  * and a collection of data components. Each data component is a separate protobuf message definition.
- * EntityManager provides a way to query the currently live set of entities within a set of filter constraints,
+ * Entity Manager provides a way to query the currently live set of entities within a set of filter constraints,
  * as well as a limited set of management APIs to change the grouping or relationships between entities.
  * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.54.1)",
-    comments = "Source: anduril/entitymanager/v1/entity_manager_api.pub.proto")
+    comments = "Source: anduril/entitymanager/v1/entity_manager_grpcapi.pub.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class EntityManagerAPIGrpc {
 
@@ -254,10 +254,10 @@ public final class EntityManagerAPIGrpc {
 
   /**
    * <pre>
-   * The Entity Manager provides a UI centric data model for understanding the entities in a battle space.
-   * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a life cycle,
+   * Entity Manager manages the lifecycle of the entities that comprise the common operational picture.
+   * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a lifecycle
    * and a collection of data components. Each data component is a separate protobuf message definition.
-   * EntityManager provides a way to query the currently live set of entities within a set of filter constraints,
+   * Entity Manager provides a way to query the currently live set of entities within a set of filter constraints,
    * as well as a limited set of management APIs to change the grouping or relationships between entities.
    * </pre>
    */
@@ -265,10 +265,10 @@ public final class EntityManagerAPIGrpc {
 
     /**
      * <pre>
-     * Unary RPC to publish an entity for ingest into Entity Manager. This is the preferred RPC to integrate entities
-     * and should be used by most integrations to publish high- or low-update rate entities. Entities created with this
-     * method are "owned" by the originator: other sources, such as the UI, may not edit or delete these entities.
-     * Entities are validated at RPC call time and an error is returned if the entity is invalid.
+     * Publishes an entity for ingestion by Entity Manager. You "own" the entity you create using PublishEntity;
+     * other sources, such as the UI, may not edit or delete these entities.
+     * When called, PublishEntity validates the entity and returns an error if the entity is invalid. We recommend using PublishEntity to publish high- or
+     * low-update rate entities.
      * </pre>
      */
     default void publishEntity(com.anduril.entitymanager.v1.PublishEntityRequest request,
@@ -278,8 +278,9 @@ public final class EntityManagerAPIGrpc {
 
     /**
      * <pre>
-     * Create or Update one or more Entities. Prefer PublishEntity instead. The same caveats of PublishEntity apply.
-     * This RPC does not return error messages for invalid entities or any other feedback from the server.
+     * Creates or updates one or more entities. You "own" the entity you create using PublishEntities; other sources may not edit or delete these entities.
+     * Note that PublishEntities doesn't return error messages for invalid entities or provide any other feedback from the server. We recommend using PublishEntity instead.
+     * We only recommend switching to PublishEntities if you publish at an extremely high rate and find that waiting for a response from the server causes your publishing task to fall behind.
      * </pre>
      */
     default io.grpc.stub.StreamObserver<com.anduril.entitymanager.v1.PublishEntitiesRequest> publishEntities(
@@ -334,10 +335,10 @@ public final class EntityManagerAPIGrpc {
   /**
    * Base class for the server implementation of the service EntityManagerAPI.
    * <pre>
-   * The Entity Manager provides a UI centric data model for understanding the entities in a battle space.
-   * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a life cycle,
+   * Entity Manager manages the lifecycle of the entities that comprise the common operational picture.
+   * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a lifecycle
    * and a collection of data components. Each data component is a separate protobuf message definition.
-   * EntityManager provides a way to query the currently live set of entities within a set of filter constraints,
+   * Entity Manager provides a way to query the currently live set of entities within a set of filter constraints,
    * as well as a limited set of management APIs to change the grouping or relationships between entities.
    * </pre>
    */
@@ -352,10 +353,10 @@ public final class EntityManagerAPIGrpc {
   /**
    * A stub to allow clients to do asynchronous rpc calls to service EntityManagerAPI.
    * <pre>
-   * The Entity Manager provides a UI centric data model for understanding the entities in a battle space.
-   * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a life cycle,
+   * Entity Manager manages the lifecycle of the entities that comprise the common operational picture.
+   * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a lifecycle
    * and a collection of data components. Each data component is a separate protobuf message definition.
-   * EntityManager provides a way to query the currently live set of entities within a set of filter constraints,
+   * Entity Manager provides a way to query the currently live set of entities within a set of filter constraints,
    * as well as a limited set of management APIs to change the grouping or relationships between entities.
    * </pre>
    */
@@ -374,10 +375,10 @@ public final class EntityManagerAPIGrpc {
 
     /**
      * <pre>
-     * Unary RPC to publish an entity for ingest into Entity Manager. This is the preferred RPC to integrate entities
-     * and should be used by most integrations to publish high- or low-update rate entities. Entities created with this
-     * method are "owned" by the originator: other sources, such as the UI, may not edit or delete these entities.
-     * Entities are validated at RPC call time and an error is returned if the entity is invalid.
+     * Publishes an entity for ingestion by Entity Manager. You "own" the entity you create using PublishEntity;
+     * other sources, such as the UI, may not edit or delete these entities.
+     * When called, PublishEntity validates the entity and returns an error if the entity is invalid. We recommend using PublishEntity to publish high- or
+     * low-update rate entities.
      * </pre>
      */
     public void publishEntity(com.anduril.entitymanager.v1.PublishEntityRequest request,
@@ -388,8 +389,9 @@ public final class EntityManagerAPIGrpc {
 
     /**
      * <pre>
-     * Create or Update one or more Entities. Prefer PublishEntity instead. The same caveats of PublishEntity apply.
-     * This RPC does not return error messages for invalid entities or any other feedback from the server.
+     * Creates or updates one or more entities. You "own" the entity you create using PublishEntities; other sources may not edit or delete these entities.
+     * Note that PublishEntities doesn't return error messages for invalid entities or provide any other feedback from the server. We recommend using PublishEntity instead.
+     * We only recommend switching to PublishEntities if you publish at an extremely high rate and find that waiting for a response from the server causes your publishing task to fall behind.
      * </pre>
      */
     public io.grpc.stub.StreamObserver<com.anduril.entitymanager.v1.PublishEntitiesRequest> publishEntities(
@@ -449,10 +451,10 @@ public final class EntityManagerAPIGrpc {
   /**
    * A stub to allow clients to do synchronous rpc calls to service EntityManagerAPI.
    * <pre>
-   * The Entity Manager provides a UI centric data model for understanding the entities in a battle space.
-   * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a life cycle,
+   * Entity Manager manages the lifecycle of the entities that comprise the common operational picture.
+   * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a lifecycle
    * and a collection of data components. Each data component is a separate protobuf message definition.
-   * EntityManager provides a way to query the currently live set of entities within a set of filter constraints,
+   * Entity Manager provides a way to query the currently live set of entities within a set of filter constraints,
    * as well as a limited set of management APIs to change the grouping or relationships between entities.
    * </pre>
    */
@@ -471,10 +473,10 @@ public final class EntityManagerAPIGrpc {
 
     /**
      * <pre>
-     * Unary RPC to publish an entity for ingest into Entity Manager. This is the preferred RPC to integrate entities
-     * and should be used by most integrations to publish high- or low-update rate entities. Entities created with this
-     * method are "owned" by the originator: other sources, such as the UI, may not edit or delete these entities.
-     * Entities are validated at RPC call time and an error is returned if the entity is invalid.
+     * Publishes an entity for ingestion by Entity Manager. You "own" the entity you create using PublishEntity;
+     * other sources, such as the UI, may not edit or delete these entities.
+     * When called, PublishEntity validates the entity and returns an error if the entity is invalid. We recommend using PublishEntity to publish high- or
+     * low-update rate entities.
      * </pre>
      */
     public com.anduril.entitymanager.v1.PublishEntityResponse publishEntity(com.anduril.entitymanager.v1.PublishEntityRequest request) {
@@ -530,10 +532,10 @@ public final class EntityManagerAPIGrpc {
   /**
    * A stub to allow clients to do ListenableFuture-style rpc calls to service EntityManagerAPI.
    * <pre>
-   * The Entity Manager provides a UI centric data model for understanding the entities in a battle space.
-   * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a life cycle,
+   * Entity Manager manages the lifecycle of the entities that comprise the common operational picture.
+   * Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a lifecycle
    * and a collection of data components. Each data component is a separate protobuf message definition.
-   * EntityManager provides a way to query the currently live set of entities within a set of filter constraints,
+   * Entity Manager provides a way to query the currently live set of entities within a set of filter constraints,
    * as well as a limited set of management APIs to change the grouping or relationships between entities.
    * </pre>
    */
@@ -552,10 +554,10 @@ public final class EntityManagerAPIGrpc {
 
     /**
      * <pre>
-     * Unary RPC to publish an entity for ingest into Entity Manager. This is the preferred RPC to integrate entities
-     * and should be used by most integrations to publish high- or low-update rate entities. Entities created with this
-     * method are "owned" by the originator: other sources, such as the UI, may not edit or delete these entities.
-     * Entities are validated at RPC call time and an error is returned if the entity is invalid.
+     * Publishes an entity for ingestion by Entity Manager. You "own" the entity you create using PublishEntity;
+     * other sources, such as the UI, may not edit or delete these entities.
+     * When called, PublishEntity validates the entity and returns an error if the entity is invalid. We recommend using PublishEntity to publish high- or
+     * low-update rate entities.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.anduril.entitymanager.v1.PublishEntityResponse> publishEntity(
@@ -717,7 +719,7 @@ public final class EntityManagerAPIGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.anduril.entitymanager.v1.EntityManagerApiPubProto.getDescriptor();
+      return com.anduril.entitymanager.v1.EntityManagerGrpcapiPubProto.getDescriptor();
     }
 
     @java.lang.Override

@@ -66,7 +66,7 @@ public enum AltIdType
   ALT_ID_TYPE_ASSET_ID(5),
   /**
    * <pre>
-   * Use for Link 16 track identifiers for non-JTIDS Unit (JU) entities, such as assets (STN) and tracks (RefTN). Values range from AA000 to ZZ777.
+   * Use for Link 16 track identifiers for non-JTIDS Unit entities.
    * </pre>
    *
    * <code>ALT_ID_TYPE_LINK16_TRACK_NUMBER = 6;</code>
@@ -74,7 +74,7 @@ public enum AltIdType
   ALT_ID_TYPE_LINK16_TRACK_NUMBER(6),
   /**
    * <pre>
-   * Use for Link 16 JTIDS Unit (JU) identifiers. Applicable to assets representing JUs, with values ranging from 00001 to 77777.
+   * Use for Link 16 JTIDS Unit identifiers.
    * </pre>
    *
    * <code>ALT_ID_TYPE_LINK16_JU = 7;</code>
@@ -160,7 +160,7 @@ public enum AltIdType
   ALT_ID_TYPE_IBS_GID(17),
   /**
    * <pre>
-   * Department of Defense Activity Address Code uniquely identifies a unit, activity, or organization with the DoDAAD. A single unit could have multiple DoDAACs
+   * Department of Defense Activity Address Code.
    * </pre>
    *
    * <code>ALT_ID_TYPE_DODAAC = 18;</code>
@@ -176,10 +176,7 @@ public enum AltIdType
   ALT_ID_TYPE_UIC(19),
   /**
    * <pre>
-   * A NORAD Satellite Catalog Number, a 9-digit number uniquely representing orbital objects around Earth. This is
-   * the standard ID used for satellites by the DOD.
-   * Note that there is ongoing work to replace the 9-digit number with a 9-digit alphanumeric sequence to accommodate
-   * ever-increasing numbers of satellites (and space debris). Treat the accompanied ID field as alphanumeric instead
+   * A NORAD Satellite Catalog Number, a 9-digit number uniquely representing orbital objects around Earth.
    * of strictly numeric.
    * </pre>
    *
@@ -268,7 +265,7 @@ public enum AltIdType
   public static final int ALT_ID_TYPE_ASSET_ID_VALUE = 5;
   /**
    * <pre>
-   * Use for Link 16 track identifiers for non-JTIDS Unit (JU) entities, such as assets (STN) and tracks (RefTN). Values range from AA000 to ZZ777.
+   * Use for Link 16 track identifiers for non-JTIDS Unit entities.
    * </pre>
    *
    * <code>ALT_ID_TYPE_LINK16_TRACK_NUMBER = 6;</code>
@@ -276,7 +273,7 @@ public enum AltIdType
   public static final int ALT_ID_TYPE_LINK16_TRACK_NUMBER_VALUE = 6;
   /**
    * <pre>
-   * Use for Link 16 JTIDS Unit (JU) identifiers. Applicable to assets representing JUs, with values ranging from 00001 to 77777.
+   * Use for Link 16 JTIDS Unit identifiers.
    * </pre>
    *
    * <code>ALT_ID_TYPE_LINK16_JU = 7;</code>
@@ -362,7 +359,7 @@ public enum AltIdType
   public static final int ALT_ID_TYPE_IBS_GID_VALUE = 17;
   /**
    * <pre>
-   * Department of Defense Activity Address Code uniquely identifies a unit, activity, or organization with the DoDAAD. A single unit could have multiple DoDAACs
+   * Department of Defense Activity Address Code.
    * </pre>
    *
    * <code>ALT_ID_TYPE_DODAAC = 18;</code>
@@ -378,10 +375,7 @@ public enum AltIdType
   public static final int ALT_ID_TYPE_UIC_VALUE = 19;
   /**
    * <pre>
-   * A NORAD Satellite Catalog Number, a 9-digit number uniquely representing orbital objects around Earth. This is
-   * the standard ID used for satellites by the DOD.
-   * Note that there is ongoing work to replace the 9-digit number with a 9-digit alphanumeric sequence to accommodate
-   * ever-increasing numbers of satellites (and space debris). Treat the accompanied ID field as alphanumeric instead
+   * A NORAD Satellite Catalog Number, a 9-digit number uniquely representing orbital objects around Earth.
    * of strictly numeric.
    * </pre>
    *

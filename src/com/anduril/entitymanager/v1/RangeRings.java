@@ -133,6 +133,44 @@ private static final long serialVersionUID = 0L;
     return ringCount_;
   }
 
+  public static final int RING_LINE_COLOR_FIELD_NUMBER = 4;
+  private com.anduril.type.Color ringLineColor_;
+  /**
+   * <pre>
+   * The color of range rings, specified in hex string.
+   * </pre>
+   *
+   * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+   * @return Whether the ringLineColor field is set.
+   */
+  @java.lang.Override
+  public boolean hasRingLineColor() {
+    return ringLineColor_ != null;
+  }
+  /**
+   * <pre>
+   * The color of range rings, specified in hex string.
+   * </pre>
+   *
+   * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+   * @return The ringLineColor.
+   */
+  @java.lang.Override
+  public com.anduril.type.Color getRingLineColor() {
+    return ringLineColor_ == null ? com.anduril.type.Color.getDefaultInstance() : ringLineColor_;
+  }
+  /**
+   * <pre>
+   * The color of range rings, specified in hex string.
+   * </pre>
+   *
+   * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+   */
+  @java.lang.Override
+  public com.anduril.type.ColorOrBuilder getRingLineColorOrBuilder() {
+    return ringLineColor_ == null ? com.anduril.type.Color.getDefaultInstance() : ringLineColor_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -156,6 +194,9 @@ private static final long serialVersionUID = 0L;
     if (ringCount_ != 0) {
       output.writeUInt32(3, ringCount_);
     }
+    if (ringLineColor_ != null) {
+      output.writeMessage(4, getRingLineColor());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -176,6 +217,10 @@ private static final long serialVersionUID = 0L;
     if (ringCount_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(3, ringCount_);
+    }
+    if (ringLineColor_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getRingLineColor());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -204,6 +249,11 @@ private static final long serialVersionUID = 0L;
     }
     if (getRingCount()
         != other.getRingCount()) return false;
+    if (hasRingLineColor() != other.hasRingLineColor()) return false;
+    if (hasRingLineColor()) {
+      if (!getRingLineColor()
+          .equals(other.getRingLineColor())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -225,6 +275,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + RING_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + getRingCount();
+    if (hasRingLineColor()) {
+      hash = (37 * hash) + RING_LINE_COLOR_FIELD_NUMBER;
+      hash = (53 * hash) + getRingLineColor().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -369,6 +423,11 @@ private static final long serialVersionUID = 0L;
         maxDistanceMBuilder_ = null;
       }
       ringCount_ = 0;
+      ringLineColor_ = null;
+      if (ringLineColorBuilder_ != null) {
+        ringLineColorBuilder_.dispose();
+        ringLineColorBuilder_ = null;
+      }
       return this;
     }
 
@@ -415,6 +474,11 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.ringCount_ = ringCount_;
       }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.ringLineColor_ = ringLineColorBuilder_ == null
+            ? ringLineColor_
+            : ringLineColorBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -437,6 +501,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getRingCount() != 0) {
         setRingCount(other.getRingCount());
+      }
+      if (other.hasRingLineColor()) {
+        mergeRingLineColor(other.getRingLineColor());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -483,6 +550,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 24
+            case 34: {
+              input.readMessage(
+                  getRingLineColorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -852,6 +926,161 @@ private static final long serialVersionUID = 0L;
       ringCount_ = 0;
       onChanged();
       return this;
+    }
+
+    private com.anduril.type.Color ringLineColor_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.type.Color, com.anduril.type.Color.Builder, com.anduril.type.ColorOrBuilder> ringLineColorBuilder_;
+    /**
+     * <pre>
+     * The color of range rings, specified in hex string.
+     * </pre>
+     *
+     * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+     * @return Whether the ringLineColor field is set.
+     */
+    public boolean hasRingLineColor() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * The color of range rings, specified in hex string.
+     * </pre>
+     *
+     * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+     * @return The ringLineColor.
+     */
+    public com.anduril.type.Color getRingLineColor() {
+      if (ringLineColorBuilder_ == null) {
+        return ringLineColor_ == null ? com.anduril.type.Color.getDefaultInstance() : ringLineColor_;
+      } else {
+        return ringLineColorBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The color of range rings, specified in hex string.
+     * </pre>
+     *
+     * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+     */
+    public Builder setRingLineColor(com.anduril.type.Color value) {
+      if (ringLineColorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ringLineColor_ = value;
+      } else {
+        ringLineColorBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The color of range rings, specified in hex string.
+     * </pre>
+     *
+     * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+     */
+    public Builder setRingLineColor(
+        com.anduril.type.Color.Builder builderForValue) {
+      if (ringLineColorBuilder_ == null) {
+        ringLineColor_ = builderForValue.build();
+      } else {
+        ringLineColorBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The color of range rings, specified in hex string.
+     * </pre>
+     *
+     * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+     */
+    public Builder mergeRingLineColor(com.anduril.type.Color value) {
+      if (ringLineColorBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          ringLineColor_ != null &&
+          ringLineColor_ != com.anduril.type.Color.getDefaultInstance()) {
+          getRingLineColorBuilder().mergeFrom(value);
+        } else {
+          ringLineColor_ = value;
+        }
+      } else {
+        ringLineColorBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The color of range rings, specified in hex string.
+     * </pre>
+     *
+     * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+     */
+    public Builder clearRingLineColor() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      ringLineColor_ = null;
+      if (ringLineColorBuilder_ != null) {
+        ringLineColorBuilder_.dispose();
+        ringLineColorBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The color of range rings, specified in hex string.
+     * </pre>
+     *
+     * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+     */
+    public com.anduril.type.Color.Builder getRingLineColorBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getRingLineColorFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The color of range rings, specified in hex string.
+     * </pre>
+     *
+     * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+     */
+    public com.anduril.type.ColorOrBuilder getRingLineColorOrBuilder() {
+      if (ringLineColorBuilder_ != null) {
+        return ringLineColorBuilder_.getMessageOrBuilder();
+      } else {
+        return ringLineColor_ == null ?
+            com.anduril.type.Color.getDefaultInstance() : ringLineColor_;
+      }
+    }
+    /**
+     * <pre>
+     * The color of range rings, specified in hex string.
+     * </pre>
+     *
+     * <code>.anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.type.Color, com.anduril.type.Color.Builder, com.anduril.type.ColorOrBuilder> 
+        getRingLineColorFieldBuilder() {
+      if (ringLineColorBuilder_ == null) {
+        ringLineColorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.anduril.type.Color, com.anduril.type.Color.Builder, com.anduril.type.ColorOrBuilder>(
+                getRingLineColor(),
+                getParentForChildren(),
+                isClean());
+        ringLineColor_ = null;
+      }
+      return ringLineColorBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

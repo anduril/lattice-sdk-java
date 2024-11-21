@@ -5,7 +5,7 @@ package com.anduril.taskmanager.v1;
 
 /**
  * <pre>
- * a Task status update that could come in via RPC or Flux.
+ * a Task status update
  * </pre>
  *
  * Protobuf type {@code anduril.taskmanager.v1.StatusUpdate}
@@ -404,7 +404,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * a Task status update that could come in via RPC or Flux.
+   * a Task status update
    * </pre>
    *
    * Protobuf type {@code anduril.taskmanager.v1.StatusUpdate}

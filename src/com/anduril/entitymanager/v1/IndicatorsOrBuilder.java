@@ -68,17 +68,6 @@ public interface IndicatorsOrBuilder extends
   com.google.protobuf.BoolValueOrBuilder getC2OrBuilder();
 
   /**
-   * <code>.anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];</code>
-   * @return The enum numeric value on the wire for deletable.
-   */
-  int getDeletableValue();
-  /**
-   * <code>.anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];</code>
-   * @return The deletable.
-   */
-  com.anduril.entitymanager.v1.Deletable getDeletable();
-
-  /**
    * <pre>
    * Indicates the Entity should be egressed to external sources.
    * Integrations choose how the egressing happens (e.g. if an Entity needs fuzzing).

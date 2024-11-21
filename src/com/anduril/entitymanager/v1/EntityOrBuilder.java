@@ -9,8 +9,8 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * A Globally Unique Identifier (GUID) for your entity. If blank, the Entity API creates
-   * an entity and automatically generates a new ID for the entity.
+   * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity API
+   * automatically generates an ID when it creates the entity.
    * </pre>
    *
    * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -19,8 +19,8 @@ public interface EntityOrBuilder extends
   java.lang.String getEntityId();
   /**
    * <pre>
-   * A Globally Unique Identifier (GUID) for your entity. If blank, the Entity API creates
-   * an entity and automatically generates a new ID for the entity.
+   * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity API
+   * automatically generates an ID when it creates the entity.
    * </pre>
    *
    * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -31,8 +31,8 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Helpful, human-readable entity description mainly used for debugging purposes and human
-   * traceability. If blank, the Entity API generates one for you.
+   * A human-readable entity description that's helpful for debugging purposes and human
+   * traceability. If this field is empty, the Entity API generates one for you.
    * </pre>
    *
    * <code>string description = 2 [json_name = "description"];</code>
@@ -41,8 +41,8 @@ public interface EntityOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * Helpful, human-readable entity description mainly used for debugging purposes and human
-   * traceability. If blank, the Entity API generates one for you.
+   * A human-readable entity description that's helpful for debugging purposes and human
+   * traceability. If this field is empty, the Entity API generates one for you.
    * </pre>
    *
    * <code>string description = 2 [json_name = "description"];</code>
@@ -53,8 +53,8 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Indicates an active asset receiving updates. This is a required field for publishing an entity.
-   * It needs to be set to true when publishing an entity.
+   * Indicates the entity is active and should have lifecycle state of CREATE or UPDATE.
+   * Set this field to true when publishing an entity.
    * </pre>
    *
    * <code>bool is_live = 3 [json_name = "isLive"];</code>
@@ -64,8 +64,10 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Time when the asset enters the system. If blank, the Entity API uses a current timestamp.
-   * For example, when a drone is first powered on, it might report it's boot time as the created time.
+   * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+   * current timestamp of when the entity is first received.
+   * For example, when a drone is first powered on, it might report its startup time as the created time.
+   * The timestamp doesn't change for the lifetime of an entity.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_time = 4 [json_name = "createdTime"];</code>
@@ -74,8 +76,10 @@ public interface EntityOrBuilder extends
   boolean hasCreatedTime();
   /**
    * <pre>
-   * Time when the asset enters the system. If blank, the Entity API uses a current timestamp.
-   * For example, when a drone is first powered on, it might report it's boot time as the created time.
+   * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+   * current timestamp of when the entity is first received.
+   * For example, when a drone is first powered on, it might report its startup time as the created time.
+   * The timestamp doesn't change for the lifetime of an entity.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_time = 4 [json_name = "createdTime"];</code>
@@ -84,8 +88,10 @@ public interface EntityOrBuilder extends
   com.google.protobuf.Timestamp getCreatedTime();
   /**
    * <pre>
-   * Time when the asset enters the system. If blank, the Entity API uses a current timestamp.
-   * For example, when a drone is first powered on, it might report it's boot time as the created time.
+   * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+   * current timestamp of when the entity is first received.
+   * For example, when a drone is first powered on, it might report its startup time as the created time.
+   * The timestamp doesn't change for the lifetime of an entity.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp created_time = 4 [json_name = "createdTime"];</code>
@@ -94,13 +100,13 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * A future time that expires an entity and updates the isLive flag.
+   * Future time that expires an entity and updates the is_live flag.
    * For entities that are constantly updating, the expiry time also updates.
-   * Note in some cases this may differ from isLive.
+   * In some cases, this may differ from is_live.
    * Example: Entities with tasks exported to an external system must remain
-   * active, even after they expire.
-   * This is a required field for publishing an entity via Flux or PublishEntities rpc. When publishing
-   * an entity, this timestamp must be in the future, but less than 30 days from the current time.
+   * active even after they expire.
+   * This field is required when publishing a prepopulated entity.
+   * The expiry time must be in the future, but less than 30 days from the current time.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
@@ -109,13 +115,13 @@ public interface EntityOrBuilder extends
   boolean hasExpiryTime();
   /**
    * <pre>
-   * A future time that expires an entity and updates the isLive flag.
+   * Future time that expires an entity and updates the is_live flag.
    * For entities that are constantly updating, the expiry time also updates.
-   * Note in some cases this may differ from isLive.
+   * In some cases, this may differ from is_live.
    * Example: Entities with tasks exported to an external system must remain
-   * active, even after they expire.
-   * This is a required field for publishing an entity via Flux or PublishEntities rpc. When publishing
-   * an entity, this timestamp must be in the future, but less than 30 days from the current time.
+   * active even after they expire.
+   * This field is required when publishing a prepopulated entity.
+   * The expiry time must be in the future, but less than 30 days from the current time.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
@@ -124,29 +130,18 @@ public interface EntityOrBuilder extends
   com.google.protobuf.Timestamp getExpiryTime();
   /**
    * <pre>
-   * A future time that expires an entity and updates the isLive flag.
+   * Future time that expires an entity and updates the is_live flag.
    * For entities that are constantly updating, the expiry time also updates.
-   * Note in some cases this may differ from isLive.
+   * In some cases, this may differ from is_live.
    * Example: Entities with tasks exported to an external system must remain
-   * active, even after they expire.
-   * This is a required field for publishing an entity via Flux or PublishEntities rpc. When publishing
-   * an entity, this timestamp must be in the future, but less than 30 days from the current time.
+   * active even after they expire.
+   * This field is required when publishing a prepopulated entity.
+   * The expiry time must be in the future, but less than 30 days from the current time.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getExpiryTimeOrBuilder();
-
-  /**
-   * <pre>
-   * To indicate that this entity should not expire. Only to be set to `true` on entities published
-   * via PutEntity call. Entities published via Flux or PublishEntities rpc with `no_expiry == true` will be rejected.
-   * </pre>
-   *
-   * <code>bool no_expiry = 43 [json_name = "noExpiry"];</code>
-   * @return The noExpiry.
-   */
-  boolean getNoExpiry();
 
   /**
    * <pre>
@@ -177,7 +172,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Geospatial data related to the entity, including it's position, kinematics and orientation.
+   * Geospatial data related to the entity, including its position, kinematics, and orientation.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Location location = 6 [json_name = "location"];</code>
@@ -186,7 +181,7 @@ public interface EntityOrBuilder extends
   boolean hasLocation();
   /**
    * <pre>
-   * Geospatial data related to the entity, including it's position, kinematics and orientation.
+   * Geospatial data related to the entity, including its position, kinematics, and orientation.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Location location = 6 [json_name = "location"];</code>
@@ -195,7 +190,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Location getLocation();
   /**
    * <pre>
-   * Geospatial data related to the entity, including it's position, kinematics and orientation.
+   * Geospatial data related to the entity, including its position, kinematics, and orientation.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Location location = 6 [json_name = "location"];</code>
@@ -204,7 +199,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Uncertainty of the entity's position and kinematics.
+   * Indicates uncertainty of the entity's position and kinematics.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.LocationUncertainty location_uncertainty = 15 [json_name = "locationUncertainty"];</code>
@@ -213,7 +208,7 @@ public interface EntityOrBuilder extends
   boolean hasLocationUncertainty();
   /**
    * <pre>
-   * Uncertainty of the entity's position and kinematics.
+   * Indicates uncertainty of the entity's position and kinematics.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.LocationUncertainty location_uncertainty = 15 [json_name = "locationUncertainty"];</code>
@@ -222,43 +217,12 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.LocationUncertainty getLocationUncertainty();
   /**
    * <pre>
-   * Uncertainty of the entity's position and kinematics.
+   * Indicates uncertainty of the entity's position and kinematics.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.LocationUncertainty location_uncertainty = 15 [json_name = "locationUncertainty"];</code>
    */
   com.anduril.entitymanager.v1.LocationUncertaintyOrBuilder getLocationUncertaintyOrBuilder();
-
-  /**
-   * <pre>
-   * Deprecated: do not use, use geo_shape instead
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=71
-   * @return Whether the geopolygon field is set.
-   */
-  @java.lang.Deprecated boolean hasGeopolygon();
-  /**
-   * <pre>
-   * Deprecated: do not use, use geo_shape instead
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Entity.geopolygon is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=71
-   * @return The geopolygon.
-   */
-  @java.lang.Deprecated com.anduril.entitymanager.v1.GeoPolygon getGeopolygon();
-  /**
-   * <pre>
-   * Deprecated: do not use, use geo_shape instead
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];</code>
-   */
-  @java.lang.Deprecated com.anduril.entitymanager.v1.GeoPolygonOrBuilder getGeopolygonOrBuilder();
 
   /**
    * <pre>
@@ -316,7 +280,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Naming of the entity as well as identifiers that other systems use to reference the same entity.
+   * Entity name displayed in the Lattice UI side panel. Also includes identifiers that other systems can use to reference the same entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Aliases aliases = 7 [json_name = "aliases"];</code>
@@ -325,7 +289,7 @@ public interface EntityOrBuilder extends
   boolean hasAliases();
   /**
    * <pre>
-   * Naming of the entity as well as identifiers that other systems use to reference the same entity.
+   * Entity name displayed in the Lattice UI side panel. Also includes identifiers that other systems can use to reference the same entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Aliases aliases = 7 [json_name = "aliases"];</code>
@@ -334,7 +298,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Aliases getAliases();
   /**
    * <pre>
-   * Naming of the entity as well as identifiers that other systems use to reference the same entity.
+   * Entity name displayed in the Lattice UI side panel. Also includes identifiers that other systems can use to reference the same entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Aliases aliases = 7 [json_name = "aliases"];</code>
@@ -343,7 +307,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * If this entity is tracked by another, this component contains data related to how it's being tracked.
+   * If this entity is tracked by another entity, this component contains data related to how it's being tracked.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Tracked tracked = 8 [json_name = "tracked"];</code>
@@ -352,7 +316,7 @@ public interface EntityOrBuilder extends
   boolean hasTracked();
   /**
    * <pre>
-   * If this entity is tracked by another, this component contains data related to how it's being tracked.
+   * If this entity is tracked by another entity, this component contains data related to how it's being tracked.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Tracked tracked = 8 [json_name = "tracked"];</code>
@@ -361,7 +325,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Tracked getTracked();
   /**
    * <pre>
-   * If this entity is tracked by another, this component contains data related to how it's being tracked.
+   * If this entity is tracked by another entity, this component contains data related to how it's being tracked.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Tracked tracked = 8 [json_name = "tracked"];</code>
@@ -370,37 +334,34 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * If this entity has been correlated to another one, this component contains the status of the correlation, the primary entity
-   * and the correlation scores.
+   * If this entity has been correlated or decorrelated to another one, this component contains information on the correlation or decorrelation.
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.Correlated correlated = 9 [json_name = "correlated"];</code>
-   * @return Whether the correlated field is set.
+   * <code>.anduril.entitymanager.v1.Correlation correlation = 47 [json_name = "correlation"];</code>
+   * @return Whether the correlation field is set.
    */
-  boolean hasCorrelated();
+  boolean hasCorrelation();
   /**
    * <pre>
-   * If this entity has been correlated to another one, this component contains the status of the correlation, the primary entity
-   * and the correlation scores.
+   * If this entity has been correlated or decorrelated to another one, this component contains information on the correlation or decorrelation.
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.Correlated correlated = 9 [json_name = "correlated"];</code>
-   * @return The correlated.
+   * <code>.anduril.entitymanager.v1.Correlation correlation = 47 [json_name = "correlation"];</code>
+   * @return The correlation.
    */
-  com.anduril.entitymanager.v1.Correlated getCorrelated();
+  com.anduril.entitymanager.v1.Correlation getCorrelation();
   /**
    * <pre>
-   * If this entity has been correlated to another one, this component contains the status of the correlation, the primary entity
-   * and the correlation scores.
+   * If this entity has been correlated or decorrelated to another one, this component contains information on the correlation or decorrelation.
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.Correlated correlated = 9 [json_name = "correlated"];</code>
+   * <code>.anduril.entitymanager.v1.Correlation correlation = 47 [json_name = "correlation"];</code>
    */
-  com.anduril.entitymanager.v1.CorrelatedOrBuilder getCorrelatedOrBuilder();
+  com.anduril.entitymanager.v1.CorrelationOrBuilder getCorrelationOrBuilder();
 
   /**
    * <pre>
-   * Military view of the entity
+   * Military view of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -409,7 +370,7 @@ public interface EntityOrBuilder extends
   boolean hasMilView();
   /**
    * <pre>
-   * Military view of the entity
+   * Military view of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -418,7 +379,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.MilView getMilView();
   /**
    * <pre>
-   * Military view of the entity
+   * Military view of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -427,7 +388,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * A standardized representation of the entity
+   * A standardized representation of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -436,7 +397,7 @@ public interface EntityOrBuilder extends
   boolean hasOntology();
   /**
    * <pre>
-   * A standardized representation of the entity
+   * A standardized representation of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -445,7 +406,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Ontology getOntology();
   /**
    * <pre>
-   * A standardized representation of the entity
+   * A standardized representation of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -454,7 +415,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Details of Sensors that are available on an entity
+   * Details an entity's available sensors.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Sensors sensors = 20 [json_name = "sensors"];</code>
@@ -463,7 +424,7 @@ public interface EntityOrBuilder extends
   boolean hasSensors();
   /**
    * <pre>
-   * Details of Sensors that are available on an entity
+   * Details an entity's available sensors.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Sensors sensors = 20 [json_name = "sensors"];</code>
@@ -472,7 +433,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Sensors getSensors();
   /**
    * <pre>
-   * Details of Sensors that are available on an entity
+   * Details an entity's available sensors.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Sensors sensors = 20 [json_name = "sensors"];</code>
@@ -481,7 +442,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Details of payloads that are available on an entity
+   * Details an entity's available payloads.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Payloads payloads = 21 [json_name = "payloads"];</code>
@@ -490,7 +451,7 @@ public interface EntityOrBuilder extends
   boolean hasPayloads();
   /**
    * <pre>
-   * Details of payloads that are available on an entity
+   * Details an entity's available payloads.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Payloads payloads = 21 [json_name = "payloads"];</code>
@@ -499,7 +460,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Payloads getPayloads();
   /**
    * <pre>
-   * Details of payloads that are available on an entity
+   * Details an entity's available payloads.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Payloads payloads = 21 [json_name = "payloads"];</code>
@@ -508,7 +469,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Details of the power source on an entity
+   * Details the entity's power source.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.PowerState power_state = 30 [json_name = "powerState"];</code>
@@ -517,7 +478,7 @@ public interface EntityOrBuilder extends
   boolean hasPowerState();
   /**
    * <pre>
-   * Details of the power source on an entity
+   * Details the entity's power source.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.PowerState power_state = 30 [json_name = "powerState"];</code>
@@ -526,7 +487,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.PowerState getPowerState();
   /**
    * <pre>
-   * Details of the power source on an entity
+   * Details the entity's power source.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.PowerState power_state = 30 [json_name = "powerState"];</code>
@@ -535,7 +496,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * The primary data source provenance for this entity
+   * The primary data source provenance for this entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Provenance provenance = 12 [json_name = "provenance"];</code>
@@ -544,7 +505,7 @@ public interface EntityOrBuilder extends
   boolean hasProvenance();
   /**
    * <pre>
-   * The primary data source provenance for this entity
+   * The primary data source provenance for this entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Provenance provenance = 12 [json_name = "provenance"];</code>
@@ -553,7 +514,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Provenance getProvenance();
   /**
    * <pre>
-   * The primary data source provenance for this entity
+   * The primary data source provenance for this entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Provenance provenance = 12 [json_name = "provenance"];</code>
@@ -562,7 +523,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Provenance of override data
+   * Provenance of override data.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Overrides overrides = 13 [json_name = "overrides"];</code>
@@ -571,7 +532,7 @@ public interface EntityOrBuilder extends
   boolean hasOverrides();
   /**
    * <pre>
-   * Provenance of override data
+   * Provenance of override data.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Overrides overrides = 13 [json_name = "overrides"];</code>
@@ -580,7 +541,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Overrides getOverrides();
   /**
    * <pre>
-   * Provenance of override data
+   * Provenance of override data.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Overrides overrides = 13 [json_name = "overrides"];</code>
@@ -589,8 +550,9 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Indicators of an entity's state that describes properties of the entity as well as what operations can be performed on the entity (eg.
-   * can it be deleted)
+   * Describes an entity's specific characteristics and the operations that can be performed on the entity.
+   * For example, "simulated" informs the operator that the entity is from a simulation, and "deletable"
+   * informs the operator (and system) that the delete operation is valid against the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Indicators indicators = 14 [json_name = "indicators"];</code>
@@ -599,8 +561,9 @@ public interface EntityOrBuilder extends
   boolean hasIndicators();
   /**
    * <pre>
-   * Indicators of an entity's state that describes properties of the entity as well as what operations can be performed on the entity (eg.
-   * can it be deleted)
+   * Describes an entity's specific characteristics and the operations that can be performed on the entity.
+   * For example, "simulated" informs the operator that the entity is from a simulation, and "deletable"
+   * informs the operator (and system) that the delete operation is valid against the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Indicators indicators = 14 [json_name = "indicators"];</code>
@@ -609,8 +572,9 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Indicators getIndicators();
   /**
    * <pre>
-   * Indicators of an entity's state that describes properties of the entity as well as what operations can be performed on the entity (eg.
-   * can it be deleted)
+   * Describes an entity's specific characteristics and the operations that can be performed on the entity.
+   * For example, "simulated" informs the operator that the entity is from a simulation, and "deletable"
+   * informs the operator (and system) that the delete operation is valid against the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Indicators indicators = 14 [json_name = "indicators"];</code>
@@ -619,37 +583,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * A component that references the primary original data source. For example, this would allow the original NITF file
-   * data that was ingested to be retrieved.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.OriginalData original_data = 18 [json_name = "originalData"];</code>
-   * @return Whether the originalData field is set.
-   */
-  boolean hasOriginalData();
-  /**
-   * <pre>
-   * A component that references the primary original data source. For example, this would allow the original NITF file
-   * data that was ingested to be retrieved.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.OriginalData original_data = 18 [json_name = "originalData"];</code>
-   * @return The originalData.
-   */
-  com.anduril.entitymanager.v1.OriginalData getOriginalData();
-  /**
-   * <pre>
-   * A component that references the primary original data source. For example, this would allow the original NITF file
-   * data that was ingested to be retrieved.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.OriginalData original_data = 18 [json_name = "originalData"];</code>
-   */
-  com.anduril.entitymanager.v1.OriginalDataOrBuilder getOriginalDataOrBuilder();
-
-  /**
-   * <pre>
-   * The prioritization associated with an entity such as if it's a threat or a high value target.
+   * The prioritization associated with an entity, such as if it's a threat or a high-value target.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TargetPriority target_priority = 22 [json_name = "targetPriority"];</code>
@@ -658,7 +592,7 @@ public interface EntityOrBuilder extends
   boolean hasTargetPriority();
   /**
    * <pre>
-   * The prioritization associated with an entity such as if it's a threat or a high value target.
+   * The prioritization associated with an entity, such as if it's a threat or a high-value target.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TargetPriority target_priority = 22 [json_name = "targetPriority"];</code>
@@ -667,7 +601,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.TargetPriority getTargetPriority();
   /**
    * <pre>
-   * The prioritization associated with an entity such as if it's a threat or a high value target.
+   * The prioritization associated with an entity, such as if it's a threat or a high-value target.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TargetPriority target_priority = 22 [json_name = "targetPriority"];</code>
@@ -676,7 +610,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * A component that describes an entity's signal characteristics. Primarily used if the entity is a signal of interest
+   * Describes an entity's signal characteristics, primarily used when an entity is a signal of interest.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Signal signal = 25 [json_name = "signal"];</code>
@@ -685,7 +619,7 @@ public interface EntityOrBuilder extends
   boolean hasSignal();
   /**
    * <pre>
-   * A component that describes an entity's signal characteristics. Primarily used if the entity is a signal of interest
+   * Describes an entity's signal characteristics, primarily used when an entity is a signal of interest.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Signal signal = 25 [json_name = "signal"];</code>
@@ -694,7 +628,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Signal getSignal();
   /**
    * <pre>
-   * A component that describes an entity's signal characteristics. Primarily used if the entity is a signal of interest
+   * Describes an entity's signal characteristics, primarily used when an entity is a signal of interest.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Signal signal = 25 [json_name = "signal"];</code>
@@ -703,7 +637,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S interrogations. These are related to ADS-B modes
+   * A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S interrogations. These are related to ADS-B modes.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TransponderCodes transponder_codes = 26 [json_name = "transponderCodes"];</code>
@@ -712,7 +646,7 @@ public interface EntityOrBuilder extends
   boolean hasTransponderCodes();
   /**
    * <pre>
-   * A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S interrogations. These are related to ADS-B modes
+   * A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S interrogations. These are related to ADS-B modes.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TransponderCodes transponder_codes = 26 [json_name = "transponderCodes"];</code>
@@ -721,7 +655,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.TransponderCodes getTransponderCodes();
   /**
    * <pre>
-   * A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S interrogations. These are related to ADS-B modes
+   * A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S interrogations. These are related to ADS-B modes.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TransponderCodes transponder_codes = 26 [json_name = "transponderCodes"];</code>
@@ -730,34 +664,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Contains details on how to make out-of-band contact with an entity, such as via a phone or email
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.ContactDetails contact = 27 [json_name = "contact"];</code>
-   * @return Whether the contact field is set.
-   */
-  boolean hasContact();
-  /**
-   * <pre>
-   * Contains details on how to make out-of-band contact with an entity, such as via a phone or email
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.ContactDetails contact = 27 [json_name = "contact"];</code>
-   * @return The contact.
-   */
-  com.anduril.entitymanager.v1.ContactDetails getContact();
-  /**
-   * <pre>
-   * Contains details on how to make out-of-band contact with an entity, such as via a phone or email
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.ContactDetails contact = 27 [json_name = "contact"];</code>
-   */
-  com.anduril.entitymanager.v1.ContactDetailsOrBuilder getContactOrBuilder();
-
-  /**
-   * <pre>
-   * A component that describes an entity's security classification levels both at an overall classification level for the entity as well as on a per
+   * Describes an entity's security classification levels at an overall classification level and on a per
    * field level.
    * </pre>
    *
@@ -767,7 +674,7 @@ public interface EntityOrBuilder extends
   boolean hasDataClassification();
   /**
    * <pre>
-   * A component that describes an entity's security classification levels both at an overall classification level for the entity as well as on a per
+   * Describes an entity's security classification levels at an overall classification level and on a per
    * field level.
    * </pre>
    *
@@ -777,7 +684,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Classification getDataClassification();
   /**
    * <pre>
-   * A component that describes an entity's security classification levels both at an overall classification level for the entity as well as on a per
+   * Describes an entity's security classification levels at an overall classification level and on a per
    * field level.
    * </pre>
    *
@@ -811,33 +718,6 @@ public interface EntityOrBuilder extends
    * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
    */
   com.anduril.tasks.v2.TaskCatalogOrBuilder getTaskCatalogOrBuilder();
-
-  /**
-   * <pre>
-   * Media associated with an entity such as videos, images or thumbnails.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
-   * @return Whether the media field is set.
-   */
-  boolean hasMedia();
-  /**
-   * <pre>
-   * Media associated with an entity such as videos, images or thumbnails.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
-   * @return The media.
-   */
-  com.anduril.entitymanager.v1.Media getMedia();
-  /**
-   * <pre>
-   * Media associated with an entity such as videos, images or thumbnails.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
-   */
-  com.anduril.entitymanager.v1.MediaOrBuilder getMediaOrBuilder();
 
   /**
    * <pre>
@@ -895,7 +775,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Physical dimensions of the entity
+   * Physical dimensions of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];</code>
@@ -904,7 +784,7 @@ public interface EntityOrBuilder extends
   boolean hasDimensions();
   /**
    * <pre>
-   * Physical dimensions of the entity
+   * Physical dimensions of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];</code>
@@ -913,7 +793,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Dimensions getDimensions();
   /**
    * <pre>
-   * Physical dimensions of the entity
+   * Physical dimensions of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];</code>
@@ -949,7 +829,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Schedules associated with this entity
+   * Schedules associated with this entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];</code>
@@ -958,7 +838,7 @@ public interface EntityOrBuilder extends
   boolean hasSchedules();
   /**
    * <pre>
-   * Schedules associated with this entity
+   * Schedules associated with this entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];</code>
@@ -967,7 +847,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Schedules getSchedules();
   /**
    * <pre>
-   * Schedules associated with this entity
+   * Schedules associated with this entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];</code>
@@ -976,7 +856,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Health metrics or status reported by the entity
+   * Health metrics or connection status reported by the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Health health = 39 [json_name = "health"];</code>
@@ -985,7 +865,7 @@ public interface EntityOrBuilder extends
   boolean hasHealth();
   /**
    * <pre>
-   * Health metrics or status reported by the entity
+   * Health metrics or connection status reported by the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Health health = 39 [json_name = "health"];</code>
@@ -994,7 +874,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Health getHealth();
   /**
    * <pre>
-   * Health metrics or status reported by the entity
+   * Health metrics or connection status reported by the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Health health = 39 [json_name = "health"];</code>
@@ -1003,7 +883,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Details for the group associated with this entity
+   * Details for the group associated with this entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];</code>
@@ -1012,7 +892,7 @@ public interface EntityOrBuilder extends
   boolean hasGroupDetails();
   /**
    * <pre>
-   * Details for the group associated with this entity
+   * Details for the group associated with this entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];</code>
@@ -1021,7 +901,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.GroupDetails getGroupDetails();
   /**
    * <pre>
-   * Details for the group associated with this entity
+   * Details for the group associated with this entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];</code>
@@ -1030,34 +910,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Describes an entity's collaborative autonomous teaming status, if any.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.TeamStatus team_status = 41 [json_name = "teamStatus"];</code>
-   * @return Whether the teamStatus field is set.
-   */
-  boolean hasTeamStatus();
-  /**
-   * <pre>
-   * Describes an entity's collaborative autonomous teaming status, if any.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.TeamStatus team_status = 41 [json_name = "teamStatus"];</code>
-   * @return The teamStatus.
-   */
-  com.anduril.entitymanager.v1.TeamStatus getTeamStatus();
-  /**
-   * <pre>
-   * Describes an entity's collaborative autonomous teaming status, if any.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.TeamStatus team_status = 41 [json_name = "teamStatus"];</code>
-   */
-  com.anduril.entitymanager.v1.TeamStatusOrBuilder getTeamStatusOrBuilder();
-
-  /**
-   * <pre>
-   * Contains relevant supply information for the entity (e.g., munitions and fuel)
+   * Contains relevant supply information for the entity, such as munitions and fuel.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -1066,7 +919,7 @@ public interface EntityOrBuilder extends
   boolean hasSupplies();
   /**
    * <pre>
-   * Contains relevant supply information for the entity (e.g., munitions and fuel)
+   * Contains relevant supply information for the entity, such as munitions and fuel.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -1075,7 +928,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Supplies getSupplies();
   /**
    * <pre>
-   * Contains relevant supply information for the entity (e.g., munitions and fuel)
+   * Contains relevant supply information for the entity, such as munitions and fuel.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -1084,7 +937,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Orbit information for space objects
+   * Orbit information for space objects.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
@@ -1093,7 +946,7 @@ public interface EntityOrBuilder extends
   boolean hasOrbit();
   /**
    * <pre>
-   * Orbit information for space objects
+   * Orbit information for space objects.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
@@ -1102,7 +955,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Orbit getOrbit();
   /**
    * <pre>
-   * Orbit information for space objects
+   * Orbit information for space objects.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>

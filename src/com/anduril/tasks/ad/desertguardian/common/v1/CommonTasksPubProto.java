@@ -54,16 +54,16 @@ public final class CommonTasksPubProto {
       "eHighPriorityTrack\022\033\n\tentity_id\030\001 \001(\tR\010e" +
       "ntityId*N\n\nPowerState\022\027\n\023POWER_STATE_INV" +
       "ALID\020\000\022\022\n\016POWER_STATE_ON\020\001\022\023\n\017POWER_STAT" +
-      "E_OFF\020\002B\347\002\n-com.anduril.tasks.ad.desertg" +
+      "E_OFF\020\002B\353\002\n-com.anduril.tasks.ad.desertg" +
       "uardian.common.v1B\023CommonTasksPubProtoP\001" +
-      "ZVgithub.com/anduril/anduril-java/src/an" +
-      "duril/tasks/ad/desertguardian/common/v1;" +
-      "commonv1\242\002\005ATADC\252\002)Anduril.Tasks.Ad.Dese" +
-      "rtguardian.Common.V1\312\002)Anduril\\Tasks\\Ad\\" +
-      "Desertguardian\\Common\\V1\342\0025Anduril\\Tasks" +
-      "\\Ad\\Desertguardian\\Common\\V1\\GPBMetadata" +
-      "\352\002.Anduril::Tasks::Ad::Desertguardian::C" +
-      "ommon::V1b\006proto3"
+      "ZZgithub.com/anduril/lattice-sdk-java/sr" +
+      "c/anduril/tasks/ad/desertguardian/common" +
+      "/v1;commonv1\242\002\005ATADC\252\002)Anduril.Tasks.Ad." +
+      "Desertguardian.Common.V1\312\002)Anduril\\Tasks" +
+      "\\Ad\\Desertguardian\\Common\\V1\342\0025Anduril\\T" +
+      "asks\\Ad\\Desertguardian\\Common\\V1\\GPBMeta" +
+      "data\352\002.Anduril::Tasks::Ad::Desertguardia" +
+      "n::Common::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

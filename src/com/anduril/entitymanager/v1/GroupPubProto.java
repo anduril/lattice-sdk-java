@@ -19,11 +19,6 @@ public final class GroupPubProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_GroupDetails_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_Team_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_Team_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,16 +29,14 @@ public final class GroupPubProto {
   static {
     java.lang.String[] descriptorData = {
       "\n(anduril/entitymanager/v1/group.pub.pro" +
-      "to\022\030anduril.entitymanager.v1\"R\n\014GroupDet" +
-      "ails\0224\n\004team\030\001 \001(\0132\036.anduril.entitymanag" +
-      "er.v1.TeamH\000R\004teamB\014\n\ngroup_type\"\006\n\004Team" +
-      "B\375\001\n\034com.anduril.entitymanager.v1B\rGroup" +
-      "PubProtoP\001ZLgithub.com/anduril/anduril-j" +
-      "ava/src/anduril/entitymanager/v1;entitym" +
-      "anagerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V" +
-      "1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\E" +
-      "ntitymanager\\V1\\GPBMetadata\352\002\032Anduril::E" +
-      "ntitymanager::V1b\006proto3"
+      "to\022\030anduril.entitymanager.v1\"\016\n\014GroupDet" +
+      "ailsB\201\002\n\034com.anduril.entitymanager.v1B\rG" +
+      "roupPubProtoP\001ZPgithub.com/anduril/latti" +
+      "ce-sdk-java/src/anduril/entitymanager/v1" +
+      ";entitymanagerv1\242\002\003AEX\252\002\030Anduril.Entitym" +
+      "anager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$A" +
+      "nduril\\Entitymanager\\V1\\GPBMetadata\352\002\032An" +
+      "duril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -54,12 +47,6 @@ public final class GroupPubProto {
     internal_static_anduril_entitymanager_v1_GroupDetails_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GroupDetails_descriptor,
-        new java.lang.String[] { "Team", "GroupType", });
-    internal_static_anduril_entitymanager_v1_Team_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_anduril_entitymanager_v1_Team_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_Team_descriptor,
         new java.lang.String[] { });
   }
 

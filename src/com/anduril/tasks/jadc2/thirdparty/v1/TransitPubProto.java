@@ -50,15 +50,15 @@ public final class TransitPubProto {
       "point\"\212\001\n\013TeamTransit\0223\n\026transit_zone_en" +
       "tity_id\030\001 \001(\tR\023transitZoneEntityId\022F\n\020su" +
       "rface_speed_ms\030\002 \001(\0132\034.google.protobuf.D" +
-      "oubleValueR\016surfaceSpeedMsB\265\002\n%com.andur" +
+      "oubleValueR\016surfaceSpeedMsB\271\002\n%com.andur" +
       "il.tasks.jadc2.thirdparty.v1B\017TransitPub" +
-      "ProtoP\001ZRgithub.com/anduril/anduril-java" +
-      "/src/anduril/tasks/jadc2/thirdparty/v1;t" +
-      "hirdpartyv1\242\002\004ATJT\252\002!Anduril.Tasks.Jadc2" +
-      ".Thirdparty.V1\312\002!Anduril\\Tasks\\Jadc2\\Thi" +
-      "rdparty\\V1\342\002-Anduril\\Tasks\\Jadc2\\Thirdpa" +
-      "rty\\V1\\GPBMetadata\352\002%Anduril::Tasks::Jad" +
-      "c2::Thirdparty::V1b\006proto3"
+      "ProtoP\001ZVgithub.com/anduril/lattice-sdk-" +
+      "java/src/anduril/tasks/jadc2/thirdparty/" +
+      "v1;thirdpartyv1\242\002\004ATJT\252\002!Anduril.Tasks.J" +
+      "adc2.Thirdparty.V1\312\002!Anduril\\Tasks\\Jadc2" +
+      "\\Thirdparty\\V1\342\002-Anduril\\Tasks\\Jadc2\\Thi" +
+      "rdparty\\V1\\GPBMetadata\352\002%Anduril::Tasks:" +
+      ":Jadc2::Thirdparty::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

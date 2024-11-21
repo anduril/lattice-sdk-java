@@ -94,14 +94,14 @@ public final class LocationPubProto {
       "aternionR\013orientation\"s\n\005TMat3\022\020\n\003mxx\030\001 " +
       "\001(\002R\003mxx\022\020\n\003mxy\030\002 \001(\002R\003mxy\022\020\n\003mxz\030\003 \001(\002R" +
       "\003mxz\022\020\n\003myy\030\004 \001(\002R\003myy\022\020\n\003myz\030\005 \001(\002R\003myz" +
-      "\022\020\n\003mzz\030\006 \001(\002R\003mzzB\200\002\n\034com.anduril.entit" +
-      "ymanager.v1B\020LocationPubProtoP\001ZLgithub." +
-      "com/anduril/anduril-java/src/anduril/ent" +
-      "itymanager/v1;entitymanagerv1\242\002\003AEX\252\002\030An" +
-      "duril.Entitymanager.V1\312\002\030Anduril\\Entitym" +
-      "anager\\V1\342\002$Anduril\\Entitymanager\\V1\\GPB" +
-      "Metadata\352\002\032Anduril::Entitymanager::V1b\006p" +
-      "roto3"
+      "\022\020\n\003mzz\030\006 \001(\002R\003mzzB\204\002\n\034com.anduril.entit" +
+      "ymanager.v1B\020LocationPubProtoP\001ZPgithub." +
+      "com/anduril/lattice-sdk-java/src/anduril" +
+      "/entitymanager/v1;entitymanagerv1\242\002\003AEX\252" +
+      "\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\Ent" +
+      "itymanager\\V1\342\002$Anduril\\Entitymanager\\V1" +
+      "\\GPBMetadata\352\002\032Anduril::Entitymanager::V" +
+      "1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

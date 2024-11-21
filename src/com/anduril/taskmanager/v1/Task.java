@@ -615,8 +615,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.taskmanager.v1.Owner owner_;
   /**
    * <pre>
-   * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-   * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+   * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
    * for replication of task data to other nodes running Task Manager.
    * </pre>
    *
@@ -629,8 +628,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-   * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+   * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
    * for replication of task data to other nodes running Task Manager.
    * </pre>
    *
@@ -643,8 +641,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-   * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+   * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
    * for replication of task data to other nodes running Task Manager.
    * </pre>
    *
@@ -3619,8 +3616,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.taskmanager.v1.Owner, com.anduril.taskmanager.v1.Owner.Builder, com.anduril.taskmanager.v1.OwnerOrBuilder> ownerBuilder_;
     /**
      * <pre>
-     * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-     * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+     * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
      * for replication of task data to other nodes running Task Manager.
      * </pre>
      *
@@ -3632,8 +3628,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-     * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+     * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
      * for replication of task data to other nodes running Task Manager.
      * </pre>
      *
@@ -3649,8 +3644,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-     * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+     * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
      * for replication of task data to other nodes running Task Manager.
      * </pre>
      *
@@ -3671,8 +3665,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-     * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+     * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
      * for replication of task data to other nodes running Task Manager.
      * </pre>
      *
@@ -3691,8 +3684,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-     * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+     * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
      * for replication of task data to other nodes running Task Manager.
      * </pre>
      *
@@ -3716,8 +3708,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-     * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+     * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
      * for replication of task data to other nodes running Task Manager.
      * </pre>
      *
@@ -3735,8 +3726,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-     * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+     * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
      * for replication of task data to other nodes running Task Manager.
      * </pre>
      *
@@ -3749,8 +3739,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-     * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+     * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
      * for replication of task data to other nodes running Task Manager.
      * </pre>
      *
@@ -3766,8 +3755,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The networked owner of this Task. Populated on creation to be the asset on which the Task Manager is running. DO NOT
-     * UNDER ANY CIRCUMSTANCES change or modify this field. It is used to ensure that linear writes occur on the node responsible
+     * The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
      * for replication of task data to other nodes running Task Manager.
      * </pre>
      *

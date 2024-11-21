@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private AlternateId() {
-    source_ = "";
     id_ = "";
     type_ = 0;
   }
@@ -43,57 +42,6 @@ private static final long serialVersionUID = 0L;
     return com.anduril.entitymanager.v1.EntityPubProto.internal_static_anduril_entitymanager_v1_AlternateId_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.anduril.entitymanager.v1.AlternateId.class, com.anduril.entitymanager.v1.AlternateId.Builder.class);
-  }
-
-  public static final int SOURCE_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object source_ = "";
-  /**
-   * <pre>
-   * deprecated in favor of type
-   * </pre>
-   *
-   * <code>string source = 1 [json_name = "source", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=304
-   * @return The source.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public java.lang.String getSource() {
-    java.lang.Object ref = source_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      source_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * deprecated in favor of type
-   * </pre>
-   *
-   * <code>string source = 1 [json_name = "source", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-   *     See anduril/entitymanager/v1/entity.pub.proto;l=304
-   * @return The bytes for source.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.google.protobuf.ByteString
-      getSourceBytes() {
-    java.lang.Object ref = source_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      source_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
   }
 
   public static final int ID_FIELD_NUMBER = 2;
@@ -167,9 +115,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, source_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, id_);
     }
@@ -185,9 +130,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, source_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, id_);
     }
@@ -210,8 +152,6 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.AlternateId other = (com.anduril.entitymanager.v1.AlternateId) obj;
 
-    if (!getSource()
-        .equals(other.getSource())) return false;
     if (!getId()
         .equals(other.getId())) return false;
     if (type_ != other.type_) return false;
@@ -226,8 +166,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + SOURCE_FIELD_NUMBER;
-    hash = (53 * hash) + getSource().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
@@ -365,7 +303,6 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      source_ = "";
       id_ = "";
       type_ = 0;
       return this;
@@ -402,12 +339,9 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.anduril.entitymanager.v1.AlternateId result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.source_ = source_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.id_ = id_;
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.type_ = type_;
       }
     }
@@ -424,14 +358,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.AlternateId other) {
       if (other == com.anduril.entitymanager.v1.AlternateId.getDefaultInstance()) return this;
-      if (!other.getSource().isEmpty()) {
-        source_ = other.source_;
-        bitField0_ |= 0x00000001;
-        onChanged();
-      }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.type_ != 0) {
@@ -463,19 +392,14 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              source_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 10
             case 18: {
               id_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             } // case 18
             case 24: {
               type_ = input.readEnum();
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             } // case 24
             default: {
@@ -494,108 +418,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     private int bitField0_;
-
-    private java.lang.Object source_ = "";
-    /**
-     * <pre>
-     * deprecated in favor of type
-     * </pre>
-     *
-     * <code>string source = 1 [json_name = "source", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=304
-     * @return The source.
-     */
-    @java.lang.Deprecated public java.lang.String getSource() {
-      java.lang.Object ref = source_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        source_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * deprecated in favor of type
-     * </pre>
-     *
-     * <code>string source = 1 [json_name = "source", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=304
-     * @return The bytes for source.
-     */
-    @java.lang.Deprecated public com.google.protobuf.ByteString
-        getSourceBytes() {
-      java.lang.Object ref = source_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        source_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * deprecated in favor of type
-     * </pre>
-     *
-     * <code>string source = 1 [json_name = "source", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=304
-     * @param value The source to set.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder setSource(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      source_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * deprecated in favor of type
-     * </pre>
-     *
-     * <code>string source = 1 [json_name = "source", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=304
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder clearSource() {
-      source_ = getDefaultInstance().getSource();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * deprecated in favor of type
-     * </pre>
-     *
-     * <code>string source = 1 [json_name = "source", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.AlternateId.source is deprecated.
-     *     See anduril/entitymanager/v1/entity.pub.proto;l=304
-     * @param value The bytes for source to set.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder setSourceBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      source_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
 
     private java.lang.Object id_ = "";
     /**
@@ -640,7 +462,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       id_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -650,7 +472,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearId() {
       id_ = getDefaultInstance().getId();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -664,7 +486,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       id_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -684,7 +506,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeValue(int value) {
       type_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -706,7 +528,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -716,7 +538,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000002);
       type_ = 0;
       onChanged();
       return this;

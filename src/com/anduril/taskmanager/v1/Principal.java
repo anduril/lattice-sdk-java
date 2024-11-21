@@ -183,9 +183,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.taskmanager.v1.Principal onBehalfOf_;
   /**
    * <pre>
-   * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-   * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-   * this "on_behalf_of" Principal would represent the non-Flux node.
+   * The Principal _this_ Principal is acting on behalf of.
    *
    * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
    * </pre>
@@ -199,9 +197,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-   * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-   * this "on_behalf_of" Principal would represent the non-Flux node.
+   * The Principal _this_ Principal is acting on behalf of.
    *
    * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
    * </pre>
@@ -215,9 +211,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-   * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-   * this "on_behalf_of" Principal would represent the non-Flux node.
+   * The Principal _this_ Principal is acting on behalf of.
    *
    * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
    * </pre>
@@ -1104,9 +1098,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.taskmanager.v1.Principal, com.anduril.taskmanager.v1.Principal.Builder, com.anduril.taskmanager.v1.PrincipalOrBuilder> onBehalfOfBuilder_;
     /**
      * <pre>
-     * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-     * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-     * this "on_behalf_of" Principal would represent the non-Flux node.
+     * The Principal _this_ Principal is acting on behalf of.
      *
      * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
      * </pre>
@@ -1119,9 +1111,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-     * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-     * this "on_behalf_of" Principal would represent the non-Flux node.
+     * The Principal _this_ Principal is acting on behalf of.
      *
      * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
      * </pre>
@@ -1138,9 +1128,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-     * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-     * this "on_behalf_of" Principal would represent the non-Flux node.
+     * The Principal _this_ Principal is acting on behalf of.
      *
      * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
      * </pre>
@@ -1162,9 +1150,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-     * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-     * this "on_behalf_of" Principal would represent the non-Flux node.
+     * The Principal _this_ Principal is acting on behalf of.
      *
      * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
      * </pre>
@@ -1184,9 +1170,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-     * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-     * this "on_behalf_of" Principal would represent the non-Flux node.
+     * The Principal _this_ Principal is acting on behalf of.
      *
      * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
      * </pre>
@@ -1211,9 +1195,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-     * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-     * this "on_behalf_of" Principal would represent the non-Flux node.
+     * The Principal _this_ Principal is acting on behalf of.
      *
      * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
      * </pre>
@@ -1232,9 +1214,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-     * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-     * this "on_behalf_of" Principal would represent the non-Flux node.
+     * The Principal _this_ Principal is acting on behalf of.
      *
      * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
      * </pre>
@@ -1248,9 +1228,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-     * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-     * this "on_behalf_of" Principal would represent the non-Flux node.
+     * The Principal _this_ Principal is acting on behalf of.
      *
      * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
      * </pre>
@@ -1267,9 +1245,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Principal _this_ Principal is acting on behalf of. For example, if there is a Flux node connected to a non-Flux node,
-     * and that Flux node wants to act "on behalf of" that non-Flux node, _this_ Principal would represent the Flux node, and
-     * this "on_behalf_of" Principal would represent the non-Flux node.
+     * The Principal _this_ Principal is acting on behalf of.
      *
      * Likely only populated once in the nesting (i.e. the "on_behalf_of" Principal would not have another "on_behalf_of" in most cases).
      * </pre>

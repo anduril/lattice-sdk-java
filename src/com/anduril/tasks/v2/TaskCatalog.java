@@ -84,22 +84,6 @@ private static final long serialVersionUID = 0L;
     return taskDefinitions_.get(index);
   }
 
-  public static final int IS_ASSET_INHIBITED_FIELD_NUMBER = 2;
-  private boolean isAssetInhibited_ = false;
-  /**
-   * <pre>
-   * Asset is inhibited by VCE.
-   * Asset can still receive tasks but not be able to act on them until inhibition status is lifted.
-   * </pre>
-   *
-   * <code>bool is_asset_inhibited = 2 [json_name = "isAssetInhibited"];</code>
-   * @return The isAssetInhibited.
-   */
-  @java.lang.Override
-  public boolean getIsAssetInhibited() {
-    return isAssetInhibited_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -117,9 +101,6 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < taskDefinitions_.size(); i++) {
       output.writeMessage(1, taskDefinitions_.get(i));
     }
-    if (isAssetInhibited_ != false) {
-      output.writeBool(2, isAssetInhibited_);
-    }
     getUnknownFields().writeTo(output);
   }
 
@@ -132,10 +113,6 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < taskDefinitions_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, taskDefinitions_.get(i));
-    }
-    if (isAssetInhibited_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(2, isAssetInhibited_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -154,8 +131,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getTaskDefinitionsList()
         .equals(other.getTaskDefinitionsList())) return false;
-    if (getIsAssetInhibited()
-        != other.getIsAssetInhibited()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -171,9 +146,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TASK_DEFINITIONS_FIELD_NUMBER;
       hash = (53 * hash) + getTaskDefinitionsList().hashCode();
     }
-    hash = (37 * hash) + IS_ASSET_INHIBITED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsAssetInhibited());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -314,7 +286,6 @@ private static final long serialVersionUID = 0L;
         taskDefinitionsBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000001);
-      isAssetInhibited_ = false;
       return this;
     }
 
@@ -361,9 +332,6 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial0(com.anduril.tasks.v2.TaskCatalog result) {
       int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.isAssetInhibited_ = isAssetInhibited_;
-      }
     }
 
     @java.lang.Override
@@ -404,9 +372,6 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      if (other.getIsAssetInhibited() != false) {
-        setIsAssetInhibited(other.getIsAssetInhibited());
-      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -446,11 +411,6 @@ private static final long serialVersionUID = 0L;
               }
               break;
             } // case 10
-            case 16: {
-              isAssetInhibited_ = input.readBool();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 16
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -706,53 +666,6 @@ private static final long serialVersionUID = 0L;
         taskDefinitions_ = null;
       }
       return taskDefinitionsBuilder_;
-    }
-
-    private boolean isAssetInhibited_ ;
-    /**
-     * <pre>
-     * Asset is inhibited by VCE.
-     * Asset can still receive tasks but not be able to act on them until inhibition status is lifted.
-     * </pre>
-     *
-     * <code>bool is_asset_inhibited = 2 [json_name = "isAssetInhibited"];</code>
-     * @return The isAssetInhibited.
-     */
-    @java.lang.Override
-    public boolean getIsAssetInhibited() {
-      return isAssetInhibited_;
-    }
-    /**
-     * <pre>
-     * Asset is inhibited by VCE.
-     * Asset can still receive tasks but not be able to act on them until inhibition status is lifted.
-     * </pre>
-     *
-     * <code>bool is_asset_inhibited = 2 [json_name = "isAssetInhibited"];</code>
-     * @param value The isAssetInhibited to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIsAssetInhibited(boolean value) {
-
-      isAssetInhibited_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Asset is inhibited by VCE.
-     * Asset can still receive tasks but not be able to act on them until inhibition status is lifted.
-     * </pre>
-     *
-     * <code>bool is_asset_inhibited = 2 [json_name = "isAssetInhibited"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearIsAssetInhibited() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      isAssetInhibited_ = false;
-      onChanged();
-      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
