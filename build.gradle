@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.anduril'
-version = '1.0.0-SNAPSHOT26'
+version = '1.0.0-SNAPSHOT27'
 
 compileJava   {
   sourceCompatibility = '1.8'
