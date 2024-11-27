@@ -96,7 +96,7 @@
                 <version>0.6.0</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <publishingServerId>central</publishingServerId>
+                    <publishingServerId>maven</publishingServerId>
                 </configuration>
             </plugin>
             <plugin>
