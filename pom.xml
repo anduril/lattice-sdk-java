@@ -10,7 +10,15 @@
 
     <name>Anduril Lattice SDK</name>
     <description>The Lattice SDK vended in Java</description>
-    <url>http://anduril.com/</url>
+    <url>http://www.anduril.com</url>
+
+    <developers>
+        <developer>
+            <name>Anduril Industries Inc.</name>
+            <organization>Anduril Industries Inc.</organization>
+            <organizationUrl>http://www.anduril.com</organizationUrl>
+        </developer>
+    </developers>
 
     <licenses>
         <license>
