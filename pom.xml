@@ -6,7 +6,7 @@
 
     <groupId>com.anduril</groupId>
     <artifactId>lattice-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>0.0.0</version>
 
     <name>Anduril Lattice SDK</name>
     <description>The Lattice SDK vended in Java</description>
