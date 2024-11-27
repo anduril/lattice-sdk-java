@@ -30,15 +30,22 @@ jobs:
         with:
             java-version: '17'
             distribution: 'temurin'
-            server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-            settings-path: ${{ github.workspace }} # location for the settings.xml file     
+            server-id: central # Value of the distributionManagement/repository/id field of the pom.xml
+            settings-path: ${{ github.workspace }} # location for the settings.xml file  
+            server-username: MAVEN_USERNAME # env variable for username in deploy
+            server-password: MAVEN_CENTRAL_TOKEN # env variable for token in deploy
+            gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }} # Value of the GPG private key to import
+            gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml  
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v4
         with:
           semantic_version: 24.2.0
           extra_plugins: |
-            gradle-semantic-release-plugin@1.10.1
+            @terrestris/maven-semantic-release@3.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GRADLE_PUBLISH_KEY: ${{ secrets.GRADLE_PUBLISH_KEY }}
-          GRADLE_PUBLISH_SECRET: ${{ secrets.GRADLE_PUBLISH_SECRET }}
+          MAVEN_USERNAME: maven_username123
+          MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
