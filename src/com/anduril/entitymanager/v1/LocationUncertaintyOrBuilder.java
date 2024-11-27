@@ -9,7 +9,8 @@ public interface LocationUncertaintyOrBuilder extends
 
   /**
    * <pre>
-   * Positional covariance represented by the upper triangle of the covariance matrix.
+   * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -18,7 +19,8 @@ public interface LocationUncertaintyOrBuilder extends
   boolean hasPositionEnuCov();
   /**
    * <pre>
-   * Positional covariance represented by the upper triangle of the covariance matrix.
+   * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -27,7 +29,8 @@ public interface LocationUncertaintyOrBuilder extends
   com.anduril.entitymanager.v1.TMat3 getPositionEnuCov();
   /**
    * <pre>
-   * Positional covariance represented by the upper triangle of the covariance matrix.
+   * Positional covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 position_enu_cov = 1 [json_name = "positionEnuCov"];</code>
@@ -36,7 +39,8 @@ public interface LocationUncertaintyOrBuilder extends
 
   /**
    * <pre>
-   * Velocity covariance represented by the upper triangle of the covariance matrix.
+   * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -45,7 +49,8 @@ public interface LocationUncertaintyOrBuilder extends
   boolean hasVelocityEnuCov();
   /**
    * <pre>
-   * Velocity covariance represented by the upper triangle of the covariance matrix.
+   * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>
@@ -54,7 +59,8 @@ public interface LocationUncertaintyOrBuilder extends
   com.anduril.entitymanager.v1.TMat3 getVelocityEnuCov();
   /**
    * <pre>
-   * Velocity covariance represented by the upper triangle of the covariance matrix.
+   * Velocity covariance represented by the upper triangle of the covariance matrix. It is valid to populate
+   * only the diagonal of the matrix if the full covariance matrix is unknown.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.TMat3 velocity_enu_cov = 2 [json_name = "velocityEnuCov"];</code>

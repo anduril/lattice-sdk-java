@@ -80,12 +80,12 @@ public final class ManeuverPubProto {
       "rackingMode\022 \n\034LAUNCH_TRACKING_MODE_INVA" +
       "LID\020\000\022\'\n#LAUNCH_TRACKING_MODE_GO_TO_WAYP" +
       "OINT\020\001\022*\n&LAUNCH_TRACKING_MODE_TRACK_TO_" +
-      "WAYPOINT\020\002B\317\001\n\024com.anduril.tasks.v2B\020Man" +
-      "euverPubProtoP\001ZCgithub.com/anduril/andu" +
-      "ril-java/src/anduril/tasks/v2/shared;tas" +
-      "ksv2\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\" +
-      "Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352" +
-      "\002\022Anduril::Tasks::V2b\006proto3"
+      "WAYPOINT\020\002B\323\001\n\024com.anduril.tasks.v2B\020Man" +
+      "euverPubProtoP\001ZGgithub.com/anduril/latt" +
+      "ice-sdk-java/src/anduril/tasks/v2/shared" +
+      ";tasksv2\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Andu" +
+      "ril\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetad" +
+      "ata\352\002\022Anduril::Tasks::V2b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

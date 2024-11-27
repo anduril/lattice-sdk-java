@@ -9,8 +9,7 @@ public interface TransponderCodesOrBuilder extends
 
   /**
    * <pre>
-   * The mode 1 code assigned to military assets. Mode 1 is a 5-bit decimal (1-31) value. Note that Mode 1 codes are
-   * NOT unique. A zero mode code indicates No Statement.
+   * The mode 1 code assigned to military assets.
    * </pre>
    *
    * <code>uint32 mode1 = 1 [json_name = "mode1", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -20,8 +19,7 @@ public interface TransponderCodesOrBuilder extends
 
   /**
    * <pre>
-   * The Mode 2 code assigned to military assets. Mode 2 is a 12-bit decimal (1-4095) value. If displaying to a user,
-   * convert to 4 digit octal 0001-7777. Note that Mode 2 codes are NOT unique. A zero mode code indicates No Statement.
+   * The Mode 2 code assigned to military assets.
    * </pre>
    *
    * <code>uint32 mode2 = 2 [json_name = "mode2", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -31,8 +29,7 @@ public interface TransponderCodesOrBuilder extends
 
   /**
    * <pre>
-   * The Mode 3 code assigned by ATC to the asset. Mode 3 is a 12-bit decimal (1-4095) value. If displaying to a user,
-   * convert to 4 digit octal 0001-7777. Note that Mode 3 codes are NOT unique. A zero mode code indicates No Statement.
+   * The Mode 3 code assigned by ATC to the asset.
    * </pre>
    *
    * <code>uint32 mode3 = 3 [json_name = "mode3", (.anduril.entitymanager.v1.overridable) = true];</code>

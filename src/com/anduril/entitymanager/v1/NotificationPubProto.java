@@ -35,14 +35,14 @@ public final class NotificationPubProto {
       "\030\001 \001(\0132 .anduril.entitymanager.v1.Entity" +
       "R\006entity\022\035\n\nfield_path\030\002 \001(\tR\tfieldPath\022" +
       "D\n\nprovenance\030\003 \001(\0132$.anduril.entitymana" +
-      "ger.v1.ProvenanceR\nprovenanceB\204\002\n\034com.an" +
+      "ger.v1.ProvenanceR\nprovenanceB\210\002\n\034com.an" +
       "duril.entitymanager.v1B\024NotificationPubP" +
-      "rotoP\001ZLgithub.com/anduril/anduril-java/" +
-      "src/anduril/entitymanager/v1;entitymanag" +
-      "erv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030" +
-      "Anduril\\Entitymanager\\V1\342\002$Anduril\\Entit" +
-      "ymanager\\V1\\GPBMetadata\352\002\032Anduril::Entit" +
-      "ymanager::V1b\006proto3"
+      "rotoP\001ZPgithub.com/anduril/lattice-sdk-j" +
+      "ava/src/anduril/entitymanager/v1;entitym" +
+      "anagerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V" +
+      "1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\E" +
+      "ntitymanager\\V1\\GPBMetadata\352\002\032Anduril::E" +
+      "ntitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

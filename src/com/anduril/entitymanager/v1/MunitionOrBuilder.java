@@ -9,9 +9,8 @@ public interface MunitionOrBuilder extends
 
   /**
    * <pre>
-   * unique munition identifier (for the DoD would be called a munition code. e.g., AGM-114 for the AGM-114 Hellfire missile)
-   * no "componentIdentifier" field option included. It may be possible munitions with the same identifier (e.g., AGM-114)
-   * but different condition codes or quantities (e.g., qty 4 in condition A but qty 2 in condition F) are included in the
+   * unique munition identifier (for the DoD would be called a munition code). It may be possible munitions with the same identifier
+   * but different condition codes or quantities (e.g., qty 4 in condition A but qty 2 in condition F) to be included in the
    * repeated munitions field of the supplies message.
    * </pre>
    *
@@ -21,9 +20,8 @@ public interface MunitionOrBuilder extends
   java.lang.String getMunitionId();
   /**
    * <pre>
-   * unique munition identifier (for the DoD would be called a munition code. e.g., AGM-114 for the AGM-114 Hellfire missile)
-   * no "componentIdentifier" field option included. It may be possible munitions with the same identifier (e.g., AGM-114)
-   * but different condition codes or quantities (e.g., qty 4 in condition A but qty 2 in condition F) are included in the
+   * unique munition identifier (for the DoD would be called a munition code). It may be possible munitions with the same identifier
+   * but different condition codes or quantities (e.g., qty 4 in condition A but qty 2 in condition F) to be included in the
    * repeated munitions field of the supplies message.
    * </pre>
    *
@@ -35,7 +33,7 @@ public interface MunitionOrBuilder extends
 
   /**
    * <pre>
-   * long form name of the munition (e.g., AGM-114 Hellfire)
+   * long form name of the munition
    * </pre>
    *
    * <code>string name = 2 [json_name = "name"];</code>
@@ -44,7 +42,7 @@ public interface MunitionOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * long form name of the munition (e.g., AGM-114 Hellfire)
+   * long form name of the munition
    * </pre>
    *
    * <code>string name = 2 [json_name = "name"];</code>

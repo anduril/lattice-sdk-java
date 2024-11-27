@@ -30,20 +30,10 @@ public final class RelationshipPubProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_RelationshipType_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_Tether_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_Tether_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_TrackedBy_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_TrackedBy_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_Configure_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_Configure_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_GroupChild_descriptor;
   static final 
@@ -78,32 +68,28 @@ public final class RelationshipPubProto {
       "ty_id\030\001 \001(\tR\017relatedEntityId\022\'\n\017relation" +
       "ship_id\030\002 \001(\tR\016relationshipId\022W\n\021relatio" +
       "nship_type\030\003 \001(\0132*.anduril.entitymanager" +
-      ".v1.RelationshipTypeR\020relationshipType\"\277" +
-      "\003\n\020RelationshipType\022:\n\006tether\030\001 \001(\0132 .an" +
-      "duril.entitymanager.v1.TetherH\000R\006tether\022" +
-      "D\n\ntracked_by\030\002 \001(\0132#.anduril.entitymana" +
-      "ger.v1.TrackedByH\000R\ttrackedBy\022C\n\tconfigu" +
-      "re\030\003 \001(\0132#.anduril.entitymanager.v1.Conf" +
-      "igureH\000R\tconfigure\022G\n\013group_child\030\004 \001(\0132" +
-      "$.anduril.entitymanager.v1.GroupChildH\000R" +
-      "\ngroupChild\022J\n\014group_parent\030\005 \001(\0132%.andu" +
-      "ril.entitymanager.v1.GroupParentH\000R\013grou" +
-      "pParent\022G\n\013merged_from\030\006 \001(\0132$.anduril.e" +
-      "ntitymanager.v1.MergedFromH\000R\nmergedFrom" +
-      "B\006\n\004type\"\010\n\006Tether\"\304\001\n\tTrackedBy\022]\n\031acti" +
-      "vely_tracking_sensors\030\001 \001(\0132!.anduril.en" +
-      "titymanager.v1.SensorsR\027activelyTracking" +
-      "Sensors\022X\n\032last_measurement_timestamp\030\002 " +
-      "\001(\0132\032.google.protobuf.TimestampR\030lastMea" +
-      "surementTimestamp\"\013\n\tConfigure\"\014\n\nGroupC" +
-      "hild\"\r\n\013GroupParent\"\014\n\nMergedFromB\204\002\n\034co" +
-      "m.anduril.entitymanager.v1B\024Relationship" +
-      "PubProtoP\001ZLgithub.com/anduril/anduril-j" +
-      "ava/src/anduril/entitymanager/v1;entitym" +
-      "anagerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V" +
-      "1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\E" +
-      "ntitymanager\\V1\\GPBMetadata\352\002\032Anduril::E" +
-      "ntitymanager::V1b\006proto3"
+      ".v1.RelationshipTypeR\020relationshipType\"\276" +
+      "\002\n\020RelationshipType\022D\n\ntracked_by\030\002 \001(\0132" +
+      "#.anduril.entitymanager.v1.TrackedByH\000R\t" +
+      "trackedBy\022G\n\013group_child\030\004 \001(\0132$.anduril" +
+      ".entitymanager.v1.GroupChildH\000R\ngroupChi" +
+      "ld\022J\n\014group_parent\030\005 \001(\0132%.anduril.entit" +
+      "ymanager.v1.GroupParentH\000R\013groupParent\022G" +
+      "\n\013merged_from\030\006 \001(\0132$.anduril.entitymana" +
+      "ger.v1.MergedFromH\000R\nmergedFromB\006\n\004type\"" +
+      "\304\001\n\tTrackedBy\022]\n\031actively_tracking_senso" +
+      "rs\030\001 \001(\0132!.anduril.entitymanager.v1.Sens" +
+      "orsR\027activelyTrackingSensors\022X\n\032last_mea" +
+      "surement_timestamp\030\002 \001(\0132\032.google.protob" +
+      "uf.TimestampR\030lastMeasurementTimestamp\"\014" +
+      "\n\nGroupChild\"\r\n\013GroupParent\"\014\n\nMergedFro" +
+      "mB\210\002\n\034com.anduril.entitymanager.v1B\024Rela" +
+      "tionshipPubProtoP\001ZPgithub.com/anduril/l" +
+      "attice-sdk-java/src/anduril/entitymanage" +
+      "r/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril.Ent" +
+      "itymanager.V1\312\002\030Anduril\\Entitymanager\\V1" +
+      "\342\002$Anduril\\Entitymanager\\V1\\GPBMetadata\352" +
+      "\002\032Anduril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -128,39 +114,27 @@ public final class RelationshipPubProto {
     internal_static_anduril_entitymanager_v1_RelationshipType_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_RelationshipType_descriptor,
-        new java.lang.String[] { "Tether", "TrackedBy", "Configure", "GroupChild", "GroupParent", "MergedFrom", "Type", });
-    internal_static_anduril_entitymanager_v1_Tether_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_anduril_entitymanager_v1_Tether_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_Tether_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "TrackedBy", "GroupChild", "GroupParent", "MergedFrom", "Type", });
     internal_static_anduril_entitymanager_v1_TrackedBy_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_anduril_entitymanager_v1_TrackedBy_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_TrackedBy_descriptor,
         new java.lang.String[] { "ActivelyTrackingSensors", "LastMeasurementTimestamp", });
-    internal_static_anduril_entitymanager_v1_Configure_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_anduril_entitymanager_v1_Configure_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_Configure_descriptor,
-        new java.lang.String[] { });
     internal_static_anduril_entitymanager_v1_GroupChild_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_anduril_entitymanager_v1_GroupChild_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GroupChild_descriptor,
         new java.lang.String[] { });
     internal_static_anduril_entitymanager_v1_GroupParent_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_anduril_entitymanager_v1_GroupParent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GroupParent_descriptor,
         new java.lang.String[] { });
     internal_static_anduril_entitymanager_v1_MergedFrom_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_anduril_entitymanager_v1_MergedFrom_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_MergedFrom_descriptor,

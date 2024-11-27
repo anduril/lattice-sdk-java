@@ -66,25 +66,5 @@ public interface ObjectiveOrBuilder extends
    */
   com.anduril.tasks.v2.PointOrBuilder getPointOrBuilder();
 
-  /**
-   * <pre>
-   * the asset (if known) which produced the objective (useful for time-series lookups of historical objectives).
-   * </pre>
-   *
-   * <code>string produced_by_asset_id = 2 [json_name = "producedByAssetId"];</code>
-   * @return The producedByAssetId.
-   */
-  java.lang.String getProducedByAssetId();
-  /**
-   * <pre>
-   * the asset (if known) which produced the objective (useful for time-series lookups of historical objectives).
-   * </pre>
-   *
-   * <code>string produced_by_asset_id = 2 [json_name = "producedByAssetId"];</code>
-   * @return The bytes for producedByAssetId.
-   */
-  com.google.protobuf.ByteString
-      getProducedByAssetIdBytes();
-
   com.anduril.tasks.v2.Objective.ObjectiveCase getObjectiveCase();
 }

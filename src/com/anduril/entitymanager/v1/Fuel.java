@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object fuelId_ = "";
   /**
    * <pre>
-   * unique munition identifier (for the DoD would be called a munition code. e.g., AGM-114 for the AGM-114 Hellfire missile)
+   * unique fuel identifier
    * </pre>
    *
    * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
@@ -71,7 +71,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * unique munition identifier (for the DoD would be called a munition code. e.g., AGM-114 for the AGM-114 Hellfire missile)
+   * unique fuel identifier
    * </pre>
    *
    * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
@@ -97,7 +97,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_ = "";
   /**
    * <pre>
-   * long form name of the munition (e.g., AGM-114 Hellfire)
+   * long form name of the fuel source.
    * </pre>
    *
    * <code>string name = 2 [json_name = "name"];</code>
@@ -118,7 +118,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * long form name of the munition (e.g., AGM-114 Hellfire)
+   * long form name of the fuel source.
    * </pre>
    *
    * <code>string name = 2 [json_name = "name"];</code>
@@ -181,7 +181,7 @@ private static final long serialVersionUID = 0L;
   private int amountGallons_ = 0;
   /**
    * <pre>
-   * amount on hand of the unit of measure
+   * amount of gallons on hand
    * </pre>
    *
    * <code>uint32 amount_gallons = 4 [json_name = "amountGallons"];</code>
@@ -798,7 +798,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object fuelId_ = "";
     /**
      * <pre>
-     * unique munition identifier (for the DoD would be called a munition code. e.g., AGM-114 for the AGM-114 Hellfire missile)
+     * unique fuel identifier
      * </pre>
      *
      * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
@@ -818,7 +818,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * unique munition identifier (for the DoD would be called a munition code. e.g., AGM-114 for the AGM-114 Hellfire missile)
+     * unique fuel identifier
      * </pre>
      *
      * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
@@ -839,7 +839,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * unique munition identifier (for the DoD would be called a munition code. e.g., AGM-114 for the AGM-114 Hellfire missile)
+     * unique fuel identifier
      * </pre>
      *
      * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
@@ -856,7 +856,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * unique munition identifier (for the DoD would be called a munition code. e.g., AGM-114 for the AGM-114 Hellfire missile)
+     * unique fuel identifier
      * </pre>
      *
      * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
@@ -870,7 +870,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * unique munition identifier (for the DoD would be called a munition code. e.g., AGM-114 for the AGM-114 Hellfire missile)
+     * unique fuel identifier
      * </pre>
      *
      * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
@@ -890,7 +890,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * long form name of the munition (e.g., AGM-114 Hellfire)
+     * long form name of the fuel source.
      * </pre>
      *
      * <code>string name = 2 [json_name = "name"];</code>
@@ -910,7 +910,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * long form name of the munition (e.g., AGM-114 Hellfire)
+     * long form name of the fuel source.
      * </pre>
      *
      * <code>string name = 2 [json_name = "name"];</code>
@@ -931,7 +931,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * long form name of the munition (e.g., AGM-114 Hellfire)
+     * long form name of the fuel source.
      * </pre>
      *
      * <code>string name = 2 [json_name = "name"];</code>
@@ -948,7 +948,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * long form name of the munition (e.g., AGM-114 Hellfire)
+     * long form name of the fuel source.
      * </pre>
      *
      * <code>string name = 2 [json_name = "name"];</code>
@@ -962,7 +962,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * long form name of the munition (e.g., AGM-114 Hellfire)
+     * long form name of the fuel source.
      * </pre>
      *
      * <code>string name = 2 [json_name = "name"];</code>
@@ -1137,7 +1137,7 @@ private static final long serialVersionUID = 0L;
     private int amountGallons_ ;
     /**
      * <pre>
-     * amount on hand of the unit of measure
+     * amount of gallons on hand
      * </pre>
      *
      * <code>uint32 amount_gallons = 4 [json_name = "amountGallons"];</code>
@@ -1149,7 +1149,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * amount on hand of the unit of measure
+     * amount of gallons on hand
      * </pre>
      *
      * <code>uint32 amount_gallons = 4 [json_name = "amountGallons"];</code>
@@ -1165,7 +1165,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * amount on hand of the unit of measure
+     * amount of gallons on hand
      * </pre>
      *
      * <code>uint32 amount_gallons = 4 [json_name = "amountGallons"];</code>

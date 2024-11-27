@@ -9,7 +9,7 @@ public interface FuelOrBuilder extends
 
   /**
    * <pre>
-   * unique munition identifier (for the DoD would be called a munition code. e.g., AGM-114 for the AGM-114 Hellfire missile)
+   * unique fuel identifier
    * </pre>
    *
    * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
@@ -18,7 +18,7 @@ public interface FuelOrBuilder extends
   java.lang.String getFuelId();
   /**
    * <pre>
-   * unique munition identifier (for the DoD would be called a munition code. e.g., AGM-114 for the AGM-114 Hellfire missile)
+   * unique fuel identifier
    * </pre>
    *
    * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
@@ -29,7 +29,7 @@ public interface FuelOrBuilder extends
 
   /**
    * <pre>
-   * long form name of the munition (e.g., AGM-114 Hellfire)
+   * long form name of the fuel source.
    * </pre>
    *
    * <code>string name = 2 [json_name = "name"];</code>
@@ -38,7 +38,7 @@ public interface FuelOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * long form name of the munition (e.g., AGM-114 Hellfire)
+   * long form name of the fuel source.
    * </pre>
    *
    * <code>string name = 2 [json_name = "name"];</code>
@@ -76,7 +76,7 @@ public interface FuelOrBuilder extends
 
   /**
    * <pre>
-   * amount on hand of the unit of measure
+   * amount of gallons on hand
    * </pre>
    *
    * <code>uint32 amount_gallons = 4 [json_name = "amountGallons"];</code>

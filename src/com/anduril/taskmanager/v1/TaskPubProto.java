@@ -155,68 +155,67 @@ public final class TaskPubProto {
       "ager.v1.UserH\000R\004user\0222\n\004team\030\004 \001(\0132\034.and" +
       "uril.taskmanager.v1.TeamH\000R\004team\022C\n\014on_b" +
       "ehalf_of\030\003 \001(\0132!.anduril.taskmanager.v1." +
-      "PrincipalR\nonBehalfOfB\007\n\005agent\"\231\001\n\006Syste" +
+      "PrincipalR\nonBehalfOfB\007\n\005agent\"\204\001\n\006Syste" +
       "m\022!\n\014service_name\030\001 \001(\tR\013serviceName\022\033\n\t" +
-      "entity_id\030\002 \001(\tR\010entityId\022\031\n\010asset_id\030\003 " +
-      "\001(\tR\007assetId\0224\n\026manages_own_scheduling\030\004" +
-      " \001(\010R\024managesOwnScheduling\"\037\n\004User\022\027\n\007us" +
-      "er_id\030\001 \001(\tR\006userId\"p\n\tRelations\022=\n\010assi" +
-      "gnee\030\001 \001(\0132!.anduril.taskmanager.v1.Prin" +
-      "cipalR\010assignee\022$\n\016parent_task_id\030\002 \001(\tR" +
-      "\014parentTaskId\"\356\001\n\tTaskEvent\022@\n\nevent_typ" +
-      "e\030\001 \001(\0162!.anduril.taskmanager.v1.EventTy" +
-      "peR\teventType\0220\n\004task\030\002 \001(\0132\034.anduril.ta" +
-      "skmanager.v1.TaskR\004task\022=\n\ttask_view\030\003 \001" +
-      "(\0162 .anduril.taskmanager.v1.TaskViewR\010ta" +
-      "skView\022.\n\004time\030\004 \001(\0132\032.google.protobuf.T" +
-      "imestampR\004time\"|\n\013TaskVersion\022\027\n\007task_id" +
-      "\030\001 \001(\tR\006taskId\022-\n\022definition_version\030\002 \001" +
-      "(\rR\021definitionVersion\022%\n\016status_version\030" +
-      "\003 \001(\rR\rstatusVersion\"\207\002\n\014StatusUpdate\022=\n" +
-      "\007version\030\001 \001(\0132#.anduril.taskmanager.v1." +
-      "TaskVersionR\007version\022:\n\006status\030\002 \001(\0132\".a" +
-      "nduril.taskmanager.v1.TaskStatusR\006status" +
-      "\0229\n\006author\030\003 \001(\0132!.anduril.taskmanager.v" +
-      "1.PrincipalR\006author\022A\n\016scheduled_time\030\004 " +
-      "\001(\0132\032.google.protobuf.TimestampR\rschedul" +
-      "edTime\"D\n\020DefinitionUpdate\0220\n\004task\030\001 \001(\013" +
-      "2\034.anduril.taskmanager.v1.TaskR\004task\"?\n\005" +
-      "Owner\022\031\n\010asset_id\030\001 \001(\tR\007assetId\022\033\n\tenti" +
-      "ty_id\030\002 \001(\tR\010entityId\"H\n\013Replication\0229\n\n" +
-      "stale_time\030\001 \001(\0132\032.google.protobuf.Times" +
-      "tampR\tstaleTime\"P\n\nAllocation\022B\n\ractive_" +
-      "agents\030\001 \003(\0132\035.anduril.taskmanager.v1.Ag" +
-      "entR\014activeAgents\"\\\n\004Team\022\033\n\tentity_id\030\001" +
-      " \001(\tR\010entityId\0227\n\007members\030\002 \003(\0132\035.anduri" +
-      "l.taskmanager.v1.AgentR\007members\"?\n\005Agent" +
-      "\022\031\n\010asset_id\030\001 \001(\tR\007assetId\022\033\n\tentity_id" +
-      "\030\002 \001(\tR\010entityId\"b\n\nTaskEntity\0228\n\006entity" +
-      "\030\001 \001(\0132 .anduril.entitymanager.v1.Entity" +
-      "R\006entity\022\032\n\010snapshot\030\002 \001(\010R\010snapshot*\357\002\n" +
-      "\006Status\022\022\n\016STATUS_INVALID\020\000\022\022\n\016STATUS_CR" +
-      "EATED\020\001\022\037\n\033STATUS_SCHEDULED_IN_MANAGER\020\002" +
-      "\022\017\n\013STATUS_SENT\020\003\022\032\n\026STATUS_MACHINE_RECE" +
-      "IPT\020\004\022\016\n\nSTATUS_ACK\020\005\022\020\n\014STATUS_WILCO\020\006\022" +
-      "\024\n\020STATUS_EXECUTING\020\007\022\035\n\031STATUS_WAITING_" +
-      "FOR_UPDATE\020\010\022\022\n\016STATUS_DONE_OK\020\t\022\026\n\022STAT" +
-      "US_DONE_NOT_OK\020\n\022\023\n\017STATUS_REPLACED\020\013\022\033\n" +
-      "\027STATUS_CANCEL_REQUESTED\020\014\022\035\n\031STATUS_COM" +
-      "PLETE_REQUESTED\020\r\022\033\n\027STATUS_VERSION_REJE" +
-      "CTED\020\016*\205\001\n\tErrorCode\022\026\n\022ERROR_CODE_INVAL" +
-      "ID\020\000\022\030\n\024ERROR_CODE_CANCELLED\020\001\022\027\n\023ERROR_" +
-      "CODE_REJECTED\020\002\022\026\n\022ERROR_CODE_TIMEOUT\020\003\022" +
-      "\025\n\021ERROR_CODE_FAILED\020\004*n\n\tEventType\022\026\n\022E" +
-      "VENT_TYPE_INVALID\020\000\022\026\n\022EVENT_TYPE_CREATE" +
-      "D\020\001\022\025\n\021EVENT_TYPE_UPDATE\020\002\022\032\n\026EVENT_TYPE" +
-      "_PREEXISTING\020\003*M\n\010TaskView\022\025\n\021TASK_VIEW_" +
-      "INVALID\020\000\022\025\n\021TASK_VIEW_MANAGER\020\001\022\023\n\017TASK" +
-      "_VIEW_AGENT\020\002B\356\001\n\032com.anduril.taskmanage" +
-      "r.v1B\014TaskPubProtoP\001ZHgithub.com/anduril" +
-      "/anduril-java/src/anduril/taskmanager/v1" +
-      ";taskmanagerv1\242\002\003ATX\252\002\026Anduril.Taskmanag" +
-      "er.V1\312\002\026Anduril\\Taskmanager\\V1\342\002\"Anduril" +
-      "\\Taskmanager\\V1\\GPBMetadata\352\002\030Anduril::T" +
-      "askmanager::V1b\006proto3"
+      "entity_id\030\002 \001(\tR\010entityId\0224\n\026manages_own" +
+      "_scheduling\030\004 \001(\010R\024managesOwnSchedulingJ" +
+      "\004\010\003\020\004\"\037\n\004User\022\027\n\007user_id\030\001 \001(\tR\006userId\"p" +
+      "\n\tRelations\022=\n\010assignee\030\001 \001(\0132!.anduril." +
+      "taskmanager.v1.PrincipalR\010assignee\022$\n\016pa" +
+      "rent_task_id\030\002 \001(\tR\014parentTaskId\"\356\001\n\tTas" +
+      "kEvent\022@\n\nevent_type\030\001 \001(\0162!.anduril.tas" +
+      "kmanager.v1.EventTypeR\teventType\0220\n\004task" +
+      "\030\002 \001(\0132\034.anduril.taskmanager.v1.TaskR\004ta" +
+      "sk\022=\n\ttask_view\030\003 \001(\0162 .anduril.taskmana" +
+      "ger.v1.TaskViewR\010taskView\022.\n\004time\030\004 \001(\0132" +
+      "\032.google.protobuf.TimestampR\004time\"|\n\013Tas" +
+      "kVersion\022\027\n\007task_id\030\001 \001(\tR\006taskId\022-\n\022def" +
+      "inition_version\030\002 \001(\rR\021definitionVersion" +
+      "\022%\n\016status_version\030\003 \001(\rR\rstatusVersion\"" +
+      "\207\002\n\014StatusUpdate\022=\n\007version\030\001 \001(\0132#.andu" +
+      "ril.taskmanager.v1.TaskVersionR\007version\022" +
+      ":\n\006status\030\002 \001(\0132\".anduril.taskmanager.v1" +
+      ".TaskStatusR\006status\0229\n\006author\030\003 \001(\0132!.an" +
+      "duril.taskmanager.v1.PrincipalR\006author\022A" +
+      "\n\016scheduled_time\030\004 \001(\0132\032.google.protobuf" +
+      ".TimestampR\rscheduledTime\"D\n\020DefinitionU" +
+      "pdate\0220\n\004task\030\001 \001(\0132\034.anduril.taskmanage" +
+      "r.v1.TaskR\004task\"*\n\005Owner\022\033\n\tentity_id\030\002 " +
+      "\001(\tR\010entityIdJ\004\010\001\020\002\"H\n\013Replication\0229\n\nst" +
+      "ale_time\030\001 \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\tstaleTime\"P\n\nAllocation\022B\n\ractive_ag" +
+      "ents\030\001 \003(\0132\035.anduril.taskmanager.v1.Agen" +
+      "tR\014activeAgents\"\\\n\004Team\022\033\n\tentity_id\030\001 \001" +
+      "(\tR\010entityId\0227\n\007members\030\002 \003(\0132\035.anduril." +
+      "taskmanager.v1.AgentR\007members\"*\n\005Agent\022\033" +
+      "\n\tentity_id\030\002 \001(\tR\010entityIdJ\004\010\001\020\002\"b\n\nTas" +
+      "kEntity\0228\n\006entity\030\001 \001(\0132 .anduril.entity" +
+      "manager.v1.EntityR\006entity\022\032\n\010snapshot\030\002 " +
+      "\001(\010R\010snapshot*\357\002\n\006Status\022\022\n\016STATUS_INVAL" +
+      "ID\020\000\022\022\n\016STATUS_CREATED\020\001\022\037\n\033STATUS_SCHED" +
+      "ULED_IN_MANAGER\020\002\022\017\n\013STATUS_SENT\020\003\022\032\n\026ST" +
+      "ATUS_MACHINE_RECEIPT\020\004\022\016\n\nSTATUS_ACK\020\005\022\020" +
+      "\n\014STATUS_WILCO\020\006\022\024\n\020STATUS_EXECUTING\020\007\022\035" +
+      "\n\031STATUS_WAITING_FOR_UPDATE\020\010\022\022\n\016STATUS_" +
+      "DONE_OK\020\t\022\026\n\022STATUS_DONE_NOT_OK\020\n\022\023\n\017STA" +
+      "TUS_REPLACED\020\013\022\033\n\027STATUS_CANCEL_REQUESTE" +
+      "D\020\014\022\035\n\031STATUS_COMPLETE_REQUESTED\020\r\022\033\n\027ST" +
+      "ATUS_VERSION_REJECTED\020\016*\205\001\n\tErrorCode\022\026\n" +
+      "\022ERROR_CODE_INVALID\020\000\022\030\n\024ERROR_CODE_CANC" +
+      "ELLED\020\001\022\027\n\023ERROR_CODE_REJECTED\020\002\022\026\n\022ERRO" +
+      "R_CODE_TIMEOUT\020\003\022\025\n\021ERROR_CODE_FAILED\020\004*" +
+      "n\n\tEventType\022\026\n\022EVENT_TYPE_INVALID\020\000\022\026\n\022" +
+      "EVENT_TYPE_CREATED\020\001\022\025\n\021EVENT_TYPE_UPDAT" +
+      "E\020\002\022\032\n\026EVENT_TYPE_PREEXISTING\020\003*M\n\010TaskV" +
+      "iew\022\025\n\021TASK_VIEW_INVALID\020\000\022\025\n\021TASK_VIEW_" +
+      "MANAGER\020\001\022\023\n\017TASK_VIEW_AGENT\020\002B\362\001\n\032com.a" +
+      "nduril.taskmanager.v1B\014TaskPubProtoP\001ZLg" +
+      "ithub.com/anduril/lattice-sdk-java/src/a" +
+      "nduril/taskmanager/v1;taskmanagerv1\242\002\003AT" +
+      "X\252\002\026Anduril.Taskmanager.V1\312\002\026Anduril\\Tas" +
+      "kmanager\\V1\342\002\"Anduril\\Taskmanager\\V1\\GPB" +
+      "Metadata\352\002\030Anduril::Taskmanager::V1b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -254,7 +253,7 @@ public final class TaskPubProto {
     internal_static_anduril_taskmanager_v1_System_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_taskmanager_v1_System_descriptor,
-        new java.lang.String[] { "ServiceName", "EntityId", "AssetId", "ManagesOwnScheduling", });
+        new java.lang.String[] { "ServiceName", "EntityId", "ManagesOwnScheduling", });
     internal_static_anduril_taskmanager_v1_User_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_anduril_taskmanager_v1_User_fieldAccessorTable = new
@@ -296,7 +295,7 @@ public final class TaskPubProto {
     internal_static_anduril_taskmanager_v1_Owner_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_taskmanager_v1_Owner_descriptor,
-        new java.lang.String[] { "AssetId", "EntityId", });
+        new java.lang.String[] { "EntityId", });
     internal_static_anduril_taskmanager_v1_Replication_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_anduril_taskmanager_v1_Replication_fieldAccessorTable = new
@@ -320,7 +319,7 @@ public final class TaskPubProto {
     internal_static_anduril_taskmanager_v1_Agent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_taskmanager_v1_Agent_descriptor,
-        new java.lang.String[] { "AssetId", "EntityId", });
+        new java.lang.String[] { "EntityId", });
     internal_static_anduril_taskmanager_v1_TaskEntity_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_anduril_taskmanager_v1_TaskEntity_fieldAccessorTable = new

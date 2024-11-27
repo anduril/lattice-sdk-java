@@ -20,8 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Ontology() {
-    descriptors_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
     platformType_ = "";
     specificType_ = "";
     template_ = 0;
@@ -47,74 +45,12 @@ private static final long serialVersionUID = 0L;
             com.anduril.entitymanager.v1.Ontology.class, com.anduril.entitymanager.v1.Ontology.Builder.class);
   }
 
-  public static final int DESCRIPTORS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private com.google.protobuf.LazyStringArrayList descriptors_ =
-      com.google.protobuf.LazyStringArrayList.emptyList();
-  /**
-   * <pre>
-   * DEPRECATED: list of possible descriptors in preferred order.
-   * </pre>
-   *
-   * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-   *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-   * @return A list containing the descriptors.
-   */
-  @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
-      getDescriptorsList() {
-    return descriptors_;
-  }
-  /**
-   * <pre>
-   * DEPRECATED: list of possible descriptors in preferred order.
-   * </pre>
-   *
-   * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-   *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-   * @return The count of descriptors.
-   */
-  @java.lang.Deprecated public int getDescriptorsCount() {
-    return descriptors_.size();
-  }
-  /**
-   * <pre>
-   * DEPRECATED: list of possible descriptors in preferred order.
-   * </pre>
-   *
-   * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-   *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-   * @param index The index of the element to return.
-   * @return The descriptors at the given index.
-   */
-  @java.lang.Deprecated public java.lang.String getDescriptors(int index) {
-    return descriptors_.get(index);
-  }
-  /**
-   * <pre>
-   * DEPRECATED: list of possible descriptors in preferred order.
-   * </pre>
-   *
-   * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-   *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-   * @param index The index of the value to return.
-   * @return The bytes of the descriptors at the given index.
-   */
-  @java.lang.Deprecated public com.google.protobuf.ByteString
-      getDescriptorsBytes(int index) {
-    return descriptors_.getByteString(index);
-  }
-
   public static final int PLATFORM_TYPE_FIELD_NUMBER = 3;
   @SuppressWarnings("serial")
   private volatile java.lang.Object platformType_ = "";
   /**
    * <pre>
-   * A string that describes the asset's high-level type with natural language. These values include, but are not
-   * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE PLATFORM TYPE values found in MIL-STD 6016F.
+   * A string that describes the entity's high-level type with natural language.
    * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
    * </pre>
    *
@@ -136,8 +72,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A string that describes the asset's high-level type with natural language. These values include, but are not
-   * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE PLATFORM TYPE values found in MIL-STD 6016F.
+   * A string that describes the entity's high-level type with natural language.
    * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
    * </pre>
    *
@@ -164,8 +99,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object specificType_ = "";
   /**
    * <pre>
-   * A string that describes the asset's exact model or type. These values include, but are not
-   * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE SPECIFIC TYPE values found in MIL-STD 6016F.
+   * A string that describes the entity's exact model or type.
    * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
    * </pre>
    *
@@ -187,8 +121,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A string that describes the asset's exact model or type. These values include, but are not
-   * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE SPECIFIC TYPE values found in MIL-STD 6016F.
+   * A string that describes the entity's exact model or type.
    * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
    * </pre>
    *
@@ -250,9 +183,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < descriptors_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, descriptors_.getRaw(i));
-    }
     if (template_ != com.anduril.entitymanager.v1.Template.TEMPLATE_INVALID.getNumber()) {
       output.writeEnum(2, template_);
     }
@@ -271,14 +201,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    {
-      int dataSize = 0;
-      for (int i = 0; i < descriptors_.size(); i++) {
-        dataSize += computeStringSizeNoTag(descriptors_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getDescriptorsList().size();
-    }
     if (template_ != com.anduril.entitymanager.v1.Template.TEMPLATE_INVALID.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, template_);
@@ -304,8 +226,6 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.Ontology other = (com.anduril.entitymanager.v1.Ontology) obj;
 
-    if (!getDescriptorsList()
-        .equals(other.getDescriptorsList())) return false;
     if (!getPlatformType()
         .equals(other.getPlatformType())) return false;
     if (!getSpecificType()
@@ -322,10 +242,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getDescriptorsCount() > 0) {
-      hash = (37 * hash) + DESCRIPTORS_FIELD_NUMBER;
-      hash = (53 * hash) + getDescriptorsList().hashCode();
-    }
     hash = (37 * hash) + PLATFORM_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getPlatformType().hashCode();
     hash = (37 * hash) + SPECIFIC_TYPE_FIELD_NUMBER;
@@ -465,8 +381,6 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      descriptors_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
       platformType_ = "";
       specificType_ = "";
       template_ = 0;
@@ -504,16 +418,12 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.anduril.entitymanager.v1.Ontology result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        descriptors_.makeImmutable();
-        result.descriptors_ = descriptors_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.platformType_ = platformType_;
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.specificType_ = specificType_;
       }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.template_ = template_;
       }
     }
@@ -530,24 +440,14 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.Ontology other) {
       if (other == com.anduril.entitymanager.v1.Ontology.getDefaultInstance()) return this;
-      if (!other.descriptors_.isEmpty()) {
-        if (descriptors_.isEmpty()) {
-          descriptors_ = other.descriptors_;
-          bitField0_ |= 0x00000001;
-        } else {
-          ensureDescriptorsIsMutable();
-          descriptors_.addAll(other.descriptors_);
-        }
-        onChanged();
-      }
       if (!other.getPlatformType().isEmpty()) {
         platformType_ = other.platformType_;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSpecificType().isEmpty()) {
         specificType_ = other.specificType_;
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.template_ != 0) {
@@ -579,25 +479,19 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              ensureDescriptorsIsMutable();
-              descriptors_.add(s);
-              break;
-            } // case 10
             case 16: {
               template_ = input.readEnum();
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000004;
               break;
             } // case 16
             case 26: {
               platformType_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             } // case 26
             case 34: {
               specificType_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             } // case 34
             default: {
@@ -617,176 +511,10 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringArrayList descriptors_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
-    private void ensureDescriptorsIsMutable() {
-      if (!descriptors_.isModifiable()) {
-        descriptors_ = new com.google.protobuf.LazyStringArrayList(descriptors_);
-      }
-      bitField0_ |= 0x00000001;
-    }
-    /**
-     * <pre>
-     * DEPRECATED: list of possible descriptors in preferred order.
-     * </pre>
-     *
-     * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-     *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-     * @return A list containing the descriptors.
-     */
-    @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
-        getDescriptorsList() {
-      descriptors_.makeImmutable();
-      return descriptors_;
-    }
-    /**
-     * <pre>
-     * DEPRECATED: list of possible descriptors in preferred order.
-     * </pre>
-     *
-     * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-     *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-     * @return The count of descriptors.
-     */
-    @java.lang.Deprecated public int getDescriptorsCount() {
-      return descriptors_.size();
-    }
-    /**
-     * <pre>
-     * DEPRECATED: list of possible descriptors in preferred order.
-     * </pre>
-     *
-     * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-     *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-     * @param index The index of the element to return.
-     * @return The descriptors at the given index.
-     */
-    @java.lang.Deprecated public java.lang.String getDescriptors(int index) {
-      return descriptors_.get(index);
-    }
-    /**
-     * <pre>
-     * DEPRECATED: list of possible descriptors in preferred order.
-     * </pre>
-     *
-     * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-     *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-     * @param index The index of the value to return.
-     * @return The bytes of the descriptors at the given index.
-     */
-    @java.lang.Deprecated public com.google.protobuf.ByteString
-        getDescriptorsBytes(int index) {
-      return descriptors_.getByteString(index);
-    }
-    /**
-     * <pre>
-     * DEPRECATED: list of possible descriptors in preferred order.
-     * </pre>
-     *
-     * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-     *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-     * @param index The index to set the value at.
-     * @param value The descriptors to set.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder setDescriptors(
-        int index, java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureDescriptorsIsMutable();
-      descriptors_.set(index, value);
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DEPRECATED: list of possible descriptors in preferred order.
-     * </pre>
-     *
-     * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-     *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-     * @param value The descriptors to add.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder addDescriptors(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureDescriptorsIsMutable();
-      descriptors_.add(value);
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DEPRECATED: list of possible descriptors in preferred order.
-     * </pre>
-     *
-     * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-     *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-     * @param values The descriptors to add.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder addAllDescriptors(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureDescriptorsIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, descriptors_);
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DEPRECATED: list of possible descriptors in preferred order.
-     * </pre>
-     *
-     * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-     *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder clearDescriptors() {
-      descriptors_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DEPRECATED: list of possible descriptors in preferred order.
-     * </pre>
-     *
-     * <code>repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Ontology.descriptors is deprecated.
-     *     See anduril/entitymanager/v1/ontology.pub.proto;l=25
-     * @param value The bytes of the descriptors to add.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder addDescriptorsBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      ensureDescriptorsIsMutable();
-      descriptors_.add(value);
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object platformType_ = "";
     /**
      * <pre>
-     * A string that describes the asset's high-level type with natural language. These values include, but are not
-     * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE PLATFORM TYPE values found in MIL-STD 6016F.
+     * A string that describes the entity's high-level type with natural language.
      * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
      * </pre>
      *
@@ -807,8 +535,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A string that describes the asset's high-level type with natural language. These values include, but are not
-     * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE PLATFORM TYPE values found in MIL-STD 6016F.
+     * A string that describes the entity's high-level type with natural language.
      * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
      * </pre>
      *
@@ -830,8 +557,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A string that describes the asset's high-level type with natural language. These values include, but are not
-     * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE PLATFORM TYPE values found in MIL-STD 6016F.
+     * A string that describes the entity's high-level type with natural language.
      * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
      * </pre>
      *
@@ -843,14 +569,13 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       platformType_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * A string that describes the asset's high-level type with natural language. These values include, but are not
-     * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE PLATFORM TYPE values found in MIL-STD 6016F.
+     * A string that describes the entity's high-level type with natural language.
      * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
      * </pre>
      *
@@ -859,14 +584,13 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPlatformType() {
       platformType_ = getDefaultInstance().getPlatformType();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * A string that describes the asset's high-level type with natural language. These values include, but are not
-     * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE PLATFORM TYPE values found in MIL-STD 6016F.
+     * A string that describes the entity's high-level type with natural language.
      * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
      * </pre>
      *
@@ -879,7 +603,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       platformType_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -887,8 +611,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object specificType_ = "";
     /**
      * <pre>
-     * A string that describes the asset's exact model or type. These values include, but are not
-     * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE SPECIFIC TYPE values found in MIL-STD 6016F.
+     * A string that describes the entity's exact model or type.
      * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
      * </pre>
      *
@@ -909,8 +632,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A string that describes the asset's exact model or type. These values include, but are not
-     * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE SPECIFIC TYPE values found in MIL-STD 6016F.
+     * A string that describes the entity's exact model or type.
      * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
      * </pre>
      *
@@ -932,8 +654,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A string that describes the asset's exact model or type. These values include, but are not
-     * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE SPECIFIC TYPE values found in MIL-STD 6016F.
+     * A string that describes the entity's exact model or type.
      * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
      * </pre>
      *
@@ -945,14 +666,13 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       specificType_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * A string that describes the asset's exact model or type. These values include, but are not
-     * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE SPECIFIC TYPE values found in MIL-STD 6016F.
+     * A string that describes the entity's exact model or type.
      * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
      * </pre>
      *
@@ -961,14 +681,13 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSpecificType() {
       specificType_ = getDefaultInstance().getSpecificType();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * A string that describes the asset's exact model or type. These values include, but are not
-     * limited to the AIR/SURFACE/SUBSURFACE/LAND/SPACE SPECIFIC TYPE values found in MIL-STD 6016F.
+     * A string that describes the entity's exact model or type.
      * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
      * </pre>
      *
@@ -981,7 +700,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       specificType_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1009,7 +728,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTemplateValue(int value) {
       template_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1039,7 +758,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       template_ = value.getNumber();
       onChanged();
       return this;
@@ -1053,7 +772,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTemplate() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000004);
       template_ = 0;
       onChanged();
       return this;

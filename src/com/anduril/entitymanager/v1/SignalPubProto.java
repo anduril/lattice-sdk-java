@@ -232,14 +232,14 @@ public final class SignalPubProto {
       "PE_UNIDIRECTIONAL_VERTICAL_SECTOR\020\r\022.\n*S" +
       "CAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTO" +
       "R\020\016\022#\n\037SCAN_TYPE_UNIDIRECTIONAL_SECTOR\020\017" +
-      "\022\"\n\036SCAN_TYPE_BIDIRECTIONAL_SECTOR\020\020B\376\001\n" +
+      "\022\"\n\036SCAN_TYPE_BIDIRECTIONAL_SECTOR\020\020B\202\002\n" +
       "\034com.anduril.entitymanager.v1B\016SignalPub" +
-      "ProtoP\001ZLgithub.com/anduril/anduril-java" +
-      "/src/anduril/entitymanager/v1;entitymana" +
-      "gerv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002" +
-      "\030Anduril\\Entitymanager\\V1\342\002$Anduril\\Enti" +
-      "tymanager\\V1\\GPBMetadata\352\002\032Anduril::Enti" +
-      "tymanager::V1b\006proto3"
+      "ProtoP\001ZPgithub.com/anduril/lattice-sdk-" +
+      "java/src/anduril/entitymanager/v1;entity" +
+      "managerv1\242\002\003AEX\252\002\030Anduril.Entitymanager." +
+      "V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\" +
+      "Entitymanager\\V1\\GPBMetadata\352\002\032Anduril::" +
+      "Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

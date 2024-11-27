@@ -43,27 +43,31 @@ public interface SensorOrBuilder extends
    * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
+   * @deprecated anduril.entitymanager.v1.Sensor.field_of_view is deprecated.
+   *     See anduril/entitymanager/v1/sensors.pub.proto;l=29
    * @return Whether the fieldOfView field is set.
    */
-  boolean hasFieldOfView();
+  @java.lang.Deprecated boolean hasFieldOfView();
   /**
    * <pre>
    * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
+   * @deprecated anduril.entitymanager.v1.Sensor.field_of_view is deprecated.
+   *     See anduril/entitymanager/v1/sensors.pub.proto;l=29
    * @return The fieldOfView.
    */
-  com.anduril.entitymanager.v1.FieldOfView getFieldOfView();
+  @java.lang.Deprecated com.anduril.entitymanager.v1.FieldOfView getFieldOfView();
   /**
    * <pre>
    * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];</code>
+   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
    */
-  com.anduril.entitymanager.v1.FieldOfViewOrBuilder getFieldOfViewOrBuilder();
+  @java.lang.Deprecated com.anduril.entitymanager.v1.FieldOfViewOrBuilder getFieldOfViewOrBuilder();
 
   /**
    * <pre>

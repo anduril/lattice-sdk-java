@@ -35,11 +35,11 @@ public final class GeometryPubProto {
       "pos\030\002 \001(\0132\021.anduril.type.LLAR\013topRightPo" +
       "s\022\035\n\ngrid_width\030\003 \001(\rR\tgridWidth\022\037\n\013grid" +
       "_height\030\004 \001(\rR\ngridHeight\022\037\n\013cell_values" +
-      "\030\005 \001(\014R\ncellValuesB\247\001\n\020com.anduril.typeB" +
-      "\020GeometryPubProtoP\001Z0github.com/anduril/" +
-      "anduril-java/src/anduril/type\242\002\003ATX\252\002\014An" +
-      "duril.Type\312\002\014Anduril\\Type\342\002\030Anduril\\Type" +
-      "\\GPBMetadata\352\002\rAnduril::Typeb\006proto3"
+      "\030\005 \001(\014R\ncellValuesB\253\001\n\020com.anduril.typeB" +
+      "\020GeometryPubProtoP\001Z4github.com/anduril/" +
+      "lattice-sdk-java/src/anduril/type\242\002\003ATX\252" +
+      "\002\014Anduril.Type\312\002\014Anduril\\Type\342\002\030Anduril\\" +
+      "Type\\GPBMetadata\352\002\rAnduril::Typeb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

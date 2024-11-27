@@ -51,14 +51,14 @@ public final class SchedulePubProto {
       "tion_millis\030\002 \001(\004R\016durationMillis*n\n\014Sch" +
       "eduleType\022\031\n\025SCHEDULE_TYPE_INVALID\020\000\022\036\n\032" +
       "SCHEDULE_TYPE_ZONE_ENABLED\020\001\022#\n\037SCHEDULE" +
-      "_TYPE_ZONE_TEMP_ENABLED\020\002B\200\002\n\034com.anduri" +
-      "l.entitymanager.v1B\020SchedulePubProtoP\001ZL" +
-      "github.com/anduril/anduril-java/src/andu" +
-      "ril/entitymanager/v1;entitymanagerv1\242\002\003A" +
-      "EX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\" +
-      "Entitymanager\\V1\342\002$Anduril\\Entitymanager" +
-      "\\V1\\GPBMetadata\352\002\032Anduril::Entitymanager" +
-      "::V1b\006proto3"
+      "_TYPE_ZONE_TEMP_ENABLED\020\002B\204\002\n\034com.anduri" +
+      "l.entitymanager.v1B\020SchedulePubProtoP\001ZP" +
+      "github.com/anduril/lattice-sdk-java/src/" +
+      "anduril/entitymanager/v1;entitymanagerv1" +
+      "\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andu" +
+      "ril\\Entitymanager\\V1\342\002$Anduril\\Entityman" +
+      "ager\\V1\\GPBMetadata\352\002\032Anduril::Entityman" +
+      "ager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

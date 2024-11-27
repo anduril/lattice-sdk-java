@@ -61,14 +61,14 @@ public final class TargetPriorityPubProto {
       "\025highValueTargetListId\022F\n high_value_tar" +
       "get_description_id\030\002 \001(\tR\034highValueTarge" +
       "tDescriptionId\"%\n\006Threat\022\033\n\tis_threat\030\001 " +
-      "\001(\010R\010isThreatB\206\002\n\034com.anduril.entitymana" +
-      "ger.v1B\026TargetPriorityPubProtoP\001ZLgithub" +
-      ".com/anduril/anduril-java/src/anduril/en" +
-      "titymanager/v1;entitymanagerv1\242\002\003AEX\252\002\030A" +
-      "nduril.Entitymanager.V1\312\002\030Anduril\\Entity" +
-      "manager\\V1\342\002$Anduril\\Entitymanager\\V1\\GP" +
-      "BMetadata\352\002\032Anduril::Entitymanager::V1b\006" +
-      "proto3"
+      "\001(\010R\010isThreatB\212\002\n\034com.anduril.entitymana" +
+      "ger.v1B\026TargetPriorityPubProtoP\001ZPgithub" +
+      ".com/anduril/lattice-sdk-java/src/anduri" +
+      "l/entitymanager/v1;entitymanagerv1\242\002\003AEX" +
+      "\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\En" +
+      "titymanager\\V1\342\002$Anduril\\Entitymanager\\V" +
+      "1\\GPBMetadata\352\002\032Anduril::Entitymanager::" +
+      "V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

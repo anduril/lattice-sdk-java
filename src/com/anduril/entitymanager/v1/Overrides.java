@@ -21,7 +21,6 @@ private static final long serialVersionUID = 0L;
   }
   private Overrides() {
     override_ = java.util.Collections.emptyList();
-    provenance_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -85,67 +84,6 @@ private static final long serialVersionUID = 0L;
     return override_.get(index);
   }
 
-  public static final int PROVENANCE_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private java.util.List<com.anduril.entitymanager.v1.OverrideProvenance> provenance_;
-  /**
-   * <pre>
-   * Deprecated: do not use
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.OverrideProvenance> getProvenanceList() {
-    return provenance_;
-  }
-  /**
-   * <pre>
-   * Deprecated: do not use
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public java.util.List<? extends com.anduril.entitymanager.v1.OverrideProvenanceOrBuilder> 
-      getProvenanceOrBuilderList() {
-    return provenance_;
-  }
-  /**
-   * <pre>
-   * Deprecated: do not use
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public int getProvenanceCount() {
-    return provenance_.size();
-  }
-  /**
-   * <pre>
-   * Deprecated: do not use
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.OverrideProvenance getProvenance(int index) {
-    return provenance_.get(index);
-  }
-  /**
-   * <pre>
-   * Deprecated: do not use
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.OverrideProvenanceOrBuilder getProvenanceOrBuilder(
-      int index) {
-    return provenance_.get(index);
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -160,9 +98,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < provenance_.size(); i++) {
-      output.writeMessage(1, provenance_.get(i));
-    }
     for (int i = 0; i < override_.size(); i++) {
       output.writeMessage(2, override_.get(i));
     }
@@ -175,10 +110,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < provenance_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, provenance_.get(i));
-    }
     for (int i = 0; i < override_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, override_.get(i));
@@ -200,8 +131,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getOverrideList()
         .equals(other.getOverrideList())) return false;
-    if (!getProvenanceList()
-        .equals(other.getProvenanceList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -216,10 +145,6 @@ private static final long serialVersionUID = 0L;
     if (getOverrideCount() > 0) {
       hash = (37 * hash) + OVERRIDE_FIELD_NUMBER;
       hash = (53 * hash) + getOverrideList().hashCode();
-    }
-    if (getProvenanceCount() > 0) {
-      hash = (37 * hash) + PROVENANCE_FIELD_NUMBER;
-      hash = (53 * hash) + getProvenanceList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -361,13 +286,6 @@ private static final long serialVersionUID = 0L;
         overrideBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000001);
-      if (provenanceBuilder_ == null) {
-        provenance_ = java.util.Collections.emptyList();
-      } else {
-        provenance_ = null;
-        provenanceBuilder_.clear();
-      }
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -409,15 +327,6 @@ private static final long serialVersionUID = 0L;
         result.override_ = override_;
       } else {
         result.override_ = overrideBuilder_.build();
-      }
-      if (provenanceBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
-          provenance_ = java.util.Collections.unmodifiableList(provenance_);
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.provenance_ = provenance_;
-      } else {
-        result.provenance_ = provenanceBuilder_.build();
       }
     }
 
@@ -463,32 +372,6 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      if (provenanceBuilder_ == null) {
-        if (!other.provenance_.isEmpty()) {
-          if (provenance_.isEmpty()) {
-            provenance_ = other.provenance_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureProvenanceIsMutable();
-            provenance_.addAll(other.provenance_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.provenance_.isEmpty()) {
-          if (provenanceBuilder_.isEmpty()) {
-            provenanceBuilder_.dispose();
-            provenanceBuilder_ = null;
-            provenance_ = other.provenance_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-            provenanceBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getProvenanceFieldBuilder() : null;
-          } else {
-            provenanceBuilder_.addAllMessages(other.provenance_);
-          }
-        }
-      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -515,19 +398,6 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              com.anduril.entitymanager.v1.OverrideProvenance m =
-                  input.readMessage(
-                      com.anduril.entitymanager.v1.OverrideProvenance.parser(),
-                      extensionRegistry);
-              if (provenanceBuilder_ == null) {
-                ensureProvenanceIsMutable();
-                provenance_.add(m);
-              } else {
-                provenanceBuilder_.addMessage(m);
-              }
-              break;
-            } // case 10
             case 18: {
               com.anduril.entitymanager.v1.Override m =
                   input.readMessage(
@@ -796,318 +666,6 @@ private static final long serialVersionUID = 0L;
         override_ = null;
       }
       return overrideBuilder_;
-    }
-
-    private java.util.List<com.anduril.entitymanager.v1.OverrideProvenance> provenance_ =
-      java.util.Collections.emptyList();
-    private void ensureProvenanceIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
-        provenance_ = new java.util.ArrayList<com.anduril.entitymanager.v1.OverrideProvenance>(provenance_);
-        bitField0_ |= 0x00000002;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.anduril.entitymanager.v1.OverrideProvenance, com.anduril.entitymanager.v1.OverrideProvenance.Builder, com.anduril.entitymanager.v1.OverrideProvenanceOrBuilder> provenanceBuilder_;
-
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.OverrideProvenance> getProvenanceList() {
-      if (provenanceBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(provenance_);
-      } else {
-        return provenanceBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public int getProvenanceCount() {
-      if (provenanceBuilder_ == null) {
-        return provenance_.size();
-      } else {
-        return provenanceBuilder_.getCount();
-      }
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.OverrideProvenance getProvenance(int index) {
-      if (provenanceBuilder_ == null) {
-        return provenance_.get(index);
-      } else {
-        return provenanceBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setProvenance(
-        int index, com.anduril.entitymanager.v1.OverrideProvenance value) {
-      if (provenanceBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureProvenanceIsMutable();
-        provenance_.set(index, value);
-        onChanged();
-      } else {
-        provenanceBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setProvenance(
-        int index, com.anduril.entitymanager.v1.OverrideProvenance.Builder builderForValue) {
-      if (provenanceBuilder_ == null) {
-        ensureProvenanceIsMutable();
-        provenance_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        provenanceBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addProvenance(com.anduril.entitymanager.v1.OverrideProvenance value) {
-      if (provenanceBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureProvenanceIsMutable();
-        provenance_.add(value);
-        onChanged();
-      } else {
-        provenanceBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addProvenance(
-        int index, com.anduril.entitymanager.v1.OverrideProvenance value) {
-      if (provenanceBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureProvenanceIsMutable();
-        provenance_.add(index, value);
-        onChanged();
-      } else {
-        provenanceBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addProvenance(
-        com.anduril.entitymanager.v1.OverrideProvenance.Builder builderForValue) {
-      if (provenanceBuilder_ == null) {
-        ensureProvenanceIsMutable();
-        provenance_.add(builderForValue.build());
-        onChanged();
-      } else {
-        provenanceBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addProvenance(
-        int index, com.anduril.entitymanager.v1.OverrideProvenance.Builder builderForValue) {
-      if (provenanceBuilder_ == null) {
-        ensureProvenanceIsMutable();
-        provenance_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        provenanceBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addAllProvenance(
-        java.lang.Iterable<? extends com.anduril.entitymanager.v1.OverrideProvenance> values) {
-      if (provenanceBuilder_ == null) {
-        ensureProvenanceIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, provenance_);
-        onChanged();
-      } else {
-        provenanceBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder clearProvenance() {
-      if (provenanceBuilder_ == null) {
-        provenance_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-      } else {
-        provenanceBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder removeProvenance(int index) {
-      if (provenanceBuilder_ == null) {
-        ensureProvenanceIsMutable();
-        provenance_.remove(index);
-        onChanged();
-      } else {
-        provenanceBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.OverrideProvenance.Builder getProvenanceBuilder(
-        int index) {
-      return getProvenanceFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.OverrideProvenanceOrBuilder getProvenanceOrBuilder(
-        int index) {
-      if (provenanceBuilder_ == null) {
-        return provenance_.get(index);  } else {
-        return provenanceBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<? extends com.anduril.entitymanager.v1.OverrideProvenanceOrBuilder> 
-         getProvenanceOrBuilderList() {
-      if (provenanceBuilder_ != null) {
-        return provenanceBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(provenance_);
-      }
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.OverrideProvenance.Builder addProvenanceBuilder() {
-      return getProvenanceFieldBuilder().addBuilder(
-          com.anduril.entitymanager.v1.OverrideProvenance.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.OverrideProvenance.Builder addProvenanceBuilder(
-        int index) {
-      return getProvenanceFieldBuilder().addBuilder(
-          index, com.anduril.entitymanager.v1.OverrideProvenance.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.OverrideProvenance.Builder> 
-         getProvenanceBuilderList() {
-      return getProvenanceFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.anduril.entitymanager.v1.OverrideProvenance, com.anduril.entitymanager.v1.OverrideProvenance.Builder, com.anduril.entitymanager.v1.OverrideProvenanceOrBuilder> 
-        getProvenanceFieldBuilder() {
-      if (provenanceBuilder_ == null) {
-        provenanceBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.anduril.entitymanager.v1.OverrideProvenance, com.anduril.entitymanager.v1.OverrideProvenance.Builder, com.anduril.entitymanager.v1.OverrideProvenanceOrBuilder>(
-                provenance_,
-                ((bitField0_ & 0x00000002) != 0),
-                getParentForChildren(),
-                isClean());
-        provenance_ = null;
-      }
-      return provenanceBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

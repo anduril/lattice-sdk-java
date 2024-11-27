@@ -10,7 +10,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.54.1)",
-    comments = "Source: anduril/taskmanager/v1/task_manager_api.pub.proto")
+    comments = "Source: anduril/taskmanager/v1/task_manager_grpcapi.pub.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class TaskManagerAPIGrpc {
 
@@ -269,7 +269,7 @@ public final class TaskManagerAPIGrpc {
     /**
      * <pre>
      * Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
-     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC (no Flux access)
+     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC
      * </pre>
      */
     default void listenAsAgent(com.anduril.taskmanager.v1.ListenAsAgentRequest request,
@@ -360,7 +360,7 @@ public final class TaskManagerAPIGrpc {
     /**
      * <pre>
      * Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
-     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC (no Flux access)
+     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC
      * </pre>
      */
     public void listenAsAgent(com.anduril.taskmanager.v1.ListenAsAgentRequest request,
@@ -433,7 +433,7 @@ public final class TaskManagerAPIGrpc {
     /**
      * <pre>
      * Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
-     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC (no Flux access)
+     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC
      * </pre>
      */
     public java.util.Iterator<com.anduril.taskmanager.v1.ListenAsAgentResponse> listenAsAgent(
@@ -613,7 +613,7 @@ public final class TaskManagerAPIGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.anduril.taskmanager.v1.TaskManagerApiPubProto.getDescriptor();
+      return com.anduril.taskmanager.v1.TaskManagerGrpcapiPubProto.getDescriptor();
     }
 
     @java.lang.Override
