@@ -5,7 +5,7 @@ package com.anduril.tasks.v2;
 
 /**
  * <pre>
- * Individual payload configuration, can represent a munition such as a missile, a gun, or a non-kinetic effect.
+ * Individual payload configuration.
  * </pre>
  *
  * Protobuf type {@code anduril.tasks.v2.PayloadConfiguration}
@@ -268,7 +268,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Individual payload configuration, can represent a munition such as a missile, a gun, or a non-kinetic effect.
+   * Individual payload configuration.
    * </pre>
    *
    * Protobuf type {@code anduril.tasks.v2.PayloadConfiguration}

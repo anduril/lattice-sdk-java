@@ -9,7 +9,7 @@ public interface StreamEntityComponentsRequestOrBuilder extends
 
   /**
    * <pre>
-   * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+   * lower_snake_case component names to include in response events, e.g. location. Only included components will
    * populate.
    * </pre>
    *
@@ -20,7 +20,7 @@ public interface StreamEntityComponentsRequestOrBuilder extends
       getComponentsToIncludeList();
   /**
    * <pre>
-   * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+   * lower_snake_case component names to include in response events, e.g. location. Only included components will
    * populate.
    * </pre>
    *
@@ -30,7 +30,7 @@ public interface StreamEntityComponentsRequestOrBuilder extends
   int getComponentsToIncludeCount();
   /**
    * <pre>
-   * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+   * lower_snake_case component names to include in response events, e.g. location. Only included components will
    * populate.
    * </pre>
    *
@@ -41,7 +41,7 @@ public interface StreamEntityComponentsRequestOrBuilder extends
   java.lang.String getComponentsToInclude(int index);
   /**
    * <pre>
-   * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+   * lower_snake_case component names to include in response events, e.g. location. Only included components will
    * populate.
    * </pre>
    *
@@ -54,7 +54,7 @@ public interface StreamEntityComponentsRequestOrBuilder extends
 
   /**
    * <pre>
-   * subscribe to all components. This should only be used in cases where you want all components.
+   * Subscribe to all components. This should only be used in cases where you want all components.
    * Setting both components_to_include and include_all_components is invalid and will be rejected.
    * </pre>
    *
@@ -98,7 +98,7 @@ public interface StreamEntityComponentsRequestOrBuilder extends
 
   /**
    * <pre>
-   * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+   * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -107,7 +107,7 @@ public interface StreamEntityComponentsRequestOrBuilder extends
   boolean hasRateLimit();
   /**
    * <pre>
-   * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+   * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -116,7 +116,7 @@ public interface StreamEntityComponentsRequestOrBuilder extends
   com.anduril.entitymanager.v1.RateLimit getRateLimit();
   /**
    * <pre>
-   * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+   * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -136,7 +136,7 @@ public interface StreamEntityComponentsRequestOrBuilder extends
 
   /**
    * <pre>
-   * subscribe to a finite stream of preexisting events which closes when there are no additional pre-existing events to
+   * Subscribe to a finite stream of preexisting events which closes when there are no additional pre-existing events to
    * process. Respects the filter specified on the StreamEntityComponentsRequest.
    * </pre>
    *

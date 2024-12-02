@@ -464,44 +464,6 @@ private static final long serialVersionUID = 0L;
     return pulseRepetitionInterval_ == null ? com.anduril.entitymanager.v1.PulseRepetitionInterval.getDefaultInstance() : pulseRepetitionInterval_;
   }
 
-  public static final int MODULATION_FIELD_NUMBER = 10;
-  private com.anduril.entitymanager.v1.Modulation modulation_;
-  /**
-   * <pre>
-   * characteristics of the carrier signal to transmit information
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-   * @return Whether the modulation field is set.
-   */
-  @java.lang.Override
-  public boolean hasModulation() {
-    return modulation_ != null;
-  }
-  /**
-   * <pre>
-   * characteristics of the carrier signal to transmit information
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-   * @return The modulation.
-   */
-  @java.lang.Override
-  public com.anduril.entitymanager.v1.Modulation getModulation() {
-    return modulation_ == null ? com.anduril.entitymanager.v1.Modulation.getDefaultInstance() : modulation_;
-  }
-  /**
-   * <pre>
-   * characteristics of the carrier signal to transmit information
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-   */
-  @java.lang.Override
-  public com.anduril.entitymanager.v1.ModulationOrBuilder getModulationOrBuilder() {
-    return modulation_ == null ? com.anduril.entitymanager.v1.Modulation.getDefaultInstance() : modulation_;
-  }
-
   public static final int SCAN_CHARACTERISTICS_FIELD_NUMBER = 11;
   private com.anduril.entitymanager.v1.ScanCharacteristics scanCharacteristics_;
   /**
@@ -581,9 +543,6 @@ private static final long serialVersionUID = 0L;
     if (pulseRepetitionInterval_ != null) {
       output.writeMessage(9, getPulseRepetitionInterval());
     }
-    if (modulation_ != null) {
-      output.writeMessage(10, getModulation());
-    }
     if (scanCharacteristics_ != null) {
       output.writeMessage(11, getScanCharacteristics());
     }
@@ -632,10 +591,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getPulseRepetitionInterval());
     }
-    if (modulation_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, getModulation());
-    }
     if (scanCharacteristics_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getScanCharacteristics());
@@ -676,11 +631,6 @@ private static final long serialVersionUID = 0L;
     if (hasPulseRepetitionInterval()) {
       if (!getPulseRepetitionInterval()
           .equals(other.getPulseRepetitionInterval())) return false;
-    }
-    if (hasModulation() != other.hasModulation()) return false;
-    if (hasModulation()) {
-      if (!getModulation()
-          .equals(other.getModulation())) return false;
     }
     if (hasScanCharacteristics() != other.hasScanCharacteristics()) return false;
     if (hasScanCharacteristics()) {
@@ -743,10 +693,6 @@ private static final long serialVersionUID = 0L;
     if (hasPulseRepetitionInterval()) {
       hash = (37 * hash) + PULSE_REPETITION_INTERVAL_FIELD_NUMBER;
       hash = (53 * hash) + getPulseRepetitionInterval().hashCode();
-    }
-    if (hasModulation()) {
-      hash = (37 * hash) + MODULATION_FIELD_NUMBER;
-      hash = (53 * hash) + getModulation().hashCode();
     }
     if (hasScanCharacteristics()) {
       hash = (37 * hash) + SCAN_CHARACTERISTICS_FIELD_NUMBER;
@@ -948,11 +894,6 @@ private static final long serialVersionUID = 0L;
         pulseRepetitionIntervalBuilder_.dispose();
         pulseRepetitionIntervalBuilder_ = null;
       }
-      modulation_ = null;
-      if (modulationBuilder_ != null) {
-        modulationBuilder_.dispose();
-        modulationBuilder_ = null;
-      }
       scanCharacteristics_ = null;
       if (scanCharacteristicsBuilder_ != null) {
         scanCharacteristicsBuilder_.dispose();
@@ -1030,11 +971,6 @@ private static final long serialVersionUID = 0L;
             : pulseRepetitionIntervalBuilder_.build();
       }
       if (((from_bitField0_ & 0x00000200) != 0)) {
-        result.modulation_ = modulationBuilder_ == null
-            ? modulation_
-            : modulationBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000400) != 0)) {
         result.scanCharacteristics_ = scanCharacteristicsBuilder_ == null
             ? scanCharacteristics_
             : scanCharacteristicsBuilder_.build();
@@ -1113,9 +1049,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasPulseRepetitionInterval()) {
         mergePulseRepetitionInterval(other.getPulseRepetitionInterval());
-      }
-      if (other.hasModulation()) {
-        mergeModulation(other.getModulation());
       }
       if (other.hasScanCharacteristics()) {
         mergeScanCharacteristics(other.getScanCharacteristics());
@@ -1241,18 +1174,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000100;
               break;
             } // case 74
-            case 82: {
-              input.readMessage(
-                  getModulationFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000200;
-              break;
-            } // case 82
             case 90: {
               input.readMessage(
                   getScanCharacteristicsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000400;
+              bitField0_ |= 0x00000200;
               break;
             } // case 90
             default: {
@@ -2802,161 +2728,6 @@ private static final long serialVersionUID = 0L;
       return pulseRepetitionIntervalBuilder_;
     }
 
-    private com.anduril.entitymanager.v1.Modulation modulation_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.Modulation, com.anduril.entitymanager.v1.Modulation.Builder, com.anduril.entitymanager.v1.ModulationOrBuilder> modulationBuilder_;
-    /**
-     * <pre>
-     * characteristics of the carrier signal to transmit information
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-     * @return Whether the modulation field is set.
-     */
-    public boolean hasModulation() {
-      return ((bitField0_ & 0x00000200) != 0);
-    }
-    /**
-     * <pre>
-     * characteristics of the carrier signal to transmit information
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-     * @return The modulation.
-     */
-    public com.anduril.entitymanager.v1.Modulation getModulation() {
-      if (modulationBuilder_ == null) {
-        return modulation_ == null ? com.anduril.entitymanager.v1.Modulation.getDefaultInstance() : modulation_;
-      } else {
-        return modulationBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * characteristics of the carrier signal to transmit information
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-     */
-    public Builder setModulation(com.anduril.entitymanager.v1.Modulation value) {
-      if (modulationBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        modulation_ = value;
-      } else {
-        modulationBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * characteristics of the carrier signal to transmit information
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-     */
-    public Builder setModulation(
-        com.anduril.entitymanager.v1.Modulation.Builder builderForValue) {
-      if (modulationBuilder_ == null) {
-        modulation_ = builderForValue.build();
-      } else {
-        modulationBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * characteristics of the carrier signal to transmit information
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-     */
-    public Builder mergeModulation(com.anduril.entitymanager.v1.Modulation value) {
-      if (modulationBuilder_ == null) {
-        if (((bitField0_ & 0x00000200) != 0) &&
-          modulation_ != null &&
-          modulation_ != com.anduril.entitymanager.v1.Modulation.getDefaultInstance()) {
-          getModulationBuilder().mergeFrom(value);
-        } else {
-          modulation_ = value;
-        }
-      } else {
-        modulationBuilder_.mergeFrom(value);
-      }
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * characteristics of the carrier signal to transmit information
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-     */
-    public Builder clearModulation() {
-      bitField0_ = (bitField0_ & ~0x00000200);
-      modulation_ = null;
-      if (modulationBuilder_ != null) {
-        modulationBuilder_.dispose();
-        modulationBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * characteristics of the carrier signal to transmit information
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-     */
-    public com.anduril.entitymanager.v1.Modulation.Builder getModulationBuilder() {
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return getModulationFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * characteristics of the carrier signal to transmit information
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-     */
-    public com.anduril.entitymanager.v1.ModulationOrBuilder getModulationOrBuilder() {
-      if (modulationBuilder_ != null) {
-        return modulationBuilder_.getMessageOrBuilder();
-      } else {
-        return modulation_ == null ?
-            com.anduril.entitymanager.v1.Modulation.getDefaultInstance() : modulation_;
-      }
-    }
-    /**
-     * <pre>
-     * characteristics of the carrier signal to transmit information
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.Modulation, com.anduril.entitymanager.v1.Modulation.Builder, com.anduril.entitymanager.v1.ModulationOrBuilder> 
-        getModulationFieldBuilder() {
-      if (modulationBuilder_ == null) {
-        modulationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.anduril.entitymanager.v1.Modulation, com.anduril.entitymanager.v1.Modulation.Builder, com.anduril.entitymanager.v1.ModulationOrBuilder>(
-                getModulation(),
-                getParentForChildren(),
-                isClean());
-        modulation_ = null;
-      }
-      return modulationBuilder_;
-    }
-
     private com.anduril.entitymanager.v1.ScanCharacteristics scanCharacteristics_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.ScanCharacteristics, com.anduril.entitymanager.v1.ScanCharacteristics.Builder, com.anduril.entitymanager.v1.ScanCharacteristicsOrBuilder> scanCharacteristicsBuilder_;
@@ -2969,7 +2740,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the scanCharacteristics field is set.
      */
     public boolean hasScanCharacteristics() {
-      return ((bitField0_ & 0x00000400) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -3002,7 +2773,7 @@ private static final long serialVersionUID = 0L;
       } else {
         scanCharacteristicsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3020,7 +2791,7 @@ private static final long serialVersionUID = 0L;
       } else {
         scanCharacteristicsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3033,7 +2804,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeScanCharacteristics(com.anduril.entitymanager.v1.ScanCharacteristics value) {
       if (scanCharacteristicsBuilder_ == null) {
-        if (((bitField0_ & 0x00000400) != 0) &&
+        if (((bitField0_ & 0x00000200) != 0) &&
           scanCharacteristics_ != null &&
           scanCharacteristics_ != com.anduril.entitymanager.v1.ScanCharacteristics.getDefaultInstance()) {
           getScanCharacteristicsBuilder().mergeFrom(value);
@@ -3043,7 +2814,7 @@ private static final long serialVersionUID = 0L;
       } else {
         scanCharacteristicsBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3055,7 +2826,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.ScanCharacteristics scan_characteristics = 11 [json_name = "scanCharacteristics"];</code>
      */
     public Builder clearScanCharacteristics() {
-      bitField0_ = (bitField0_ & ~0x00000400);
+      bitField0_ = (bitField0_ & ~0x00000200);
       scanCharacteristics_ = null;
       if (scanCharacteristicsBuilder_ != null) {
         scanCharacteristicsBuilder_.dispose();
@@ -3072,7 +2843,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.ScanCharacteristics scan_characteristics = 11 [json_name = "scanCharacteristics"];</code>
      */
     public com.anduril.entitymanager.v1.ScanCharacteristics.Builder getScanCharacteristicsBuilder() {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000200;
       onChanged();
       return getScanCharacteristicsFieldBuilder().getBuilder();
     }

@@ -10,7 +10,6 @@ public interface GeoPolygonOrBuilder extends
   /**
    * <pre>
    * An array of LinearRings where the first item is the exterior ring and subsequent items are interior rings.
-   * For a good introduction read (https://macwright.com/2015/03/23/geojson-second-bite.html#polygons)
    * </pre>
    *
    * <code>repeated .anduril.entitymanager.v1.LinearRing rings = 1 [json_name = "rings"];</code>
@@ -20,7 +19,6 @@ public interface GeoPolygonOrBuilder extends
   /**
    * <pre>
    * An array of LinearRings where the first item is the exterior ring and subsequent items are interior rings.
-   * For a good introduction read (https://macwright.com/2015/03/23/geojson-second-bite.html#polygons)
    * </pre>
    *
    * <code>repeated .anduril.entitymanager.v1.LinearRing rings = 1 [json_name = "rings"];</code>
@@ -29,7 +27,6 @@ public interface GeoPolygonOrBuilder extends
   /**
    * <pre>
    * An array of LinearRings where the first item is the exterior ring and subsequent items are interior rings.
-   * For a good introduction read (https://macwright.com/2015/03/23/geojson-second-bite.html#polygons)
    * </pre>
    *
    * <code>repeated .anduril.entitymanager.v1.LinearRing rings = 1 [json_name = "rings"];</code>
@@ -38,7 +35,6 @@ public interface GeoPolygonOrBuilder extends
   /**
    * <pre>
    * An array of LinearRings where the first item is the exterior ring and subsequent items are interior rings.
-   * For a good introduction read (https://macwright.com/2015/03/23/geojson-second-bite.html#polygons)
    * </pre>
    *
    * <code>repeated .anduril.entitymanager.v1.LinearRing rings = 1 [json_name = "rings"];</code>
@@ -48,7 +44,6 @@ public interface GeoPolygonOrBuilder extends
   /**
    * <pre>
    * An array of LinearRings where the first item is the exterior ring and subsequent items are interior rings.
-   * For a good introduction read (https://macwright.com/2015/03/23/geojson-second-bite.html#polygons)
    * </pre>
    *
    * <code>repeated .anduril.entitymanager.v1.LinearRing rings = 1 [json_name = "rings"];</code>

@@ -86,14 +86,14 @@ private static final long serialVersionUID = 0L;
   public static final int TYPE_FIELD_NUMBER = 3;
   private int type_ = 0;
   /**
-   * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+   * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];</code>
    * @return The enum numeric value on the wire for type.
    */
   @java.lang.Override public int getTypeValue() {
     return type_;
   }
   /**
-   * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+   * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];</code>
    * @return The type.
    */
   @java.lang.Override public com.anduril.entitymanager.v1.AltIdType getType() {
@@ -493,14 +493,14 @@ private static final long serialVersionUID = 0L;
 
     private int type_ = 0;
     /**
-     * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];</code>
      * @return The enum numeric value on the wire for type.
      */
     @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];</code>
      * @param value The enum numeric value on the wire for type to set.
      * @return This builder for chaining.
      */
@@ -511,7 +511,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];</code>
      * @return The type.
      */
     @java.lang.Override
@@ -520,7 +520,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.anduril.entitymanager.v1.AltIdType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];</code>
      * @param value The type to set.
      * @return This builder for chaining.
      */
@@ -534,7 +534,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];</code>
      * @return This builder for chaining.
      */
     public Builder clearType() {

@@ -46,7 +46,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object entityId_ = "";
   /**
    * <pre>
-   * The entity ID that the override will be removed from
+   * The entity ID that the override will be removed from.
    * </pre>
    *
    * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -67,7 +67,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The entity ID that the override will be removed from
+   * The entity ID that the override will be removed from.
    * </pre>
    *
    * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -475,7 +475,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object entityId_ = "";
     /**
      * <pre>
-     * The entity ID that the override will be removed from
+     * The entity ID that the override will be removed from.
      * </pre>
      *
      * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -495,7 +495,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity ID that the override will be removed from
+     * The entity ID that the override will be removed from.
      * </pre>
      *
      * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -516,7 +516,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity ID that the override will be removed from
+     * The entity ID that the override will be removed from.
      * </pre>
      *
      * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -533,7 +533,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity ID that the override will be removed from
+     * The entity ID that the override will be removed from.
      * </pre>
      *
      * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -547,7 +547,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity ID that the override will be removed from
+     * The entity ID that the override will be removed from.
      * </pre>
      *
      * <code>string entity_id = 1 [json_name = "entityId"];</code>

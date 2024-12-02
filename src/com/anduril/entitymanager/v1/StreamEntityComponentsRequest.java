@@ -46,7 +46,7 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.LazyStringArrayList.emptyList();
   /**
    * <pre>
-   * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+   * lower_snake_case component names to include in response events, e.g. location. Only included components will
    * populate.
    * </pre>
    *
@@ -59,7 +59,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+   * lower_snake_case component names to include in response events, e.g. location. Only included components will
    * populate.
    * </pre>
    *
@@ -71,7 +71,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+   * lower_snake_case component names to include in response events, e.g. location. Only included components will
    * populate.
    * </pre>
    *
@@ -84,7 +84,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+   * lower_snake_case component names to include in response events, e.g. location. Only included components will
    * populate.
    * </pre>
    *
@@ -101,7 +101,7 @@ private static final long serialVersionUID = 0L;
   private boolean includeAllComponents_ = false;
   /**
    * <pre>
-   * subscribe to all components. This should only be used in cases where you want all components.
+   * Subscribe to all components. This should only be used in cases where you want all components.
    * Setting both components_to_include and include_all_components is invalid and will be rejected.
    * </pre>
    *
@@ -161,7 +161,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.RateLimit rateLimit_;
   /**
    * <pre>
-   * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+   * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -173,7 +173,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+   * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -185,7 +185,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+   * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -215,7 +215,7 @@ private static final long serialVersionUID = 0L;
   private boolean preexistingOnly_ = false;
   /**
    * <pre>
-   * subscribe to a finite stream of preexisting events which closes when there are no additional pre-existing events to
+   * Subscribe to a finite stream of preexisting events which closes when there are no additional pre-existing events to
    * process. Respects the filter specified on the StreamEntityComponentsRequest.
    * </pre>
    *
@@ -687,7 +687,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+     * lower_snake_case component names to include in response events, e.g. location. Only included components will
      * populate.
      * </pre>
      *
@@ -701,7 +701,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+     * lower_snake_case component names to include in response events, e.g. location. Only included components will
      * populate.
      * </pre>
      *
@@ -713,7 +713,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+     * lower_snake_case component names to include in response events, e.g. location. Only included components will
      * populate.
      * </pre>
      *
@@ -726,7 +726,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+     * lower_snake_case component names to include in response events, e.g. location. Only included components will
      * populate.
      * </pre>
      *
@@ -740,7 +740,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+     * lower_snake_case component names to include in response events, e.g. location. Only included components will
      * populate.
      * </pre>
      *
@@ -760,7 +760,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+     * lower_snake_case component names to include in response events, e.g. location. Only included components will
      * populate.
      * </pre>
      *
@@ -779,7 +779,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+     * lower_snake_case component names to include in response events, e.g. location. Only included components will
      * populate.
      * </pre>
      *
@@ -798,7 +798,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+     * lower_snake_case component names to include in response events, e.g. location. Only included components will
      * populate.
      * </pre>
      *
@@ -814,7 +814,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * lower_snake_cased component names to include in response events, e.g. location. Only included components will
+     * lower_snake_case component names to include in response events, e.g. location. Only included components will
      * populate.
      * </pre>
      *
@@ -836,7 +836,7 @@ private static final long serialVersionUID = 0L;
     private boolean includeAllComponents_ ;
     /**
      * <pre>
-     * subscribe to all components. This should only be used in cases where you want all components.
+     * Subscribe to all components. This should only be used in cases where you want all components.
      * Setting both components_to_include and include_all_components is invalid and will be rejected.
      * </pre>
      *
@@ -849,7 +849,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * subscribe to all components. This should only be used in cases where you want all components.
+     * Subscribe to all components. This should only be used in cases where you want all components.
      * Setting both components_to_include and include_all_components is invalid and will be rejected.
      * </pre>
      *
@@ -866,7 +866,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * subscribe to all components. This should only be used in cases where you want all components.
+     * Subscribe to all components. This should only be used in cases where you want all components.
      * Setting both components_to_include and include_all_components is invalid and will be rejected.
      * </pre>
      *
@@ -1058,7 +1058,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.RateLimit, com.anduril.entitymanager.v1.RateLimit.Builder, com.anduril.entitymanager.v1.RateLimitOrBuilder> rateLimitBuilder_;
     /**
      * <pre>
-     * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+     * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -1069,7 +1069,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+     * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -1084,7 +1084,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+     * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -1104,7 +1104,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+     * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -1122,7 +1122,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+     * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -1145,7 +1145,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+     * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -1162,7 +1162,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+     * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -1174,7 +1174,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+     * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -1189,7 +1189,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * optional rate-limiting / down-sampling parameters, see RateLimit message for details.
+     * Optional rate-limiting / down-sampling parameters, see RateLimit message for details.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.RateLimit rate_limit = 4 [json_name = "rateLimit"];</code>
@@ -1258,7 +1258,7 @@ private static final long serialVersionUID = 0L;
     private boolean preexistingOnly_ ;
     /**
      * <pre>
-     * subscribe to a finite stream of preexisting events which closes when there are no additional pre-existing events to
+     * Subscribe to a finite stream of preexisting events which closes when there are no additional pre-existing events to
      * process. Respects the filter specified on the StreamEntityComponentsRequest.
      * </pre>
      *
@@ -1271,7 +1271,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * subscribe to a finite stream of preexisting events which closes when there are no additional pre-existing events to
+     * Subscribe to a finite stream of preexisting events which closes when there are no additional pre-existing events to
      * process. Respects the filter specified on the StreamEntityComponentsRequest.
      * </pre>
      *
@@ -1288,7 +1288,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * subscribe to a finite stream of preexisting events which closes when there are no additional pre-existing events to
+     * Subscribe to a finite stream of preexisting events which closes when there are no additional pre-existing events to
      * process. Respects the filter specified on the StreamEntityComponentsRequest.
      * </pre>
      *

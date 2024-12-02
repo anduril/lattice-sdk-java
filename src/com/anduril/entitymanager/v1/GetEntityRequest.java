@@ -44,7 +44,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object entityId_ = "";
   /**
    * <pre>
-   * the GUID of this entity to query
+   * The GUID of this entity to query.
    * </pre>
    *
    * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -65,7 +65,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * the GUID of this entity to query
+   * The GUID of this entity to query.
    * </pre>
    *
    * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -381,7 +381,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object entityId_ = "";
     /**
      * <pre>
-     * the GUID of this entity to query
+     * The GUID of this entity to query.
      * </pre>
      *
      * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -401,7 +401,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * the GUID of this entity to query
+     * The GUID of this entity to query.
      * </pre>
      *
      * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -422,7 +422,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * the GUID of this entity to query
+     * The GUID of this entity to query.
      * </pre>
      *
      * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -439,7 +439,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * the GUID of this entity to query
+     * The GUID of this entity to query.
      * </pre>
      *
      * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -453,7 +453,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * the GUID of this entity to query
+     * The GUID of this entity to query.
      * </pre>
      *
      * <code>string entity_id = 1 [json_name = "entityId"];</code>

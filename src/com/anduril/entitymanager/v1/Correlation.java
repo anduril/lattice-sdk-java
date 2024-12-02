@@ -177,6 +177,44 @@ private static final long serialVersionUID = 0L;
     return com.anduril.entitymanager.v1.SecondaryCorrelation.getDefaultInstance();
   }
 
+  public static final int MEMBERSHIP_FIELD_NUMBER = 4;
+  private com.anduril.entitymanager.v1.CorrelationMembership membership_;
+  /**
+   * <pre>
+   * If present, this entity is a part of a correlation set.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+   * @return Whether the membership field is set.
+   */
+  @java.lang.Override
+  public boolean hasMembership() {
+    return membership_ != null;
+  }
+  /**
+   * <pre>
+   * If present, this entity is a part of a correlation set.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+   * @return The membership.
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.CorrelationMembership getMembership() {
+    return membership_ == null ? com.anduril.entitymanager.v1.CorrelationMembership.getDefaultInstance() : membership_;
+  }
+  /**
+   * <pre>
+   * If present, this entity is a part of a correlation set.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.CorrelationMembershipOrBuilder getMembershipOrBuilder() {
+    return membership_ == null ? com.anduril.entitymanager.v1.CorrelationMembership.getDefaultInstance() : membership_;
+  }
+
   public static final int DECORRELATION_FIELD_NUMBER = 3;
   private com.anduril.entitymanager.v1.Decorrelation decorrelation_;
   /**
@@ -253,6 +291,9 @@ private static final long serialVersionUID = 0L;
     if (decorrelation_ != null) {
       output.writeMessage(3, getDecorrelation());
     }
+    if (membership_ != null) {
+      output.writeMessage(4, getMembership());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -274,6 +315,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getDecorrelation());
     }
+    if (membership_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getMembership());
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -289,6 +334,11 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.Correlation other = (com.anduril.entitymanager.v1.Correlation) obj;
 
+    if (hasMembership() != other.hasMembership()) return false;
+    if (hasMembership()) {
+      if (!getMembership()
+          .equals(other.getMembership())) return false;
+    }
     if (hasDecorrelation() != other.hasDecorrelation()) return false;
     if (hasDecorrelation()) {
       if (!getDecorrelation()
@@ -318,6 +368,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasMembership()) {
+      hash = (37 * hash) + MEMBERSHIP_FIELD_NUMBER;
+      hash = (53 * hash) + getMembership().hashCode();
+    }
     if (hasDecorrelation()) {
       hash = (37 * hash) + DECORRELATION_FIELD_NUMBER;
       hash = (53 * hash) + getDecorrelation().hashCode();
@@ -474,6 +528,11 @@ private static final long serialVersionUID = 0L;
       if (secondaryBuilder_ != null) {
         secondaryBuilder_.clear();
       }
+      membership_ = null;
+      if (membershipBuilder_ != null) {
+        membershipBuilder_.dispose();
+        membershipBuilder_ = null;
+      }
       decorrelation_ = null;
       if (decorrelationBuilder_ != null) {
         decorrelationBuilder_.dispose();
@@ -516,6 +575,11 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.anduril.entitymanager.v1.Correlation result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.membership_ = membershipBuilder_ == null
+            ? membership_
+            : membershipBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.decorrelation_ = decorrelationBuilder_ == null
             ? decorrelation_
             : decorrelationBuilder_.build();
@@ -547,6 +611,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.Correlation other) {
       if (other == com.anduril.entitymanager.v1.Correlation.getDefaultInstance()) return this;
+      if (other.hasMembership()) {
+        mergeMembership(other.getMembership());
+      }
       if (other.hasDecorrelation()) {
         mergeDecorrelation(other.getDecorrelation());
       }
@@ -607,9 +674,16 @@ private static final long serialVersionUID = 0L;
               input.readMessage(
                   getDecorrelationFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               break;
             } // case 26
+            case 34: {
+              input.readMessage(
+                  getMembershipFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1016,6 +1090,161 @@ private static final long serialVersionUID = 0L;
       return secondaryBuilder_;
     }
 
+    private com.anduril.entitymanager.v1.CorrelationMembership membership_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.CorrelationMembership, com.anduril.entitymanager.v1.CorrelationMembership.Builder, com.anduril.entitymanager.v1.CorrelationMembershipOrBuilder> membershipBuilder_;
+    /**
+     * <pre>
+     * If present, this entity is a part of a correlation set.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+     * @return Whether the membership field is set.
+     */
+    public boolean hasMembership() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * If present, this entity is a part of a correlation set.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+     * @return The membership.
+     */
+    public com.anduril.entitymanager.v1.CorrelationMembership getMembership() {
+      if (membershipBuilder_ == null) {
+        return membership_ == null ? com.anduril.entitymanager.v1.CorrelationMembership.getDefaultInstance() : membership_;
+      } else {
+        return membershipBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * If present, this entity is a part of a correlation set.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+     */
+    public Builder setMembership(com.anduril.entitymanager.v1.CorrelationMembership value) {
+      if (membershipBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        membership_ = value;
+      } else {
+        membershipBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * If present, this entity is a part of a correlation set.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+     */
+    public Builder setMembership(
+        com.anduril.entitymanager.v1.CorrelationMembership.Builder builderForValue) {
+      if (membershipBuilder_ == null) {
+        membership_ = builderForValue.build();
+      } else {
+        membershipBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * If present, this entity is a part of a correlation set.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+     */
+    public Builder mergeMembership(com.anduril.entitymanager.v1.CorrelationMembership value) {
+      if (membershipBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0) &&
+          membership_ != null &&
+          membership_ != com.anduril.entitymanager.v1.CorrelationMembership.getDefaultInstance()) {
+          getMembershipBuilder().mergeFrom(value);
+        } else {
+          membership_ = value;
+        }
+      } else {
+        membershipBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * If present, this entity is a part of a correlation set.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+     */
+    public Builder clearMembership() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      membership_ = null;
+      if (membershipBuilder_ != null) {
+        membershipBuilder_.dispose();
+        membershipBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * If present, this entity is a part of a correlation set.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+     */
+    public com.anduril.entitymanager.v1.CorrelationMembership.Builder getMembershipBuilder() {
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return getMembershipFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * If present, this entity is a part of a correlation set.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+     */
+    public com.anduril.entitymanager.v1.CorrelationMembershipOrBuilder getMembershipOrBuilder() {
+      if (membershipBuilder_ != null) {
+        return membershipBuilder_.getMessageOrBuilder();
+      } else {
+        return membership_ == null ?
+            com.anduril.entitymanager.v1.CorrelationMembership.getDefaultInstance() : membership_;
+      }
+    }
+    /**
+     * <pre>
+     * If present, this entity is a part of a correlation set.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.CorrelationMembership, com.anduril.entitymanager.v1.CorrelationMembership.Builder, com.anduril.entitymanager.v1.CorrelationMembershipOrBuilder> 
+        getMembershipFieldBuilder() {
+      if (membershipBuilder_ == null) {
+        membershipBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.anduril.entitymanager.v1.CorrelationMembership, com.anduril.entitymanager.v1.CorrelationMembership.Builder, com.anduril.entitymanager.v1.CorrelationMembershipOrBuilder>(
+                getMembership(),
+                getParentForChildren(),
+                isClean());
+        membership_ = null;
+      }
+      return membershipBuilder_;
+    }
+
     private com.anduril.entitymanager.v1.Decorrelation decorrelation_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.Decorrelation, com.anduril.entitymanager.v1.Decorrelation.Builder, com.anduril.entitymanager.v1.DecorrelationOrBuilder> decorrelationBuilder_;
@@ -1033,7 +1262,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the decorrelation field is set.
      */
     public boolean hasDecorrelation() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1076,7 +1305,7 @@ private static final long serialVersionUID = 0L;
       } else {
         decorrelationBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1099,7 +1328,7 @@ private static final long serialVersionUID = 0L;
       } else {
         decorrelationBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1117,7 +1346,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDecorrelation(com.anduril.entitymanager.v1.Decorrelation value) {
       if (decorrelationBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0) &&
+        if (((bitField0_ & 0x00000008) != 0) &&
           decorrelation_ != null &&
           decorrelation_ != com.anduril.entitymanager.v1.Decorrelation.getDefaultInstance()) {
           getDecorrelationBuilder().mergeFrom(value);
@@ -1127,7 +1356,7 @@ private static final long serialVersionUID = 0L;
       } else {
         decorrelationBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1144,7 +1373,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];</code>
      */
     public Builder clearDecorrelation() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       decorrelation_ = null;
       if (decorrelationBuilder_ != null) {
         decorrelationBuilder_.dispose();
@@ -1166,7 +1395,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];</code>
      */
     public com.anduril.entitymanager.v1.Decorrelation.Builder getDecorrelationBuilder() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDecorrelationFieldBuilder().getBuilder();
     }

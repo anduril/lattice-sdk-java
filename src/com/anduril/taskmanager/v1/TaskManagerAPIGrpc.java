@@ -269,7 +269,7 @@ public final class TaskManagerAPIGrpc {
     /**
      * <pre>
      * Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
-     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC
+     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC.
      * </pre>
      */
     default void listenAsAgent(com.anduril.taskmanager.v1.ListenAsAgentRequest request,
@@ -360,7 +360,7 @@ public final class TaskManagerAPIGrpc {
     /**
      * <pre>
      * Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
-     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC
+     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC.
      * </pre>
      */
     public void listenAsAgent(com.anduril.taskmanager.v1.ListenAsAgentRequest request,
@@ -433,7 +433,7 @@ public final class TaskManagerAPIGrpc {
     /**
      * <pre>
      * Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
-     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC
+     * Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC.
      * </pre>
      */
     public java.util.Iterator<com.anduril.taskmanager.v1.ListenAsAgentResponse> listenAsAgent(

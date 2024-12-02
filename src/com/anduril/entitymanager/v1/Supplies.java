@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Supplies() {
-    munitions_ = java.util.Collections.emptyList();
     fuel_ = java.util.Collections.emptyList();
   }
 
@@ -42,47 +41,6 @@ private static final long serialVersionUID = 0L;
     return com.anduril.entitymanager.v1.SuppliesPubProto.internal_static_anduril_entitymanager_v1_Supplies_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.anduril.entitymanager.v1.Supplies.class, com.anduril.entitymanager.v1.Supplies.Builder.class);
-  }
-
-  public static final int MUNITIONS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private java.util.List<com.anduril.entitymanager.v1.Munition> munitions_;
-  /**
-   * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-   */
-  @java.lang.Override
-  public java.util.List<com.anduril.entitymanager.v1.Munition> getMunitionsList() {
-    return munitions_;
-  }
-  /**
-   * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-   */
-  @java.lang.Override
-  public java.util.List<? extends com.anduril.entitymanager.v1.MunitionOrBuilder> 
-      getMunitionsOrBuilderList() {
-    return munitions_;
-  }
-  /**
-   * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-   */
-  @java.lang.Override
-  public int getMunitionsCount() {
-    return munitions_.size();
-  }
-  /**
-   * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-   */
-  @java.lang.Override
-  public com.anduril.entitymanager.v1.Munition getMunitions(int index) {
-    return munitions_.get(index);
-  }
-  /**
-   * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-   */
-  @java.lang.Override
-  public com.anduril.entitymanager.v1.MunitionOrBuilder getMunitionsOrBuilder(
-      int index) {
-    return munitions_.get(index);
   }
 
   public static final int FUEL_FIELD_NUMBER = 2;
@@ -140,9 +98,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < munitions_.size(); i++) {
-      output.writeMessage(1, munitions_.get(i));
-    }
     for (int i = 0; i < fuel_.size(); i++) {
       output.writeMessage(2, fuel_.get(i));
     }
@@ -155,10 +110,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < munitions_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, munitions_.get(i));
-    }
     for (int i = 0; i < fuel_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, fuel_.get(i));
@@ -178,8 +129,6 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.Supplies other = (com.anduril.entitymanager.v1.Supplies) obj;
 
-    if (!getMunitionsList()
-        .equals(other.getMunitionsList())) return false;
     if (!getFuelList()
         .equals(other.getFuelList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -193,10 +142,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getMunitionsCount() > 0) {
-      hash = (37 * hash) + MUNITIONS_FIELD_NUMBER;
-      hash = (53 * hash) + getMunitionsList().hashCode();
-    }
     if (getFuelCount() > 0) {
       hash = (37 * hash) + FUEL_FIELD_NUMBER;
       hash = (53 * hash) + getFuelList().hashCode();
@@ -334,20 +279,13 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      if (munitionsBuilder_ == null) {
-        munitions_ = java.util.Collections.emptyList();
-      } else {
-        munitions_ = null;
-        munitionsBuilder_.clear();
-      }
-      bitField0_ = (bitField0_ & ~0x00000001);
       if (fuelBuilder_ == null) {
         fuel_ = java.util.Collections.emptyList();
       } else {
         fuel_ = null;
         fuelBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -381,19 +319,10 @@ private static final long serialVersionUID = 0L;
     }
 
     private void buildPartialRepeatedFields(com.anduril.entitymanager.v1.Supplies result) {
-      if (munitionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          munitions_ = java.util.Collections.unmodifiableList(munitions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.munitions_ = munitions_;
-      } else {
-        result.munitions_ = munitionsBuilder_.build();
-      }
       if (fuelBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           fuel_ = java.util.Collections.unmodifiableList(fuel_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.fuel_ = fuel_;
       } else {
@@ -417,37 +346,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.Supplies other) {
       if (other == com.anduril.entitymanager.v1.Supplies.getDefaultInstance()) return this;
-      if (munitionsBuilder_ == null) {
-        if (!other.munitions_.isEmpty()) {
-          if (munitions_.isEmpty()) {
-            munitions_ = other.munitions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureMunitionsIsMutable();
-            munitions_.addAll(other.munitions_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.munitions_.isEmpty()) {
-          if (munitionsBuilder_.isEmpty()) {
-            munitionsBuilder_.dispose();
-            munitionsBuilder_ = null;
-            munitions_ = other.munitions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            munitionsBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getMunitionsFieldBuilder() : null;
-          } else {
-            munitionsBuilder_.addAllMessages(other.munitions_);
-          }
-        }
-      }
       if (fuelBuilder_ == null) {
         if (!other.fuel_.isEmpty()) {
           if (fuel_.isEmpty()) {
             fuel_ = other.fuel_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureFuelIsMutable();
             fuel_.addAll(other.fuel_);
@@ -460,7 +363,7 @@ private static final long serialVersionUID = 0L;
             fuelBuilder_.dispose();
             fuelBuilder_ = null;
             fuel_ = other.fuel_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
             fuelBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFuelFieldBuilder() : null;
@@ -495,19 +398,6 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              com.anduril.entitymanager.v1.Munition m =
-                  input.readMessage(
-                      com.anduril.entitymanager.v1.Munition.parser(),
-                      extensionRegistry);
-              if (munitionsBuilder_ == null) {
-                ensureMunitionsIsMutable();
-                munitions_.add(m);
-              } else {
-                munitionsBuilder_.addMessage(m);
-              }
-              break;
-            } // case 10
             case 18: {
               com.anduril.entitymanager.v1.Fuel m =
                   input.readMessage(
@@ -538,252 +428,12 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<com.anduril.entitymanager.v1.Munition> munitions_ =
-      java.util.Collections.emptyList();
-    private void ensureMunitionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        munitions_ = new java.util.ArrayList<com.anduril.entitymanager.v1.Munition>(munitions_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.anduril.entitymanager.v1.Munition, com.anduril.entitymanager.v1.Munition.Builder, com.anduril.entitymanager.v1.MunitionOrBuilder> munitionsBuilder_;
-
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public java.util.List<com.anduril.entitymanager.v1.Munition> getMunitionsList() {
-      if (munitionsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(munitions_);
-      } else {
-        return munitionsBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public int getMunitionsCount() {
-      if (munitionsBuilder_ == null) {
-        return munitions_.size();
-      } else {
-        return munitionsBuilder_.getCount();
-      }
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public com.anduril.entitymanager.v1.Munition getMunitions(int index) {
-      if (munitionsBuilder_ == null) {
-        return munitions_.get(index);
-      } else {
-        return munitionsBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public Builder setMunitions(
-        int index, com.anduril.entitymanager.v1.Munition value) {
-      if (munitionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureMunitionsIsMutable();
-        munitions_.set(index, value);
-        onChanged();
-      } else {
-        munitionsBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public Builder setMunitions(
-        int index, com.anduril.entitymanager.v1.Munition.Builder builderForValue) {
-      if (munitionsBuilder_ == null) {
-        ensureMunitionsIsMutable();
-        munitions_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        munitionsBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public Builder addMunitions(com.anduril.entitymanager.v1.Munition value) {
-      if (munitionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureMunitionsIsMutable();
-        munitions_.add(value);
-        onChanged();
-      } else {
-        munitionsBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public Builder addMunitions(
-        int index, com.anduril.entitymanager.v1.Munition value) {
-      if (munitionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureMunitionsIsMutable();
-        munitions_.add(index, value);
-        onChanged();
-      } else {
-        munitionsBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public Builder addMunitions(
-        com.anduril.entitymanager.v1.Munition.Builder builderForValue) {
-      if (munitionsBuilder_ == null) {
-        ensureMunitionsIsMutable();
-        munitions_.add(builderForValue.build());
-        onChanged();
-      } else {
-        munitionsBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public Builder addMunitions(
-        int index, com.anduril.entitymanager.v1.Munition.Builder builderForValue) {
-      if (munitionsBuilder_ == null) {
-        ensureMunitionsIsMutable();
-        munitions_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        munitionsBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public Builder addAllMunitions(
-        java.lang.Iterable<? extends com.anduril.entitymanager.v1.Munition> values) {
-      if (munitionsBuilder_ == null) {
-        ensureMunitionsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, munitions_);
-        onChanged();
-      } else {
-        munitionsBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public Builder clearMunitions() {
-      if (munitionsBuilder_ == null) {
-        munitions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-      } else {
-        munitionsBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public Builder removeMunitions(int index) {
-      if (munitionsBuilder_ == null) {
-        ensureMunitionsIsMutable();
-        munitions_.remove(index);
-        onChanged();
-      } else {
-        munitionsBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public com.anduril.entitymanager.v1.Munition.Builder getMunitionsBuilder(
-        int index) {
-      return getMunitionsFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public com.anduril.entitymanager.v1.MunitionOrBuilder getMunitionsOrBuilder(
-        int index) {
-      if (munitionsBuilder_ == null) {
-        return munitions_.get(index);  } else {
-        return munitionsBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public java.util.List<? extends com.anduril.entitymanager.v1.MunitionOrBuilder> 
-         getMunitionsOrBuilderList() {
-      if (munitionsBuilder_ != null) {
-        return munitionsBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(munitions_);
-      }
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public com.anduril.entitymanager.v1.Munition.Builder addMunitionsBuilder() {
-      return getMunitionsFieldBuilder().addBuilder(
-          com.anduril.entitymanager.v1.Munition.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public com.anduril.entitymanager.v1.Munition.Builder addMunitionsBuilder(
-        int index) {
-      return getMunitionsFieldBuilder().addBuilder(
-          index, com.anduril.entitymanager.v1.Munition.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-     */
-    public java.util.List<com.anduril.entitymanager.v1.Munition.Builder> 
-         getMunitionsBuilderList() {
-      return getMunitionsFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.anduril.entitymanager.v1.Munition, com.anduril.entitymanager.v1.Munition.Builder, com.anduril.entitymanager.v1.MunitionOrBuilder> 
-        getMunitionsFieldBuilder() {
-      if (munitionsBuilder_ == null) {
-        munitionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.anduril.entitymanager.v1.Munition, com.anduril.entitymanager.v1.Munition.Builder, com.anduril.entitymanager.v1.MunitionOrBuilder>(
-                munitions_,
-                ((bitField0_ & 0x00000001) != 0),
-                getParentForChildren(),
-                isClean());
-        munitions_ = null;
-      }
-      return munitionsBuilder_;
-    }
-
     private java.util.List<com.anduril.entitymanager.v1.Fuel> fuel_ =
       java.util.Collections.emptyList();
     private void ensureFuelIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000001) != 0)) {
         fuel_ = new java.util.ArrayList<com.anduril.entitymanager.v1.Fuel>(fuel_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
        }
     }
 
@@ -933,7 +583,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFuel() {
       if (fuelBuilder_ == null) {
         fuel_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
         fuelBuilder_.clear();
@@ -1010,7 +660,7 @@ private static final long serialVersionUID = 0L;
         fuelBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.anduril.entitymanager.v1.Fuel, com.anduril.entitymanager.v1.Fuel.Builder, com.anduril.entitymanager.v1.FuelOrBuilder>(
                 fuel_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
         fuel_ = null;

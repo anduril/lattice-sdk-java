@@ -42,51 +42,6 @@ private static final long serialVersionUID = 0L;
             com.anduril.tasks.v2.ISRParameters.class, com.anduril.tasks.v2.ISRParameters.Builder.class);
   }
 
-  public static final int SPEED_FIELD_NUMBER = 1;
-  private com.google.protobuf.FloatValue speed_;
-  /**
-   * <pre>
-   * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-   * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-   * @deprecated anduril.tasks.v2.ISRParameters.speed is deprecated.
-   *     See anduril/tasks/v2/shared/isr.pub.proto;l=144
-   * @return Whether the speed field is set.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public boolean hasSpeed() {
-    return speed_ != null;
-  }
-  /**
-   * <pre>
-   * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-   * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-   * @deprecated anduril.tasks.v2.ISRParameters.speed is deprecated.
-   *     See anduril/tasks/v2/shared/isr.pub.proto;l=144
-   * @return The speed.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.google.protobuf.FloatValue getSpeed() {
-    return speed_ == null ? com.google.protobuf.FloatValue.getDefaultInstance() : speed_;
-  }
-  /**
-   * <pre>
-   * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-   * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.google.protobuf.FloatValueOrBuilder getSpeedOrBuilder() {
-    return speed_ == null ? com.google.protobuf.FloatValue.getDefaultInstance() : speed_;
-  }
-
   public static final int SPEED_M_S_FIELD_NUMBER = 2;
   private com.google.protobuf.FloatValue speedMS_;
   /**
@@ -161,51 +116,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public com.google.protobuf.FloatValueOrBuilder getStandoffDistanceMOrBuilder() {
     return standoffDistanceM_ == null ? com.google.protobuf.FloatValue.getDefaultInstance() : standoffDistanceM_;
-  }
-
-  public static final int STANDOFF_DISTANCE_FIELD_NUMBER = 4;
-  private com.google.protobuf.FloatValue standoffDistance_;
-  /**
-   * <pre>
-   * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-   *  since we might have legacy integrations not conforming to the meters unit.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-   * @deprecated anduril.tasks.v2.ISRParameters.standoff_distance is deprecated.
-   *     See anduril/tasks/v2/shared/isr.pub.proto;l=151
-   * @return Whether the standoffDistance field is set.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public boolean hasStandoffDistance() {
-    return standoffDistance_ != null;
-  }
-  /**
-   * <pre>
-   * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-   *  since we might have legacy integrations not conforming to the meters unit.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-   * @deprecated anduril.tasks.v2.ISRParameters.standoff_distance is deprecated.
-   *     See anduril/tasks/v2/shared/isr.pub.proto;l=151
-   * @return The standoffDistance.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.google.protobuf.FloatValue getStandoffDistance() {
-    return standoffDistance_ == null ? com.google.protobuf.FloatValue.getDefaultInstance() : standoffDistance_;
-  }
-  /**
-   * <pre>
-   * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-   *  since we might have legacy integrations not conforming to the meters unit.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.google.protobuf.FloatValueOrBuilder getStandoffDistanceOrBuilder() {
-    return standoffDistance_ == null ? com.google.protobuf.FloatValue.getDefaultInstance() : standoffDistance_;
   }
 
   public static final int STANDOFF_ANGLE_FIELD_NUMBER = 5;
@@ -304,17 +214,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (speed_ != null) {
-      output.writeMessage(1, getSpeed());
-    }
     if (speedMS_ != null) {
       output.writeMessage(2, getSpeedMS());
     }
     if (standoffDistanceM_ != null) {
       output.writeMessage(3, getStandoffDistanceM());
-    }
-    if (standoffDistance_ != null) {
-      output.writeMessage(4, getStandoffDistance());
     }
     if (standoffAngle_ != null) {
       output.writeMessage(5, getStandoffAngle());
@@ -331,10 +235,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (speed_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getSpeed());
-    }
     if (speedMS_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getSpeedMS());
@@ -342,10 +242,6 @@ private static final long serialVersionUID = 0L;
     if (standoffDistanceM_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getStandoffDistanceM());
-    }
-    if (standoffDistance_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getStandoffDistance());
     }
     if (standoffAngle_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -370,11 +266,6 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.tasks.v2.ISRParameters other = (com.anduril.tasks.v2.ISRParameters) obj;
 
-    if (hasSpeed() != other.hasSpeed()) return false;
-    if (hasSpeed()) {
-      if (!getSpeed()
-          .equals(other.getSpeed())) return false;
-    }
     if (hasSpeedMS() != other.hasSpeedMS()) return false;
     if (hasSpeedMS()) {
       if (!getSpeedMS()
@@ -384,11 +275,6 @@ private static final long serialVersionUID = 0L;
     if (hasStandoffDistanceM()) {
       if (!getStandoffDistanceM()
           .equals(other.getStandoffDistanceM())) return false;
-    }
-    if (hasStandoffDistance() != other.hasStandoffDistance()) return false;
-    if (hasStandoffDistance()) {
-      if (!getStandoffDistance()
-          .equals(other.getStandoffDistance())) return false;
     }
     if (hasStandoffAngle() != other.hasStandoffAngle()) return false;
     if (hasStandoffAngle()) {
@@ -411,10 +297,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasSpeed()) {
-      hash = (37 * hash) + SPEED_FIELD_NUMBER;
-      hash = (53 * hash) + getSpeed().hashCode();
-    }
     if (hasSpeedMS()) {
       hash = (37 * hash) + SPEED_M_S_FIELD_NUMBER;
       hash = (53 * hash) + getSpeedMS().hashCode();
@@ -422,10 +304,6 @@ private static final long serialVersionUID = 0L;
     if (hasStandoffDistanceM()) {
       hash = (37 * hash) + STANDOFF_DISTANCE_M_FIELD_NUMBER;
       hash = (53 * hash) + getStandoffDistanceM().hashCode();
-    }
-    if (hasStandoffDistance()) {
-      hash = (37 * hash) + STANDOFF_DISTANCE_FIELD_NUMBER;
-      hash = (53 * hash) + getStandoffDistance().hashCode();
     }
     if (hasStandoffAngle()) {
       hash = (37 * hash) + STANDOFF_ANGLE_FIELD_NUMBER;
@@ -568,11 +446,6 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      speed_ = null;
-      if (speedBuilder_ != null) {
-        speedBuilder_.dispose();
-        speedBuilder_ = null;
-      }
       speedMS_ = null;
       if (speedMSBuilder_ != null) {
         speedMSBuilder_.dispose();
@@ -582,11 +455,6 @@ private static final long serialVersionUID = 0L;
       if (standoffDistanceMBuilder_ != null) {
         standoffDistanceMBuilder_.dispose();
         standoffDistanceMBuilder_ = null;
-      }
-      standoffDistance_ = null;
-      if (standoffDistanceBuilder_ != null) {
-        standoffDistanceBuilder_.dispose();
-        standoffDistanceBuilder_ = null;
       }
       standoffAngle_ = null;
       if (standoffAngleBuilder_ != null) {
@@ -632,31 +500,21 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.anduril.tasks.v2.ISRParameters result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.speed_ = speedBuilder_ == null
-            ? speed_
-            : speedBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.speedMS_ = speedMSBuilder_ == null
             ? speedMS_
             : speedMSBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.standoffDistanceM_ = standoffDistanceMBuilder_ == null
             ? standoffDistanceM_
             : standoffDistanceMBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.standoffDistance_ = standoffDistanceBuilder_ == null
-            ? standoffDistance_
-            : standoffDistanceBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.standoffAngle_ = standoffAngleBuilder_ == null
             ? standoffAngle_
             : standoffAngleBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.expirationTimeMs_ = expirationTimeMsBuilder_ == null
             ? expirationTimeMs_
             : expirationTimeMsBuilder_.build();
@@ -675,17 +533,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.tasks.v2.ISRParameters other) {
       if (other == com.anduril.tasks.v2.ISRParameters.getDefaultInstance()) return this;
-      if (other.hasSpeed()) {
-        mergeSpeed(other.getSpeed());
-      }
       if (other.hasSpeedMS()) {
         mergeSpeedMS(other.getSpeedMS());
       }
       if (other.hasStandoffDistanceM()) {
         mergeStandoffDistanceM(other.getStandoffDistanceM());
-      }
-      if (other.hasStandoffDistance()) {
-        mergeStandoffDistance(other.getStandoffDistance());
       }
       if (other.hasStandoffAngle()) {
         mergeStandoffAngle(other.getStandoffAngle());
@@ -719,46 +571,32 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              input.readMessage(
-                  getSpeedFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 10
             case 18: {
               input.readMessage(
                   getSpeedMSFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             } // case 18
             case 26: {
               input.readMessage(
                   getStandoffDistanceMFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             } // case 26
-            case 34: {
-              input.readMessage(
-                  getStandoffDistanceFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000008;
-              break;
-            } // case 34
             case 42: {
               input.readMessage(
                   getStandoffAngleFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000004;
               break;
             } // case 42
             case 50: {
               input.readMessage(
                   getExpirationTimeMsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000008;
               break;
             } // case 50
             default: {
@@ -778,174 +616,6 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.FloatValue speed_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> speedBuilder_;
-    /**
-     * <pre>
-     * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-     * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-     * @deprecated anduril.tasks.v2.ISRParameters.speed is deprecated.
-     *     See anduril/tasks/v2/shared/isr.pub.proto;l=144
-     * @return Whether the speed field is set.
-     */
-    @java.lang.Deprecated public boolean hasSpeed() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <pre>
-     * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-     * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-     * @deprecated anduril.tasks.v2.ISRParameters.speed is deprecated.
-     *     See anduril/tasks/v2/shared/isr.pub.proto;l=144
-     * @return The speed.
-     */
-    @java.lang.Deprecated public com.google.protobuf.FloatValue getSpeed() {
-      if (speedBuilder_ == null) {
-        return speed_ == null ? com.google.protobuf.FloatValue.getDefaultInstance() : speed_;
-      } else {
-        return speedBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-     * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setSpeed(com.google.protobuf.FloatValue value) {
-      if (speedBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        speed_ = value;
-      } else {
-        speedBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-     * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setSpeed(
-        com.google.protobuf.FloatValue.Builder builderForValue) {
-      if (speedBuilder_ == null) {
-        speed_ = builderForValue.build();
-      } else {
-        speedBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-     * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder mergeSpeed(com.google.protobuf.FloatValue value) {
-      if (speedBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
-          speed_ != null &&
-          speed_ != com.google.protobuf.FloatValue.getDefaultInstance()) {
-          getSpeedBuilder().mergeFrom(value);
-        } else {
-          speed_ = value;
-        }
-      } else {
-        speedBuilder_.mergeFrom(value);
-      }
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-     * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder clearSpeed() {
-      bitField0_ = (bitField0_ & ~0x00000001);
-      speed_ = null;
-      if (speedBuilder_ != null) {
-        speedBuilder_.dispose();
-        speedBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-     * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.google.protobuf.FloatValue.Builder getSpeedBuilder() {
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return getSpeedFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-     * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.google.protobuf.FloatValueOrBuilder getSpeedOrBuilder() {
-      if (speedBuilder_ != null) {
-        return speedBuilder_.getMessageOrBuilder();
-      } else {
-        return speed_ == null ?
-            com.google.protobuf.FloatValue.getDefaultInstance() : speed_;
-      }
-    }
-    /**
-     * <pre>
-     * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-     * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> 
-        getSpeedFieldBuilder() {
-      if (speedBuilder_ == null) {
-        speedBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>(
-                getSpeed(),
-                getParentForChildren(),
-                isClean());
-        speed_ = null;
-      }
-      return speedBuilder_;
-    }
-
     private com.google.protobuf.FloatValue speedMS_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> speedMSBuilder_;
@@ -958,7 +628,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the speedMS field is set.
      */
     public boolean hasSpeedMS() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -991,7 +661,7 @@ private static final long serialVersionUID = 0L;
       } else {
         speedMSBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1009,7 +679,7 @@ private static final long serialVersionUID = 0L;
       } else {
         speedMSBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1022,7 +692,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSpeedMS(com.google.protobuf.FloatValue value) {
       if (speedMSBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
+        if (((bitField0_ & 0x00000001) != 0) &&
           speedMS_ != null &&
           speedMS_ != com.google.protobuf.FloatValue.getDefaultInstance()) {
           getSpeedMSBuilder().mergeFrom(value);
@@ -1032,7 +702,7 @@ private static final long serialVersionUID = 0L;
       } else {
         speedMSBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1044,7 +714,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FloatValue speed_m_s = 2 [json_name = "speedMS"];</code>
      */
     public Builder clearSpeedMS() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       speedMS_ = null;
       if (speedMSBuilder_ != null) {
         speedMSBuilder_.dispose();
@@ -1061,7 +731,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FloatValue speed_m_s = 2 [json_name = "speedMS"];</code>
      */
     public com.google.protobuf.FloatValue.Builder getSpeedMSBuilder() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return getSpeedMSFieldBuilder().getBuilder();
     }
@@ -1113,7 +783,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the standoffDistanceM field is set.
      */
     public boolean hasStandoffDistanceM() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1146,7 +816,7 @@ private static final long serialVersionUID = 0L;
       } else {
         standoffDistanceMBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1164,7 +834,7 @@ private static final long serialVersionUID = 0L;
       } else {
         standoffDistanceMBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1177,7 +847,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStandoffDistanceM(com.google.protobuf.FloatValue value) {
       if (standoffDistanceMBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0) &&
+        if (((bitField0_ & 0x00000002) != 0) &&
           standoffDistanceM_ != null &&
           standoffDistanceM_ != com.google.protobuf.FloatValue.getDefaultInstance()) {
           getStandoffDistanceMBuilder().mergeFrom(value);
@@ -1187,7 +857,7 @@ private static final long serialVersionUID = 0L;
       } else {
         standoffDistanceMBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1199,7 +869,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FloatValue standoff_distance_m = 3 [json_name = "standoffDistanceM"];</code>
      */
     public Builder clearStandoffDistanceM() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000002);
       standoffDistanceM_ = null;
       if (standoffDistanceMBuilder_ != null) {
         standoffDistanceMBuilder_.dispose();
@@ -1216,7 +886,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FloatValue standoff_distance_m = 3 [json_name = "standoffDistanceM"];</code>
      */
     public com.google.protobuf.FloatValue.Builder getStandoffDistanceMBuilder() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return getStandoffDistanceMFieldBuilder().getBuilder();
     }
@@ -1256,174 +926,6 @@ private static final long serialVersionUID = 0L;
       return standoffDistanceMBuilder_;
     }
 
-    private com.google.protobuf.FloatValue standoffDistance_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> standoffDistanceBuilder_;
-    /**
-     * <pre>
-     * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-     *  since we might have legacy integrations not conforming to the meters unit.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-     * @deprecated anduril.tasks.v2.ISRParameters.standoff_distance is deprecated.
-     *     See anduril/tasks/v2/shared/isr.pub.proto;l=151
-     * @return Whether the standoffDistance field is set.
-     */
-    @java.lang.Deprecated public boolean hasStandoffDistance() {
-      return ((bitField0_ & 0x00000008) != 0);
-    }
-    /**
-     * <pre>
-     * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-     *  since we might have legacy integrations not conforming to the meters unit.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-     * @deprecated anduril.tasks.v2.ISRParameters.standoff_distance is deprecated.
-     *     See anduril/tasks/v2/shared/isr.pub.proto;l=151
-     * @return The standoffDistance.
-     */
-    @java.lang.Deprecated public com.google.protobuf.FloatValue getStandoffDistance() {
-      if (standoffDistanceBuilder_ == null) {
-        return standoffDistance_ == null ? com.google.protobuf.FloatValue.getDefaultInstance() : standoffDistance_;
-      } else {
-        return standoffDistanceBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-     *  since we might have legacy integrations not conforming to the meters unit.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setStandoffDistance(com.google.protobuf.FloatValue value) {
-      if (standoffDistanceBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        standoffDistance_ = value;
-      } else {
-        standoffDistanceBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-     *  since we might have legacy integrations not conforming to the meters unit.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setStandoffDistance(
-        com.google.protobuf.FloatValue.Builder builderForValue) {
-      if (standoffDistanceBuilder_ == null) {
-        standoffDistance_ = builderForValue.build();
-      } else {
-        standoffDistanceBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-     *  since we might have legacy integrations not conforming to the meters unit.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder mergeStandoffDistance(com.google.protobuf.FloatValue value) {
-      if (standoffDistanceBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0) &&
-          standoffDistance_ != null &&
-          standoffDistance_ != com.google.protobuf.FloatValue.getDefaultInstance()) {
-          getStandoffDistanceBuilder().mergeFrom(value);
-        } else {
-          standoffDistance_ = value;
-        }
-      } else {
-        standoffDistanceBuilder_.mergeFrom(value);
-      }
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-     *  since we might have legacy integrations not conforming to the meters unit.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder clearStandoffDistance() {
-      bitField0_ = (bitField0_ & ~0x00000008);
-      standoffDistance_ = null;
-      if (standoffDistanceBuilder_ != null) {
-        standoffDistanceBuilder_.dispose();
-        standoffDistanceBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-     *  since we might have legacy integrations not conforming to the meters unit.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.google.protobuf.FloatValue.Builder getStandoffDistanceBuilder() {
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return getStandoffDistanceFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-     *  since we might have legacy integrations not conforming to the meters unit.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.google.protobuf.FloatValueOrBuilder getStandoffDistanceOrBuilder() {
-      if (standoffDistanceBuilder_ != null) {
-        return standoffDistanceBuilder_.getMessageOrBuilder();
-      } else {
-        return standoffDistance_ == null ?
-            com.google.protobuf.FloatValue.getDefaultInstance() : standoffDistance_;
-      }
-    }
-    /**
-     * <pre>
-     * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-     *  since we might have legacy integrations not conforming to the meters unit.
-     * </pre>
-     *
-     * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> 
-        getStandoffDistanceFieldBuilder() {
-      if (standoffDistanceBuilder_ == null) {
-        standoffDistanceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>(
-                getStandoffDistance(),
-                getParentForChildren(),
-                isClean());
-        standoffDistance_ = null;
-      }
-      return standoffDistanceBuilder_;
-    }
-
     private com.google.protobuf.FloatValue standoffAngle_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> standoffAngleBuilder_;
@@ -1437,7 +939,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the standoffAngle field is set.
      */
     public boolean hasStandoffAngle() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1472,7 +974,7 @@ private static final long serialVersionUID = 0L;
       } else {
         standoffAngleBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1491,7 +993,7 @@ private static final long serialVersionUID = 0L;
       } else {
         standoffAngleBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1505,7 +1007,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStandoffAngle(com.google.protobuf.FloatValue value) {
       if (standoffAngleBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0) &&
+        if (((bitField0_ & 0x00000004) != 0) &&
           standoffAngle_ != null &&
           standoffAngle_ != com.google.protobuf.FloatValue.getDefaultInstance()) {
           getStandoffAngleBuilder().mergeFrom(value);
@@ -1515,7 +1017,7 @@ private static final long serialVersionUID = 0L;
       } else {
         standoffAngleBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1528,7 +1030,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FloatValue standoff_angle = 5 [json_name = "standoffAngle"];</code>
      */
     public Builder clearStandoffAngle() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000004);
       standoffAngle_ = null;
       if (standoffAngleBuilder_ != null) {
         standoffAngleBuilder_.dispose();
@@ -1546,7 +1048,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FloatValue standoff_angle = 5 [json_name = "standoffAngle"];</code>
      */
     public com.google.protobuf.FloatValue.Builder getStandoffAngleBuilder() {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000004;
       onChanged();
       return getStandoffAngleFieldBuilder().getBuilder();
     }
@@ -1601,7 +1103,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the expirationTimeMs field is set.
      */
     public boolean hasExpirationTimeMs() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1636,7 +1138,7 @@ private static final long serialVersionUID = 0L;
       } else {
         expirationTimeMsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1655,7 +1157,7 @@ private static final long serialVersionUID = 0L;
       } else {
         expirationTimeMsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1669,7 +1171,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExpirationTimeMs(com.google.protobuf.UInt64Value value) {
       if (expirationTimeMsBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0) &&
+        if (((bitField0_ & 0x00000008) != 0) &&
           expirationTimeMs_ != null &&
           expirationTimeMs_ != com.google.protobuf.UInt64Value.getDefaultInstance()) {
           getExpirationTimeMsBuilder().mergeFrom(value);
@@ -1679,7 +1181,7 @@ private static final long serialVersionUID = 0L;
       } else {
         expirationTimeMsBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1692,7 +1194,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt64Value expiration_time_ms = 6 [json_name = "expirationTimeMs"];</code>
      */
     public Builder clearExpirationTimeMs() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000008);
       expirationTimeMs_ = null;
       if (expirationTimeMsBuilder_ != null) {
         expirationTimeMsBuilder_.dispose();
@@ -1710,7 +1212,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt64Value expiration_time_ms = 6 [json_name = "expirationTimeMs"];</code>
      */
     public com.google.protobuf.UInt64Value.Builder getExpirationTimeMsBuilder() {
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000008;
       onChanged();
       return getExpirationTimeMsFieldBuilder().getBuilder();
     }

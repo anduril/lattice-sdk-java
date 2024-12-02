@@ -5,7 +5,7 @@ package com.anduril.entitymanager.v1;
 
 /**
  * <pre>
- * Available for Entities that have a military view representation.
+ * Provides the disposition, environment, and nationality of an Entity.
  * </pre>
  *
  * Protobuf type {@code anduril.entitymanager.v1.MilView}
@@ -275,7 +275,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Available for Entities that have a military view representation.
+   * Provides the disposition, environment, and nationality of an Entity.
    * </pre>
    *
    * Protobuf type {@code anduril.entitymanager.v1.MilView}

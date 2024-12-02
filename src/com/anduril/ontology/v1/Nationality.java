@@ -5,7 +5,7 @@ package com.anduril.ontology.v1;
 
 /**
  * <pre>
- * Describes Nationality or Alliance information.
+ * Describes Nationality or Alliance information. This is derived from ISO-3166.
  * </pre>
  *
  * Protobuf enum {@code anduril.ontology.v1.Nationality}
@@ -393,9 +393,9 @@ public enum Nationality
    */
   NATIONALITY_SYRIAN_ARAB_REPUBLIC(61),
   /**
-   * <code>NATIONALITY_TAIWAN_PROVINCE_OF_CHINA = 73;</code>
+   * <code>NATIONALITY_TAIWAN = 73;</code>
    */
-  NATIONALITY_TAIWAN_PROVINCE_OF_CHINA(73),
+  NATIONALITY_TAIWAN(73),
   /**
    * <code>NATIONALITY_TAJIKISTAN = 45;</code>
    */
@@ -852,9 +852,9 @@ public enum Nationality
    */
   public static final int NATIONALITY_SYRIAN_ARAB_REPUBLIC_VALUE = 61;
   /**
-   * <code>NATIONALITY_TAIWAN_PROVINCE_OF_CHINA = 73;</code>
+   * <code>NATIONALITY_TAIWAN = 73;</code>
    */
-  public static final int NATIONALITY_TAIWAN_PROVINCE_OF_CHINA_VALUE = 73;
+  public static final int NATIONALITY_TAIWAN_VALUE = 73;
   /**
    * <code>NATIONALITY_TAJIKISTAN = 45;</code>
    */
@@ -1048,7 +1048,7 @@ public enum Nationality
       case 43: return NATIONALITY_SWEDEN;
       case 44: return NATIONALITY_SWITZERLAND;
       case 61: return NATIONALITY_SYRIAN_ARAB_REPUBLIC;
-      case 73: return NATIONALITY_TAIWAN_PROVINCE_OF_CHINA;
+      case 73: return NATIONALITY_TAIWAN;
       case 45: return NATIONALITY_TAJIKISTAN;
       case 70: return NATIONALITY_THAILAND;
       case 46: return NATIONALITY_THE_FORMER_YUGOSLAV_REPUBLIC_OF_MACEDONIA;
@@ -1097,7 +1097,7 @@ public enum Nationality
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.anduril.ontology.v1.TypePubProto.getDescriptor().getEnumTypes().get(3);
+    return com.anduril.ontology.v1.TypePubProto.getDescriptor().getEnumTypes().get(2);
   }
 
   private static final Nationality[] VALUES = values();

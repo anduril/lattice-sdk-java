@@ -8,10 +8,20 @@ public interface PowerStateOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * This is a map where the key is a unique id of the power source and the value is additional information about the
+   * power source.
+   * </pre>
+   *
    * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
    */
   int getSourceIdToStateCount();
   /**
+   * <pre>
+   * This is a map where the key is a unique id of the power source and the value is additional information about the
+   * power source.
+   * </pre>
+   *
    * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
    */
   boolean containsSourceIdToState(
@@ -23,11 +33,21 @@ public interface PowerStateOrBuilder extends
   java.util.Map<java.lang.String, com.anduril.entitymanager.v1.PowerSource>
   getSourceIdToState();
   /**
+   * <pre>
+   * This is a map where the key is a unique id of the power source and the value is additional information about the
+   * power source.
+   * </pre>
+   *
    * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
    */
   java.util.Map<java.lang.String, com.anduril.entitymanager.v1.PowerSource>
   getSourceIdToStateMap();
   /**
+   * <pre>
+   * This is a map where the key is a unique id of the power source and the value is additional information about the
+   * power source.
+   * </pre>
+   *
    * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
    */
   /* nullable */
@@ -36,90 +56,13 @@ com.anduril.entitymanager.v1.PowerSource getSourceIdToStateOrDefault(
       /* nullable */
 com.anduril.entitymanager.v1.PowerSource defaultValue);
   /**
+   * <pre>
+   * This is a map where the key is a unique id of the power source and the value is additional information about the
+   * power source.
+   * </pre>
+   *
    * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
    */
   com.anduril.entitymanager.v1.PowerSource getSourceIdToStateOrThrow(
       java.lang.String key);
-
-  /**
-   * <code>.anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_status is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=17
-   * @return The enum numeric value on the wire for powerStatus.
-   */
-  @java.lang.Deprecated int getPowerStatusValue();
-  /**
-   * <code>.anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_status is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=17
-   * @return The powerStatus.
-   */
-  @java.lang.Deprecated com.anduril.entitymanager.v1.PowerStatus getPowerStatus();
-
-  /**
-   * <code>.anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_type is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=18
-   * @return The enum numeric value on the wire for powerType.
-   */
-  @java.lang.Deprecated int getPowerTypeValue();
-  /**
-   * <code>.anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_type is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=18
-   * @return The powerType.
-   */
-  @java.lang.Deprecated com.anduril.entitymanager.v1.PowerType getPowerType();
-
-  /**
-   * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_level is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=19
-   * @return Whether the powerLevel field is set.
-   */
-  @java.lang.Deprecated boolean hasPowerLevel();
-  /**
-   * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_level is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=19
-   * @return The powerLevel.
-   */
-  @java.lang.Deprecated com.anduril.entitymanager.v1.PowerLevel getPowerLevel();
-  /**
-   * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-   */
-  @java.lang.Deprecated com.anduril.entitymanager.v1.PowerLevelOrBuilder getPowerLevelOrBuilder();
-
-  /**
-   * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=20
-   * @return A list containing the messages.
-   */
-  @java.lang.Deprecated java.util.List<java.lang.String>
-      getMessagesList();
-  /**
-   * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=20
-   * @return The count of messages.
-   */
-  @java.lang.Deprecated int getMessagesCount();
-  /**
-   * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=20
-   * @param index The index of the element to return.
-   * @return The messages at the given index.
-   */
-  @java.lang.Deprecated java.lang.String getMessages(int index);
-  /**
-   * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=20
-   * @param index The index of the value to return.
-   * @return The bytes of the messages at the given index.
-   */
-  @java.lang.Deprecated com.google.protobuf.ByteString
-      getMessagesBytes(int index);
 }

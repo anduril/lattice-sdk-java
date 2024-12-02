@@ -9,7 +9,7 @@ public interface GetEntityResponseOrBuilder extends
 
   /**
    * <pre>
-   * an Entity object that corresponds with the requested entityId
+   * An Entity object that corresponds with the requested entityId.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -18,7 +18,7 @@ public interface GetEntityResponseOrBuilder extends
   boolean hasEntity();
   /**
    * <pre>
-   * an Entity object that corresponds with the requested entityId
+   * An Entity object that corresponds with the requested entityId.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -27,7 +27,7 @@ public interface GetEntityResponseOrBuilder extends
   com.anduril.entitymanager.v1.Entity getEntity();
   /**
    * <pre>
-   * an Entity object that corresponds with the requested entityId
+   * An Entity object that corresponds with the requested entityId.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>

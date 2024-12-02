@@ -8,30 +8,6 @@ public interface SuppliesOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-   */
-  java.util.List<com.anduril.entitymanager.v1.Munition> 
-      getMunitionsList();
-  /**
-   * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-   */
-  com.anduril.entitymanager.v1.Munition getMunitions(int index);
-  /**
-   * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-   */
-  int getMunitionsCount();
-  /**
-   * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-   */
-  java.util.List<? extends com.anduril.entitymanager.v1.MunitionOrBuilder> 
-      getMunitionsOrBuilderList();
-  /**
-   * <code>repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];</code>
-   */
-  com.anduril.entitymanager.v1.MunitionOrBuilder getMunitionsOrBuilder(
-      int index);
-
-  /**
    * <code>repeated .anduril.entitymanager.v1.Fuel fuel = 2 [json_name = "fuel", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   java.util.List<com.anduril.entitymanager.v1.Fuel> 

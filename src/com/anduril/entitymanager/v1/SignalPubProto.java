@@ -55,25 +55,10 @@ public final class SignalPubProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_Fixed_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_RangeBearing_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_RangeBearing_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_PulseRepetitionInterval_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_PulseRepetitionInterval_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_Modulation_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_Modulation_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_Encoding_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_Encoding_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_ScanCharacteristics_descriptor;
   static final 
@@ -89,162 +74,88 @@ public final class SignalPubProto {
   static {
     java.lang.String[] descriptorData = {
       "\n)anduril/entitymanager/v1/signal.pub.pr" +
-      "oto\022\030anduril.entitymanager.v1\032+anduril/e" +
-      "ntitymanager/v1/location.pub.proto\032\035andu" +
-      "ril/type/coords.pub.proto\032\036google/protob" +
-      "uf/wrappers.proto\"\241\007\n\006Signal\022P\n\020frequenc" +
-      "y_center\030\001 \001(\0132#.anduril.entitymanager.v" +
-      "1.FrequencyH\000R\017frequencyCenter\022S\n\017freque" +
-      "ncy_range\030\002 \001(\0132(.anduril.entitymanager." +
-      "v1.FrequencyRangeH\000R\016frequencyRange\022?\n\014b" +
-      "andwidth_hz\030\003 \001(\0132\034.google.protobuf.Doub" +
-      "leValueR\013bandwidthHz\022O\n\025signal_to_noise_" +
-      "ratio\030\004 \001(\0132\034.google.protobuf.DoubleValu" +
-      "eR\022signalToNoiseRatio\022Q\n\017line_of_bearing" +
-      "\030\005 \001(\0132\'.anduril.entitymanager.v1.LineOf" +
-      "BearingH\001R\rlineOfBearing\0227\n\005fixed\030\006 \001(\0132" +
-      "\037.anduril.entitymanager.v1.FixedH\001R\005fixe" +
-      "d\022V\n\021emitter_notations\030\007 \003(\0132).anduril.e" +
-      "ntitymanager.v1.EmitterNotationR\020emitter" +
-      "Notations\022@\n\rpulse_width_s\030\010 \001(\0132\034.googl" +
-      "e.protobuf.DoubleValueR\013pulseWidthS\022m\n\031p" +
-      "ulse_repetition_interval\030\t \001(\01321.anduril" +
-      ".entitymanager.v1.PulseRepetitionInterva" +
-      "lR\027pulseRepetitionInterval\022D\n\nmodulation" +
-      "\030\n \001(\0132$.anduril.entitymanager.v1.Modula" +
-      "tionR\nmodulation\022`\n\024scan_characteristics" +
-      "\030\013 \001(\0132-.anduril.entitymanager.v1.ScanCh" +
-      "aracteristicsR\023scanCharacteristicsB\027\n\025fr" +
-      "equency_measurementB\010\n\006report\"z\n\017Emitter" +
-      "Notation\022)\n\020emitter_notation\030\001 \001(\tR\017emit" +
-      "terNotation\022<\n\nconfidence\030\002 \001(\0132\034.google" +
-      ".protobuf.DoubleValueR\nconfidence\"u\n\013Mea" +
-      "surement\0222\n\005value\030\001 \001(\0132\034.google.protobu" +
-      "f.DoubleValueR\005value\0222\n\005sigma\030\002 \001(\0132\034.go" +
-      "ogle.protobuf.DoubleValueR\005sigma\"U\n\tFreq" +
-      "uency\022H\n\014frequency_hz\030\001 \001(\0132%.anduril.en" +
-      "titymanager.v1.MeasurementR\013frequencyHz\"" +
-      "\276\001\n\016FrequencyRange\022U\n\024minimum_frequency_" +
-      "hz\030\001 \001(\0132#.anduril.entitymanager.v1.Freq" +
-      "uencyR\022minimumFrequencyHz\022U\n\024maximum_fre" +
-      "quency_hz\030\002 \001(\0132#.anduril.entitymanager." +
-      "v1.FrequencyR\022maximumFrequencyHz\"\243\003\n\rLin" +
-      "eOfBearing\022>\n\006origin\030\001 \001(\0132\".anduril.ent" +
-      "itymanager.v1.PositionB\002\030\001R\006origin\022O\n\rra" +
-      "nge_bearing\030\002 \001(\0132&.anduril.entitymanage" +
-      "r.v1.RangeBearingB\002\030\001R\014rangeBearing\022R\n\020a" +
-      "ngle_of_arrival\030\003 \001(\0132(.anduril.entityma" +
-      "nager.v1.AngleOfArrivalR\016angleOfArrival\022" +
-      "Q\n\020range_estimate_m\030\004 \001(\0132%.anduril.enti" +
-      "tymanager.v1.MeasurementH\000R\016rangeEstimat" +
-      "eM\022G\n\013max_range_m\030\005 \001(\0132%.anduril.entity" +
-      "manager.v1.MeasurementH\000R\tmaxRangeMB\021\n\017d" +
-      "etection_range\"\251\001\n\016AngleOfArrival\0227\n\rrel" +
-      "ative_pose\030\001 \001(\0132\022.anduril.type.PoseR\014re" +
-      "lativePose\022^\n!bearing_elevation_covarian" +
-      "ce_rad2\030\002 \001(\0132\023.anduril.type.TMat2R\036bear" +
-      "ingElevationCovarianceRad2\"\007\n\005Fixed\"\231\001\n\014" +
-      "RangeBearing\022>\n\007range_m\030\001 \001(\0132%.anduril." +
-      "entitymanager.v1.MeasurementR\006rangeM\022I\n\r" +
-      "range_angle_d\030\002 \001(\0132%.anduril.entitymana" +
-      "ger.v1.MeasurementR\013rangeAngleD\"\177\n\027Pulse" +
-      "RepetitionInterval\022d\n\033pulse_repetition_i" +
-      "nterval_s\030\001 \001(\0132%.anduril.entitymanager." +
-      "v1.MeasurementR\030pulseRepetitionIntervalS" +
-      "\"\213\002\n\nModulation\022Q\n\017modulation_type\030\001 \001(\016" +
-      "2(.anduril.entitymanager.v1.ModulationTy" +
-      "peR\016modulationType\0225\n\007symbols\030\002 \001(\0132\033.go" +
-      "ogle.protobuf.Int32ValueR\007symbols\0223\n\025int" +
-      "erpulse_modulation\030\003 \001(\tR\024interpulseModu" +
-      "lation\022>\n\010encoding\030\004 \001(\0132\".anduril.entit" +
-      "ymanager.v1.EncodingR\010encoding\"\356\001\n\010Encod" +
-      "ing\022N\n\025chip_hop_rate_num_sec\030\001 \001(\0132\034.goo" +
-      "gle.protobuf.DoubleValueR\021chipHopRateNum" +
-      "Sec\022I\n\022hop_dwell_time_sec\030\002 \001(\0132\034.google" +
-      ".protobuf.DoubleValueR\017hopDwellTimeSec\022G" +
-      "\n\021baud_rate_num_sec\030\003 \001(\0132\034.google.proto" +
-      "buf.DoubleValueR\016baudRateNumSec\"\230\001\n\023Scan" +
-      "Characteristics\022?\n\tscan_type\030\001 \001(\0162\".and" +
-      "uril.entitymanager.v1.ScanTypeR\010scanType" +
-      "\022@\n\rscan_period_s\030\002 \001(\0132\034.google.protobu" +
-      "f.DoubleValueR\013scanPeriodS*\360\017\n\016Modulatio" +
-      "nType\022\033\n\027MODULATION_TYPE_INVALID\020\000\022\035\n\031MO" +
-      "DULATION_TYPE_AMPLITUDE\020\001\022\035\n\031MODULATION_" +
-      "TYPE_FREQUENCY\020\002\022\031\n\025MODULATION_TYPE_PHAS" +
-      "E\020\003\022\032\n\026MODULATION_TYPE_SPACED\020\004\022*\n&MODUL" +
-      "ATION_TYPE_AMPLITUDE_SHIFT_KEYING\020\005\022*\n&M" +
-      "ODULATION_TYPE_FREQUENCY_SHIFT_KEYING\020\006\022" +
-      "&\n\"MODULATION_TYPE_PHASE_SHIFT_KEYING\020\007\022" +
-      "(\n$MODULATION_TYPE_MINIMUM_SHIFT_KEYING\020" +
-      "\010\0221\n-MODULATION_TYPE_MINIMUM_SHIFT_KEYIN" +
-      "G_GAUSSIAN\020\t\022*\n&MODULATION_TYPE_SINGLE_S" +
-      "IDE_BAND_UPPER\020\n\022*\n&MODULATION_TYPE_SING" +
-      "LE_SIDE_BAND_LOWER\020\013\0221\n-MODULATION_TYPE_" +
-      "SINGLE_SIDE_BAND_FULL_CARRIER\020\014\0227\n3MODUL" +
-      "ATION_TYPE_SINGLE_SIDE_BAND_SUPPRESSED_C" +
-      "ARRIER\020\r\0224\n0MODULATION_TYPE_SINGLE_SIDE_" +
-      "BAND_REDUCED_CARRIER\020\016\0224\n0MODULATION_TYP" +
-      "E_SINGLE_SIDE_BAND_WITHOUT_CARRIER\020\017\022/\n+" +
-      "MODULATION_TYPE_DUAL_SIDE_BAND_FULL_CARR" +
-      "IER\020\020\0225\n1MODULATION_TYPE_DUAL_SIDE_BAND_" +
-      "SUPPRESSED_CARRIER\020\021\0222\n.MODULATION_TYPE_" +
-      "DUAL_SIDE_BAND_REDUCED_CARRIER\020\022\0222\n.MODU" +
-      "LATION_TYPE_DUAL_SIDE_BAND_WITHOUT_CARRI" +
-      "ER\020\023\022)\n%MODULATION_TYPE_INDEPENDENT_SIDE" +
-      "_BAND\020\024\022\'\n#MODULATION_TYPE_VESTIGIAL_SID" +
-      "E_BAND\020\025\022!\n\035MODULATION_TYPE_ON_OFF_KEYIN" +
-      "G\020\026\0220\n,MODULATION_TYPE_MULTI_FREQUENCY_S" +
-      "HIFT_KEYING\020\027\0220\n,MODULATION_TYPE_AUDIO_F" +
-      "REQUENCY_SHIFT_KEYING\020\030\022;\n7MODULATION_TY" +
-      "PE_CONTINUOUS_PHASE_FREQUENCY_SHIFT_KEYI" +
-      "NG\020\031\022(\n$MODULATION_TYPE_C_PHASE_SHIFT_KE" +
-      "YING\020\032\022D\n@MODULATION_TYPE_DIFFERENTIALLY" +
-      "_ENCODED_BINARY_PHASE_SHIFT_KEYING\020\033\022H\nD" +
-      "MODULATION_TYPE_DIFFERENTIALLY_ENCODED_Q" +
-      "UADRATURE_PHASE_SHIFT_KEYING\020\034\0228\n4MODULA" +
-      "TION_TYPE_OFFSET_QUADRATURE_PHASE_SHIFT_" +
-      "KEYING\020\035\0223\n/MODULATION_TYPE_DIFFERENTIAL" +
-      "_PHASE_SHIFT_KEYING\020\036\0226\n2MODULATION_TYPE" +
-      "_PI_4_QUADRATURE_PHASE_SHIFT_KEYING\020\037\022E\n" +
-      "AMODULATION_TYPE_STACKED_OVERLAPPING_QUA" +
-      "DRATURE_PHASE_SHIFT_KEYING\020 \0223\n/MODULATI" +
-      "ON_TYPE_F_QUADRATURE_PHASE_SHIFT_KEYING\020" +
-      "!\022/\n+MODULATION_TYPE_QUADRATURE_AMPLITUD" +
-      "E_ANALOG\020\"\0220\n,MODULATION_TYPE_QUADRATURE" +
-      "_AMPLITUDE_DIGITAL\020#\022$\n MODULATION_TYPE_" +
-      "CONTINUOUS_PHASE\020$\022\"\n\036MODULATION_TYPE_PU" +
-      "LSE_POSITION\020%\022 \n\034MODULATION_TYPE_TRELLI" +
-      "S_CODE\020&\022>\n:MODULATION_TYPE_ORTHOGONAL_F" +
-      "REQUENCY_DIVISION_MULTIPLEXING\020\'\0225\n1MODU" +
-      "LATION_TYPE_FREQUENCY_HOPPING_SPREAD_SPE" +
-      "CTRUM\020(\0224\n0MODULATION_TYPE_DIGITAL_SEQUE" +
-      "NCE_SPREAD_SPECTRUM\020)*\274\004\n\010ScanType\022\025\n\021SC" +
-      "AN_TYPE_INVALID\020\000\022\026\n\022SCAN_TYPE_CIRCULAR\020" +
-      "\001\022-\n)SCAN_TYPE_BIDIRECTIONAL_HORIZONTAL_" +
-      "SECTOR\020\002\022+\n\'SCAN_TYPE_BIDIRECTIONAL_VERT" +
-      "ICAL_SECTOR\020\003\022\032\n\026SCAN_TYPE_NON_SCANNING\020" +
-      "\004\022\027\n\023SCAN_TYPE_IRREGULAR\020\005\022\025\n\021SCAN_TYPE_" +
-      "CONICAL\020\006\022\034\n\030SCAN_TYPE_LOBE_SWITCHING\020\007\022" +
-      "\024\n\020SCAN_TYPE_RASTER\020\010\022&\n\"SCAN_TYPE_CIRCU" +
-      "LAR_VERTICAL_SECTOR\020\t\022\036\n\032SCAN_TYPE_CIRCU" +
-      "LAR_CONICAL\020\n\022\034\n\030SCAN_TYPE_SECTOR_CONICA" +
-      "L\020\013\022\030\n\024SCAN_TYPE_AGILE_BEAM\020\014\022,\n(SCAN_TY" +
-      "PE_UNIDIRECTIONAL_VERTICAL_SECTOR\020\r\022.\n*S" +
-      "CAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTO" +
-      "R\020\016\022#\n\037SCAN_TYPE_UNIDIRECTIONAL_SECTOR\020\017" +
-      "\022\"\n\036SCAN_TYPE_BIDIRECTIONAL_SECTOR\020\020B\202\002\n" +
-      "\034com.anduril.entitymanager.v1B\016SignalPub" +
-      "ProtoP\001ZPgithub.com/anduril/lattice-sdk-" +
-      "java/src/anduril/entitymanager/v1;entity" +
-      "managerv1\242\002\003AEX\252\002\030Anduril.Entitymanager." +
-      "V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\" +
-      "Entitymanager\\V1\\GPBMetadata\352\002\032Anduril::" +
-      "Entitymanager::V1b\006proto3"
+      "oto\022\030anduril.entitymanager.v1\032\035anduril/t" +
+      "ype/coords.pub.proto\032\036google/protobuf/wr" +
+      "appers.proto\"\341\006\n\006Signal\022P\n\020frequency_cen" +
+      "ter\030\001 \001(\0132#.anduril.entitymanager.v1.Fre" +
+      "quencyH\000R\017frequencyCenter\022S\n\017frequency_r" +
+      "ange\030\002 \001(\0132(.anduril.entitymanager.v1.Fr" +
+      "equencyRangeH\000R\016frequencyRange\022?\n\014bandwi" +
+      "dth_hz\030\003 \001(\0132\034.google.protobuf.DoubleVal" +
+      "ueR\013bandwidthHz\022O\n\025signal_to_noise_ratio" +
+      "\030\004 \001(\0132\034.google.protobuf.DoubleValueR\022si" +
+      "gnalToNoiseRatio\022Q\n\017line_of_bearing\030\005 \001(" +
+      "\0132\'.anduril.entitymanager.v1.LineOfBeari" +
+      "ngH\001R\rlineOfBearing\0227\n\005fixed\030\006 \001(\0132\037.and" +
+      "uril.entitymanager.v1.FixedH\001R\005fixed\022V\n\021" +
+      "emitter_notations\030\007 \003(\0132).anduril.entity" +
+      "manager.v1.EmitterNotationR\020emitterNotat" +
+      "ions\022@\n\rpulse_width_s\030\010 \001(\0132\034.google.pro" +
+      "tobuf.DoubleValueR\013pulseWidthS\022m\n\031pulse_" +
+      "repetition_interval\030\t \001(\01321.anduril.enti" +
+      "tymanager.v1.PulseRepetitionIntervalR\027pu" +
+      "lseRepetitionInterval\022`\n\024scan_characteri" +
+      "stics\030\013 \001(\0132-.anduril.entitymanager.v1.S" +
+      "canCharacteristicsR\023scanCharacteristicsB" +
+      "\027\n\025frequency_measurementB\010\n\006reportJ\004\010\n\020\013" +
+      "\"z\n\017EmitterNotation\022)\n\020emitter_notation\030" +
+      "\001 \001(\tR\017emitterNotation\022<\n\nconfidence\030\002 \001" +
+      "(\0132\034.google.protobuf.DoubleValueR\nconfid" +
+      "ence\"u\n\013Measurement\0222\n\005value\030\001 \001(\0132\034.goo" +
+      "gle.protobuf.DoubleValueR\005value\0222\n\005sigma" +
+      "\030\002 \001(\0132\034.google.protobuf.DoubleValueR\005si" +
+      "gma\"U\n\tFrequency\022H\n\014frequency_hz\030\001 \001(\0132%" +
+      ".anduril.entitymanager.v1.MeasurementR\013f" +
+      "requencyHz\"\276\001\n\016FrequencyRange\022U\n\024minimum" +
+      "_frequency_hz\030\001 \001(\0132#.anduril.entitymana" +
+      "ger.v1.FrequencyR\022minimumFrequencyHz\022U\n\024" +
+      "maximum_frequency_hz\030\002 \001(\0132#.anduril.ent" +
+      "itymanager.v1.FrequencyR\022maximumFrequenc" +
+      "yHz\"\236\002\n\rLineOfBearing\022R\n\020angle_of_arriva" +
+      "l\030\003 \001(\0132(.anduril.entitymanager.v1.Angle" +
+      "OfArrivalR\016angleOfArrival\022Q\n\020range_estim" +
+      "ate_m\030\004 \001(\0132%.anduril.entitymanager.v1.M" +
+      "easurementH\000R\016rangeEstimateM\022G\n\013max_rang" +
+      "e_m\030\005 \001(\0132%.anduril.entitymanager.v1.Mea" +
+      "surementH\000R\tmaxRangeMB\021\n\017detection_range" +
+      "J\004\010\001\020\002J\004\010\002\020\003\"\251\001\n\016AngleOfArrival\0227\n\rrelat" +
+      "ive_pose\030\001 \001(\0132\022.anduril.type.PoseR\014rela" +
+      "tivePose\022^\n!bearing_elevation_covariance" +
+      "_rad2\030\002 \001(\0132\023.anduril.type.TMat2R\036bearin" +
+      "gElevationCovarianceRad2\"\007\n\005Fixed\"\177\n\027Pul" +
+      "seRepetitionInterval\022d\n\033pulse_repetition" +
+      "_interval_s\030\001 \001(\0132%.anduril.entitymanage" +
+      "r.v1.MeasurementR\030pulseRepetitionInterva" +
+      "lS\"\230\001\n\023ScanCharacteristics\022?\n\tscan_type\030" +
+      "\001 \001(\0162\".anduril.entitymanager.v1.ScanTyp" +
+      "eR\010scanType\022@\n\rscan_period_s\030\002 \001(\0132\034.goo" +
+      "gle.protobuf.DoubleValueR\013scanPeriodS*\274\004" +
+      "\n\010ScanType\022\025\n\021SCAN_TYPE_INVALID\020\000\022\026\n\022SCA" +
+      "N_TYPE_CIRCULAR\020\001\022-\n)SCAN_TYPE_BIDIRECTI" +
+      "ONAL_HORIZONTAL_SECTOR\020\002\022+\n\'SCAN_TYPE_BI" +
+      "DIRECTIONAL_VERTICAL_SECTOR\020\003\022\032\n\026SCAN_TY" +
+      "PE_NON_SCANNING\020\004\022\027\n\023SCAN_TYPE_IRREGULAR" +
+      "\020\005\022\025\n\021SCAN_TYPE_CONICAL\020\006\022\034\n\030SCAN_TYPE_L" +
+      "OBE_SWITCHING\020\007\022\024\n\020SCAN_TYPE_RASTER\020\010\022&\n" +
+      "\"SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR\020\t\022\036\n" +
+      "\032SCAN_TYPE_CIRCULAR_CONICAL\020\n\022\034\n\030SCAN_TY" +
+      "PE_SECTOR_CONICAL\020\013\022\030\n\024SCAN_TYPE_AGILE_B" +
+      "EAM\020\014\022,\n(SCAN_TYPE_UNIDIRECTIONAL_VERTIC" +
+      "AL_SECTOR\020\r\022.\n*SCAN_TYPE_UNIDIRECTIONAL_" +
+      "HORIZONTAL_SECTOR\020\016\022#\n\037SCAN_TYPE_UNIDIRE" +
+      "CTIONAL_SECTOR\020\017\022\"\n\036SCAN_TYPE_BIDIRECTIO" +
+      "NAL_SECTOR\020\020B\202\002\n\034com.anduril.entitymanag" +
+      "er.v1B\016SignalPubProtoP\001ZPgithub.com/andu" +
+      "ril/lattice-sdk-java/src/anduril/entitym" +
+      "anager/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduri" +
+      "l.Entitymanager.V1\312\002\030Anduril\\Entitymanag" +
+      "er\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMeta" +
+      "data\352\002\032Anduril::Entitymanager::V1b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.anduril.entitymanager.v1.LocationPubProto.getDescriptor(),
           com.anduril.type.CoordsPubProto.getDescriptor(),
           com.google.protobuf.WrappersProto.getDescriptor(),
         });
@@ -253,7 +164,7 @@ public final class SignalPubProto {
     internal_static_anduril_entitymanager_v1_Signal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Signal_descriptor,
-        new java.lang.String[] { "FrequencyCenter", "FrequencyRange", "BandwidthHz", "SignalToNoiseRatio", "LineOfBearing", "Fixed", "EmitterNotations", "PulseWidthS", "PulseRepetitionInterval", "Modulation", "ScanCharacteristics", "FrequencyMeasurement", "Report", });
+        new java.lang.String[] { "FrequencyCenter", "FrequencyRange", "BandwidthHz", "SignalToNoiseRatio", "LineOfBearing", "Fixed", "EmitterNotations", "PulseWidthS", "PulseRepetitionInterval", "ScanCharacteristics", "FrequencyMeasurement", "Report", });
     internal_static_anduril_entitymanager_v1_EmitterNotation_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_anduril_entitymanager_v1_EmitterNotation_fieldAccessorTable = new
@@ -283,7 +194,7 @@ public final class SignalPubProto {
     internal_static_anduril_entitymanager_v1_LineOfBearing_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_LineOfBearing_descriptor,
-        new java.lang.String[] { "Origin", "RangeBearing", "AngleOfArrival", "RangeEstimateM", "MaxRangeM", "DetectionRange", });
+        new java.lang.String[] { "AngleOfArrival", "RangeEstimateM", "MaxRangeM", "DetectionRange", });
     internal_static_anduril_entitymanager_v1_AngleOfArrival_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_anduril_entitymanager_v1_AngleOfArrival_fieldAccessorTable = new
@@ -296,37 +207,18 @@ public final class SignalPubProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Fixed_descriptor,
         new java.lang.String[] { });
-    internal_static_anduril_entitymanager_v1_RangeBearing_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_anduril_entitymanager_v1_RangeBearing_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_RangeBearing_descriptor,
-        new java.lang.String[] { "RangeM", "RangeAngleD", });
     internal_static_anduril_entitymanager_v1_PulseRepetitionInterval_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_anduril_entitymanager_v1_PulseRepetitionInterval_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_PulseRepetitionInterval_descriptor,
         new java.lang.String[] { "PulseRepetitionIntervalS", });
-    internal_static_anduril_entitymanager_v1_Modulation_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_anduril_entitymanager_v1_Modulation_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_Modulation_descriptor,
-        new java.lang.String[] { "ModulationType", "Symbols", "InterpulseModulation", "Encoding", });
-    internal_static_anduril_entitymanager_v1_Encoding_descriptor =
-      getDescriptor().getMessageTypes().get(11);
-    internal_static_anduril_entitymanager_v1_Encoding_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_Encoding_descriptor,
-        new java.lang.String[] { "ChipHopRateNumSec", "HopDwellTimeSec", "BaudRateNumSec", });
     internal_static_anduril_entitymanager_v1_ScanCharacteristics_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_anduril_entitymanager_v1_ScanCharacteristics_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_ScanCharacteristics_descriptor,
         new java.lang.String[] { "ScanType", "ScanPeriodS", });
-    com.anduril.entitymanager.v1.LocationPubProto.getDescriptor();
     com.anduril.type.CoordsPubProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
   }

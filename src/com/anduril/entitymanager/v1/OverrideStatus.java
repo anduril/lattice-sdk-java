@@ -165,7 +165,7 @@ public enum OverrideStatus
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.anduril.entitymanager.v1.TypesPubProto.getDescriptor().getEnumTypes().get(3);
+    return com.anduril.entitymanager.v1.TypesPubProto.getDescriptor().getEnumTypes().get(2);
   }
 
   private static final OverrideStatus[] VALUES = values();

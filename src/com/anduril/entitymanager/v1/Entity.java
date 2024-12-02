@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object entityId_ = "";
   /**
    * <pre>
-   * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity API
+   * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity Manager API
    * automatically generates an ID when it creates the entity.
    * </pre>
    *
@@ -72,7 +72,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity API
+   * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity Manager API
    * automatically generates an ID when it creates the entity.
    * </pre>
    *
@@ -100,7 +100,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A human-readable entity description that's helpful for debugging purposes and human
-   * traceability. If this field is empty, the Entity API generates one for you.
+   * traceability. If this field is empty, the Entity Manager API generates one for you.
    * </pre>
    *
    * <code>string description = 2 [json_name = "description"];</code>
@@ -122,7 +122,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A human-readable entity description that's helpful for debugging purposes and human
-   * traceability. If this field is empty, the Entity API generates one for you.
+   * traceability. If this field is empty, the Entity Manager API generates one for you.
    * </pre>
    *
    * <code>string description = 2 [json_name = "description"];</code>
@@ -147,7 +147,7 @@ private static final long serialVersionUID = 0L;
   private boolean isLive_ = false;
   /**
    * <pre>
-   * Indicates the entity is active and should have lifecycle state of CREATE or UPDATE.
+   * Indicates the entity is active and should have a lifecycle state of CREATE or UPDATE.
    * Set this field to true when publishing an entity.
    * </pre>
    *
@@ -163,7 +163,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp createdTime_;
   /**
    * <pre>
-   * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+   * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
    * current timestamp of when the entity is first received.
    * For example, when a drone is first powered on, it might report its startup time as the created time.
    * The timestamp doesn't change for the lifetime of an entity.
@@ -178,7 +178,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+   * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
    * current timestamp of when the entity is first received.
    * For example, when a drone is first powered on, it might report its startup time as the created time.
    * The timestamp doesn't change for the lifetime of an entity.
@@ -193,7 +193,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+   * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
    * current timestamp of when the entity is first received.
    * For example, when a drone is first powered on, it might report its startup time as the created time.
    * The timestamp doesn't change for the lifetime of an entity.
@@ -570,7 +570,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.MilView milView_;
   /**
    * <pre>
-   * Military view of the entity.
+   * View of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -582,7 +582,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Military view of the entity.
+   * View of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -594,7 +594,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Military view of the entity.
+   * View of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -1073,7 +1073,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.Relationships relationships_;
   /**
    * <pre>
-   * The relationships between this entity and other entities in the battlespace.
+   * The relationships between this entity and other entities in the common operational picture (COP).
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -1085,7 +1085,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The relationships between this entity and other entities in the battlespace.
+   * The relationships between this entity and other entities in the common operational picture (COP).
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -1097,7 +1097,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The relationships between this entity and other entities in the battlespace.
+   * The relationships between this entity and other entities in the common operational picture (COP).
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -1339,7 +1339,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.Supplies supplies_;
   /**
    * <pre>
-   * Contains relevant supply information for the entity, such as munitions and fuel.
+   * Contains relevant supply information for the entity, such as fuel.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -1351,7 +1351,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Contains relevant supply information for the entity, such as munitions and fuel.
+   * Contains relevant supply information for the entity, such as fuel.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -1363,7 +1363,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Contains relevant supply information for the entity, such as munitions and fuel.
+   * Contains relevant supply information for the entity, such as fuel.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -2918,7 +2918,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object entityId_ = "";
     /**
      * <pre>
-     * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity API
+     * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity Manager API
      * automatically generates an ID when it creates the entity.
      * </pre>
      *
@@ -2939,7 +2939,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity API
+     * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity Manager API
      * automatically generates an ID when it creates the entity.
      * </pre>
      *
@@ -2961,7 +2961,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity API
+     * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity Manager API
      * automatically generates an ID when it creates the entity.
      * </pre>
      *
@@ -2979,7 +2979,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity API
+     * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity Manager API
      * automatically generates an ID when it creates the entity.
      * </pre>
      *
@@ -2994,7 +2994,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity API
+     * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity Manager API
      * automatically generates an ID when it creates the entity.
      * </pre>
      *
@@ -3016,7 +3016,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A human-readable entity description that's helpful for debugging purposes and human
-     * traceability. If this field is empty, the Entity API generates one for you.
+     * traceability. If this field is empty, the Entity Manager API generates one for you.
      * </pre>
      *
      * <code>string description = 2 [json_name = "description"];</code>
@@ -3037,7 +3037,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A human-readable entity description that's helpful for debugging purposes and human
-     * traceability. If this field is empty, the Entity API generates one for you.
+     * traceability. If this field is empty, the Entity Manager API generates one for you.
      * </pre>
      *
      * <code>string description = 2 [json_name = "description"];</code>
@@ -3059,7 +3059,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A human-readable entity description that's helpful for debugging purposes and human
-     * traceability. If this field is empty, the Entity API generates one for you.
+     * traceability. If this field is empty, the Entity Manager API generates one for you.
      * </pre>
      *
      * <code>string description = 2 [json_name = "description"];</code>
@@ -3077,7 +3077,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A human-readable entity description that's helpful for debugging purposes and human
-     * traceability. If this field is empty, the Entity API generates one for you.
+     * traceability. If this field is empty, the Entity Manager API generates one for you.
      * </pre>
      *
      * <code>string description = 2 [json_name = "description"];</code>
@@ -3092,7 +3092,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A human-readable entity description that's helpful for debugging purposes and human
-     * traceability. If this field is empty, the Entity API generates one for you.
+     * traceability. If this field is empty, the Entity Manager API generates one for you.
      * </pre>
      *
      * <code>string description = 2 [json_name = "description"];</code>
@@ -3112,7 +3112,7 @@ private static final long serialVersionUID = 0L;
     private boolean isLive_ ;
     /**
      * <pre>
-     * Indicates the entity is active and should have lifecycle state of CREATE or UPDATE.
+     * Indicates the entity is active and should have a lifecycle state of CREATE or UPDATE.
      * Set this field to true when publishing an entity.
      * </pre>
      *
@@ -3125,7 +3125,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Indicates the entity is active and should have lifecycle state of CREATE or UPDATE.
+     * Indicates the entity is active and should have a lifecycle state of CREATE or UPDATE.
      * Set this field to true when publishing an entity.
      * </pre>
      *
@@ -3142,7 +3142,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Indicates the entity is active and should have lifecycle state of CREATE or UPDATE.
+     * Indicates the entity is active and should have a lifecycle state of CREATE or UPDATE.
      * Set this field to true when publishing an entity.
      * </pre>
      *
@@ -3161,7 +3161,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdTimeBuilder_;
     /**
      * <pre>
-     * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+     * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
      * current timestamp of when the entity is first received.
      * For example, when a drone is first powered on, it might report its startup time as the created time.
      * The timestamp doesn't change for the lifetime of an entity.
@@ -3175,7 +3175,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+     * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
      * current timestamp of when the entity is first received.
      * For example, when a drone is first powered on, it might report its startup time as the created time.
      * The timestamp doesn't change for the lifetime of an entity.
@@ -3193,7 +3193,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+     * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
      * current timestamp of when the entity is first received.
      * For example, when a drone is first powered on, it might report its startup time as the created time.
      * The timestamp doesn't change for the lifetime of an entity.
@@ -3216,7 +3216,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+     * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
      * current timestamp of when the entity is first received.
      * For example, when a drone is first powered on, it might report its startup time as the created time.
      * The timestamp doesn't change for the lifetime of an entity.
@@ -3237,7 +3237,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+     * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
      * current timestamp of when the entity is first received.
      * For example, when a drone is first powered on, it might report its startup time as the created time.
      * The timestamp doesn't change for the lifetime of an entity.
@@ -3263,7 +3263,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+     * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
      * current timestamp of when the entity is first received.
      * For example, when a drone is first powered on, it might report its startup time as the created time.
      * The timestamp doesn't change for the lifetime of an entity.
@@ -3283,7 +3283,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+     * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
      * current timestamp of when the entity is first received.
      * For example, when a drone is first powered on, it might report its startup time as the created time.
      * The timestamp doesn't change for the lifetime of an entity.
@@ -3298,7 +3298,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+     * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
      * current timestamp of when the entity is first received.
      * For example, when a drone is first powered on, it might report its startup time as the created time.
      * The timestamp doesn't change for the lifetime of an entity.
@@ -3316,7 +3316,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+     * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
      * current timestamp of when the entity is first received.
      * For example, when a drone is first powered on, it might report its startup time as the created time.
      * The timestamp doesn't change for the lifetime of an entity.
@@ -4792,7 +4792,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.MilView, com.anduril.entitymanager.v1.MilView.Builder, com.anduril.entitymanager.v1.MilViewOrBuilder> milViewBuilder_;
     /**
      * <pre>
-     * Military view of the entity.
+     * View of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -4803,7 +4803,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Military view of the entity.
+     * View of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -4818,7 +4818,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Military view of the entity.
+     * View of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -4838,7 +4838,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Military view of the entity.
+     * View of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -4856,7 +4856,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Military view of the entity.
+     * View of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -4879,7 +4879,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Military view of the entity.
+     * View of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -4896,7 +4896,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Military view of the entity.
+     * View of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -4908,7 +4908,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Military view of the entity.
+     * View of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -4923,7 +4923,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Military view of the entity.
+     * View of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -6834,7 +6834,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.Relationships, com.anduril.entitymanager.v1.Relationships.Builder, com.anduril.entitymanager.v1.RelationshipsOrBuilder> relationshipsBuilder_;
     /**
      * <pre>
-     * The relationships between this entity and other entities in the battlespace.
+     * The relationships between this entity and other entities in the common operational picture (COP).
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -6845,7 +6845,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The relationships between this entity and other entities in the battlespace.
+     * The relationships between this entity and other entities in the common operational picture (COP).
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -6860,7 +6860,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The relationships between this entity and other entities in the battlespace.
+     * The relationships between this entity and other entities in the common operational picture (COP).
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -6880,7 +6880,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The relationships between this entity and other entities in the battlespace.
+     * The relationships between this entity and other entities in the common operational picture (COP).
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -6898,7 +6898,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The relationships between this entity and other entities in the battlespace.
+     * The relationships between this entity and other entities in the common operational picture (COP).
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -6921,7 +6921,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The relationships between this entity and other entities in the battlespace.
+     * The relationships between this entity and other entities in the common operational picture (COP).
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -6938,7 +6938,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The relationships between this entity and other entities in the battlespace.
+     * The relationships between this entity and other entities in the common operational picture (COP).
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -6950,7 +6950,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The relationships between this entity and other entities in the battlespace.
+     * The relationships between this entity and other entities in the common operational picture (COP).
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -6965,7 +6965,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The relationships between this entity and other entities in the battlespace.
+     * The relationships between this entity and other entities in the common operational picture (COP).
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -7919,7 +7919,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.Supplies, com.anduril.entitymanager.v1.Supplies.Builder, com.anduril.entitymanager.v1.SuppliesOrBuilder> suppliesBuilder_;
     /**
      * <pre>
-     * Contains relevant supply information for the entity, such as munitions and fuel.
+     * Contains relevant supply information for the entity, such as fuel.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -7930,7 +7930,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contains relevant supply information for the entity, such as munitions and fuel.
+     * Contains relevant supply information for the entity, such as fuel.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -7945,7 +7945,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contains relevant supply information for the entity, such as munitions and fuel.
+     * Contains relevant supply information for the entity, such as fuel.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -7965,7 +7965,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contains relevant supply information for the entity, such as munitions and fuel.
+     * Contains relevant supply information for the entity, such as fuel.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -7983,7 +7983,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contains relevant supply information for the entity, such as munitions and fuel.
+     * Contains relevant supply information for the entity, such as fuel.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -8006,7 +8006,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contains relevant supply information for the entity, such as munitions and fuel.
+     * Contains relevant supply information for the entity, such as fuel.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -8023,7 +8023,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contains relevant supply information for the entity, such as munitions and fuel.
+     * Contains relevant supply information for the entity, such as fuel.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -8035,7 +8035,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contains relevant supply information for the entity, such as munitions and fuel.
+     * Contains relevant supply information for the entity, such as fuel.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -8050,7 +8050,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contains relevant supply information for the entity, such as munitions and fuel.
+     * Contains relevant supply information for the entity, such as fuel.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>

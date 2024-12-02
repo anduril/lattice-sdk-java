@@ -12,7 +12,7 @@ public interface FuelOrBuilder extends
    * unique fuel identifier
    * </pre>
    *
-   * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+   * <code>string fuel_id = 1 [json_name = "fuelId"];</code>
    * @return The fuelId.
    */
   java.lang.String getFuelId();
@@ -21,7 +21,7 @@ public interface FuelOrBuilder extends
    * unique fuel identifier
    * </pre>
    *
-   * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+   * <code>string fuel_id = 1 [json_name = "fuelId"];</code>
    * @return The bytes for fuelId.
    */
   com.google.protobuf.ByteString

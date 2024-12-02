@@ -46,7 +46,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.taskmanager.v1.Task task_;
   /**
    * <pre>
-   * Task that received.
+   * Task that was returned.
    * </pre>
    *
    * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -58,7 +58,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Task that received.
+   * Task that was returned.
    * </pre>
    *
    * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -70,7 +70,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Task that received.
+   * Task that was returned.
    * </pre>
    *
    * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -393,7 +393,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.taskmanager.v1.Task, com.anduril.taskmanager.v1.Task.Builder, com.anduril.taskmanager.v1.TaskOrBuilder> taskBuilder_;
     /**
      * <pre>
-     * Task that received.
+     * Task that was returned.
      * </pre>
      *
      * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -404,7 +404,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Task that received.
+     * Task that was returned.
      * </pre>
      *
      * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -419,7 +419,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Task that received.
+     * Task that was returned.
      * </pre>
      *
      * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -439,7 +439,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Task that received.
+     * Task that was returned.
      * </pre>
      *
      * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -457,7 +457,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Task that received.
+     * Task that was returned.
      * </pre>
      *
      * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -480,7 +480,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Task that received.
+     * Task that was returned.
      * </pre>
      *
      * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -497,7 +497,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Task that received.
+     * Task that was returned.
      * </pre>
      *
      * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -509,7 +509,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Task that received.
+     * Task that was returned.
      * </pre>
      *
      * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -524,7 +524,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Task that received.
+     * Task that was returned.
      * </pre>
      *
      * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>

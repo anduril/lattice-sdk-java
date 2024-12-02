@@ -9,7 +9,7 @@ public interface OverrideEntityRequestOrBuilder extends
 
   /**
    * <pre>
-   * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+   * The entity containing the overridden fields. The service will extract the overridable fields from the entity
    * object and ignore any other fields.
    * </pre>
    *
@@ -19,7 +19,7 @@ public interface OverrideEntityRequestOrBuilder extends
   boolean hasEntity();
   /**
    * <pre>
-   * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+   * The entity containing the overridden fields. The service will extract the overridable fields from the entity
    * object and ignore any other fields.
    * </pre>
    *
@@ -29,7 +29,7 @@ public interface OverrideEntityRequestOrBuilder extends
   com.anduril.entitymanager.v1.Entity getEntity();
   /**
    * <pre>
-   * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+   * The entity containing the overridden fields. The service will extract the overridable fields from the entity
    * object and ignore any other fields.
    * </pre>
    *
@@ -84,7 +84,7 @@ public interface OverrideEntityRequestOrBuilder extends
 
   /**
    * <pre>
-   * Additional information about the source of the override
+   * Additional information about the source of the override.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -93,7 +93,7 @@ public interface OverrideEntityRequestOrBuilder extends
   boolean hasProvenance();
   /**
    * <pre>
-   * Additional information about the source of the override
+   * Additional information about the source of the override.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -102,7 +102,7 @@ public interface OverrideEntityRequestOrBuilder extends
   com.anduril.entitymanager.v1.Provenance getProvenance();
   /**
    * <pre>
-   * Additional information about the source of the override
+   * Additional information about the source of the override.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>

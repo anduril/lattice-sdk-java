@@ -69,6 +69,33 @@ public interface CorrelationOrBuilder extends
 
   /**
    * <pre>
+   * If present, this entity is a part of a correlation set.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+   * @return Whether the membership field is set.
+   */
+  boolean hasMembership();
+  /**
+   * <pre>
+   * If present, this entity is a part of a correlation set.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+   * @return The membership.
+   */
+  com.anduril.entitymanager.v1.CorrelationMembership getMembership();
+  /**
+   * <pre>
+   * If present, this entity is a part of a correlation set.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];</code>
+   */
+  com.anduril.entitymanager.v1.CorrelationMembershipOrBuilder getMembershipOrBuilder();
+
+  /**
+   * <pre>
    * If present, this entity was explicitly decorrelated from one or more entities.
    * An entity can be both correlated and decorrelated as long as they are disjoint sets.
    * An example would be if a user in the UI decides that two tracks are not actually the

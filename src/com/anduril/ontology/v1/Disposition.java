@@ -143,7 +143,7 @@ public enum Disposition
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.anduril.ontology.v1.TypePubProto.getDescriptor().getEnumTypes().get(1);
+    return com.anduril.ontology.v1.TypePubProto.getDescriptor().getEnumTypes().get(0);
   }
 
   private static final Disposition[] VALUES = values();

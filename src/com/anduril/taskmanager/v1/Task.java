@@ -5,7 +5,7 @@ package com.anduril.taskmanager.v1;
 
 /**
  * <pre>
- * A Task is something an agent can be asked to do within a battle space, typically against a given objective.
+ * A Task is something an agent can be asked to do.
  * </pre>
  *
  * Protobuf type {@code anduril.taskmanager.v1.Task}
@@ -1019,7 +1019,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A Task is something an agent can be asked to do within a battle space, typically against a given objective.
+   * A Task is something an agent can be asked to do.
    * </pre>
    *
    * Protobuf type {@code anduril.taskmanager.v1.Task}

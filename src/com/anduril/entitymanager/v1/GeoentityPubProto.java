@@ -103,26 +103,24 @@ public final class GeoentityPubProto {
       "rdAxisM\022<\n\013side_axis_m\030\002 \001(\0132\034.google.pr" +
       "otobuf.DoubleValueR\tsideAxisM\0228\n\tup_axis" +
       "_m\030\003 \001(\0132\034.google.protobuf.DoubleValueR\007" +
-      "upAxisM\"\230\001\n\nLinearRing\022>\n\006points\030\001 \003(\0132\"" +
-      ".anduril.entitymanager.v1.PositionB\002\030\001R\006" +
-      "points\022J\n\tpositions\030\002 \003(\0132,.anduril.enti" +
-      "tymanager.v1.GeoPolygonPositionR\tpositio" +
-      "ns\"\214\001\n\022GeoPolygonPosition\022>\n\010position\030\001 " +
-      "\001(\0132\".anduril.entitymanager.v1.PositionR" +
-      "\010position\0226\n\010height_m\030\002 \001(\0132\033.google.pro" +
-      "tobuf.FloatValueR\007heightM*\304\001\n\007GeoType\022\024\n" +
-      "\020GEO_TYPE_INVALID\020\000\022\024\n\020GEO_TYPE_GENERAL\020" +
-      "\001\022\023\n\017GEO_TYPE_HAZARD\020\002\022\026\n\022GEO_TYPE_EMERG" +
-      "ENCY\020\003\022\034\n\030GEO_TYPE_ENGAGEMENT_ZONE\020\005\022\031\n\025" +
-      "GEO_TYPE_CONTROL_AREA\020\006\022\025\n\021GEO_TYPE_BULL" +
-      "SEYE\020\007\"\004\010\004\020\004\"\004\010\010\020\010\"\004\010\t\020\tB\205\002\n\034com.anduril" +
-      ".entitymanager.v1B\021GeoentityPubProtoP\001ZP" +
-      "github.com/anduril/lattice-sdk-java/src/" +
-      "anduril/entitymanager/v1;entitymanagerv1" +
-      "\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andu" +
-      "ril\\Entitymanager\\V1\342\002$Anduril\\Entityman" +
-      "ager\\V1\\GPBMetadata\352\002\032Anduril::Entityman" +
-      "ager::V1b\006proto3"
+      "upAxisM\"^\n\nLinearRing\022J\n\tpositions\030\002 \003(\013" +
+      "2,.anduril.entitymanager.v1.GeoPolygonPo" +
+      "sitionR\tpositionsJ\004\010\001\020\002\"\214\001\n\022GeoPolygonPo" +
+      "sition\022>\n\010position\030\001 \001(\0132\".anduril.entit" +
+      "ymanager.v1.PositionR\010position\0226\n\010height" +
+      "_m\030\002 \001(\0132\033.google.protobuf.FloatValueR\007h" +
+      "eightM*\304\001\n\007GeoType\022\024\n\020GEO_TYPE_INVALID\020\000" +
+      "\022\024\n\020GEO_TYPE_GENERAL\020\001\022\023\n\017GEO_TYPE_HAZAR" +
+      "D\020\002\022\026\n\022GEO_TYPE_EMERGENCY\020\003\022\034\n\030GEO_TYPE_" +
+      "ENGAGEMENT_ZONE\020\005\022\031\n\025GEO_TYPE_CONTROL_AR" +
+      "EA\020\006\022\025\n\021GEO_TYPE_BULLSEYE\020\007\"\004\010\004\020\004\"\004\010\010\020\010\"" +
+      "\004\010\t\020\tB\205\002\n\034com.anduril.entitymanager.v1B\021" +
+      "GeoentityPubProtoP\001ZPgithub.com/anduril/" +
+      "lattice-sdk-java/src/anduril/entitymanag" +
+      "er/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril.En" +
+      "titymanager.V1\312\002\030Anduril\\Entitymanager\\V" +
+      "1\342\002$Anduril\\Entitymanager\\V1\\GPBMetadata" +
+      "\352\002\032Anduril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -177,7 +175,7 @@ public final class GeoentityPubProto {
     internal_static_anduril_entitymanager_v1_LinearRing_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_LinearRing_descriptor,
-        new java.lang.String[] { "Points", "Positions", });
+        new java.lang.String[] { "Positions", });
     internal_static_anduril_entitymanager_v1_GeoPolygonPosition_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_anduril_entitymanager_v1_GeoPolygonPosition_fieldAccessorTable = new

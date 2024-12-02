@@ -84,93 +84,6 @@ private static final long serialVersionUID = 0L;
         detectionRangeCase_);
   }
 
-  public static final int ORIGIN_FIELD_NUMBER = 1;
-  private com.anduril.entitymanager.v1.Position origin_;
-  /**
-   * <pre>
-   * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-   * The location of the asset at the time of measurement.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.LineOfBearing.origin is deprecated.
-   *     See anduril/entitymanager/v1/signal.pub.proto;l=76
-   * @return Whether the origin field is set.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public boolean hasOrigin() {
-    return origin_ != null;
-  }
-  /**
-   * <pre>
-   * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-   * The location of the asset at the time of measurement.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.LineOfBearing.origin is deprecated.
-   *     See anduril/entitymanager/v1/signal.pub.proto;l=76
-   * @return The origin.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.Position getOrigin() {
-    return origin_ == null ? com.anduril.entitymanager.v1.Position.getDefaultInstance() : origin_;
-  }
-  /**
-   * <pre>
-   * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-   * The location of the asset at the time of measurement.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.PositionOrBuilder getOriginOrBuilder() {
-    return origin_ == null ? com.anduril.entitymanager.v1.Position.getDefaultInstance() : origin_;
-  }
-
-  public static final int RANGE_BEARING_FIELD_NUMBER = 2;
-  private com.anduril.entitymanager.v1.RangeBearing rangeBearing_;
-  /**
-   * <pre>
-   * Describes the horizontal angle with respect to true north.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.LineOfBearing.range_bearing is deprecated.
-   *     See anduril/entitymanager/v1/signal.pub.proto;l=78
-   * @return Whether the rangeBearing field is set.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public boolean hasRangeBearing() {
-    return rangeBearing_ != null;
-  }
-  /**
-   * <pre>
-   * Describes the horizontal angle with respect to true north.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.LineOfBearing.range_bearing is deprecated.
-   *     See anduril/entitymanager/v1/signal.pub.proto;l=78
-   * @return The rangeBearing.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.RangeBearing getRangeBearing() {
-    return rangeBearing_ == null ? com.anduril.entitymanager.v1.RangeBearing.getDefaultInstance() : rangeBearing_;
-  }
-  /**
-   * <pre>
-   * Describes the horizontal angle with respect to true north.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.RangeBearingOrBuilder getRangeBearingOrBuilder() {
-    return rangeBearing_ == null ? com.anduril.entitymanager.v1.RangeBearing.getDefaultInstance() : rangeBearing_;
-  }
-
   public static final int ANGLE_OF_ARRIVAL_FIELD_NUMBER = 3;
   private com.anduril.entitymanager.v1.AngleOfArrival angleOfArrival_;
   /**
@@ -309,12 +222,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (origin_ != null) {
-      output.writeMessage(1, getOrigin());
-    }
-    if (rangeBearing_ != null) {
-      output.writeMessage(2, getRangeBearing());
-    }
     if (angleOfArrival_ != null) {
       output.writeMessage(3, getAngleOfArrival());
     }
@@ -333,14 +240,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (origin_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getOrigin());
-    }
-    if (rangeBearing_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getRangeBearing());
-    }
     if (angleOfArrival_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getAngleOfArrival());
@@ -368,16 +267,6 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.LineOfBearing other = (com.anduril.entitymanager.v1.LineOfBearing) obj;
 
-    if (hasOrigin() != other.hasOrigin()) return false;
-    if (hasOrigin()) {
-      if (!getOrigin()
-          .equals(other.getOrigin())) return false;
-    }
-    if (hasRangeBearing() != other.hasRangeBearing()) return false;
-    if (hasRangeBearing()) {
-      if (!getRangeBearing()
-          .equals(other.getRangeBearing())) return false;
-    }
     if (hasAngleOfArrival() != other.hasAngleOfArrival()) return false;
     if (hasAngleOfArrival()) {
       if (!getAngleOfArrival()
@@ -407,14 +296,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasOrigin()) {
-      hash = (37 * hash) + ORIGIN_FIELD_NUMBER;
-      hash = (53 * hash) + getOrigin().hashCode();
-    }
-    if (hasRangeBearing()) {
-      hash = (37 * hash) + RANGE_BEARING_FIELD_NUMBER;
-      hash = (53 * hash) + getRangeBearing().hashCode();
-    }
     if (hasAngleOfArrival()) {
       hash = (37 * hash) + ANGLE_OF_ARRIVAL_FIELD_NUMBER;
       hash = (53 * hash) + getAngleOfArrival().hashCode();
@@ -564,16 +445,6 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      origin_ = null;
-      if (originBuilder_ != null) {
-        originBuilder_.dispose();
-        originBuilder_ = null;
-      }
-      rangeBearing_ = null;
-      if (rangeBearingBuilder_ != null) {
-        rangeBearingBuilder_.dispose();
-        rangeBearingBuilder_ = null;
-      }
       angleOfArrival_ = null;
       if (angleOfArrivalBuilder_ != null) {
         angleOfArrivalBuilder_.dispose();
@@ -622,16 +493,6 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.anduril.entitymanager.v1.LineOfBearing result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.origin_ = originBuilder_ == null
-            ? origin_
-            : originBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.rangeBearing_ = rangeBearingBuilder_ == null
-            ? rangeBearing_
-            : rangeBearingBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.angleOfArrival_ = angleOfArrivalBuilder_ == null
             ? angleOfArrival_
             : angleOfArrivalBuilder_.build();
@@ -663,12 +524,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.LineOfBearing other) {
       if (other == com.anduril.entitymanager.v1.LineOfBearing.getDefaultInstance()) return this;
-      if (other.hasOrigin()) {
-        mergeOrigin(other.getOrigin());
-      }
-      if (other.hasRangeBearing()) {
-        mergeRangeBearing(other.getRangeBearing());
-      }
       if (other.hasAngleOfArrival()) {
         mergeAngleOfArrival(other.getAngleOfArrival());
       }
@@ -711,25 +566,11 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              input.readMessage(
-                  getOriginFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 10
-            case 18: {
-              input.readMessage(
-                  getRangeBearingFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 18
             case 26: {
               input.readMessage(
                   getAngleOfArrivalFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000001;
               break;
             } // case 26
             case 34: {
@@ -778,333 +619,6 @@ private static final long serialVersionUID = 0L;
 
     private int bitField0_;
 
-    private com.anduril.entitymanager.v1.Position origin_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.Position, com.anduril.entitymanager.v1.Position.Builder, com.anduril.entitymanager.v1.PositionOrBuilder> originBuilder_;
-    /**
-     * <pre>
-     * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-     * The location of the asset at the time of measurement.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.LineOfBearing.origin is deprecated.
-     *     See anduril/entitymanager/v1/signal.pub.proto;l=76
-     * @return Whether the origin field is set.
-     */
-    @java.lang.Deprecated public boolean hasOrigin() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <pre>
-     * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-     * The location of the asset at the time of measurement.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.LineOfBearing.origin is deprecated.
-     *     See anduril/entitymanager/v1/signal.pub.proto;l=76
-     * @return The origin.
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.Position getOrigin() {
-      if (originBuilder_ == null) {
-        return origin_ == null ? com.anduril.entitymanager.v1.Position.getDefaultInstance() : origin_;
-      } else {
-        return originBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-     * The location of the asset at the time of measurement.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setOrigin(com.anduril.entitymanager.v1.Position value) {
-      if (originBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        origin_ = value;
-      } else {
-        originBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-     * The location of the asset at the time of measurement.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setOrigin(
-        com.anduril.entitymanager.v1.Position.Builder builderForValue) {
-      if (originBuilder_ == null) {
-        origin_ = builderForValue.build();
-      } else {
-        originBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-     * The location of the asset at the time of measurement.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder mergeOrigin(com.anduril.entitymanager.v1.Position value) {
-      if (originBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
-          origin_ != null &&
-          origin_ != com.anduril.entitymanager.v1.Position.getDefaultInstance()) {
-          getOriginBuilder().mergeFrom(value);
-        } else {
-          origin_ = value;
-        }
-      } else {
-        originBuilder_.mergeFrom(value);
-      }
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-     * The location of the asset at the time of measurement.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder clearOrigin() {
-      bitField0_ = (bitField0_ & ~0x00000001);
-      origin_ = null;
-      if (originBuilder_ != null) {
-        originBuilder_.dispose();
-        originBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-     * The location of the asset at the time of measurement.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.Position.Builder getOriginBuilder() {
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return getOriginFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-     * The location of the asset at the time of measurement.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.PositionOrBuilder getOriginOrBuilder() {
-      if (originBuilder_ != null) {
-        return originBuilder_.getMessageOrBuilder();
-      } else {
-        return origin_ == null ?
-            com.anduril.entitymanager.v1.Position.getDefaultInstance() : origin_;
-      }
-    }
-    /**
-     * <pre>
-     * `origin` and `range_bearing` have been deprecated in favor of `angle_of_arrival`
-     * The location of the asset at the time of measurement.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.Position, com.anduril.entitymanager.v1.Position.Builder, com.anduril.entitymanager.v1.PositionOrBuilder> 
-        getOriginFieldBuilder() {
-      if (originBuilder_ == null) {
-        originBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.anduril.entitymanager.v1.Position, com.anduril.entitymanager.v1.Position.Builder, com.anduril.entitymanager.v1.PositionOrBuilder>(
-                getOrigin(),
-                getParentForChildren(),
-                isClean());
-        origin_ = null;
-      }
-      return originBuilder_;
-    }
-
-    private com.anduril.entitymanager.v1.RangeBearing rangeBearing_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.RangeBearing, com.anduril.entitymanager.v1.RangeBearing.Builder, com.anduril.entitymanager.v1.RangeBearingOrBuilder> rangeBearingBuilder_;
-    /**
-     * <pre>
-     * Describes the horizontal angle with respect to true north.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.LineOfBearing.range_bearing is deprecated.
-     *     See anduril/entitymanager/v1/signal.pub.proto;l=78
-     * @return Whether the rangeBearing field is set.
-     */
-    @java.lang.Deprecated public boolean hasRangeBearing() {
-      return ((bitField0_ & 0x00000002) != 0);
-    }
-    /**
-     * <pre>
-     * Describes the horizontal angle with respect to true north.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.LineOfBearing.range_bearing is deprecated.
-     *     See anduril/entitymanager/v1/signal.pub.proto;l=78
-     * @return The rangeBearing.
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.RangeBearing getRangeBearing() {
-      if (rangeBearingBuilder_ == null) {
-        return rangeBearing_ == null ? com.anduril.entitymanager.v1.RangeBearing.getDefaultInstance() : rangeBearing_;
-      } else {
-        return rangeBearingBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Describes the horizontal angle with respect to true north.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setRangeBearing(com.anduril.entitymanager.v1.RangeBearing value) {
-      if (rangeBearingBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        rangeBearing_ = value;
-      } else {
-        rangeBearingBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Describes the horizontal angle with respect to true north.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setRangeBearing(
-        com.anduril.entitymanager.v1.RangeBearing.Builder builderForValue) {
-      if (rangeBearingBuilder_ == null) {
-        rangeBearing_ = builderForValue.build();
-      } else {
-        rangeBearingBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Describes the horizontal angle with respect to true north.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder mergeRangeBearing(com.anduril.entitymanager.v1.RangeBearing value) {
-      if (rangeBearingBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
-          rangeBearing_ != null &&
-          rangeBearing_ != com.anduril.entitymanager.v1.RangeBearing.getDefaultInstance()) {
-          getRangeBearingBuilder().mergeFrom(value);
-        } else {
-          rangeBearing_ = value;
-        }
-      } else {
-        rangeBearingBuilder_.mergeFrom(value);
-      }
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Describes the horizontal angle with respect to true north.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder clearRangeBearing() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      rangeBearing_ = null;
-      if (rangeBearingBuilder_ != null) {
-        rangeBearingBuilder_.dispose();
-        rangeBearingBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Describes the horizontal angle with respect to true north.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.RangeBearing.Builder getRangeBearingBuilder() {
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return getRangeBearingFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Describes the horizontal angle with respect to true north.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.RangeBearingOrBuilder getRangeBearingOrBuilder() {
-      if (rangeBearingBuilder_ != null) {
-        return rangeBearingBuilder_.getMessageOrBuilder();
-      } else {
-        return rangeBearing_ == null ?
-            com.anduril.entitymanager.v1.RangeBearing.getDefaultInstance() : rangeBearing_;
-      }
-    }
-    /**
-     * <pre>
-     * Describes the horizontal angle with respect to true north.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.RangeBearing, com.anduril.entitymanager.v1.RangeBearing.Builder, com.anduril.entitymanager.v1.RangeBearingOrBuilder> 
-        getRangeBearingFieldBuilder() {
-      if (rangeBearingBuilder_ == null) {
-        rangeBearingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.anduril.entitymanager.v1.RangeBearing, com.anduril.entitymanager.v1.RangeBearing.Builder, com.anduril.entitymanager.v1.RangeBearingOrBuilder>(
-                getRangeBearing(),
-                getParentForChildren(),
-                isClean());
-        rangeBearing_ = null;
-      }
-      return rangeBearingBuilder_;
-    }
-
     private com.anduril.entitymanager.v1.AngleOfArrival angleOfArrival_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.AngleOfArrival, com.anduril.entitymanager.v1.AngleOfArrival.Builder, com.anduril.entitymanager.v1.AngleOfArrivalOrBuilder> angleOfArrivalBuilder_;
@@ -1117,7 +631,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the angleOfArrival field is set.
      */
     public boolean hasAngleOfArrival() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1150,7 +664,7 @@ private static final long serialVersionUID = 0L;
       } else {
         angleOfArrivalBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1168,7 +682,7 @@ private static final long serialVersionUID = 0L;
       } else {
         angleOfArrivalBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1181,7 +695,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAngleOfArrival(com.anduril.entitymanager.v1.AngleOfArrival value) {
       if (angleOfArrivalBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0) &&
+        if (((bitField0_ & 0x00000001) != 0) &&
           angleOfArrival_ != null &&
           angleOfArrival_ != com.anduril.entitymanager.v1.AngleOfArrival.getDefaultInstance()) {
           getAngleOfArrivalBuilder().mergeFrom(value);
@@ -1191,7 +705,7 @@ private static final long serialVersionUID = 0L;
       } else {
         angleOfArrivalBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1203,7 +717,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.AngleOfArrival angle_of_arrival = 3 [json_name = "angleOfArrival"];</code>
      */
     public Builder clearAngleOfArrival() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000001);
       angleOfArrival_ = null;
       if (angleOfArrivalBuilder_ != null) {
         angleOfArrivalBuilder_.dispose();
@@ -1220,7 +734,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.AngleOfArrival angle_of_arrival = 3 [json_name = "angleOfArrival"];</code>
      */
     public com.anduril.entitymanager.v1.AngleOfArrival.Builder getAngleOfArrivalBuilder() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAngleOfArrivalFieldBuilder().getBuilder();
     }

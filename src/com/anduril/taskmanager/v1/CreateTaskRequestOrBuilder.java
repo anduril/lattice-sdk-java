@@ -9,7 +9,7 @@ public interface CreateTaskRequestOrBuilder extends
 
   /**
    * <pre>
-   * Human readable display name for this Task, should be short (&lt;100 chars).
+   * Human-readable display name for this Task, should be short (&lt;100 chars).
    * </pre>
    *
    * <code>string display_name = 1 [json_name = "displayName"];</code>
@@ -18,7 +18,7 @@ public interface CreateTaskRequestOrBuilder extends
   java.lang.String getDisplayName();
   /**
    * <pre>
-   * Human readable display name for this Task, should be short (&lt;100 chars).
+   * Human-readable display name for this Task, should be short (&lt;100 chars).
    * </pre>
    *
    * <code>string display_name = 1 [json_name = "displayName"];</code>
@@ -119,7 +119,7 @@ public interface CreateTaskRequestOrBuilder extends
 
   /**
    * <pre>
-   * Longer, free form human readable description of this Task.
+   * Longer, free-form, human-readable description of this Task.
    * </pre>
    *
    * <code>string description = 6 [json_name = "description"];</code>
@@ -128,7 +128,7 @@ public interface CreateTaskRequestOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * Longer, free form human readable description of this Task.
+   * Longer, free-form, human-readable description of this Task.
    * </pre>
    *
    * <code>string description = 6 [json_name = "description"];</code>

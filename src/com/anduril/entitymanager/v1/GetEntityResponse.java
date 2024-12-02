@@ -42,7 +42,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.Entity entity_;
   /**
    * <pre>
-   * an Entity object that corresponds with the requested entityId
+   * An Entity object that corresponds with the requested entityId.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -54,7 +54,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * an Entity object that corresponds with the requested entityId
+   * An Entity object that corresponds with the requested entityId.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -66,7 +66,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * an Entity object that corresponds with the requested entityId
+   * An Entity object that corresponds with the requested entityId.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -385,7 +385,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.Entity, com.anduril.entitymanager.v1.Entity.Builder, com.anduril.entitymanager.v1.EntityOrBuilder> entityBuilder_;
     /**
      * <pre>
-     * an Entity object that corresponds with the requested entityId
+     * An Entity object that corresponds with the requested entityId.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -396,7 +396,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * an Entity object that corresponds with the requested entityId
+     * An Entity object that corresponds with the requested entityId.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -411,7 +411,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * an Entity object that corresponds with the requested entityId
+     * An Entity object that corresponds with the requested entityId.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -431,7 +431,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * an Entity object that corresponds with the requested entityId
+     * An Entity object that corresponds with the requested entityId.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -449,7 +449,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * an Entity object that corresponds with the requested entityId
+     * An Entity object that corresponds with the requested entityId.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -472,7 +472,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * an Entity object that corresponds with the requested entityId
+     * An Entity object that corresponds with the requested entityId.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -489,7 +489,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * an Entity object that corresponds with the requested entityId
+     * An Entity object that corresponds with the requested entityId.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -501,7 +501,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * an Entity object that corresponds with the requested entityId
+     * An Entity object that corresponds with the requested entityId.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>
@@ -516,7 +516,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * an Entity object that corresponds with the requested entityId
+     * An Entity object that corresponds with the requested entityId.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];</code>

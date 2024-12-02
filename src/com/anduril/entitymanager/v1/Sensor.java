@@ -52,10 +52,10 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object sensorId_ = "";
   /**
    * <pre>
-   * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt, LWIR or Echodyne
+   * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt or LWIR
    * </pre>
    *
-   * <code>string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+   * <code>string sensor_id = 1 [json_name = "sensorId"];</code>
    * @return The sensorId.
    */
   @java.lang.Override
@@ -73,10 +73,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt, LWIR or Echodyne
+   * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt or LWIR
    * </pre>
    *
-   * <code>string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+   * <code>string sensor_id = 1 [json_name = "sensorId"];</code>
    * @return The bytes for sensorId.
    */
   @java.lang.Override
@@ -110,48 +110,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override public com.anduril.entitymanager.v1.OperationalState getOperationalState() {
     com.anduril.entitymanager.v1.OperationalState result = com.anduril.entitymanager.v1.OperationalState.forNumber(operationalState_);
     return result == null ? com.anduril.entitymanager.v1.OperationalState.UNRECOGNIZED : result;
-  }
-
-  public static final int FIELD_OF_VIEW_FIELD_NUMBER = 4;
-  private com.anduril.entitymanager.v1.FieldOfView fieldOfView_;
-  /**
-   * <pre>
-   * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Sensor.field_of_view is deprecated.
-   *     See anduril/entitymanager/v1/sensors.pub.proto;l=29
-   * @return Whether the fieldOfView field is set.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public boolean hasFieldOfView() {
-    return fieldOfView_ != null;
-  }
-  /**
-   * <pre>
-   * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Sensor.field_of_view is deprecated.
-   *     See anduril/entitymanager/v1/sensors.pub.proto;l=29
-   * @return The fieldOfView.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.FieldOfView getFieldOfView() {
-    return fieldOfView_ == null ? com.anduril.entitymanager.v1.FieldOfView.getDefaultInstance() : fieldOfView_;
-  }
-  /**
-   * <pre>
-   * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.FieldOfViewOrBuilder getFieldOfViewOrBuilder() {
-    return fieldOfView_ == null ? com.anduril.entitymanager.v1.FieldOfView.getDefaultInstance() : fieldOfView_;
   }
 
   public static final int SENSOR_TYPE_FIELD_NUMBER = 5;
@@ -384,9 +342,6 @@ private static final long serialVersionUID = 0L;
     if (operationalState_ != com.anduril.entitymanager.v1.OperationalState.OPERATIONAL_STATE_INVALID.getNumber()) {
       output.writeEnum(3, operationalState_);
     }
-    if (fieldOfView_ != null) {
-      output.writeMessage(4, getFieldOfView());
-    }
     if (sensorType_ != com.anduril.entitymanager.v1.SensorType.SENSOR_TYPE_INVALID.getNumber()) {
       output.writeEnum(5, sensorType_);
     }
@@ -417,10 +372,6 @@ private static final long serialVersionUID = 0L;
     if (operationalState_ != com.anduril.entitymanager.v1.OperationalState.OPERATIONAL_STATE_INVALID.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, operationalState_);
-    }
-    if (fieldOfView_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getFieldOfView());
     }
     if (sensorType_ != com.anduril.entitymanager.v1.SensorType.SENSOR_TYPE_INVALID.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
@@ -459,11 +410,6 @@ private static final long serialVersionUID = 0L;
     if (!getSensorId()
         .equals(other.getSensorId())) return false;
     if (operationalState_ != other.operationalState_) return false;
-    if (hasFieldOfView() != other.hasFieldOfView()) return false;
-    if (hasFieldOfView()) {
-      if (!getFieldOfView()
-          .equals(other.getFieldOfView())) return false;
-    }
     if (sensorType_ != other.sensorType_) return false;
     if (!getSensorDescription()
         .equals(other.getSensorDescription())) return false;
@@ -494,10 +440,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSensorId().hashCode();
     hash = (37 * hash) + OPERATIONAL_STATE_FIELD_NUMBER;
     hash = (53 * hash) + operationalState_;
-    if (hasFieldOfView()) {
-      hash = (37 * hash) + FIELD_OF_VIEW_FIELD_NUMBER;
-      hash = (53 * hash) + getFieldOfView().hashCode();
-    }
     hash = (37 * hash) + SENSOR_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + sensorType_;
     hash = (37 * hash) + SENSOR_DESCRIPTION_FIELD_NUMBER;
@@ -649,11 +591,6 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       sensorId_ = "";
       operationalState_ = 0;
-      fieldOfView_ = null;
-      if (fieldOfViewBuilder_ != null) {
-        fieldOfViewBuilder_.dispose();
-        fieldOfViewBuilder_ = null;
-      }
       sensorType_ = 0;
       sensorDescription_ = "";
       rfConfiguraton_ = null;
@@ -672,7 +609,7 @@ private static final long serialVersionUID = 0L;
         fieldsOfView_ = null;
         fieldsOfViewBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -707,9 +644,9 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartialRepeatedFields(com.anduril.entitymanager.v1.Sensor result) {
       if (fieldsOfViewBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           fieldsOfView_ = java.util.Collections.unmodifiableList(fieldsOfView_);
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.fieldsOfView_ = fieldsOfView_;
       } else {
@@ -726,22 +663,17 @@ private static final long serialVersionUID = 0L;
         result.operationalState_ = operationalState_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.fieldOfView_ = fieldOfViewBuilder_ == null
-            ? fieldOfView_
-            : fieldOfViewBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.sensorType_ = sensorType_;
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.sensorDescription_ = sensorDescription_;
       }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.rfConfiguraton_ = rfConfiguratonBuilder_ == null
             ? rfConfiguraton_
             : rfConfiguratonBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
+      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.lastDetectionTimestamp_ = lastDetectionTimestampBuilder_ == null
             ? lastDetectionTimestamp_
             : lastDetectionTimestampBuilder_.build();
@@ -768,15 +700,12 @@ private static final long serialVersionUID = 0L;
       if (other.operationalState_ != 0) {
         setOperationalStateValue(other.getOperationalStateValue());
       }
-      if (other.hasFieldOfView()) {
-        mergeFieldOfView(other.getFieldOfView());
-      }
       if (other.sensorType_ != 0) {
         setSensorTypeValue(other.getSensorTypeValue());
       }
       if (!other.getSensorDescription().isEmpty()) {
         sensorDescription_ = other.sensorDescription_;
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasRfConfiguraton()) {
@@ -789,7 +718,7 @@ private static final long serialVersionUID = 0L;
         if (!other.fieldsOfView_.isEmpty()) {
           if (fieldsOfView_.isEmpty()) {
             fieldsOfView_ = other.fieldsOfView_;
-            bitField0_ = (bitField0_ & ~0x00000080);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureFieldsOfViewIsMutable();
             fieldsOfView_.addAll(other.fieldsOfView_);
@@ -802,7 +731,7 @@ private static final long serialVersionUID = 0L;
             fieldsOfViewBuilder_.dispose();
             fieldsOfViewBuilder_ = null;
             fieldsOfView_ = other.fieldsOfView_;
-            bitField0_ = (bitField0_ & ~0x00000080);
+            bitField0_ = (bitField0_ & ~0x00000040);
             fieldsOfViewBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFieldsOfViewFieldBuilder() : null;
@@ -847,35 +776,28 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 24
-            case 34: {
-              input.readMessage(
-                  getFieldOfViewFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 34
             case 40: {
               sensorType_ = input.readEnum();
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000004;
               break;
             } // case 40
             case 50: {
               sensorDescription_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000008;
               break;
             } // case 50
             case 58: {
               input.readMessage(
                   getRfConfiguratonFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000010;
               break;
             } // case 58
             case 66: {
               input.readMessage(
                   getLastDetectionTimestampFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000020;
               break;
             } // case 66
             case 74: {
@@ -911,10 +833,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object sensorId_ = "";
     /**
      * <pre>
-     * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt, LWIR or Echodyne
+     * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt or LWIR
      * </pre>
      *
-     * <code>string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>string sensor_id = 1 [json_name = "sensorId"];</code>
      * @return The sensorId.
      */
     public java.lang.String getSensorId() {
@@ -931,10 +853,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt, LWIR or Echodyne
+     * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt or LWIR
      * </pre>
      *
-     * <code>string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>string sensor_id = 1 [json_name = "sensorId"];</code>
      * @return The bytes for sensorId.
      */
     public com.google.protobuf.ByteString
@@ -952,10 +874,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt, LWIR or Echodyne
+     * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt or LWIR
      * </pre>
      *
-     * <code>string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>string sensor_id = 1 [json_name = "sensorId"];</code>
      * @param value The sensorId to set.
      * @return This builder for chaining.
      */
@@ -969,10 +891,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt, LWIR or Echodyne
+     * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt or LWIR
      * </pre>
      *
-     * <code>string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>string sensor_id = 1 [json_name = "sensorId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearSensorId() {
@@ -983,10 +905,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt, LWIR or Echodyne
+     * This generally is used to indicate a specific type at a more detailed granularity. E.g. COMInt or LWIR
      * </pre>
      *
-     * <code>string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>string sensor_id = 1 [json_name = "sensorId"];</code>
      * @param value The bytes for sensorId to set.
      * @return This builder for chaining.
      */
@@ -1053,165 +975,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.anduril.entitymanager.v1.FieldOfView fieldOfView_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.FieldOfView, com.anduril.entitymanager.v1.FieldOfView.Builder, com.anduril.entitymanager.v1.FieldOfViewOrBuilder> fieldOfViewBuilder_;
-    /**
-     * <pre>
-     * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Sensor.field_of_view is deprecated.
-     *     See anduril/entitymanager/v1/sensors.pub.proto;l=29
-     * @return Whether the fieldOfView field is set.
-     */
-    @java.lang.Deprecated public boolean hasFieldOfView() {
-      return ((bitField0_ & 0x00000004) != 0);
-    }
-    /**
-     * <pre>
-     * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Sensor.field_of_view is deprecated.
-     *     See anduril/entitymanager/v1/sensors.pub.proto;l=29
-     * @return The fieldOfView.
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FieldOfView getFieldOfView() {
-      if (fieldOfViewBuilder_ == null) {
-        return fieldOfView_ == null ? com.anduril.entitymanager.v1.FieldOfView.getDefaultInstance() : fieldOfView_;
-      } else {
-        return fieldOfViewBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setFieldOfView(com.anduril.entitymanager.v1.FieldOfView value) {
-      if (fieldOfViewBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        fieldOfView_ = value;
-      } else {
-        fieldOfViewBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setFieldOfView(
-        com.anduril.entitymanager.v1.FieldOfView.Builder builderForValue) {
-      if (fieldOfViewBuilder_ == null) {
-        fieldOfView_ = builderForValue.build();
-      } else {
-        fieldOfViewBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder mergeFieldOfView(com.anduril.entitymanager.v1.FieldOfView value) {
-      if (fieldOfViewBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0) &&
-          fieldOfView_ != null &&
-          fieldOfView_ != com.anduril.entitymanager.v1.FieldOfView.getDefaultInstance()) {
-          getFieldOfViewBuilder().mergeFrom(value);
-        } else {
-          fieldOfView_ = value;
-        }
-      } else {
-        fieldOfViewBuilder_.mergeFrom(value);
-      }
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder clearFieldOfView() {
-      bitField0_ = (bitField0_ & ~0x00000004);
-      fieldOfView_ = null;
-      if (fieldOfViewBuilder_ != null) {
-        fieldOfViewBuilder_.dispose();
-        fieldOfViewBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FieldOfView.Builder getFieldOfViewBuilder() {
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return getFieldOfViewFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FieldOfViewOrBuilder getFieldOfViewOrBuilder() {
-      if (fieldOfViewBuilder_ != null) {
-        return fieldOfViewBuilder_.getMessageOrBuilder();
-      } else {
-        return fieldOfView_ == null ?
-            com.anduril.entitymanager.v1.FieldOfView.getDefaultInstance() : fieldOfView_;
-      }
-    }
-    /**
-     * <pre>
-     * DEPRECATED -- use `fields_of_view` instead. This field will be marked deprecated and no longer populated by 11/26/2023.
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.FieldOfView, com.anduril.entitymanager.v1.FieldOfView.Builder, com.anduril.entitymanager.v1.FieldOfViewOrBuilder> 
-        getFieldOfViewFieldBuilder() {
-      if (fieldOfViewBuilder_ == null) {
-        fieldOfViewBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.anduril.entitymanager.v1.FieldOfView, com.anduril.entitymanager.v1.FieldOfView.Builder, com.anduril.entitymanager.v1.FieldOfViewOrBuilder>(
-                getFieldOfView(),
-                getParentForChildren(),
-                isClean());
-        fieldOfView_ = null;
-      }
-      return fieldOfViewBuilder_;
-    }
-
     private int sensorType_ = 0;
     /**
      * <pre>
@@ -1235,7 +998,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSensorTypeValue(int value) {
       sensorType_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1265,7 +1028,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       sensorType_ = value.getNumber();
       onChanged();
       return this;
@@ -1279,7 +1042,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSensorType() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000004);
       sensorType_ = 0;
       onChanged();
       return this;
@@ -1340,7 +1103,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       sensorDescription_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1354,7 +1117,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSensorDescription() {
       sensorDescription_ = getDefaultInstance().getSensorDescription();
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1372,7 +1135,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       sensorDescription_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1389,7 +1152,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rfConfiguraton field is set.
      */
     public boolean hasRfConfiguraton() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1422,7 +1185,7 @@ private static final long serialVersionUID = 0L;
       } else {
         rfConfiguratonBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1440,7 +1203,7 @@ private static final long serialVersionUID = 0L;
       } else {
         rfConfiguratonBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1453,7 +1216,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRfConfiguraton(com.anduril.entitymanager.v1.RFConfiguration value) {
       if (rfConfiguratonBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0) &&
+        if (((bitField0_ & 0x00000010) != 0) &&
           rfConfiguraton_ != null &&
           rfConfiguraton_ != com.anduril.entitymanager.v1.RFConfiguration.getDefaultInstance()) {
           getRfConfiguratonBuilder().mergeFrom(value);
@@ -1463,7 +1226,7 @@ private static final long serialVersionUID = 0L;
       } else {
         rfConfiguratonBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1475,7 +1238,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.RFConfiguration rf_configuraton = 7 [json_name = "rfConfiguraton"];</code>
      */
     public Builder clearRfConfiguraton() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000010);
       rfConfiguraton_ = null;
       if (rfConfiguratonBuilder_ != null) {
         rfConfiguratonBuilder_.dispose();
@@ -1492,7 +1255,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.RFConfiguration rf_configuraton = 7 [json_name = "rfConfiguraton"];</code>
      */
     public com.anduril.entitymanager.v1.RFConfiguration.Builder getRfConfiguratonBuilder() {
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000010;
       onChanged();
       return getRfConfiguratonFieldBuilder().getBuilder();
     }
@@ -1544,7 +1307,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastDetectionTimestamp field is set.
      */
     public boolean hasLastDetectionTimestamp() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1577,7 +1340,7 @@ private static final long serialVersionUID = 0L;
       } else {
         lastDetectionTimestampBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1595,7 +1358,7 @@ private static final long serialVersionUID = 0L;
       } else {
         lastDetectionTimestampBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1608,7 +1371,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastDetectionTimestamp(com.google.protobuf.Timestamp value) {
       if (lastDetectionTimestampBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0) &&
+        if (((bitField0_ & 0x00000020) != 0) &&
           lastDetectionTimestamp_ != null &&
           lastDetectionTimestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getLastDetectionTimestampBuilder().mergeFrom(value);
@@ -1618,7 +1381,7 @@ private static final long serialVersionUID = 0L;
       } else {
         lastDetectionTimestampBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1630,7 +1393,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_detection_timestamp = 8 [json_name = "lastDetectionTimestamp"];</code>
      */
     public Builder clearLastDetectionTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000020);
       lastDetectionTimestamp_ = null;
       if (lastDetectionTimestampBuilder_ != null) {
         lastDetectionTimestampBuilder_.dispose();
@@ -1647,7 +1410,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_detection_timestamp = 8 [json_name = "lastDetectionTimestamp"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastDetectionTimestampBuilder() {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000020;
       onChanged();
       return getLastDetectionTimestampFieldBuilder().getBuilder();
     }
@@ -1690,9 +1453,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.anduril.entitymanager.v1.FieldOfView> fieldsOfView_ =
       java.util.Collections.emptyList();
     private void ensureFieldsOfViewIsMutable() {
-      if (!((bitField0_ & 0x00000080) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         fieldsOfView_ = new java.util.ArrayList<com.anduril.entitymanager.v1.FieldOfView>(fieldsOfView_);
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -1886,7 +1649,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFieldsOfView() {
       if (fieldsOfViewBuilder_ == null) {
         fieldsOfView_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         fieldsOfViewBuilder_.clear();
@@ -1991,7 +1754,7 @@ private static final long serialVersionUID = 0L;
         fieldsOfViewBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.anduril.entitymanager.v1.FieldOfView, com.anduril.entitymanager.v1.FieldOfView.Builder, com.anduril.entitymanager.v1.FieldOfViewOrBuilder>(
                 fieldsOfView_,
-                ((bitField0_ & 0x00000080) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         fieldsOfView_ = null;

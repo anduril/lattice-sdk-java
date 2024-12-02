@@ -22,7 +22,6 @@ private static final long serialVersionUID = 0L;
   private Provenance() {
     integrationName_ = "";
     dataType_ = "";
-    source_ = 0;
     sourceId_ = "";
     sourceDescription_ = "";
   }
@@ -139,32 +138,6 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int SOURCE_FIELD_NUMBER = 1;
-  private int source_ = 0;
-  /**
-   * <pre>
-   * Enum defining the source TO BE DEPRECATED
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Source source = 1 [json_name = "source"];</code>
-   * @return The enum numeric value on the wire for source.
-   */
-  @java.lang.Override public int getSourceValue() {
-    return source_;
-  }
-  /**
-   * <pre>
-   * Enum defining the source TO BE DEPRECATED
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Source source = 1 [json_name = "source"];</code>
-   * @return The source.
-   */
-  @java.lang.Override public com.anduril.entitymanager.v1.Source getSource() {
-    com.anduril.entitymanager.v1.Source result = com.anduril.entitymanager.v1.Source.forNumber(source_);
-    return result == null ? com.anduril.entitymanager.v1.Source.UNRECOGNIZED : result;
   }
 
   public static final int SOURCE_ID_FIELD_NUMBER = 3;
@@ -319,9 +292,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (source_ != com.anduril.entitymanager.v1.Source.SOURCE_INVALID.getNumber()) {
-      output.writeEnum(1, source_);
-    }
     if (sourceUpdateTime_ != null) {
       output.writeMessage(2, getSourceUpdateTime());
     }
@@ -346,10 +316,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (source_ != com.anduril.entitymanager.v1.Source.SOURCE_INVALID.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(1, source_);
-    }
     if (sourceUpdateTime_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getSourceUpdateTime());
@@ -385,7 +351,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getIntegrationName())) return false;
     if (!getDataType()
         .equals(other.getDataType())) return false;
-    if (source_ != other.source_) return false;
     if (!getSourceId()
         .equals(other.getSourceId())) return false;
     if (hasSourceUpdateTime() != other.hasSourceUpdateTime()) return false;
@@ -410,8 +375,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getIntegrationName().hashCode();
     hash = (37 * hash) + DATA_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getDataType().hashCode();
-    hash = (37 * hash) + SOURCE_FIELD_NUMBER;
-    hash = (53 * hash) + source_;
     hash = (37 * hash) + SOURCE_ID_FIELD_NUMBER;
     hash = (53 * hash) + getSourceId().hashCode();
     if (hasSourceUpdateTime()) {
@@ -555,7 +518,6 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       integrationName_ = "";
       dataType_ = "";
-      source_ = 0;
       sourceId_ = "";
       sourceUpdateTime_ = null;
       if (sourceUpdateTimeBuilder_ != null) {
@@ -603,17 +565,14 @@ private static final long serialVersionUID = 0L;
         result.dataType_ = dataType_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.source_ = source_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.sourceId_ = sourceId_;
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.sourceUpdateTime_ = sourceUpdateTimeBuilder_ == null
             ? sourceUpdateTime_
             : sourceUpdateTimeBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.sourceDescription_ = sourceDescription_;
       }
     }
@@ -640,12 +599,9 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000002;
         onChanged();
       }
-      if (other.source_ != 0) {
-        setSourceValue(other.getSourceValue());
-      }
       if (!other.getSourceId().isEmpty()) {
         sourceId_ = other.sourceId_;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasSourceUpdateTime()) {
@@ -653,7 +609,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSourceDescription().isEmpty()) {
         sourceDescription_ = other.sourceDescription_;
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -682,26 +638,21 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 8: {
-              source_ = input.readEnum();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 8
             case 18: {
               input.readMessage(
                   getSourceUpdateTimeFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000008;
               break;
             } // case 18
             case 26: {
               sourceId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000004;
               break;
             } // case 26
             case 34: {
               sourceDescription_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000010;
               break;
             } // case 34
             case 42: {
@@ -915,79 +866,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int source_ = 0;
-    /**
-     * <pre>
-     * Enum defining the source TO BE DEPRECATED
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Source source = 1 [json_name = "source"];</code>
-     * @return The enum numeric value on the wire for source.
-     */
-    @java.lang.Override public int getSourceValue() {
-      return source_;
-    }
-    /**
-     * <pre>
-     * Enum defining the source TO BE DEPRECATED
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Source source = 1 [json_name = "source"];</code>
-     * @param value The enum numeric value on the wire for source to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSourceValue(int value) {
-      source_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Enum defining the source TO BE DEPRECATED
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Source source = 1 [json_name = "source"];</code>
-     * @return The source.
-     */
-    @java.lang.Override
-    public com.anduril.entitymanager.v1.Source getSource() {
-      com.anduril.entitymanager.v1.Source result = com.anduril.entitymanager.v1.Source.forNumber(source_);
-      return result == null ? com.anduril.entitymanager.v1.Source.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * Enum defining the source TO BE DEPRECATED
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Source source = 1 [json_name = "source"];</code>
-     * @param value The source to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSource(com.anduril.entitymanager.v1.Source value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      bitField0_ |= 0x00000004;
-      source_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Enum defining the source TO BE DEPRECATED
-     * </pre>
-     *
-     * <code>.anduril.entitymanager.v1.Source source = 1 [json_name = "source"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSource() {
-      bitField0_ = (bitField0_ & ~0x00000004);
-      source_ = 0;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object sourceId_ = "";
     /**
      * <pre>
@@ -1043,7 +921,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       sourceId_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1057,7 +935,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSourceId() {
       sourceId_ = getDefaultInstance().getSourceId();
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1075,7 +953,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       sourceId_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1094,7 +972,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sourceUpdateTime field is set.
      */
     public boolean hasSourceUpdateTime() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1131,7 +1009,7 @@ private static final long serialVersionUID = 0L;
       } else {
         sourceUpdateTimeBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1151,7 +1029,7 @@ private static final long serialVersionUID = 0L;
       } else {
         sourceUpdateTimeBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1166,7 +1044,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSourceUpdateTime(com.google.protobuf.Timestamp value) {
       if (sourceUpdateTimeBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0) &&
+        if (((bitField0_ & 0x00000008) != 0) &&
           sourceUpdateTime_ != null &&
           sourceUpdateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getSourceUpdateTimeBuilder().mergeFrom(value);
@@ -1176,7 +1054,7 @@ private static final long serialVersionUID = 0L;
       } else {
         sourceUpdateTimeBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1190,7 +1068,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
      */
     public Builder clearSourceUpdateTime() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000008);
       sourceUpdateTime_ = null;
       if (sourceUpdateTimeBuilder_ != null) {
         sourceUpdateTimeBuilder_.dispose();
@@ -1209,7 +1087,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getSourceUpdateTimeBuilder() {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return getSourceUpdateTimeFieldBuilder().getBuilder();
     }
@@ -1308,7 +1186,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       sourceDescription_ = value;
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1322,7 +1200,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSourceDescription() {
       sourceDescription_ = getDefaultInstance().getSourceDescription();
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1340,7 +1218,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       sourceDescription_ = value;
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }

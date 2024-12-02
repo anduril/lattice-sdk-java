@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private LinearRing() {
-    points_ = java.util.Collections.emptyList();
     positions_ = java.util.Collections.emptyList();
   }
 
@@ -42,67 +41,6 @@ private static final long serialVersionUID = 0L;
     return com.anduril.entitymanager.v1.GeoentityPubProto.internal_static_anduril_entitymanager_v1_LinearRing_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.anduril.entitymanager.v1.LinearRing.class, com.anduril.entitymanager.v1.LinearRing.Builder.class);
-  }
-
-  public static final int POINTS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private java.util.List<com.anduril.entitymanager.v1.Position> points_;
-  /**
-   * <pre>
-   * Deprecated: do not use, use positions instead
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.Position> getPointsList() {
-    return points_;
-  }
-  /**
-   * <pre>
-   * Deprecated: do not use, use positions instead
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public java.util.List<? extends com.anduril.entitymanager.v1.PositionOrBuilder> 
-      getPointsOrBuilderList() {
-    return points_;
-  }
-  /**
-   * <pre>
-   * Deprecated: do not use, use positions instead
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public int getPointsCount() {
-    return points_.size();
-  }
-  /**
-   * <pre>
-   * Deprecated: do not use, use positions instead
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.Position getPoints(int index) {
-    return points_.get(index);
-  }
-  /**
-   * <pre>
-   * Deprecated: do not use, use positions instead
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.PositionOrBuilder getPointsOrBuilder(
-      int index) {
-    return points_.get(index);
   }
 
   public static final int POSITIONS_FIELD_NUMBER = 2;
@@ -160,9 +98,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < points_.size(); i++) {
-      output.writeMessage(1, points_.get(i));
-    }
     for (int i = 0; i < positions_.size(); i++) {
       output.writeMessage(2, positions_.get(i));
     }
@@ -175,10 +110,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < points_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, points_.get(i));
-    }
     for (int i = 0; i < positions_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, positions_.get(i));
@@ -198,8 +129,6 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.LinearRing other = (com.anduril.entitymanager.v1.LinearRing) obj;
 
-    if (!getPointsList()
-        .equals(other.getPointsList())) return false;
     if (!getPositionsList()
         .equals(other.getPositionsList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -213,10 +142,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getPointsCount() > 0) {
-      hash = (37 * hash) + POINTS_FIELD_NUMBER;
-      hash = (53 * hash) + getPointsList().hashCode();
-    }
     if (getPositionsCount() > 0) {
       hash = (37 * hash) + POSITIONS_FIELD_NUMBER;
       hash = (53 * hash) + getPositionsList().hashCode();
@@ -354,20 +279,13 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      if (pointsBuilder_ == null) {
-        points_ = java.util.Collections.emptyList();
-      } else {
-        points_ = null;
-        pointsBuilder_.clear();
-      }
-      bitField0_ = (bitField0_ & ~0x00000001);
       if (positionsBuilder_ == null) {
         positions_ = java.util.Collections.emptyList();
       } else {
         positions_ = null;
         positionsBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -401,19 +319,10 @@ private static final long serialVersionUID = 0L;
     }
 
     private void buildPartialRepeatedFields(com.anduril.entitymanager.v1.LinearRing result) {
-      if (pointsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          points_ = java.util.Collections.unmodifiableList(points_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.points_ = points_;
-      } else {
-        result.points_ = pointsBuilder_.build();
-      }
       if (positionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           positions_ = java.util.Collections.unmodifiableList(positions_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.positions_ = positions_;
       } else {
@@ -437,37 +346,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.LinearRing other) {
       if (other == com.anduril.entitymanager.v1.LinearRing.getDefaultInstance()) return this;
-      if (pointsBuilder_ == null) {
-        if (!other.points_.isEmpty()) {
-          if (points_.isEmpty()) {
-            points_ = other.points_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensurePointsIsMutable();
-            points_.addAll(other.points_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.points_.isEmpty()) {
-          if (pointsBuilder_.isEmpty()) {
-            pointsBuilder_.dispose();
-            pointsBuilder_ = null;
-            points_ = other.points_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            pointsBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getPointsFieldBuilder() : null;
-          } else {
-            pointsBuilder_.addAllMessages(other.points_);
-          }
-        }
-      }
       if (positionsBuilder_ == null) {
         if (!other.positions_.isEmpty()) {
           if (positions_.isEmpty()) {
             positions_ = other.positions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensurePositionsIsMutable();
             positions_.addAll(other.positions_);
@@ -480,7 +363,7 @@ private static final long serialVersionUID = 0L;
             positionsBuilder_.dispose();
             positionsBuilder_ = null;
             positions_ = other.positions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
             positionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPositionsFieldBuilder() : null;
@@ -515,19 +398,6 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              com.anduril.entitymanager.v1.Position m =
-                  input.readMessage(
-                      com.anduril.entitymanager.v1.Position.parser(),
-                      extensionRegistry);
-              if (pointsBuilder_ == null) {
-                ensurePointsIsMutable();
-                points_.add(m);
-              } else {
-                pointsBuilder_.addMessage(m);
-              }
-              break;
-            } // case 10
             case 18: {
               com.anduril.entitymanager.v1.GeoPolygonPosition m =
                   input.readMessage(
@@ -558,324 +428,12 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<com.anduril.entitymanager.v1.Position> points_ =
-      java.util.Collections.emptyList();
-    private void ensurePointsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        points_ = new java.util.ArrayList<com.anduril.entitymanager.v1.Position>(points_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.anduril.entitymanager.v1.Position, com.anduril.entitymanager.v1.Position.Builder, com.anduril.entitymanager.v1.PositionOrBuilder> pointsBuilder_;
-
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.Position> getPointsList() {
-      if (pointsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(points_);
-      } else {
-        return pointsBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public int getPointsCount() {
-      if (pointsBuilder_ == null) {
-        return points_.size();
-      } else {
-        return pointsBuilder_.getCount();
-      }
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.Position getPoints(int index) {
-      if (pointsBuilder_ == null) {
-        return points_.get(index);
-      } else {
-        return pointsBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setPoints(
-        int index, com.anduril.entitymanager.v1.Position value) {
-      if (pointsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensurePointsIsMutable();
-        points_.set(index, value);
-        onChanged();
-      } else {
-        pointsBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setPoints(
-        int index, com.anduril.entitymanager.v1.Position.Builder builderForValue) {
-      if (pointsBuilder_ == null) {
-        ensurePointsIsMutable();
-        points_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        pointsBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addPoints(com.anduril.entitymanager.v1.Position value) {
-      if (pointsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensurePointsIsMutable();
-        points_.add(value);
-        onChanged();
-      } else {
-        pointsBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addPoints(
-        int index, com.anduril.entitymanager.v1.Position value) {
-      if (pointsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensurePointsIsMutable();
-        points_.add(index, value);
-        onChanged();
-      } else {
-        pointsBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addPoints(
-        com.anduril.entitymanager.v1.Position.Builder builderForValue) {
-      if (pointsBuilder_ == null) {
-        ensurePointsIsMutable();
-        points_.add(builderForValue.build());
-        onChanged();
-      } else {
-        pointsBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addPoints(
-        int index, com.anduril.entitymanager.v1.Position.Builder builderForValue) {
-      if (pointsBuilder_ == null) {
-        ensurePointsIsMutable();
-        points_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        pointsBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addAllPoints(
-        java.lang.Iterable<? extends com.anduril.entitymanager.v1.Position> values) {
-      if (pointsBuilder_ == null) {
-        ensurePointsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, points_);
-        onChanged();
-      } else {
-        pointsBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder clearPoints() {
-      if (pointsBuilder_ == null) {
-        points_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-      } else {
-        pointsBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder removePoints(int index) {
-      if (pointsBuilder_ == null) {
-        ensurePointsIsMutable();
-        points_.remove(index);
-        onChanged();
-      } else {
-        pointsBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.Position.Builder getPointsBuilder(
-        int index) {
-      return getPointsFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.PositionOrBuilder getPointsOrBuilder(
-        int index) {
-      if (pointsBuilder_ == null) {
-        return points_.get(index);  } else {
-        return pointsBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<? extends com.anduril.entitymanager.v1.PositionOrBuilder> 
-         getPointsOrBuilderList() {
-      if (pointsBuilder_ != null) {
-        return pointsBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(points_);
-      }
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.Position.Builder addPointsBuilder() {
-      return getPointsFieldBuilder().addBuilder(
-          com.anduril.entitymanager.v1.Position.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.Position.Builder addPointsBuilder(
-        int index) {
-      return getPointsFieldBuilder().addBuilder(
-          index, com.anduril.entitymanager.v1.Position.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Deprecated: do not use, use positions instead
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.Position.Builder> 
-         getPointsBuilderList() {
-      return getPointsFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.anduril.entitymanager.v1.Position, com.anduril.entitymanager.v1.Position.Builder, com.anduril.entitymanager.v1.PositionOrBuilder> 
-        getPointsFieldBuilder() {
-      if (pointsBuilder_ == null) {
-        pointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.anduril.entitymanager.v1.Position, com.anduril.entitymanager.v1.Position.Builder, com.anduril.entitymanager.v1.PositionOrBuilder>(
-                points_,
-                ((bitField0_ & 0x00000001) != 0),
-                getParentForChildren(),
-                isClean());
-        points_ = null;
-      }
-      return pointsBuilder_;
-    }
-
     private java.util.List<com.anduril.entitymanager.v1.GeoPolygonPosition> positions_ =
       java.util.Collections.emptyList();
     private void ensurePositionsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000001) != 0)) {
         positions_ = new java.util.ArrayList<com.anduril.entitymanager.v1.GeoPolygonPosition>(positions_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
        }
     }
 
@@ -1025,7 +583,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPositions() {
       if (positionsBuilder_ == null) {
         positions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
         positionsBuilder_.clear();
@@ -1102,7 +660,7 @@ private static final long serialVersionUID = 0L;
         positionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.anduril.entitymanager.v1.GeoPolygonPosition, com.anduril.entitymanager.v1.GeoPolygonPosition.Builder, com.anduril.entitymanager.v1.GeoPolygonPositionOrBuilder>(
                 positions_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
         positions_ = null;

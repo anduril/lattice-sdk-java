@@ -118,7 +118,7 @@ public enum OverrideType
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.anduril.entitymanager.v1.TypesPubProto.getDescriptor().getEnumTypes().get(4);
+    return com.anduril.entitymanager.v1.TypesPubProto.getDescriptor().getEnumTypes().get(3);
   }
 
   private static final OverrideType[] VALUES = values();

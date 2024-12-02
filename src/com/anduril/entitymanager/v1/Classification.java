@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Classification() {
-    level_ = 0;
     fields_ = java.util.Collections.emptyList();
   }
 
@@ -42,28 +41,6 @@ private static final long serialVersionUID = 0L;
     return com.anduril.entitymanager.v1.ClassificationPubProto.internal_static_anduril_entitymanager_v1_Classification_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.anduril.entitymanager.v1.Classification.class, com.anduril.entitymanager.v1.Classification.Builder.class);
-  }
-
-  public static final int LEVEL_FIELD_NUMBER = 1;
-  private int level_ = 0;
-  /**
-   * <code>.anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Classification.level is deprecated.
-   *     See anduril/entitymanager/v1/classification.pub.proto;l=13
-   * @return The enum numeric value on the wire for level.
-   */
-  @java.lang.Override @java.lang.Deprecated public int getLevelValue() {
-    return level_;
-  }
-  /**
-   * <code>.anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Classification.level is deprecated.
-   *     See anduril/entitymanager/v1/classification.pub.proto;l=13
-   * @return The level.
-   */
-  @java.lang.Override @java.lang.Deprecated public com.anduril.entitymanager.v1.ClassificationLevels getLevel() {
-    com.anduril.entitymanager.v1.ClassificationLevels result = com.anduril.entitymanager.v1.ClassificationLevels.forNumber(level_);
-    return result == null ? com.anduril.entitymanager.v1.ClassificationLevels.UNRECOGNIZED : result;
   }
 
   public static final int DEFAULT_FIELD_NUMBER = 2;
@@ -187,9 +164,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (level_ != com.anduril.entitymanager.v1.ClassificationLevels.CLASSIFICATION_LEVELS_INVALID.getNumber()) {
-      output.writeEnum(1, level_);
-    }
     if (default_ != null) {
       output.writeMessage(2, getDefault());
     }
@@ -205,10 +179,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (level_ != com.anduril.entitymanager.v1.ClassificationLevels.CLASSIFICATION_LEVELS_INVALID.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(1, level_);
-    }
     if (default_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getDefault());
@@ -232,7 +202,6 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.Classification other = (com.anduril.entitymanager.v1.Classification) obj;
 
-    if (level_ != other.level_) return false;
     if (hasDefault() != other.hasDefault()) return false;
     if (hasDefault()) {
       if (!getDefault()
@@ -251,8 +220,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + LEVEL_FIELD_NUMBER;
-    hash = (53 * hash) + level_;
     if (hasDefault()) {
       hash = (37 * hash) + DEFAULT_FIELD_NUMBER;
       hash = (53 * hash) + getDefault().hashCode();
@@ -394,7 +361,6 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      level_ = 0;
       default_ = null;
       if (defaultBuilder_ != null) {
         defaultBuilder_.dispose();
@@ -406,7 +372,7 @@ private static final long serialVersionUID = 0L;
         fields_ = null;
         fieldsBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -441,9 +407,9 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartialRepeatedFields(com.anduril.entitymanager.v1.Classification result) {
       if (fieldsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           fields_ = java.util.Collections.unmodifiableList(fields_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.fields_ = fields_;
       } else {
@@ -454,9 +420,6 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.anduril.entitymanager.v1.Classification result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.level_ = level_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.default_ = defaultBuilder_ == null
             ? default_
             : defaultBuilder_.build();
@@ -475,9 +438,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.Classification other) {
       if (other == com.anduril.entitymanager.v1.Classification.getDefaultInstance()) return this;
-      if (other.level_ != 0) {
-        setLevelValue(other.getLevelValue());
-      }
       if (other.hasDefault()) {
         mergeDefault(other.getDefault());
       }
@@ -485,7 +445,7 @@ private static final long serialVersionUID = 0L;
         if (!other.fields_.isEmpty()) {
           if (fields_.isEmpty()) {
             fields_ = other.fields_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureFieldsIsMutable();
             fields_.addAll(other.fields_);
@@ -498,7 +458,7 @@ private static final long serialVersionUID = 0L;
             fieldsBuilder_.dispose();
             fieldsBuilder_ = null;
             fields_ = other.fields_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
             fieldsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFieldsFieldBuilder() : null;
@@ -533,16 +493,11 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 8: {
-              level_ = input.readEnum();
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 8
             case 18: {
               input.readMessage(
                   getDefaultFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             } // case 18
             case 26: {
@@ -575,69 +530,6 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int level_ = 0;
-    /**
-     * <code>.anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Classification.level is deprecated.
-     *     See anduril/entitymanager/v1/classification.pub.proto;l=13
-     * @return The enum numeric value on the wire for level.
-     */
-    @java.lang.Override @java.lang.Deprecated public int getLevelValue() {
-      return level_;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Classification.level is deprecated.
-     *     See anduril/entitymanager/v1/classification.pub.proto;l=13
-     * @param value The enum numeric value on the wire for level to set.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder setLevelValue(int value) {
-      level_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Classification.level is deprecated.
-     *     See anduril/entitymanager/v1/classification.pub.proto;l=13
-     * @return The level.
-     */
-    @java.lang.Override
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.ClassificationLevels getLevel() {
-      com.anduril.entitymanager.v1.ClassificationLevels result = com.anduril.entitymanager.v1.ClassificationLevels.forNumber(level_);
-      return result == null ? com.anduril.entitymanager.v1.ClassificationLevels.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Classification.level is deprecated.
-     *     See anduril/entitymanager/v1/classification.pub.proto;l=13
-     * @param value The level to set.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder setLevel(com.anduril.entitymanager.v1.ClassificationLevels value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      bitField0_ |= 0x00000001;
-      level_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.Classification.level is deprecated.
-     *     See anduril/entitymanager/v1/classification.pub.proto;l=13
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder clearLevel() {
-      bitField0_ = (bitField0_ & ~0x00000001);
-      level_ = 0;
-      onChanged();
-      return this;
-    }
-
     private com.anduril.entitymanager.v1.ClassificationInformation default_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.ClassificationInformation, com.anduril.entitymanager.v1.ClassificationInformation.Builder, com.anduril.entitymanager.v1.ClassificationInformationOrBuilder> defaultBuilder_;
@@ -651,7 +543,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the default field is set.
      */
     public boolean hasDefault() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -686,7 +578,7 @@ private static final long serialVersionUID = 0L;
       } else {
         defaultBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -705,7 +597,7 @@ private static final long serialVersionUID = 0L;
       } else {
         defaultBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -719,7 +611,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDefault(com.anduril.entitymanager.v1.ClassificationInformation value) {
       if (defaultBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
+        if (((bitField0_ & 0x00000001) != 0) &&
           default_ != null &&
           default_ != com.anduril.entitymanager.v1.ClassificationInformation.getDefaultInstance()) {
           getDefaultBuilder().mergeFrom(value);
@@ -729,7 +621,7 @@ private static final long serialVersionUID = 0L;
       } else {
         defaultBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -742,7 +634,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.ClassificationInformation default = 2 [json_name = "default"];</code>
      */
     public Builder clearDefault() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       default_ = null;
       if (defaultBuilder_ != null) {
         defaultBuilder_.dispose();
@@ -760,7 +652,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.ClassificationInformation default = 2 [json_name = "default"];</code>
      */
     public com.anduril.entitymanager.v1.ClassificationInformation.Builder getDefaultBuilder() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return getDefaultFieldBuilder().getBuilder();
     }
@@ -805,9 +697,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.anduril.entitymanager.v1.FieldClassificationInformation> fields_ =
       java.util.Collections.emptyList();
     private void ensureFieldsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         fields_ = new java.util.ArrayList<com.anduril.entitymanager.v1.FieldClassificationInformation>(fields_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1012,7 +904,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFields() {
       if (fieldsBuilder_ == null) {
         fields_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         fieldsBuilder_.clear();
@@ -1124,7 +1016,7 @@ private static final long serialVersionUID = 0L;
         fieldsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.anduril.entitymanager.v1.FieldClassificationInformation, com.anduril.entitymanager.v1.FieldClassificationInformation.Builder, com.anduril.entitymanager.v1.FieldClassificationInformationOrBuilder>(
                 fields_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         fields_ = null;
