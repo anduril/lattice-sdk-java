@@ -51,7 +51,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
-   * Human readable display name for this Task, should be short (&lt;100 chars).
+   * Human-readable display name for this Task, should be short (&lt;100 chars).
    * </pre>
    *
    * <code>string display_name = 1 [json_name = "displayName"];</code>
@@ -72,7 +72,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Human readable display name for this Task, should be short (&lt;100 chars).
+   * Human-readable display name for this Task, should be short (&lt;100 chars).
    * </pre>
    *
    * <code>string display_name = 1 [json_name = "displayName"];</code>
@@ -221,7 +221,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object description_ = "";
   /**
    * <pre>
-   * Longer, free form human readable description of this Task.
+   * Longer, free-form, human-readable description of this Task.
    * </pre>
    *
    * <code>string description = 6 [json_name = "description"];</code>
@@ -242,7 +242,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Longer, free form human readable description of this Task.
+   * Longer, free-form, human-readable description of this Task.
    * </pre>
    *
    * <code>string description = 6 [json_name = "description"];</code>
@@ -945,7 +945,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object displayName_ = "";
     /**
      * <pre>
-     * Human readable display name for this Task, should be short (&lt;100 chars).
+     * Human-readable display name for this Task, should be short (&lt;100 chars).
      * </pre>
      *
      * <code>string display_name = 1 [json_name = "displayName"];</code>
@@ -965,7 +965,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human readable display name for this Task, should be short (&lt;100 chars).
+     * Human-readable display name for this Task, should be short (&lt;100 chars).
      * </pre>
      *
      * <code>string display_name = 1 [json_name = "displayName"];</code>
@@ -986,7 +986,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human readable display name for this Task, should be short (&lt;100 chars).
+     * Human-readable display name for this Task, should be short (&lt;100 chars).
      * </pre>
      *
      * <code>string display_name = 1 [json_name = "displayName"];</code>
@@ -1003,7 +1003,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human readable display name for this Task, should be short (&lt;100 chars).
+     * Human-readable display name for this Task, should be short (&lt;100 chars).
      * </pre>
      *
      * <code>string display_name = 1 [json_name = "displayName"];</code>
@@ -1017,7 +1017,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human readable display name for this Task, should be short (&lt;100 chars).
+     * Human-readable display name for this Task, should be short (&lt;100 chars).
      * </pre>
      *
      * <code>string display_name = 1 [json_name = "displayName"];</code>
@@ -1529,7 +1529,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * Longer, free form human readable description of this Task.
+     * Longer, free-form, human-readable description of this Task.
      * </pre>
      *
      * <code>string description = 6 [json_name = "description"];</code>
@@ -1549,7 +1549,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Longer, free form human readable description of this Task.
+     * Longer, free-form, human-readable description of this Task.
      * </pre>
      *
      * <code>string description = 6 [json_name = "description"];</code>
@@ -1570,7 +1570,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Longer, free form human readable description of this Task.
+     * Longer, free-form, human-readable description of this Task.
      * </pre>
      *
      * <code>string description = 6 [json_name = "description"];</code>
@@ -1587,7 +1587,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Longer, free form human readable description of this Task.
+     * Longer, free-form, human-readable description of this Task.
      * </pre>
      *
      * <code>string description = 6 [json_name = "description"];</code>
@@ -1601,7 +1601,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Longer, free form human readable description of this Task.
+     * Longer, free-form, human-readable description of this Task.
      * </pre>
      *
      * <code>string description = 6 [json_name = "description"];</code>

@@ -44,7 +44,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.Entity entity_;
   /**
    * <pre>
-   * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+   * The entity containing the overridden fields. The service will extract the overridable fields from the entity
    * object and ignore any other fields.
    * </pre>
    *
@@ -57,7 +57,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+   * The entity containing the overridden fields. The service will extract the overridable fields from the entity
    * object and ignore any other fields.
    * </pre>
    *
@@ -70,7 +70,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+   * The entity containing the overridden fields. The service will extract the overridable fields from the entity
    * object and ignore any other fields.
    * </pre>
    *
@@ -142,7 +142,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.Provenance provenance_;
   /**
    * <pre>
-   * Additional information about the source of the override
+   * Additional information about the source of the override.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -154,7 +154,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Additional information about the source of the override
+   * Additional information about the source of the override.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -166,7 +166,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Additional information about the source of the override
+   * Additional information about the source of the override.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -560,7 +560,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.Entity, com.anduril.entitymanager.v1.Entity.Builder, com.anduril.entitymanager.v1.EntityOrBuilder> entityBuilder_;
     /**
      * <pre>
-     * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+     * The entity containing the overridden fields. The service will extract the overridable fields from the entity
      * object and ignore any other fields.
      * </pre>
      *
@@ -572,7 +572,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+     * The entity containing the overridden fields. The service will extract the overridable fields from the entity
      * object and ignore any other fields.
      * </pre>
      *
@@ -588,7 +588,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+     * The entity containing the overridden fields. The service will extract the overridable fields from the entity
      * object and ignore any other fields.
      * </pre>
      *
@@ -609,7 +609,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+     * The entity containing the overridden fields. The service will extract the overridable fields from the entity
      * object and ignore any other fields.
      * </pre>
      *
@@ -628,7 +628,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+     * The entity containing the overridden fields. The service will extract the overridable fields from the entity
      * object and ignore any other fields.
      * </pre>
      *
@@ -652,7 +652,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+     * The entity containing the overridden fields. The service will extract the overridable fields from the entity
      * object and ignore any other fields.
      * </pre>
      *
@@ -670,7 +670,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+     * The entity containing the overridden fields. The service will extract the overridable fields from the entity
      * object and ignore any other fields.
      * </pre>
      *
@@ -683,7 +683,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+     * The entity containing the overridden fields. The service will extract the overridable fields from the entity
      * object and ignore any other fields.
      * </pre>
      *
@@ -699,7 +699,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The entity containing the overwritten fields. The service will extract the overridable fields from the entity
+     * The entity containing the overridden fields. The service will extract the overridable fields from the entity
      * object and ignore any other fields.
      * </pre>
      *
@@ -880,7 +880,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.Provenance, com.anduril.entitymanager.v1.Provenance.Builder, com.anduril.entitymanager.v1.ProvenanceOrBuilder> provenanceBuilder_;
     /**
      * <pre>
-     * Additional information about the source of the override
+     * Additional information about the source of the override.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -891,7 +891,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Additional information about the source of the override
+     * Additional information about the source of the override.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -906,7 +906,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Additional information about the source of the override
+     * Additional information about the source of the override.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -926,7 +926,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Additional information about the source of the override
+     * Additional information about the source of the override.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -944,7 +944,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Additional information about the source of the override
+     * Additional information about the source of the override.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -967,7 +967,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Additional information about the source of the override
+     * Additional information about the source of the override.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -984,7 +984,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Additional information about the source of the override
+     * Additional information about the source of the override.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -996,7 +996,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Additional information about the source of the override
+     * Additional information about the source of the override.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>
@@ -1011,7 +1011,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Additional information about the source of the override
+     * Additional information about the source of the override.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];</code>

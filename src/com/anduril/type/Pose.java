@@ -88,8 +88,7 @@ private static final long serialVersionUID = 0L;
    * field would have been att_pose_to_enu.
    *
    * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-   * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-   * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+   * to the enu frame.
    *
    * Point&lt;Pose&#92;&gt; posePt{1,0,0};
    * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};
@@ -119,8 +118,7 @@ private static final long serialVersionUID = 0L;
    * field would have been att_pose_to_enu.
    *
    * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-   * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-   * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+   * to the enu frame.
    *
    * Point&lt;Pose&#92;&gt; posePt{1,0,0};
    * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};
@@ -150,8 +148,7 @@ private static final long serialVersionUID = 0L;
    * field would have been att_pose_to_enu.
    *
    * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-   * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-   * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+   * to the enu frame.
    *
    * Point&lt;Pose&#92;&gt; posePt{1,0,0};
    * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};
@@ -679,8 +676,7 @@ private static final long serialVersionUID = 0L;
      * field would have been att_pose_to_enu.
      *
      * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-     * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-     * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+     * to the enu frame.
      *
      * Point&lt;Pose&#92;&gt; posePt{1,0,0};
      * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};
@@ -709,8 +705,7 @@ private static final long serialVersionUID = 0L;
      * field would have been att_pose_to_enu.
      *
      * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-     * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-     * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+     * to the enu frame.
      *
      * Point&lt;Pose&#92;&gt; posePt{1,0,0};
      * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};
@@ -743,8 +738,7 @@ private static final long serialVersionUID = 0L;
      * field would have been att_pose_to_enu.
      *
      * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-     * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-     * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+     * to the enu frame.
      *
      * Point&lt;Pose&#92;&gt; posePt{1,0,0};
      * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};
@@ -782,8 +776,7 @@ private static final long serialVersionUID = 0L;
      * field would have been att_pose_to_enu.
      *
      * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-     * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-     * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+     * to the enu frame.
      *
      * Point&lt;Pose&#92;&gt; posePt{1,0,0};
      * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};
@@ -819,8 +812,7 @@ private static final long serialVersionUID = 0L;
      * field would have been att_pose_to_enu.
      *
      * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-     * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-     * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+     * to the enu frame.
      *
      * Point&lt;Pose&#92;&gt; posePt{1,0,0};
      * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};
@@ -861,8 +853,7 @@ private static final long serialVersionUID = 0L;
      * field would have been att_pose_to_enu.
      *
      * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-     * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-     * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+     * to the enu frame.
      *
      * Point&lt;Pose&#92;&gt; posePt{1,0,0};
      * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};
@@ -897,8 +888,7 @@ private static final long serialVersionUID = 0L;
      * field would have been att_pose_to_enu.
      *
      * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-     * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-     * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+     * to the enu frame.
      *
      * Point&lt;Pose&#92;&gt; posePt{1,0,0};
      * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};
@@ -928,8 +918,7 @@ private static final long serialVersionUID = 0L;
      * field would have been att_pose_to_enu.
      *
      * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-     * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-     * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+     * to the enu frame.
      *
      * Point&lt;Pose&#92;&gt; posePt{1,0,0};
      * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};
@@ -962,8 +951,7 @@ private static final long serialVersionUID = 0L;
      * field would have been att_pose_to_enu.
      *
      * Implementations of this quaternion should left multiply this quaternion to transform a point from the Pose frame
-     * to the enu frame. Following the geometry-cpp rotation convention, the following example would be valid:
-     * (https://ghe.anduril.dev/autonomy/geometry-cpp/blob/master/src/Rotation.h#L90)
+     * to the enu frame.
      *
      * Point&lt;Pose&#92;&gt; posePt{1,0,0};
      * Rotation&lt;Enu, Pose&#92;&gt; attPoseToEnu{};

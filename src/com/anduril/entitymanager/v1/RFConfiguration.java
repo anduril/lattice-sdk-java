@@ -20,8 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private RFConfiguration() {
-    frequencyRange_ = java.util.Collections.emptyList();
-    bandwidthRange_ = java.util.Collections.emptyList();
     frequencyRangeHz_ = java.util.Collections.emptyList();
     bandwidthRangeHz_ = java.util.Collections.emptyList();
   }
@@ -44,128 +42,6 @@ private static final long serialVersionUID = 0L;
     return com.anduril.entitymanager.v1.SensorsPubProto.internal_static_anduril_entitymanager_v1_RFConfiguration_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.anduril.entitymanager.v1.RFConfiguration.class, com.anduril.entitymanager.v1.RFConfiguration.Builder.class);
-  }
-
-  public static final int FREQUENCY_RANGE_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private java.util.List<com.anduril.entitymanager.v1.FloatRange> frequencyRange_;
-  /**
-   * <pre>
-   * Frequency ranges that are available for this sensor.
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.FloatRange> getFrequencyRangeList() {
-    return frequencyRange_;
-  }
-  /**
-   * <pre>
-   * Frequency ranges that are available for this sensor.
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public java.util.List<? extends com.anduril.entitymanager.v1.FloatRangeOrBuilder> 
-      getFrequencyRangeOrBuilderList() {
-    return frequencyRange_;
-  }
-  /**
-   * <pre>
-   * Frequency ranges that are available for this sensor.
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public int getFrequencyRangeCount() {
-    return frequencyRange_.size();
-  }
-  /**
-   * <pre>
-   * Frequency ranges that are available for this sensor.
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRange getFrequencyRange(int index) {
-    return frequencyRange_.get(index);
-  }
-  /**
-   * <pre>
-   * Frequency ranges that are available for this sensor.
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRangeOrBuilder getFrequencyRangeOrBuilder(
-      int index) {
-    return frequencyRange_.get(index);
-  }
-
-  public static final int BANDWIDTH_RANGE_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private java.util.List<com.anduril.entitymanager.v1.FloatRange> bandwidthRange_;
-  /**
-   * <pre>
-   * Bandwidth ranges that are available for this sensor.
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.FloatRange> getBandwidthRangeList() {
-    return bandwidthRange_;
-  }
-  /**
-   * <pre>
-   * Bandwidth ranges that are available for this sensor.
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public java.util.List<? extends com.anduril.entitymanager.v1.FloatRangeOrBuilder> 
-      getBandwidthRangeOrBuilderList() {
-    return bandwidthRange_;
-  }
-  /**
-   * <pre>
-   * Bandwidth ranges that are available for this sensor.
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public int getBandwidthRangeCount() {
-    return bandwidthRange_.size();
-  }
-  /**
-   * <pre>
-   * Bandwidth ranges that are available for this sensor.
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRange getBandwidthRange(int index) {
-    return bandwidthRange_.get(index);
-  }
-  /**
-   * <pre>
-   * Bandwidth ranges that are available for this sensor.
-   * </pre>
-   *
-   * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRangeOrBuilder getBandwidthRangeOrBuilder(
-      int index) {
-    return bandwidthRange_.get(index);
   }
 
   public static final int FREQUENCY_RANGE_HZ_FIELD_NUMBER = 3;
@@ -304,12 +180,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < frequencyRange_.size(); i++) {
-      output.writeMessage(1, frequencyRange_.get(i));
-    }
-    for (int i = 0; i < bandwidthRange_.size(); i++) {
-      output.writeMessage(2, bandwidthRange_.get(i));
-    }
     for (int i = 0; i < frequencyRangeHz_.size(); i++) {
       output.writeMessage(3, frequencyRangeHz_.get(i));
     }
@@ -325,14 +195,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < frequencyRange_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, frequencyRange_.get(i));
-    }
-    for (int i = 0; i < bandwidthRange_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, bandwidthRange_.get(i));
-    }
     for (int i = 0; i < frequencyRangeHz_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, frequencyRangeHz_.get(i));
@@ -356,10 +218,6 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.RFConfiguration other = (com.anduril.entitymanager.v1.RFConfiguration) obj;
 
-    if (!getFrequencyRangeList()
-        .equals(other.getFrequencyRangeList())) return false;
-    if (!getBandwidthRangeList()
-        .equals(other.getBandwidthRangeList())) return false;
     if (!getFrequencyRangeHzList()
         .equals(other.getFrequencyRangeHzList())) return false;
     if (!getBandwidthRangeHzList()
@@ -375,14 +233,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getFrequencyRangeCount() > 0) {
-      hash = (37 * hash) + FREQUENCY_RANGE_FIELD_NUMBER;
-      hash = (53 * hash) + getFrequencyRangeList().hashCode();
-    }
-    if (getBandwidthRangeCount() > 0) {
-      hash = (37 * hash) + BANDWIDTH_RANGE_FIELD_NUMBER;
-      hash = (53 * hash) + getBandwidthRangeList().hashCode();
-    }
     if (getFrequencyRangeHzCount() > 0) {
       hash = (37 * hash) + FREQUENCY_RANGE_HZ_FIELD_NUMBER;
       hash = (53 * hash) + getFrequencyRangeHzList().hashCode();
@@ -524,34 +374,20 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      if (frequencyRangeBuilder_ == null) {
-        frequencyRange_ = java.util.Collections.emptyList();
-      } else {
-        frequencyRange_ = null;
-        frequencyRangeBuilder_.clear();
-      }
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (bandwidthRangeBuilder_ == null) {
-        bandwidthRange_ = java.util.Collections.emptyList();
-      } else {
-        bandwidthRange_ = null;
-        bandwidthRangeBuilder_.clear();
-      }
-      bitField0_ = (bitField0_ & ~0x00000002);
       if (frequencyRangeHzBuilder_ == null) {
         frequencyRangeHz_ = java.util.Collections.emptyList();
       } else {
         frequencyRangeHz_ = null;
         frequencyRangeHzBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (bandwidthRangeHzBuilder_ == null) {
         bandwidthRangeHz_ = java.util.Collections.emptyList();
       } else {
         bandwidthRangeHz_ = null;
         bandwidthRangeHzBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -585,37 +421,19 @@ private static final long serialVersionUID = 0L;
     }
 
     private void buildPartialRepeatedFields(com.anduril.entitymanager.v1.RFConfiguration result) {
-      if (frequencyRangeBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          frequencyRange_ = java.util.Collections.unmodifiableList(frequencyRange_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.frequencyRange_ = frequencyRange_;
-      } else {
-        result.frequencyRange_ = frequencyRangeBuilder_.build();
-      }
-      if (bandwidthRangeBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
-          bandwidthRange_ = java.util.Collections.unmodifiableList(bandwidthRange_);
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.bandwidthRange_ = bandwidthRange_;
-      } else {
-        result.bandwidthRange_ = bandwidthRangeBuilder_.build();
-      }
       if (frequencyRangeHzBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           frequencyRangeHz_ = java.util.Collections.unmodifiableList(frequencyRangeHz_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.frequencyRangeHz_ = frequencyRangeHz_;
       } else {
         result.frequencyRangeHz_ = frequencyRangeHzBuilder_.build();
       }
       if (bandwidthRangeHzBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           bandwidthRangeHz_ = java.util.Collections.unmodifiableList(bandwidthRangeHz_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.bandwidthRangeHz_ = bandwidthRangeHz_;
       } else {
@@ -639,63 +457,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.RFConfiguration other) {
       if (other == com.anduril.entitymanager.v1.RFConfiguration.getDefaultInstance()) return this;
-      if (frequencyRangeBuilder_ == null) {
-        if (!other.frequencyRange_.isEmpty()) {
-          if (frequencyRange_.isEmpty()) {
-            frequencyRange_ = other.frequencyRange_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureFrequencyRangeIsMutable();
-            frequencyRange_.addAll(other.frequencyRange_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.frequencyRange_.isEmpty()) {
-          if (frequencyRangeBuilder_.isEmpty()) {
-            frequencyRangeBuilder_.dispose();
-            frequencyRangeBuilder_ = null;
-            frequencyRange_ = other.frequencyRange_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            frequencyRangeBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getFrequencyRangeFieldBuilder() : null;
-          } else {
-            frequencyRangeBuilder_.addAllMessages(other.frequencyRange_);
-          }
-        }
-      }
-      if (bandwidthRangeBuilder_ == null) {
-        if (!other.bandwidthRange_.isEmpty()) {
-          if (bandwidthRange_.isEmpty()) {
-            bandwidthRange_ = other.bandwidthRange_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureBandwidthRangeIsMutable();
-            bandwidthRange_.addAll(other.bandwidthRange_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.bandwidthRange_.isEmpty()) {
-          if (bandwidthRangeBuilder_.isEmpty()) {
-            bandwidthRangeBuilder_.dispose();
-            bandwidthRangeBuilder_ = null;
-            bandwidthRange_ = other.bandwidthRange_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-            bandwidthRangeBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getBandwidthRangeFieldBuilder() : null;
-          } else {
-            bandwidthRangeBuilder_.addAllMessages(other.bandwidthRange_);
-          }
-        }
-      }
       if (frequencyRangeHzBuilder_ == null) {
         if (!other.frequencyRangeHz_.isEmpty()) {
           if (frequencyRangeHz_.isEmpty()) {
             frequencyRangeHz_ = other.frequencyRangeHz_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureFrequencyRangeHzIsMutable();
             frequencyRangeHz_.addAll(other.frequencyRangeHz_);
@@ -708,7 +474,7 @@ private static final long serialVersionUID = 0L;
             frequencyRangeHzBuilder_.dispose();
             frequencyRangeHzBuilder_ = null;
             frequencyRangeHz_ = other.frequencyRangeHz_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
             frequencyRangeHzBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFrequencyRangeHzFieldBuilder() : null;
@@ -721,7 +487,7 @@ private static final long serialVersionUID = 0L;
         if (!other.bandwidthRangeHz_.isEmpty()) {
           if (bandwidthRangeHz_.isEmpty()) {
             bandwidthRangeHz_ = other.bandwidthRangeHz_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureBandwidthRangeHzIsMutable();
             bandwidthRangeHz_.addAll(other.bandwidthRangeHz_);
@@ -734,7 +500,7 @@ private static final long serialVersionUID = 0L;
             bandwidthRangeHzBuilder_.dispose();
             bandwidthRangeHzBuilder_ = null;
             bandwidthRangeHz_ = other.bandwidthRangeHz_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000002);
             bandwidthRangeHzBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getBandwidthRangeHzFieldBuilder() : null;
@@ -769,32 +535,6 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              com.anduril.entitymanager.v1.FloatRange m =
-                  input.readMessage(
-                      com.anduril.entitymanager.v1.FloatRange.parser(),
-                      extensionRegistry);
-              if (frequencyRangeBuilder_ == null) {
-                ensureFrequencyRangeIsMutable();
-                frequencyRange_.add(m);
-              } else {
-                frequencyRangeBuilder_.addMessage(m);
-              }
-              break;
-            } // case 10
-            case 18: {
-              com.anduril.entitymanager.v1.FloatRange m =
-                  input.readMessage(
-                      com.anduril.entitymanager.v1.FloatRange.parser(),
-                      extensionRegistry);
-              if (bandwidthRangeBuilder_ == null) {
-                ensureBandwidthRangeIsMutable();
-                bandwidthRange_.add(m);
-              } else {
-                bandwidthRangeBuilder_.addMessage(m);
-              }
-              break;
-            } // case 18
             case 26: {
               com.anduril.entitymanager.v1.FrequencyRange m =
                   input.readMessage(
@@ -838,636 +578,12 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<com.anduril.entitymanager.v1.FloatRange> frequencyRange_ =
-      java.util.Collections.emptyList();
-    private void ensureFrequencyRangeIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        frequencyRange_ = new java.util.ArrayList<com.anduril.entitymanager.v1.FloatRange>(frequencyRange_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.anduril.entitymanager.v1.FloatRange, com.anduril.entitymanager.v1.FloatRange.Builder, com.anduril.entitymanager.v1.FloatRangeOrBuilder> frequencyRangeBuilder_;
-
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.FloatRange> getFrequencyRangeList() {
-      if (frequencyRangeBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(frequencyRange_);
-      } else {
-        return frequencyRangeBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public int getFrequencyRangeCount() {
-      if (frequencyRangeBuilder_ == null) {
-        return frequencyRange_.size();
-      } else {
-        return frequencyRangeBuilder_.getCount();
-      }
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRange getFrequencyRange(int index) {
-      if (frequencyRangeBuilder_ == null) {
-        return frequencyRange_.get(index);
-      } else {
-        return frequencyRangeBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setFrequencyRange(
-        int index, com.anduril.entitymanager.v1.FloatRange value) {
-      if (frequencyRangeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureFrequencyRangeIsMutable();
-        frequencyRange_.set(index, value);
-        onChanged();
-      } else {
-        frequencyRangeBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setFrequencyRange(
-        int index, com.anduril.entitymanager.v1.FloatRange.Builder builderForValue) {
-      if (frequencyRangeBuilder_ == null) {
-        ensureFrequencyRangeIsMutable();
-        frequencyRange_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        frequencyRangeBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addFrequencyRange(com.anduril.entitymanager.v1.FloatRange value) {
-      if (frequencyRangeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureFrequencyRangeIsMutable();
-        frequencyRange_.add(value);
-        onChanged();
-      } else {
-        frequencyRangeBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addFrequencyRange(
-        int index, com.anduril.entitymanager.v1.FloatRange value) {
-      if (frequencyRangeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureFrequencyRangeIsMutable();
-        frequencyRange_.add(index, value);
-        onChanged();
-      } else {
-        frequencyRangeBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addFrequencyRange(
-        com.anduril.entitymanager.v1.FloatRange.Builder builderForValue) {
-      if (frequencyRangeBuilder_ == null) {
-        ensureFrequencyRangeIsMutable();
-        frequencyRange_.add(builderForValue.build());
-        onChanged();
-      } else {
-        frequencyRangeBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addFrequencyRange(
-        int index, com.anduril.entitymanager.v1.FloatRange.Builder builderForValue) {
-      if (frequencyRangeBuilder_ == null) {
-        ensureFrequencyRangeIsMutable();
-        frequencyRange_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        frequencyRangeBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addAllFrequencyRange(
-        java.lang.Iterable<? extends com.anduril.entitymanager.v1.FloatRange> values) {
-      if (frequencyRangeBuilder_ == null) {
-        ensureFrequencyRangeIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, frequencyRange_);
-        onChanged();
-      } else {
-        frequencyRangeBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder clearFrequencyRange() {
-      if (frequencyRangeBuilder_ == null) {
-        frequencyRange_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-      } else {
-        frequencyRangeBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder removeFrequencyRange(int index) {
-      if (frequencyRangeBuilder_ == null) {
-        ensureFrequencyRangeIsMutable();
-        frequencyRange_.remove(index);
-        onChanged();
-      } else {
-        frequencyRangeBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRange.Builder getFrequencyRangeBuilder(
-        int index) {
-      return getFrequencyRangeFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRangeOrBuilder getFrequencyRangeOrBuilder(
-        int index) {
-      if (frequencyRangeBuilder_ == null) {
-        return frequencyRange_.get(index);  } else {
-        return frequencyRangeBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<? extends com.anduril.entitymanager.v1.FloatRangeOrBuilder> 
-         getFrequencyRangeOrBuilderList() {
-      if (frequencyRangeBuilder_ != null) {
-        return frequencyRangeBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(frequencyRange_);
-      }
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRange.Builder addFrequencyRangeBuilder() {
-      return getFrequencyRangeFieldBuilder().addBuilder(
-          com.anduril.entitymanager.v1.FloatRange.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRange.Builder addFrequencyRangeBuilder(
-        int index) {
-      return getFrequencyRangeFieldBuilder().addBuilder(
-          index, com.anduril.entitymanager.v1.FloatRange.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Frequency ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.FloatRange.Builder> 
-         getFrequencyRangeBuilderList() {
-      return getFrequencyRangeFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.anduril.entitymanager.v1.FloatRange, com.anduril.entitymanager.v1.FloatRange.Builder, com.anduril.entitymanager.v1.FloatRangeOrBuilder> 
-        getFrequencyRangeFieldBuilder() {
-      if (frequencyRangeBuilder_ == null) {
-        frequencyRangeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.anduril.entitymanager.v1.FloatRange, com.anduril.entitymanager.v1.FloatRange.Builder, com.anduril.entitymanager.v1.FloatRangeOrBuilder>(
-                frequencyRange_,
-                ((bitField0_ & 0x00000001) != 0),
-                getParentForChildren(),
-                isClean());
-        frequencyRange_ = null;
-      }
-      return frequencyRangeBuilder_;
-    }
-
-    private java.util.List<com.anduril.entitymanager.v1.FloatRange> bandwidthRange_ =
-      java.util.Collections.emptyList();
-    private void ensureBandwidthRangeIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
-        bandwidthRange_ = new java.util.ArrayList<com.anduril.entitymanager.v1.FloatRange>(bandwidthRange_);
-        bitField0_ |= 0x00000002;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.anduril.entitymanager.v1.FloatRange, com.anduril.entitymanager.v1.FloatRange.Builder, com.anduril.entitymanager.v1.FloatRangeOrBuilder> bandwidthRangeBuilder_;
-
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.FloatRange> getBandwidthRangeList() {
-      if (bandwidthRangeBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(bandwidthRange_);
-      } else {
-        return bandwidthRangeBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public int getBandwidthRangeCount() {
-      if (bandwidthRangeBuilder_ == null) {
-        return bandwidthRange_.size();
-      } else {
-        return bandwidthRangeBuilder_.getCount();
-      }
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRange getBandwidthRange(int index) {
-      if (bandwidthRangeBuilder_ == null) {
-        return bandwidthRange_.get(index);
-      } else {
-        return bandwidthRangeBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setBandwidthRange(
-        int index, com.anduril.entitymanager.v1.FloatRange value) {
-      if (bandwidthRangeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureBandwidthRangeIsMutable();
-        bandwidthRange_.set(index, value);
-        onChanged();
-      } else {
-        bandwidthRangeBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setBandwidthRange(
-        int index, com.anduril.entitymanager.v1.FloatRange.Builder builderForValue) {
-      if (bandwidthRangeBuilder_ == null) {
-        ensureBandwidthRangeIsMutable();
-        bandwidthRange_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        bandwidthRangeBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addBandwidthRange(com.anduril.entitymanager.v1.FloatRange value) {
-      if (bandwidthRangeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureBandwidthRangeIsMutable();
-        bandwidthRange_.add(value);
-        onChanged();
-      } else {
-        bandwidthRangeBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addBandwidthRange(
-        int index, com.anduril.entitymanager.v1.FloatRange value) {
-      if (bandwidthRangeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureBandwidthRangeIsMutable();
-        bandwidthRange_.add(index, value);
-        onChanged();
-      } else {
-        bandwidthRangeBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addBandwidthRange(
-        com.anduril.entitymanager.v1.FloatRange.Builder builderForValue) {
-      if (bandwidthRangeBuilder_ == null) {
-        ensureBandwidthRangeIsMutable();
-        bandwidthRange_.add(builderForValue.build());
-        onChanged();
-      } else {
-        bandwidthRangeBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addBandwidthRange(
-        int index, com.anduril.entitymanager.v1.FloatRange.Builder builderForValue) {
-      if (bandwidthRangeBuilder_ == null) {
-        ensureBandwidthRangeIsMutable();
-        bandwidthRange_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        bandwidthRangeBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder addAllBandwidthRange(
-        java.lang.Iterable<? extends com.anduril.entitymanager.v1.FloatRange> values) {
-      if (bandwidthRangeBuilder_ == null) {
-        ensureBandwidthRangeIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, bandwidthRange_);
-        onChanged();
-      } else {
-        bandwidthRangeBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder clearBandwidthRange() {
-      if (bandwidthRangeBuilder_ == null) {
-        bandwidthRange_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-      } else {
-        bandwidthRangeBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder removeBandwidthRange(int index) {
-      if (bandwidthRangeBuilder_ == null) {
-        ensureBandwidthRangeIsMutable();
-        bandwidthRange_.remove(index);
-        onChanged();
-      } else {
-        bandwidthRangeBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRange.Builder getBandwidthRangeBuilder(
-        int index) {
-      return getBandwidthRangeFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRangeOrBuilder getBandwidthRangeOrBuilder(
-        int index) {
-      if (bandwidthRangeBuilder_ == null) {
-        return bandwidthRange_.get(index);  } else {
-        return bandwidthRangeBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<? extends com.anduril.entitymanager.v1.FloatRangeOrBuilder> 
-         getBandwidthRangeOrBuilderList() {
-      if (bandwidthRangeBuilder_ != null) {
-        return bandwidthRangeBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(bandwidthRange_);
-      }
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRange.Builder addBandwidthRangeBuilder() {
-      return getBandwidthRangeFieldBuilder().addBuilder(
-          com.anduril.entitymanager.v1.FloatRange.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.FloatRange.Builder addBandwidthRangeBuilder(
-        int index) {
-      return getBandwidthRangeFieldBuilder().addBuilder(
-          index, com.anduril.entitymanager.v1.FloatRange.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * Bandwidth ranges that are available for this sensor.
-     * </pre>
-     *
-     * <code>repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public java.util.List<com.anduril.entitymanager.v1.FloatRange.Builder> 
-         getBandwidthRangeBuilderList() {
-      return getBandwidthRangeFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.anduril.entitymanager.v1.FloatRange, com.anduril.entitymanager.v1.FloatRange.Builder, com.anduril.entitymanager.v1.FloatRangeOrBuilder> 
-        getBandwidthRangeFieldBuilder() {
-      if (bandwidthRangeBuilder_ == null) {
-        bandwidthRangeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.anduril.entitymanager.v1.FloatRange, com.anduril.entitymanager.v1.FloatRange.Builder, com.anduril.entitymanager.v1.FloatRangeOrBuilder>(
-                bandwidthRange_,
-                ((bitField0_ & 0x00000002) != 0),
-                getParentForChildren(),
-                isClean());
-        bandwidthRange_ = null;
-      }
-      return bandwidthRangeBuilder_;
-    }
-
     private java.util.List<com.anduril.entitymanager.v1.FrequencyRange> frequencyRangeHz_ =
       java.util.Collections.emptyList();
     private void ensureFrequencyRangeHzIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000001) != 0)) {
         frequencyRangeHz_ = new java.util.ArrayList<com.anduril.entitymanager.v1.FrequencyRange>(frequencyRangeHz_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000001;
        }
     }
 
@@ -1661,7 +777,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFrequencyRangeHz() {
       if (frequencyRangeHzBuilder_ == null) {
         frequencyRangeHz_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
         frequencyRangeHzBuilder_.clear();
@@ -1766,7 +882,7 @@ private static final long serialVersionUID = 0L;
         frequencyRangeHzBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.anduril.entitymanager.v1.FrequencyRange, com.anduril.entitymanager.v1.FrequencyRange.Builder, com.anduril.entitymanager.v1.FrequencyRangeOrBuilder>(
                 frequencyRangeHz_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
         frequencyRangeHz_ = null;
@@ -1777,9 +893,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.anduril.entitymanager.v1.BandwidthRange> bandwidthRangeHz_ =
       java.util.Collections.emptyList();
     private void ensureBandwidthRangeHzIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         bandwidthRangeHz_ = new java.util.ArrayList<com.anduril.entitymanager.v1.BandwidthRange>(bandwidthRangeHz_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1973,7 +1089,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearBandwidthRangeHz() {
       if (bandwidthRangeHzBuilder_ == null) {
         bandwidthRangeHz_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         bandwidthRangeHzBuilder_.clear();
@@ -2078,7 +1194,7 @@ private static final long serialVersionUID = 0L;
         bandwidthRangeHzBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.anduril.entitymanager.v1.BandwidthRange, com.anduril.entitymanager.v1.BandwidthRange.Builder, com.anduril.entitymanager.v1.BandwidthRangeOrBuilder>(
                 bandwidthRangeHz_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         bandwidthRangeHz_ = null;

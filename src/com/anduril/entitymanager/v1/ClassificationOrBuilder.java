@@ -8,21 +8,6 @@ public interface ClassificationOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Classification.level is deprecated.
-   *     See anduril/entitymanager/v1/classification.pub.proto;l=13
-   * @return The enum numeric value on the wire for level.
-   */
-  @java.lang.Deprecated int getLevelValue();
-  /**
-   * <code>.anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.Classification.level is deprecated.
-   *     See anduril/entitymanager/v1/classification.pub.proto;l=13
-   * @return The level.
-   */
-  @java.lang.Deprecated com.anduril.entitymanager.v1.ClassificationLevels getLevel();
-
-  /**
    * <pre>
    * The default classification information which should be assumed to apply to everything in
    * the entity unless a specific field level classification is present.

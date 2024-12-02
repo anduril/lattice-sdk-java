@@ -20,10 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private PowerState() {
-    powerStatus_ = 0;
-    powerType_ = 0;
-    messages_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
   }
 
   @java.lang.Override
@@ -85,6 +81,11 @@ private static final long serialVersionUID = 0L;
     return internalGetSourceIdToState().getMap().size();
   }
   /**
+   * <pre>
+   * This is a map where the key is a unique id of the power source and the value is additional information about the
+   * power source.
+   * </pre>
+   *
    * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
    */
   @java.lang.Override
@@ -102,6 +103,11 @@ private static final long serialVersionUID = 0L;
     return getSourceIdToStateMap();
   }
   /**
+   * <pre>
+   * This is a map where the key is a unique id of the power source and the value is additional information about the
+   * power source.
+   * </pre>
+   *
    * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
    */
   @java.lang.Override
@@ -109,6 +115,11 @@ private static final long serialVersionUID = 0L;
     return internalGetSourceIdToState().getMap();
   }
   /**
+   * <pre>
+   * This is a map where the key is a unique id of the power source and the value is additional information about the
+   * power source.
+   * </pre>
+   *
    * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
    */
   @java.lang.Override
@@ -123,6 +134,11 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
+   * <pre>
+   * This is a map where the key is a unique id of the power source and the value is additional information about the
+   * power source.
+   * </pre>
+   *
    * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
    */
   @java.lang.Override
@@ -135,125 +151,6 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
       throw new java.lang.IllegalArgumentException();
     }
     return map.get(key);
-  }
-
-  public static final int POWER_STATUS_FIELD_NUMBER = 1;
-  private int powerStatus_ = 0;
-  /**
-   * <code>.anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_status is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=17
-   * @return The enum numeric value on the wire for powerStatus.
-   */
-  @java.lang.Override @java.lang.Deprecated public int getPowerStatusValue() {
-    return powerStatus_;
-  }
-  /**
-   * <code>.anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_status is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=17
-   * @return The powerStatus.
-   */
-  @java.lang.Override @java.lang.Deprecated public com.anduril.entitymanager.v1.PowerStatus getPowerStatus() {
-    com.anduril.entitymanager.v1.PowerStatus result = com.anduril.entitymanager.v1.PowerStatus.forNumber(powerStatus_);
-    return result == null ? com.anduril.entitymanager.v1.PowerStatus.UNRECOGNIZED : result;
-  }
-
-  public static final int POWER_TYPE_FIELD_NUMBER = 2;
-  private int powerType_ = 0;
-  /**
-   * <code>.anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_type is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=18
-   * @return The enum numeric value on the wire for powerType.
-   */
-  @java.lang.Override @java.lang.Deprecated public int getPowerTypeValue() {
-    return powerType_;
-  }
-  /**
-   * <code>.anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_type is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=18
-   * @return The powerType.
-   */
-  @java.lang.Override @java.lang.Deprecated public com.anduril.entitymanager.v1.PowerType getPowerType() {
-    com.anduril.entitymanager.v1.PowerType result = com.anduril.entitymanager.v1.PowerType.forNumber(powerType_);
-    return result == null ? com.anduril.entitymanager.v1.PowerType.UNRECOGNIZED : result;
-  }
-
-  public static final int POWER_LEVEL_FIELD_NUMBER = 3;
-  private com.anduril.entitymanager.v1.PowerLevel powerLevel_;
-  /**
-   * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_level is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=19
-   * @return Whether the powerLevel field is set.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public boolean hasPowerLevel() {
-    return powerLevel_ != null;
-  }
-  /**
-   * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.power_level is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=19
-   * @return The powerLevel.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.PowerLevel getPowerLevel() {
-    return powerLevel_ == null ? com.anduril.entitymanager.v1.PowerLevel.getDefaultInstance() : powerLevel_;
-  }
-  /**
-   * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-   */
-  @java.lang.Override
-  @java.lang.Deprecated public com.anduril.entitymanager.v1.PowerLevelOrBuilder getPowerLevelOrBuilder() {
-    return powerLevel_ == null ? com.anduril.entitymanager.v1.PowerLevel.getDefaultInstance() : powerLevel_;
-  }
-
-  public static final int MESSAGES_FIELD_NUMBER = 4;
-  @SuppressWarnings("serial")
-  private com.google.protobuf.LazyStringArrayList messages_ =
-      com.google.protobuf.LazyStringArrayList.emptyList();
-  /**
-   * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=20
-   * @return A list containing the messages.
-   */
-  @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
-      getMessagesList() {
-    return messages_;
-  }
-  /**
-   * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=20
-   * @return The count of messages.
-   */
-  @java.lang.Deprecated public int getMessagesCount() {
-    return messages_.size();
-  }
-  /**
-   * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=20
-   * @param index The index of the element to return.
-   * @return The messages at the given index.
-   */
-  @java.lang.Deprecated public java.lang.String getMessages(int index) {
-    return messages_.get(index);
-  }
-  /**
-   * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-   * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-   *     See anduril/entitymanager/v1/power.pub.proto;l=20
-   * @param index The index of the value to return.
-   * @return The bytes of the messages at the given index.
-   */
-  @java.lang.Deprecated public com.google.protobuf.ByteString
-      getMessagesBytes(int index) {
-    return messages_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -270,18 +167,6 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (powerStatus_ != com.anduril.entitymanager.v1.PowerStatus.POWER_STATUS_INVALID.getNumber()) {
-      output.writeEnum(1, powerStatus_);
-    }
-    if (powerType_ != com.anduril.entitymanager.v1.PowerType.POWER_TYPE_INVALID.getNumber()) {
-      output.writeEnum(2, powerType_);
-    }
-    if (powerLevel_ != null) {
-      output.writeMessage(3, getPowerLevel());
-    }
-    for (int i = 0; i < messages_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, messages_.getRaw(i));
-    }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
@@ -297,26 +182,6 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
     if (size != -1) return size;
 
     size = 0;
-    if (powerStatus_ != com.anduril.entitymanager.v1.PowerStatus.POWER_STATUS_INVALID.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(1, powerStatus_);
-    }
-    if (powerType_ != com.anduril.entitymanager.v1.PowerType.POWER_TYPE_INVALID.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(2, powerType_);
-    }
-    if (powerLevel_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getPowerLevel());
-    }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < messages_.size(); i++) {
-        dataSize += computeStringSizeNoTag(messages_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getMessagesList().size();
-    }
     for (java.util.Map.Entry<java.lang.String, com.anduril.entitymanager.v1.PowerSource> entry
          : internalGetSourceIdToState().getMap().entrySet()) {
       com.google.protobuf.MapEntry<java.lang.String, com.anduril.entitymanager.v1.PowerSource>
@@ -344,15 +209,6 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
 
     if (!internalGetSourceIdToState().equals(
         other.internalGetSourceIdToState())) return false;
-    if (powerStatus_ != other.powerStatus_) return false;
-    if (powerType_ != other.powerType_) return false;
-    if (hasPowerLevel() != other.hasPowerLevel()) return false;
-    if (hasPowerLevel()) {
-      if (!getPowerLevel()
-          .equals(other.getPowerLevel())) return false;
-    }
-    if (!getMessagesList()
-        .equals(other.getMessagesList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -367,18 +223,6 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
     if (!internalGetSourceIdToState().getMap().isEmpty()) {
       hash = (37 * hash) + SOURCE_ID_TO_STATE_FIELD_NUMBER;
       hash = (53 * hash) + internalGetSourceIdToState().hashCode();
-    }
-    hash = (37 * hash) + POWER_STATUS_FIELD_NUMBER;
-    hash = (53 * hash) + powerStatus_;
-    hash = (37 * hash) + POWER_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + powerType_;
-    if (hasPowerLevel()) {
-      hash = (37 * hash) + POWER_LEVEL_FIELD_NUMBER;
-      hash = (53 * hash) + getPowerLevel().hashCode();
-    }
-    if (getMessagesCount() > 0) {
-      hash = (37 * hash) + MESSAGES_FIELD_NUMBER;
-      hash = (53 * hash) + getMessagesList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -536,15 +380,6 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
       super.clear();
       bitField0_ = 0;
       internalGetMutableSourceIdToState().clear();
-      powerStatus_ = 0;
-      powerType_ = 0;
-      powerLevel_ = null;
-      if (powerLevelBuilder_ != null) {
-        powerLevelBuilder_.dispose();
-        powerLevelBuilder_ = null;
-      }
-      messages_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
       return this;
     }
 
@@ -582,21 +417,6 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
         result.sourceIdToState_ = internalGetSourceIdToState();
         result.sourceIdToState_.makeImmutable();
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.powerStatus_ = powerStatus_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.powerType_ = powerType_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.powerLevel_ = powerLevelBuilder_ == null
-            ? powerLevel_
-            : powerLevelBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        messages_.makeImmutable();
-        result.messages_ = messages_;
-      }
     }
 
     @java.lang.Override
@@ -614,25 +434,6 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
       internalGetMutableSourceIdToState().mergeFrom(
           other.internalGetSourceIdToState());
       bitField0_ |= 0x00000001;
-      if (other.powerStatus_ != 0) {
-        setPowerStatusValue(other.getPowerStatusValue());
-      }
-      if (other.powerType_ != 0) {
-        setPowerTypeValue(other.getPowerTypeValue());
-      }
-      if (other.hasPowerLevel()) {
-        mergePowerLevel(other.getPowerLevel());
-      }
-      if (!other.messages_.isEmpty()) {
-        if (messages_.isEmpty()) {
-          messages_ = other.messages_;
-          bitField0_ |= 0x00000010;
-        } else {
-          ensureMessagesIsMutable();
-          messages_.addAll(other.messages_);
-        }
-        onChanged();
-      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -659,29 +460,6 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
             case 0:
               done = true;
               break;
-            case 8: {
-              powerStatus_ = input.readEnum();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 8
-            case 16: {
-              powerType_ = input.readEnum();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 16
-            case 26: {
-              input.readMessage(
-                  getPowerLevelFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000008;
-              break;
-            } // case 26
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              ensureMessagesIsMutable();
-              messages_.add(s);
-              break;
-            } // case 34
             case 42: {
               com.google.protobuf.MapEntry<java.lang.String, com.anduril.entitymanager.v1.PowerSource>
               sourceIdToState__ = input.readMessage(
@@ -735,6 +513,11 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
       return internalGetSourceIdToState().getMap().size();
     }
     /**
+     * <pre>
+     * This is a map where the key is a unique id of the power source and the value is additional information about the
+     * power source.
+     * </pre>
+     *
      * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
      */
     @java.lang.Override
@@ -752,6 +535,11 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
       return getSourceIdToStateMap();
     }
     /**
+     * <pre>
+     * This is a map where the key is a unique id of the power source and the value is additional information about the
+     * power source.
+     * </pre>
+     *
      * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
      */
     @java.lang.Override
@@ -759,6 +547,11 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
       return internalGetSourceIdToState().getMap();
     }
     /**
+     * <pre>
+     * This is a map where the key is a unique id of the power source and the value is additional information about the
+     * power source.
+     * </pre>
+     *
      * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
      */
     @java.lang.Override
@@ -773,6 +566,11 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
+     * <pre>
+     * This is a map where the key is a unique id of the power source and the value is additional information about the
+     * power source.
+     * </pre>
+     *
      * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
      */
     @java.lang.Override
@@ -793,6 +591,11 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
       return this;
     }
     /**
+     * <pre>
+     * This is a map where the key is a unique id of the power source and the value is additional information about the
+     * power source.
+     * </pre>
+     *
      * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
      */
     public Builder removeSourceIdToState(
@@ -812,6 +615,11 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
       return internalGetMutableSourceIdToState().getMutableMap();
     }
     /**
+     * <pre>
+     * This is a map where the key is a unique id of the power source and the value is additional information about the
+     * power source.
+     * </pre>
+     *
      * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
      */
     public Builder putSourceIdToState(
@@ -825,6 +633,11 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
       return this;
     }
     /**
+     * <pre>
+     * This is a map where the key is a unique id of the power source and the value is additional information about the
+     * power source.
+     * </pre>
+     *
      * <code>map&lt;string, .anduril.entitymanager.v1.PowerSource&gt; source_id_to_state = 5 [json_name = "sourceIdToState"];</code>
      */
     public Builder putAllSourceIdToState(
@@ -832,384 +645,6 @@ com.anduril.entitymanager.v1.PowerSource defaultValue) {
       internalGetMutableSourceIdToState().getMutableMap()
           .putAll(values);
       bitField0_ |= 0x00000001;
-      return this;
-    }
-
-    private int powerStatus_ = 0;
-    /**
-     * <code>.anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_status is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=17
-     * @return The enum numeric value on the wire for powerStatus.
-     */
-    @java.lang.Override @java.lang.Deprecated public int getPowerStatusValue() {
-      return powerStatus_;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_status is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=17
-     * @param value The enum numeric value on the wire for powerStatus to set.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder setPowerStatusValue(int value) {
-      powerStatus_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_status is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=17
-     * @return The powerStatus.
-     */
-    @java.lang.Override
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.PowerStatus getPowerStatus() {
-      com.anduril.entitymanager.v1.PowerStatus result = com.anduril.entitymanager.v1.PowerStatus.forNumber(powerStatus_);
-      return result == null ? com.anduril.entitymanager.v1.PowerStatus.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_status is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=17
-     * @param value The powerStatus to set.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder setPowerStatus(com.anduril.entitymanager.v1.PowerStatus value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      bitField0_ |= 0x00000002;
-      powerStatus_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_status is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=17
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder clearPowerStatus() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      powerStatus_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int powerType_ = 0;
-    /**
-     * <code>.anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_type is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=18
-     * @return The enum numeric value on the wire for powerType.
-     */
-    @java.lang.Override @java.lang.Deprecated public int getPowerTypeValue() {
-      return powerType_;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_type is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=18
-     * @param value The enum numeric value on the wire for powerType to set.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder setPowerTypeValue(int value) {
-      powerType_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_type is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=18
-     * @return The powerType.
-     */
-    @java.lang.Override
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.PowerType getPowerType() {
-      com.anduril.entitymanager.v1.PowerType result = com.anduril.entitymanager.v1.PowerType.forNumber(powerType_);
-      return result == null ? com.anduril.entitymanager.v1.PowerType.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_type is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=18
-     * @param value The powerType to set.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder setPowerType(com.anduril.entitymanager.v1.PowerType value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      bitField0_ |= 0x00000004;
-      powerType_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_type is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=18
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder clearPowerType() {
-      bitField0_ = (bitField0_ & ~0x00000004);
-      powerType_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private com.anduril.entitymanager.v1.PowerLevel powerLevel_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.PowerLevel, com.anduril.entitymanager.v1.PowerLevel.Builder, com.anduril.entitymanager.v1.PowerLevelOrBuilder> powerLevelBuilder_;
-    /**
-     * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_level is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=19
-     * @return Whether the powerLevel field is set.
-     */
-    @java.lang.Deprecated public boolean hasPowerLevel() {
-      return ((bitField0_ & 0x00000008) != 0);
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.power_level is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=19
-     * @return The powerLevel.
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.PowerLevel getPowerLevel() {
-      if (powerLevelBuilder_ == null) {
-        return powerLevel_ == null ? com.anduril.entitymanager.v1.PowerLevel.getDefaultInstance() : powerLevel_;
-      } else {
-        return powerLevelBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setPowerLevel(com.anduril.entitymanager.v1.PowerLevel value) {
-      if (powerLevelBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        powerLevel_ = value;
-      } else {
-        powerLevelBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder setPowerLevel(
-        com.anduril.entitymanager.v1.PowerLevel.Builder builderForValue) {
-      if (powerLevelBuilder_ == null) {
-        powerLevel_ = builderForValue.build();
-      } else {
-        powerLevelBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder mergePowerLevel(com.anduril.entitymanager.v1.PowerLevel value) {
-      if (powerLevelBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0) &&
-          powerLevel_ != null &&
-          powerLevel_ != com.anduril.entitymanager.v1.PowerLevel.getDefaultInstance()) {
-          getPowerLevelBuilder().mergeFrom(value);
-        } else {
-          powerLevel_ = value;
-        }
-      } else {
-        powerLevelBuilder_.mergeFrom(value);
-      }
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public Builder clearPowerLevel() {
-      bitField0_ = (bitField0_ & ~0x00000008);
-      powerLevel_ = null;
-      if (powerLevelBuilder_ != null) {
-        powerLevelBuilder_.dispose();
-        powerLevelBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.PowerLevel.Builder getPowerLevelBuilder() {
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return getPowerLevelFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-     */
-    @java.lang.Deprecated public com.anduril.entitymanager.v1.PowerLevelOrBuilder getPowerLevelOrBuilder() {
-      if (powerLevelBuilder_ != null) {
-        return powerLevelBuilder_.getMessageOrBuilder();
-      } else {
-        return powerLevel_ == null ?
-            com.anduril.entitymanager.v1.PowerLevel.getDefaultInstance() : powerLevel_;
-      }
-    }
-    /**
-     * <code>.anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.anduril.entitymanager.v1.PowerLevel, com.anduril.entitymanager.v1.PowerLevel.Builder, com.anduril.entitymanager.v1.PowerLevelOrBuilder> 
-        getPowerLevelFieldBuilder() {
-      if (powerLevelBuilder_ == null) {
-        powerLevelBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.anduril.entitymanager.v1.PowerLevel, com.anduril.entitymanager.v1.PowerLevel.Builder, com.anduril.entitymanager.v1.PowerLevelOrBuilder>(
-                getPowerLevel(),
-                getParentForChildren(),
-                isClean());
-        powerLevel_ = null;
-      }
-      return powerLevelBuilder_;
-    }
-
-    private com.google.protobuf.LazyStringArrayList messages_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
-    private void ensureMessagesIsMutable() {
-      if (!messages_.isModifiable()) {
-        messages_ = new com.google.protobuf.LazyStringArrayList(messages_);
-      }
-      bitField0_ |= 0x00000010;
-    }
-    /**
-     * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=20
-     * @return A list containing the messages.
-     */
-    @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
-        getMessagesList() {
-      messages_.makeImmutable();
-      return messages_;
-    }
-    /**
-     * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=20
-     * @return The count of messages.
-     */
-    @java.lang.Deprecated public int getMessagesCount() {
-      return messages_.size();
-    }
-    /**
-     * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=20
-     * @param index The index of the element to return.
-     * @return The messages at the given index.
-     */
-    @java.lang.Deprecated public java.lang.String getMessages(int index) {
-      return messages_.get(index);
-    }
-    /**
-     * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=20
-     * @param index The index of the value to return.
-     * @return The bytes of the messages at the given index.
-     */
-    @java.lang.Deprecated public com.google.protobuf.ByteString
-        getMessagesBytes(int index) {
-      return messages_.getByteString(index);
-    }
-    /**
-     * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=20
-     * @param index The index to set the value at.
-     * @param value The messages to set.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder setMessages(
-        int index, java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureMessagesIsMutable();
-      messages_.set(index, value);
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=20
-     * @param value The messages to add.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder addMessages(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureMessagesIsMutable();
-      messages_.add(value);
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=20
-     * @param values The messages to add.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder addAllMessages(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureMessagesIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, messages_);
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=20
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder clearMessages() {
-      messages_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000010);;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string messages = 4 [json_name = "messages", deprecated = true];</code>
-     * @deprecated anduril.entitymanager.v1.PowerState.messages is deprecated.
-     *     See anduril/entitymanager/v1/power.pub.proto;l=20
-     * @param value The bytes of the messages to add.
-     * @return This builder for chaining.
-     */
-    @java.lang.Deprecated public Builder addMessagesBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      ensureMessagesIsMutable();
-      messages_.add(value);
-      bitField0_ |= 0x00000010;
-      onChanged();
       return this;
     }
     @java.lang.Override

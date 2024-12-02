@@ -49,25 +49,6 @@ public interface ProvenanceOrBuilder extends
 
   /**
    * <pre>
-   * Enum defining the source TO BE DEPRECATED
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Source source = 1 [json_name = "source"];</code>
-   * @return The enum numeric value on the wire for source.
-   */
-  int getSourceValue();
-  /**
-   * <pre>
-   * Enum defining the source TO BE DEPRECATED
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Source source = 1 [json_name = "source"];</code>
-   * @return The source.
-   */
-  com.anduril.entitymanager.v1.Source getSource();
-
-  /**
-   * <pre>
    * An ID that allows an element from a source to be uniquely identified
    * </pre>
    *

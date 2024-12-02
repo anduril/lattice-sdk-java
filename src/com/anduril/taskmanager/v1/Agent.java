@@ -5,7 +5,7 @@ package com.anduril.taskmanager.v1;
 
 /**
  * <pre>
- * Represents an Agent on the Battlespace.
+ * Represents an Agent in the COP.
  * </pre>
  *
  * Protobuf type {@code anduril.taskmanager.v1.Agent}
@@ -246,7 +246,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Represents an Agent on the Battlespace.
+   * Represents an Agent in the COP.
    * </pre>
    *
    * Protobuf type {@code anduril.taskmanager.v1.Agent}

@@ -20,11 +20,6 @@ public final class SuppliesPubProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_Supplies_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_anduril_entitymanager_v1_Munition_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_anduril_entitymanager_v1_Munition_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_Fuel_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -43,50 +38,26 @@ public final class SuppliesPubProto {
       "/entitymanager/v1/classification.pub.pro" +
       "to\032*anduril/entitymanager/v1/options.pub" +
       ".proto\032\037google/protobuf/timestamp.proto\"" +
-      "\212\001\n\010Supplies\022E\n\tmunitions\030\001 \003(\0132\".anduri" +
-      "l.entitymanager.v1.MunitionB\003\310>\001R\tmuniti" +
-      "ons\0227\n\004fuel\030\002 \003(\0132\036.anduril.entitymanage" +
-      "r.v1.FuelB\003\310>\001R\004fuel\"\313\002\n\010Munition\022\037\n\013mun" +
-      "ition_id\030\001 \001(\tR\nmunitionId\022\022\n\004name\030\002 \001(\t" +
-      "R\004name\022Z\n\022dod_condition_code\030\003 \001(\0162*.and" +
-      "uril.entitymanager.v1.DODConditionCodeH\000" +
-      "R\020dodConditionCode\022%\n\016quantity_units\030\004 \001" +
-      "(\rR\rquantityUnits\022Y\n\023data_classification" +
-      "\030\005 \001(\0132(.anduril.entitymanager.v1.Classi" +
-      "ficationR\022dataClassification\022\037\n\013data_sou" +
-      "rce\030\006 \001(\tR\ndataSourceB\013\n\tcondition\"\253\003\n\004F" +
-      "uel\022\034\n\007fuel_id\030\001 \001(\tB\003\320>\001R\006fuelId\022\022\n\004nam" +
-      "e\030\002 \001(\tR\004name\022?\n\rreported_date\030\003 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampR\014reportedDate\022%" +
-      "\n\016amount_gallons\030\004 \001(\rR\ramountGallons\022E\n" +
-      "\037max_authorized_capacity_gallons\030\005 \001(\rR\034" +
-      "maxAuthorizedCapacityGallons\022F\n\037operatio" +
-      "nal_requirement_gallons\030\006 \001(\rR\035operation" +
-      "alRequirementGallons\022Y\n\023data_classificat" +
-      "ion\030\007 \001(\0132(.anduril.entitymanager.v1.Cla" +
-      "ssificationR\022dataClassification\022\037\n\013data_" +
-      "source\030\010 \001(\tR\ndataSource*\272\004\n\020DODConditio" +
-      "nCode\022\036\n\032DOD_CONDITION_CODE_INVALID\020\000\022\030\n" +
-      "\024DOD_CONDITION_CODE_A\020\001\022\030\n\024DOD_CONDITION" +
-      "_CODE_B\020\002\022\030\n\024DOD_CONDITION_CODE_C\020\003\022\030\n\024D" +
-      "OD_CONDITION_CODE_D\020\004\022\030\n\024DOD_CONDITION_C" +
-      "ODE_E\020\005\022\030\n\024DOD_CONDITION_CODE_F\020\006\022\030\n\024DOD" +
-      "_CONDITION_CODE_G\020\007\022\030\n\024DOD_CONDITION_COD" +
-      "E_H\020\010\022\030\n\024DOD_CONDITION_CODE_Q\020\t\022\030\n\024DOD_C" +
-      "ONDITION_CODE_S\020\n\022\030\n\024DOD_CONDITION_CODE_" +
-      "J\020\013\022\030\n\024DOD_CONDITION_CODE_K\020\014\022\030\n\024DOD_CON" +
-      "DITION_CODE_L\020\r\022\030\n\024DOD_CONDITION_CODE_M\020" +
-      "\016\022\030\n\024DOD_CONDITION_CODE_N\020\017\022\030\n\024DOD_CONDI" +
-      "TION_CODE_P\020\020\022\030\n\024DOD_CONDITION_CODE_R\020\021\022" +
-      "\030\n\024DOD_CONDITION_CODE_T\020\022\022\030\n\024DOD_CONDITI" +
-      "ON_CODE_V\020\023\022\030\n\024DOD_CONDITION_CODE_X\020\024B\204\002" +
-      "\n\034com.anduril.entitymanager.v1B\020Supplies" +
-      "PubProtoP\001ZPgithub.com/anduril/lattice-s" +
-      "dk-java/src/anduril/entitymanager/v1;ent" +
-      "itymanagerv1\242\002\003AEX\252\002\030Anduril.Entitymanag" +
-      "er.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andur" +
-      "il\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduri" +
-      "l::Entitymanager::V1b\006proto3"
+      "C\n\010Supplies\0227\n\004fuel\030\002 \003(\0132\036.anduril.enti" +
+      "tymanager.v1.FuelB\003\310>\001R\004fuel\"\246\003\n\004Fuel\022\027\n" +
+      "\007fuel_id\030\001 \001(\tR\006fuelId\022\022\n\004name\030\002 \001(\tR\004na" +
+      "me\022?\n\rreported_date\030\003 \001(\0132\032.google.proto" +
+      "buf.TimestampR\014reportedDate\022%\n\016amount_ga" +
+      "llons\030\004 \001(\rR\ramountGallons\022E\n\037max_author" +
+      "ized_capacity_gallons\030\005 \001(\rR\034maxAuthoriz" +
+      "edCapacityGallons\022F\n\037operational_require" +
+      "ment_gallons\030\006 \001(\rR\035operationalRequireme" +
+      "ntGallons\022Y\n\023data_classification\030\007 \001(\0132(" +
+      ".anduril.entitymanager.v1.Classification" +
+      "R\022dataClassification\022\037\n\013data_source\030\010 \001(" +
+      "\tR\ndataSourceB\204\002\n\034com.anduril.entitymana" +
+      "ger.v1B\020SuppliesPubProtoP\001ZPgithub.com/a" +
+      "nduril/lattice-sdk-java/src/anduril/enti" +
+      "tymanager/v1;entitymanagerv1\242\002\003AEX\252\002\030And" +
+      "uril.Entitymanager.V1\312\002\030Anduril\\Entityma" +
+      "nager\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBM" +
+      "etadata\352\002\032Anduril::Entitymanager::V1b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -100,22 +71,15 @@ public final class SuppliesPubProto {
     internal_static_anduril_entitymanager_v1_Supplies_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Supplies_descriptor,
-        new java.lang.String[] { "Munitions", "Fuel", });
-    internal_static_anduril_entitymanager_v1_Munition_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_anduril_entitymanager_v1_Munition_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_anduril_entitymanager_v1_Munition_descriptor,
-        new java.lang.String[] { "MunitionId", "Name", "DodConditionCode", "QuantityUnits", "DataClassification", "DataSource", "Condition", });
+        new java.lang.String[] { "Fuel", });
     internal_static_anduril_entitymanager_v1_Fuel_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_anduril_entitymanager_v1_Fuel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Fuel_descriptor,
         new java.lang.String[] { "FuelId", "Name", "ReportedDate", "AmountGallons", "MaxAuthorizedCapacityGallons", "OperationalRequirementGallons", "DataClassification", "DataSource", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.anduril.entitymanager.v1.OptionsPubProto.componentIdentifier);
     registry.add(com.anduril.entitymanager.v1.OptionsPubProto.overridable);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);

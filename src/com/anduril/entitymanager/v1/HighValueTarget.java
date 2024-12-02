@@ -143,8 +143,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Indicates whether the target is a 'High Payoff Target'. Targets can be one or both of high value and high payoff.
-   * Semantically a High Value Target characterizes the target's importance to Red, whereas a High Payoff Target
-   * indicates prosecuting the target furthers Blue's specific objectives.
    * </pre>
    *
    * <code>bool is_high_payoff_target = 4 [json_name = "isHighPayoffTarget"];</code>
@@ -986,8 +984,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Indicates whether the target is a 'High Payoff Target'. Targets can be one or both of high value and high payoff.
-     * Semantically a High Value Target characterizes the target's importance to Red, whereas a High Payoff Target
-     * indicates prosecuting the target furthers Blue's specific objectives.
      * </pre>
      *
      * <code>bool is_high_payoff_target = 4 [json_name = "isHighPayoffTarget"];</code>
@@ -1000,8 +996,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Indicates whether the target is a 'High Payoff Target'. Targets can be one or both of high value and high payoff.
-     * Semantically a High Value Target characterizes the target's importance to Red, whereas a High Payoff Target
-     * indicates prosecuting the target furthers Blue's specific objectives.
      * </pre>
      *
      * <code>bool is_high_payoff_target = 4 [json_name = "isHighPayoffTarget"];</code>
@@ -1018,8 +1012,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Indicates whether the target is a 'High Payoff Target'. Targets can be one or both of high value and high payoff.
-     * Semantically a High Value Target characterizes the target's importance to Red, whereas a High Payoff Target
-     * indicates prosecuting the target furthers Blue's specific objectives.
      * </pre>
      *
      * <code>bool is_high_payoff_target = 4 [json_name = "isHighPayoffTarget"];</code>

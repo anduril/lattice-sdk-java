@@ -5,7 +5,7 @@ package com.anduril.entitymanager.v1;
 
 /**
  * <pre>
- * List of payloads available for an entity. i.e a weapon.
+ * List of payloads available for an entity.
  * </pre>
  *
  * Protobuf type {@code anduril.entitymanager.v1.Payloads}
@@ -243,7 +243,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of payloads available for an entity. i.e a weapon.
+   * List of payloads available for an entity.
    * </pre>
    *
    * Protobuf type {@code anduril.entitymanager.v1.Payloads}

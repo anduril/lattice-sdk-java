@@ -10,8 +10,7 @@ public interface StatusOrBuilder extends
   /**
    * <pre>
    * A string that describes the activity that the entity is performing.
-   * Examples include "RECONNAISSANCE", "INTERDICTION", "ELECTRONIC WARFARE (EW)", "RETURN TO BASE (RTB)", "PREPARING
-   * FOR LAUNCH".
+   * Examples include "RECONNAISSANCE", "INTERDICTION", "RETURN TO BASE (RTB)", "PREPARING FOR LAUNCH".
    * </pre>
    *
    * <code>string platform_activity = 1 [json_name = "platformActivity"];</code>
@@ -21,8 +20,7 @@ public interface StatusOrBuilder extends
   /**
    * <pre>
    * A string that describes the activity that the entity is performing.
-   * Examples include "RECONNAISSANCE", "INTERDICTION", "ELECTRONIC WARFARE (EW)", "RETURN TO BASE (RTB)", "PREPARING
-   * FOR LAUNCH".
+   * Examples include "RECONNAISSANCE", "INTERDICTION", "RETURN TO BASE (RTB)", "PREPARING FOR LAUNCH".
    * </pre>
    *
    * <code>string platform_activity = 1 [json_name = "platformActivity"];</code>

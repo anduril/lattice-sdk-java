@@ -177,55 +177,52 @@ public final class IsrPubProto {
       "ts\030\002 \001(\004H\000R\013numOfOrbitsB\n\n\010duration\"`\n\005P" +
       "rior\022\035\n\tentity_id\030\001 \001(\tH\000R\010entityId\022/\n\005p" +
       "oint\030\005 \001(\0132\027.anduril.tasks.v2.PointH\000R\005p" +
-      "ointB\007\n\005prior\"\252\003\n\rISRParameters\0225\n\005speed" +
-      "\030\001 \001(\0132\033.google.protobuf.FloatValueB\002\030\001R" +
-      "\005speed\0227\n\tspeed_m_s\030\002 \001(\0132\033.google.proto" +
-      "buf.FloatValueR\007speedMS\022K\n\023standoff_dist" +
-      "ance_m\030\003 \001(\0132\033.google.protobuf.FloatValu" +
-      "eR\021standoffDistanceM\022L\n\021standoff_distanc" +
-      "e\030\004 \001(\0132\033.google.protobuf.FloatValueB\002\030\001" +
-      "R\020standoffDistance\022B\n\016standoff_angle\030\005 \001" +
-      "(\0132\033.google.protobuf.FloatValueR\rstandof" +
-      "fAngle\022J\n\022expiration_time_ms\030\006 \001(\0132\034.goo" +
-      "gle.protobuf.UInt64ValueR\020expirationTime" +
-      "Ms\"\265\002\n\013GimbalPoint\0226\n\007look_at\030\001 \001(\0132\033.an" +
-      "duril.tasks.v2.ObjectiveH\000R\006lookAt\022X\n\022ce" +
-      "lestial_location\030\002 \001(\0132\'.anduril.tasks.v" +
-      "2.AzimuthElevationPointH\000R\021celestialLoca" +
-      "tion\022E\n\016frame_location\030\004 \001(\0132\034.anduril.t" +
-      "asks.v2.FramePointH\000R\rframeLocation\022?\n\np" +
-      "arameters\030\003 \001(\0132\037.anduril.tasks.v2.ISRPa" +
-      "rametersR\nparametersB\014\n\npoint_type\"O\n\025Az" +
-      "imuthElevationPoint\022\030\n\007azimuth\030\001 \001(\001R\007az" +
-      "imuth\022\034\n\televation\030\002 \001(\001R\televation\"b\n\nF" +
-      "ramePoint\022\014\n\001x\030\001 \001(\002R\001x\022\014\n\001y\030\002 \001(\002R\001y\0228\n" +
-      "\ttimestamp\030\003 \001(\0132\032.google.protobuf.Times" +
-      "tampR\ttimestamp\"\256\001\n\nGimbalZoom\022L\n\022set_ho" +
-      "rizontal_fov\030\001 \001(\0132\034.google.protobuf.Dou" +
-      "bleValueH\000R\020setHorizontalFov\022J\n\021set_magn" +
-      "ification\030\002 \001(\0132\033.google.protobuf.FloatV" +
-      "alueH\000R\020setMagnificationB\006\n\004mode\"P\n\007Moni" +
-      "tor\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v" +
-      "2.ObjectiveR\tobjectiveJ\004\010\002\020\003J\004\010\003\020\004\"\202\001\n\004S" +
-      "can\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v" +
-      "2.ObjectiveR\tobjective\022?\n\nparameters\030\002 \001" +
-      "(\0132\037.anduril.tasks.v2.ISRParametersR\npar" +
-      "ameters\"\224\001\n\026BattleDamageAssessment\0229\n\tob" +
-      "jective\030\001 \001(\0132\033.anduril.tasks.v2.Objecti" +
-      "veR\tobjective\022?\n\nparameters\030\002 \001(\0132\037.andu" +
-      "ril.tasks.v2.ISRParametersR\nparameters*l" +
-      "\n\016OrbitDirection\022%\n!ORBIT_DIRECTION_DIRE" +
-      "CTION_INVALID\020\000\022\031\n\025ORBIT_DIRECTION_RIGHT" +
-      "\020\001\022\030\n\024ORBIT_DIRECTION_LEFT\020\002*\200\001\n\014OrbitPa" +
-      "ttern\022\031\n\025ORBIT_PATTERN_INVALID\020\000\022\030\n\024ORBI" +
-      "T_PATTERN_CIRCLE\020\001\022\033\n\027ORBIT_PATTERN_RACE" +
-      "TRACK\020\002\022\036\n\032ORBIT_PATTERN_FIGURE_EIGHT\020\003B" +
-      "\316\001\n\024com.anduril.tasks.v2B\013IsrPubProtoP\001Z" +
-      "Ggithub.com/anduril/lattice-sdk-java/src" +
-      "/anduril/tasks/v2/shared;tasksv2\242\002\003ATX\252\002" +
-      "\020Anduril.Tasks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034A" +
-      "nduril\\Tasks\\V2\\GPBMetadata\352\002\022Anduril::T" +
-      "asks::V2b\006proto3"
+      "ointB\007\n\005prior\"\261\002\n\rISRParameters\0227\n\tspeed" +
+      "_m_s\030\002 \001(\0132\033.google.protobuf.FloatValueR" +
+      "\007speedMS\022K\n\023standoff_distance_m\030\003 \001(\0132\033." +
+      "google.protobuf.FloatValueR\021standoffDist" +
+      "anceM\022B\n\016standoff_angle\030\005 \001(\0132\033.google.p" +
+      "rotobuf.FloatValueR\rstandoffAngle\022J\n\022exp" +
+      "iration_time_ms\030\006 \001(\0132\034.google.protobuf." +
+      "UInt64ValueR\020expirationTimeMsJ\004\010\001\020\002J\004\010\004\020" +
+      "\005\"\265\002\n\013GimbalPoint\0226\n\007look_at\030\001 \001(\0132\033.and" +
+      "uril.tasks.v2.ObjectiveH\000R\006lookAt\022X\n\022cel" +
+      "estial_location\030\002 \001(\0132\'.anduril.tasks.v2" +
+      ".AzimuthElevationPointH\000R\021celestialLocat" +
+      "ion\022E\n\016frame_location\030\004 \001(\0132\034.anduril.ta" +
+      "sks.v2.FramePointH\000R\rframeLocation\022?\n\npa" +
+      "rameters\030\003 \001(\0132\037.anduril.tasks.v2.ISRPar" +
+      "ametersR\nparametersB\014\n\npoint_type\"O\n\025Azi" +
+      "muthElevationPoint\022\030\n\007azimuth\030\001 \001(\001R\007azi" +
+      "muth\022\034\n\televation\030\002 \001(\001R\televation\"b\n\nFr" +
+      "amePoint\022\014\n\001x\030\001 \001(\002R\001x\022\014\n\001y\030\002 \001(\002R\001y\0228\n\t" +
+      "timestamp\030\003 \001(\0132\032.google.protobuf.Timest" +
+      "ampR\ttimestamp\"\256\001\n\nGimbalZoom\022L\n\022set_hor" +
+      "izontal_fov\030\001 \001(\0132\034.google.protobuf.Doub" +
+      "leValueH\000R\020setHorizontalFov\022J\n\021set_magni" +
+      "fication\030\002 \001(\0132\033.google.protobuf.FloatVa" +
+      "lueH\000R\020setMagnificationB\006\n\004mode\"P\n\007Monit" +
+      "or\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v2" +
+      ".ObjectiveR\tobjectiveJ\004\010\002\020\003J\004\010\003\020\004\"\202\001\n\004Sc" +
+      "an\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v2" +
+      ".ObjectiveR\tobjective\022?\n\nparameters\030\002 \001(" +
+      "\0132\037.anduril.tasks.v2.ISRParametersR\npara" +
+      "meters\"\224\001\n\026BattleDamageAssessment\0229\n\tobj" +
+      "ective\030\001 \001(\0132\033.anduril.tasks.v2.Objectiv" +
+      "eR\tobjective\022?\n\nparameters\030\002 \001(\0132\037.andur" +
+      "il.tasks.v2.ISRParametersR\nparameters*l\n" +
+      "\016OrbitDirection\022%\n!ORBIT_DIRECTION_DIREC" +
+      "TION_INVALID\020\000\022\031\n\025ORBIT_DIRECTION_RIGHT\020" +
+      "\001\022\030\n\024ORBIT_DIRECTION_LEFT\020\002*\200\001\n\014OrbitPat" +
+      "tern\022\031\n\025ORBIT_PATTERN_INVALID\020\000\022\030\n\024ORBIT" +
+      "_PATTERN_CIRCLE\020\001\022\033\n\027ORBIT_PATTERN_RACET" +
+      "RACK\020\002\022\036\n\032ORBIT_PATTERN_FIGURE_EIGHT\020\003B\316" +
+      "\001\n\024com.anduril.tasks.v2B\013IsrPubProtoP\001ZG" +
+      "github.com/anduril/lattice-sdk-java/src/" +
+      "anduril/tasks/v2/shared;tasksv2\242\002\003ATX\252\002\020" +
+      "Anduril.Tasks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034An" +
+      "duril\\Tasks\\V2\\GPBMetadata\352\002\022Anduril::Ta" +
+      "sks::V2b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -312,7 +309,7 @@ public final class IsrPubProto {
     internal_static_anduril_tasks_v2_ISRParameters_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_tasks_v2_ISRParameters_descriptor,
-        new java.lang.String[] { "Speed", "SpeedMS", "StandoffDistanceM", "StandoffDistance", "StandoffAngle", "ExpirationTimeMs", });
+        new java.lang.String[] { "SpeedMS", "StandoffDistanceM", "StandoffAngle", "ExpirationTimeMs", });
     internal_static_anduril_tasks_v2_GimbalPoint_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_anduril_tasks_v2_GimbalPoint_fieldAccessorTable = new

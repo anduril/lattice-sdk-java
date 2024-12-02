@@ -85,6 +85,21 @@ public final class EntityPubProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_SecondaryCorrelation_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_CorrelationMembership_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_CorrelationMembership_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_PrimaryMembership_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_PrimaryMembership_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_NonPrimaryMembership_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_NonPrimaryMembership_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_Decorrelation_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -220,90 +235,99 @@ public final class EntityPubProto {
       "e\022O\n\017line_of_bearing\030\t \001(\0132\'.anduril.ent" +
       "itymanager.v1.LineOfBearingR\rlineOfBeari" +
       "ngJ\004\010\001\020\002J\004\010\005\020\006J\004\010\010\020\tR\rtrack_qualityR\016sen" +
-      "sor_detailsR\021relative_position\"\244\002\n\nProve" +
+      "sor_detailsR\021relative_position\"\360\001\n\nProve" +
       "nance\022)\n\020integration_name\030\005 \001(\tR\017integra" +
-      "tionName\022\033\n\tdata_type\030\006 \001(\tR\010dataType\0228\n" +
-      "\006source\030\001 \001(\0162 .anduril.entitymanager.v1" +
-      ".SourceR\006source\022\033\n\tsource_id\030\003 \001(\tR\010sour" +
-      "ceId\022H\n\022source_update_time\030\002 \001(\0132\032.googl" +
-      "e.protobuf.TimestampR\020sourceUpdateTime\022-" +
-      "\n\022source_description\030\004 \001(\tR\021sourceDescri" +
-      "ption\"\361\002\n\nIndicators\0228\n\tsimulated\030\001 \001(\0132" +
-      "\032.google.protobuf.BoolValueR\tsimulated\0226" +
-      "\n\010exercise\030\002 \001(\0132\032.google.protobuf.BoolV" +
-      "alueR\010exercise\0228\n\temergency\030\003 \001(\0132\032.goog" +
-      "le.protobuf.BoolValueR\temergency\022*\n\002c2\030\004" +
-      " \001(\0132\032.google.protobuf.BoolValueR\002c2\022?\n\n" +
-      "egressable\030\006 \001(\0132\032.google.protobuf.BoolV" +
-      "alueB\003\310>\001R\negressable\0229\n\007starred\030\007 \001(\0132\032" +
-      ".google.protobuf.BoolValueB\003\310>\001R\007starred" +
-      "J\004\010\005\020\006R\tdeletable\"]\n\tOverrides\022>\n\010overri" +
-      "de\030\002 \003(\0132\".anduril.entitymanager.v1.Over" +
-      "rideR\010overrideJ\004\010\001\020\002R\nprovenance\"\245\003\n\010Ove" +
-      "rride\022\035\n\nrequest_id\030\001 \001(\tR\trequestId\022\035\n\n" +
-      "field_path\030\002 \001(\tR\tfieldPath\022N\n\022masked_fi" +
-      "eld_value\030\003 \001(\0132 .anduril.entitymanager." +
-      "v1.EntityR\020maskedFieldValue\022@\n\006status\030\004 " +
-      "\001(\0162(.anduril.entitymanager.v1.OverrideS" +
-      "tatusR\006status\022D\n\nprovenance\030\005 \001(\0132$.andu" +
-      "ril.entitymanager.v1.ProvenanceR\nprovena" +
-      "nce\022:\n\004type\030\006 \001(\0162&.anduril.entitymanage" +
-      "r.v1.OverrideTypeR\004type\022G\n\021request_times" +
-      "tamp\030\007 \001(\0132\032.google.protobuf.TimestampR\020" +
-      "requestTimestamp\"i\n\013AlternateId\022\016\n\002id\030\002 " +
-      "\001(\tR\002id\022<\n\004type\030\003 \001(\0162#.anduril.entityma" +
-      "nager.v1.AltIdTypeB\003\320>\001R\004typeJ\004\010\001\020\002R\006sou" +
-      "rce\"[\n\rVisualDetails\022J\n\013range_rings\030\001 \001(" +
-      "\0132$.anduril.entitymanager.v1.RangeRingsB" +
-      "\003\310>\001R\nrangeRings\"\360\001\n\nRangeRings\022B\n\016min_d" +
-      "istance_m\030\001 \001(\0132\034.google.protobuf.Double" +
-      "ValueR\014minDistanceM\022B\n\016max_distance_m\030\002 " +
-      "\001(\0132\034.google.protobuf.DoubleValueR\014maxDi" +
-      "stanceM\022\035\n\nring_count\030\003 \001(\rR\tringCount\022;" +
-      "\n\017ring_line_color\030\004 \001(\0132\023.anduril.type.C" +
-      "olorR\rringLineColor\"\205\002\n\013Correlation\022H\n\007p" +
-      "rimary\030\001 \001(\0132,.anduril.entitymanager.v1." +
-      "PrimaryCorrelationH\000R\007primary\022N\n\tseconda" +
-      "ry\030\002 \001(\0132..anduril.entitymanager.v1.Seco" +
-      "ndaryCorrelationH\000R\tsecondary\022M\n\rdecorre" +
-      "lation\030\003 \001(\0132\'.anduril.entitymanager.v1." +
-      "DecorrelationR\rdecorrelationB\r\n\013correlat" +
-      "ion\"F\n\022PrimaryCorrelation\0220\n\024secondary_e" +
-      "ntity_ids\030\001 \003(\tR\022secondaryEntityIds\"\215\001\n\024" +
-      "SecondaryCorrelation\022*\n\021primary_entity_i" +
-      "d\030\001 \001(\tR\017primaryEntityId\022I\n\010metadata\030\002 \001" +
-      "(\0132-.anduril.entitymanager.v1.Correlatio" +
-      "nMetadataR\010metadata\"\257\001\n\rDecorrelation\022;\n" +
-      "\003all\030\001 \001(\0132).anduril.entitymanager.v1.De" +
-      "correlatedAllR\003all\022a\n\025decorrelated_entit" +
-      "ies\030\002 \003(\0132,.anduril.entitymanager.v1.Dec" +
-      "orrelatedSingleR\024decorrelatedEntities\"\\\n" +
-      "\017DecorrelatedAll\022I\n\010metadata\030\001 \001(\0132-.and" +
-      "uril.entitymanager.v1.CorrelationMetadat" +
-      "aR\010metadata\"|\n\022DecorrelatedSingle\022\033\n\tent" +
-      "ity_id\030\001 \001(\tR\010entityId\022I\n\010metadata\030\002 \001(\013" +
-      "2-.anduril.entitymanager.v1.CorrelationM" +
-      "etadataR\010metadata\"\373\001\n\023CorrelationMetadat" +
-      "a\022D\n\nprovenance\030\001 \001(\0132$.anduril.entityma" +
-      "nager.v1.ProvenanceR\nprovenance\022_\n\020repli" +
-      "cation_mode\030\002 \001(\01624.anduril.entitymanage" +
-      "r.v1.CorrelationReplicationModeR\017replica" +
-      "tionMode\022=\n\004type\030\003 \001(\0162).anduril.entitym" +
-      "anager.v1.CorrelationTypeR\004type*l\n\017Corre" +
-      "lationType\022\034\n\030CORRELATION_TYPE_INVALID\020\000" +
-      "\022\033\n\027CORRELATION_TYPE_MANUAL\020\001\022\036\n\032CORRELA" +
-      "TION_TYPE_AUTOMATED\020\002*\227\001\n\032CorrelationRep" +
-      "licationMode\022(\n$CORRELATION_REPLICATION_" +
-      "MODE_INVALID\020\000\022&\n\"CORRELATION_REPLICATIO" +
-      "N_MODE_LOCAL\020\001\022\'\n#CORRELATION_REPLICATIO" +
-      "N_MODE_GLOBAL\020\002B\202\002\n\034com.anduril.entityma" +
-      "nager.v1B\016EntityPubProtoP\001ZPgithub.com/a" +
-      "nduril/lattice-sdk-java/src/anduril/enti" +
-      "tymanager/v1;entitymanagerv1\242\002\003AEX\252\002\030And" +
-      "uril.Entitymanager.V1\312\002\030Anduril\\Entityma" +
-      "nager\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBM" +
-      "etadata\352\002\032Anduril::Entitymanager::V1b\006pr" +
-      "oto3"
+      "tionName\022\033\n\tdata_type\030\006 \001(\tR\010dataType\022\033\n" +
+      "\tsource_id\030\003 \001(\tR\010sourceId\022H\n\022source_upd" +
+      "ate_time\030\002 \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\020sourceUpdateTime\022-\n\022source_descripti" +
+      "on\030\004 \001(\tR\021sourceDescriptionJ\004\010\001\020\002\"\361\002\n\nIn" +
+      "dicators\0228\n\tsimulated\030\001 \001(\0132\032.google.pro" +
+      "tobuf.BoolValueR\tsimulated\0226\n\010exercise\030\002" +
+      " \001(\0132\032.google.protobuf.BoolValueR\010exerci" +
+      "se\0228\n\temergency\030\003 \001(\0132\032.google.protobuf." +
+      "BoolValueR\temergency\022*\n\002c2\030\004 \001(\0132\032.googl" +
+      "e.protobuf.BoolValueR\002c2\022?\n\negressable\030\006" +
+      " \001(\0132\032.google.protobuf.BoolValueB\003\310>\001R\ne" +
+      "gressable\0229\n\007starred\030\007 \001(\0132\032.google.prot" +
+      "obuf.BoolValueB\003\310>\001R\007starredJ\004\010\005\020\006R\tdele" +
+      "table\"]\n\tOverrides\022>\n\010override\030\002 \003(\0132\".a" +
+      "nduril.entitymanager.v1.OverrideR\010overri" +
+      "deJ\004\010\001\020\002R\nprovenance\"\245\003\n\010Override\022\035\n\nreq" +
+      "uest_id\030\001 \001(\tR\trequestId\022\035\n\nfield_path\030\002" +
+      " \001(\tR\tfieldPath\022N\n\022masked_field_value\030\003 " +
+      "\001(\0132 .anduril.entitymanager.v1.EntityR\020m" +
+      "askedFieldValue\022@\n\006status\030\004 \001(\0162(.anduri" +
+      "l.entitymanager.v1.OverrideStatusR\006statu" +
+      "s\022D\n\nprovenance\030\005 \001(\0132$.anduril.entityma" +
+      "nager.v1.ProvenanceR\nprovenance\022:\n\004type\030" +
+      "\006 \001(\0162&.anduril.entitymanager.v1.Overrid" +
+      "eTypeR\004type\022G\n\021request_timestamp\030\007 \001(\0132\032" +
+      ".google.protobuf.TimestampR\020requestTimes" +
+      "tamp\"d\n\013AlternateId\022\016\n\002id\030\002 \001(\tR\002id\0227\n\004t" +
+      "ype\030\003 \001(\0162#.anduril.entitymanager.v1.Alt" +
+      "IdTypeR\004typeJ\004\010\001\020\002R\006source\"[\n\rVisualDeta" +
+      "ils\022J\n\013range_rings\030\001 \001(\0132$.anduril.entit" +
+      "ymanager.v1.RangeRingsB\003\310>\001R\nrangeRings\"" +
+      "\360\001\n\nRangeRings\022B\n\016min_distance_m\030\001 \001(\0132\034" +
+      ".google.protobuf.DoubleValueR\014minDistanc" +
+      "eM\022B\n\016max_distance_m\030\002 \001(\0132\034.google.prot" +
+      "obuf.DoubleValueR\014maxDistanceM\022\035\n\nring_c" +
+      "ount\030\003 \001(\rR\tringCount\022;\n\017ring_line_color" +
+      "\030\004 \001(\0132\023.anduril.type.ColorR\rringLineCol" +
+      "or\"\326\002\n\013Correlation\022H\n\007primary\030\001 \001(\0132,.an" +
+      "duril.entitymanager.v1.PrimaryCorrelatio" +
+      "nH\000R\007primary\022N\n\tsecondary\030\002 \001(\0132..anduri" +
+      "l.entitymanager.v1.SecondaryCorrelationH" +
+      "\000R\tsecondary\022O\n\nmembership\030\004 \001(\0132/.andur" +
+      "il.entitymanager.v1.CorrelationMembershi" +
+      "pR\nmembership\022M\n\rdecorrelation\030\003 \001(\0132\'.a" +
+      "nduril.entitymanager.v1.DecorrelationR\rd" +
+      "ecorrelationB\r\n\013correlation\"F\n\022PrimaryCo" +
+      "rrelation\0220\n\024secondary_entity_ids\030\001 \003(\tR" +
+      "\022secondaryEntityIds\"\215\001\n\024SecondaryCorrela" +
+      "tion\022*\n\021primary_entity_id\030\001 \001(\tR\017primary" +
+      "EntityId\022I\n\010metadata\030\002 \001(\0132-.anduril.ent" +
+      "itymanager.v1.CorrelationMetadataR\010metad" +
+      "ata\"\272\002\n\025CorrelationMembership\022,\n\022correla" +
+      "tion_set_id\030\001 \001(\tR\020correlationSetId\022G\n\007p" +
+      "rimary\030\002 \001(\0132+.anduril.entitymanager.v1." +
+      "PrimaryMembershipH\000R\007primary\022Q\n\013non_prim" +
+      "ary\030\003 \001(\0132..anduril.entitymanager.v1.Non" +
+      "PrimaryMembershipH\000R\nnonPrimary\022I\n\010metad" +
+      "ata\030\004 \001(\0132-.anduril.entitymanager.v1.Cor" +
+      "relationMetadataR\010metadataB\014\n\nmembership" +
+      "\"\023\n\021PrimaryMembership\"\026\n\024NonPrimaryMembe" +
+      "rship\"\257\001\n\rDecorrelation\022;\n\003all\030\001 \001(\0132).a" +
+      "nduril.entitymanager.v1.DecorrelatedAllR" +
+      "\003all\022a\n\025decorrelated_entities\030\002 \003(\0132,.an" +
+      "duril.entitymanager.v1.DecorrelatedSingl" +
+      "eR\024decorrelatedEntities\"\\\n\017DecorrelatedA" +
+      "ll\022I\n\010metadata\030\001 \001(\0132-.anduril.entityman" +
+      "ager.v1.CorrelationMetadataR\010metadata\"|\n" +
+      "\022DecorrelatedSingle\022\033\n\tentity_id\030\001 \001(\tR\010" +
+      "entityId\022I\n\010metadata\030\002 \001(\0132-.anduril.ent" +
+      "itymanager.v1.CorrelationMetadataR\010metad" +
+      "ata\"\373\001\n\023CorrelationMetadata\022D\n\nprovenanc" +
+      "e\030\001 \001(\0132$.anduril.entitymanager.v1.Prove" +
+      "nanceR\nprovenance\022_\n\020replication_mode\030\002 " +
+      "\001(\01624.anduril.entitymanager.v1.Correlati" +
+      "onReplicationModeR\017replicationMode\022=\n\004ty" +
+      "pe\030\003 \001(\0162).anduril.entitymanager.v1.Corr" +
+      "elationTypeR\004type*l\n\017CorrelationType\022\034\n\030" +
+      "CORRELATION_TYPE_INVALID\020\000\022\033\n\027CORRELATIO" +
+      "N_TYPE_MANUAL\020\001\022\036\n\032CORRELATION_TYPE_AUTO" +
+      "MATED\020\002*\227\001\n\032CorrelationReplicationMode\022(" +
+      "\n$CORRELATION_REPLICATION_MODE_INVALID\020\000" +
+      "\022&\n\"CORRELATION_REPLICATION_MODE_LOCAL\020\001" +
+      "\022\'\n#CORRELATION_REPLICATION_MODE_GLOBAL\020" +
+      "\002B\202\002\n\034com.anduril.entitymanager.v1B\016Enti" +
+      "tyPubProtoP\001ZPgithub.com/anduril/lattice" +
+      "-sdk-java/src/anduril/entitymanager/v1;e" +
+      "ntitymanagerv1\242\002\003AEX\252\002\030Anduril.Entityman" +
+      "ager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$And" +
+      "uril\\Entitymanager\\V1\\GPBMetadata\352\002\032Andu" +
+      "ril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -362,7 +386,7 @@ public final class EntityPubProto {
     internal_static_anduril_entitymanager_v1_Provenance_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Provenance_descriptor,
-        new java.lang.String[] { "IntegrationName", "DataType", "Source", "SourceId", "SourceUpdateTime", "SourceDescription", });
+        new java.lang.String[] { "IntegrationName", "DataType", "SourceId", "SourceUpdateTime", "SourceDescription", });
     internal_static_anduril_entitymanager_v1_Indicators_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_anduril_entitymanager_v1_Indicators_fieldAccessorTable = new
@@ -404,7 +428,7 @@ public final class EntityPubProto {
     internal_static_anduril_entitymanager_v1_Correlation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Correlation_descriptor,
-        new java.lang.String[] { "Primary", "Secondary", "Decorrelation", "Correlation", });
+        new java.lang.String[] { "Primary", "Secondary", "Membership", "Decorrelation", "Correlation", });
     internal_static_anduril_entitymanager_v1_PrimaryCorrelation_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_anduril_entitymanager_v1_PrimaryCorrelation_fieldAccessorTable = new
@@ -417,33 +441,50 @@ public final class EntityPubProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_SecondaryCorrelation_descriptor,
         new java.lang.String[] { "PrimaryEntityId", "Metadata", });
-    internal_static_anduril_entitymanager_v1_Decorrelation_descriptor =
+    internal_static_anduril_entitymanager_v1_CorrelationMembership_descriptor =
       getDescriptor().getMessageTypes().get(14);
+    internal_static_anduril_entitymanager_v1_CorrelationMembership_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_CorrelationMembership_descriptor,
+        new java.lang.String[] { "CorrelationSetId", "Primary", "NonPrimary", "Metadata", "Membership", });
+    internal_static_anduril_entitymanager_v1_PrimaryMembership_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_anduril_entitymanager_v1_PrimaryMembership_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_PrimaryMembership_descriptor,
+        new java.lang.String[] { });
+    internal_static_anduril_entitymanager_v1_NonPrimaryMembership_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_anduril_entitymanager_v1_NonPrimaryMembership_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_NonPrimaryMembership_descriptor,
+        new java.lang.String[] { });
+    internal_static_anduril_entitymanager_v1_Decorrelation_descriptor =
+      getDescriptor().getMessageTypes().get(17);
     internal_static_anduril_entitymanager_v1_Decorrelation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_Decorrelation_descriptor,
         new java.lang.String[] { "All", "DecorrelatedEntities", });
     internal_static_anduril_entitymanager_v1_DecorrelatedAll_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_anduril_entitymanager_v1_DecorrelatedAll_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_DecorrelatedAll_descriptor,
         new java.lang.String[] { "Metadata", });
     internal_static_anduril_entitymanager_v1_DecorrelatedSingle_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_anduril_entitymanager_v1_DecorrelatedSingle_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_DecorrelatedSingle_descriptor,
         new java.lang.String[] { "EntityId", "Metadata", });
     internal_static_anduril_entitymanager_v1_CorrelationMetadata_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_anduril_entitymanager_v1_CorrelationMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_CorrelationMetadata_descriptor,
         new java.lang.String[] { "Provenance", "ReplicationMode", "Type", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.anduril.entitymanager.v1.OptionsPubProto.componentIdentifier);
     registry.add(com.anduril.entitymanager.v1.OptionsPubProto.overridable);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);

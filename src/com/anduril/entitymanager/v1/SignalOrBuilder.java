@@ -221,33 +221,6 @@ public interface SignalOrBuilder extends
 
   /**
    * <pre>
-   * characteristics of the carrier signal to transmit information
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-   * @return Whether the modulation field is set.
-   */
-  boolean hasModulation();
-  /**
-   * <pre>
-   * characteristics of the carrier signal to transmit information
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-   * @return The modulation.
-   */
-  com.anduril.entitymanager.v1.Modulation getModulation();
-  /**
-   * <pre>
-   * characteristics of the carrier signal to transmit information
-   * </pre>
-   *
-   * <code>.anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];</code>
-   */
-  com.anduril.entitymanager.v1.ModulationOrBuilder getModulationOrBuilder();
-
-  /**
-   * <pre>
    * describes how a signal is observing the environment
    * </pre>
    *

@@ -49,8 +49,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The Id for one instance of a FieldOfView, persisted across multiple updates to provide continuity during
-   * smoothing. This is relevant for sensors like an ESM or Radar where the dwell schedule is on the order of
-   * milliseconds, making multiple FOVs a requirement for proper display of search and weapon support beams.
+   * smoothing. This is relevant for sensors where the dwell schedule is on the order of
+   * milliseconds, making multiple FOVs a requirement for proper display of search beams.
    * </pre>
    *
    * <code>int32 fov_id = 1 [json_name = "fovId"];</code>
@@ -865,8 +865,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The Id for one instance of a FieldOfView, persisted across multiple updates to provide continuity during
-     * smoothing. This is relevant for sensors like an ESM or Radar where the dwell schedule is on the order of
-     * milliseconds, making multiple FOVs a requirement for proper display of search and weapon support beams.
+     * smoothing. This is relevant for sensors where the dwell schedule is on the order of
+     * milliseconds, making multiple FOVs a requirement for proper display of search beams.
      * </pre>
      *
      * <code>int32 fov_id = 1 [json_name = "fovId"];</code>
@@ -879,8 +879,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The Id for one instance of a FieldOfView, persisted across multiple updates to provide continuity during
-     * smoothing. This is relevant for sensors like an ESM or Radar where the dwell schedule is on the order of
-     * milliseconds, making multiple FOVs a requirement for proper display of search and weapon support beams.
+     * smoothing. This is relevant for sensors where the dwell schedule is on the order of
+     * milliseconds, making multiple FOVs a requirement for proper display of search beams.
      * </pre>
      *
      * <code>int32 fov_id = 1 [json_name = "fovId"];</code>
@@ -897,8 +897,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The Id for one instance of a FieldOfView, persisted across multiple updates to provide continuity during
-     * smoothing. This is relevant for sensors like an ESM or Radar where the dwell schedule is on the order of
-     * milliseconds, making multiple FOVs a requirement for proper display of search and weapon support beams.
+     * smoothing. This is relevant for sensors where the dwell schedule is on the order of
+     * milliseconds, making multiple FOVs a requirement for proper display of search beams.
      * </pre>
      *
      * <code>int32 fov_id = 1 [json_name = "fovId"];</code>

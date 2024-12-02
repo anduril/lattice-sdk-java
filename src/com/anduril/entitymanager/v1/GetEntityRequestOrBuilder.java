@@ -9,7 +9,7 @@ public interface GetEntityRequestOrBuilder extends
 
   /**
    * <pre>
-   * the GUID of this entity to query
+   * The GUID of this entity to query.
    * </pre>
    *
    * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -18,7 +18,7 @@ public interface GetEntityRequestOrBuilder extends
   java.lang.String getEntityId();
   /**
    * <pre>
-   * the GUID of this entity to query
+   * The GUID of this entity to query.
    * </pre>
    *
    * <code>string entity_id = 1 [json_name = "entityId"];</code>

@@ -9,7 +9,7 @@ public interface GetTaskResponseOrBuilder extends
 
   /**
    * <pre>
-   * Task that received.
+   * Task that was returned.
    * </pre>
    *
    * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -18,7 +18,7 @@ public interface GetTaskResponseOrBuilder extends
   boolean hasTask();
   /**
    * <pre>
-   * Task that received.
+   * Task that was returned.
    * </pre>
    *
    * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>
@@ -27,7 +27,7 @@ public interface GetTaskResponseOrBuilder extends
   com.anduril.taskmanager.v1.Task getTask();
   /**
    * <pre>
-   * Task that received.
+   * Task that was returned.
    * </pre>
    *
    * <code>.anduril.taskmanager.v1.Task task = 1 [json_name = "task"];</code>

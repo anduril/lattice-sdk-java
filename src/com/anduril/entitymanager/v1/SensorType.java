@@ -37,10 +37,6 @@ public enum SensorType
    */
   SENSOR_TYPE_PTU_POS(6),
   /**
-   * <code>SENSOR_TYPE_WISP = 7;</code>
-   */
-  SENSOR_TYPE_WISP(7),
-  /**
    * <code>SENSOR_TYPE_PERIMETER = 8;</code>
    */
   SENSOR_TYPE_PERIMETER(8),
@@ -79,10 +75,6 @@ public enum SensorType
    * <code>SENSOR_TYPE_PTU_POS = 6;</code>
    */
   public static final int SENSOR_TYPE_PTU_POS_VALUE = 6;
-  /**
-   * <code>SENSOR_TYPE_WISP = 7;</code>
-   */
-  public static final int SENSOR_TYPE_WISP_VALUE = 7;
   /**
    * <code>SENSOR_TYPE_PERIMETER = 8;</code>
    */
@@ -124,7 +116,6 @@ public enum SensorType
       case 4: return SENSOR_TYPE_RF;
       case 5: return SENSOR_TYPE_GPS;
       case 6: return SENSOR_TYPE_PTU_POS;
-      case 7: return SENSOR_TYPE_WISP;
       case 8: return SENSOR_TYPE_PERIMETER;
       case 9: return SENSOR_TYPE_SONAR;
       default: return null;

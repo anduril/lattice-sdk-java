@@ -51,7 +51,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A string that describes the entity's high-level type with natural language.
-   * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
    * </pre>
    *
    * <code>string platform_type = 3 [json_name = "platformType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -73,7 +72,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A string that describes the entity's high-level type with natural language.
-   * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
    * </pre>
    *
    * <code>string platform_type = 3 [json_name = "platformType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -100,7 +98,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A string that describes the entity's exact model or type.
-   * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
    * </pre>
    *
    * <code>string specific_type = 4 [json_name = "specificType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -122,7 +119,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A string that describes the entity's exact model or type.
-   * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
    * </pre>
    *
    * <code>string specific_type = 4 [json_name = "specificType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -515,7 +511,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A string that describes the entity's high-level type with natural language.
-     * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
      * </pre>
      *
      * <code>string platform_type = 3 [json_name = "platformType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -536,7 +531,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A string that describes the entity's high-level type with natural language.
-     * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
      * </pre>
      *
      * <code>string platform_type = 3 [json_name = "platformType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -558,7 +552,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A string that describes the entity's high-level type with natural language.
-     * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
      * </pre>
      *
      * <code>string platform_type = 3 [json_name = "platformType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -576,7 +569,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A string that describes the entity's high-level type with natural language.
-     * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
      * </pre>
      *
      * <code>string platform_type = 3 [json_name = "platformType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -591,7 +583,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A string that describes the entity's high-level type with natural language.
-     * Examples include "FIGHTER", "TANK", "AIRCRAFT CARRIER", "UAV".
      * </pre>
      *
      * <code>string platform_type = 3 [json_name = "platformType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -612,7 +603,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A string that describes the entity's exact model or type.
-     * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
      * </pre>
      *
      * <code>string specific_type = 4 [json_name = "specificType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -633,7 +623,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A string that describes the entity's exact model or type.
-     * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
      * </pre>
      *
      * <code>string specific_type = 4 [json_name = "specificType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -655,7 +644,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A string that describes the entity's exact model or type.
-     * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
      * </pre>
      *
      * <code>string specific_type = 4 [json_name = "specificType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -673,7 +661,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A string that describes the entity's exact model or type.
-     * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
      * </pre>
      *
      * <code>string specific_type = 4 [json_name = "specificType", (.anduril.entitymanager.v1.overridable) = true];</code>
@@ -688,7 +675,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A string that describes the entity's exact model or type.
-     * Examples include "F-16", "NASAMS-LCHR", "ARLEIGH BURKE DDG", "GHOST".
      * </pre>
      *
      * <code>string specific_type = 4 [json_name = "specificType", (.anduril.entitymanager.v1.overridable) = true];</code>

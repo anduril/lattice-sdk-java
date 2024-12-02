@@ -9,7 +9,7 @@ public interface RemoveEntityOverrideRequestOrBuilder extends
 
   /**
    * <pre>
-   * The entity ID that the override will be removed from
+   * The entity ID that the override will be removed from.
    * </pre>
    *
    * <code>string entity_id = 1 [json_name = "entityId"];</code>
@@ -18,7 +18,7 @@ public interface RemoveEntityOverrideRequestOrBuilder extends
   java.lang.String getEntityId();
   /**
    * <pre>
-   * The entity ID that the override will be removed from
+   * The entity ID that the override will be removed from.
    * </pre>
    *
    * <code>string entity_id = 1 [json_name = "entityId"];</code>

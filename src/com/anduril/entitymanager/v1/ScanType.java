@@ -224,7 +224,7 @@ public enum ScanType
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.anduril.entitymanager.v1.SignalPubProto.getDescriptor().getEnumTypes().get(1);
+    return com.anduril.entitymanager.v1.SignalPubProto.getDescriptor().getEnumTypes().get(0);
   }
 
   private static final ScanType[] VALUES = values();

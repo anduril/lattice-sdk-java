@@ -8,7 +8,6 @@ public final class OptionsPubProto {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
     registry.add(com.anduril.entitymanager.v1.OptionsPubProto.overridable);
-    registry.add(com.anduril.entitymanager.v1.OptionsPubProto.componentIdentifier);
   }
 
   public static void registerAllExtensions(
@@ -27,23 +26,6 @@ public final class OptionsPubProto {
           .newFileScopedGeneratedExtension(
         java.lang.Boolean.class,
         null);
-  public static final int COMPONENTIDENTIFIER_FIELD_NUMBER = 1002;
-  /**
-   * <pre>
-   * When flagged on a field in a repeated component, provides an indication that the
-   * the repeated component should be treated as a set. No components sharing
-   * identical 'componentIdentifier' field should appear in the set
-   * </pre>
-   *
-   * <code>extend .google.protobuf.FieldOptions { ... }</code>
-   */
-  public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-      com.google.protobuf.DescriptorProtos.FieldOptions,
-      java.lang.Boolean> componentIdentifier = com.google.protobuf.GeneratedMessage
-          .newFileScopedGeneratedExtension(
-        java.lang.Boolean.class,
-        null);
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -57,16 +39,13 @@ public final class OptionsPubProto {
       "roto\022\030anduril.entitymanager.v1\032 google/p" +
       "rotobuf/descriptor.proto:@\n\013overridable\022" +
       "\035.google.protobuf.FieldOptions\030\351\007 \001(\010R\013o" +
-      "verridable:P\n\023componentIdentifier\022\035.goog" +
-      "le.protobuf.FieldOptions\030\352\007 \001(\010R\023compone" +
-      "ntIdentifierB\203\002\n\034com.anduril.entitymanag" +
-      "er.v1B\017OptionsPubProtoP\001ZPgithub.com/and" +
-      "uril/lattice-sdk-java/src/anduril/entity" +
-      "manager/v1;entitymanagerv1\242\002\003AEX\252\002\030Andur" +
-      "il.Entitymanager.V1\312\002\030Anduril\\Entitymana" +
-      "ger\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMet" +
-      "adata\352\002\032Anduril::Entitymanager::V1b\006prot" +
-      "o3"
+      "verridableB\203\002\n\034com.anduril.entitymanager" +
+      ".v1B\017OptionsPubProtoP\001ZPgithub.com/andur" +
+      "il/lattice-sdk-java/src/anduril/entityma" +
+      "nager/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril" +
+      ".Entitymanager.V1\312\002\030Anduril\\Entitymanage" +
+      "r\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMetad" +
+      "ata\352\002\032Anduril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -74,7 +53,6 @@ public final class OptionsPubProto {
           com.google.protobuf.DescriptorProtos.getDescriptor(),
         });
     overridable.internalInit(descriptor.getExtensions().get(0));
-    componentIdentifier.internalInit(descriptor.getExtensions().get(1));
     com.google.protobuf.DescriptorProtos.getDescriptor();
   }
 

@@ -20,12 +20,12 @@ public interface AlternateIdOrBuilder extends
       getIdBytes();
 
   /**
-   * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+   * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];</code>
    * @return The enum numeric value on the wire for type.
    */
   int getTypeValue();
   /**
-   * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+   * <code>.anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];</code>
    * @return The type.
    */
   com.anduril.entitymanager.v1.AltIdType getType();

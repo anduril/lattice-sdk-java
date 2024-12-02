@@ -9,7 +9,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity API
+   * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity Manager API
    * automatically generates an ID when it creates the entity.
    * </pre>
    *
@@ -19,7 +19,7 @@ public interface EntityOrBuilder extends
   java.lang.String getEntityId();
   /**
    * <pre>
-   * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity API
+   * A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity Manager API
    * automatically generates an ID when it creates the entity.
    * </pre>
    *
@@ -32,7 +32,7 @@ public interface EntityOrBuilder extends
   /**
    * <pre>
    * A human-readable entity description that's helpful for debugging purposes and human
-   * traceability. If this field is empty, the Entity API generates one for you.
+   * traceability. If this field is empty, the Entity Manager API generates one for you.
    * </pre>
    *
    * <code>string description = 2 [json_name = "description"];</code>
@@ -42,7 +42,7 @@ public interface EntityOrBuilder extends
   /**
    * <pre>
    * A human-readable entity description that's helpful for debugging purposes and human
-   * traceability. If this field is empty, the Entity API generates one for you.
+   * traceability. If this field is empty, the Entity Manager API generates one for you.
    * </pre>
    *
    * <code>string description = 2 [json_name = "description"];</code>
@@ -53,7 +53,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Indicates the entity is active and should have lifecycle state of CREATE or UPDATE.
+   * Indicates the entity is active and should have a lifecycle state of CREATE or UPDATE.
    * Set this field to true when publishing an entity.
    * </pre>
    *
@@ -64,7 +64,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+   * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
    * current timestamp of when the entity is first received.
    * For example, when a drone is first powered on, it might report its startup time as the created time.
    * The timestamp doesn't change for the lifetime of an entity.
@@ -76,7 +76,7 @@ public interface EntityOrBuilder extends
   boolean hasCreatedTime();
   /**
    * <pre>
-   * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+   * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
    * current timestamp of when the entity is first received.
    * For example, when a drone is first powered on, it might report its startup time as the created time.
    * The timestamp doesn't change for the lifetime of an entity.
@@ -88,7 +88,7 @@ public interface EntityOrBuilder extends
   com.google.protobuf.Timestamp getCreatedTime();
   /**
    * <pre>
-   * The time when the entity was first known to the entity producer. If this field is empty, the Entity API uses the
+   * The time when the entity was first known to the entity producer. If this field is empty, the Entity Manager API uses the
    * current timestamp of when the entity is first received.
    * For example, when a drone is first powered on, it might report its startup time as the created time.
    * The timestamp doesn't change for the lifetime of an entity.
@@ -361,7 +361,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Military view of the entity.
+   * View of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -370,7 +370,7 @@ public interface EntityOrBuilder extends
   boolean hasMilView();
   /**
    * <pre>
-   * Military view of the entity.
+   * View of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -379,7 +379,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.MilView getMilView();
   /**
    * <pre>
-   * Military view of the entity.
+   * View of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];</code>
@@ -721,7 +721,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * The relationships between this entity and other entities in the battlespace.
+   * The relationships between this entity and other entities in the common operational picture (COP).
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -730,7 +730,7 @@ public interface EntityOrBuilder extends
   boolean hasRelationships();
   /**
    * <pre>
-   * The relationships between this entity and other entities in the battlespace.
+   * The relationships between this entity and other entities in the common operational picture (COP).
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -739,7 +739,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Relationships getRelationships();
   /**
    * <pre>
-   * The relationships between this entity and other entities in the battlespace.
+   * The relationships between this entity and other entities in the common operational picture (COP).
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
@@ -910,7 +910,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * Contains relevant supply information for the entity, such as munitions and fuel.
+   * Contains relevant supply information for the entity, such as fuel.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -919,7 +919,7 @@ public interface EntityOrBuilder extends
   boolean hasSupplies();
   /**
    * <pre>
-   * Contains relevant supply information for the entity, such as munitions and fuel.
+   * Contains relevant supply information for the entity, such as fuel.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
@@ -928,7 +928,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Supplies getSupplies();
   /**
    * <pre>
-   * Contains relevant supply information for the entity, such as munitions and fuel.
+   * Contains relevant supply information for the entity, such as fuel.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>

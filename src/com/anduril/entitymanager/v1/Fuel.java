@@ -53,7 +53,7 @@ private static final long serialVersionUID = 0L;
    * unique fuel identifier
    * </pre>
    *
-   * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+   * <code>string fuel_id = 1 [json_name = "fuelId"];</code>
    * @return The fuelId.
    */
   @java.lang.Override
@@ -74,7 +74,7 @@ private static final long serialVersionUID = 0L;
    * unique fuel identifier
    * </pre>
    *
-   * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+   * <code>string fuel_id = 1 [json_name = "fuelId"];</code>
    * @return The bytes for fuelId.
    */
   @java.lang.Override
@@ -801,7 +801,7 @@ private static final long serialVersionUID = 0L;
      * unique fuel identifier
      * </pre>
      *
-     * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>string fuel_id = 1 [json_name = "fuelId"];</code>
      * @return The fuelId.
      */
     public java.lang.String getFuelId() {
@@ -821,7 +821,7 @@ private static final long serialVersionUID = 0L;
      * unique fuel identifier
      * </pre>
      *
-     * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>string fuel_id = 1 [json_name = "fuelId"];</code>
      * @return The bytes for fuelId.
      */
     public com.google.protobuf.ByteString
@@ -842,7 +842,7 @@ private static final long serialVersionUID = 0L;
      * unique fuel identifier
      * </pre>
      *
-     * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>string fuel_id = 1 [json_name = "fuelId"];</code>
      * @param value The fuelId to set.
      * @return This builder for chaining.
      */
@@ -859,7 +859,7 @@ private static final long serialVersionUID = 0L;
      * unique fuel identifier
      * </pre>
      *
-     * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>string fuel_id = 1 [json_name = "fuelId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFuelId() {
@@ -873,7 +873,7 @@ private static final long serialVersionUID = 0L;
      * unique fuel identifier
      * </pre>
      *
-     * <code>string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];</code>
+     * <code>string fuel_id = 1 [json_name = "fuelId"];</code>
      * @param value The bytes for fuelId to set.
      * @return This builder for chaining.
      */

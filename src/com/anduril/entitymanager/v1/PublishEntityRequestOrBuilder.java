@@ -12,7 +12,7 @@ public interface PublishEntityRequestOrBuilder extends
    * Sends an entity object to publish.
    * Required fields:
    *   * expiry_time. This must be in the future, but less than 30 days from now.
-   *   * provenance.data_type. If using the deprecated provenance.source, migrate to data_type.
+   *   * provenance.data_type.
    *   * provenance.source_update_time. This can be earlier than the RPC call if the data entered is older.
    *   * aliases.name
    *   * ontology.template
@@ -29,7 +29,7 @@ public interface PublishEntityRequestOrBuilder extends
    * Sends an entity object to publish.
    * Required fields:
    *   * expiry_time. This must be in the future, but less than 30 days from now.
-   *   * provenance.data_type. If using the deprecated provenance.source, migrate to data_type.
+   *   * provenance.data_type.
    *   * provenance.source_update_time. This can be earlier than the RPC call if the data entered is older.
    *   * aliases.name
    *   * ontology.template
@@ -46,7 +46,7 @@ public interface PublishEntityRequestOrBuilder extends
    * Sends an entity object to publish.
    * Required fields:
    *   * expiry_time. This must be in the future, but less than 30 days from now.
-   *   * provenance.data_type. If using the deprecated provenance.source, migrate to data_type.
+   *   * provenance.data_type.
    *   * provenance.source_update_time. This can be earlier than the RPC call if the data entered is older.
    *   * aliases.name
    *   * ontology.template

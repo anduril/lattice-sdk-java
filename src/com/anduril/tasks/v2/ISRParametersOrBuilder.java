@@ -9,40 +9,6 @@ public interface ISRParametersOrBuilder extends
 
   /**
    * <pre>
-   * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-   * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-   * @deprecated anduril.tasks.v2.ISRParameters.speed is deprecated.
-   *     See anduril/tasks/v2/shared/isr.pub.proto;l=144
-   * @return Whether the speed field is set.
-   */
-  @java.lang.Deprecated boolean hasSpeed();
-  /**
-   * <pre>
-   * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-   * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-   * @deprecated anduril.tasks.v2.ISRParameters.speed is deprecated.
-   *     See anduril/tasks/v2/shared/isr.pub.proto;l=144
-   * @return The speed.
-   */
-  @java.lang.Deprecated com.google.protobuf.FloatValue getSpeed();
-  /**
-   * <pre>
-   * Indicates the target speed of the asset. DEPRECATION NOTE: deprecated in favor
-   * of speed_ms since we might have legacy integrations not conforming to the meters per second units.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];</code>
-   */
-  @java.lang.Deprecated com.google.protobuf.FloatValueOrBuilder getSpeedOrBuilder();
-
-  /**
-   * <pre>
    * Indicates the target speed of the asset. Units are meters per second.
    * </pre>
    *
@@ -94,40 +60,6 @@ public interface ISRParametersOrBuilder extends
    * <code>.google.protobuf.FloatValue standoff_distance_m = 3 [json_name = "standoffDistanceM"];</code>
    */
   com.google.protobuf.FloatValueOrBuilder getStandoffDistanceMOrBuilder();
-
-  /**
-   * <pre>
-   * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-   *  since we might have legacy integrations not conforming to the meters unit.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-   * @deprecated anduril.tasks.v2.ISRParameters.standoff_distance is deprecated.
-   *     See anduril/tasks/v2/shared/isr.pub.proto;l=151
-   * @return Whether the standoffDistance field is set.
-   */
-  @java.lang.Deprecated boolean hasStandoffDistance();
-  /**
-   * <pre>
-   * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-   *  since we might have legacy integrations not conforming to the meters unit.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-   * @deprecated anduril.tasks.v2.ISRParameters.standoff_distance is deprecated.
-   *     See anduril/tasks/v2/shared/isr.pub.proto;l=151
-   * @return The standoffDistance.
-   */
-  @java.lang.Deprecated com.google.protobuf.FloatValue getStandoffDistance();
-  /**
-   * <pre>
-   * Indicates the standoff distance from the objective. DEPRECATION NOTE: deprecated in favor of standoff_distance_m
-   *  since we might have legacy integrations not conforming to the meters unit.
-   * </pre>
-   *
-   * <code>.google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];</code>
-   */
-  @java.lang.Deprecated com.google.protobuf.FloatValueOrBuilder getStandoffDistanceOrBuilder();
 
   /**
    * <pre>
