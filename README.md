@@ -24,7 +24,7 @@ To add the SDK as a dependency, please add the following to your project's `buil
 
 ```gradle
 dependencies {
-   implementation 'com.anduril:anduril-sdk-java:1.1.4'
+   implementation 'com.anduril:lattice-sdk:1.1.0'
 }
 ```
 
@@ -35,8 +35,8 @@ To add the SDK as a dependency, please add the following to your project's `pom.
 ```xml
     <dependency>
       <groupId>com.anduril</groupId>
-      <artifactId>anduril-sdk-java</artifactId>
-      <version>1.1.4</version>
+      <artifactId>lattice-sdk</artifactId>
+      <version>1.1.0</version>
     </dependency>
 ```
 ## Support
