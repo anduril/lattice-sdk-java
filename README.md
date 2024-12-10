@@ -41,4 +41,4 @@ To add the SDK as a dependency, please add the following to your project's `pom.
 ```
 ## Support
 
-For support with this library please [file an issue](https://github.com/anduril/lattice-sdk-java/issues/new) or reach out to your Anduril representative.
+For support with this library please reach out to your Anduril representative.
