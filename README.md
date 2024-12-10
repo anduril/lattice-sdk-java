@@ -1,7 +1,5 @@
 # Lattice SDK Java
 
-[![Version](https://img.shields.io/maven-central/v/com.anduril/anduril-sdk-java)](https://mvnrepository.com/artifact/com.anduril/anduril-sdk-java)
-
 The official [Anduril](https://www.anduril.com/) Lattice SDK for Java.
 
 ## Documentation
@@ -16,7 +14,7 @@ This repository is tested against Java 1.8 or later.
 
 ⚠️ **Versioning**
 
-Please check the [Maven Central repository](https://mvnrepository.com/artifact/com.anduril/anduril-sdk-java) for the latest version of the Lattice-SDK. The code samples below reference a stale version the SDK.
+Please check the [Central repository](https://central.sonatype.com/artifact/com.anduril/lattice-sdk) for the latest version of the Lattice-SDK. The code samples below reference a stale version the SDK.
 
 ### Gradle users
 
