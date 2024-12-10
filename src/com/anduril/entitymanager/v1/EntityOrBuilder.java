@@ -388,7 +388,7 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
-   * A standardized representation of the entity.
+   * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -397,7 +397,7 @@ public interface EntityOrBuilder extends
   boolean hasOntology();
   /**
    * <pre>
-   * A standardized representation of the entity.
+   * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -406,7 +406,7 @@ public interface EntityOrBuilder extends
   com.anduril.entitymanager.v1.Ontology getOntology();
   /**
    * <pre>
-   * A standardized representation of the entity.
+   * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>

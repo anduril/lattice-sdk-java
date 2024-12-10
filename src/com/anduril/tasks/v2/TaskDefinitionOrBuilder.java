@@ -8,26 +8,22 @@ public interface TaskDefinitionOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * Url path must be prefixed with `type.googleapis.com/`.
+   * </pre>
+   *
    * <code>string task_specification_url = 1 [json_name = "taskSpecificationUrl"];</code>
    * @return The taskSpecificationUrl.
    */
   java.lang.String getTaskSpecificationUrl();
   /**
+   * <pre>
+   * Url path must be prefixed with `type.googleapis.com/`.
+   * </pre>
+   *
    * <code>string task_specification_url = 1 [json_name = "taskSpecificationUrl"];</code>
    * @return The bytes for taskSpecificationUrl.
    */
   com.google.protobuf.ByteString
       getTaskSpecificationUrlBytes();
-
-  /**
-   * <code>string display_name = 2 [json_name = "displayName"];</code>
-   * @return The displayName.
-   */
-  java.lang.String getDisplayName();
-  /**
-   * <code>string display_name = 2 [json_name = "displayName"];</code>
-   * @return The bytes for displayName.
-   */
-  com.google.protobuf.ByteString
-      getDisplayNameBytes();
 }

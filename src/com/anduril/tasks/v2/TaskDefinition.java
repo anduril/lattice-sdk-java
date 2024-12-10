@@ -21,7 +21,6 @@ private static final long serialVersionUID = 0L;
   }
   private TaskDefinition() {
     taskSpecificationUrl_ = "";
-    displayName_ = "";
   }
 
   @java.lang.Override
@@ -48,6 +47,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object taskSpecificationUrl_ = "";
   /**
+   * <pre>
+   * Url path must be prefixed with `type.googleapis.com/`.
+   * </pre>
+   *
    * <code>string task_specification_url = 1 [json_name = "taskSpecificationUrl"];</code>
    * @return The taskSpecificationUrl.
    */
@@ -65,6 +68,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Url path must be prefixed with `type.googleapis.com/`.
+   * </pre>
+   *
    * <code>string task_specification_url = 1 [json_name = "taskSpecificationUrl"];</code>
    * @return The bytes for taskSpecificationUrl.
    */
@@ -77,45 +84,6 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       taskSpecificationUrl_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object displayName_ = "";
-  /**
-   * <code>string display_name = 2 [json_name = "displayName"];</code>
-   * @return The displayName.
-   */
-  @java.lang.Override
-  public java.lang.String getDisplayName() {
-    java.lang.Object ref = displayName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      displayName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string display_name = 2 [json_name = "displayName"];</code>
-   * @return The bytes for displayName.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDisplayNameBytes() {
-    java.lang.Object ref = displayName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      displayName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -139,9 +107,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskSpecificationUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, taskSpecificationUrl_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, displayName_);
-    }
     getUnknownFields().writeTo(output);
   }
 
@@ -153,9 +118,6 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskSpecificationUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, taskSpecificationUrl_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, displayName_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -174,8 +136,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getTaskSpecificationUrl()
         .equals(other.getTaskSpecificationUrl())) return false;
-    if (!getDisplayName()
-        .equals(other.getDisplayName())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -189,8 +149,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + TASK_SPECIFICATION_URL_FIELD_NUMBER;
     hash = (53 * hash) + getTaskSpecificationUrl().hashCode();
-    hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getDisplayName().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -325,7 +283,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       taskSpecificationUrl_ = "";
-      displayName_ = "";
       return this;
     }
 
@@ -362,9 +319,6 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.taskSpecificationUrl_ = taskSpecificationUrl_;
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.displayName_ = displayName_;
-      }
     }
 
     @java.lang.Override
@@ -382,11 +336,6 @@ private static final long serialVersionUID = 0L;
       if (!other.getTaskSpecificationUrl().isEmpty()) {
         taskSpecificationUrl_ = other.taskSpecificationUrl_;
         bitField0_ |= 0x00000001;
-        onChanged();
-      }
-      if (!other.getDisplayName().isEmpty()) {
-        displayName_ = other.displayName_;
-        bitField0_ |= 0x00000002;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -420,11 +369,6 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000001;
               break;
             } // case 10
-            case 18: {
-              displayName_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -444,6 +388,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object taskSpecificationUrl_ = "";
     /**
+     * <pre>
+     * Url path must be prefixed with `type.googleapis.com/`.
+     * </pre>
+     *
      * <code>string task_specification_url = 1 [json_name = "taskSpecificationUrl"];</code>
      * @return The taskSpecificationUrl.
      */
@@ -460,6 +408,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Url path must be prefixed with `type.googleapis.com/`.
+     * </pre>
+     *
      * <code>string task_specification_url = 1 [json_name = "taskSpecificationUrl"];</code>
      * @return The bytes for taskSpecificationUrl.
      */
@@ -477,6 +429,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Url path must be prefixed with `type.googleapis.com/`.
+     * </pre>
+     *
      * <code>string task_specification_url = 1 [json_name = "taskSpecificationUrl"];</code>
      * @param value The taskSpecificationUrl to set.
      * @return This builder for chaining.
@@ -490,6 +446,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Url path must be prefixed with `type.googleapis.com/`.
+     * </pre>
+     *
      * <code>string task_specification_url = 1 [json_name = "taskSpecificationUrl"];</code>
      * @return This builder for chaining.
      */
@@ -500,6 +460,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Url path must be prefixed with `type.googleapis.com/`.
+     * </pre>
+     *
      * <code>string task_specification_url = 1 [json_name = "taskSpecificationUrl"];</code>
      * @param value The bytes for taskSpecificationUrl to set.
      * @return This builder for chaining.
@@ -510,78 +474,6 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       taskSpecificationUrl_ = value;
       bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object displayName_ = "";
-    /**
-     * <code>string display_name = 2 [json_name = "displayName"];</code>
-     * @return The displayName.
-     */
-    public java.lang.String getDisplayName() {
-      java.lang.Object ref = displayName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        displayName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string display_name = 2 [json_name = "displayName"];</code>
-     * @return The bytes for displayName.
-     */
-    public com.google.protobuf.ByteString
-        getDisplayNameBytes() {
-      java.lang.Object ref = displayName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        displayName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string display_name = 2 [json_name = "displayName"];</code>
-     * @param value The displayName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDisplayName(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      displayName_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string display_name = 2 [json_name = "displayName"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDisplayName() {
-      displayName_ = getDefaultInstance().getDisplayName();
-      bitField0_ = (bitField0_ & ~0x00000002);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string display_name = 2 [json_name = "displayName"];</code>
-     * @param value The bytes for displayName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDisplayNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      displayName_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
