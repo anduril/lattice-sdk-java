@@ -43,7 +43,8 @@ public enum Status
   STATUS_SENT(3),
   /**
    * <pre>
-   * In case of a human operated asset assignee, the machine was reachable and responded, but operator did not ACK yet.
+   * Task was sent to Assignee, and some system was reachable and responded.
+   * However, the system responsible for execution on the Assignee has not yet acknowledged the Task.
    * </pre>
    *
    * <code>STATUS_MACHINE_RECEIPT = 4;</code>
@@ -51,7 +52,7 @@ public enum Status
   STATUS_MACHINE_RECEIPT(4),
   /**
    * <pre>
-   * Assignee (either human or system in case of autonomous robot) has acknowledged receipt of Task.
+   * System responsible for execution on the Assignee has acknowledged the Task.
    * </pre>
    *
    * <code>STATUS_ACK = 5;</code>
@@ -163,7 +164,8 @@ public enum Status
   public static final int STATUS_SENT_VALUE = 3;
   /**
    * <pre>
-   * In case of a human operated asset assignee, the machine was reachable and responded, but operator did not ACK yet.
+   * Task was sent to Assignee, and some system was reachable and responded.
+   * However, the system responsible for execution on the Assignee has not yet acknowledged the Task.
    * </pre>
    *
    * <code>STATUS_MACHINE_RECEIPT = 4;</code>
@@ -171,7 +173,7 @@ public enum Status
   public static final int STATUS_MACHINE_RECEIPT_VALUE = 4;
   /**
    * <pre>
-   * Assignee (either human or system in case of autonomous robot) has acknowledged receipt of Task.
+   * System responsible for execution on the Assignee has acknowledged the Task.
    * </pre>
    *
    * <code>STATUS_ACK = 5;</code>

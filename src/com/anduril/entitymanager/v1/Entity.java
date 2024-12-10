@@ -608,7 +608,7 @@ private static final long serialVersionUID = 0L;
   private com.anduril.entitymanager.v1.Ontology ontology_;
   /**
    * <pre>
-   * A standardized representation of the entity.
+   * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -620,7 +620,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A standardized representation of the entity.
+   * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -632,7 +632,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A standardized representation of the entity.
+   * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
    * </pre>
    *
    * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -4947,7 +4947,7 @@ private static final long serialVersionUID = 0L;
         com.anduril.entitymanager.v1.Ontology, com.anduril.entitymanager.v1.Ontology.Builder, com.anduril.entitymanager.v1.OntologyOrBuilder> ontologyBuilder_;
     /**
      * <pre>
-     * A standardized representation of the entity.
+     * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -4958,7 +4958,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A standardized representation of the entity.
+     * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -4973,7 +4973,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A standardized representation of the entity.
+     * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -4993,7 +4993,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A standardized representation of the entity.
+     * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -5011,7 +5011,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A standardized representation of the entity.
+     * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -5034,7 +5034,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A standardized representation of the entity.
+     * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -5051,7 +5051,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A standardized representation of the entity.
+     * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -5063,7 +5063,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A standardized representation of the entity.
+     * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>
@@ -5078,7 +5078,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A standardized representation of the entity.
+     * Ontology defines an entity's categorization in Lattice, and improves data retrieval and integration. Builds a standardized representation of the entity.
      * </pre>
      *
      * <code>.anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];</code>

@@ -9,12 +9,15 @@ public interface PublishEntityRequestOrBuilder extends
 
   /**
    * <pre>
-   * Sends an entity object to publish.
+   * Create or update an entity.
    * Required fields:
-   *   * expiry_time. This must be in the future, but less than 30 days from now.
+   *   * entity_id: Unique string identifier. Can be a Globally Unique Identifier (GUID).
+   *   * expiry_time: Expiration time that must be greater than the current time and less than 30 days in the future. The Entities API will reject any entity update with an expiry_time in the past. When the expiry_time has passed, the Entities API will delete the entity from the COP and send a DELETE event.
+   *   * is_live: Boolean that when true, creates or updates the entity. If false and the entity is still live, triggers a DELETE event.
+   *   * provenance.integration_name: String that uniquely identifies the integration responsible for publishing the entity.
    *   * provenance.data_type.
    *   * provenance.source_update_time. This can be earlier than the RPC call if the data entered is older.
-   *   * aliases.name
+   *   * aliases.name: Human-readable string that represents the name of an entity.
    *   * ontology.template
    * For additional required fields that are determined by template, see com.anduril.entitymanager.v1.Template.
    * if an entity_id is provided, Entity Manager updates the entity. If no entity_id is provided, it creates an entity.
@@ -26,12 +29,15 @@ public interface PublishEntityRequestOrBuilder extends
   boolean hasEntity();
   /**
    * <pre>
-   * Sends an entity object to publish.
+   * Create or update an entity.
    * Required fields:
-   *   * expiry_time. This must be in the future, but less than 30 days from now.
+   *   * entity_id: Unique string identifier. Can be a Globally Unique Identifier (GUID).
+   *   * expiry_time: Expiration time that must be greater than the current time and less than 30 days in the future. The Entities API will reject any entity update with an expiry_time in the past. When the expiry_time has passed, the Entities API will delete the entity from the COP and send a DELETE event.
+   *   * is_live: Boolean that when true, creates or updates the entity. If false and the entity is still live, triggers a DELETE event.
+   *   * provenance.integration_name: String that uniquely identifies the integration responsible for publishing the entity.
    *   * provenance.data_type.
    *   * provenance.source_update_time. This can be earlier than the RPC call if the data entered is older.
-   *   * aliases.name
+   *   * aliases.name: Human-readable string that represents the name of an entity.
    *   * ontology.template
    * For additional required fields that are determined by template, see com.anduril.entitymanager.v1.Template.
    * if an entity_id is provided, Entity Manager updates the entity. If no entity_id is provided, it creates an entity.
@@ -43,12 +49,15 @@ public interface PublishEntityRequestOrBuilder extends
   com.anduril.entitymanager.v1.Entity getEntity();
   /**
    * <pre>
-   * Sends an entity object to publish.
+   * Create or update an entity.
    * Required fields:
-   *   * expiry_time. This must be in the future, but less than 30 days from now.
+   *   * entity_id: Unique string identifier. Can be a Globally Unique Identifier (GUID).
+   *   * expiry_time: Expiration time that must be greater than the current time and less than 30 days in the future. The Entities API will reject any entity update with an expiry_time in the past. When the expiry_time has passed, the Entities API will delete the entity from the COP and send a DELETE event.
+   *   * is_live: Boolean that when true, creates or updates the entity. If false and the entity is still live, triggers a DELETE event.
+   *   * provenance.integration_name: String that uniquely identifies the integration responsible for publishing the entity.
    *   * provenance.data_type.
    *   * provenance.source_update_time. This can be earlier than the RPC call if the data entered is older.
-   *   * aliases.name
+   *   * aliases.name: Human-readable string that represents the name of an entity.
    *   * ontology.template
    * For additional required fields that are determined by template, see com.anduril.entitymanager.v1.Template.
    * if an entity_id is provided, Entity Manager updates the entity. If no entity_id is provided, it creates an entity.
