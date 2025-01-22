@@ -1,5 +1,7 @@
 # Lattice SDK Java
 
+[![Version](https://img.shields.io/maven-central/v/com.anduril/lattice-sdk)](https://mvnrepository.com/artifact/com.anduril/lattice-sdk)
+
 The official [Anduril](https://www.anduril.com/) Lattice SDK for Java.
 
 ## Documentation
