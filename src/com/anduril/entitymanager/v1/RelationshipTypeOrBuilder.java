@@ -67,5 +67,20 @@ public interface RelationshipTypeOrBuilder extends
    */
   com.anduril.entitymanager.v1.MergedFromOrBuilder getMergedFromOrBuilder();
 
+  /**
+   * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+   * @return Whether the activeTarget field is set.
+   */
+  boolean hasActiveTarget();
+  /**
+   * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+   * @return The activeTarget.
+   */
+  com.anduril.entitymanager.v1.ActiveTarget getActiveTarget();
+  /**
+   * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+   */
+  com.anduril.entitymanager.v1.ActiveTargetOrBuilder getActiveTargetOrBuilder();
+
   com.anduril.entitymanager.v1.RelationshipType.TypeCase getTypeCase();
 }

@@ -19,6 +19,11 @@ public final class GroupPubProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_GroupDetails_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_Echelon_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_Echelon_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -29,14 +34,26 @@ public final class GroupPubProto {
   static {
     java.lang.String[] descriptorData = {
       "\n(anduril/entitymanager/v1/group.pub.pro" +
-      "to\022\030anduril.entitymanager.v1\"\016\n\014GroupDet" +
-      "ailsB\201\002\n\034com.anduril.entitymanager.v1B\rG" +
-      "roupPubProtoP\001ZPgithub.com/anduril/latti" +
-      "ce-sdk-java/src/anduril/entitymanager/v1" +
-      ";entitymanagerv1\242\002\003AEX\252\002\030Anduril.Entitym" +
-      "anager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$A" +
-      "nduril\\Entitymanager\\V1\\GPBMetadata\352\002\032An" +
-      "duril::Entitymanager::V1b\006proto3"
+      "to\022\030anduril.entitymanager.v1\"[\n\014GroupDet" +
+      "ails\022=\n\007echelon\030\003 \001(\0132!.anduril.entityma" +
+      "nager.v1.EchelonH\000R\007echelonB\014\n\ngroup_typ" +
+      "e\"e\n\007Echelon\022J\n\014army_echelon\030\001 \001(\0162%.and" +
+      "uril.entitymanager.v1.ArmyEchelonH\000R\013arm" +
+      "yEchelonB\016\n\014echelon_type*\252\002\n\013ArmyEchelon" +
+      "\022\030\n\024ARMY_ECHELON_INVALID\020\000\022\032\n\026ARMY_ECHEL" +
+      "ON_FIRE_TEAM\020\001\022\026\n\022ARMY_ECHELON_SQUAD\020\002\022\030" +
+      "\n\024ARMY_ECHELON_PLATOON\020\003\022\030\n\024ARMY_ECHELON" +
+      "_COMPANY\020\004\022\032\n\026ARMY_ECHELON_BATTALION\020\005\022\031" +
+      "\n\025ARMY_ECHELON_REGIMENT\020\006\022\030\n\024ARMY_ECHELO" +
+      "N_BRIGADE\020\007\022\031\n\025ARMY_ECHELON_DIVISION\020\010\022\026" +
+      "\n\022ARMY_ECHELON_CORPS\020\t\022\025\n\021ARMY_ECHELON_A" +
+      "RMY\020\nB\201\002\n\034com.anduril.entitymanager.v1B\r" +
+      "GroupPubProtoP\001ZPgithub.com/anduril/latt" +
+      "ice-sdk-java/src/anduril/entitymanager/v" +
+      "1;entitymanagerv1\242\002\003AEX\252\002\030Anduril.Entity" +
+      "manager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$" +
+      "Anduril\\Entitymanager\\V1\\GPBMetadata\352\002\032A" +
+      "nduril::Entitymanager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -47,7 +64,13 @@ public final class GroupPubProto {
     internal_static_anduril_entitymanager_v1_GroupDetails_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GroupDetails_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Echelon", "GroupType", });
+    internal_static_anduril_entitymanager_v1_Echelon_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_anduril_entitymanager_v1_Echelon_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_Echelon_descriptor,
+        new java.lang.String[] { "ArmyEchelon", "EchelonType", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
