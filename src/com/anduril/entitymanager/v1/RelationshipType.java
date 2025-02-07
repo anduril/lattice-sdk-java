@@ -52,6 +52,7 @@ private static final long serialVersionUID = 0L;
     GROUP_CHILD(4),
     GROUP_PARENT(5),
     MERGED_FROM(6),
+    ACTIVE_TARGET(7),
     TYPE_NOT_SET(0);
     private final int value;
     private TypeCase(int value) {
@@ -73,6 +74,7 @@ private static final long serialVersionUID = 0L;
         case 4: return GROUP_CHILD;
         case 5: return GROUP_PARENT;
         case 6: return MERGED_FROM;
+        case 7: return ACTIVE_TARGET;
         case 0: return TYPE_NOT_SET;
         default: return null;
       }
@@ -212,6 +214,37 @@ private static final long serialVersionUID = 0L;
     return com.anduril.entitymanager.v1.MergedFrom.getDefaultInstance();
   }
 
+  public static final int ACTIVE_TARGET_FIELD_NUMBER = 7;
+  /**
+   * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+   * @return Whether the activeTarget field is set.
+   */
+  @java.lang.Override
+  public boolean hasActiveTarget() {
+    return typeCase_ == 7;
+  }
+  /**
+   * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+   * @return The activeTarget.
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.ActiveTarget getActiveTarget() {
+    if (typeCase_ == 7) {
+       return (com.anduril.entitymanager.v1.ActiveTarget) type_;
+    }
+    return com.anduril.entitymanager.v1.ActiveTarget.getDefaultInstance();
+  }
+  /**
+   * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.ActiveTargetOrBuilder getActiveTargetOrBuilder() {
+    if (typeCase_ == 7) {
+       return (com.anduril.entitymanager.v1.ActiveTarget) type_;
+    }
+    return com.anduril.entitymanager.v1.ActiveTarget.getDefaultInstance();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -238,6 +271,9 @@ private static final long serialVersionUID = 0L;
     if (typeCase_ == 6) {
       output.writeMessage(6, (com.anduril.entitymanager.v1.MergedFrom) type_);
     }
+    if (typeCase_ == 7) {
+      output.writeMessage(7, (com.anduril.entitymanager.v1.ActiveTarget) type_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -262,6 +298,10 @@ private static final long serialVersionUID = 0L;
     if (typeCase_ == 6) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, (com.anduril.entitymanager.v1.MergedFrom) type_);
+    }
+    if (typeCase_ == 7) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, (com.anduril.entitymanager.v1.ActiveTarget) type_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -296,6 +336,10 @@ private static final long serialVersionUID = 0L;
         if (!getMergedFrom()
             .equals(other.getMergedFrom())) return false;
         break;
+      case 7:
+        if (!getActiveTarget()
+            .equals(other.getActiveTarget())) return false;
+        break;
       case 0:
       default:
     }
@@ -326,6 +370,10 @@ private static final long serialVersionUID = 0L;
       case 6:
         hash = (37 * hash) + MERGED_FROM_FIELD_NUMBER;
         hash = (53 * hash) + getMergedFrom().hashCode();
+        break;
+      case 7:
+        hash = (37 * hash) + ACTIVE_TARGET_FIELD_NUMBER;
+        hash = (53 * hash) + getActiveTarget().hashCode();
         break;
       case 0:
       default:
@@ -475,6 +523,9 @@ private static final long serialVersionUID = 0L;
       if (mergedFromBuilder_ != null) {
         mergedFromBuilder_.clear();
       }
+      if (activeTargetBuilder_ != null) {
+        activeTargetBuilder_.clear();
+      }
       typeCase_ = 0;
       type_ = null;
       return this;
@@ -532,6 +583,10 @@ private static final long serialVersionUID = 0L;
           mergedFromBuilder_ != null) {
         result.type_ = mergedFromBuilder_.build();
       }
+      if (typeCase_ == 7 &&
+          activeTargetBuilder_ != null) {
+        result.type_ = activeTargetBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -561,6 +616,10 @@ private static final long serialVersionUID = 0L;
         }
         case MERGED_FROM: {
           mergeMergedFrom(other.getMergedFrom());
+          break;
+        }
+        case ACTIVE_TARGET: {
+          mergeActiveTarget(other.getActiveTarget());
           break;
         }
         case TYPE_NOT_SET: {
@@ -621,6 +680,13 @@ private static final long serialVersionUID = 0L;
               typeCase_ = 6;
               break;
             } // case 50
+            case 58: {
+              input.readMessage(
+                  getActiveTargetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 7;
+              break;
+            } // case 58
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1219,6 +1285,148 @@ private static final long serialVersionUID = 0L;
       typeCase_ = 6;
       onChanged();
       return mergedFromBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.ActiveTarget, com.anduril.entitymanager.v1.ActiveTarget.Builder, com.anduril.entitymanager.v1.ActiveTargetOrBuilder> activeTargetBuilder_;
+    /**
+     * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+     * @return Whether the activeTarget field is set.
+     */
+    @java.lang.Override
+    public boolean hasActiveTarget() {
+      return typeCase_ == 7;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+     * @return The activeTarget.
+     */
+    @java.lang.Override
+    public com.anduril.entitymanager.v1.ActiveTarget getActiveTarget() {
+      if (activeTargetBuilder_ == null) {
+        if (typeCase_ == 7) {
+          return (com.anduril.entitymanager.v1.ActiveTarget) type_;
+        }
+        return com.anduril.entitymanager.v1.ActiveTarget.getDefaultInstance();
+      } else {
+        if (typeCase_ == 7) {
+          return activeTargetBuilder_.getMessage();
+        }
+        return com.anduril.entitymanager.v1.ActiveTarget.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+     */
+    public Builder setActiveTarget(com.anduril.entitymanager.v1.ActiveTarget value) {
+      if (activeTargetBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        type_ = value;
+        onChanged();
+      } else {
+        activeTargetBuilder_.setMessage(value);
+      }
+      typeCase_ = 7;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+     */
+    public Builder setActiveTarget(
+        com.anduril.entitymanager.v1.ActiveTarget.Builder builderForValue) {
+      if (activeTargetBuilder_ == null) {
+        type_ = builderForValue.build();
+        onChanged();
+      } else {
+        activeTargetBuilder_.setMessage(builderForValue.build());
+      }
+      typeCase_ = 7;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+     */
+    public Builder mergeActiveTarget(com.anduril.entitymanager.v1.ActiveTarget value) {
+      if (activeTargetBuilder_ == null) {
+        if (typeCase_ == 7 &&
+            type_ != com.anduril.entitymanager.v1.ActiveTarget.getDefaultInstance()) {
+          type_ = com.anduril.entitymanager.v1.ActiveTarget.newBuilder((com.anduril.entitymanager.v1.ActiveTarget) type_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          type_ = value;
+        }
+        onChanged();
+      } else {
+        if (typeCase_ == 7) {
+          activeTargetBuilder_.mergeFrom(value);
+        } else {
+          activeTargetBuilder_.setMessage(value);
+        }
+      }
+      typeCase_ = 7;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+     */
+    public Builder clearActiveTarget() {
+      if (activeTargetBuilder_ == null) {
+        if (typeCase_ == 7) {
+          typeCase_ = 0;
+          type_ = null;
+          onChanged();
+        }
+      } else {
+        if (typeCase_ == 7) {
+          typeCase_ = 0;
+          type_ = null;
+        }
+        activeTargetBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+     */
+    public com.anduril.entitymanager.v1.ActiveTarget.Builder getActiveTargetBuilder() {
+      return getActiveTargetFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+     */
+    @java.lang.Override
+    public com.anduril.entitymanager.v1.ActiveTargetOrBuilder getActiveTargetOrBuilder() {
+      if ((typeCase_ == 7) && (activeTargetBuilder_ != null)) {
+        return activeTargetBuilder_.getMessageOrBuilder();
+      } else {
+        if (typeCase_ == 7) {
+          return (com.anduril.entitymanager.v1.ActiveTarget) type_;
+        }
+        return com.anduril.entitymanager.v1.ActiveTarget.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.ActiveTarget, com.anduril.entitymanager.v1.ActiveTarget.Builder, com.anduril.entitymanager.v1.ActiveTargetOrBuilder> 
+        getActiveTargetFieldBuilder() {
+      if (activeTargetBuilder_ == null) {
+        if (!(typeCase_ == 7)) {
+          type_ = com.anduril.entitymanager.v1.ActiveTarget.getDefaultInstance();
+        }
+        activeTargetBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.anduril.entitymanager.v1.ActiveTarget, com.anduril.entitymanager.v1.ActiveTarget.Builder, com.anduril.entitymanager.v1.ActiveTargetOrBuilder>(
+                (com.anduril.entitymanager.v1.ActiveTarget) type_,
+                getParentForChildren(),
+                isClean());
+        type_ = null;
+      }
+      typeCase_ = 7;
+      onChanged();
+      return activeTargetBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

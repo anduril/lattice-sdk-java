@@ -42,6 +42,77 @@ private static final long serialVersionUID = 0L;
             com.anduril.entitymanager.v1.GroupDetails.class, com.anduril.entitymanager.v1.GroupDetails.Builder.class);
   }
 
+  private int groupTypeCase_ = 0;
+  @SuppressWarnings("serial")
+  private java.lang.Object groupType_;
+  public enum GroupTypeCase
+      implements com.google.protobuf.Internal.EnumLite,
+          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+    ECHELON(3),
+    GROUPTYPE_NOT_SET(0);
+    private final int value;
+    private GroupTypeCase(int value) {
+      this.value = value;
+    }
+    /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static GroupTypeCase valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static GroupTypeCase forNumber(int value) {
+      switch (value) {
+        case 3: return ECHELON;
+        case 0: return GROUPTYPE_NOT_SET;
+        default: return null;
+      }
+    }
+    public int getNumber() {
+      return this.value;
+    }
+  };
+
+  public GroupTypeCase
+  getGroupTypeCase() {
+    return GroupTypeCase.forNumber(
+        groupTypeCase_);
+  }
+
+  public static final int ECHELON_FIELD_NUMBER = 3;
+  /**
+   * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+   * @return Whether the echelon field is set.
+   */
+  @java.lang.Override
+  public boolean hasEchelon() {
+    return groupTypeCase_ == 3;
+  }
+  /**
+   * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+   * @return The echelon.
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.Echelon getEchelon() {
+    if (groupTypeCase_ == 3) {
+       return (com.anduril.entitymanager.v1.Echelon) groupType_;
+    }
+    return com.anduril.entitymanager.v1.Echelon.getDefaultInstance();
+  }
+  /**
+   * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.EchelonOrBuilder getEchelonOrBuilder() {
+    if (groupTypeCase_ == 3) {
+       return (com.anduril.entitymanager.v1.Echelon) groupType_;
+    }
+    return com.anduril.entitymanager.v1.Echelon.getDefaultInstance();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -56,6 +127,9 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (groupTypeCase_ == 3) {
+      output.writeMessage(3, (com.anduril.entitymanager.v1.Echelon) groupType_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -65,6 +139,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (groupTypeCase_ == 3) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, (com.anduril.entitymanager.v1.Echelon) groupType_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -80,6 +158,15 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.GroupDetails other = (com.anduril.entitymanager.v1.GroupDetails) obj;
 
+    if (!getGroupTypeCase().equals(other.getGroupTypeCase())) return false;
+    switch (groupTypeCase_) {
+      case 3:
+        if (!getEchelon()
+            .equals(other.getEchelon())) return false;
+        break;
+      case 0:
+      default:
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -91,6 +178,14 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    switch (groupTypeCase_) {
+      case 3:
+        hash = (37 * hash) + ECHELON_FIELD_NUMBER;
+        hash = (53 * hash) + getEchelon().hashCode();
+        break;
+      case 0:
+      default:
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -223,6 +318,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (echelonBuilder_ != null) {
+        echelonBuilder_.clear();
+      }
+      groupTypeCase_ = 0;
+      groupType_ = null;
       return this;
     }
 
@@ -249,8 +350,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.anduril.entitymanager.v1.GroupDetails buildPartial() {
       com.anduril.entitymanager.v1.GroupDetails result = new com.anduril.entitymanager.v1.GroupDetails(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.anduril.entitymanager.v1.GroupDetails result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.anduril.entitymanager.v1.GroupDetails result) {
+      result.groupTypeCase_ = groupTypeCase_;
+      result.groupType_ = this.groupType_;
+      if (groupTypeCase_ == 3 &&
+          echelonBuilder_ != null) {
+        result.groupType_ = echelonBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -265,6 +381,15 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.GroupDetails other) {
       if (other == com.anduril.entitymanager.v1.GroupDetails.getDefaultInstance()) return this;
+      switch (other.getGroupTypeCase()) {
+        case ECHELON: {
+          mergeEchelon(other.getEchelon());
+          break;
+        }
+        case GROUPTYPE_NOT_SET: {
+          break;
+        }
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -291,6 +416,13 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
+            case 26: {
+              input.readMessage(
+                  getEchelonFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              groupTypeCase_ = 3;
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -305,6 +437,164 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } // finally
       return this;
+    }
+    private int groupTypeCase_ = 0;
+    private java.lang.Object groupType_;
+    public GroupTypeCase
+        getGroupTypeCase() {
+      return GroupTypeCase.forNumber(
+          groupTypeCase_);
+    }
+
+    public Builder clearGroupType() {
+      groupTypeCase_ = 0;
+      groupType_ = null;
+      onChanged();
+      return this;
+    }
+
+    private int bitField0_;
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.Echelon, com.anduril.entitymanager.v1.Echelon.Builder, com.anduril.entitymanager.v1.EchelonOrBuilder> echelonBuilder_;
+    /**
+     * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+     * @return Whether the echelon field is set.
+     */
+    @java.lang.Override
+    public boolean hasEchelon() {
+      return groupTypeCase_ == 3;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+     * @return The echelon.
+     */
+    @java.lang.Override
+    public com.anduril.entitymanager.v1.Echelon getEchelon() {
+      if (echelonBuilder_ == null) {
+        if (groupTypeCase_ == 3) {
+          return (com.anduril.entitymanager.v1.Echelon) groupType_;
+        }
+        return com.anduril.entitymanager.v1.Echelon.getDefaultInstance();
+      } else {
+        if (groupTypeCase_ == 3) {
+          return echelonBuilder_.getMessage();
+        }
+        return com.anduril.entitymanager.v1.Echelon.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+     */
+    public Builder setEchelon(com.anduril.entitymanager.v1.Echelon value) {
+      if (echelonBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        groupType_ = value;
+        onChanged();
+      } else {
+        echelonBuilder_.setMessage(value);
+      }
+      groupTypeCase_ = 3;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+     */
+    public Builder setEchelon(
+        com.anduril.entitymanager.v1.Echelon.Builder builderForValue) {
+      if (echelonBuilder_ == null) {
+        groupType_ = builderForValue.build();
+        onChanged();
+      } else {
+        echelonBuilder_.setMessage(builderForValue.build());
+      }
+      groupTypeCase_ = 3;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+     */
+    public Builder mergeEchelon(com.anduril.entitymanager.v1.Echelon value) {
+      if (echelonBuilder_ == null) {
+        if (groupTypeCase_ == 3 &&
+            groupType_ != com.anduril.entitymanager.v1.Echelon.getDefaultInstance()) {
+          groupType_ = com.anduril.entitymanager.v1.Echelon.newBuilder((com.anduril.entitymanager.v1.Echelon) groupType_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          groupType_ = value;
+        }
+        onChanged();
+      } else {
+        if (groupTypeCase_ == 3) {
+          echelonBuilder_.mergeFrom(value);
+        } else {
+          echelonBuilder_.setMessage(value);
+        }
+      }
+      groupTypeCase_ = 3;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+     */
+    public Builder clearEchelon() {
+      if (echelonBuilder_ == null) {
+        if (groupTypeCase_ == 3) {
+          groupTypeCase_ = 0;
+          groupType_ = null;
+          onChanged();
+        }
+      } else {
+        if (groupTypeCase_ == 3) {
+          groupTypeCase_ = 0;
+          groupType_ = null;
+        }
+        echelonBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+     */
+    public com.anduril.entitymanager.v1.Echelon.Builder getEchelonBuilder() {
+      return getEchelonFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+     */
+    @java.lang.Override
+    public com.anduril.entitymanager.v1.EchelonOrBuilder getEchelonOrBuilder() {
+      if ((groupTypeCase_ == 3) && (echelonBuilder_ != null)) {
+        return echelonBuilder_.getMessageOrBuilder();
+      } else {
+        if (groupTypeCase_ == 3) {
+          return (com.anduril.entitymanager.v1.Echelon) groupType_;
+        }
+        return com.anduril.entitymanager.v1.Echelon.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.Echelon, com.anduril.entitymanager.v1.Echelon.Builder, com.anduril.entitymanager.v1.EchelonOrBuilder> 
+        getEchelonFieldBuilder() {
+      if (echelonBuilder_ == null) {
+        if (!(groupTypeCase_ == 3)) {
+          groupType_ = com.anduril.entitymanager.v1.Echelon.getDefaultInstance();
+        }
+        echelonBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.anduril.entitymanager.v1.Echelon, com.anduril.entitymanager.v1.Echelon.Builder, com.anduril.entitymanager.v1.EchelonOrBuilder>(
+                (com.anduril.entitymanager.v1.Echelon) groupType_,
+                getParentForChildren(),
+                isClean());
+        groupType_ = null;
+      }
+      groupTypeCase_ = 3;
+      onChanged();
+      return echelonBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
