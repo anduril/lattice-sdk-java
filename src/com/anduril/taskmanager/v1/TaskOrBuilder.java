@@ -36,22 +36,26 @@ public interface TaskOrBuilder extends
 
   /**
    * <pre>
-   * Human readable display name for this Task, should be short (&lt;100 chars).
+   * DEPRECATED: Human readable display name for this Task, should be short (&lt;100 chars).
    * </pre>
    *
-   * <code>string display_name = 2 [json_name = "displayName"];</code>
+   * <code>string display_name = 2 [json_name = "displayName", deprecated = true];</code>
+   * @deprecated anduril.taskmanager.v1.Task.display_name is deprecated.
+   *     See anduril/taskmanager/v1/task.pub.proto;l=20
    * @return The displayName.
    */
-  java.lang.String getDisplayName();
+  @java.lang.Deprecated java.lang.String getDisplayName();
   /**
    * <pre>
-   * Human readable display name for this Task, should be short (&lt;100 chars).
+   * DEPRECATED: Human readable display name for this Task, should be short (&lt;100 chars).
    * </pre>
    *
-   * <code>string display_name = 2 [json_name = "displayName"];</code>
+   * <code>string display_name = 2 [json_name = "displayName", deprecated = true];</code>
+   * @deprecated anduril.taskmanager.v1.Task.display_name is deprecated.
+   *     See anduril/taskmanager/v1/task.pub.proto;l=20
    * @return The bytes for displayName.
    */
-  com.google.protobuf.ByteString
+  @java.lang.Deprecated com.google.protobuf.ByteString
       getDisplayNameBytes();
 
   /**

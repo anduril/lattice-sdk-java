@@ -88,14 +88,16 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
-   * Human readable display name for this Task, should be short (&lt;100 chars).
+   * DEPRECATED: Human readable display name for this Task, should be short (&lt;100 chars).
    * </pre>
    *
-   * <code>string display_name = 2 [json_name = "displayName"];</code>
+   * <code>string display_name = 2 [json_name = "displayName", deprecated = true];</code>
+   * @deprecated anduril.taskmanager.v1.Task.display_name is deprecated.
+   *     See anduril/taskmanager/v1/task.pub.proto;l=20
    * @return The displayName.
    */
   @java.lang.Override
-  public java.lang.String getDisplayName() {
+  @java.lang.Deprecated public java.lang.String getDisplayName() {
     java.lang.Object ref = displayName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
@@ -109,14 +111,16 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Human readable display name for this Task, should be short (&lt;100 chars).
+   * DEPRECATED: Human readable display name for this Task, should be short (&lt;100 chars).
    * </pre>
    *
-   * <code>string display_name = 2 [json_name = "displayName"];</code>
+   * <code>string display_name = 2 [json_name = "displayName", deprecated = true];</code>
+   * @deprecated anduril.taskmanager.v1.Task.display_name is deprecated.
+   *     See anduril/taskmanager/v1/task.pub.proto;l=20
    * @return The bytes for displayName.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
+  @java.lang.Deprecated public com.google.protobuf.ByteString
       getDisplayNameBytes() {
     java.lang.Object ref = displayName_;
     if (ref instanceof java.lang.String) {
@@ -1622,13 +1626,15 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object displayName_ = "";
     /**
      * <pre>
-     * Human readable display name for this Task, should be short (&lt;100 chars).
+     * DEPRECATED: Human readable display name for this Task, should be short (&lt;100 chars).
      * </pre>
      *
-     * <code>string display_name = 2 [json_name = "displayName"];</code>
+     * <code>string display_name = 2 [json_name = "displayName", deprecated = true];</code>
+     * @deprecated anduril.taskmanager.v1.Task.display_name is deprecated.
+     *     See anduril/taskmanager/v1/task.pub.proto;l=20
      * @return The displayName.
      */
-    public java.lang.String getDisplayName() {
+    @java.lang.Deprecated public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
@@ -1642,13 +1648,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human readable display name for this Task, should be short (&lt;100 chars).
+     * DEPRECATED: Human readable display name for this Task, should be short (&lt;100 chars).
      * </pre>
      *
-     * <code>string display_name = 2 [json_name = "displayName"];</code>
+     * <code>string display_name = 2 [json_name = "displayName", deprecated = true];</code>
+     * @deprecated anduril.taskmanager.v1.Task.display_name is deprecated.
+     *     See anduril/taskmanager/v1/task.pub.proto;l=20
      * @return The bytes for displayName.
      */
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
       if (ref instanceof String) {
@@ -1663,14 +1671,16 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human readable display name for this Task, should be short (&lt;100 chars).
+     * DEPRECATED: Human readable display name for this Task, should be short (&lt;100 chars).
      * </pre>
      *
-     * <code>string display_name = 2 [json_name = "displayName"];</code>
+     * <code>string display_name = 2 [json_name = "displayName", deprecated = true];</code>
+     * @deprecated anduril.taskmanager.v1.Task.display_name is deprecated.
+     *     See anduril/taskmanager/v1/task.pub.proto;l=20
      * @param value The displayName to set.
      * @return This builder for chaining.
      */
-    public Builder setDisplayName(
+    @java.lang.Deprecated public Builder setDisplayName(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
@@ -1680,13 +1690,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human readable display name for this Task, should be short (&lt;100 chars).
+     * DEPRECATED: Human readable display name for this Task, should be short (&lt;100 chars).
      * </pre>
      *
-     * <code>string display_name = 2 [json_name = "displayName"];</code>
+     * <code>string display_name = 2 [json_name = "displayName", deprecated = true];</code>
+     * @deprecated anduril.taskmanager.v1.Task.display_name is deprecated.
+     *     See anduril/taskmanager/v1/task.pub.proto;l=20
      * @return This builder for chaining.
      */
-    public Builder clearDisplayName() {
+    @java.lang.Deprecated public Builder clearDisplayName() {
       displayName_ = getDefaultInstance().getDisplayName();
       bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
@@ -1694,14 +1706,16 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Human readable display name for this Task, should be short (&lt;100 chars).
+     * DEPRECATED: Human readable display name for this Task, should be short (&lt;100 chars).
      * </pre>
      *
-     * <code>string display_name = 2 [json_name = "displayName"];</code>
+     * <code>string display_name = 2 [json_name = "displayName", deprecated = true];</code>
+     * @deprecated anduril.taskmanager.v1.Task.display_name is deprecated.
+     *     See anduril/taskmanager/v1/task.pub.proto;l=20
      * @param value The bytes for displayName to set.
      * @return This builder for chaining.
      */
-    public Builder setDisplayNameBytes(
+    @java.lang.Deprecated public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
