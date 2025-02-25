@@ -6,7 +6,7 @@ The official [Anduril](https://www.anduril.com/) Lattice SDK for Java.
 
 ## Documentation
 
-See the documentation for [Lattice Java SDK](https://docs.anduril.com/sdks/java).
+See the documentation for [Lattice Java SDK](https://docs.anduril.com/guide/sdks/java).
 
 ## Requirements
 
