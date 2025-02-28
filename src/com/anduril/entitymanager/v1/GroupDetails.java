@@ -48,6 +48,7 @@ private static final long serialVersionUID = 0L;
   public enum GroupTypeCase
       implements com.google.protobuf.Internal.EnumLite,
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+    TEAM(1),
     ECHELON(3),
     GROUPTYPE_NOT_SET(0);
     private final int value;
@@ -66,6 +67,7 @@ private static final long serialVersionUID = 0L;
 
     public static GroupTypeCase forNumber(int value) {
       switch (value) {
+        case 1: return TEAM;
         case 3: return ECHELON;
         case 0: return GROUPTYPE_NOT_SET;
         default: return null;
@@ -80,6 +82,37 @@ private static final long serialVersionUID = 0L;
   getGroupTypeCase() {
     return GroupTypeCase.forNumber(
         groupTypeCase_);
+  }
+
+  public static final int TEAM_FIELD_NUMBER = 1;
+  /**
+   * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+   * @return Whether the team field is set.
+   */
+  @java.lang.Override
+  public boolean hasTeam() {
+    return groupTypeCase_ == 1;
+  }
+  /**
+   * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+   * @return The team.
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.Team getTeam() {
+    if (groupTypeCase_ == 1) {
+       return (com.anduril.entitymanager.v1.Team) groupType_;
+    }
+    return com.anduril.entitymanager.v1.Team.getDefaultInstance();
+  }
+  /**
+   * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.TeamOrBuilder getTeamOrBuilder() {
+    if (groupTypeCase_ == 1) {
+       return (com.anduril.entitymanager.v1.Team) groupType_;
+    }
+    return com.anduril.entitymanager.v1.Team.getDefaultInstance();
   }
 
   public static final int ECHELON_FIELD_NUMBER = 3;
@@ -127,6 +160,9 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (groupTypeCase_ == 1) {
+      output.writeMessage(1, (com.anduril.entitymanager.v1.Team) groupType_);
+    }
     if (groupTypeCase_ == 3) {
       output.writeMessage(3, (com.anduril.entitymanager.v1.Echelon) groupType_);
     }
@@ -139,6 +175,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (groupTypeCase_ == 1) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, (com.anduril.entitymanager.v1.Team) groupType_);
+    }
     if (groupTypeCase_ == 3) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.anduril.entitymanager.v1.Echelon) groupType_);
@@ -160,6 +200,10 @@ private static final long serialVersionUID = 0L;
 
     if (!getGroupTypeCase().equals(other.getGroupTypeCase())) return false;
     switch (groupTypeCase_) {
+      case 1:
+        if (!getTeam()
+            .equals(other.getTeam())) return false;
+        break;
       case 3:
         if (!getEchelon()
             .equals(other.getEchelon())) return false;
@@ -179,6 +223,10 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     switch (groupTypeCase_) {
+      case 1:
+        hash = (37 * hash) + TEAM_FIELD_NUMBER;
+        hash = (53 * hash) + getTeam().hashCode();
+        break;
       case 3:
         hash = (37 * hash) + ECHELON_FIELD_NUMBER;
         hash = (53 * hash) + getEchelon().hashCode();
@@ -319,6 +367,9 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
+      if (teamBuilder_ != null) {
+        teamBuilder_.clear();
+      }
       if (echelonBuilder_ != null) {
         echelonBuilder_.clear();
       }
@@ -363,6 +414,10 @@ private static final long serialVersionUID = 0L;
     private void buildPartialOneofs(com.anduril.entitymanager.v1.GroupDetails result) {
       result.groupTypeCase_ = groupTypeCase_;
       result.groupType_ = this.groupType_;
+      if (groupTypeCase_ == 1 &&
+          teamBuilder_ != null) {
+        result.groupType_ = teamBuilder_.build();
+      }
       if (groupTypeCase_ == 3 &&
           echelonBuilder_ != null) {
         result.groupType_ = echelonBuilder_.build();
@@ -382,6 +437,10 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.anduril.entitymanager.v1.GroupDetails other) {
       if (other == com.anduril.entitymanager.v1.GroupDetails.getDefaultInstance()) return this;
       switch (other.getGroupTypeCase()) {
+        case TEAM: {
+          mergeTeam(other.getTeam());
+          break;
+        }
         case ECHELON: {
           mergeEchelon(other.getEchelon());
           break;
@@ -416,6 +475,13 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
+            case 10: {
+              input.readMessage(
+                  getTeamFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              groupTypeCase_ = 1;
+              break;
+            } // case 10
             case 26: {
               input.readMessage(
                   getEchelonFieldBuilder().getBuilder(),
@@ -454,6 +520,148 @@ private static final long serialVersionUID = 0L;
     }
 
     private int bitField0_;
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.Team, com.anduril.entitymanager.v1.Team.Builder, com.anduril.entitymanager.v1.TeamOrBuilder> teamBuilder_;
+    /**
+     * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+     * @return Whether the team field is set.
+     */
+    @java.lang.Override
+    public boolean hasTeam() {
+      return groupTypeCase_ == 1;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+     * @return The team.
+     */
+    @java.lang.Override
+    public com.anduril.entitymanager.v1.Team getTeam() {
+      if (teamBuilder_ == null) {
+        if (groupTypeCase_ == 1) {
+          return (com.anduril.entitymanager.v1.Team) groupType_;
+        }
+        return com.anduril.entitymanager.v1.Team.getDefaultInstance();
+      } else {
+        if (groupTypeCase_ == 1) {
+          return teamBuilder_.getMessage();
+        }
+        return com.anduril.entitymanager.v1.Team.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+     */
+    public Builder setTeam(com.anduril.entitymanager.v1.Team value) {
+      if (teamBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        groupType_ = value;
+        onChanged();
+      } else {
+        teamBuilder_.setMessage(value);
+      }
+      groupTypeCase_ = 1;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+     */
+    public Builder setTeam(
+        com.anduril.entitymanager.v1.Team.Builder builderForValue) {
+      if (teamBuilder_ == null) {
+        groupType_ = builderForValue.build();
+        onChanged();
+      } else {
+        teamBuilder_.setMessage(builderForValue.build());
+      }
+      groupTypeCase_ = 1;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+     */
+    public Builder mergeTeam(com.anduril.entitymanager.v1.Team value) {
+      if (teamBuilder_ == null) {
+        if (groupTypeCase_ == 1 &&
+            groupType_ != com.anduril.entitymanager.v1.Team.getDefaultInstance()) {
+          groupType_ = com.anduril.entitymanager.v1.Team.newBuilder((com.anduril.entitymanager.v1.Team) groupType_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          groupType_ = value;
+        }
+        onChanged();
+      } else {
+        if (groupTypeCase_ == 1) {
+          teamBuilder_.mergeFrom(value);
+        } else {
+          teamBuilder_.setMessage(value);
+        }
+      }
+      groupTypeCase_ = 1;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+     */
+    public Builder clearTeam() {
+      if (teamBuilder_ == null) {
+        if (groupTypeCase_ == 1) {
+          groupTypeCase_ = 0;
+          groupType_ = null;
+          onChanged();
+        }
+      } else {
+        if (groupTypeCase_ == 1) {
+          groupTypeCase_ = 0;
+          groupType_ = null;
+        }
+        teamBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+     */
+    public com.anduril.entitymanager.v1.Team.Builder getTeamBuilder() {
+      return getTeamFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+     */
+    @java.lang.Override
+    public com.anduril.entitymanager.v1.TeamOrBuilder getTeamOrBuilder() {
+      if ((groupTypeCase_ == 1) && (teamBuilder_ != null)) {
+        return teamBuilder_.getMessageOrBuilder();
+      } else {
+        if (groupTypeCase_ == 1) {
+          return (com.anduril.entitymanager.v1.Team) groupType_;
+        }
+        return com.anduril.entitymanager.v1.Team.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.Team, com.anduril.entitymanager.v1.Team.Builder, com.anduril.entitymanager.v1.TeamOrBuilder> 
+        getTeamFieldBuilder() {
+      if (teamBuilder_ == null) {
+        if (!(groupTypeCase_ == 1)) {
+          groupType_ = com.anduril.entitymanager.v1.Team.getDefaultInstance();
+        }
+        teamBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.anduril.entitymanager.v1.Team, com.anduril.entitymanager.v1.Team.Builder, com.anduril.entitymanager.v1.TeamOrBuilder>(
+                (com.anduril.entitymanager.v1.Team) groupType_,
+                getParentForChildren(),
+                isClean());
+        groupType_ = null;
+      }
+      groupTypeCase_ = 1;
+      onChanged();
+      return teamBuilder_;
+    }
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.Echelon, com.anduril.entitymanager.v1.Echelon.Builder, com.anduril.entitymanager.v1.EchelonOrBuilder> echelonBuilder_;
