@@ -8,6 +8,21 @@ public interface GroupDetailsOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+   * @return Whether the team field is set.
+   */
+  boolean hasTeam();
+  /**
+   * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+   * @return The team.
+   */
+  com.anduril.entitymanager.v1.Team getTeam();
+  /**
+   * <code>.anduril.entitymanager.v1.Team team = 1 [json_name = "team"];</code>
+   */
+  com.anduril.entitymanager.v1.TeamOrBuilder getTeamOrBuilder();
+
+  /**
    * <code>.anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];</code>
    * @return Whether the echelon field is set.
    */
