@@ -43,6 +43,48 @@ private static final long serialVersionUID = 0L;
             com.anduril.entitymanager.v1.GeoDetails.class, com.anduril.entitymanager.v1.GeoDetails.Builder.class);
   }
 
+  private int typeDetailsCase_ = 0;
+  @SuppressWarnings("serial")
+  private java.lang.Object typeDetails_;
+  public enum TypeDetailsCase
+      implements com.google.protobuf.Internal.EnumLite,
+          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+    CONTROL_AREA(5),
+    ACM(6),
+    TYPEDETAILS_NOT_SET(0);
+    private final int value;
+    private TypeDetailsCase(int value) {
+      this.value = value;
+    }
+    /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static TypeDetailsCase valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static TypeDetailsCase forNumber(int value) {
+      switch (value) {
+        case 5: return CONTROL_AREA;
+        case 6: return ACM;
+        case 0: return TYPEDETAILS_NOT_SET;
+        default: return null;
+      }
+    }
+    public int getNumber() {
+      return this.value;
+    }
+  };
+
+  public TypeDetailsCase
+  getTypeDetailsCase() {
+    return TypeDetailsCase.forNumber(
+        typeDetailsCase_);
+  }
+
   public static final int TYPE_FIELD_NUMBER = 1;
   private int type_ = 0;
   /**
@@ -59,6 +101,68 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override public com.anduril.entitymanager.v1.GeoType getType() {
     com.anduril.entitymanager.v1.GeoType result = com.anduril.entitymanager.v1.GeoType.forNumber(type_);
     return result == null ? com.anduril.entitymanager.v1.GeoType.UNRECOGNIZED : result;
+  }
+
+  public static final int CONTROL_AREA_FIELD_NUMBER = 5;
+  /**
+   * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+   * @return Whether the controlArea field is set.
+   */
+  @java.lang.Override
+  public boolean hasControlArea() {
+    return typeDetailsCase_ == 5;
+  }
+  /**
+   * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+   * @return The controlArea.
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.ControlAreaDetails getControlArea() {
+    if (typeDetailsCase_ == 5) {
+       return (com.anduril.entitymanager.v1.ControlAreaDetails) typeDetails_;
+    }
+    return com.anduril.entitymanager.v1.ControlAreaDetails.getDefaultInstance();
+  }
+  /**
+   * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.ControlAreaDetailsOrBuilder getControlAreaOrBuilder() {
+    if (typeDetailsCase_ == 5) {
+       return (com.anduril.entitymanager.v1.ControlAreaDetails) typeDetails_;
+    }
+    return com.anduril.entitymanager.v1.ControlAreaDetails.getDefaultInstance();
+  }
+
+  public static final int ACM_FIELD_NUMBER = 6;
+  /**
+   * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+   * @return Whether the acm field is set.
+   */
+  @java.lang.Override
+  public boolean hasAcm() {
+    return typeDetailsCase_ == 6;
+  }
+  /**
+   * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+   * @return The acm.
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.ACMDetails getAcm() {
+    if (typeDetailsCase_ == 6) {
+       return (com.anduril.entitymanager.v1.ACMDetails) typeDetails_;
+    }
+    return com.anduril.entitymanager.v1.ACMDetails.getDefaultInstance();
+  }
+  /**
+   * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.ACMDetailsOrBuilder getAcmOrBuilder() {
+    if (typeDetailsCase_ == 6) {
+       return (com.anduril.entitymanager.v1.ACMDetails) typeDetails_;
+    }
+    return com.anduril.entitymanager.v1.ACMDetails.getDefaultInstance();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -78,6 +182,12 @@ private static final long serialVersionUID = 0L;
     if (type_ != com.anduril.entitymanager.v1.GeoType.GEO_TYPE_INVALID.getNumber()) {
       output.writeEnum(1, type_);
     }
+    if (typeDetailsCase_ == 5) {
+      output.writeMessage(5, (com.anduril.entitymanager.v1.ControlAreaDetails) typeDetails_);
+    }
+    if (typeDetailsCase_ == 6) {
+      output.writeMessage(6, (com.anduril.entitymanager.v1.ACMDetails) typeDetails_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -90,6 +200,14 @@ private static final long serialVersionUID = 0L;
     if (type_ != com.anduril.entitymanager.v1.GeoType.GEO_TYPE_INVALID.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, type_);
+    }
+    if (typeDetailsCase_ == 5) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, (com.anduril.entitymanager.v1.ControlAreaDetails) typeDetails_);
+    }
+    if (typeDetailsCase_ == 6) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, (com.anduril.entitymanager.v1.ACMDetails) typeDetails_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -107,6 +225,19 @@ private static final long serialVersionUID = 0L;
     com.anduril.entitymanager.v1.GeoDetails other = (com.anduril.entitymanager.v1.GeoDetails) obj;
 
     if (type_ != other.type_) return false;
+    if (!getTypeDetailsCase().equals(other.getTypeDetailsCase())) return false;
+    switch (typeDetailsCase_) {
+      case 5:
+        if (!getControlArea()
+            .equals(other.getControlArea())) return false;
+        break;
+      case 6:
+        if (!getAcm()
+            .equals(other.getAcm())) return false;
+        break;
+      case 0:
+      default:
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -120,6 +251,18 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + type_;
+    switch (typeDetailsCase_) {
+      case 5:
+        hash = (37 * hash) + CONTROL_AREA_FIELD_NUMBER;
+        hash = (53 * hash) + getControlArea().hashCode();
+        break;
+      case 6:
+        hash = (37 * hash) + ACM_FIELD_NUMBER;
+        hash = (53 * hash) + getAcm().hashCode();
+        break;
+      case 0:
+      default:
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -254,6 +397,14 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       type_ = 0;
+      if (controlAreaBuilder_ != null) {
+        controlAreaBuilder_.clear();
+      }
+      if (acmBuilder_ != null) {
+        acmBuilder_.clear();
+      }
+      typeDetailsCase_ = 0;
+      typeDetails_ = null;
       return this;
     }
 
@@ -281,6 +432,7 @@ private static final long serialVersionUID = 0L;
     public com.anduril.entitymanager.v1.GeoDetails buildPartial() {
       com.anduril.entitymanager.v1.GeoDetails result = new com.anduril.entitymanager.v1.GeoDetails(this);
       if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
     }
@@ -289,6 +441,19 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.type_ = type_;
+      }
+    }
+
+    private void buildPartialOneofs(com.anduril.entitymanager.v1.GeoDetails result) {
+      result.typeDetailsCase_ = typeDetailsCase_;
+      result.typeDetails_ = this.typeDetails_;
+      if (typeDetailsCase_ == 5 &&
+          controlAreaBuilder_ != null) {
+        result.typeDetails_ = controlAreaBuilder_.build();
+      }
+      if (typeDetailsCase_ == 6 &&
+          acmBuilder_ != null) {
+        result.typeDetails_ = acmBuilder_.build();
       }
     }
 
@@ -306,6 +471,19 @@ private static final long serialVersionUID = 0L;
       if (other == com.anduril.entitymanager.v1.GeoDetails.getDefaultInstance()) return this;
       if (other.type_ != 0) {
         setTypeValue(other.getTypeValue());
+      }
+      switch (other.getTypeDetailsCase()) {
+        case CONTROL_AREA: {
+          mergeControlArea(other.getControlArea());
+          break;
+        }
+        case ACM: {
+          mergeAcm(other.getAcm());
+          break;
+        }
+        case TYPEDETAILS_NOT_SET: {
+          break;
+        }
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -338,6 +516,20 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000001;
               break;
             } // case 8
+            case 42: {
+              input.readMessage(
+                  getControlAreaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeDetailsCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getAcmFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeDetailsCase_ = 6;
+              break;
+            } // case 50
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -353,6 +545,21 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private int typeDetailsCase_ = 0;
+    private java.lang.Object typeDetails_;
+    public TypeDetailsCase
+        getTypeDetailsCase() {
+      return TypeDetailsCase.forNumber(
+          typeDetailsCase_);
+    }
+
+    public Builder clearTypeDetails() {
+      typeDetailsCase_ = 0;
+      typeDetails_ = null;
+      onChanged();
+      return this;
+    }
+
     private int bitField0_;
 
     private int type_ = 0;
@@ -406,6 +613,290 @@ private static final long serialVersionUID = 0L;
       type_ = 0;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.ControlAreaDetails, com.anduril.entitymanager.v1.ControlAreaDetails.Builder, com.anduril.entitymanager.v1.ControlAreaDetailsOrBuilder> controlAreaBuilder_;
+    /**
+     * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+     * @return Whether the controlArea field is set.
+     */
+    @java.lang.Override
+    public boolean hasControlArea() {
+      return typeDetailsCase_ == 5;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+     * @return The controlArea.
+     */
+    @java.lang.Override
+    public com.anduril.entitymanager.v1.ControlAreaDetails getControlArea() {
+      if (controlAreaBuilder_ == null) {
+        if (typeDetailsCase_ == 5) {
+          return (com.anduril.entitymanager.v1.ControlAreaDetails) typeDetails_;
+        }
+        return com.anduril.entitymanager.v1.ControlAreaDetails.getDefaultInstance();
+      } else {
+        if (typeDetailsCase_ == 5) {
+          return controlAreaBuilder_.getMessage();
+        }
+        return com.anduril.entitymanager.v1.ControlAreaDetails.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+     */
+    public Builder setControlArea(com.anduril.entitymanager.v1.ControlAreaDetails value) {
+      if (controlAreaBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        typeDetails_ = value;
+        onChanged();
+      } else {
+        controlAreaBuilder_.setMessage(value);
+      }
+      typeDetailsCase_ = 5;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+     */
+    public Builder setControlArea(
+        com.anduril.entitymanager.v1.ControlAreaDetails.Builder builderForValue) {
+      if (controlAreaBuilder_ == null) {
+        typeDetails_ = builderForValue.build();
+        onChanged();
+      } else {
+        controlAreaBuilder_.setMessage(builderForValue.build());
+      }
+      typeDetailsCase_ = 5;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+     */
+    public Builder mergeControlArea(com.anduril.entitymanager.v1.ControlAreaDetails value) {
+      if (controlAreaBuilder_ == null) {
+        if (typeDetailsCase_ == 5 &&
+            typeDetails_ != com.anduril.entitymanager.v1.ControlAreaDetails.getDefaultInstance()) {
+          typeDetails_ = com.anduril.entitymanager.v1.ControlAreaDetails.newBuilder((com.anduril.entitymanager.v1.ControlAreaDetails) typeDetails_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          typeDetails_ = value;
+        }
+        onChanged();
+      } else {
+        if (typeDetailsCase_ == 5) {
+          controlAreaBuilder_.mergeFrom(value);
+        } else {
+          controlAreaBuilder_.setMessage(value);
+        }
+      }
+      typeDetailsCase_ = 5;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+     */
+    public Builder clearControlArea() {
+      if (controlAreaBuilder_ == null) {
+        if (typeDetailsCase_ == 5) {
+          typeDetailsCase_ = 0;
+          typeDetails_ = null;
+          onChanged();
+        }
+      } else {
+        if (typeDetailsCase_ == 5) {
+          typeDetailsCase_ = 0;
+          typeDetails_ = null;
+        }
+        controlAreaBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+     */
+    public com.anduril.entitymanager.v1.ControlAreaDetails.Builder getControlAreaBuilder() {
+      return getControlAreaFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+     */
+    @java.lang.Override
+    public com.anduril.entitymanager.v1.ControlAreaDetailsOrBuilder getControlAreaOrBuilder() {
+      if ((typeDetailsCase_ == 5) && (controlAreaBuilder_ != null)) {
+        return controlAreaBuilder_.getMessageOrBuilder();
+      } else {
+        if (typeDetailsCase_ == 5) {
+          return (com.anduril.entitymanager.v1.ControlAreaDetails) typeDetails_;
+        }
+        return com.anduril.entitymanager.v1.ControlAreaDetails.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.ControlAreaDetails, com.anduril.entitymanager.v1.ControlAreaDetails.Builder, com.anduril.entitymanager.v1.ControlAreaDetailsOrBuilder> 
+        getControlAreaFieldBuilder() {
+      if (controlAreaBuilder_ == null) {
+        if (!(typeDetailsCase_ == 5)) {
+          typeDetails_ = com.anduril.entitymanager.v1.ControlAreaDetails.getDefaultInstance();
+        }
+        controlAreaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.anduril.entitymanager.v1.ControlAreaDetails, com.anduril.entitymanager.v1.ControlAreaDetails.Builder, com.anduril.entitymanager.v1.ControlAreaDetailsOrBuilder>(
+                (com.anduril.entitymanager.v1.ControlAreaDetails) typeDetails_,
+                getParentForChildren(),
+                isClean());
+        typeDetails_ = null;
+      }
+      typeDetailsCase_ = 5;
+      onChanged();
+      return controlAreaBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.ACMDetails, com.anduril.entitymanager.v1.ACMDetails.Builder, com.anduril.entitymanager.v1.ACMDetailsOrBuilder> acmBuilder_;
+    /**
+     * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+     * @return Whether the acm field is set.
+     */
+    @java.lang.Override
+    public boolean hasAcm() {
+      return typeDetailsCase_ == 6;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+     * @return The acm.
+     */
+    @java.lang.Override
+    public com.anduril.entitymanager.v1.ACMDetails getAcm() {
+      if (acmBuilder_ == null) {
+        if (typeDetailsCase_ == 6) {
+          return (com.anduril.entitymanager.v1.ACMDetails) typeDetails_;
+        }
+        return com.anduril.entitymanager.v1.ACMDetails.getDefaultInstance();
+      } else {
+        if (typeDetailsCase_ == 6) {
+          return acmBuilder_.getMessage();
+        }
+        return com.anduril.entitymanager.v1.ACMDetails.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+     */
+    public Builder setAcm(com.anduril.entitymanager.v1.ACMDetails value) {
+      if (acmBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        typeDetails_ = value;
+        onChanged();
+      } else {
+        acmBuilder_.setMessage(value);
+      }
+      typeDetailsCase_ = 6;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+     */
+    public Builder setAcm(
+        com.anduril.entitymanager.v1.ACMDetails.Builder builderForValue) {
+      if (acmBuilder_ == null) {
+        typeDetails_ = builderForValue.build();
+        onChanged();
+      } else {
+        acmBuilder_.setMessage(builderForValue.build());
+      }
+      typeDetailsCase_ = 6;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+     */
+    public Builder mergeAcm(com.anduril.entitymanager.v1.ACMDetails value) {
+      if (acmBuilder_ == null) {
+        if (typeDetailsCase_ == 6 &&
+            typeDetails_ != com.anduril.entitymanager.v1.ACMDetails.getDefaultInstance()) {
+          typeDetails_ = com.anduril.entitymanager.v1.ACMDetails.newBuilder((com.anduril.entitymanager.v1.ACMDetails) typeDetails_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          typeDetails_ = value;
+        }
+        onChanged();
+      } else {
+        if (typeDetailsCase_ == 6) {
+          acmBuilder_.mergeFrom(value);
+        } else {
+          acmBuilder_.setMessage(value);
+        }
+      }
+      typeDetailsCase_ = 6;
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+     */
+    public Builder clearAcm() {
+      if (acmBuilder_ == null) {
+        if (typeDetailsCase_ == 6) {
+          typeDetailsCase_ = 0;
+          typeDetails_ = null;
+          onChanged();
+        }
+      } else {
+        if (typeDetailsCase_ == 6) {
+          typeDetailsCase_ = 0;
+          typeDetails_ = null;
+        }
+        acmBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+     */
+    public com.anduril.entitymanager.v1.ACMDetails.Builder getAcmBuilder() {
+      return getAcmFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+     */
+    @java.lang.Override
+    public com.anduril.entitymanager.v1.ACMDetailsOrBuilder getAcmOrBuilder() {
+      if ((typeDetailsCase_ == 6) && (acmBuilder_ != null)) {
+        return acmBuilder_.getMessageOrBuilder();
+      } else {
+        if (typeDetailsCase_ == 6) {
+          return (com.anduril.entitymanager.v1.ACMDetails) typeDetails_;
+        }
+        return com.anduril.entitymanager.v1.ACMDetails.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.ACMDetails, com.anduril.entitymanager.v1.ACMDetails.Builder, com.anduril.entitymanager.v1.ACMDetailsOrBuilder> 
+        getAcmFieldBuilder() {
+      if (acmBuilder_ == null) {
+        if (!(typeDetailsCase_ == 6)) {
+          typeDetails_ = com.anduril.entitymanager.v1.ACMDetails.getDefaultInstance();
+        }
+        acmBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.anduril.entitymanager.v1.ACMDetails, com.anduril.entitymanager.v1.ACMDetails.Builder, com.anduril.entitymanager.v1.ACMDetailsOrBuilder>(
+                (com.anduril.entitymanager.v1.ACMDetails) typeDetails_,
+                getParentForChildren(),
+                isClean());
+        typeDetails_ = null;
+      }
+      typeDetailsCase_ = 6;
+      onChanged();
+      return acmBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -44,6 +44,14 @@ public enum GeoType
    * <code>GEO_TYPE_BULLSEYE = 7;</code>
    */
   GEO_TYPE_BULLSEYE(7),
+  /**
+   * <pre>
+   * Airspace Coordinating Measure
+   * </pre>
+   *
+   * <code>GEO_TYPE_ACM = 8;</code>
+   */
+  GEO_TYPE_ACM(8),
   UNRECOGNIZED(-1),
   ;
 
@@ -79,6 +87,14 @@ public enum GeoType
    * <code>GEO_TYPE_BULLSEYE = 7;</code>
    */
   public static final int GEO_TYPE_BULLSEYE_VALUE = 7;
+  /**
+   * <pre>
+   * Airspace Coordinating Measure
+   * </pre>
+   *
+   * <code>GEO_TYPE_ACM = 8;</code>
+   */
+  public static final int GEO_TYPE_ACM_VALUE = 8;
 
 
   public final int getNumber() {
@@ -112,6 +128,7 @@ public enum GeoType
       case 5: return GEO_TYPE_ENGAGEMENT_ZONE;
       case 6: return GEO_TYPE_CONTROL_AREA;
       case 7: return GEO_TYPE_BULLSEYE;
+      case 8: return GEO_TYPE_ACM;
       default: return null;
     }
   }

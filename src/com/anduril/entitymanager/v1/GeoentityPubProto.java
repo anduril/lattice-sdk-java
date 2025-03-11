@@ -20,6 +20,16 @@ public final class GeoentityPubProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_anduril_entitymanager_v1_GeoDetails_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_ControlAreaDetails_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_ControlAreaDetails_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_anduril_entitymanager_v1_ACMDetails_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_anduril_entitymanager_v1_ACMDetails_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_anduril_entitymanager_v1_GeoShape_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -71,56 +81,72 @@ public final class GeoentityPubProto {
       "\n,anduril/entitymanager/v1/geoentity.pub" +
       ".proto\022\030anduril.entitymanager.v1\032+anduri" +
       "l/entitymanager/v1/location.pub.proto\032\036g" +
-      "oogle/protobuf/wrappers.proto\"\240\001\n\nGeoDet" +
+      "oogle/protobuf/wrappers.proto\"\236\002\n\nGeoDet" +
       "ails\0225\n\004type\030\001 \001(\0162!.anduril.entitymanag" +
-      "er.v1.GeoTypeR\004typeJ\004\010\002\020\003J\004\010\003\020\004J\004\010\004\020\005J\004\010" +
-      "\005\020\006J\004\010\006\020\007J\004\010\007\020\010R\temergencyR\016visual_detai" +
-      "lsR\004fscmR\014control_areaR\003acmR\003mcm\"\324\002\n\010Geo" +
-      "Shape\022:\n\005point\030\001 \001(\0132\".anduril.entityman" +
-      "ager.v1.GeoPointH\000R\005point\0227\n\004line\030\002 \001(\0132" +
-      "!.anduril.entitymanager.v1.GeoLineH\000R\004li" +
-      "ne\022@\n\007polygon\030\003 \001(\0132$.anduril.entitymana" +
-      "ger.v1.GeoPolygonH\000R\007polygon\022@\n\007ellipse\030" +
-      "\004 \001(\0132$.anduril.entitymanager.v1.GeoElli" +
-      "pseH\000R\007ellipse\022F\n\tellipsoid\030\005 \001(\0132&.andu" +
-      "ril.entitymanager.v1.GeoEllipsoidH\000R\tell" +
-      "ipsoidB\007\n\005shape\"J\n\010GeoPoint\022>\n\010position\030" +
-      "\001 \001(\0132\".anduril.entitymanager.v1.Positio" +
-      "nR\010position\"K\n\007GeoLine\022@\n\tpositions\030\001 \003(" +
-      "\0132\".anduril.entitymanager.v1.PositionR\tp" +
-      "ositions\"k\n\nGeoPolygon\022:\n\005rings\030\001 \003(\0132$." +
-      "anduril.entitymanager.v1.LinearRingR\005rin" +
-      "gs\022!\n\014is_rectangle\030\002 \001(\010R\013isRectangle\"\232\002" +
-      "\n\nGeoEllipse\022G\n\021semi_major_axis_m\030\002 \001(\0132" +
-      "\034.google.protobuf.DoubleValueR\016semiMajor" +
-      "AxisM\022G\n\021semi_minor_axis_m\030\003 \001(\0132\034.googl" +
-      "e.protobuf.DoubleValueR\016semiMinorAxisM\022A" +
-      "\n\rorientation_d\030\004 \001(\0132\034.google.protobuf." +
-      "DoubleValueR\014orientationD\0227\n\010height_m\030\005 " +
-      "\001(\0132\034.google.protobuf.DoubleValueR\007heigh" +
-      "tM\"\312\001\n\014GeoEllipsoid\022B\n\016forward_axis_m\030\001 " +
-      "\001(\0132\034.google.protobuf.DoubleValueR\014forwa" +
-      "rdAxisM\022<\n\013side_axis_m\030\002 \001(\0132\034.google.pr" +
-      "otobuf.DoubleValueR\tsideAxisM\0228\n\tup_axis" +
-      "_m\030\003 \001(\0132\034.google.protobuf.DoubleValueR\007" +
-      "upAxisM\"^\n\nLinearRing\022J\n\tpositions\030\002 \003(\013" +
-      "2,.anduril.entitymanager.v1.GeoPolygonPo" +
-      "sitionR\tpositionsJ\004\010\001\020\002\"\214\001\n\022GeoPolygonPo" +
-      "sition\022>\n\010position\030\001 \001(\0132\".anduril.entit" +
-      "ymanager.v1.PositionR\010position\0226\n\010height" +
-      "_m\030\002 \001(\0132\033.google.protobuf.FloatValueR\007h" +
-      "eightM*\304\001\n\007GeoType\022\024\n\020GEO_TYPE_INVALID\020\000" +
-      "\022\024\n\020GEO_TYPE_GENERAL\020\001\022\023\n\017GEO_TYPE_HAZAR" +
-      "D\020\002\022\026\n\022GEO_TYPE_EMERGENCY\020\003\022\034\n\030GEO_TYPE_" +
-      "ENGAGEMENT_ZONE\020\005\022\031\n\025GEO_TYPE_CONTROL_AR" +
-      "EA\020\006\022\025\n\021GEO_TYPE_BULLSEYE\020\007\"\004\010\004\020\004\"\004\010\010\020\010\"" +
-      "\004\010\t\020\tB\205\002\n\034com.anduril.entitymanager.v1B\021" +
-      "GeoentityPubProtoP\001ZPgithub.com/anduril/" +
-      "lattice-sdk-java/src/anduril/entitymanag" +
-      "er/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril.En" +
-      "titymanager.V1\312\002\030Anduril\\Entitymanager\\V" +
-      "1\342\002$Anduril\\Entitymanager\\V1\\GPBMetadata" +
-      "\352\002\032Anduril::Entitymanager::V1b\006proto3"
+      "er.v1.GeoTypeR\004type\022Q\n\014control_area\030\005 \001(" +
+      "\0132,.anduril.entitymanager.v1.ControlArea" +
+      "DetailsH\000R\013controlArea\0228\n\003acm\030\006 \001(\0132$.an" +
+      "duril.entitymanager.v1.ACMDetailsH\000R\003acm" +
+      "B\016\n\014type_detailsJ\004\010\002\020\003J\004\010\003\020\004J\004\010\004\020\005J\004\010\007\020\010" +
+      "R\temergencyR\016visual_detailsR\004fscmR\003mcm\"S" +
+      "\n\022ControlAreaDetails\022=\n\004type\030\001 \001(\0162).and" +
+      "uril.entitymanager.v1.ControlAreaTypeR\004t" +
+      "ype\"y\n\nACMDetails\022B\n\010acm_type\030\001 \001(\0162\'.an" +
+      "duril.entitymanager.v1.ACMDetailTypeR\007ac" +
+      "mType\022\'\n\017acm_description\030\002 \001(\tR\016acmDescr" +
+      "iption\"\324\002\n\010GeoShape\022:\n\005point\030\001 \001(\0132\".and" +
+      "uril.entitymanager.v1.GeoPointH\000R\005point\022" +
+      "7\n\004line\030\002 \001(\0132!.anduril.entitymanager.v1" +
+      ".GeoLineH\000R\004line\022@\n\007polygon\030\003 \001(\0132$.andu" +
+      "ril.entitymanager.v1.GeoPolygonH\000R\007polyg" +
+      "on\022@\n\007ellipse\030\004 \001(\0132$.anduril.entitymana" +
+      "ger.v1.GeoEllipseH\000R\007ellipse\022F\n\tellipsoi" +
+      "d\030\005 \001(\0132&.anduril.entitymanager.v1.GeoEl" +
+      "lipsoidH\000R\tellipsoidB\007\n\005shape\"J\n\010GeoPoin" +
+      "t\022>\n\010position\030\001 \001(\0132\".anduril.entitymana" +
+      "ger.v1.PositionR\010position\"K\n\007GeoLine\022@\n\t" +
+      "positions\030\001 \003(\0132\".anduril.entitymanager." +
+      "v1.PositionR\tpositions\"k\n\nGeoPolygon\022:\n\005" +
+      "rings\030\001 \003(\0132$.anduril.entitymanager.v1.L" +
+      "inearRingR\005rings\022!\n\014is_rectangle\030\002 \001(\010R\013" +
+      "isRectangle\"\232\002\n\nGeoEllipse\022G\n\021semi_major" +
+      "_axis_m\030\002 \001(\0132\034.google.protobuf.DoubleVa" +
+      "lueR\016semiMajorAxisM\022G\n\021semi_minor_axis_m" +
+      "\030\003 \001(\0132\034.google.protobuf.DoubleValueR\016se" +
+      "miMinorAxisM\022A\n\rorientation_d\030\004 \001(\0132\034.go" +
+      "ogle.protobuf.DoubleValueR\014orientationD\022" +
+      "7\n\010height_m\030\005 \001(\0132\034.google.protobuf.Doub" +
+      "leValueR\007heightM\"\312\001\n\014GeoEllipsoid\022B\n\016for" +
+      "ward_axis_m\030\001 \001(\0132\034.google.protobuf.Doub" +
+      "leValueR\014forwardAxisM\022<\n\013side_axis_m\030\002 \001" +
+      "(\0132\034.google.protobuf.DoubleValueR\tsideAx" +
+      "isM\0228\n\tup_axis_m\030\003 \001(\0132\034.google.protobuf" +
+      ".DoubleValueR\007upAxisM\"^\n\nLinearRing\022J\n\tp" +
+      "ositions\030\002 \003(\0132,.anduril.entitymanager.v" +
+      "1.GeoPolygonPositionR\tpositionsJ\004\010\001\020\002\"\214\001" +
+      "\n\022GeoPolygonPosition\022>\n\010position\030\001 \001(\0132\"" +
+      ".anduril.entitymanager.v1.PositionR\010posi" +
+      "tion\0226\n\010height_m\030\002 \001(\0132\033.google.protobuf" +
+      ".FloatValueR\007heightM*\320\001\n\007GeoType\022\024\n\020GEO_" +
+      "TYPE_INVALID\020\000\022\024\n\020GEO_TYPE_GENERAL\020\001\022\023\n\017" +
+      "GEO_TYPE_HAZARD\020\002\022\026\n\022GEO_TYPE_EMERGENCY\020" +
+      "\003\022\034\n\030GEO_TYPE_ENGAGEMENT_ZONE\020\005\022\031\n\025GEO_T" +
+      "YPE_CONTROL_AREA\020\006\022\025\n\021GEO_TYPE_BULLSEYE\020" +
+      "\007\022\020\n\014GEO_TYPE_ACM\020\010\"\004\010\004\020\004\"\004\010\t\020\t*\276\001\n\017Cont" +
+      "rolAreaType\022\035\n\031CONTROL_AREA_TYPE_INVALID" +
+      "\020\000\022\"\n\036CONTROL_AREA_TYPE_KEEP_IN_ZONE\020\001\022#" +
+      "\n\037CONTROL_AREA_TYPE_KEEP_OUT_ZONE\020\002\022 \n\034C" +
+      "ONTROL_AREA_TYPE_DITCH_ZONE\020\003\022!\n\035CONTROL" +
+      "_AREA_TYPE_LOITER_ZONE\020\007*N\n\rACMDetailTyp" +
+      "e\022\033\n\027ACM_DETAIL_TYPE_INVALID\020\000\022 \n\034ACM_DE" +
+      "TAIL_TYPE_LANDING_ZONE\020\020B\205\002\n\034com.anduril" +
+      ".entitymanager.v1B\021GeoentityPubProtoP\001ZP" +
+      "github.com/anduril/lattice-sdk-java/src/" +
+      "anduril/entitymanager/v1;entitymanagerv1" +
+      "\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andu" +
+      "ril\\Entitymanager\\V1\342\002$Anduril\\Entityman" +
+      "ager\\V1\\GPBMetadata\352\002\032Anduril::Entityman" +
+      "ager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -133,51 +159,63 @@ public final class GeoentityPubProto {
     internal_static_anduril_entitymanager_v1_GeoDetails_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoDetails_descriptor,
-        new java.lang.String[] { "Type", });
-    internal_static_anduril_entitymanager_v1_GeoShape_descriptor =
+        new java.lang.String[] { "Type", "ControlArea", "Acm", "TypeDetails", });
+    internal_static_anduril_entitymanager_v1_ControlAreaDetails_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_anduril_entitymanager_v1_ControlAreaDetails_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_ControlAreaDetails_descriptor,
+        new java.lang.String[] { "Type", });
+    internal_static_anduril_entitymanager_v1_ACMDetails_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_anduril_entitymanager_v1_ACMDetails_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_anduril_entitymanager_v1_ACMDetails_descriptor,
+        new java.lang.String[] { "AcmType", "AcmDescription", });
+    internal_static_anduril_entitymanager_v1_GeoShape_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_anduril_entitymanager_v1_GeoShape_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoShape_descriptor,
         new java.lang.String[] { "Point", "Line", "Polygon", "Ellipse", "Ellipsoid", "Shape", });
     internal_static_anduril_entitymanager_v1_GeoPoint_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_anduril_entitymanager_v1_GeoPoint_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoPoint_descriptor,
         new java.lang.String[] { "Position", });
     internal_static_anduril_entitymanager_v1_GeoLine_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_anduril_entitymanager_v1_GeoLine_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoLine_descriptor,
         new java.lang.String[] { "Positions", });
     internal_static_anduril_entitymanager_v1_GeoPolygon_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_anduril_entitymanager_v1_GeoPolygon_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoPolygon_descriptor,
         new java.lang.String[] { "Rings", "IsRectangle", });
     internal_static_anduril_entitymanager_v1_GeoEllipse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_anduril_entitymanager_v1_GeoEllipse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoEllipse_descriptor,
         new java.lang.String[] { "SemiMajorAxisM", "SemiMinorAxisM", "OrientationD", "HeightM", });
     internal_static_anduril_entitymanager_v1_GeoEllipsoid_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_anduril_entitymanager_v1_GeoEllipsoid_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoEllipsoid_descriptor,
         new java.lang.String[] { "ForwardAxisM", "SideAxisM", "UpAxisM", });
     internal_static_anduril_entitymanager_v1_LinearRing_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_anduril_entitymanager_v1_LinearRing_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_LinearRing_descriptor,
         new java.lang.String[] { "Positions", });
     internal_static_anduril_entitymanager_v1_GeoPolygonPosition_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_anduril_entitymanager_v1_GeoPolygonPosition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_GeoPolygonPosition_descriptor,
