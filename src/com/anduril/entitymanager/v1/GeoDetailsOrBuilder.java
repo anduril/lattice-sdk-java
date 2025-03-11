@@ -17,4 +17,36 @@ public interface GeoDetailsOrBuilder extends
    * @return The type.
    */
   com.anduril.entitymanager.v1.GeoType getType();
+
+  /**
+   * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+   * @return Whether the controlArea field is set.
+   */
+  boolean hasControlArea();
+  /**
+   * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+   * @return The controlArea.
+   */
+  com.anduril.entitymanager.v1.ControlAreaDetails getControlArea();
+  /**
+   * <code>.anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];</code>
+   */
+  com.anduril.entitymanager.v1.ControlAreaDetailsOrBuilder getControlAreaOrBuilder();
+
+  /**
+   * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+   * @return Whether the acm field is set.
+   */
+  boolean hasAcm();
+  /**
+   * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+   * @return The acm.
+   */
+  com.anduril.entitymanager.v1.ACMDetails getAcm();
+  /**
+   * <code>.anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];</code>
+   */
+  com.anduril.entitymanager.v1.ACMDetailsOrBuilder getAcmOrBuilder();
+
+  com.anduril.entitymanager.v1.GeoDetails.TypeDetailsCase getTypeDetailsCase();
 }
