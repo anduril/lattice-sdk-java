@@ -97,7 +97,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Any specification_;
   /**
    * <pre>
-   * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+   * Full task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -109,7 +109,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+   * Full task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -121,7 +121,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+   * Full task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -1039,7 +1039,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> specificationBuilder_;
     /**
      * <pre>
-     * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+     * Full task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -1050,7 +1050,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+     * Full task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -1065,7 +1065,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+     * Full task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -1085,7 +1085,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+     * Full task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -1103,7 +1103,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+     * Full task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -1126,7 +1126,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+     * Full task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -1143,7 +1143,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+     * Full task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -1155,7 +1155,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+     * Full task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -1170,7 +1170,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+     * Full task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>

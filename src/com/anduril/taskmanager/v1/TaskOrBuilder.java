@@ -60,7 +60,7 @@ public interface TaskOrBuilder extends
 
   /**
    * <pre>
-   * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+   * Full Task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -69,7 +69,7 @@ public interface TaskOrBuilder extends
   boolean hasSpecification();
   /**
    * <pre>
-   * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+   * Full Task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -78,7 +78,7 @@ public interface TaskOrBuilder extends
   com.google.protobuf.Any getSpecification();
   /**
    * <pre>
-   * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+   * Full Task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
