@@ -138,7 +138,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Any specification_;
   /**
    * <pre>
-   * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+   * Full Task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -150,7 +150,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+   * Full Task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -162,7 +162,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+   * Full Task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -1730,7 +1730,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> specificationBuilder_;
     /**
      * <pre>
-     * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+     * Full Task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -1741,7 +1741,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+     * Full Task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -1756,7 +1756,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+     * Full Task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -1776,7 +1776,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+     * Full Task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -1794,7 +1794,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+     * Full Task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -1817,7 +1817,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+     * Full Task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -1834,7 +1834,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+     * Full Task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -1846,7 +1846,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+     * Full Task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>
@@ -1861,7 +1861,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Full Task parameterization, must be a message under anduril/tasks/v*&#47;
+     * Full Task parameterization.
      * </pre>
      *
      * <code>.google.protobuf.Any specification = 3 [json_name = "specification"];</code>

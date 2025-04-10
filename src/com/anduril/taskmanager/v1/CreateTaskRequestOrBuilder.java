@@ -29,7 +29,7 @@ public interface CreateTaskRequestOrBuilder extends
 
   /**
    * <pre>
-   * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+   * Full task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -38,7 +38,7 @@ public interface CreateTaskRequestOrBuilder extends
   boolean hasSpecification();
   /**
    * <pre>
-   * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+   * Full task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>
@@ -47,7 +47,7 @@ public interface CreateTaskRequestOrBuilder extends
   com.google.protobuf.Any getSpecification();
   /**
    * <pre>
-   * Full task parameterization, must be a message under anduril/tasks/v*&#47;.
+   * Full task parameterization.
    * </pre>
    *
    * <code>.google.protobuf.Any specification = 2 [json_name = "specification"];</code>

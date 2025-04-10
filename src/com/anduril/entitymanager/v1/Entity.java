@@ -219,7 +219,7 @@ private static final long serialVersionUID = 0L;
    * The expiry time must be in the future, but less than 30 days from the current time.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the expiryTime field is set.
    */
   @java.lang.Override
@@ -237,7 +237,7 @@ private static final long serialVersionUID = 0L;
    * The expiry time must be in the future, but less than 30 days from the current time.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The expiryTime.
    */
   @java.lang.Override
@@ -255,7 +255,7 @@ private static final long serialVersionUID = 0L;
    * The expiry time must be in the future, but less than 30 days from the current time.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getExpiryTimeOrBuilder() {
@@ -1038,7 +1038,7 @@ private static final long serialVersionUID = 0L;
    * A catalog of tasks that can be performed by an entity.
    * </pre>
    *
-   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the taskCatalog field is set.
    */
   @java.lang.Override
@@ -1050,7 +1050,7 @@ private static final long serialVersionUID = 0L;
    * A catalog of tasks that can be performed by an entity.
    * </pre>
    *
-   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The taskCatalog.
    */
   @java.lang.Override
@@ -1062,7 +1062,7 @@ private static final long serialVersionUID = 0L;
    * A catalog of tasks that can be performed by an entity.
    * </pre>
    *
-   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public com.anduril.tasks.v2.TaskCatalogOrBuilder getTaskCatalogOrBuilder() {
@@ -3352,7 +3352,7 @@ private static final long serialVersionUID = 0L;
      * The expiry time must be in the future, but less than 30 days from the current time.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return Whether the expiryTime field is set.
      */
     public boolean hasExpiryTime() {
@@ -3369,7 +3369,7 @@ private static final long serialVersionUID = 0L;
      * The expiry time must be in the future, but less than 30 days from the current time.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return The expiryTime.
      */
     public com.google.protobuf.Timestamp getExpiryTime() {
@@ -3390,7 +3390,7 @@ private static final long serialVersionUID = 0L;
      * The expiry time must be in the future, but less than 30 days from the current time.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setExpiryTime(com.google.protobuf.Timestamp value) {
       if (expiryTimeBuilder_ == null) {
@@ -3416,7 +3416,7 @@ private static final long serialVersionUID = 0L;
      * The expiry time must be in the future, but less than 30 days from the current time.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setExpiryTime(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3440,7 +3440,7 @@ private static final long serialVersionUID = 0L;
      * The expiry time must be in the future, but less than 30 days from the current time.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder mergeExpiryTime(com.google.protobuf.Timestamp value) {
       if (expiryTimeBuilder_ == null) {
@@ -3469,7 +3469,7 @@ private static final long serialVersionUID = 0L;
      * The expiry time must be in the future, but less than 30 days from the current time.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder clearExpiryTime() {
       bitField0_ = (bitField0_ & ~0x00000010);
@@ -3492,7 +3492,7 @@ private static final long serialVersionUID = 0L;
      * The expiry time must be in the future, but less than 30 days from the current time.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.google.protobuf.Timestamp.Builder getExpiryTimeBuilder() {
       bitField0_ |= 0x00000010;
@@ -3510,7 +3510,7 @@ private static final long serialVersionUID = 0L;
      * The expiry time must be in the future, but less than 30 days from the current time.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getExpiryTimeOrBuilder() {
       if (expiryTimeBuilder_ != null) {
@@ -3531,7 +3531,7 @@ private static final long serialVersionUID = 0L;
      * The expiry time must be in the future, but less than 30 days from the current time.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+     * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -6682,7 +6682,7 @@ private static final long serialVersionUID = 0L;
      * A catalog of tasks that can be performed by an entity.
      * </pre>
      *
-     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return Whether the taskCatalog field is set.
      */
     public boolean hasTaskCatalog() {
@@ -6693,7 +6693,7 @@ private static final long serialVersionUID = 0L;
      * A catalog of tasks that can be performed by an entity.
      * </pre>
      *
-     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return The taskCatalog.
      */
     public com.anduril.tasks.v2.TaskCatalog getTaskCatalog() {
@@ -6708,7 +6708,7 @@ private static final long serialVersionUID = 0L;
      * A catalog of tasks that can be performed by an entity.
      * </pre>
      *
-     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setTaskCatalog(com.anduril.tasks.v2.TaskCatalog value) {
       if (taskCatalogBuilder_ == null) {
@@ -6728,7 +6728,7 @@ private static final long serialVersionUID = 0L;
      * A catalog of tasks that can be performed by an entity.
      * </pre>
      *
-     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setTaskCatalog(
         com.anduril.tasks.v2.TaskCatalog.Builder builderForValue) {
@@ -6746,7 +6746,7 @@ private static final long serialVersionUID = 0L;
      * A catalog of tasks that can be performed by an entity.
      * </pre>
      *
-     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder mergeTaskCatalog(com.anduril.tasks.v2.TaskCatalog value) {
       if (taskCatalogBuilder_ == null) {
@@ -6769,7 +6769,7 @@ private static final long serialVersionUID = 0L;
      * A catalog of tasks that can be performed by an entity.
      * </pre>
      *
-     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder clearTaskCatalog() {
       bitField0_ = (bitField0_ & ~0x02000000);
@@ -6786,7 +6786,7 @@ private static final long serialVersionUID = 0L;
      * A catalog of tasks that can be performed by an entity.
      * </pre>
      *
-     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.anduril.tasks.v2.TaskCatalog.Builder getTaskCatalogBuilder() {
       bitField0_ |= 0x02000000;
@@ -6798,7 +6798,7 @@ private static final long serialVersionUID = 0L;
      * A catalog of tasks that can be performed by an entity.
      * </pre>
      *
-     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.anduril.tasks.v2.TaskCatalogOrBuilder getTaskCatalogOrBuilder() {
       if (taskCatalogBuilder_ != null) {
@@ -6813,7 +6813,7 @@ private static final long serialVersionUID = 0L;
      * A catalog of tasks that can be performed by an entity.
      * </pre>
      *
-     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+     * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.tasks.v2.TaskCatalog, com.anduril.tasks.v2.TaskCatalog.Builder, com.anduril.tasks.v2.TaskCatalogOrBuilder> 

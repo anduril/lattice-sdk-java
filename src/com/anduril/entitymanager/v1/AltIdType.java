@@ -58,7 +58,7 @@ public enum AltIdType
   ALT_ID_TYPE_TRACK_REPO_ALERT_ID(4),
   /**
    * <pre>
-   * an Anduril AssetId
+   * an Anduril AssetId v2
    * </pre>
    *
    * <code>ALT_ID_TYPE_ASSET_ID = 5;</code>
@@ -257,7 +257,7 @@ public enum AltIdType
   public static final int ALT_ID_TYPE_TRACK_REPO_ALERT_ID_VALUE = 4;
   /**
    * <pre>
-   * an Anduril AssetId
+   * an Anduril AssetId v2
    * </pre>
    *
    * <code>ALT_ID_TYPE_ASSET_ID = 5;</code>

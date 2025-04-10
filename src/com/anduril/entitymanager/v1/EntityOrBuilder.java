@@ -109,7 +109,7 @@ public interface EntityOrBuilder extends
    * The expiry time must be in the future, but less than 30 days from the current time.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the expiryTime field is set.
    */
   boolean hasExpiryTime();
@@ -124,7 +124,7 @@ public interface EntityOrBuilder extends
    * The expiry time must be in the future, but less than 30 days from the current time.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The expiryTime.
    */
   com.google.protobuf.Timestamp getExpiryTime();
@@ -139,7 +139,7 @@ public interface EntityOrBuilder extends
    * The expiry time must be in the future, but less than 30 days from the current time.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];</code>
+   * <code>.google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   com.google.protobuf.TimestampOrBuilder getExpiryTimeOrBuilder();
 
@@ -697,7 +697,7 @@ public interface EntityOrBuilder extends
    * A catalog of tasks that can be performed by an entity.
    * </pre>
    *
-   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the taskCatalog field is set.
    */
   boolean hasTaskCatalog();
@@ -706,7 +706,7 @@ public interface EntityOrBuilder extends
    * A catalog of tasks that can be performed by an entity.
    * </pre>
    *
-   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The taskCatalog.
    */
   com.anduril.tasks.v2.TaskCatalog getTaskCatalog();
@@ -715,7 +715,7 @@ public interface EntityOrBuilder extends
    * A catalog of tasks that can be performed by an entity.
    * </pre>
    *
-   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];</code>
+   * <code>.anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   com.anduril.tasks.v2.TaskCatalogOrBuilder getTaskCatalogOrBuilder();
 
