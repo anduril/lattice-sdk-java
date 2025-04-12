@@ -19,9 +19,8 @@ public enum Template
   TEMPLATE_INVALID(0),
   /**
    * <pre>
-   * additional track required components:
-   *   * location
-   *   * mil_view
+   * Refers to any detected object.
+   * Requires setting the location, and mil_view components.
    * </pre>
    *
    * <code>TEMPLATE_TRACK = 1;</code>
@@ -29,10 +28,8 @@ public enum Template
   TEMPLATE_TRACK(1),
   /**
    * <pre>
-   * additional SPI required components:
-   *   * location
-   *   * mil_view
-   *   * produced_by
+   * Refers to any sensors detected at a specific location.
+   * Requires setting location, and mil_view.
    * </pre>
    *
    * <code>TEMPLATE_SENSOR_POINT_OF_INTEREST = 2;</code>
@@ -40,10 +37,8 @@ public enum Template
   TEMPLATE_SENSOR_POINT_OF_INTEREST(2),
   /**
    * <pre>
-   * additional asset required components:
-   *   * location
-   *   * mil_view
-   *   * ontology
+   * Refers to a taskable entity under the control of friendly forces.
+   * Requires setting location, and mil_view, and ontology.
    * </pre>
    *
    * <code>TEMPLATE_ASSET = 3;</code>
@@ -51,9 +46,8 @@ public enum Template
   TEMPLATE_ASSET(3),
   /**
    * <pre>
-   * additional geo required components:
-   *   * geo_shape
-   *   * geo_details
+   * Refers to shapes or points of interest drawn on the map.
+   * Requires setting geo_shape and geo_details.
    * </pre>
    *
    * <code>TEMPLATE_GEO = 4;</code>
@@ -61,11 +55,8 @@ public enum Template
   TEMPLATE_GEO(4),
   /**
    * <pre>
-   * additional SOI required components:
-   *   * signal
-   *   * location field should be populated if there is a fix.
-   *   * mil_view
-   *   * ontology
+   * Refers to signal detection with characteristics such as emitter notation, frequency, or lines of bearing.
+   * Requires setting signal, and mil_view, and ontology. Requies setting location, if the signal.fixed component is populated.
    * </pre>
    *
    * <code>TEMPLATE_SIGNAL_OF_INTEREST = 5;</code>
@@ -80,9 +71,8 @@ public enum Template
   public static final int TEMPLATE_INVALID_VALUE = 0;
   /**
    * <pre>
-   * additional track required components:
-   *   * location
-   *   * mil_view
+   * Refers to any detected object.
+   * Requires setting the location, and mil_view components.
    * </pre>
    *
    * <code>TEMPLATE_TRACK = 1;</code>
@@ -90,10 +80,8 @@ public enum Template
   public static final int TEMPLATE_TRACK_VALUE = 1;
   /**
    * <pre>
-   * additional SPI required components:
-   *   * location
-   *   * mil_view
-   *   * produced_by
+   * Refers to any sensors detected at a specific location.
+   * Requires setting location, and mil_view.
    * </pre>
    *
    * <code>TEMPLATE_SENSOR_POINT_OF_INTEREST = 2;</code>
@@ -101,10 +89,8 @@ public enum Template
   public static final int TEMPLATE_SENSOR_POINT_OF_INTEREST_VALUE = 2;
   /**
    * <pre>
-   * additional asset required components:
-   *   * location
-   *   * mil_view
-   *   * ontology
+   * Refers to a taskable entity under the control of friendly forces.
+   * Requires setting location, and mil_view, and ontology.
    * </pre>
    *
    * <code>TEMPLATE_ASSET = 3;</code>
@@ -112,9 +98,8 @@ public enum Template
   public static final int TEMPLATE_ASSET_VALUE = 3;
   /**
    * <pre>
-   * additional geo required components:
-   *   * geo_shape
-   *   * geo_details
+   * Refers to shapes or points of interest drawn on the map.
+   * Requires setting geo_shape and geo_details.
    * </pre>
    *
    * <code>TEMPLATE_GEO = 4;</code>
@@ -122,11 +107,8 @@ public enum Template
   public static final int TEMPLATE_GEO_VALUE = 4;
   /**
    * <pre>
-   * additional SOI required components:
-   *   * signal
-   *   * location field should be populated if there is a fix.
-   *   * mil_view
-   *   * ontology
+   * Refers to signal detection with characteristics such as emitter notation, frequency, or lines of bearing.
+   * Requires setting signal, and mil_view, and ontology. Requies setting location, if the signal.fixed component is populated.
    * </pre>
    *
    * <code>TEMPLATE_SIGNAL_OF_INTEREST = 5;</code>
