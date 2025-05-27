@@ -129,7 +129,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int FREQUENCY_CENTER_FIELD_NUMBER = 1;
   /**
-   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the frequencyCenter field is set.
    */
   @java.lang.Override
@@ -137,7 +137,7 @@ private static final long serialVersionUID = 0L;
     return frequencyMeasurementCase_ == 1;
   }
   /**
-   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The frequencyCenter.
    */
   @java.lang.Override
@@ -148,7 +148,7 @@ private static final long serialVersionUID = 0L;
     return com.anduril.entitymanager.v1.Frequency.getDefaultInstance();
   }
   /**
-   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public com.anduril.entitymanager.v1.FrequencyOrBuilder getFrequencyCenterOrBuilder() {
@@ -160,7 +160,7 @@ private static final long serialVersionUID = 0L;
 
   public static final int FREQUENCY_RANGE_FIELD_NUMBER = 2;
   /**
-   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the frequencyRange field is set.
    */
   @java.lang.Override
@@ -168,7 +168,7 @@ private static final long serialVersionUID = 0L;
     return frequencyMeasurementCase_ == 2;
   }
   /**
-   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The frequencyRange.
    */
   @java.lang.Override
@@ -179,7 +179,7 @@ private static final long serialVersionUID = 0L;
     return com.anduril.entitymanager.v1.FrequencyRange.getDefaultInstance();
   }
   /**
-   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public com.anduril.entitymanager.v1.FrequencyRangeOrBuilder getFrequencyRangeOrBuilder() {
@@ -196,7 +196,7 @@ private static final long serialVersionUID = 0L;
    * Indicates the bandwidth of a signal (Hz).
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the bandwidthHz field is set.
    */
   @java.lang.Override
@@ -208,7 +208,7 @@ private static final long serialVersionUID = 0L;
    * Indicates the bandwidth of a signal (Hz).
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The bandwidthHz.
    */
   @java.lang.Override
@@ -220,7 +220,7 @@ private static final long serialVersionUID = 0L;
    * Indicates the bandwidth of a signal (Hz).
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getBandwidthHzOrBuilder() {
@@ -335,7 +335,7 @@ private static final long serialVersionUID = 0L;
    * Emitter notations associated with this entity.
    * </pre>
    *
-   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public java.util.List<com.anduril.entitymanager.v1.EmitterNotation> getEmitterNotationsList() {
@@ -346,7 +346,7 @@ private static final long serialVersionUID = 0L;
    * Emitter notations associated with this entity.
    * </pre>
    *
-   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.anduril.entitymanager.v1.EmitterNotationOrBuilder> 
@@ -358,7 +358,7 @@ private static final long serialVersionUID = 0L;
    * Emitter notations associated with this entity.
    * </pre>
    *
-   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public int getEmitterNotationsCount() {
@@ -369,7 +369,7 @@ private static final long serialVersionUID = 0L;
    * Emitter notations associated with this entity.
    * </pre>
    *
-   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public com.anduril.entitymanager.v1.EmitterNotation getEmitterNotations(int index) {
@@ -380,7 +380,7 @@ private static final long serialVersionUID = 0L;
    * Emitter notations associated with this entity.
    * </pre>
    *
-   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public com.anduril.entitymanager.v1.EmitterNotationOrBuilder getEmitterNotationsOrBuilder(
@@ -395,7 +395,7 @@ private static final long serialVersionUID = 0L;
    * length in time of a single pulse
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the pulseWidthS field is set.
    */
   @java.lang.Override
@@ -407,7 +407,7 @@ private static final long serialVersionUID = 0L;
    * length in time of a single pulse
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The pulseWidthS.
    */
   @java.lang.Override
@@ -419,7 +419,7 @@ private static final long serialVersionUID = 0L;
    * length in time of a single pulse
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getPulseWidthSOrBuilder() {
@@ -433,7 +433,7 @@ private static final long serialVersionUID = 0L;
    * length in time between the start of two pulses
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the pulseRepetitionInterval field is set.
    */
   @java.lang.Override
@@ -445,7 +445,7 @@ private static final long serialVersionUID = 0L;
    * length in time between the start of two pulses
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The pulseRepetitionInterval.
    */
   @java.lang.Override
@@ -457,7 +457,7 @@ private static final long serialVersionUID = 0L;
    * length in time between the start of two pulses
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   @java.lang.Override
   public com.anduril.entitymanager.v1.PulseRepetitionIntervalOrBuilder getPulseRepetitionIntervalOrBuilder() {
@@ -1231,7 +1231,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.Frequency, com.anduril.entitymanager.v1.Frequency.Builder, com.anduril.entitymanager.v1.FrequencyOrBuilder> frequencyCenterBuilder_;
     /**
-     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return Whether the frequencyCenter field is set.
      */
     @java.lang.Override
@@ -1239,7 +1239,7 @@ private static final long serialVersionUID = 0L;
       return frequencyMeasurementCase_ == 1;
     }
     /**
-     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return The frequencyCenter.
      */
     @java.lang.Override
@@ -1257,7 +1257,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setFrequencyCenter(com.anduril.entitymanager.v1.Frequency value) {
       if (frequencyCenterBuilder_ == null) {
@@ -1273,7 +1273,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setFrequencyCenter(
         com.anduril.entitymanager.v1.Frequency.Builder builderForValue) {
@@ -1287,7 +1287,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder mergeFrequencyCenter(com.anduril.entitymanager.v1.Frequency value) {
       if (frequencyCenterBuilder_ == null) {
@@ -1310,7 +1310,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder clearFrequencyCenter() {
       if (frequencyCenterBuilder_ == null) {
@@ -1329,13 +1329,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.anduril.entitymanager.v1.Frequency.Builder getFrequencyCenterBuilder() {
       return getFrequencyCenterFieldBuilder().getBuilder();
     }
     /**
-     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     @java.lang.Override
     public com.anduril.entitymanager.v1.FrequencyOrBuilder getFrequencyCenterOrBuilder() {
@@ -1349,7 +1349,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+     * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.Frequency, com.anduril.entitymanager.v1.Frequency.Builder, com.anduril.entitymanager.v1.FrequencyOrBuilder> 
@@ -1373,7 +1373,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.FrequencyRange, com.anduril.entitymanager.v1.FrequencyRange.Builder, com.anduril.entitymanager.v1.FrequencyRangeOrBuilder> frequencyRangeBuilder_;
     /**
-     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return Whether the frequencyRange field is set.
      */
     @java.lang.Override
@@ -1381,7 +1381,7 @@ private static final long serialVersionUID = 0L;
       return frequencyMeasurementCase_ == 2;
     }
     /**
-     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return The frequencyRange.
      */
     @java.lang.Override
@@ -1399,7 +1399,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setFrequencyRange(com.anduril.entitymanager.v1.FrequencyRange value) {
       if (frequencyRangeBuilder_ == null) {
@@ -1415,7 +1415,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setFrequencyRange(
         com.anduril.entitymanager.v1.FrequencyRange.Builder builderForValue) {
@@ -1429,7 +1429,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder mergeFrequencyRange(com.anduril.entitymanager.v1.FrequencyRange value) {
       if (frequencyRangeBuilder_ == null) {
@@ -1452,7 +1452,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder clearFrequencyRange() {
       if (frequencyRangeBuilder_ == null) {
@@ -1471,13 +1471,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.anduril.entitymanager.v1.FrequencyRange.Builder getFrequencyRangeBuilder() {
       return getFrequencyRangeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     @java.lang.Override
     public com.anduril.entitymanager.v1.FrequencyRangeOrBuilder getFrequencyRangeOrBuilder() {
@@ -1491,7 +1491,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+     * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.FrequencyRange, com.anduril.entitymanager.v1.FrequencyRange.Builder, com.anduril.entitymanager.v1.FrequencyRangeOrBuilder> 
@@ -1520,7 +1520,7 @@ private static final long serialVersionUID = 0L;
      * Indicates the bandwidth of a signal (Hz).
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return Whether the bandwidthHz field is set.
      */
     public boolean hasBandwidthHz() {
@@ -1531,7 +1531,7 @@ private static final long serialVersionUID = 0L;
      * Indicates the bandwidth of a signal (Hz).
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return The bandwidthHz.
      */
     public com.google.protobuf.DoubleValue getBandwidthHz() {
@@ -1546,7 +1546,7 @@ private static final long serialVersionUID = 0L;
      * Indicates the bandwidth of a signal (Hz).
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setBandwidthHz(com.google.protobuf.DoubleValue value) {
       if (bandwidthHzBuilder_ == null) {
@@ -1566,7 +1566,7 @@ private static final long serialVersionUID = 0L;
      * Indicates the bandwidth of a signal (Hz).
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setBandwidthHz(
         com.google.protobuf.DoubleValue.Builder builderForValue) {
@@ -1584,7 +1584,7 @@ private static final long serialVersionUID = 0L;
      * Indicates the bandwidth of a signal (Hz).
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder mergeBandwidthHz(com.google.protobuf.DoubleValue value) {
       if (bandwidthHzBuilder_ == null) {
@@ -1607,7 +1607,7 @@ private static final long serialVersionUID = 0L;
      * Indicates the bandwidth of a signal (Hz).
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder clearBandwidthHz() {
       bitField0_ = (bitField0_ & ~0x00000004);
@@ -1624,7 +1624,7 @@ private static final long serialVersionUID = 0L;
      * Indicates the bandwidth of a signal (Hz).
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.google.protobuf.DoubleValue.Builder getBandwidthHzBuilder() {
       bitField0_ |= 0x00000004;
@@ -1636,7 +1636,7 @@ private static final long serialVersionUID = 0L;
      * Indicates the bandwidth of a signal (Hz).
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.google.protobuf.DoubleValueOrBuilder getBandwidthHzOrBuilder() {
       if (bandwidthHzBuilder_ != null) {
@@ -1651,7 +1651,7 @@ private static final long serialVersionUID = 0L;
      * Indicates the bandwidth of a signal (Hz).
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+     * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> 
@@ -2123,7 +2123,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public java.util.List<com.anduril.entitymanager.v1.EmitterNotation> getEmitterNotationsList() {
       if (emitterNotationsBuilder_ == null) {
@@ -2137,7 +2137,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public int getEmitterNotationsCount() {
       if (emitterNotationsBuilder_ == null) {
@@ -2151,7 +2151,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.anduril.entitymanager.v1.EmitterNotation getEmitterNotations(int index) {
       if (emitterNotationsBuilder_ == null) {
@@ -2165,7 +2165,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setEmitterNotations(
         int index, com.anduril.entitymanager.v1.EmitterNotation value) {
@@ -2186,7 +2186,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setEmitterNotations(
         int index, com.anduril.entitymanager.v1.EmitterNotation.Builder builderForValue) {
@@ -2204,7 +2204,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder addEmitterNotations(com.anduril.entitymanager.v1.EmitterNotation value) {
       if (emitterNotationsBuilder_ == null) {
@@ -2224,7 +2224,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder addEmitterNotations(
         int index, com.anduril.entitymanager.v1.EmitterNotation value) {
@@ -2245,7 +2245,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder addEmitterNotations(
         com.anduril.entitymanager.v1.EmitterNotation.Builder builderForValue) {
@@ -2263,7 +2263,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder addEmitterNotations(
         int index, com.anduril.entitymanager.v1.EmitterNotation.Builder builderForValue) {
@@ -2281,7 +2281,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder addAllEmitterNotations(
         java.lang.Iterable<? extends com.anduril.entitymanager.v1.EmitterNotation> values) {
@@ -2300,7 +2300,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder clearEmitterNotations() {
       if (emitterNotationsBuilder_ == null) {
@@ -2317,7 +2317,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder removeEmitterNotations(int index) {
       if (emitterNotationsBuilder_ == null) {
@@ -2334,7 +2334,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.anduril.entitymanager.v1.EmitterNotation.Builder getEmitterNotationsBuilder(
         int index) {
@@ -2345,7 +2345,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.anduril.entitymanager.v1.EmitterNotationOrBuilder getEmitterNotationsOrBuilder(
         int index) {
@@ -2359,7 +2359,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public java.util.List<? extends com.anduril.entitymanager.v1.EmitterNotationOrBuilder> 
          getEmitterNotationsOrBuilderList() {
@@ -2374,7 +2374,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.anduril.entitymanager.v1.EmitterNotation.Builder addEmitterNotationsBuilder() {
       return getEmitterNotationsFieldBuilder().addBuilder(
@@ -2385,7 +2385,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.anduril.entitymanager.v1.EmitterNotation.Builder addEmitterNotationsBuilder(
         int index) {
@@ -2397,7 +2397,7 @@ private static final long serialVersionUID = 0L;
      * Emitter notations associated with this entity.
      * </pre>
      *
-     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+     * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public java.util.List<com.anduril.entitymanager.v1.EmitterNotation.Builder> 
          getEmitterNotationsBuilderList() {
@@ -2426,7 +2426,7 @@ private static final long serialVersionUID = 0L;
      * length in time of a single pulse
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return Whether the pulseWidthS field is set.
      */
     public boolean hasPulseWidthS() {
@@ -2437,7 +2437,7 @@ private static final long serialVersionUID = 0L;
      * length in time of a single pulse
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return The pulseWidthS.
      */
     public com.google.protobuf.DoubleValue getPulseWidthS() {
@@ -2452,7 +2452,7 @@ private static final long serialVersionUID = 0L;
      * length in time of a single pulse
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setPulseWidthS(com.google.protobuf.DoubleValue value) {
       if (pulseWidthSBuilder_ == null) {
@@ -2472,7 +2472,7 @@ private static final long serialVersionUID = 0L;
      * length in time of a single pulse
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setPulseWidthS(
         com.google.protobuf.DoubleValue.Builder builderForValue) {
@@ -2490,7 +2490,7 @@ private static final long serialVersionUID = 0L;
      * length in time of a single pulse
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder mergePulseWidthS(com.google.protobuf.DoubleValue value) {
       if (pulseWidthSBuilder_ == null) {
@@ -2513,7 +2513,7 @@ private static final long serialVersionUID = 0L;
      * length in time of a single pulse
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder clearPulseWidthS() {
       bitField0_ = (bitField0_ & ~0x00000080);
@@ -2530,7 +2530,7 @@ private static final long serialVersionUID = 0L;
      * length in time of a single pulse
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.google.protobuf.DoubleValue.Builder getPulseWidthSBuilder() {
       bitField0_ |= 0x00000080;
@@ -2542,7 +2542,7 @@ private static final long serialVersionUID = 0L;
      * length in time of a single pulse
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.google.protobuf.DoubleValueOrBuilder getPulseWidthSOrBuilder() {
       if (pulseWidthSBuilder_ != null) {
@@ -2557,7 +2557,7 @@ private static final long serialVersionUID = 0L;
      * length in time of a single pulse
      * </pre>
      *
-     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+     * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> 
@@ -2581,7 +2581,7 @@ private static final long serialVersionUID = 0L;
      * length in time between the start of two pulses
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return Whether the pulseRepetitionInterval field is set.
      */
     public boolean hasPulseRepetitionInterval() {
@@ -2592,7 +2592,7 @@ private static final long serialVersionUID = 0L;
      * length in time between the start of two pulses
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
      * @return The pulseRepetitionInterval.
      */
     public com.anduril.entitymanager.v1.PulseRepetitionInterval getPulseRepetitionInterval() {
@@ -2607,7 +2607,7 @@ private static final long serialVersionUID = 0L;
      * length in time between the start of two pulses
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setPulseRepetitionInterval(com.anduril.entitymanager.v1.PulseRepetitionInterval value) {
       if (pulseRepetitionIntervalBuilder_ == null) {
@@ -2627,7 +2627,7 @@ private static final long serialVersionUID = 0L;
      * length in time between the start of two pulses
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder setPulseRepetitionInterval(
         com.anduril.entitymanager.v1.PulseRepetitionInterval.Builder builderForValue) {
@@ -2645,7 +2645,7 @@ private static final long serialVersionUID = 0L;
      * length in time between the start of two pulses
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder mergePulseRepetitionInterval(com.anduril.entitymanager.v1.PulseRepetitionInterval value) {
       if (pulseRepetitionIntervalBuilder_ == null) {
@@ -2668,7 +2668,7 @@ private static final long serialVersionUID = 0L;
      * length in time between the start of two pulses
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public Builder clearPulseRepetitionInterval() {
       bitField0_ = (bitField0_ & ~0x00000100);
@@ -2685,7 +2685,7 @@ private static final long serialVersionUID = 0L;
      * length in time between the start of two pulses
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.anduril.entitymanager.v1.PulseRepetitionInterval.Builder getPulseRepetitionIntervalBuilder() {
       bitField0_ |= 0x00000100;
@@ -2697,7 +2697,7 @@ private static final long serialVersionUID = 0L;
      * length in time between the start of two pulses
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     public com.anduril.entitymanager.v1.PulseRepetitionIntervalOrBuilder getPulseRepetitionIntervalOrBuilder() {
       if (pulseRepetitionIntervalBuilder_ != null) {
@@ -2712,7 +2712,7 @@ private static final long serialVersionUID = 0L;
      * length in time between the start of two pulses
      * </pre>
      *
-     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+     * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.PulseRepetitionInterval, com.anduril.entitymanager.v1.PulseRepetitionInterval.Builder, com.anduril.entitymanager.v1.PulseRepetitionIntervalOrBuilder> 

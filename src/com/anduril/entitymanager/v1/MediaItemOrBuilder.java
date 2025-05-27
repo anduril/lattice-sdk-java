@@ -8,28 +8,6 @@ public interface MediaItemOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <pre>
-   * To Be Deprecated, use relative_path.
-   * The url where the media related to an entity can be accessed
-   * </pre>
-   *
-   * <code>string url = 1 [json_name = "url"];</code>
-   * @return The url.
-   */
-  java.lang.String getUrl();
-  /**
-   * <pre>
-   * To Be Deprecated, use relative_path.
-   * The url where the media related to an entity can be accessed
-   * </pre>
-   *
-   * <code>string url = 1 [json_name = "url"];</code>
-   * @return The bytes for url.
-   */
-  com.google.protobuf.ByteString
-      getUrlBytes();
-
-  /**
    * <code>.anduril.entitymanager.v1.MediaType type = 2 [json_name = "type"];</code>
    * @return The enum numeric value on the wire for type.
    */
@@ -42,8 +20,7 @@ public interface MediaItemOrBuilder extends
 
   /**
    * <pre>
-   * The relative path where the media related to an entity can be accessed when used to query against a blobs service
-   * node.
+   * The path, relative to the environment base URL, where media related to an entity can be accessed
    * </pre>
    *
    * <code>string relative_path = 3 [json_name = "relativePath"];</code>
@@ -52,8 +29,7 @@ public interface MediaItemOrBuilder extends
   java.lang.String getRelativePath();
   /**
    * <pre>
-   * The relative path where the media related to an entity can be accessed when used to query against a blobs service
-   * node.
+   * The path, relative to the environment base URL, where media related to an entity can be accessed
    * </pre>
    *
    * <code>string relative_path = 3 [json_name = "relativePath"];</code>

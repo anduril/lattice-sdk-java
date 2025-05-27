@@ -37,20 +37,19 @@ public final class MediaPubProto {
       "to\022\030anduril.entitymanager.v1\032*anduril/en" +
       "titymanager/v1/options.pub.proto\"G\n\005Medi" +
       "a\022>\n\005media\030\001 \003(\0132#.anduril.entitymanager" +
-      ".v1.MediaItemB\003\310>\001R\005media\"{\n\tMediaItem\022\020" +
-      "\n\003url\030\001 \001(\tR\003url\0227\n\004type\030\002 \001(\0162#.anduril" +
-      ".entitymanager.v1.MediaTypeR\004type\022#\n\rrel" +
-      "ative_path\030\003 \001(\tR\014relativePath*\206\001\n\tMedia" +
-      "Type\022\026\n\022MEDIA_TYPE_INVALID\020\000\022\030\n\024MEDIA_TY" +
-      "PE_THUMBNAIL\020\001\022\024\n\020MEDIA_TYPE_IMAGE\020\002\022\024\n\020" +
-      "MEDIA_TYPE_VIDEO\020\003\022\033\n\027MEDIA_TYPE_SLIPPY_" +
-      "TILES\020\004B\201\002\n\034com.anduril.entitymanager.v1" +
-      "B\rMediaPubProtoP\001ZPgithub.com/anduril/la" +
-      "ttice-sdk-java/src/anduril/entitymanager" +
-      "/v1;entitymanagerv1\242\002\003AEX\252\002\030Anduril.Enti" +
-      "tymanager.V1\312\002\030Anduril\\Entitymanager\\V1\342" +
-      "\002$Anduril\\Entitymanager\\V1\\GPBMetadata\352\002" +
-      "\032Anduril::Entitymanager::V1b\006proto3"
+      ".v1.MediaItemB\003\310>\001R\005media\"o\n\tMediaItem\0227" +
+      "\n\004type\030\002 \001(\0162#.anduril.entitymanager.v1." +
+      "MediaTypeR\004type\022#\n\rrelative_path\030\003 \001(\tR\014" +
+      "relativePathJ\004\010\001\020\002*[\n\tMediaType\022\026\n\022MEDIA" +
+      "_TYPE_INVALID\020\000\022\024\n\020MEDIA_TYPE_IMAGE\020\002\022\024\n" +
+      "\020MEDIA_TYPE_VIDEO\020\003\"\004\010\001\020\001\"\004\010\004\020\004B\201\002\n\034com." +
+      "anduril.entitymanager.v1B\rMediaPubProtoP" +
+      "\001ZPgithub.com/anduril/lattice-sdk-java/s" +
+      "rc/anduril/entitymanager/v1;entitymanage" +
+      "rv1\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030A" +
+      "nduril\\Entitymanager\\V1\342\002$Anduril\\Entity" +
+      "manager\\V1\\GPBMetadata\352\002\032Anduril::Entity" +
+      "manager::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -68,7 +67,7 @@ public final class MediaPubProto {
     internal_static_anduril_entitymanager_v1_MediaItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_anduril_entitymanager_v1_MediaItem_descriptor,
-        new java.lang.String[] { "Url", "Type", "RelativePath", });
+        new java.lang.String[] { "Type", "RelativePath", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.anduril.entitymanager.v1.OptionsPubProto.overridable);

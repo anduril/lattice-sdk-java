@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private MediaItem() {
-    url_ = "";
     type_ = 0;
     relativePath_ = "";
   }
@@ -39,55 +38,6 @@ private static final long serialVersionUID = 0L;
     return com.anduril.entitymanager.v1.MediaPubProto.internal_static_anduril_entitymanager_v1_MediaItem_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.anduril.entitymanager.v1.MediaItem.class, com.anduril.entitymanager.v1.MediaItem.Builder.class);
-  }
-
-  public static final int URL_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object url_ = "";
-  /**
-   * <pre>
-   * To Be Deprecated, use relative_path.
-   * The url where the media related to an entity can be accessed
-   * </pre>
-   *
-   * <code>string url = 1 [json_name = "url"];</code>
-   * @return The url.
-   */
-  @java.lang.Override
-  public java.lang.String getUrl() {
-    java.lang.Object ref = url_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      url_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * To Be Deprecated, use relative_path.
-   * The url where the media related to an entity can be accessed
-   * </pre>
-   *
-   * <code>string url = 1 [json_name = "url"];</code>
-   * @return The bytes for url.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getUrlBytes() {
-    java.lang.Object ref = url_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      url_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
   }
 
   public static final int TYPE_FIELD_NUMBER = 2;
@@ -113,8 +63,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object relativePath_ = "";
   /**
    * <pre>
-   * The relative path where the media related to an entity can be accessed when used to query against a blobs service
-   * node.
+   * The path, relative to the environment base URL, where media related to an entity can be accessed
    * </pre>
    *
    * <code>string relative_path = 3 [json_name = "relativePath"];</code>
@@ -135,8 +84,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The relative path where the media related to an entity can be accessed when used to query against a blobs service
-   * node.
+   * The path, relative to the environment base URL, where media related to an entity can be accessed
    * </pre>
    *
    * <code>string relative_path = 3 [json_name = "relativePath"];</code>
@@ -171,9 +119,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, url_);
-    }
     if (type_ != com.anduril.entitymanager.v1.MediaType.MEDIA_TYPE_INVALID.getNumber()) {
       output.writeEnum(2, type_);
     }
@@ -189,9 +134,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, url_);
-    }
     if (type_ != com.anduril.entitymanager.v1.MediaType.MEDIA_TYPE_INVALID.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, type_);
@@ -214,8 +156,6 @@ private static final long serialVersionUID = 0L;
     }
     com.anduril.entitymanager.v1.MediaItem other = (com.anduril.entitymanager.v1.MediaItem) obj;
 
-    if (!getUrl()
-        .equals(other.getUrl())) return false;
     if (type_ != other.type_) return false;
     if (!getRelativePath()
         .equals(other.getRelativePath())) return false;
@@ -230,8 +170,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + URL_FIELD_NUMBER;
-    hash = (53 * hash) + getUrl().hashCode();
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + type_;
     hash = (37 * hash) + RELATIVE_PATH_FIELD_NUMBER;
@@ -365,7 +303,6 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      url_ = "";
       type_ = 0;
       relativePath_ = "";
       return this;
@@ -402,12 +339,9 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.anduril.entitymanager.v1.MediaItem result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.url_ = url_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.type_ = type_;
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.relativePath_ = relativePath_;
       }
     }
@@ -424,17 +358,12 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.anduril.entitymanager.v1.MediaItem other) {
       if (other == com.anduril.entitymanager.v1.MediaItem.getDefaultInstance()) return this;
-      if (!other.getUrl().isEmpty()) {
-        url_ = other.url_;
-        bitField0_ |= 0x00000001;
-        onChanged();
-      }
       if (other.type_ != 0) {
         setTypeValue(other.getTypeValue());
       }
       if (!other.getRelativePath().isEmpty()) {
         relativePath_ = other.relativePath_;
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -463,19 +392,14 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              url_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 10
             case 16: {
               type_ = input.readEnum();
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             } // case 16
             case 26: {
               relativePath_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             } // case 26
             default: {
@@ -495,103 +419,6 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object url_ = "";
-    /**
-     * <pre>
-     * To Be Deprecated, use relative_path.
-     * The url where the media related to an entity can be accessed
-     * </pre>
-     *
-     * <code>string url = 1 [json_name = "url"];</code>
-     * @return The url.
-     */
-    public java.lang.String getUrl() {
-      java.lang.Object ref = url_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        url_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * To Be Deprecated, use relative_path.
-     * The url where the media related to an entity can be accessed
-     * </pre>
-     *
-     * <code>string url = 1 [json_name = "url"];</code>
-     * @return The bytes for url.
-     */
-    public com.google.protobuf.ByteString
-        getUrlBytes() {
-      java.lang.Object ref = url_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        url_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * To Be Deprecated, use relative_path.
-     * The url where the media related to an entity can be accessed
-     * </pre>
-     *
-     * <code>string url = 1 [json_name = "url"];</code>
-     * @param value The url to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUrl(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      url_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * To Be Deprecated, use relative_path.
-     * The url where the media related to an entity can be accessed
-     * </pre>
-     *
-     * <code>string url = 1 [json_name = "url"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUrl() {
-      url_ = getDefaultInstance().getUrl();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * To Be Deprecated, use relative_path.
-     * The url where the media related to an entity can be accessed
-     * </pre>
-     *
-     * <code>string url = 1 [json_name = "url"];</code>
-     * @param value The bytes for url to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      url_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-
     private int type_ = 0;
     /**
      * <code>.anduril.entitymanager.v1.MediaType type = 2 [json_name = "type"];</code>
@@ -607,7 +434,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeValue(int value) {
       type_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -629,7 +456,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -639,7 +466,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       type_ = 0;
       onChanged();
       return this;
@@ -648,8 +475,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object relativePath_ = "";
     /**
      * <pre>
-     * The relative path where the media related to an entity can be accessed when used to query against a blobs service
-     * node.
+     * The path, relative to the environment base URL, where media related to an entity can be accessed
      * </pre>
      *
      * <code>string relative_path = 3 [json_name = "relativePath"];</code>
@@ -669,8 +495,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The relative path where the media related to an entity can be accessed when used to query against a blobs service
-     * node.
+     * The path, relative to the environment base URL, where media related to an entity can be accessed
      * </pre>
      *
      * <code>string relative_path = 3 [json_name = "relativePath"];</code>
@@ -691,8 +516,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The relative path where the media related to an entity can be accessed when used to query against a blobs service
-     * node.
+     * The path, relative to the environment base URL, where media related to an entity can be accessed
      * </pre>
      *
      * <code>string relative_path = 3 [json_name = "relativePath"];</code>
@@ -703,14 +527,13 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       relativePath_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The relative path where the media related to an entity can be accessed when used to query against a blobs service
-     * node.
+     * The path, relative to the environment base URL, where media related to an entity can be accessed
      * </pre>
      *
      * <code>string relative_path = 3 [json_name = "relativePath"];</code>
@@ -718,14 +541,13 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRelativePath() {
       relativePath_ = getDefaultInstance().getRelativePath();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The relative path where the media related to an entity can be accessed when used to query against a blobs service
-     * node.
+     * The path, relative to the environment base URL, where media related to an entity can be accessed
      * </pre>
      *
      * <code>string relative_path = 3 [json_name = "relativePath"];</code>
@@ -737,7 +559,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       relativePath_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }

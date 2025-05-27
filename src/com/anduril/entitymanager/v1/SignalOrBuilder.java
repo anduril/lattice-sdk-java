@@ -8,32 +8,32 @@ public interface SignalOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the frequencyCenter field is set.
    */
   boolean hasFrequencyCenter();
   /**
-   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The frequencyCenter.
    */
   com.anduril.entitymanager.v1.Frequency getFrequencyCenter();
   /**
-   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];</code>
+   * <code>.anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   com.anduril.entitymanager.v1.FrequencyOrBuilder getFrequencyCenterOrBuilder();
 
   /**
-   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the frequencyRange field is set.
    */
   boolean hasFrequencyRange();
   /**
-   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The frequencyRange.
    */
   com.anduril.entitymanager.v1.FrequencyRange getFrequencyRange();
   /**
-   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];</code>
+   * <code>.anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   com.anduril.entitymanager.v1.FrequencyRangeOrBuilder getFrequencyRangeOrBuilder();
 
@@ -42,7 +42,7 @@ public interface SignalOrBuilder extends
    * Indicates the bandwidth of a signal (Hz).
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the bandwidthHz field is set.
    */
   boolean hasBandwidthHz();
@@ -51,7 +51,7 @@ public interface SignalOrBuilder extends
    * Indicates the bandwidth of a signal (Hz).
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The bandwidthHz.
    */
   com.google.protobuf.DoubleValue getBandwidthHz();
@@ -60,7 +60,7 @@ public interface SignalOrBuilder extends
    * Indicates the bandwidth of a signal (Hz).
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];</code>
+   * <code>.google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   com.google.protobuf.DoubleValueOrBuilder getBandwidthHzOrBuilder();
 
@@ -126,7 +126,7 @@ public interface SignalOrBuilder extends
    * Emitter notations associated with this entity.
    * </pre>
    *
-   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   java.util.List<com.anduril.entitymanager.v1.EmitterNotation> 
       getEmitterNotationsList();
@@ -135,7 +135,7 @@ public interface SignalOrBuilder extends
    * Emitter notations associated with this entity.
    * </pre>
    *
-   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   com.anduril.entitymanager.v1.EmitterNotation getEmitterNotations(int index);
   /**
@@ -143,7 +143,7 @@ public interface SignalOrBuilder extends
    * Emitter notations associated with this entity.
    * </pre>
    *
-   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   int getEmitterNotationsCount();
   /**
@@ -151,7 +151,7 @@ public interface SignalOrBuilder extends
    * Emitter notations associated with this entity.
    * </pre>
    *
-   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   java.util.List<? extends com.anduril.entitymanager.v1.EmitterNotationOrBuilder> 
       getEmitterNotationsOrBuilderList();
@@ -160,7 +160,7 @@ public interface SignalOrBuilder extends
    * Emitter notations associated with this entity.
    * </pre>
    *
-   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];</code>
+   * <code>repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   com.anduril.entitymanager.v1.EmitterNotationOrBuilder getEmitterNotationsOrBuilder(
       int index);
@@ -170,7 +170,7 @@ public interface SignalOrBuilder extends
    * length in time of a single pulse
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the pulseWidthS field is set.
    */
   boolean hasPulseWidthS();
@@ -179,7 +179,7 @@ public interface SignalOrBuilder extends
    * length in time of a single pulse
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The pulseWidthS.
    */
   com.google.protobuf.DoubleValue getPulseWidthS();
@@ -188,7 +188,7 @@ public interface SignalOrBuilder extends
    * length in time of a single pulse
    * </pre>
    *
-   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];</code>
+   * <code>.google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   com.google.protobuf.DoubleValueOrBuilder getPulseWidthSOrBuilder();
 
@@ -197,7 +197,7 @@ public interface SignalOrBuilder extends
    * length in time between the start of two pulses
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return Whether the pulseRepetitionInterval field is set.
    */
   boolean hasPulseRepetitionInterval();
@@ -206,7 +206,7 @@ public interface SignalOrBuilder extends
    * length in time between the start of two pulses
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
    * @return The pulseRepetitionInterval.
    */
   com.anduril.entitymanager.v1.PulseRepetitionInterval getPulseRepetitionInterval();
@@ -215,7 +215,7 @@ public interface SignalOrBuilder extends
    * length in time between the start of two pulses
    * </pre>
    *
-   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];</code>
+   * <code>.anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];</code>
    */
   com.anduril.entitymanager.v1.PulseRepetitionIntervalOrBuilder getPulseRepetitionIntervalOrBuilder();
 
