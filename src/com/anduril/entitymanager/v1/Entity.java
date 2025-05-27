@@ -1069,6 +1069,44 @@ private static final long serialVersionUID = 0L;
     return taskCatalog_ == null ? com.anduril.tasks.v2.TaskCatalog.getDefaultInstance() : taskCatalog_;
   }
 
+  public static final int MEDIA_FIELD_NUMBER = 32;
+  private com.anduril.entitymanager.v1.Media media_;
+  /**
+   * <pre>
+   * Media associated with an entity, such as videos, images, or thumbnails.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+   * @return Whether the media field is set.
+   */
+  @java.lang.Override
+  public boolean hasMedia() {
+    return media_ != null;
+  }
+  /**
+   * <pre>
+   * Media associated with an entity, such as videos, images, or thumbnails.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+   * @return The media.
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.Media getMedia() {
+    return media_ == null ? com.anduril.entitymanager.v1.Media.getDefaultInstance() : media_;
+  }
+  /**
+   * <pre>
+   * Media associated with an entity, such as videos, images, or thumbnails.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+   */
+  @java.lang.Override
+  public com.anduril.entitymanager.v1.MediaOrBuilder getMediaOrBuilder() {
+    return media_ == null ? com.anduril.entitymanager.v1.Media.getDefaultInstance() : media_;
+  }
+
   public static final int RELATIONSHIPS_FIELD_NUMBER = 33;
   private com.anduril.entitymanager.v1.Relationships relationships_;
   /**
@@ -1500,6 +1538,9 @@ private static final long serialVersionUID = 0L;
     if (taskCatalog_ != null) {
       output.writeMessage(31, getTaskCatalog());
     }
+    if (media_ != null) {
+      output.writeMessage(32, getMedia());
+    }
     if (relationships_ != null) {
       output.writeMessage(33, getRelationships());
     }
@@ -1636,6 +1677,10 @@ private static final long serialVersionUID = 0L;
     if (taskCatalog_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(31, getTaskCatalog());
+    }
+    if (media_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(32, getMedia());
     }
     if (relationships_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -1813,6 +1858,11 @@ private static final long serialVersionUID = 0L;
       if (!getTaskCatalog()
           .equals(other.getTaskCatalog())) return false;
     }
+    if (hasMedia() != other.hasMedia()) return false;
+    if (hasMedia()) {
+      if (!getMedia()
+          .equals(other.getMedia())) return false;
+    }
     if (hasRelationships() != other.hasRelationships()) return false;
     if (hasRelationships()) {
       if (!getRelationships()
@@ -1967,6 +2017,10 @@ private static final long serialVersionUID = 0L;
     if (hasTaskCatalog()) {
       hash = (37 * hash) + TASK_CATALOG_FIELD_NUMBER;
       hash = (53 * hash) + getTaskCatalog().hashCode();
+    }
+    if (hasMedia()) {
+      hash = (37 * hash) + MEDIA_FIELD_NUMBER;
+      hash = (53 * hash) + getMedia().hashCode();
     }
     if (hasRelationships()) {
       hash = (37 * hash) + RELATIONSHIPS_FIELD_NUMBER;
@@ -2257,6 +2311,11 @@ private static final long serialVersionUID = 0L;
         taskCatalogBuilder_.dispose();
         taskCatalogBuilder_ = null;
       }
+      media_ = null;
+      if (mediaBuilder_ != null) {
+        mediaBuilder_.dispose();
+        mediaBuilder_ = null;
+      }
       relationships_ = null;
       if (relationshipsBuilder_ != null) {
         relationshipsBuilder_.dispose();
@@ -2461,50 +2520,55 @@ private static final long serialVersionUID = 0L;
             : taskCatalogBuilder_.build();
       }
       if (((from_bitField0_ & 0x04000000) != 0)) {
+        result.media_ = mediaBuilder_ == null
+            ? media_
+            : mediaBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x08000000) != 0)) {
         result.relationships_ = relationshipsBuilder_ == null
             ? relationships_
             : relationshipsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x08000000) != 0)) {
+      if (((from_bitField0_ & 0x10000000) != 0)) {
         result.visualDetails_ = visualDetailsBuilder_ == null
             ? visualDetails_
             : visualDetailsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x10000000) != 0)) {
+      if (((from_bitField0_ & 0x20000000) != 0)) {
         result.dimensions_ = dimensionsBuilder_ == null
             ? dimensions_
             : dimensionsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x20000000) != 0)) {
+      if (((from_bitField0_ & 0x40000000) != 0)) {
         result.routeDetails_ = routeDetailsBuilder_ == null
             ? routeDetails_
             : routeDetailsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x40000000) != 0)) {
+      if (((from_bitField0_ & 0x80000000) != 0)) {
         result.schedules_ = schedulesBuilder_ == null
             ? schedules_
             : schedulesBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x80000000) != 0)) {
-        result.health_ = healthBuilder_ == null
-            ? health_
-            : healthBuilder_.build();
       }
     }
 
     private void buildPartial1(com.anduril.entitymanager.v1.Entity result) {
       int from_bitField1_ = bitField1_;
       if (((from_bitField1_ & 0x00000001) != 0)) {
+        result.health_ = healthBuilder_ == null
+            ? health_
+            : healthBuilder_.build();
+      }
+      if (((from_bitField1_ & 0x00000002) != 0)) {
         result.groupDetails_ = groupDetailsBuilder_ == null
             ? groupDetails_
             : groupDetailsBuilder_.build();
       }
-      if (((from_bitField1_ & 0x00000002) != 0)) {
+      if (((from_bitField1_ & 0x00000004) != 0)) {
         result.supplies_ = suppliesBuilder_ == null
             ? supplies_
             : suppliesBuilder_.build();
       }
-      if (((from_bitField1_ & 0x00000004) != 0)) {
+      if (((from_bitField1_ & 0x00000008) != 0)) {
         result.orbit_ = orbitBuilder_ == null
             ? orbit_
             : orbitBuilder_.build();
@@ -2604,6 +2668,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasTaskCatalog()) {
         mergeTaskCatalog(other.getTaskCatalog());
+      }
+      if (other.hasMedia()) {
+        mergeMedia(other.getMedia());
       }
       if (other.hasRelationships()) {
         mergeRelationships(other.getRelationships());
@@ -2827,67 +2894,74 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x02000000;
               break;
             } // case 250
+            case 258: {
+              input.readMessage(
+                  getMediaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x04000000;
+              break;
+            } // case 258
             case 266: {
               input.readMessage(
                   getRelationshipsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x04000000;
+              bitField0_ |= 0x08000000;
               break;
             } // case 266
             case 274: {
               input.readMessage(
                   getVisualDetailsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x08000000;
+              bitField0_ |= 0x10000000;
               break;
             } // case 274
             case 290: {
               input.readMessage(
                   getDimensionsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x10000000;
+              bitField0_ |= 0x20000000;
               break;
             } // case 290
             case 298: {
               input.readMessage(
                   getRouteDetailsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x20000000;
+              bitField0_ |= 0x40000000;
               break;
             } // case 298
             case 306: {
               input.readMessage(
                   getSchedulesFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x40000000;
+              bitField0_ |= 0x80000000;
               break;
             } // case 306
             case 314: {
               input.readMessage(
                   getHealthFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x80000000;
+              bitField1_ |= 0x00000001;
               break;
             } // case 314
             case 322: {
               input.readMessage(
                   getGroupDetailsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField1_ |= 0x00000001;
+              bitField1_ |= 0x00000002;
               break;
             } // case 322
             case 338: {
               input.readMessage(
                   getSuppliesFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField1_ |= 0x00000002;
+              bitField1_ |= 0x00000004;
               break;
             } // case 338
             case 370: {
               input.readMessage(
                   getOrbitFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField1_ |= 0x00000004;
+              bitField1_ |= 0x00000008;
               break;
             } // case 370
             case 378: {
@@ -6829,6 +6903,161 @@ private static final long serialVersionUID = 0L;
       return taskCatalogBuilder_;
     }
 
+    private com.anduril.entitymanager.v1.Media media_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.Media, com.anduril.entitymanager.v1.Media.Builder, com.anduril.entitymanager.v1.MediaOrBuilder> mediaBuilder_;
+    /**
+     * <pre>
+     * Media associated with an entity, such as videos, images, or thumbnails.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+     * @return Whether the media field is set.
+     */
+    public boolean hasMedia() {
+      return ((bitField0_ & 0x04000000) != 0);
+    }
+    /**
+     * <pre>
+     * Media associated with an entity, such as videos, images, or thumbnails.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+     * @return The media.
+     */
+    public com.anduril.entitymanager.v1.Media getMedia() {
+      if (mediaBuilder_ == null) {
+        return media_ == null ? com.anduril.entitymanager.v1.Media.getDefaultInstance() : media_;
+      } else {
+        return mediaBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Media associated with an entity, such as videos, images, or thumbnails.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+     */
+    public Builder setMedia(com.anduril.entitymanager.v1.Media value) {
+      if (mediaBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        media_ = value;
+      } else {
+        mediaBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Media associated with an entity, such as videos, images, or thumbnails.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+     */
+    public Builder setMedia(
+        com.anduril.entitymanager.v1.Media.Builder builderForValue) {
+      if (mediaBuilder_ == null) {
+        media_ = builderForValue.build();
+      } else {
+        mediaBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Media associated with an entity, such as videos, images, or thumbnails.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+     */
+    public Builder mergeMedia(com.anduril.entitymanager.v1.Media value) {
+      if (mediaBuilder_ == null) {
+        if (((bitField0_ & 0x04000000) != 0) &&
+          media_ != null &&
+          media_ != com.anduril.entitymanager.v1.Media.getDefaultInstance()) {
+          getMediaBuilder().mergeFrom(value);
+        } else {
+          media_ = value;
+        }
+      } else {
+        mediaBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Media associated with an entity, such as videos, images, or thumbnails.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+     */
+    public Builder clearMedia() {
+      bitField0_ = (bitField0_ & ~0x04000000);
+      media_ = null;
+      if (mediaBuilder_ != null) {
+        mediaBuilder_.dispose();
+        mediaBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Media associated with an entity, such as videos, images, or thumbnails.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+     */
+    public com.anduril.entitymanager.v1.Media.Builder getMediaBuilder() {
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return getMediaFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Media associated with an entity, such as videos, images, or thumbnails.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+     */
+    public com.anduril.entitymanager.v1.MediaOrBuilder getMediaOrBuilder() {
+      if (mediaBuilder_ != null) {
+        return mediaBuilder_.getMessageOrBuilder();
+      } else {
+        return media_ == null ?
+            com.anduril.entitymanager.v1.Media.getDefaultInstance() : media_;
+      }
+    }
+    /**
+     * <pre>
+     * Media associated with an entity, such as videos, images, or thumbnails.
+     * </pre>
+     *
+     * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.anduril.entitymanager.v1.Media, com.anduril.entitymanager.v1.Media.Builder, com.anduril.entitymanager.v1.MediaOrBuilder> 
+        getMediaFieldBuilder() {
+      if (mediaBuilder_ == null) {
+        mediaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.anduril.entitymanager.v1.Media, com.anduril.entitymanager.v1.Media.Builder, com.anduril.entitymanager.v1.MediaOrBuilder>(
+                getMedia(),
+                getParentForChildren(),
+                isClean());
+        media_ = null;
+      }
+      return mediaBuilder_;
+    }
+
     private com.anduril.entitymanager.v1.Relationships relationships_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.anduril.entitymanager.v1.Relationships, com.anduril.entitymanager.v1.Relationships.Builder, com.anduril.entitymanager.v1.RelationshipsOrBuilder> relationshipsBuilder_;
@@ -6841,7 +7070,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the relationships field is set.
      */
     public boolean hasRelationships() {
-      return ((bitField0_ & 0x04000000) != 0);
+      return ((bitField0_ & 0x08000000) != 0);
     }
     /**
      * <pre>
@@ -6874,7 +7103,7 @@ private static final long serialVersionUID = 0L;
       } else {
         relationshipsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x04000000;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
@@ -6892,7 +7121,7 @@ private static final long serialVersionUID = 0L;
       } else {
         relationshipsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x04000000;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
@@ -6905,7 +7134,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRelationships(com.anduril.entitymanager.v1.Relationships value) {
       if (relationshipsBuilder_ == null) {
-        if (((bitField0_ & 0x04000000) != 0) &&
+        if (((bitField0_ & 0x08000000) != 0) &&
           relationships_ != null &&
           relationships_ != com.anduril.entitymanager.v1.Relationships.getDefaultInstance()) {
           getRelationshipsBuilder().mergeFrom(value);
@@ -6915,7 +7144,7 @@ private static final long serialVersionUID = 0L;
       } else {
         relationshipsBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x04000000;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
@@ -6927,7 +7156,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
      */
     public Builder clearRelationships() {
-      bitField0_ = (bitField0_ & ~0x04000000);
+      bitField0_ = (bitField0_ & ~0x08000000);
       relationships_ = null;
       if (relationshipsBuilder_ != null) {
         relationshipsBuilder_.dispose();
@@ -6944,7 +7173,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];</code>
      */
     public com.anduril.entitymanager.v1.Relationships.Builder getRelationshipsBuilder() {
-      bitField0_ |= 0x04000000;
+      bitField0_ |= 0x08000000;
       onChanged();
       return getRelationshipsFieldBuilder().getBuilder();
     }
@@ -6996,7 +7225,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the visualDetails field is set.
      */
     public boolean hasVisualDetails() {
-      return ((bitField0_ & 0x08000000) != 0);
+      return ((bitField0_ & 0x10000000) != 0);
     }
     /**
      * <pre>
@@ -7029,7 +7258,7 @@ private static final long serialVersionUID = 0L;
       } else {
         visualDetailsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x08000000;
+      bitField0_ |= 0x10000000;
       onChanged();
       return this;
     }
@@ -7047,7 +7276,7 @@ private static final long serialVersionUID = 0L;
       } else {
         visualDetailsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x08000000;
+      bitField0_ |= 0x10000000;
       onChanged();
       return this;
     }
@@ -7060,7 +7289,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVisualDetails(com.anduril.entitymanager.v1.VisualDetails value) {
       if (visualDetailsBuilder_ == null) {
-        if (((bitField0_ & 0x08000000) != 0) &&
+        if (((bitField0_ & 0x10000000) != 0) &&
           visualDetails_ != null &&
           visualDetails_ != com.anduril.entitymanager.v1.VisualDetails.getDefaultInstance()) {
           getVisualDetailsBuilder().mergeFrom(value);
@@ -7070,7 +7299,7 @@ private static final long serialVersionUID = 0L;
       } else {
         visualDetailsBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x08000000;
+      bitField0_ |= 0x10000000;
       onChanged();
       return this;
     }
@@ -7082,7 +7311,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.VisualDetails visual_details = 34 [json_name = "visualDetails"];</code>
      */
     public Builder clearVisualDetails() {
-      bitField0_ = (bitField0_ & ~0x08000000);
+      bitField0_ = (bitField0_ & ~0x10000000);
       visualDetails_ = null;
       if (visualDetailsBuilder_ != null) {
         visualDetailsBuilder_.dispose();
@@ -7099,7 +7328,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.VisualDetails visual_details = 34 [json_name = "visualDetails"];</code>
      */
     public com.anduril.entitymanager.v1.VisualDetails.Builder getVisualDetailsBuilder() {
-      bitField0_ |= 0x08000000;
+      bitField0_ |= 0x10000000;
       onChanged();
       return getVisualDetailsFieldBuilder().getBuilder();
     }
@@ -7151,7 +7380,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dimensions field is set.
      */
     public boolean hasDimensions() {
-      return ((bitField0_ & 0x10000000) != 0);
+      return ((bitField0_ & 0x20000000) != 0);
     }
     /**
      * <pre>
@@ -7184,7 +7413,7 @@ private static final long serialVersionUID = 0L;
       } else {
         dimensionsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x10000000;
+      bitField0_ |= 0x20000000;
       onChanged();
       return this;
     }
@@ -7202,7 +7431,7 @@ private static final long serialVersionUID = 0L;
       } else {
         dimensionsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x10000000;
+      bitField0_ |= 0x20000000;
       onChanged();
       return this;
     }
@@ -7215,7 +7444,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDimensions(com.anduril.entitymanager.v1.Dimensions value) {
       if (dimensionsBuilder_ == null) {
-        if (((bitField0_ & 0x10000000) != 0) &&
+        if (((bitField0_ & 0x20000000) != 0) &&
           dimensions_ != null &&
           dimensions_ != com.anduril.entitymanager.v1.Dimensions.getDefaultInstance()) {
           getDimensionsBuilder().mergeFrom(value);
@@ -7225,7 +7454,7 @@ private static final long serialVersionUID = 0L;
       } else {
         dimensionsBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x10000000;
+      bitField0_ |= 0x20000000;
       onChanged();
       return this;
     }
@@ -7237,7 +7466,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];</code>
      */
     public Builder clearDimensions() {
-      bitField0_ = (bitField0_ & ~0x10000000);
+      bitField0_ = (bitField0_ & ~0x20000000);
       dimensions_ = null;
       if (dimensionsBuilder_ != null) {
         dimensionsBuilder_.dispose();
@@ -7254,7 +7483,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];</code>
      */
     public com.anduril.entitymanager.v1.Dimensions.Builder getDimensionsBuilder() {
-      bitField0_ |= 0x10000000;
+      bitField0_ |= 0x20000000;
       onChanged();
       return getDimensionsFieldBuilder().getBuilder();
     }
@@ -7306,7 +7535,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the routeDetails field is set.
      */
     public boolean hasRouteDetails() {
-      return ((bitField0_ & 0x20000000) != 0);
+      return ((bitField0_ & 0x40000000) != 0);
     }
     /**
      * <pre>
@@ -7339,7 +7568,7 @@ private static final long serialVersionUID = 0L;
       } else {
         routeDetailsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x20000000;
+      bitField0_ |= 0x40000000;
       onChanged();
       return this;
     }
@@ -7357,7 +7586,7 @@ private static final long serialVersionUID = 0L;
       } else {
         routeDetailsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x20000000;
+      bitField0_ |= 0x40000000;
       onChanged();
       return this;
     }
@@ -7370,7 +7599,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRouteDetails(com.anduril.entitymanager.v1.RouteDetails value) {
       if (routeDetailsBuilder_ == null) {
-        if (((bitField0_ & 0x20000000) != 0) &&
+        if (((bitField0_ & 0x40000000) != 0) &&
           routeDetails_ != null &&
           routeDetails_ != com.anduril.entitymanager.v1.RouteDetails.getDefaultInstance()) {
           getRouteDetailsBuilder().mergeFrom(value);
@@ -7380,7 +7609,7 @@ private static final long serialVersionUID = 0L;
       } else {
         routeDetailsBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x20000000;
+      bitField0_ |= 0x40000000;
       onChanged();
       return this;
     }
@@ -7392,7 +7621,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.RouteDetails route_details = 37 [json_name = "routeDetails"];</code>
      */
     public Builder clearRouteDetails() {
-      bitField0_ = (bitField0_ & ~0x20000000);
+      bitField0_ = (bitField0_ & ~0x40000000);
       routeDetails_ = null;
       if (routeDetailsBuilder_ != null) {
         routeDetailsBuilder_.dispose();
@@ -7409,7 +7638,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.RouteDetails route_details = 37 [json_name = "routeDetails"];</code>
      */
     public com.anduril.entitymanager.v1.RouteDetails.Builder getRouteDetailsBuilder() {
-      bitField0_ |= 0x20000000;
+      bitField0_ |= 0x40000000;
       onChanged();
       return getRouteDetailsFieldBuilder().getBuilder();
     }
@@ -7461,7 +7690,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the schedules field is set.
      */
     public boolean hasSchedules() {
-      return ((bitField0_ & 0x40000000) != 0);
+      return ((bitField0_ & 0x80000000) != 0);
     }
     /**
      * <pre>
@@ -7494,7 +7723,7 @@ private static final long serialVersionUID = 0L;
       } else {
         schedulesBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x40000000;
+      bitField0_ |= 0x80000000;
       onChanged();
       return this;
     }
@@ -7512,7 +7741,7 @@ private static final long serialVersionUID = 0L;
       } else {
         schedulesBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x40000000;
+      bitField0_ |= 0x80000000;
       onChanged();
       return this;
     }
@@ -7525,7 +7754,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSchedules(com.anduril.entitymanager.v1.Schedules value) {
       if (schedulesBuilder_ == null) {
-        if (((bitField0_ & 0x40000000) != 0) &&
+        if (((bitField0_ & 0x80000000) != 0) &&
           schedules_ != null &&
           schedules_ != com.anduril.entitymanager.v1.Schedules.getDefaultInstance()) {
           getSchedulesBuilder().mergeFrom(value);
@@ -7535,7 +7764,7 @@ private static final long serialVersionUID = 0L;
       } else {
         schedulesBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x40000000;
+      bitField0_ |= 0x80000000;
       onChanged();
       return this;
     }
@@ -7547,7 +7776,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];</code>
      */
     public Builder clearSchedules() {
-      bitField0_ = (bitField0_ & ~0x40000000);
+      bitField0_ = (bitField0_ & ~0x80000000);
       schedules_ = null;
       if (schedulesBuilder_ != null) {
         schedulesBuilder_.dispose();
@@ -7564,7 +7793,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];</code>
      */
     public com.anduril.entitymanager.v1.Schedules.Builder getSchedulesBuilder() {
-      bitField0_ |= 0x40000000;
+      bitField0_ |= 0x80000000;
       onChanged();
       return getSchedulesFieldBuilder().getBuilder();
     }
@@ -7616,7 +7845,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the health field is set.
      */
     public boolean hasHealth() {
-      return ((bitField0_ & 0x80000000) != 0);
+      return ((bitField1_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -7649,7 +7878,7 @@ private static final long serialVersionUID = 0L;
       } else {
         healthBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x80000000;
+      bitField1_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -7667,7 +7896,7 @@ private static final long serialVersionUID = 0L;
       } else {
         healthBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x80000000;
+      bitField1_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -7680,7 +7909,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHealth(com.anduril.entitymanager.v1.Health value) {
       if (healthBuilder_ == null) {
-        if (((bitField0_ & 0x80000000) != 0) &&
+        if (((bitField1_ & 0x00000001) != 0) &&
           health_ != null &&
           health_ != com.anduril.entitymanager.v1.Health.getDefaultInstance()) {
           getHealthBuilder().mergeFrom(value);
@@ -7690,7 +7919,7 @@ private static final long serialVersionUID = 0L;
       } else {
         healthBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x80000000;
+      bitField1_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -7702,7 +7931,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Health health = 39 [json_name = "health"];</code>
      */
     public Builder clearHealth() {
-      bitField0_ = (bitField0_ & ~0x80000000);
+      bitField1_ = (bitField1_ & ~0x00000001);
       health_ = null;
       if (healthBuilder_ != null) {
         healthBuilder_.dispose();
@@ -7719,7 +7948,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Health health = 39 [json_name = "health"];</code>
      */
     public com.anduril.entitymanager.v1.Health.Builder getHealthBuilder() {
-      bitField0_ |= 0x80000000;
+      bitField1_ |= 0x00000001;
       onChanged();
       return getHealthFieldBuilder().getBuilder();
     }
@@ -7771,7 +8000,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the groupDetails field is set.
      */
     public boolean hasGroupDetails() {
-      return ((bitField1_ & 0x00000001) != 0);
+      return ((bitField1_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -7804,7 +8033,7 @@ private static final long serialVersionUID = 0L;
       } else {
         groupDetailsBuilder_.setMessage(value);
       }
-      bitField1_ |= 0x00000001;
+      bitField1_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -7822,7 +8051,7 @@ private static final long serialVersionUID = 0L;
       } else {
         groupDetailsBuilder_.setMessage(builderForValue.build());
       }
-      bitField1_ |= 0x00000001;
+      bitField1_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -7835,7 +8064,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGroupDetails(com.anduril.entitymanager.v1.GroupDetails value) {
       if (groupDetailsBuilder_ == null) {
-        if (((bitField1_ & 0x00000001) != 0) &&
+        if (((bitField1_ & 0x00000002) != 0) &&
           groupDetails_ != null &&
           groupDetails_ != com.anduril.entitymanager.v1.GroupDetails.getDefaultInstance()) {
           getGroupDetailsBuilder().mergeFrom(value);
@@ -7845,7 +8074,7 @@ private static final long serialVersionUID = 0L;
       } else {
         groupDetailsBuilder_.mergeFrom(value);
       }
-      bitField1_ |= 0x00000001;
+      bitField1_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -7857,7 +8086,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];</code>
      */
     public Builder clearGroupDetails() {
-      bitField1_ = (bitField1_ & ~0x00000001);
+      bitField1_ = (bitField1_ & ~0x00000002);
       groupDetails_ = null;
       if (groupDetailsBuilder_ != null) {
         groupDetailsBuilder_.dispose();
@@ -7874,7 +8103,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];</code>
      */
     public com.anduril.entitymanager.v1.GroupDetails.Builder getGroupDetailsBuilder() {
-      bitField1_ |= 0x00000001;
+      bitField1_ |= 0x00000002;
       onChanged();
       return getGroupDetailsFieldBuilder().getBuilder();
     }
@@ -7926,7 +8155,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the supplies field is set.
      */
     public boolean hasSupplies() {
-      return ((bitField1_ & 0x00000002) != 0);
+      return ((bitField1_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -7959,7 +8188,7 @@ private static final long serialVersionUID = 0L;
       } else {
         suppliesBuilder_.setMessage(value);
       }
-      bitField1_ |= 0x00000002;
+      bitField1_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -7977,7 +8206,7 @@ private static final long serialVersionUID = 0L;
       } else {
         suppliesBuilder_.setMessage(builderForValue.build());
       }
-      bitField1_ |= 0x00000002;
+      bitField1_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -7990,7 +8219,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSupplies(com.anduril.entitymanager.v1.Supplies value) {
       if (suppliesBuilder_ == null) {
-        if (((bitField1_ & 0x00000002) != 0) &&
+        if (((bitField1_ & 0x00000004) != 0) &&
           supplies_ != null &&
           supplies_ != com.anduril.entitymanager.v1.Supplies.getDefaultInstance()) {
           getSuppliesBuilder().mergeFrom(value);
@@ -8000,7 +8229,7 @@ private static final long serialVersionUID = 0L;
       } else {
         suppliesBuilder_.mergeFrom(value);
       }
-      bitField1_ |= 0x00000002;
+      bitField1_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -8012,7 +8241,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
      */
     public Builder clearSupplies() {
-      bitField1_ = (bitField1_ & ~0x00000002);
+      bitField1_ = (bitField1_ & ~0x00000004);
       supplies_ = null;
       if (suppliesBuilder_ != null) {
         suppliesBuilder_.dispose();
@@ -8029,7 +8258,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];</code>
      */
     public com.anduril.entitymanager.v1.Supplies.Builder getSuppliesBuilder() {
-      bitField1_ |= 0x00000002;
+      bitField1_ |= 0x00000004;
       onChanged();
       return getSuppliesFieldBuilder().getBuilder();
     }
@@ -8081,7 +8310,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the orbit field is set.
      */
     public boolean hasOrbit() {
-      return ((bitField1_ & 0x00000004) != 0);
+      return ((bitField1_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -8114,7 +8343,7 @@ private static final long serialVersionUID = 0L;
       } else {
         orbitBuilder_.setMessage(value);
       }
-      bitField1_ |= 0x00000004;
+      bitField1_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -8132,7 +8361,7 @@ private static final long serialVersionUID = 0L;
       } else {
         orbitBuilder_.setMessage(builderForValue.build());
       }
-      bitField1_ |= 0x00000004;
+      bitField1_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -8145,7 +8374,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOrbit(com.anduril.entitymanager.v1.Orbit value) {
       if (orbitBuilder_ == null) {
-        if (((bitField1_ & 0x00000004) != 0) &&
+        if (((bitField1_ & 0x00000008) != 0) &&
           orbit_ != null &&
           orbit_ != com.anduril.entitymanager.v1.Orbit.getDefaultInstance()) {
           getOrbitBuilder().mergeFrom(value);
@@ -8155,7 +8384,7 @@ private static final long serialVersionUID = 0L;
       } else {
         orbitBuilder_.mergeFrom(value);
       }
-      bitField1_ |= 0x00000004;
+      bitField1_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -8167,7 +8396,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
      */
     public Builder clearOrbit() {
-      bitField1_ = (bitField1_ & ~0x00000004);
+      bitField1_ = (bitField1_ & ~0x00000008);
       orbit_ = null;
       if (orbitBuilder_ != null) {
         orbitBuilder_.dispose();
@@ -8184,7 +8413,7 @@ private static final long serialVersionUID = 0L;
      * <code>.anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];</code>
      */
     public com.anduril.entitymanager.v1.Orbit.Builder getOrbitBuilder() {
-      bitField1_ |= 0x00000004;
+      bitField1_ |= 0x00000008;
       onChanged();
       return getOrbitFieldBuilder().getBuilder();
     }

@@ -13,10 +13,6 @@ public enum MediaType
    */
   MEDIA_TYPE_INVALID(0),
   /**
-   * <code>MEDIA_TYPE_THUMBNAIL = 1;</code>
-   */
-  MEDIA_TYPE_THUMBNAIL(1),
-  /**
    * <code>MEDIA_TYPE_IMAGE = 2;</code>
    */
   MEDIA_TYPE_IMAGE(2),
@@ -24,10 +20,6 @@ public enum MediaType
    * <code>MEDIA_TYPE_VIDEO = 3;</code>
    */
   MEDIA_TYPE_VIDEO(3),
-  /**
-   * <code>MEDIA_TYPE_SLIPPY_TILES = 4;</code>
-   */
-  MEDIA_TYPE_SLIPPY_TILES(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -36,10 +28,6 @@ public enum MediaType
    */
   public static final int MEDIA_TYPE_INVALID_VALUE = 0;
   /**
-   * <code>MEDIA_TYPE_THUMBNAIL = 1;</code>
-   */
-  public static final int MEDIA_TYPE_THUMBNAIL_VALUE = 1;
-  /**
    * <code>MEDIA_TYPE_IMAGE = 2;</code>
    */
   public static final int MEDIA_TYPE_IMAGE_VALUE = 2;
@@ -47,10 +35,6 @@ public enum MediaType
    * <code>MEDIA_TYPE_VIDEO = 3;</code>
    */
   public static final int MEDIA_TYPE_VIDEO_VALUE = 3;
-  /**
-   * <code>MEDIA_TYPE_SLIPPY_TILES = 4;</code>
-   */
-  public static final int MEDIA_TYPE_SLIPPY_TILES_VALUE = 4;
 
 
   public final int getNumber() {
@@ -78,10 +62,8 @@ public enum MediaType
   public static MediaType forNumber(int value) {
     switch (value) {
       case 0: return MEDIA_TYPE_INVALID;
-      case 1: return MEDIA_TYPE_THUMBNAIL;
       case 2: return MEDIA_TYPE_IMAGE;
       case 3: return MEDIA_TYPE_VIDEO;
-      case 4: return MEDIA_TYPE_SLIPPY_TILES;
       default: return null;
     }
   }

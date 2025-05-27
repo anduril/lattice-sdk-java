@@ -721,6 +721,33 @@ public interface EntityOrBuilder extends
 
   /**
    * <pre>
+   * Media associated with an entity, such as videos, images, or thumbnails.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+   * @return Whether the media field is set.
+   */
+  boolean hasMedia();
+  /**
+   * <pre>
+   * Media associated with an entity, such as videos, images, or thumbnails.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+   * @return The media.
+   */
+  com.anduril.entitymanager.v1.Media getMedia();
+  /**
+   * <pre>
+   * Media associated with an entity, such as videos, images, or thumbnails.
+   * </pre>
+   *
+   * <code>.anduril.entitymanager.v1.Media media = 32 [json_name = "media"];</code>
+   */
+  com.anduril.entitymanager.v1.MediaOrBuilder getMediaOrBuilder();
+
+  /**
+   * <pre>
    * The relationships between this entity and other entities in the common operational picture (COP).
    * </pre>
    *
