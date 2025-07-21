@@ -1,18 +1,24 @@
-target/
-bin/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
-
-# Eclipse m2e generated files
-# Eclipse Core
+*.class
 .project
-# JDT-specific (Eclipse Java Development Tools)
+.gradle
+?
 .classpath
+.checkstyle
+.settings
+.node
+build
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+
+# Eclipse/IntelliJ APT
+generated_src/
+generated_testSrc/
+generated/
+
+bin
+build
