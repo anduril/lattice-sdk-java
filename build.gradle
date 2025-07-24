@@ -81,8 +81,8 @@ publishing {
             from components.java
             pom {
                 name = 'anduril'
-                description = 'The official SDK of anduril'
-                url = 'https://buildwithfern.com'
+                description = 'Anduril Lattice SDK for Java'
+                url = 'https://github.com/anduril/lattice-sdk-java'
                 licenses {
                     license {
                         name = 'CustomLicense{filename: LICENSE}'
