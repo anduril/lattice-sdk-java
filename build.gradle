@@ -85,12 +85,12 @@ publishing {
                 url = 'https://github.com/anduril/lattice-sdk-java'
                 licenses {
                     license {
-                        name = 'CustomLicense{filename: LICENSE}'
+                        name = 'Anduril Lattice Software Development Kit License Agreement'
                     }
                 }
                 developers {
                     developer {
-                        name = 'anduril'
+                        name = 'Anduril Industries, Inc.'
                         email = 'developers@anduril.com'
                     }
                 }
