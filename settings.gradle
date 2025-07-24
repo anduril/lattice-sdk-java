@@ -1,0 +1,3 @@
+rootProject.name = 'lattice-sdk-test'
+
+include 'sample-app'
