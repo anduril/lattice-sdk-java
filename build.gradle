@@ -85,7 +85,7 @@ publishing {
                 url = 'https://developer.anduril.com'
                 licenses {
                     license {
-                        name = 'CustomLicense{filename: LICENSE}'
+                        name = 'Anduril Lattice Software Development Kit License Agreement'
                     }
                 }
                 developers {
