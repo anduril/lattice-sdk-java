@@ -91,7 +91,7 @@ publishing {
                 developers {
                     developer {
                         name = 'Anduril Industries, Inc.'
-                        email = 'developers@anduril.com'
+                        email = 'lattice-developers@anduril.com'
                     }
                 }
                 scm {
