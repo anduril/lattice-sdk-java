@@ -74,14 +74,14 @@ public class AsyncObjectsClient {
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public CompletableFuture<PathMetadata> uploadObject(String objectPath, InputStream request) {
         return this.rawClient.uploadObject(objectPath, request).thenApply(response -> response.body());
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public CompletableFuture<PathMetadata> uploadObject(
             String objectPath, InputStream request, RequestOptions requestOptions) {
@@ -89,14 +89,14 @@ public class AsyncObjectsClient {
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public CompletableFuture<PathMetadata> uploadObject(String objectPath, byte[] request) {
         return this.rawClient.uploadObject(objectPath, request).thenApply(response -> response.body());
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public CompletableFuture<PathMetadata> uploadObject(
             String objectPath, byte[] request, RequestOptions requestOptions) {

@@ -71,28 +71,28 @@ public class ObjectsClient {
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public PathMetadata uploadObject(String objectPath, InputStream request) {
         return this.rawClient.uploadObject(objectPath, request).body();
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public PathMetadata uploadObject(String objectPath, InputStream request, RequestOptions requestOptions) {
         return this.rawClient.uploadObject(objectPath, request, requestOptions).body();
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public PathMetadata uploadObject(String objectPath, byte[] request) {
         return this.rawClient.uploadObject(objectPath, request).body();
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public PathMetadata uploadObject(String objectPath, byte[] request, RequestOptions requestOptions) {
         return this.rawClient.uploadObject(objectPath, request, requestOptions).body();
