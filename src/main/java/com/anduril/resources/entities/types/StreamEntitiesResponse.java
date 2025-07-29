@@ -16,11 +16,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Objects;
 import java.util.Optional;
 
-public final class SseEntityEventsResponse {
+public final class StreamEntitiesResponse {
     private final Value value;
 
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
-    private SseEntityEventsResponse(Value value) {
+    private StreamEntitiesResponse(Value value) {
         this.value = value;
     }
 
@@ -28,12 +28,12 @@ public final class SseEntityEventsResponse {
         return value.visit(visitor);
     }
 
-    public static SseEntityEventsResponse heartbeat(EntityStreamHeartbeat value) {
-        return new SseEntityEventsResponse(new HeartbeatValue(value));
+    public static StreamEntitiesResponse heartbeat(EntityStreamHeartbeat value) {
+        return new StreamEntitiesResponse(new HeartbeatValue(value));
     }
 
-    public static SseEntityEventsResponse entity(EntityStreamEvent value) {
-        return new SseEntityEventsResponse(new EntityValue(value));
+    public static StreamEntitiesResponse entity(EntityStreamEvent value) {
+        return new StreamEntitiesResponse(new EntityValue(value));
     }
 
     public boolean isHeartbeat() {
@@ -124,7 +124,7 @@ public final class SseEntityEventsResponse {
 
         @java.lang.Override
         public String toString() {
-            return "SseEntityEventsResponse{" + "value: " + value + "}";
+            return "StreamEntitiesResponse{" + "value: " + value + "}";
         }
     }
 
@@ -163,7 +163,7 @@ public final class SseEntityEventsResponse {
 
         @java.lang.Override
         public String toString() {
-            return "SseEntityEventsResponse{" + "value: " + value + "}";
+            return "StreamEntitiesResponse{" + "value: " + value + "}";
         }
     }
 
@@ -199,7 +199,7 @@ public final class SseEntityEventsResponse {
 
         @java.lang.Override
         public String toString() {
-            return "SseEntityEventsResponse{" + "type: " + type + ", value: " + value + "}";
+            return "StreamEntitiesResponse{" + "type: " + type + ", value: " + value + "}";
         }
     }
 }

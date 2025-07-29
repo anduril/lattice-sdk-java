@@ -46,19 +46,19 @@ java {
 
 group = 'com.anduril'
 
-version = '2.0.0'
+version = '3.0.0'
 
 jar {
     dependsOn(":generatePomFileForMavenPublication")
-    archiveBaseName = "lattice-sdk"
+    archiveBaseName = "lattice-sdk-test"
 }
 
 sourcesJar {
-    archiveBaseName = "lattice-sdk"
+    archiveBaseName = "lattice-sdk-test"
 }
 
 javadocJar {
-    archiveBaseName = "lattice-sdk"
+    archiveBaseName = "lattice-sdk-test"
 }
 
 signing {
@@ -76,22 +76,22 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'com.anduril'
-            artifactId = 'lattice-sdk'
-            version = '2.0.0'
+            artifactId = 'lattice-sdk-test'
+            version = '3.0.0'
             from components.java
             pom {
-                name = 'Anduril Industries, Inc.'
-                description = 'Anduril Lattice SDK for Java'
-                url = 'https://developer.anduril.com'
+                name = 'anduril'
+                description = 'The official SDK of anduril'
+                url = 'https://buildwithfern.com'
                 licenses {
                     license {
-                        name = 'Anduril Lattice Software Development Kit License Agreement'
+                        name = 'CustomLicense{filename: LICENSE}'
                     }
                 }
                 developers {
                     developer {
-                        name = 'Anduril Industries, Inc.'
-                        email = 'lattice-developers@anduril.com'
+                        name = 'anduril'
+                        email = 'developers@anduril.com'
                     }
                 }
                 scm {
@@ -109,9 +109,9 @@ sonatypeCentralUpload {
     password = "$System.env.MAVEN_PASSWORD"
 
     archives = files(
-        "$buildDir/libs/lattice-sdk-" + version + ".jar",
-        "$buildDir/libs/lattice-sdk-" + version + "-sources.jar",
-        "$buildDir/libs/lattice-sdk-" + version + "-javadoc.jar"
+        "$buildDir/libs/lattice-sdk-test-" + version + ".jar",
+        "$buildDir/libs/lattice-sdk-test-" + version + "-sources.jar",
+        "$buildDir/libs/lattice-sdk-test-" + version + "-javadoc.jar"
     )
 
     pom = file("$buildDir/publications/maven/pom-default.xml")
