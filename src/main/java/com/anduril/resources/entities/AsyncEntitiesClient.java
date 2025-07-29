@@ -8,7 +8,7 @@ import com.anduril.core.RequestOptions;
 import com.anduril.resources.entities.requests.EntityEventRequest;
 import com.anduril.resources.entities.requests.EntityOverride;
 import com.anduril.resources.entities.requests.EntityStreamRequest;
-import com.anduril.resources.entities.types.SseEntityEventsResponse;
+import com.anduril.resources.entities.types.StreamEntitiesResponse;
 import com.anduril.types.Entity;
 import com.anduril.types.EntityEventResponse;
 import java.util.concurrent.CompletableFuture;
@@ -162,24 +162,24 @@ public class AsyncEntitiesClient {
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public CompletableFuture<Iterable<SseEntityEventsResponse>> sseEntityEvents() {
-        return this.rawClient.sseEntityEvents().thenApply(response -> response.body());
+    public CompletableFuture<Iterable<StreamEntitiesResponse>> streamEntities() {
+        return this.rawClient.streamEntities().thenApply(response -> response.body());
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public CompletableFuture<Iterable<SseEntityEventsResponse>> sseEntityEvents(EntityStreamRequest request) {
-        return this.rawClient.sseEntityEvents(request).thenApply(response -> response.body());
+    public CompletableFuture<Iterable<StreamEntitiesResponse>> streamEntities(EntityStreamRequest request) {
+        return this.rawClient.streamEntities(request).thenApply(response -> response.body());
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public CompletableFuture<Iterable<SseEntityEventsResponse>> sseEntityEvents(
+    public CompletableFuture<Iterable<StreamEntitiesResponse>> streamEntities(
             EntityStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient.sseEntityEvents(request, requestOptions).thenApply(response -> response.body());
+        return this.rawClient.streamEntities(request, requestOptions).thenApply(response -> response.body());
     }
 }

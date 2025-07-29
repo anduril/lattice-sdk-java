@@ -20,7 +20,7 @@ import com.anduril.errors.UnauthorizedError;
 import com.anduril.resources.entities.requests.EntityEventRequest;
 import com.anduril.resources.entities.requests.EntityOverride;
 import com.anduril.resources.entities.requests.EntityStreamRequest;
-import com.anduril.resources.entities.types.SseEntityEventsResponse;
+import com.anduril.resources.entities.types.StreamEntitiesResponse;
 import com.anduril.types.Entity;
 import com.anduril.types.EntityEventResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -418,23 +418,23 @@ public class RawEntitiesClient {
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public LatticeHttpResponse<Iterable<SseEntityEventsResponse>> sseEntityEvents() {
-        return sseEntityEvents(EntityStreamRequest.builder().build());
+    public LatticeHttpResponse<Iterable<StreamEntitiesResponse>> streamEntities() {
+        return streamEntities(EntityStreamRequest.builder().build());
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public LatticeHttpResponse<Iterable<SseEntityEventsResponse>> sseEntityEvents(EntityStreamRequest request) {
-        return sseEntityEvents(request, null);
+    public LatticeHttpResponse<Iterable<StreamEntitiesResponse>> streamEntities(EntityStreamRequest request) {
+        return streamEntities(request, null);
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public LatticeHttpResponse<Iterable<SseEntityEventsResponse>> sseEntityEvents(
+    public LatticeHttpResponse<Iterable<StreamEntitiesResponse>> streamEntities(
             EntityStreamRequest request, RequestOptions requestOptions) {
         HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
@@ -463,7 +463,7 @@ public class RawEntitiesClient {
             ResponseBody responseBody = response.body();
             if (response.isSuccessful()) {
                 return new LatticeHttpResponse<>(
-                        Stream.fromSse(SseEntityEventsResponse.class, new ResponseBodyReader(response)), response);
+                        Stream.fromSse(StreamEntitiesResponse.class, new ResponseBodyReader(response)), response);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {
