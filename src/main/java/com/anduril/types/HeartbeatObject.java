@@ -19,13 +19,13 @@ import java.util.Objects;
 import java.util.Optional;
 
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
-@JsonDeserialize(builder = EntityStreamHeartbeatData.Builder.class)
-public final class EntityStreamHeartbeatData {
+@JsonDeserialize(builder = HeartbeatObject.Builder.class)
+public final class HeartbeatObject {
     private final Optional<OffsetDateTime> timestamp;
 
     private final Map<String, Object> additionalProperties;
 
-    private EntityStreamHeartbeatData(Optional<OffsetDateTime> timestamp, Map<String, Object> additionalProperties) {
+    private HeartbeatObject(Optional<OffsetDateTime> timestamp, Map<String, Object> additionalProperties) {
         this.timestamp = timestamp;
         this.additionalProperties = additionalProperties;
     }
@@ -41,7 +41,7 @@ public final class EntityStreamHeartbeatData {
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
-        return other instanceof EntityStreamHeartbeatData && equalTo((EntityStreamHeartbeatData) other);
+        return other instanceof HeartbeatObject && equalTo((HeartbeatObject) other);
     }
 
     @JsonAnyGetter
@@ -49,7 +49,7 @@ public final class EntityStreamHeartbeatData {
         return this.additionalProperties;
     }
 
-    private boolean equalTo(EntityStreamHeartbeatData other) {
+    private boolean equalTo(HeartbeatObject other) {
         return timestamp.equals(other.timestamp);
     }
 
@@ -76,7 +76,7 @@ public final class EntityStreamHeartbeatData {
 
         private Builder() {}
 
-        public Builder from(EntityStreamHeartbeatData other) {
+        public Builder from(HeartbeatObject other) {
             timestamp(other.getTimestamp());
             return this;
         }
@@ -95,8 +95,8 @@ public final class EntityStreamHeartbeatData {
             return this;
         }
 
-        public EntityStreamHeartbeatData build() {
-            return new EntityStreamHeartbeatData(timestamp, additionalProperties);
+        public HeartbeatObject build() {
+            return new HeartbeatObject(timestamp, additionalProperties);
         }
     }
 }

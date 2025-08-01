@@ -8,7 +8,7 @@ import com.anduril.core.RequestOptions;
 import com.anduril.resources.entities.requests.EntityEventRequest;
 import com.anduril.resources.entities.requests.EntityOverride;
 import com.anduril.resources.entities.requests.EntityStreamRequest;
-import com.anduril.resources.entities.types.SseEntityEventsResponse;
+import com.anduril.resources.entities.types.StreamEntitiesResponse;
 import com.anduril.types.Entity;
 import com.anduril.types.EntityEventResponse;
 
@@ -159,24 +159,23 @@ public class EntitiesClient {
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public Iterable<SseEntityEventsResponse> sseEntityEvents() {
-        return this.rawClient.sseEntityEvents().body();
+    public Iterable<StreamEntitiesResponse> streamEntities() {
+        return this.rawClient.streamEntities().body();
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public Iterable<SseEntityEventsResponse> sseEntityEvents(EntityStreamRequest request) {
-        return this.rawClient.sseEntityEvents(request).body();
+    public Iterable<StreamEntitiesResponse> streamEntities(EntityStreamRequest request) {
+        return this.rawClient.streamEntities(request).body();
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public Iterable<SseEntityEventsResponse> sseEntityEvents(
-            EntityStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient.sseEntityEvents(request, requestOptions).body();
+    public Iterable<StreamEntitiesResponse> streamEntities(EntityStreamRequest request, RequestOptions requestOptions) {
+        return this.rawClient.streamEntities(request, requestOptions).body();
     }
 }

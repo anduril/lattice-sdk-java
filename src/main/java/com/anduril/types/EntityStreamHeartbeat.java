@@ -8,35 +8,23 @@ import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-import org.jetbrains.annotations.NotNull;
 
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
 @JsonDeserialize(builder = EntityStreamHeartbeat.Builder.class)
 public final class EntityStreamHeartbeat {
-    private final EntityStreamHeartbeatData data;
-
     private final Map<String, Object> additionalProperties;
 
-    private EntityStreamHeartbeat(EntityStreamHeartbeatData data, Map<String, Object> additionalProperties) {
-        this.data = data;
+    private EntityStreamHeartbeat(Map<String, Object> additionalProperties) {
         this.additionalProperties = additionalProperties;
-    }
-
-    @JsonProperty("data")
-    public EntityStreamHeartbeatData getData() {
-        return data;
     }
 
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
-        return other instanceof EntityStreamHeartbeat && equalTo((EntityStreamHeartbeat) other);
+        return other instanceof EntityStreamHeartbeat;
     }
 
     @JsonAnyGetter
@@ -44,59 +32,28 @@ public final class EntityStreamHeartbeat {
         return this.additionalProperties;
     }
 
-    private boolean equalTo(EntityStreamHeartbeat other) {
-        return data.equals(other.data);
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-        return Objects.hash(this.data);
-    }
-
     @java.lang.Override
     public String toString() {
         return ObjectMappers.stringify(this);
     }
 
-    public static DataStage builder() {
+    public static Builder builder() {
         return new Builder();
     }
 
-    public interface DataStage {
-        _FinalStage data(@NotNull EntityStreamHeartbeatData data);
-
-        Builder from(EntityStreamHeartbeat other);
-    }
-
-    public interface _FinalStage {
-        EntityStreamHeartbeat build();
-    }
-
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static final class Builder implements DataStage, _FinalStage {
-        private EntityStreamHeartbeatData data;
-
+    public static final class Builder {
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
 
-        @java.lang.Override
         public Builder from(EntityStreamHeartbeat other) {
-            data(other.getData());
             return this;
         }
 
-        @java.lang.Override
-        @JsonSetter("data")
-        public _FinalStage data(@NotNull EntityStreamHeartbeatData data) {
-            this.data = Objects.requireNonNull(data, "data must not be null");
-            return this;
-        }
-
-        @java.lang.Override
         public EntityStreamHeartbeat build() {
-            return new EntityStreamHeartbeat(data, additionalProperties);
+            return new EntityStreamHeartbeat(additionalProperties);
         }
     }
 }
