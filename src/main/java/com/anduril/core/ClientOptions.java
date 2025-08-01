@@ -32,10 +32,10 @@ public final class ClientOptions {
         this.headers.putAll(headers);
         this.headers.putAll(new HashMap<String, String>() {
             {
-                put("User-Agent", "com.anduril:lattice-sdk/2.0.0");
+                put("User-Agent", "com.anduril:lattice-sdk-test/2.0.1");
                 put("X-Fern-Language", "JAVA");
                 put("X-Fern-SDK-Name", "com.anduril.fern:api-sdk");
-                put("X-Fern-SDK-Version", "2.0.0");
+                put("X-Fern-SDK-Version", "2.0.1");
             }
         });
         this.headerSuppliers = headerSuppliers;
@@ -86,7 +86,7 @@ public final class ClientOptions {
         return new Builder();
     }
 
-    public static final class Builder {
+    public static class Builder {
         private Environment environment;
 
         private final Map<String, String> headers = new HashMap<>();
@@ -166,6 +166,17 @@ public final class ClientOptions {
             this.timeout = Optional.of(httpClient.callTimeoutMillis() / 1000);
 
             return new ClientOptions(environment, headers, headerSuppliers, httpClient, this.timeout.get());
+        }
+
+        /**
+         * Create a new Builder initialized with values from an existing ClientOptions
+         */
+        public static Builder from(ClientOptions clientOptions) {
+            Builder builder = new Builder();
+            builder.environment = clientOptions.environment();
+            builder.timeout = Optional.of(clientOptions.timeout(null));
+            builder.httpClient = clientOptions.httpClient();
+            return builder;
         }
     }
 }

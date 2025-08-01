@@ -10,27 +10,51 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import org.jetbrains.annotations.NotNull;
+import java.util.Optional;
 
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
 @JsonDeserialize(builder = EntityStreamEvent.Builder.class)
-public final class EntityStreamEvent {
-    private final EntityEvent data;
+public final class EntityStreamEvent implements IEntityEvent {
+    private final Optional<EntityEventEventType> eventType;
+
+    private final Optional<OffsetDateTime> time;
+
+    private final Optional<Entity> entity;
 
     private final Map<String, Object> additionalProperties;
 
-    private EntityStreamEvent(EntityEvent data, Map<String, Object> additionalProperties) {
-        this.data = data;
+    private EntityStreamEvent(
+            Optional<EntityEventEventType> eventType,
+            Optional<OffsetDateTime> time,
+            Optional<Entity> entity,
+            Map<String, Object> additionalProperties) {
+        this.eventType = eventType;
+        this.time = time;
+        this.entity = entity;
         this.additionalProperties = additionalProperties;
     }
 
-    @JsonProperty("data")
-    public EntityEvent getData() {
-        return data;
+    @JsonProperty("eventType")
+    public Optional<EntityEventEventType> getEventType() {
+        return eventType;
+    }
+
+    @JsonProperty("time")
+    @java.lang.Override
+    public Optional<OffsetDateTime> getTime() {
+        return time;
+    }
+
+    @JsonProperty("entity")
+    @java.lang.Override
+    public Optional<Entity> getEntity() {
+        return entity;
     }
 
     @java.lang.Override
@@ -45,12 +69,12 @@ public final class EntityStreamEvent {
     }
 
     private boolean equalTo(EntityStreamEvent other) {
-        return data.equals(other.data);
+        return eventType.equals(other.eventType) && time.equals(other.time) && entity.equals(other.entity);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.data);
+        return Objects.hash(this.eventType, this.time, this.entity);
     }
 
     @java.lang.Override
@@ -58,45 +82,65 @@ public final class EntityStreamEvent {
         return ObjectMappers.stringify(this);
     }
 
-    public static DataStage builder() {
+    public static Builder builder() {
         return new Builder();
     }
 
-    public interface DataStage {
-        _FinalStage data(@NotNull EntityEvent data);
-
-        Builder from(EntityStreamEvent other);
-    }
-
-    public interface _FinalStage {
-        EntityStreamEvent build();
-    }
-
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static final class Builder implements DataStage, _FinalStage {
-        private EntityEvent data;
+    public static final class Builder {
+        private Optional<EntityEventEventType> eventType = Optional.empty();
+
+        private Optional<OffsetDateTime> time = Optional.empty();
+
+        private Optional<Entity> entity = Optional.empty();
 
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
 
-        @java.lang.Override
         public Builder from(EntityStreamEvent other) {
-            data(other.getData());
+            eventType(other.getEventType());
+            time(other.getTime());
+            entity(other.getEntity());
             return this;
         }
 
-        @java.lang.Override
-        @JsonSetter("data")
-        public _FinalStage data(@NotNull EntityEvent data) {
-            this.data = Objects.requireNonNull(data, "data must not be null");
+        @JsonSetter(value = "eventType", nulls = Nulls.SKIP)
+        public Builder eventType(Optional<EntityEventEventType> eventType) {
+            this.eventType = eventType;
             return this;
         }
 
-        @java.lang.Override
+        public Builder eventType(EntityEventEventType eventType) {
+            this.eventType = Optional.ofNullable(eventType);
+            return this;
+        }
+
+        @JsonSetter(value = "time", nulls = Nulls.SKIP)
+        public Builder time(Optional<OffsetDateTime> time) {
+            this.time = time;
+            return this;
+        }
+
+        public Builder time(OffsetDateTime time) {
+            this.time = Optional.ofNullable(time);
+            return this;
+        }
+
+        @JsonSetter(value = "entity", nulls = Nulls.SKIP)
+        public Builder entity(Optional<Entity> entity) {
+            this.entity = entity;
+            return this;
+        }
+
+        public Builder entity(Entity entity) {
+            this.entity = Optional.ofNullable(entity);
+            return this;
+        }
+
         public EntityStreamEvent build() {
-            return new EntityStreamEvent(data, additionalProperties);
+            return new EntityStreamEvent(eventType, time, entity, additionalProperties);
         }
     }
 }
