@@ -20,7 +20,7 @@ import com.anduril.errors.UnauthorizedError;
 import com.anduril.resources.entities.requests.EntityEventRequest;
 import com.anduril.resources.entities.requests.EntityOverride;
 import com.anduril.resources.entities.requests.EntityStreamRequest;
-import com.anduril.resources.entities.types.SseEntityEventsResponse;
+import com.anduril.resources.entities.types.StreamEntitiesResponse;
 import com.anduril.types.Entity;
 import com.anduril.types.EntityEventResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -521,24 +521,24 @@ public class AsyncRawEntitiesClient {
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public CompletableFuture<LatticeHttpResponse<Iterable<SseEntityEventsResponse>>> sseEntityEvents() {
-        return sseEntityEvents(EntityStreamRequest.builder().build());
+    public CompletableFuture<LatticeHttpResponse<Iterable<StreamEntitiesResponse>>> streamEntities() {
+        return streamEntities(EntityStreamRequest.builder().build());
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public CompletableFuture<LatticeHttpResponse<Iterable<SseEntityEventsResponse>>> sseEntityEvents(
+    public CompletableFuture<LatticeHttpResponse<Iterable<StreamEntitiesResponse>>> streamEntities(
             EntityStreamRequest request) {
-        return sseEntityEvents(request, null);
+        return streamEntities(request, null);
     }
 
     /**
-     * This SSE API establishes a persistent connection to stream entity events as they occur.
+     * Establishes a persistent connection to stream entity events as they occur.
      */
-    public CompletableFuture<LatticeHttpResponse<Iterable<SseEntityEventsResponse>>> sseEntityEvents(
+    public CompletableFuture<LatticeHttpResponse<Iterable<StreamEntitiesResponse>>> streamEntities(
             EntityStreamRequest request, RequestOptions requestOptions) {
         HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
@@ -562,7 +562,7 @@ public class AsyncRawEntitiesClient {
         if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
             client = clientOptions.httpClientWithTimeout(requestOptions);
         }
-        CompletableFuture<LatticeHttpResponse<Iterable<SseEntityEventsResponse>>> future = new CompletableFuture<>();
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamEntitiesResponse>>> future = new CompletableFuture<>();
         client.newCall(okhttpRequest).enqueue(new Callback() {
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
@@ -570,7 +570,7 @@ public class AsyncRawEntitiesClient {
                     ResponseBody responseBody = response.body();
                     if (response.isSuccessful()) {
                         future.complete(new LatticeHttpResponse<>(
-                                Stream.fromSse(SseEntityEventsResponse.class, new ResponseBodyReader(response)),
+                                Stream.fromSse(StreamEntitiesResponse.class, new ResponseBodyReader(response)),
                                 response));
                         return;
                     }
