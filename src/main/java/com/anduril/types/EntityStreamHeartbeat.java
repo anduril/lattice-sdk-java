@@ -10,27 +10,33 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import org.jetbrains.annotations.NotNull;
+import java.util.Optional;
 
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
 @JsonDeserialize(builder = EntityStreamHeartbeat.Builder.class)
-public final class EntityStreamHeartbeat {
-    private final EntityStreamHeartbeatData data;
+public final class EntityStreamHeartbeat implements IHeartbeatObject {
+    private final Optional<OffsetDateTime> timestamp;
 
     private final Map<String, Object> additionalProperties;
 
-    private EntityStreamHeartbeat(EntityStreamHeartbeatData data, Map<String, Object> additionalProperties) {
-        this.data = data;
+    private EntityStreamHeartbeat(Optional<OffsetDateTime> timestamp, Map<String, Object> additionalProperties) {
+        this.timestamp = timestamp;
         this.additionalProperties = additionalProperties;
     }
 
-    @JsonProperty("data")
-    public EntityStreamHeartbeatData getData() {
-        return data;
+    /**
+     * @return timestamp of the heartbeat
+     */
+    @JsonProperty("timestamp")
+    @java.lang.Override
+    public Optional<OffsetDateTime> getTimestamp() {
+        return timestamp;
     }
 
     @java.lang.Override
@@ -45,12 +51,12 @@ public final class EntityStreamHeartbeat {
     }
 
     private boolean equalTo(EntityStreamHeartbeat other) {
-        return data.equals(other.data);
+        return timestamp.equals(other.timestamp);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.data);
+        return Objects.hash(this.timestamp);
     }
 
     @java.lang.Override
@@ -58,45 +64,40 @@ public final class EntityStreamHeartbeat {
         return ObjectMappers.stringify(this);
     }
 
-    public static DataStage builder() {
+    public static Builder builder() {
         return new Builder();
     }
 
-    public interface DataStage {
-        _FinalStage data(@NotNull EntityStreamHeartbeatData data);
-
-        Builder from(EntityStreamHeartbeat other);
-    }
-
-    public interface _FinalStage {
-        EntityStreamHeartbeat build();
-    }
-
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static final class Builder implements DataStage, _FinalStage {
-        private EntityStreamHeartbeatData data;
+    public static final class Builder {
+        private Optional<OffsetDateTime> timestamp = Optional.empty();
 
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
 
-        @java.lang.Override
         public Builder from(EntityStreamHeartbeat other) {
-            data(other.getData());
+            timestamp(other.getTimestamp());
             return this;
         }
 
-        @java.lang.Override
-        @JsonSetter("data")
-        public _FinalStage data(@NotNull EntityStreamHeartbeatData data) {
-            this.data = Objects.requireNonNull(data, "data must not be null");
+        /**
+         * <p>timestamp of the heartbeat</p>
+         */
+        @JsonSetter(value = "timestamp", nulls = Nulls.SKIP)
+        public Builder timestamp(Optional<OffsetDateTime> timestamp) {
+            this.timestamp = timestamp;
             return this;
         }
 
-        @java.lang.Override
+        public Builder timestamp(OffsetDateTime timestamp) {
+            this.timestamp = Optional.ofNullable(timestamp);
+            return this;
+        }
+
         public EntityStreamHeartbeat build() {
-            return new EntityStreamHeartbeat(data, additionalProperties);
+            return new EntityStreamHeartbeat(timestamp, additionalProperties);
         }
     }
 }

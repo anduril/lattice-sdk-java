@@ -210,14 +210,14 @@ public class RawObjectsClient {
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public LatticeHttpResponse<PathMetadata> uploadObject(String objectPath, InputStream request) {
         return uploadObject(objectPath, request, null);
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public LatticeHttpResponse<PathMetadata> uploadObject(
             String objectPath, InputStream request, RequestOptions requestOptions) {
@@ -275,14 +275,14 @@ public class RawObjectsClient {
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public LatticeHttpResponse<PathMetadata> uploadObject(String objectPath, byte[] request) {
         return uploadObject(objectPath, new ByteArrayInputStream(request));
     }
 
     /**
-     * Uploads an object using multiform data. The object must be 1 GiB or smaller.
+     * Uploads an object. The object must be 1 GiB or smaller.
      */
     public LatticeHttpResponse<PathMetadata> uploadObject(
             String objectPath, byte[] request, RequestOptions requestOptions) {
