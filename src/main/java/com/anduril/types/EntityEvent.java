@@ -20,7 +20,7 @@ import java.util.Optional;
 
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
 @JsonDeserialize(builder = EntityEvent.Builder.class)
-public final class EntityEvent {
+public final class EntityEvent implements IEntityEvent {
     private final Optional<EntityEventEventType> eventType;
 
     private final Optional<OffsetDateTime> time;
@@ -46,11 +46,13 @@ public final class EntityEvent {
     }
 
     @JsonProperty("time")
+    @java.lang.Override
     public Optional<OffsetDateTime> getTime() {
         return time;
     }
 
     @JsonProperty("entity")
+    @java.lang.Override
     public Optional<Entity> getEntity() {
         return entity;
     }

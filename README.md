@@ -1,10 +1,10 @@
-# Anduril Lattice SDK Java
+# Anduril Java Library
 
 ![](https://www.anduril.com/lattice-sdk/)
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.anduril/lattice-sdk)](https://central.sonatype.com/artifact/com.anduril/lattice-sdk)
 
-The Anduril Java library provides convenient access to the Anduril Lattice SDK from Java.
+The Lattice SDK Java library provides convenient access to the Lattice API from Java.
 
 ## Documentation
 
@@ -34,7 +34,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>2.0.0</version>
+  <version>2.1.0</version>
 </dependency>
 ```
 
