@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
-
 import okhttp3.OkHttpClient;
 
 public final class ClientOptions {
