@@ -31,6 +31,8 @@ public final class Entity {
 
     private final Optional<OffsetDateTime> expiryTime;
 
+    private final Optional<Boolean> noExpiry;
+
     private final Optional<Status> status;
 
     private final Optional<Location> location;
@@ -101,6 +103,7 @@ public final class Entity {
             Optional<Boolean> isLive,
             Optional<OffsetDateTime> createdTime,
             Optional<OffsetDateTime> expiryTime,
+            Optional<Boolean> noExpiry,
             Optional<Status> status,
             Optional<Location> location,
             Optional<LocationUncertainty> locationUncertainty,
@@ -138,6 +141,7 @@ public final class Entity {
         this.isLive = isLive;
         this.createdTime = createdTime;
         this.expiryTime = expiryTime;
+        this.noExpiry = noExpiry;
         this.status = status;
         this.location = location;
         this.locationUncertainty = locationUncertainty;
@@ -222,6 +226,17 @@ public final class Entity {
     @JsonProperty("expiryTime")
     public Optional<OffsetDateTime> getExpiryTime() {
         return expiryTime;
+    }
+
+    /**
+     * @return Use noExpiry only when the entity contains information that should be available to other
+     * tasks or integrations beyond its immediate operational context. For example, use noExpiry
+     * for long-living geographical entities that maintain persistent relevance across multiple
+     * operations or tasks.
+     */
+    @JsonProperty("noExpiry")
+    public Optional<Boolean> getNoExpiry() {
+        return noExpiry;
     }
 
     /**
@@ -492,6 +507,7 @@ public final class Entity {
                 && isLive.equals(other.isLive)
                 && createdTime.equals(other.createdTime)
                 && expiryTime.equals(other.expiryTime)
+                && noExpiry.equals(other.noExpiry)
                 && status.equals(other.status)
                 && location.equals(other.location)
                 && locationUncertainty.equals(other.locationUncertainty)
@@ -533,6 +549,7 @@ public final class Entity {
                 this.isLive,
                 this.createdTime,
                 this.expiryTime,
+                this.noExpiry,
                 this.status,
                 this.location,
                 this.locationUncertainty,
@@ -586,6 +603,8 @@ public final class Entity {
         private Optional<OffsetDateTime> createdTime = Optional.empty();
 
         private Optional<OffsetDateTime> expiryTime = Optional.empty();
+
+        private Optional<Boolean> noExpiry = Optional.empty();
 
         private Optional<Status> status = Optional.empty();
 
@@ -660,6 +679,7 @@ public final class Entity {
             isLive(other.getIsLive());
             createdTime(other.getCreatedTime());
             expiryTime(other.getExpiryTime());
+            noExpiry(other.getNoExpiry());
             status(other.getStatus());
             location(other.getLocation());
             locationUncertainty(other.getLocationUncertainty());
@@ -773,6 +793,23 @@ public final class Entity {
 
         public Builder expiryTime(OffsetDateTime expiryTime) {
             this.expiryTime = Optional.ofNullable(expiryTime);
+            return this;
+        }
+
+        /**
+         * <p>Use noExpiry only when the entity contains information that should be available to other
+         * tasks or integrations beyond its immediate operational context. For example, use noExpiry
+         * for long-living geographical entities that maintain persistent relevance across multiple
+         * operations or tasks.</p>
+         */
+        @JsonSetter(value = "noExpiry", nulls = Nulls.SKIP)
+        public Builder noExpiry(Optional<Boolean> noExpiry) {
+            this.noExpiry = noExpiry;
+            return this;
+        }
+
+        public Builder noExpiry(Boolean noExpiry) {
+            this.noExpiry = Optional.ofNullable(noExpiry);
             return this;
         }
 
@@ -1220,6 +1257,7 @@ public final class Entity {
                     isLive,
                     createdTime,
                     expiryTime,
+                    noExpiry,
                     status,
                     location,
                     locationUncertainty,
