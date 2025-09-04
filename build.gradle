@@ -81,9 +81,9 @@ publishing {
             version = '2.3.0'
             from components.java
             pom {
-                name = 'anduril'
-                description = 'The official SDK of anduril'
-                url = 'https://buildwithfern.com'
+                name = 'Anduril Industries, Inc.'
+                description = 'Anduril Lattice SDK for Java'
+                url = 'https://developer.anduril.com'
                 licenses {
                     license {
                         name = 'Custom License (LICENSE)'
