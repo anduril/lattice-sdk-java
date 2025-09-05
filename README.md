@@ -1,4 +1,4 @@
-# Anduril Java Library
+# Anduril Lattice SDK Java
 
 ![](https://www.anduril.com/lattice-sdk/)
 
