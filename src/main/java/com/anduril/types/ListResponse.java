@@ -106,7 +106,9 @@ public final class ListResponse {
         }
 
         public Builder addAllPathMetadatas(List<PathMetadata> pathMetadatas) {
-            this.pathMetadatas.addAll(pathMetadatas);
+            if (pathMetadatas != null) {
+                this.pathMetadatas.addAll(pathMetadatas);
+            }
             return this;
         }
 
