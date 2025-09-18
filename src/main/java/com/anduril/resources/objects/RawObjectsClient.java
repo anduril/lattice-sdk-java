@@ -169,6 +169,9 @@ public class RawObjectsClient {
             _requestBuilder.addHeader(
                     "Accept-Encoding", request.getAcceptEncoding().get().toString());
         }
+        if (request.getPriority().isPresent()) {
+            _requestBuilder.addHeader("Priority", request.getPriority().get());
+        }
         Request okhttpRequest = _requestBuilder.build();
         OkHttpClient client = clientOptions.httpClient();
         if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
