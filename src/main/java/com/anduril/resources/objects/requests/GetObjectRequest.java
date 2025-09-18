@@ -23,11 +23,16 @@ import java.util.Optional;
 public final class GetObjectRequest {
     private final Optional<GetObjectRequestAcceptEncoding> acceptEncoding;
 
+    private final Optional<String> priority;
+
     private final Map<String, Object> additionalProperties;
 
     private GetObjectRequest(
-            Optional<GetObjectRequestAcceptEncoding> acceptEncoding, Map<String, Object> additionalProperties) {
+            Optional<GetObjectRequestAcceptEncoding> acceptEncoding,
+            Optional<String> priority,
+            Map<String, Object> additionalProperties) {
         this.acceptEncoding = acceptEncoding;
+        this.priority = priority;
         this.additionalProperties = additionalProperties;
     }
 
@@ -37,6 +42,14 @@ public final class GetObjectRequest {
     @JsonProperty("Accept-Encoding")
     public Optional<GetObjectRequestAcceptEncoding> getAcceptEncoding() {
         return acceptEncoding;
+    }
+
+    /**
+     * @return Indicates a client's preference for the priority of the response. The value is a structured header as defined in RFC 9218. If you do not set the header, Lattice uses the default priority set for the environment. Incremental delivery directives are not supported and will be ignored.
+     */
+    @JsonProperty("Priority")
+    public Optional<String> getPriority() {
+        return priority;
     }
 
     @java.lang.Override
@@ -51,12 +64,12 @@ public final class GetObjectRequest {
     }
 
     private boolean equalTo(GetObjectRequest other) {
-        return acceptEncoding.equals(other.acceptEncoding);
+        return acceptEncoding.equals(other.acceptEncoding) && priority.equals(other.priority);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.acceptEncoding);
+        return Objects.hash(this.acceptEncoding, this.priority);
     }
 
     @java.lang.Override
@@ -72,6 +85,8 @@ public final class GetObjectRequest {
     public static final class Builder {
         private Optional<GetObjectRequestAcceptEncoding> acceptEncoding = Optional.empty();
 
+        private Optional<String> priority = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -79,6 +94,7 @@ public final class GetObjectRequest {
 
         public Builder from(GetObjectRequest other) {
             acceptEncoding(other.getAcceptEncoding());
+            priority(other.getPriority());
             return this;
         }
 
@@ -96,8 +112,22 @@ public final class GetObjectRequest {
             return this;
         }
 
+        /**
+         * <p>Indicates a client's preference for the priority of the response. The value is a structured header as defined in RFC 9218. If you do not set the header, Lattice uses the default priority set for the environment. Incremental delivery directives are not supported and will be ignored.</p>
+         */
+        @JsonSetter(value = "Priority", nulls = Nulls.SKIP)
+        public Builder priority(Optional<String> priority) {
+            this.priority = priority;
+            return this;
+        }
+
+        public Builder priority(String priority) {
+            this.priority = Optional.ofNullable(priority);
+            return this;
+        }
+
         public GetObjectRequest build() {
-            return new GetObjectRequest(acceptEncoding, additionalProperties);
+            return new GetObjectRequest(acceptEncoding, priority, additionalProperties);
         }
     }
 }
