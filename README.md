@@ -2,6 +2,7 @@
 
 ![](https://www.anduril.com/lattice-sdk/)
 
+[![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fanduril%2Flattice-sdk-java)
 [![Maven Central](https://img.shields.io/maven-central/v/com.anduril/lattice-sdk)](https://central.sonatype.com/artifact/com.anduril/lattice-sdk)
 
 The Lattice SDK Java library provides convenient access to the Lattice SDK APIs from Java.
@@ -34,7 +35,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>2.4.0</version>
+  <version>2.4.1</version>
 </dependency>
 ```
 
