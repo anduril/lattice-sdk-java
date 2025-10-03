@@ -3,30 +3,127 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum EntityEventEventType {
-    EVENT_TYPE_INVALID("EVENT_TYPE_INVALID"),
+public final class EntityEventEventType {
+    public static final EntityEventEventType EVENT_TYPE_PREEXISTING =
+            new EntityEventEventType(Value.EVENT_TYPE_PREEXISTING, "EVENT_TYPE_PREEXISTING");
 
-    EVENT_TYPE_CREATED("EVENT_TYPE_CREATED"),
+    public static final EntityEventEventType EVENT_TYPE_INVALID =
+            new EntityEventEventType(Value.EVENT_TYPE_INVALID, "EVENT_TYPE_INVALID");
 
-    EVENT_TYPE_UPDATE("EVENT_TYPE_UPDATE"),
+    public static final EntityEventEventType EVENT_TYPE_UPDATE =
+            new EntityEventEventType(Value.EVENT_TYPE_UPDATE, "EVENT_TYPE_UPDATE");
 
-    EVENT_TYPE_DELETED("EVENT_TYPE_DELETED"),
+    public static final EntityEventEventType EVENT_TYPE_POST_EXPIRY_OVERRIDE =
+            new EntityEventEventType(Value.EVENT_TYPE_POST_EXPIRY_OVERRIDE, "EVENT_TYPE_POST_EXPIRY_OVERRIDE");
 
-    EVENT_TYPE_PREEXISTING("EVENT_TYPE_PREEXISTING"),
+    public static final EntityEventEventType EVENT_TYPE_CREATED =
+            new EntityEventEventType(Value.EVENT_TYPE_CREATED, "EVENT_TYPE_CREATED");
 
-    EVENT_TYPE_POST_EXPIRY_OVERRIDE("EVENT_TYPE_POST_EXPIRY_OVERRIDE");
+    public static final EntityEventEventType EVENT_TYPE_DELETED =
+            new EntityEventEventType(Value.EVENT_TYPE_DELETED, "EVENT_TYPE_DELETED");
 
-    private final String value;
+    private final Value value;
 
-    EntityEventEventType(String value) {
+    private final String string;
+
+    EntityEventEventType(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof EntityEventEventType && this.string.equals(((EntityEventEventType) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case EVENT_TYPE_PREEXISTING:
+                return visitor.visitEventTypePreexisting();
+            case EVENT_TYPE_INVALID:
+                return visitor.visitEventTypeInvalid();
+            case EVENT_TYPE_UPDATE:
+                return visitor.visitEventTypeUpdate();
+            case EVENT_TYPE_POST_EXPIRY_OVERRIDE:
+                return visitor.visitEventTypePostExpiryOverride();
+            case EVENT_TYPE_CREATED:
+                return visitor.visitEventTypeCreated();
+            case EVENT_TYPE_DELETED:
+                return visitor.visitEventTypeDeleted();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static EntityEventEventType valueOf(String value) {
+        switch (value) {
+            case "EVENT_TYPE_PREEXISTING":
+                return EVENT_TYPE_PREEXISTING;
+            case "EVENT_TYPE_INVALID":
+                return EVENT_TYPE_INVALID;
+            case "EVENT_TYPE_UPDATE":
+                return EVENT_TYPE_UPDATE;
+            case "EVENT_TYPE_POST_EXPIRY_OVERRIDE":
+                return EVENT_TYPE_POST_EXPIRY_OVERRIDE;
+            case "EVENT_TYPE_CREATED":
+                return EVENT_TYPE_CREATED;
+            case "EVENT_TYPE_DELETED":
+                return EVENT_TYPE_DELETED;
+            default:
+                return new EntityEventEventType(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        EVENT_TYPE_INVALID,
+
+        EVENT_TYPE_CREATED,
+
+        EVENT_TYPE_UPDATE,
+
+        EVENT_TYPE_DELETED,
+
+        EVENT_TYPE_PREEXISTING,
+
+        EVENT_TYPE_POST_EXPIRY_OVERRIDE,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitEventTypeInvalid();
+
+        T visitEventTypeCreated();
+
+        T visitEventTypeUpdate();
+
+        T visitEventTypeDeleted();
+
+        T visitEventTypePreexisting();
+
+        T visitEventTypePostExpiryOverride();
+
+        T visitUnknown(String unknownType);
     }
 }

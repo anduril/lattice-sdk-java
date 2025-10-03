@@ -3,246 +3,1317 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum MilViewNationality {
-    NATIONALITY_INVALID("NATIONALITY_INVALID"),
+public final class MilViewNationality {
+    public static final MilViewNationality NATIONALITY_GUINEA =
+            new MilViewNationality(Value.NATIONALITY_GUINEA, "NATIONALITY_GUINEA");
 
-    NATIONALITY_ALBANIA("NATIONALITY_ALBANIA"),
+    public static final MilViewNationality NATIONALITY_GERMANY =
+            new MilViewNationality(Value.NATIONALITY_GERMANY, "NATIONALITY_GERMANY");
 
-    NATIONALITY_ALGERIA("NATIONALITY_ALGERIA"),
+    public static final MilViewNationality NATIONALITY_VIETNAM =
+            new MilViewNationality(Value.NATIONALITY_VIETNAM, "NATIONALITY_VIETNAM");
 
-    NATIONALITY_ARGENTINA("NATIONALITY_ARGENTINA"),
+    public static final MilViewNationality NATIONALITY_BULGARIA =
+            new MilViewNationality(Value.NATIONALITY_BULGARIA, "NATIONALITY_BULGARIA");
 
-    NATIONALITY_ARMENIA("NATIONALITY_ARMENIA"),
+    public static final MilViewNationality NATIONALITY_LUXEMBOURG =
+            new MilViewNationality(Value.NATIONALITY_LUXEMBOURG, "NATIONALITY_LUXEMBOURG");
 
-    NATIONALITY_AUSTRALIA("NATIONALITY_AUSTRALIA"),
+    public static final MilViewNationality NATIONALITY_DEMOCRATIC_PEOPLES_REPUBLIC_OF_KOREA = new MilViewNationality(
+            Value.NATIONALITY_DEMOCRATIC_PEOPLES_REPUBLIC_OF_KOREA, "NATIONALITY_DEMOCRATIC_PEOPLES_REPUBLIC_OF_KOREA");
 
-    NATIONALITY_AUSTRIA("NATIONALITY_AUSTRIA"),
+    public static final MilViewNationality NATIONALITY_IRAQ =
+            new MilViewNationality(Value.NATIONALITY_IRAQ, "NATIONALITY_IRAQ");
 
-    NATIONALITY_AZERBAIJAN("NATIONALITY_AZERBAIJAN"),
+    public static final MilViewNationality NATIONALITY_SAUDI_ARABIA =
+            new MilViewNationality(Value.NATIONALITY_SAUDI_ARABIA, "NATIONALITY_SAUDI_ARABIA");
 
-    NATIONALITY_BELARUS("NATIONALITY_BELARUS"),
+    public static final MilViewNationality NATIONALITY_AUSTRIA =
+            new MilViewNationality(Value.NATIONALITY_AUSTRIA, "NATIONALITY_AUSTRIA");
 
-    NATIONALITY_BELGIUM("NATIONALITY_BELGIUM"),
+    public static final MilViewNationality NATIONALITY_INDONESIA =
+            new MilViewNationality(Value.NATIONALITY_INDONESIA, "NATIONALITY_INDONESIA");
 
-    NATIONALITY_BOLIVIA("NATIONALITY_BOLIVIA"),
+    public static final MilViewNationality NATIONALITY_SENEGAL =
+            new MilViewNationality(Value.NATIONALITY_SENEGAL, "NATIONALITY_SENEGAL");
 
-    NATIONALITY_BOSNIA_AND_HERZEGOVINA("NATIONALITY_BOSNIA_AND_HERZEGOVINA"),
+    public static final MilViewNationality NATIONALITY_AUSTRALIA =
+            new MilViewNationality(Value.NATIONALITY_AUSTRALIA, "NATIONALITY_AUSTRALIA");
 
-    NATIONALITY_BRAZIL("NATIONALITY_BRAZIL"),
+    public static final MilViewNationality NATIONALITY_IRELAND =
+            new MilViewNationality(Value.NATIONALITY_IRELAND, "NATIONALITY_IRELAND");
 
-    NATIONALITY_BULGARIA("NATIONALITY_BULGARIA"),
+    public static final MilViewNationality NATIONALITY_BRAZIL =
+            new MilViewNationality(Value.NATIONALITY_BRAZIL, "NATIONALITY_BRAZIL");
 
-    NATIONALITY_CAMBODIA("NATIONALITY_CAMBODIA"),
+    public static final MilViewNationality NATIONALITY_AZERBAIJAN =
+            new MilViewNationality(Value.NATIONALITY_AZERBAIJAN, "NATIONALITY_AZERBAIJAN");
 
-    NATIONALITY_CANADA("NATIONALITY_CANADA"),
+    public static final MilViewNationality NATIONALITY_TAIWAN =
+            new MilViewNationality(Value.NATIONALITY_TAIWAN, "NATIONALITY_TAIWAN");
 
-    NATIONALITY_CHILE("NATIONALITY_CHILE"),
+    public static final MilViewNationality NATIONALITY_SINGAPORE =
+            new MilViewNationality(Value.NATIONALITY_SINGAPORE, "NATIONALITY_SINGAPORE");
 
-    NATIONALITY_CHINA("NATIONALITY_CHINA"),
+    public static final MilViewNationality NATIONALITY_CANADA =
+            new MilViewNationality(Value.NATIONALITY_CANADA, "NATIONALITY_CANADA");
 
-    NATIONALITY_COLOMBIA("NATIONALITY_COLOMBIA"),
+    public static final MilViewNationality NATIONALITY_DOMINICAN_REPUBLIC =
+            new MilViewNationality(Value.NATIONALITY_DOMINICAN_REPUBLIC, "NATIONALITY_DOMINICAN_REPUBLIC");
 
-    NATIONALITY_CROATIA("NATIONALITY_CROATIA"),
+    public static final MilViewNationality NATIONALITY_CUBA =
+            new MilViewNationality(Value.NATIONALITY_CUBA, "NATIONALITY_CUBA");
 
-    NATIONALITY_CUBA("NATIONALITY_CUBA"),
+    public static final MilViewNationality NATIONALITY_MONTENEGRO =
+            new MilViewNationality(Value.NATIONALITY_MONTENEGRO, "NATIONALITY_MONTENEGRO");
 
-    NATIONALITY_CYPRUS("NATIONALITY_CYPRUS"),
+    public static final MilViewNationality NATIONALITY_SLOVAKIA =
+            new MilViewNationality(Value.NATIONALITY_SLOVAKIA, "NATIONALITY_SLOVAKIA");
 
-    NATIONALITY_CZECH_REPUBLIC("NATIONALITY_CZECH_REPUBLIC"),
+    public static final MilViewNationality NATIONALITY_YEMEN =
+            new MilViewNationality(Value.NATIONALITY_YEMEN, "NATIONALITY_YEMEN");
 
-    NATIONALITY_DEMOCRATIC_PEOPLES_REPUBLIC_OF_KOREA("NATIONALITY_DEMOCRATIC_PEOPLES_REPUBLIC_OF_KOREA"),
+    public static final MilViewNationality NATIONALITY_INVALID =
+            new MilViewNationality(Value.NATIONALITY_INVALID, "NATIONALITY_INVALID");
 
-    NATIONALITY_DENMARK("NATIONALITY_DENMARK"),
+    public static final MilViewNationality NATIONALITY_SPAIN =
+            new MilViewNationality(Value.NATIONALITY_SPAIN, "NATIONALITY_SPAIN");
 
-    NATIONALITY_DOMINICAN_REPUBLIC("NATIONALITY_DOMINICAN_REPUBLIC"),
+    public static final MilViewNationality NATIONALITY_BELARUS =
+            new MilViewNationality(Value.NATIONALITY_BELARUS, "NATIONALITY_BELARUS");
 
-    NATIONALITY_ECUADOR("NATIONALITY_ECUADOR"),
+    public static final MilViewNationality NATIONALITY_EGYPT =
+            new MilViewNationality(Value.NATIONALITY_EGYPT, "NATIONALITY_EGYPT");
 
-    NATIONALITY_EGYPT("NATIONALITY_EGYPT"),
+    public static final MilViewNationality NATIONALITY_PERU =
+            new MilViewNationality(Value.NATIONALITY_PERU, "NATIONALITY_PERU");
 
-    NATIONALITY_ESTONIA("NATIONALITY_ESTONIA"),
+    public static final MilViewNationality NATIONALITY_INTERNATIONAL_RED_CROSS =
+            new MilViewNationality(Value.NATIONALITY_INTERNATIONAL_RED_CROSS, "NATIONALITY_INTERNATIONAL_RED_CROSS");
 
-    NATIONALITY_ETHIOPIA("NATIONALITY_ETHIOPIA"),
+    public static final MilViewNationality NATIONALITY_POLAND =
+            new MilViewNationality(Value.NATIONALITY_POLAND, "NATIONALITY_POLAND");
 
-    NATIONALITY_FINLAND("NATIONALITY_FINLAND"),
+    public static final MilViewNationality NATIONALITY_LIBERIA =
+            new MilViewNationality(Value.NATIONALITY_LIBERIA, "NATIONALITY_LIBERIA");
 
-    NATIONALITY_FRANCE("NATIONALITY_FRANCE"),
+    public static final MilViewNationality NATIONALITY_ECUADOR =
+            new MilViewNationality(Value.NATIONALITY_ECUADOR, "NATIONALITY_ECUADOR");
 
-    NATIONALITY_GEORGIA("NATIONALITY_GEORGIA"),
+    public static final MilViewNationality NATIONALITY_NICARAGUA =
+            new MilViewNationality(Value.NATIONALITY_NICARAGUA, "NATIONALITY_NICARAGUA");
 
-    NATIONALITY_GERMANY("NATIONALITY_GERMANY"),
+    public static final MilViewNationality NATIONALITY_MOROCCO =
+            new MilViewNationality(Value.NATIONALITY_MOROCCO, "NATIONALITY_MOROCCO");
 
-    NATIONALITY_GREECE("NATIONALITY_GREECE"),
+    public static final MilViewNationality NATIONALITY_VENEZUELA =
+            new MilViewNationality(Value.NATIONALITY_VENEZUELA, "NATIONALITY_VENEZUELA");
 
-    NATIONALITY_GUATEMALA("NATIONALITY_GUATEMALA"),
+    public static final MilViewNationality NATIONALITY_BOSNIA_AND_HERZEGOVINA =
+            new MilViewNationality(Value.NATIONALITY_BOSNIA_AND_HERZEGOVINA, "NATIONALITY_BOSNIA_AND_HERZEGOVINA");
 
-    NATIONALITY_GUINEA("NATIONALITY_GUINEA"),
+    public static final MilViewNationality NATIONALITY_TURKEY =
+            new MilViewNationality(Value.NATIONALITY_TURKEY, "NATIONALITY_TURKEY");
 
-    NATIONALITY_HUNGARY("NATIONALITY_HUNGARY"),
+    public static final MilViewNationality NATIONALITY_ZIMBABWE =
+            new MilViewNationality(Value.NATIONALITY_ZIMBABWE, "NATIONALITY_ZIMBABWE");
 
-    NATIONALITY_ICELAND("NATIONALITY_ICELAND"),
+    public static final MilViewNationality NATIONALITY_ARMENIA =
+            new MilViewNationality(Value.NATIONALITY_ARMENIA, "NATIONALITY_ARMENIA");
 
-    NATIONALITY_INDIA("NATIONALITY_INDIA"),
+    public static final MilViewNationality NATIONALITY_ROMANIA =
+            new MilViewNationality(Value.NATIONALITY_ROMANIA, "NATIONALITY_ROMANIA");
 
-    NATIONALITY_INDONESIA("NATIONALITY_INDONESIA"),
+    public static final MilViewNationality NATIONALITY_JAPAN =
+            new MilViewNationality(Value.NATIONALITY_JAPAN, "NATIONALITY_JAPAN");
 
-    NATIONALITY_INTERNATIONAL_RED_CROSS("NATIONALITY_INTERNATIONAL_RED_CROSS"),
+    public static final MilViewNationality NATIONALITY_CYPRUS =
+            new MilViewNationality(Value.NATIONALITY_CYPRUS, "NATIONALITY_CYPRUS");
 
-    NATIONALITY_IRAQ("NATIONALITY_IRAQ"),
+    public static final MilViewNationality NATIONALITY_GUATEMALA =
+            new MilViewNationality(Value.NATIONALITY_GUATEMALA, "NATIONALITY_GUATEMALA");
 
-    NATIONALITY_IRELAND("NATIONALITY_IRELAND"),
+    public static final MilViewNationality NATIONALITY_MEXICO =
+            new MilViewNationality(Value.NATIONALITY_MEXICO, "NATIONALITY_MEXICO");
 
-    NATIONALITY_ISLAMIC_REPUBLIC_OF_IRAN("NATIONALITY_ISLAMIC_REPUBLIC_OF_IRAN"),
+    public static final MilViewNationality NATIONALITY_INDIA =
+            new MilViewNationality(Value.NATIONALITY_INDIA, "NATIONALITY_INDIA");
 
-    NATIONALITY_ISRAEL("NATIONALITY_ISRAEL"),
+    public static final MilViewNationality NATIONALITY_REPUBLIC_OF_KOREA =
+            new MilViewNationality(Value.NATIONALITY_REPUBLIC_OF_KOREA, "NATIONALITY_REPUBLIC_OF_KOREA");
 
-    NATIONALITY_ITALY("NATIONALITY_ITALY"),
+    public static final MilViewNationality NATIONALITY_PORTUGAL =
+            new MilViewNationality(Value.NATIONALITY_PORTUGAL, "NATIONALITY_PORTUGAL");
 
-    NATIONALITY_JAMAICA("NATIONALITY_JAMAICA"),
+    public static final MilViewNationality NATIONALITY_CHILE =
+            new MilViewNationality(Value.NATIONALITY_CHILE, "NATIONALITY_CHILE");
 
-    NATIONALITY_JAPAN("NATIONALITY_JAPAN"),
+    public static final MilViewNationality NATIONALITY_PARAGUAY =
+            new MilViewNationality(Value.NATIONALITY_PARAGUAY, "NATIONALITY_PARAGUAY");
 
-    NATIONALITY_JORDAN("NATIONALITY_JORDAN"),
+    public static final MilViewNationality NATIONALITY_UZBEKISTAN =
+            new MilViewNationality(Value.NATIONALITY_UZBEKISTAN, "NATIONALITY_UZBEKISTAN");
 
-    NATIONALITY_KAZAKHSTAN("NATIONALITY_KAZAKHSTAN"),
+    public static final MilViewNationality NATIONALITY_PHILIPPINES =
+            new MilViewNationality(Value.NATIONALITY_PHILIPPINES, "NATIONALITY_PHILIPPINES");
 
-    NATIONALITY_KUWAIT("NATIONALITY_KUWAIT"),
+    public static final MilViewNationality NATIONALITY_KUWAIT =
+            new MilViewNationality(Value.NATIONALITY_KUWAIT, "NATIONALITY_KUWAIT");
 
-    NATIONALITY_KYRGHYZ_REPUBLIC("NATIONALITY_KYRGHYZ_REPUBLIC"),
+    public static final MilViewNationality NATIONALITY_BOLIVIA =
+            new MilViewNationality(Value.NATIONALITY_BOLIVIA, "NATIONALITY_BOLIVIA");
 
-    NATIONALITY_LAO_PEOPLES_DEMOCRATIC_REPUBLIC("NATIONALITY_LAO_PEOPLES_DEMOCRATIC_REPUBLIC"),
+    public static final MilViewNationality NATIONALITY_DENMARK =
+            new MilViewNationality(Value.NATIONALITY_DENMARK, "NATIONALITY_DENMARK");
 
-    NATIONALITY_LATVIA("NATIONALITY_LATVIA"),
+    public static final MilViewNationality NATIONALITY_SUDAN =
+            new MilViewNationality(Value.NATIONALITY_SUDAN, "NATIONALITY_SUDAN");
 
-    NATIONALITY_LEBANON("NATIONALITY_LEBANON"),
+    public static final MilViewNationality NATIONALITY_ICELAND =
+            new MilViewNationality(Value.NATIONALITY_ICELAND, "NATIONALITY_ICELAND");
 
-    NATIONALITY_LIBERIA("NATIONALITY_LIBERIA"),
+    public static final MilViewNationality NATIONALITY_THE_FORMER_YUGOSLAV_REPUBLIC_OF_MACEDONIA =
+            new MilViewNationality(
+                    Value.NATIONALITY_THE_FORMER_YUGOSLAV_REPUBLIC_OF_MACEDONIA,
+                    "NATIONALITY_THE_FORMER_YUGOSLAV_REPUBLIC_OF_MACEDONIA");
 
-    NATIONALITY_LITHUANIA("NATIONALITY_LITHUANIA"),
+    public static final MilViewNationality NATIONALITY_JORDAN =
+            new MilViewNationality(Value.NATIONALITY_JORDAN, "NATIONALITY_JORDAN");
 
-    NATIONALITY_LUXEMBOURG("NATIONALITY_LUXEMBOURG"),
+    public static final MilViewNationality NATIONALITY_NETHERLANDS =
+            new MilViewNationality(Value.NATIONALITY_NETHERLANDS, "NATIONALITY_NETHERLANDS");
 
-    NATIONALITY_MADAGASCAR("NATIONALITY_MADAGASCAR"),
+    public static final MilViewNationality NATIONALITY_CHINA =
+            new MilViewNationality(Value.NATIONALITY_CHINA, "NATIONALITY_CHINA");
 
-    NATIONALITY_MALAYSIA("NATIONALITY_MALAYSIA"),
+    public static final MilViewNationality NATIONALITY_CAMBODIA =
+            new MilViewNationality(Value.NATIONALITY_CAMBODIA, "NATIONALITY_CAMBODIA");
 
-    NATIONALITY_MALTA("NATIONALITY_MALTA"),
+    public static final MilViewNationality NATIONALITY_MOLDOVA =
+            new MilViewNationality(Value.NATIONALITY_MOLDOVA, "NATIONALITY_MOLDOVA");
 
-    NATIONALITY_MEXICO("NATIONALITY_MEXICO"),
+    public static final MilViewNationality NATIONALITY_UNITED_KINGDOM =
+            new MilViewNationality(Value.NATIONALITY_UNITED_KINGDOM, "NATIONALITY_UNITED_KINGDOM");
 
-    NATIONALITY_MOLDOVA("NATIONALITY_MOLDOVA"),
+    public static final MilViewNationality NATIONALITY_URUGUAY =
+            new MilViewNationality(Value.NATIONALITY_URUGUAY, "NATIONALITY_URUGUAY");
 
-    NATIONALITY_MONTENEGRO("NATIONALITY_MONTENEGRO"),
+    public static final MilViewNationality NATIONALITY_ESTONIA =
+            new MilViewNationality(Value.NATIONALITY_ESTONIA, "NATIONALITY_ESTONIA");
 
-    NATIONALITY_MOROCCO("NATIONALITY_MOROCCO"),
+    public static final MilViewNationality NATIONALITY_TUNISIA =
+            new MilViewNationality(Value.NATIONALITY_TUNISIA, "NATIONALITY_TUNISIA");
 
-    NATIONALITY_MYANMAR("NATIONALITY_MYANMAR"),
+    public static final MilViewNationality NATIONALITY_UKRAINE =
+            new MilViewNationality(Value.NATIONALITY_UKRAINE, "NATIONALITY_UKRAINE");
 
-    NATIONALITY_NATO("NATIONALITY_NATO"),
+    public static final MilViewNationality NATIONALITY_ISRAEL =
+            new MilViewNationality(Value.NATIONALITY_ISRAEL, "NATIONALITY_ISRAEL");
 
-    NATIONALITY_NETHERLANDS("NATIONALITY_NETHERLANDS"),
+    public static final MilViewNationality NATIONALITY_HUNGARY =
+            new MilViewNationality(Value.NATIONALITY_HUNGARY, "NATIONALITY_HUNGARY");
 
-    NATIONALITY_NEW_ZEALAND("NATIONALITY_NEW_ZEALAND"),
+    public static final MilViewNationality NATIONALITY_GREECE =
+            new MilViewNationality(Value.NATIONALITY_GREECE, "NATIONALITY_GREECE");
 
-    NATIONALITY_NICARAGUA("NATIONALITY_NICARAGUA"),
+    public static final MilViewNationality NATIONALITY_GEORGIA =
+            new MilViewNationality(Value.NATIONALITY_GEORGIA, "NATIONALITY_GEORGIA");
 
-    NATIONALITY_NIGERIA("NATIONALITY_NIGERIA"),
+    public static final MilViewNationality NATIONALITY_BELGIUM =
+            new MilViewNationality(Value.NATIONALITY_BELGIUM, "NATIONALITY_BELGIUM");
 
-    NATIONALITY_NORWAY("NATIONALITY_NORWAY"),
+    public static final MilViewNationality NATIONALITY_SWITZERLAND =
+            new MilViewNationality(Value.NATIONALITY_SWITZERLAND, "NATIONALITY_SWITZERLAND");
 
-    NATIONALITY_PAKISTAN("NATIONALITY_PAKISTAN"),
+    public static final MilViewNationality NATIONALITY_LITHUANIA =
+            new MilViewNationality(Value.NATIONALITY_LITHUANIA, "NATIONALITY_LITHUANIA");
 
-    NATIONALITY_PANAMA("NATIONALITY_PANAMA"),
+    public static final MilViewNationality NATIONALITY_NEW_ZEALAND =
+            new MilViewNationality(Value.NATIONALITY_NEW_ZEALAND, "NATIONALITY_NEW_ZEALAND");
 
-    NATIONALITY_PARAGUAY("NATIONALITY_PARAGUAY"),
+    public static final MilViewNationality NATIONALITY_ETHIOPIA =
+            new MilViewNationality(Value.NATIONALITY_ETHIOPIA, "NATIONALITY_ETHIOPIA");
 
-    NATIONALITY_PERU("NATIONALITY_PERU"),
+    public static final MilViewNationality NATIONALITY_MADAGASCAR =
+            new MilViewNationality(Value.NATIONALITY_MADAGASCAR, "NATIONALITY_MADAGASCAR");
 
-    NATIONALITY_PHILIPPINES("NATIONALITY_PHILIPPINES"),
+    public static final MilViewNationality NATIONALITY_SERBIA =
+            new MilViewNationality(Value.NATIONALITY_SERBIA, "NATIONALITY_SERBIA");
 
-    NATIONALITY_POLAND("NATIONALITY_POLAND"),
+    public static final MilViewNationality NATIONALITY_LAO_PEOPLES_DEMOCRATIC_REPUBLIC = new MilViewNationality(
+            Value.NATIONALITY_LAO_PEOPLES_DEMOCRATIC_REPUBLIC, "NATIONALITY_LAO_PEOPLES_DEMOCRATIC_REPUBLIC");
 
-    NATIONALITY_PORTUGAL("NATIONALITY_PORTUGAL"),
+    public static final MilViewNationality NATIONALITY_UNITED_NATIONS =
+            new MilViewNationality(Value.NATIONALITY_UNITED_NATIONS, "NATIONALITY_UNITED_NATIONS");
 
-    NATIONALITY_REPUBLIC_OF_KOREA("NATIONALITY_REPUBLIC_OF_KOREA"),
+    public static final MilViewNationality NATIONALITY_LATVIA =
+            new MilViewNationality(Value.NATIONALITY_LATVIA, "NATIONALITY_LATVIA");
 
-    NATIONALITY_ROMANIA("NATIONALITY_ROMANIA"),
+    public static final MilViewNationality NATIONALITY_PAKISTAN =
+            new MilViewNationality(Value.NATIONALITY_PAKISTAN, "NATIONALITY_PAKISTAN");
 
-    NATIONALITY_RUSSIA("NATIONALITY_RUSSIA"),
+    public static final MilViewNationality NATIONALITY_COLOMBIA =
+            new MilViewNationality(Value.NATIONALITY_COLOMBIA, "NATIONALITY_COLOMBIA");
 
-    NATIONALITY_SAUDI_ARABIA("NATIONALITY_SAUDI_ARABIA"),
+    public static final MilViewNationality NATIONALITY_UNITED_REPUBLIC_OF_TANZANIA = new MilViewNationality(
+            Value.NATIONALITY_UNITED_REPUBLIC_OF_TANZANIA, "NATIONALITY_UNITED_REPUBLIC_OF_TANZANIA");
 
-    NATIONALITY_SENEGAL("NATIONALITY_SENEGAL"),
+    public static final MilViewNationality NATIONALITY_SOUTH_AFRICA =
+            new MilViewNationality(Value.NATIONALITY_SOUTH_AFRICA, "NATIONALITY_SOUTH_AFRICA");
 
-    NATIONALITY_SERBIA("NATIONALITY_SERBIA"),
+    public static final MilViewNationality NATIONALITY_ITALY =
+            new MilViewNationality(Value.NATIONALITY_ITALY, "NATIONALITY_ITALY");
 
-    NATIONALITY_SINGAPORE("NATIONALITY_SINGAPORE"),
+    public static final MilViewNationality NATIONALITY_NORWAY =
+            new MilViewNationality(Value.NATIONALITY_NORWAY, "NATIONALITY_NORWAY");
 
-    NATIONALITY_SLOVAKIA("NATIONALITY_SLOVAKIA"),
+    public static final MilViewNationality NATIONALITY_CZECH_REPUBLIC =
+            new MilViewNationality(Value.NATIONALITY_CZECH_REPUBLIC, "NATIONALITY_CZECH_REPUBLIC");
 
-    NATIONALITY_SLOVENIA("NATIONALITY_SLOVENIA"),
+    public static final MilViewNationality NATIONALITY_FRANCE =
+            new MilViewNationality(Value.NATIONALITY_FRANCE, "NATIONALITY_FRANCE");
 
-    NATIONALITY_SOUTH_AFRICA("NATIONALITY_SOUTH_AFRICA"),
+    public static final MilViewNationality NATIONALITY_ALGERIA =
+            new MilViewNationality(Value.NATIONALITY_ALGERIA, "NATIONALITY_ALGERIA");
 
-    NATIONALITY_SPAIN("NATIONALITY_SPAIN"),
+    public static final MilViewNationality NATIONALITY_SLOVENIA =
+            new MilViewNationality(Value.NATIONALITY_SLOVENIA, "NATIONALITY_SLOVENIA");
 
-    NATIONALITY_SUDAN("NATIONALITY_SUDAN"),
+    public static final MilViewNationality NATIONALITY_TAJIKISTAN =
+            new MilViewNationality(Value.NATIONALITY_TAJIKISTAN, "NATIONALITY_TAJIKISTAN");
 
-    NATIONALITY_SWEDEN("NATIONALITY_SWEDEN"),
+    public static final MilViewNationality NATIONALITY_CROATIA =
+            new MilViewNationality(Value.NATIONALITY_CROATIA, "NATIONALITY_CROATIA");
 
-    NATIONALITY_SWITZERLAND("NATIONALITY_SWITZERLAND"),
+    public static final MilViewNationality NATIONALITY_JAMAICA =
+            new MilViewNationality(Value.NATIONALITY_JAMAICA, "NATIONALITY_JAMAICA");
 
-    NATIONALITY_SYRIAN_ARAB_REPUBLIC("NATIONALITY_SYRIAN_ARAB_REPUBLIC"),
+    public static final MilViewNationality NATIONALITY_FINLAND =
+            new MilViewNationality(Value.NATIONALITY_FINLAND, "NATIONALITY_FINLAND");
 
-    NATIONALITY_TAIWAN("NATIONALITY_TAIWAN"),
+    public static final MilViewNationality NATIONALITY_MYANMAR =
+            new MilViewNationality(Value.NATIONALITY_MYANMAR, "NATIONALITY_MYANMAR");
 
-    NATIONALITY_TAJIKISTAN("NATIONALITY_TAJIKISTAN"),
+    public static final MilViewNationality NATIONALITY_ARGENTINA =
+            new MilViewNationality(Value.NATIONALITY_ARGENTINA, "NATIONALITY_ARGENTINA");
 
-    NATIONALITY_THAILAND("NATIONALITY_THAILAND"),
+    public static final MilViewNationality NATIONALITY_ALBANIA =
+            new MilViewNationality(Value.NATIONALITY_ALBANIA, "NATIONALITY_ALBANIA");
 
-    NATIONALITY_THE_FORMER_YUGOSLAV_REPUBLIC_OF_MACEDONIA("NATIONALITY_THE_FORMER_YUGOSLAV_REPUBLIC_OF_MACEDONIA"),
+    public static final MilViewNationality NATIONALITY_PANAMA =
+            new MilViewNationality(Value.NATIONALITY_PANAMA, "NATIONALITY_PANAMA");
 
-    NATIONALITY_TUNISIA("NATIONALITY_TUNISIA"),
+    public static final MilViewNationality NATIONALITY_TURKMENISTAN =
+            new MilViewNationality(Value.NATIONALITY_TURKMENISTAN, "NATIONALITY_TURKMENISTAN");
 
-    NATIONALITY_TURKEY("NATIONALITY_TURKEY"),
+    public static final MilViewNationality NATIONALITY_RUSSIA =
+            new MilViewNationality(Value.NATIONALITY_RUSSIA, "NATIONALITY_RUSSIA");
 
-    NATIONALITY_TURKMENISTAN("NATIONALITY_TURKMENISTAN"),
+    public static final MilViewNationality NATIONALITY_KAZAKHSTAN =
+            new MilViewNationality(Value.NATIONALITY_KAZAKHSTAN, "NATIONALITY_KAZAKHSTAN");
 
-    NATIONALITY_UGANDA("NATIONALITY_UGANDA"),
+    public static final MilViewNationality NATIONALITY_SWEDEN =
+            new MilViewNationality(Value.NATIONALITY_SWEDEN, "NATIONALITY_SWEDEN");
 
-    NATIONALITY_UKRAINE("NATIONALITY_UKRAINE"),
+    public static final MilViewNationality NATIONALITY_MALAYSIA =
+            new MilViewNationality(Value.NATIONALITY_MALAYSIA, "NATIONALITY_MALAYSIA");
 
-    NATIONALITY_UNITED_KINGDOM("NATIONALITY_UNITED_KINGDOM"),
+    public static final MilViewNationality NATIONALITY_UNITED_STATES_OF_AMERICA =
+            new MilViewNationality(Value.NATIONALITY_UNITED_STATES_OF_AMERICA, "NATIONALITY_UNITED_STATES_OF_AMERICA");
 
-    NATIONALITY_UNITED_NATIONS("NATIONALITY_UNITED_NATIONS"),
+    public static final MilViewNationality NATIONALITY_UGANDA =
+            new MilViewNationality(Value.NATIONALITY_UGANDA, "NATIONALITY_UGANDA");
 
-    NATIONALITY_UNITED_REPUBLIC_OF_TANZANIA("NATIONALITY_UNITED_REPUBLIC_OF_TANZANIA"),
+    public static final MilViewNationality NATIONALITY_THAILAND =
+            new MilViewNationality(Value.NATIONALITY_THAILAND, "NATIONALITY_THAILAND");
 
-    NATIONALITY_UNITED_STATES_OF_AMERICA("NATIONALITY_UNITED_STATES_OF_AMERICA"),
+    public static final MilViewNationality NATIONALITY_SYRIAN_ARAB_REPUBLIC =
+            new MilViewNationality(Value.NATIONALITY_SYRIAN_ARAB_REPUBLIC, "NATIONALITY_SYRIAN_ARAB_REPUBLIC");
 
-    NATIONALITY_URUGUAY("NATIONALITY_URUGUAY"),
+    public static final MilViewNationality NATIONALITY_ISLAMIC_REPUBLIC_OF_IRAN =
+            new MilViewNationality(Value.NATIONALITY_ISLAMIC_REPUBLIC_OF_IRAN, "NATIONALITY_ISLAMIC_REPUBLIC_OF_IRAN");
 
-    NATIONALITY_UZBEKISTAN("NATIONALITY_UZBEKISTAN"),
+    public static final MilViewNationality NATIONALITY_KYRGHYZ_REPUBLIC =
+            new MilViewNationality(Value.NATIONALITY_KYRGHYZ_REPUBLIC, "NATIONALITY_KYRGHYZ_REPUBLIC");
 
-    NATIONALITY_VENEZUELA("NATIONALITY_VENEZUELA"),
+    public static final MilViewNationality NATIONALITY_NIGERIA =
+            new MilViewNationality(Value.NATIONALITY_NIGERIA, "NATIONALITY_NIGERIA");
 
-    NATIONALITY_VIETNAM("NATIONALITY_VIETNAM"),
+    public static final MilViewNationality NATIONALITY_MALTA =
+            new MilViewNationality(Value.NATIONALITY_MALTA, "NATIONALITY_MALTA");
 
-    NATIONALITY_YEMEN("NATIONALITY_YEMEN"),
+    public static final MilViewNationality NATIONALITY_LEBANON =
+            new MilViewNationality(Value.NATIONALITY_LEBANON, "NATIONALITY_LEBANON");
 
-    NATIONALITY_ZIMBABWE("NATIONALITY_ZIMBABWE");
+    public static final MilViewNationality NATIONALITY_NATO =
+            new MilViewNationality(Value.NATIONALITY_NATO, "NATIONALITY_NATO");
 
-    private final String value;
+    private final Value value;
 
-    MilViewNationality(String value) {
+    private final String string;
+
+    MilViewNationality(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof MilViewNationality && this.string.equals(((MilViewNationality) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case NATIONALITY_GUINEA:
+                return visitor.visitNationalityGuinea();
+            case NATIONALITY_GERMANY:
+                return visitor.visitNationalityGermany();
+            case NATIONALITY_VIETNAM:
+                return visitor.visitNationalityVietnam();
+            case NATIONALITY_BULGARIA:
+                return visitor.visitNationalityBulgaria();
+            case NATIONALITY_LUXEMBOURG:
+                return visitor.visitNationalityLuxembourg();
+            case NATIONALITY_DEMOCRATIC_PEOPLES_REPUBLIC_OF_KOREA:
+                return visitor.visitNationalityDemocraticPeoplesRepublicOfKorea();
+            case NATIONALITY_IRAQ:
+                return visitor.visitNationalityIraq();
+            case NATIONALITY_SAUDI_ARABIA:
+                return visitor.visitNationalitySaudiArabia();
+            case NATIONALITY_AUSTRIA:
+                return visitor.visitNationalityAustria();
+            case NATIONALITY_INDONESIA:
+                return visitor.visitNationalityIndonesia();
+            case NATIONALITY_SENEGAL:
+                return visitor.visitNationalitySenegal();
+            case NATIONALITY_AUSTRALIA:
+                return visitor.visitNationalityAustralia();
+            case NATIONALITY_IRELAND:
+                return visitor.visitNationalityIreland();
+            case NATIONALITY_BRAZIL:
+                return visitor.visitNationalityBrazil();
+            case NATIONALITY_AZERBAIJAN:
+                return visitor.visitNationalityAzerbaijan();
+            case NATIONALITY_TAIWAN:
+                return visitor.visitNationalityTaiwan();
+            case NATIONALITY_SINGAPORE:
+                return visitor.visitNationalitySingapore();
+            case NATIONALITY_CANADA:
+                return visitor.visitNationalityCanada();
+            case NATIONALITY_DOMINICAN_REPUBLIC:
+                return visitor.visitNationalityDominicanRepublic();
+            case NATIONALITY_CUBA:
+                return visitor.visitNationalityCuba();
+            case NATIONALITY_MONTENEGRO:
+                return visitor.visitNationalityMontenegro();
+            case NATIONALITY_SLOVAKIA:
+                return visitor.visitNationalitySlovakia();
+            case NATIONALITY_YEMEN:
+                return visitor.visitNationalityYemen();
+            case NATIONALITY_INVALID:
+                return visitor.visitNationalityInvalid();
+            case NATIONALITY_SPAIN:
+                return visitor.visitNationalitySpain();
+            case NATIONALITY_BELARUS:
+                return visitor.visitNationalityBelarus();
+            case NATIONALITY_EGYPT:
+                return visitor.visitNationalityEgypt();
+            case NATIONALITY_PERU:
+                return visitor.visitNationalityPeru();
+            case NATIONALITY_INTERNATIONAL_RED_CROSS:
+                return visitor.visitNationalityInternationalRedCross();
+            case NATIONALITY_POLAND:
+                return visitor.visitNationalityPoland();
+            case NATIONALITY_LIBERIA:
+                return visitor.visitNationalityLiberia();
+            case NATIONALITY_ECUADOR:
+                return visitor.visitNationalityEcuador();
+            case NATIONALITY_NICARAGUA:
+                return visitor.visitNationalityNicaragua();
+            case NATIONALITY_MOROCCO:
+                return visitor.visitNationalityMorocco();
+            case NATIONALITY_VENEZUELA:
+                return visitor.visitNationalityVenezuela();
+            case NATIONALITY_BOSNIA_AND_HERZEGOVINA:
+                return visitor.visitNationalityBosniaAndHerzegovina();
+            case NATIONALITY_TURKEY:
+                return visitor.visitNationalityTurkey();
+            case NATIONALITY_ZIMBABWE:
+                return visitor.visitNationalityZimbabwe();
+            case NATIONALITY_ARMENIA:
+                return visitor.visitNationalityArmenia();
+            case NATIONALITY_ROMANIA:
+                return visitor.visitNationalityRomania();
+            case NATIONALITY_JAPAN:
+                return visitor.visitNationalityJapan();
+            case NATIONALITY_CYPRUS:
+                return visitor.visitNationalityCyprus();
+            case NATIONALITY_GUATEMALA:
+                return visitor.visitNationalityGuatemala();
+            case NATIONALITY_MEXICO:
+                return visitor.visitNationalityMexico();
+            case NATIONALITY_INDIA:
+                return visitor.visitNationalityIndia();
+            case NATIONALITY_REPUBLIC_OF_KOREA:
+                return visitor.visitNationalityRepublicOfKorea();
+            case NATIONALITY_PORTUGAL:
+                return visitor.visitNationalityPortugal();
+            case NATIONALITY_CHILE:
+                return visitor.visitNationalityChile();
+            case NATIONALITY_PARAGUAY:
+                return visitor.visitNationalityParaguay();
+            case NATIONALITY_UZBEKISTAN:
+                return visitor.visitNationalityUzbekistan();
+            case NATIONALITY_PHILIPPINES:
+                return visitor.visitNationalityPhilippines();
+            case NATIONALITY_KUWAIT:
+                return visitor.visitNationalityKuwait();
+            case NATIONALITY_BOLIVIA:
+                return visitor.visitNationalityBolivia();
+            case NATIONALITY_DENMARK:
+                return visitor.visitNationalityDenmark();
+            case NATIONALITY_SUDAN:
+                return visitor.visitNationalitySudan();
+            case NATIONALITY_ICELAND:
+                return visitor.visitNationalityIceland();
+            case NATIONALITY_THE_FORMER_YUGOSLAV_REPUBLIC_OF_MACEDONIA:
+                return visitor.visitNationalityTheFormerYugoslavRepublicOfMacedonia();
+            case NATIONALITY_JORDAN:
+                return visitor.visitNationalityJordan();
+            case NATIONALITY_NETHERLANDS:
+                return visitor.visitNationalityNetherlands();
+            case NATIONALITY_CHINA:
+                return visitor.visitNationalityChina();
+            case NATIONALITY_CAMBODIA:
+                return visitor.visitNationalityCambodia();
+            case NATIONALITY_MOLDOVA:
+                return visitor.visitNationalityMoldova();
+            case NATIONALITY_UNITED_KINGDOM:
+                return visitor.visitNationalityUnitedKingdom();
+            case NATIONALITY_URUGUAY:
+                return visitor.visitNationalityUruguay();
+            case NATIONALITY_ESTONIA:
+                return visitor.visitNationalityEstonia();
+            case NATIONALITY_TUNISIA:
+                return visitor.visitNationalityTunisia();
+            case NATIONALITY_UKRAINE:
+                return visitor.visitNationalityUkraine();
+            case NATIONALITY_ISRAEL:
+                return visitor.visitNationalityIsrael();
+            case NATIONALITY_HUNGARY:
+                return visitor.visitNationalityHungary();
+            case NATIONALITY_GREECE:
+                return visitor.visitNationalityGreece();
+            case NATIONALITY_GEORGIA:
+                return visitor.visitNationalityGeorgia();
+            case NATIONALITY_BELGIUM:
+                return visitor.visitNationalityBelgium();
+            case NATIONALITY_SWITZERLAND:
+                return visitor.visitNationalitySwitzerland();
+            case NATIONALITY_LITHUANIA:
+                return visitor.visitNationalityLithuania();
+            case NATIONALITY_NEW_ZEALAND:
+                return visitor.visitNationalityNewZealand();
+            case NATIONALITY_ETHIOPIA:
+                return visitor.visitNationalityEthiopia();
+            case NATIONALITY_MADAGASCAR:
+                return visitor.visitNationalityMadagascar();
+            case NATIONALITY_SERBIA:
+                return visitor.visitNationalitySerbia();
+            case NATIONALITY_LAO_PEOPLES_DEMOCRATIC_REPUBLIC:
+                return visitor.visitNationalityLaoPeoplesDemocraticRepublic();
+            case NATIONALITY_UNITED_NATIONS:
+                return visitor.visitNationalityUnitedNations();
+            case NATIONALITY_LATVIA:
+                return visitor.visitNationalityLatvia();
+            case NATIONALITY_PAKISTAN:
+                return visitor.visitNationalityPakistan();
+            case NATIONALITY_COLOMBIA:
+                return visitor.visitNationalityColombia();
+            case NATIONALITY_UNITED_REPUBLIC_OF_TANZANIA:
+                return visitor.visitNationalityUnitedRepublicOfTanzania();
+            case NATIONALITY_SOUTH_AFRICA:
+                return visitor.visitNationalitySouthAfrica();
+            case NATIONALITY_ITALY:
+                return visitor.visitNationalityItaly();
+            case NATIONALITY_NORWAY:
+                return visitor.visitNationalityNorway();
+            case NATIONALITY_CZECH_REPUBLIC:
+                return visitor.visitNationalityCzechRepublic();
+            case NATIONALITY_FRANCE:
+                return visitor.visitNationalityFrance();
+            case NATIONALITY_ALGERIA:
+                return visitor.visitNationalityAlgeria();
+            case NATIONALITY_SLOVENIA:
+                return visitor.visitNationalitySlovenia();
+            case NATIONALITY_TAJIKISTAN:
+                return visitor.visitNationalityTajikistan();
+            case NATIONALITY_CROATIA:
+                return visitor.visitNationalityCroatia();
+            case NATIONALITY_JAMAICA:
+                return visitor.visitNationalityJamaica();
+            case NATIONALITY_FINLAND:
+                return visitor.visitNationalityFinland();
+            case NATIONALITY_MYANMAR:
+                return visitor.visitNationalityMyanmar();
+            case NATIONALITY_ARGENTINA:
+                return visitor.visitNationalityArgentina();
+            case NATIONALITY_ALBANIA:
+                return visitor.visitNationalityAlbania();
+            case NATIONALITY_PANAMA:
+                return visitor.visitNationalityPanama();
+            case NATIONALITY_TURKMENISTAN:
+                return visitor.visitNationalityTurkmenistan();
+            case NATIONALITY_RUSSIA:
+                return visitor.visitNationalityRussia();
+            case NATIONALITY_KAZAKHSTAN:
+                return visitor.visitNationalityKazakhstan();
+            case NATIONALITY_SWEDEN:
+                return visitor.visitNationalitySweden();
+            case NATIONALITY_MALAYSIA:
+                return visitor.visitNationalityMalaysia();
+            case NATIONALITY_UNITED_STATES_OF_AMERICA:
+                return visitor.visitNationalityUnitedStatesOfAmerica();
+            case NATIONALITY_UGANDA:
+                return visitor.visitNationalityUganda();
+            case NATIONALITY_THAILAND:
+                return visitor.visitNationalityThailand();
+            case NATIONALITY_SYRIAN_ARAB_REPUBLIC:
+                return visitor.visitNationalitySyrianArabRepublic();
+            case NATIONALITY_ISLAMIC_REPUBLIC_OF_IRAN:
+                return visitor.visitNationalityIslamicRepublicOfIran();
+            case NATIONALITY_KYRGHYZ_REPUBLIC:
+                return visitor.visitNationalityKyrghyzRepublic();
+            case NATIONALITY_NIGERIA:
+                return visitor.visitNationalityNigeria();
+            case NATIONALITY_MALTA:
+                return visitor.visitNationalityMalta();
+            case NATIONALITY_LEBANON:
+                return visitor.visitNationalityLebanon();
+            case NATIONALITY_NATO:
+                return visitor.visitNationalityNato();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static MilViewNationality valueOf(String value) {
+        switch (value) {
+            case "NATIONALITY_GUINEA":
+                return NATIONALITY_GUINEA;
+            case "NATIONALITY_GERMANY":
+                return NATIONALITY_GERMANY;
+            case "NATIONALITY_VIETNAM":
+                return NATIONALITY_VIETNAM;
+            case "NATIONALITY_BULGARIA":
+                return NATIONALITY_BULGARIA;
+            case "NATIONALITY_LUXEMBOURG":
+                return NATIONALITY_LUXEMBOURG;
+            case "NATIONALITY_DEMOCRATIC_PEOPLES_REPUBLIC_OF_KOREA":
+                return NATIONALITY_DEMOCRATIC_PEOPLES_REPUBLIC_OF_KOREA;
+            case "NATIONALITY_IRAQ":
+                return NATIONALITY_IRAQ;
+            case "NATIONALITY_SAUDI_ARABIA":
+                return NATIONALITY_SAUDI_ARABIA;
+            case "NATIONALITY_AUSTRIA":
+                return NATIONALITY_AUSTRIA;
+            case "NATIONALITY_INDONESIA":
+                return NATIONALITY_INDONESIA;
+            case "NATIONALITY_SENEGAL":
+                return NATIONALITY_SENEGAL;
+            case "NATIONALITY_AUSTRALIA":
+                return NATIONALITY_AUSTRALIA;
+            case "NATIONALITY_IRELAND":
+                return NATIONALITY_IRELAND;
+            case "NATIONALITY_BRAZIL":
+                return NATIONALITY_BRAZIL;
+            case "NATIONALITY_AZERBAIJAN":
+                return NATIONALITY_AZERBAIJAN;
+            case "NATIONALITY_TAIWAN":
+                return NATIONALITY_TAIWAN;
+            case "NATIONALITY_SINGAPORE":
+                return NATIONALITY_SINGAPORE;
+            case "NATIONALITY_CANADA":
+                return NATIONALITY_CANADA;
+            case "NATIONALITY_DOMINICAN_REPUBLIC":
+                return NATIONALITY_DOMINICAN_REPUBLIC;
+            case "NATIONALITY_CUBA":
+                return NATIONALITY_CUBA;
+            case "NATIONALITY_MONTENEGRO":
+                return NATIONALITY_MONTENEGRO;
+            case "NATIONALITY_SLOVAKIA":
+                return NATIONALITY_SLOVAKIA;
+            case "NATIONALITY_YEMEN":
+                return NATIONALITY_YEMEN;
+            case "NATIONALITY_INVALID":
+                return NATIONALITY_INVALID;
+            case "NATIONALITY_SPAIN":
+                return NATIONALITY_SPAIN;
+            case "NATIONALITY_BELARUS":
+                return NATIONALITY_BELARUS;
+            case "NATIONALITY_EGYPT":
+                return NATIONALITY_EGYPT;
+            case "NATIONALITY_PERU":
+                return NATIONALITY_PERU;
+            case "NATIONALITY_INTERNATIONAL_RED_CROSS":
+                return NATIONALITY_INTERNATIONAL_RED_CROSS;
+            case "NATIONALITY_POLAND":
+                return NATIONALITY_POLAND;
+            case "NATIONALITY_LIBERIA":
+                return NATIONALITY_LIBERIA;
+            case "NATIONALITY_ECUADOR":
+                return NATIONALITY_ECUADOR;
+            case "NATIONALITY_NICARAGUA":
+                return NATIONALITY_NICARAGUA;
+            case "NATIONALITY_MOROCCO":
+                return NATIONALITY_MOROCCO;
+            case "NATIONALITY_VENEZUELA":
+                return NATIONALITY_VENEZUELA;
+            case "NATIONALITY_BOSNIA_AND_HERZEGOVINA":
+                return NATIONALITY_BOSNIA_AND_HERZEGOVINA;
+            case "NATIONALITY_TURKEY":
+                return NATIONALITY_TURKEY;
+            case "NATIONALITY_ZIMBABWE":
+                return NATIONALITY_ZIMBABWE;
+            case "NATIONALITY_ARMENIA":
+                return NATIONALITY_ARMENIA;
+            case "NATIONALITY_ROMANIA":
+                return NATIONALITY_ROMANIA;
+            case "NATIONALITY_JAPAN":
+                return NATIONALITY_JAPAN;
+            case "NATIONALITY_CYPRUS":
+                return NATIONALITY_CYPRUS;
+            case "NATIONALITY_GUATEMALA":
+                return NATIONALITY_GUATEMALA;
+            case "NATIONALITY_MEXICO":
+                return NATIONALITY_MEXICO;
+            case "NATIONALITY_INDIA":
+                return NATIONALITY_INDIA;
+            case "NATIONALITY_REPUBLIC_OF_KOREA":
+                return NATIONALITY_REPUBLIC_OF_KOREA;
+            case "NATIONALITY_PORTUGAL":
+                return NATIONALITY_PORTUGAL;
+            case "NATIONALITY_CHILE":
+                return NATIONALITY_CHILE;
+            case "NATIONALITY_PARAGUAY":
+                return NATIONALITY_PARAGUAY;
+            case "NATIONALITY_UZBEKISTAN":
+                return NATIONALITY_UZBEKISTAN;
+            case "NATIONALITY_PHILIPPINES":
+                return NATIONALITY_PHILIPPINES;
+            case "NATIONALITY_KUWAIT":
+                return NATIONALITY_KUWAIT;
+            case "NATIONALITY_BOLIVIA":
+                return NATIONALITY_BOLIVIA;
+            case "NATIONALITY_DENMARK":
+                return NATIONALITY_DENMARK;
+            case "NATIONALITY_SUDAN":
+                return NATIONALITY_SUDAN;
+            case "NATIONALITY_ICELAND":
+                return NATIONALITY_ICELAND;
+            case "NATIONALITY_THE_FORMER_YUGOSLAV_REPUBLIC_OF_MACEDONIA":
+                return NATIONALITY_THE_FORMER_YUGOSLAV_REPUBLIC_OF_MACEDONIA;
+            case "NATIONALITY_JORDAN":
+                return NATIONALITY_JORDAN;
+            case "NATIONALITY_NETHERLANDS":
+                return NATIONALITY_NETHERLANDS;
+            case "NATIONALITY_CHINA":
+                return NATIONALITY_CHINA;
+            case "NATIONALITY_CAMBODIA":
+                return NATIONALITY_CAMBODIA;
+            case "NATIONALITY_MOLDOVA":
+                return NATIONALITY_MOLDOVA;
+            case "NATIONALITY_UNITED_KINGDOM":
+                return NATIONALITY_UNITED_KINGDOM;
+            case "NATIONALITY_URUGUAY":
+                return NATIONALITY_URUGUAY;
+            case "NATIONALITY_ESTONIA":
+                return NATIONALITY_ESTONIA;
+            case "NATIONALITY_TUNISIA":
+                return NATIONALITY_TUNISIA;
+            case "NATIONALITY_UKRAINE":
+                return NATIONALITY_UKRAINE;
+            case "NATIONALITY_ISRAEL":
+                return NATIONALITY_ISRAEL;
+            case "NATIONALITY_HUNGARY":
+                return NATIONALITY_HUNGARY;
+            case "NATIONALITY_GREECE":
+                return NATIONALITY_GREECE;
+            case "NATIONALITY_GEORGIA":
+                return NATIONALITY_GEORGIA;
+            case "NATIONALITY_BELGIUM":
+                return NATIONALITY_BELGIUM;
+            case "NATIONALITY_SWITZERLAND":
+                return NATIONALITY_SWITZERLAND;
+            case "NATIONALITY_LITHUANIA":
+                return NATIONALITY_LITHUANIA;
+            case "NATIONALITY_NEW_ZEALAND":
+                return NATIONALITY_NEW_ZEALAND;
+            case "NATIONALITY_ETHIOPIA":
+                return NATIONALITY_ETHIOPIA;
+            case "NATIONALITY_MADAGASCAR":
+                return NATIONALITY_MADAGASCAR;
+            case "NATIONALITY_SERBIA":
+                return NATIONALITY_SERBIA;
+            case "NATIONALITY_LAO_PEOPLES_DEMOCRATIC_REPUBLIC":
+                return NATIONALITY_LAO_PEOPLES_DEMOCRATIC_REPUBLIC;
+            case "NATIONALITY_UNITED_NATIONS":
+                return NATIONALITY_UNITED_NATIONS;
+            case "NATIONALITY_LATVIA":
+                return NATIONALITY_LATVIA;
+            case "NATIONALITY_PAKISTAN":
+                return NATIONALITY_PAKISTAN;
+            case "NATIONALITY_COLOMBIA":
+                return NATIONALITY_COLOMBIA;
+            case "NATIONALITY_UNITED_REPUBLIC_OF_TANZANIA":
+                return NATIONALITY_UNITED_REPUBLIC_OF_TANZANIA;
+            case "NATIONALITY_SOUTH_AFRICA":
+                return NATIONALITY_SOUTH_AFRICA;
+            case "NATIONALITY_ITALY":
+                return NATIONALITY_ITALY;
+            case "NATIONALITY_NORWAY":
+                return NATIONALITY_NORWAY;
+            case "NATIONALITY_CZECH_REPUBLIC":
+                return NATIONALITY_CZECH_REPUBLIC;
+            case "NATIONALITY_FRANCE":
+                return NATIONALITY_FRANCE;
+            case "NATIONALITY_ALGERIA":
+                return NATIONALITY_ALGERIA;
+            case "NATIONALITY_SLOVENIA":
+                return NATIONALITY_SLOVENIA;
+            case "NATIONALITY_TAJIKISTAN":
+                return NATIONALITY_TAJIKISTAN;
+            case "NATIONALITY_CROATIA":
+                return NATIONALITY_CROATIA;
+            case "NATIONALITY_JAMAICA":
+                return NATIONALITY_JAMAICA;
+            case "NATIONALITY_FINLAND":
+                return NATIONALITY_FINLAND;
+            case "NATIONALITY_MYANMAR":
+                return NATIONALITY_MYANMAR;
+            case "NATIONALITY_ARGENTINA":
+                return NATIONALITY_ARGENTINA;
+            case "NATIONALITY_ALBANIA":
+                return NATIONALITY_ALBANIA;
+            case "NATIONALITY_PANAMA":
+                return NATIONALITY_PANAMA;
+            case "NATIONALITY_TURKMENISTAN":
+                return NATIONALITY_TURKMENISTAN;
+            case "NATIONALITY_RUSSIA":
+                return NATIONALITY_RUSSIA;
+            case "NATIONALITY_KAZAKHSTAN":
+                return NATIONALITY_KAZAKHSTAN;
+            case "NATIONALITY_SWEDEN":
+                return NATIONALITY_SWEDEN;
+            case "NATIONALITY_MALAYSIA":
+                return NATIONALITY_MALAYSIA;
+            case "NATIONALITY_UNITED_STATES_OF_AMERICA":
+                return NATIONALITY_UNITED_STATES_OF_AMERICA;
+            case "NATIONALITY_UGANDA":
+                return NATIONALITY_UGANDA;
+            case "NATIONALITY_THAILAND":
+                return NATIONALITY_THAILAND;
+            case "NATIONALITY_SYRIAN_ARAB_REPUBLIC":
+                return NATIONALITY_SYRIAN_ARAB_REPUBLIC;
+            case "NATIONALITY_ISLAMIC_REPUBLIC_OF_IRAN":
+                return NATIONALITY_ISLAMIC_REPUBLIC_OF_IRAN;
+            case "NATIONALITY_KYRGHYZ_REPUBLIC":
+                return NATIONALITY_KYRGHYZ_REPUBLIC;
+            case "NATIONALITY_NIGERIA":
+                return NATIONALITY_NIGERIA;
+            case "NATIONALITY_MALTA":
+                return NATIONALITY_MALTA;
+            case "NATIONALITY_LEBANON":
+                return NATIONALITY_LEBANON;
+            case "NATIONALITY_NATO":
+                return NATIONALITY_NATO;
+            default:
+                return new MilViewNationality(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        NATIONALITY_INVALID,
+
+        NATIONALITY_ALBANIA,
+
+        NATIONALITY_ALGERIA,
+
+        NATIONALITY_ARGENTINA,
+
+        NATIONALITY_ARMENIA,
+
+        NATIONALITY_AUSTRALIA,
+
+        NATIONALITY_AUSTRIA,
+
+        NATIONALITY_AZERBAIJAN,
+
+        NATIONALITY_BELARUS,
+
+        NATIONALITY_BELGIUM,
+
+        NATIONALITY_BOLIVIA,
+
+        NATIONALITY_BOSNIA_AND_HERZEGOVINA,
+
+        NATIONALITY_BRAZIL,
+
+        NATIONALITY_BULGARIA,
+
+        NATIONALITY_CAMBODIA,
+
+        NATIONALITY_CANADA,
+
+        NATIONALITY_CHILE,
+
+        NATIONALITY_CHINA,
+
+        NATIONALITY_COLOMBIA,
+
+        NATIONALITY_CROATIA,
+
+        NATIONALITY_CUBA,
+
+        NATIONALITY_CYPRUS,
+
+        NATIONALITY_CZECH_REPUBLIC,
+
+        NATIONALITY_DEMOCRATIC_PEOPLES_REPUBLIC_OF_KOREA,
+
+        NATIONALITY_DENMARK,
+
+        NATIONALITY_DOMINICAN_REPUBLIC,
+
+        NATIONALITY_ECUADOR,
+
+        NATIONALITY_EGYPT,
+
+        NATIONALITY_ESTONIA,
+
+        NATIONALITY_ETHIOPIA,
+
+        NATIONALITY_FINLAND,
+
+        NATIONALITY_FRANCE,
+
+        NATIONALITY_GEORGIA,
+
+        NATIONALITY_GERMANY,
+
+        NATIONALITY_GREECE,
+
+        NATIONALITY_GUATEMALA,
+
+        NATIONALITY_GUINEA,
+
+        NATIONALITY_HUNGARY,
+
+        NATIONALITY_ICELAND,
+
+        NATIONALITY_INDIA,
+
+        NATIONALITY_INDONESIA,
+
+        NATIONALITY_INTERNATIONAL_RED_CROSS,
+
+        NATIONALITY_IRAQ,
+
+        NATIONALITY_IRELAND,
+
+        NATIONALITY_ISLAMIC_REPUBLIC_OF_IRAN,
+
+        NATIONALITY_ISRAEL,
+
+        NATIONALITY_ITALY,
+
+        NATIONALITY_JAMAICA,
+
+        NATIONALITY_JAPAN,
+
+        NATIONALITY_JORDAN,
+
+        NATIONALITY_KAZAKHSTAN,
+
+        NATIONALITY_KUWAIT,
+
+        NATIONALITY_KYRGHYZ_REPUBLIC,
+
+        NATIONALITY_LAO_PEOPLES_DEMOCRATIC_REPUBLIC,
+
+        NATIONALITY_LATVIA,
+
+        NATIONALITY_LEBANON,
+
+        NATIONALITY_LIBERIA,
+
+        NATIONALITY_LITHUANIA,
+
+        NATIONALITY_LUXEMBOURG,
+
+        NATIONALITY_MADAGASCAR,
+
+        NATIONALITY_MALAYSIA,
+
+        NATIONALITY_MALTA,
+
+        NATIONALITY_MEXICO,
+
+        NATIONALITY_MOLDOVA,
+
+        NATIONALITY_MONTENEGRO,
+
+        NATIONALITY_MOROCCO,
+
+        NATIONALITY_MYANMAR,
+
+        NATIONALITY_NATO,
+
+        NATIONALITY_NETHERLANDS,
+
+        NATIONALITY_NEW_ZEALAND,
+
+        NATIONALITY_NICARAGUA,
+
+        NATIONALITY_NIGERIA,
+
+        NATIONALITY_NORWAY,
+
+        NATIONALITY_PAKISTAN,
+
+        NATIONALITY_PANAMA,
+
+        NATIONALITY_PARAGUAY,
+
+        NATIONALITY_PERU,
+
+        NATIONALITY_PHILIPPINES,
+
+        NATIONALITY_POLAND,
+
+        NATIONALITY_PORTUGAL,
+
+        NATIONALITY_REPUBLIC_OF_KOREA,
+
+        NATIONALITY_ROMANIA,
+
+        NATIONALITY_RUSSIA,
+
+        NATIONALITY_SAUDI_ARABIA,
+
+        NATIONALITY_SENEGAL,
+
+        NATIONALITY_SERBIA,
+
+        NATIONALITY_SINGAPORE,
+
+        NATIONALITY_SLOVAKIA,
+
+        NATIONALITY_SLOVENIA,
+
+        NATIONALITY_SOUTH_AFRICA,
+
+        NATIONALITY_SPAIN,
+
+        NATIONALITY_SUDAN,
+
+        NATIONALITY_SWEDEN,
+
+        NATIONALITY_SWITZERLAND,
+
+        NATIONALITY_SYRIAN_ARAB_REPUBLIC,
+
+        NATIONALITY_TAIWAN,
+
+        NATIONALITY_TAJIKISTAN,
+
+        NATIONALITY_THAILAND,
+
+        NATIONALITY_THE_FORMER_YUGOSLAV_REPUBLIC_OF_MACEDONIA,
+
+        NATIONALITY_TUNISIA,
+
+        NATIONALITY_TURKEY,
+
+        NATIONALITY_TURKMENISTAN,
+
+        NATIONALITY_UGANDA,
+
+        NATIONALITY_UKRAINE,
+
+        NATIONALITY_UNITED_KINGDOM,
+
+        NATIONALITY_UNITED_NATIONS,
+
+        NATIONALITY_UNITED_REPUBLIC_OF_TANZANIA,
+
+        NATIONALITY_UNITED_STATES_OF_AMERICA,
+
+        NATIONALITY_URUGUAY,
+
+        NATIONALITY_UZBEKISTAN,
+
+        NATIONALITY_VENEZUELA,
+
+        NATIONALITY_VIETNAM,
+
+        NATIONALITY_YEMEN,
+
+        NATIONALITY_ZIMBABWE,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitNationalityInvalid();
+
+        T visitNationalityAlbania();
+
+        T visitNationalityAlgeria();
+
+        T visitNationalityArgentina();
+
+        T visitNationalityArmenia();
+
+        T visitNationalityAustralia();
+
+        T visitNationalityAustria();
+
+        T visitNationalityAzerbaijan();
+
+        T visitNationalityBelarus();
+
+        T visitNationalityBelgium();
+
+        T visitNationalityBolivia();
+
+        T visitNationalityBosniaAndHerzegovina();
+
+        T visitNationalityBrazil();
+
+        T visitNationalityBulgaria();
+
+        T visitNationalityCambodia();
+
+        T visitNationalityCanada();
+
+        T visitNationalityChile();
+
+        T visitNationalityChina();
+
+        T visitNationalityColombia();
+
+        T visitNationalityCroatia();
+
+        T visitNationalityCuba();
+
+        T visitNationalityCyprus();
+
+        T visitNationalityCzechRepublic();
+
+        T visitNationalityDemocraticPeoplesRepublicOfKorea();
+
+        T visitNationalityDenmark();
+
+        T visitNationalityDominicanRepublic();
+
+        T visitNationalityEcuador();
+
+        T visitNationalityEgypt();
+
+        T visitNationalityEstonia();
+
+        T visitNationalityEthiopia();
+
+        T visitNationalityFinland();
+
+        T visitNationalityFrance();
+
+        T visitNationalityGeorgia();
+
+        T visitNationalityGermany();
+
+        T visitNationalityGreece();
+
+        T visitNationalityGuatemala();
+
+        T visitNationalityGuinea();
+
+        T visitNationalityHungary();
+
+        T visitNationalityIceland();
+
+        T visitNationalityIndia();
+
+        T visitNationalityIndonesia();
+
+        T visitNationalityInternationalRedCross();
+
+        T visitNationalityIraq();
+
+        T visitNationalityIreland();
+
+        T visitNationalityIslamicRepublicOfIran();
+
+        T visitNationalityIsrael();
+
+        T visitNationalityItaly();
+
+        T visitNationalityJamaica();
+
+        T visitNationalityJapan();
+
+        T visitNationalityJordan();
+
+        T visitNationalityKazakhstan();
+
+        T visitNationalityKuwait();
+
+        T visitNationalityKyrghyzRepublic();
+
+        T visitNationalityLaoPeoplesDemocraticRepublic();
+
+        T visitNationalityLatvia();
+
+        T visitNationalityLebanon();
+
+        T visitNationalityLiberia();
+
+        T visitNationalityLithuania();
+
+        T visitNationalityLuxembourg();
+
+        T visitNationalityMadagascar();
+
+        T visitNationalityMalaysia();
+
+        T visitNationalityMalta();
+
+        T visitNationalityMexico();
+
+        T visitNationalityMoldova();
+
+        T visitNationalityMontenegro();
+
+        T visitNationalityMorocco();
+
+        T visitNationalityMyanmar();
+
+        T visitNationalityNato();
+
+        T visitNationalityNetherlands();
+
+        T visitNationalityNewZealand();
+
+        T visitNationalityNicaragua();
+
+        T visitNationalityNigeria();
+
+        T visitNationalityNorway();
+
+        T visitNationalityPakistan();
+
+        T visitNationalityPanama();
+
+        T visitNationalityParaguay();
+
+        T visitNationalityPeru();
+
+        T visitNationalityPhilippines();
+
+        T visitNationalityPoland();
+
+        T visitNationalityPortugal();
+
+        T visitNationalityRepublicOfKorea();
+
+        T visitNationalityRomania();
+
+        T visitNationalityRussia();
+
+        T visitNationalitySaudiArabia();
+
+        T visitNationalitySenegal();
+
+        T visitNationalitySerbia();
+
+        T visitNationalitySingapore();
+
+        T visitNationalitySlovakia();
+
+        T visitNationalitySlovenia();
+
+        T visitNationalitySouthAfrica();
+
+        T visitNationalitySpain();
+
+        T visitNationalitySudan();
+
+        T visitNationalitySweden();
+
+        T visitNationalitySwitzerland();
+
+        T visitNationalitySyrianArabRepublic();
+
+        T visitNationalityTaiwan();
+
+        T visitNationalityTajikistan();
+
+        T visitNationalityThailand();
+
+        T visitNationalityTheFormerYugoslavRepublicOfMacedonia();
+
+        T visitNationalityTunisia();
+
+        T visitNationalityTurkey();
+
+        T visitNationalityTurkmenistan();
+
+        T visitNationalityUganda();
+
+        T visitNationalityUkraine();
+
+        T visitNationalityUnitedKingdom();
+
+        T visitNationalityUnitedNations();
+
+        T visitNationalityUnitedRepublicOfTanzania();
+
+        T visitNationalityUnitedStatesOfAmerica();
+
+        T visitNationalityUruguay();
+
+        T visitNationalityUzbekistan();
+
+        T visitNationalityVenezuela();
+
+        T visitNationalityVietnam();
+
+        T visitNationalityYemen();
+
+        T visitNationalityZimbabwe();
+
+        T visitUnknown(String unknownType);
     }
 }

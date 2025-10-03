@@ -95,8 +95,6 @@ public final class Entity {
 
     private final Optional<Orbit> orbit;
 
-    private final Optional<Symbology> symbology;
-
     private final Map<String, Object> additionalProperties;
 
     private Entity(
@@ -137,7 +135,6 @@ public final class Entity {
             Optional<GroupDetails> groupDetails,
             Optional<Supplies> supplies,
             Optional<Orbit> orbit,
-            Optional<Symbology> symbology,
             Map<String, Object> additionalProperties) {
         this.entityId = entityId;
         this.description = description;
@@ -176,7 +173,6 @@ public final class Entity {
         this.groupDetails = groupDetails;
         this.supplies = supplies;
         this.orbit = orbit;
-        this.symbology = symbology;
         this.additionalProperties = additionalProperties;
     }
 
@@ -494,14 +490,6 @@ public final class Entity {
         return orbit;
     }
 
-    /**
-     * @return Symbology/iconography for the entity respecting an existing standard.
-     */
-    @JsonProperty("symbology")
-    public Optional<Symbology> getSymbology() {
-        return symbology;
-    }
-
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -550,8 +538,7 @@ public final class Entity {
                 && health.equals(other.health)
                 && groupDetails.equals(other.groupDetails)
                 && supplies.equals(other.supplies)
-                && orbit.equals(other.orbit)
-                && symbology.equals(other.symbology);
+                && orbit.equals(other.orbit);
     }
 
     @java.lang.Override
@@ -593,8 +580,7 @@ public final class Entity {
                 this.health,
                 this.groupDetails,
                 this.supplies,
-                this.orbit,
-                this.symbology);
+                this.orbit);
     }
 
     @java.lang.Override
@@ -682,8 +668,6 @@ public final class Entity {
 
         private Optional<Orbit> orbit = Optional.empty();
 
-        private Optional<Symbology> symbology = Optional.empty();
-
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -727,7 +711,6 @@ public final class Entity {
             groupDetails(other.getGroupDetails());
             supplies(other.getSupplies());
             orbit(other.getOrbit());
-            symbology(other.getSymbology());
             return this;
         }
 
@@ -1267,20 +1250,6 @@ public final class Entity {
             return this;
         }
 
-        /**
-         * <p>Symbology/iconography for the entity respecting an existing standard.</p>
-         */
-        @JsonSetter(value = "symbology", nulls = Nulls.SKIP)
-        public Builder symbology(Optional<Symbology> symbology) {
-            this.symbology = symbology;
-            return this;
-        }
-
-        public Builder symbology(Symbology symbology) {
-            this.symbology = Optional.ofNullable(symbology);
-            return this;
-        }
-
         public Entity build() {
             return new Entity(
                     entityId,
@@ -1320,7 +1289,6 @@ public final class Entity {
                     groupDetails,
                     supplies,
                     orbit,
-                    symbology,
                     additionalProperties);
         }
     }

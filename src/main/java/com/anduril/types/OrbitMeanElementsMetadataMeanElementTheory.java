@@ -3,22 +3,85 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum OrbitMeanElementsMetadataMeanElementTheory {
-    MEAN_ELEMENT_THEORY_INVALID("MEAN_ELEMENT_THEORY_INVALID"),
+public final class OrbitMeanElementsMetadataMeanElementTheory {
+    public static final OrbitMeanElementsMetadataMeanElementTheory MEAN_ELEMENT_THEORY_INVALID =
+            new OrbitMeanElementsMetadataMeanElementTheory(
+                    Value.MEAN_ELEMENT_THEORY_INVALID, "MEAN_ELEMENT_THEORY_INVALID");
 
-    MEAN_ELEMENT_THEORY_SGP_4("MEAN_ELEMENT_THEORY_SGP4");
+    public static final OrbitMeanElementsMetadataMeanElementTheory MEAN_ELEMENT_THEORY_SGP_4 =
+            new OrbitMeanElementsMetadataMeanElementTheory(Value.MEAN_ELEMENT_THEORY_SGP_4, "MEAN_ELEMENT_THEORY_SGP4");
 
-    private final String value;
+    private final Value value;
 
-    OrbitMeanElementsMetadataMeanElementTheory(String value) {
+    private final String string;
+
+    OrbitMeanElementsMetadataMeanElementTheory(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof OrbitMeanElementsMetadataMeanElementTheory
+                        && this.string.equals(((OrbitMeanElementsMetadataMeanElementTheory) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case MEAN_ELEMENT_THEORY_INVALID:
+                return visitor.visitMeanElementTheoryInvalid();
+            case MEAN_ELEMENT_THEORY_SGP_4:
+                return visitor.visitMeanElementTheorySgp4();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static OrbitMeanElementsMetadataMeanElementTheory valueOf(String value) {
+        switch (value) {
+            case "MEAN_ELEMENT_THEORY_INVALID":
+                return MEAN_ELEMENT_THEORY_INVALID;
+            case "MEAN_ELEMENT_THEORY_SGP4":
+                return MEAN_ELEMENT_THEORY_SGP_4;
+            default:
+                return new OrbitMeanElementsMetadataMeanElementTheory(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        MEAN_ELEMENT_THEORY_INVALID,
+
+        MEAN_ELEMENT_THEORY_SGP_4,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitMeanElementTheoryInvalid();
+
+        T visitMeanElementTheorySgp4();
+
+        T visitUnknown(String unknownType);
     }
 }

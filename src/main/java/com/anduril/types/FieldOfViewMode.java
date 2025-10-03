@@ -3,30 +3,127 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum FieldOfViewMode {
-    SENSOR_MODE_INVALID("SENSOR_MODE_INVALID"),
+public final class FieldOfViewMode {
+    public static final FieldOfViewMode SENSOR_MODE_SEARCH =
+            new FieldOfViewMode(Value.SENSOR_MODE_SEARCH, "SENSOR_MODE_SEARCH");
 
-    SENSOR_MODE_SEARCH("SENSOR_MODE_SEARCH"),
+    public static final FieldOfViewMode SENSOR_MODE_MUTE =
+            new FieldOfViewMode(Value.SENSOR_MODE_MUTE, "SENSOR_MODE_MUTE");
 
-    SENSOR_MODE_TRACK("SENSOR_MODE_TRACK"),
+    public static final FieldOfViewMode SENSOR_MODE_INVALID =
+            new FieldOfViewMode(Value.SENSOR_MODE_INVALID, "SENSOR_MODE_INVALID");
 
-    SENSOR_MODE_WEAPON_SUPPORT("SENSOR_MODE_WEAPON_SUPPORT"),
+    public static final FieldOfViewMode SENSOR_MODE_AUTO =
+            new FieldOfViewMode(Value.SENSOR_MODE_AUTO, "SENSOR_MODE_AUTO");
 
-    SENSOR_MODE_AUTO("SENSOR_MODE_AUTO"),
+    public static final FieldOfViewMode SENSOR_MODE_WEAPON_SUPPORT =
+            new FieldOfViewMode(Value.SENSOR_MODE_WEAPON_SUPPORT, "SENSOR_MODE_WEAPON_SUPPORT");
 
-    SENSOR_MODE_MUTE("SENSOR_MODE_MUTE");
+    public static final FieldOfViewMode SENSOR_MODE_TRACK =
+            new FieldOfViewMode(Value.SENSOR_MODE_TRACK, "SENSOR_MODE_TRACK");
 
-    private final String value;
+    private final Value value;
 
-    FieldOfViewMode(String value) {
+    private final String string;
+
+    FieldOfViewMode(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof FieldOfViewMode && this.string.equals(((FieldOfViewMode) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case SENSOR_MODE_SEARCH:
+                return visitor.visitSensorModeSearch();
+            case SENSOR_MODE_MUTE:
+                return visitor.visitSensorModeMute();
+            case SENSOR_MODE_INVALID:
+                return visitor.visitSensorModeInvalid();
+            case SENSOR_MODE_AUTO:
+                return visitor.visitSensorModeAuto();
+            case SENSOR_MODE_WEAPON_SUPPORT:
+                return visitor.visitSensorModeWeaponSupport();
+            case SENSOR_MODE_TRACK:
+                return visitor.visitSensorModeTrack();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static FieldOfViewMode valueOf(String value) {
+        switch (value) {
+            case "SENSOR_MODE_SEARCH":
+                return SENSOR_MODE_SEARCH;
+            case "SENSOR_MODE_MUTE":
+                return SENSOR_MODE_MUTE;
+            case "SENSOR_MODE_INVALID":
+                return SENSOR_MODE_INVALID;
+            case "SENSOR_MODE_AUTO":
+                return SENSOR_MODE_AUTO;
+            case "SENSOR_MODE_WEAPON_SUPPORT":
+                return SENSOR_MODE_WEAPON_SUPPORT;
+            case "SENSOR_MODE_TRACK":
+                return SENSOR_MODE_TRACK;
+            default:
+                return new FieldOfViewMode(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        SENSOR_MODE_INVALID,
+
+        SENSOR_MODE_SEARCH,
+
+        SENSOR_MODE_TRACK,
+
+        SENSOR_MODE_WEAPON_SUPPORT,
+
+        SENSOR_MODE_AUTO,
+
+        SENSOR_MODE_MUTE,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitSensorModeInvalid();
+
+        T visitSensorModeSearch();
+
+        T visitSensorModeTrack();
+
+        T visitSensorModeWeaponSupport();
+
+        T visitSensorModeAuto();
+
+        T visitSensorModeMute();
+
+        T visitUnknown(String unknownType);
     }
 }

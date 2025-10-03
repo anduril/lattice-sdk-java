@@ -3,36 +3,159 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum SensorSensorType {
-    SENSOR_TYPE_INVALID("SENSOR_TYPE_INVALID"),
+public final class SensorSensorType {
+    public static final SensorSensorType SENSOR_TYPE_GPS =
+            new SensorSensorType(Value.SENSOR_TYPE_GPS, "SENSOR_TYPE_GPS");
 
-    SENSOR_TYPE_RADAR("SENSOR_TYPE_RADAR"),
+    public static final SensorSensorType SENSOR_TYPE_PTU_POS =
+            new SensorSensorType(Value.SENSOR_TYPE_PTU_POS, "SENSOR_TYPE_PTU_POS");
 
-    SENSOR_TYPE_CAMERA("SENSOR_TYPE_CAMERA"),
+    public static final SensorSensorType SENSOR_TYPE_SONAR =
+            new SensorSensorType(Value.SENSOR_TYPE_SONAR, "SENSOR_TYPE_SONAR");
 
-    SENSOR_TYPE_TRANSPONDER("SENSOR_TYPE_TRANSPONDER"),
+    public static final SensorSensorType SENSOR_TYPE_INVALID =
+            new SensorSensorType(Value.SENSOR_TYPE_INVALID, "SENSOR_TYPE_INVALID");
 
-    SENSOR_TYPE_RF("SENSOR_TYPE_RF"),
+    public static final SensorSensorType SENSOR_TYPE_TRANSPONDER =
+            new SensorSensorType(Value.SENSOR_TYPE_TRANSPONDER, "SENSOR_TYPE_TRANSPONDER");
 
-    SENSOR_TYPE_GPS("SENSOR_TYPE_GPS"),
+    public static final SensorSensorType SENSOR_TYPE_RF = new SensorSensorType(Value.SENSOR_TYPE_RF, "SENSOR_TYPE_RF");
 
-    SENSOR_TYPE_PTU_POS("SENSOR_TYPE_PTU_POS"),
+    public static final SensorSensorType SENSOR_TYPE_RADAR =
+            new SensorSensorType(Value.SENSOR_TYPE_RADAR, "SENSOR_TYPE_RADAR");
 
-    SENSOR_TYPE_PERIMETER("SENSOR_TYPE_PERIMETER"),
+    public static final SensorSensorType SENSOR_TYPE_CAMERA =
+            new SensorSensorType(Value.SENSOR_TYPE_CAMERA, "SENSOR_TYPE_CAMERA");
 
-    SENSOR_TYPE_SONAR("SENSOR_TYPE_SONAR");
+    public static final SensorSensorType SENSOR_TYPE_PERIMETER =
+            new SensorSensorType(Value.SENSOR_TYPE_PERIMETER, "SENSOR_TYPE_PERIMETER");
 
-    private final String value;
+    private final Value value;
 
-    SensorSensorType(String value) {
+    private final String string;
+
+    SensorSensorType(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof SensorSensorType && this.string.equals(((SensorSensorType) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case SENSOR_TYPE_GPS:
+                return visitor.visitSensorTypeGps();
+            case SENSOR_TYPE_PTU_POS:
+                return visitor.visitSensorTypePtuPos();
+            case SENSOR_TYPE_SONAR:
+                return visitor.visitSensorTypeSonar();
+            case SENSOR_TYPE_INVALID:
+                return visitor.visitSensorTypeInvalid();
+            case SENSOR_TYPE_TRANSPONDER:
+                return visitor.visitSensorTypeTransponder();
+            case SENSOR_TYPE_RF:
+                return visitor.visitSensorTypeRf();
+            case SENSOR_TYPE_RADAR:
+                return visitor.visitSensorTypeRadar();
+            case SENSOR_TYPE_CAMERA:
+                return visitor.visitSensorTypeCamera();
+            case SENSOR_TYPE_PERIMETER:
+                return visitor.visitSensorTypePerimeter();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static SensorSensorType valueOf(String value) {
+        switch (value) {
+            case "SENSOR_TYPE_GPS":
+                return SENSOR_TYPE_GPS;
+            case "SENSOR_TYPE_PTU_POS":
+                return SENSOR_TYPE_PTU_POS;
+            case "SENSOR_TYPE_SONAR":
+                return SENSOR_TYPE_SONAR;
+            case "SENSOR_TYPE_INVALID":
+                return SENSOR_TYPE_INVALID;
+            case "SENSOR_TYPE_TRANSPONDER":
+                return SENSOR_TYPE_TRANSPONDER;
+            case "SENSOR_TYPE_RF":
+                return SENSOR_TYPE_RF;
+            case "SENSOR_TYPE_RADAR":
+                return SENSOR_TYPE_RADAR;
+            case "SENSOR_TYPE_CAMERA":
+                return SENSOR_TYPE_CAMERA;
+            case "SENSOR_TYPE_PERIMETER":
+                return SENSOR_TYPE_PERIMETER;
+            default:
+                return new SensorSensorType(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        SENSOR_TYPE_INVALID,
+
+        SENSOR_TYPE_RADAR,
+
+        SENSOR_TYPE_CAMERA,
+
+        SENSOR_TYPE_TRANSPONDER,
+
+        SENSOR_TYPE_RF,
+
+        SENSOR_TYPE_GPS,
+
+        SENSOR_TYPE_PTU_POS,
+
+        SENSOR_TYPE_PERIMETER,
+
+        SENSOR_TYPE_SONAR,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitSensorTypeInvalid();
+
+        T visitSensorTypeRadar();
+
+        T visitSensorTypeCamera();
+
+        T visitSensorTypeTransponder();
+
+        T visitSensorTypeRf();
+
+        T visitSensorTypeGps();
+
+        T visitSensorTypePtuPos();
+
+        T visitSensorTypePerimeter();
+
+        T visitSensorTypeSonar();
+
+        T visitUnknown(String unknownType);
     }
 }
