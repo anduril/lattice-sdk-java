@@ -3,24 +3,94 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum ScheduleScheduleType {
-    SCHEDULE_TYPE_INVALID("SCHEDULE_TYPE_INVALID"),
+public final class ScheduleScheduleType {
+    public static final ScheduleScheduleType SCHEDULE_TYPE_ZONE_TEMP_ENABLED =
+            new ScheduleScheduleType(Value.SCHEDULE_TYPE_ZONE_TEMP_ENABLED, "SCHEDULE_TYPE_ZONE_TEMP_ENABLED");
 
-    SCHEDULE_TYPE_ZONE_ENABLED("SCHEDULE_TYPE_ZONE_ENABLED"),
+    public static final ScheduleScheduleType SCHEDULE_TYPE_ZONE_ENABLED =
+            new ScheduleScheduleType(Value.SCHEDULE_TYPE_ZONE_ENABLED, "SCHEDULE_TYPE_ZONE_ENABLED");
 
-    SCHEDULE_TYPE_ZONE_TEMP_ENABLED("SCHEDULE_TYPE_ZONE_TEMP_ENABLED");
+    public static final ScheduleScheduleType SCHEDULE_TYPE_INVALID =
+            new ScheduleScheduleType(Value.SCHEDULE_TYPE_INVALID, "SCHEDULE_TYPE_INVALID");
 
-    private final String value;
+    private final Value value;
 
-    ScheduleScheduleType(String value) {
+    private final String string;
+
+    ScheduleScheduleType(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof ScheduleScheduleType && this.string.equals(((ScheduleScheduleType) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case SCHEDULE_TYPE_ZONE_TEMP_ENABLED:
+                return visitor.visitScheduleTypeZoneTempEnabled();
+            case SCHEDULE_TYPE_ZONE_ENABLED:
+                return visitor.visitScheduleTypeZoneEnabled();
+            case SCHEDULE_TYPE_INVALID:
+                return visitor.visitScheduleTypeInvalid();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static ScheduleScheduleType valueOf(String value) {
+        switch (value) {
+            case "SCHEDULE_TYPE_ZONE_TEMP_ENABLED":
+                return SCHEDULE_TYPE_ZONE_TEMP_ENABLED;
+            case "SCHEDULE_TYPE_ZONE_ENABLED":
+                return SCHEDULE_TYPE_ZONE_ENABLED;
+            case "SCHEDULE_TYPE_INVALID":
+                return SCHEDULE_TYPE_INVALID;
+            default:
+                return new ScheduleScheduleType(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        SCHEDULE_TYPE_INVALID,
+
+        SCHEDULE_TYPE_ZONE_ENABLED,
+
+        SCHEDULE_TYPE_ZONE_TEMP_ENABLED,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitScheduleTypeInvalid();
+
+        T visitScheduleTypeZoneEnabled();
+
+        T visitScheduleTypeZoneTempEnabled();
+
+        T visitUnknown(String unknownType);
     }
 }

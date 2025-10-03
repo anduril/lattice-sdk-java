@@ -3,22 +3,83 @@
  */
 package com.anduril.resources.objects.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum GetObjectRequestAcceptEncoding {
-    IDENTITY("identity"),
+public final class GetObjectRequestAcceptEncoding {
+    public static final GetObjectRequestAcceptEncoding IDENTITY =
+            new GetObjectRequestAcceptEncoding(Value.IDENTITY, "identity");
 
-    ZSTD("zstd");
+    public static final GetObjectRequestAcceptEncoding ZSTD = new GetObjectRequestAcceptEncoding(Value.ZSTD, "zstd");
 
-    private final String value;
+    private final Value value;
 
-    GetObjectRequestAcceptEncoding(String value) {
+    private final String string;
+
+    GetObjectRequestAcceptEncoding(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof GetObjectRequestAcceptEncoding
+                        && this.string.equals(((GetObjectRequestAcceptEncoding) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case IDENTITY:
+                return visitor.visitIdentity();
+            case ZSTD:
+                return visitor.visitZstd();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static GetObjectRequestAcceptEncoding valueOf(String value) {
+        switch (value) {
+            case "identity":
+                return IDENTITY;
+            case "zstd":
+                return ZSTD;
+            default:
+                return new GetObjectRequestAcceptEncoding(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        IDENTITY,
+
+        ZSTD,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitIdentity();
+
+        T visitZstd();
+
+        T visitUnknown(String unknownType);
     }
 }

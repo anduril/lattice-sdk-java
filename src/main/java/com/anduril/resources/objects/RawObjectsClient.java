@@ -106,7 +106,8 @@ public class RawObjectsClient {
                 List<PathMetadata> result = parsedResponse.getPathMetadatas();
                 return new LatticeHttpResponse<>(
                         new SyncPagingIterable<PathMetadata>(
-                                startingAfter.isPresent(), result, () -> listObjects(nextRequest, requestOptions)
+                                startingAfter.isPresent(), result, parsedResponse, () -> listObjects(
+                                                nextRequest, requestOptions)
                                         .body()),
                         response);
             }

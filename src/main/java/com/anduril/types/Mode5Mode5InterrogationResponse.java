@@ -3,26 +3,108 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum Mode5Mode5InterrogationResponse {
-    INTERROGATION_RESPONSE_INVALID("INTERROGATION_RESPONSE_INVALID"),
+public final class Mode5Mode5InterrogationResponse {
+    public static final Mode5Mode5InterrogationResponse INTERROGATION_RESPONSE_CORRECT =
+            new Mode5Mode5InterrogationResponse(Value.INTERROGATION_RESPONSE_CORRECT, "INTERROGATION_RESPONSE_CORRECT");
 
-    INTERROGATION_RESPONSE_CORRECT("INTERROGATION_RESPONSE_CORRECT"),
+    public static final Mode5Mode5InterrogationResponse INTERROGATION_RESPONSE_INVALID =
+            new Mode5Mode5InterrogationResponse(Value.INTERROGATION_RESPONSE_INVALID, "INTERROGATION_RESPONSE_INVALID");
 
-    INTERROGATION_RESPONSE_INCORRECT("INTERROGATION_RESPONSE_INCORRECT"),
+    public static final Mode5Mode5InterrogationResponse INTERROGATION_RESPONSE_INCORRECT =
+            new Mode5Mode5InterrogationResponse(
+                    Value.INTERROGATION_RESPONSE_INCORRECT, "INTERROGATION_RESPONSE_INCORRECT");
 
-    INTERROGATION_RESPONSE_NO_RESPONSE("INTERROGATION_RESPONSE_NO_RESPONSE");
+    public static final Mode5Mode5InterrogationResponse INTERROGATION_RESPONSE_NO_RESPONSE =
+            new Mode5Mode5InterrogationResponse(
+                    Value.INTERROGATION_RESPONSE_NO_RESPONSE, "INTERROGATION_RESPONSE_NO_RESPONSE");
 
-    private final String value;
+    private final Value value;
 
-    Mode5Mode5InterrogationResponse(String value) {
+    private final String string;
+
+    Mode5Mode5InterrogationResponse(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof Mode5Mode5InterrogationResponse
+                        && this.string.equals(((Mode5Mode5InterrogationResponse) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case INTERROGATION_RESPONSE_CORRECT:
+                return visitor.visitInterrogationResponseCorrect();
+            case INTERROGATION_RESPONSE_INVALID:
+                return visitor.visitInterrogationResponseInvalid();
+            case INTERROGATION_RESPONSE_INCORRECT:
+                return visitor.visitInterrogationResponseIncorrect();
+            case INTERROGATION_RESPONSE_NO_RESPONSE:
+                return visitor.visitInterrogationResponseNoResponse();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static Mode5Mode5InterrogationResponse valueOf(String value) {
+        switch (value) {
+            case "INTERROGATION_RESPONSE_CORRECT":
+                return INTERROGATION_RESPONSE_CORRECT;
+            case "INTERROGATION_RESPONSE_INVALID":
+                return INTERROGATION_RESPONSE_INVALID;
+            case "INTERROGATION_RESPONSE_INCORRECT":
+                return INTERROGATION_RESPONSE_INCORRECT;
+            case "INTERROGATION_RESPONSE_NO_RESPONSE":
+                return INTERROGATION_RESPONSE_NO_RESPONSE;
+            default:
+                return new Mode5Mode5InterrogationResponse(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        INTERROGATION_RESPONSE_INVALID,
+
+        INTERROGATION_RESPONSE_CORRECT,
+
+        INTERROGATION_RESPONSE_INCORRECT,
+
+        INTERROGATION_RESPONSE_NO_RESPONSE,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitInterrogationResponseInvalid();
+
+        T visitInterrogationResponseCorrect();
+
+        T visitInterrogationResponseIncorrect();
+
+        T visitInterrogationResponseNoResponse();
+
+        T visitUnknown(String unknownType);
     }
 }

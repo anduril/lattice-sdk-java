@@ -3,32 +3,138 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum MilViewDisposition {
-    DISPOSITION_UNKNOWN("DISPOSITION_UNKNOWN"),
+public final class MilViewDisposition {
+    public static final MilViewDisposition DISPOSITION_ASSUMED_FRIENDLY =
+            new MilViewDisposition(Value.DISPOSITION_ASSUMED_FRIENDLY, "DISPOSITION_ASSUMED_FRIENDLY");
 
-    DISPOSITION_FRIENDLY("DISPOSITION_FRIENDLY"),
+    public static final MilViewDisposition DISPOSITION_HOSTILE =
+            new MilViewDisposition(Value.DISPOSITION_HOSTILE, "DISPOSITION_HOSTILE");
 
-    DISPOSITION_HOSTILE("DISPOSITION_HOSTILE"),
+    public static final MilViewDisposition DISPOSITION_FRIENDLY =
+            new MilViewDisposition(Value.DISPOSITION_FRIENDLY, "DISPOSITION_FRIENDLY");
 
-    DISPOSITION_SUSPICIOUS("DISPOSITION_SUSPICIOUS"),
+    public static final MilViewDisposition DISPOSITION_UNKNOWN =
+            new MilViewDisposition(Value.DISPOSITION_UNKNOWN, "DISPOSITION_UNKNOWN");
 
-    DISPOSITION_ASSUMED_FRIENDLY("DISPOSITION_ASSUMED_FRIENDLY"),
+    public static final MilViewDisposition DISPOSITION_PENDING =
+            new MilViewDisposition(Value.DISPOSITION_PENDING, "DISPOSITION_PENDING");
 
-    DISPOSITION_NEUTRAL("DISPOSITION_NEUTRAL"),
+    public static final MilViewDisposition DISPOSITION_NEUTRAL =
+            new MilViewDisposition(Value.DISPOSITION_NEUTRAL, "DISPOSITION_NEUTRAL");
 
-    DISPOSITION_PENDING("DISPOSITION_PENDING");
+    public static final MilViewDisposition DISPOSITION_SUSPICIOUS =
+            new MilViewDisposition(Value.DISPOSITION_SUSPICIOUS, "DISPOSITION_SUSPICIOUS");
 
-    private final String value;
+    private final Value value;
 
-    MilViewDisposition(String value) {
+    private final String string;
+
+    MilViewDisposition(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof MilViewDisposition && this.string.equals(((MilViewDisposition) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case DISPOSITION_ASSUMED_FRIENDLY:
+                return visitor.visitDispositionAssumedFriendly();
+            case DISPOSITION_HOSTILE:
+                return visitor.visitDispositionHostile();
+            case DISPOSITION_FRIENDLY:
+                return visitor.visitDispositionFriendly();
+            case DISPOSITION_UNKNOWN:
+                return visitor.visitDispositionUnknown();
+            case DISPOSITION_PENDING:
+                return visitor.visitDispositionPending();
+            case DISPOSITION_NEUTRAL:
+                return visitor.visitDispositionNeutral();
+            case DISPOSITION_SUSPICIOUS:
+                return visitor.visitDispositionSuspicious();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static MilViewDisposition valueOf(String value) {
+        switch (value) {
+            case "DISPOSITION_ASSUMED_FRIENDLY":
+                return DISPOSITION_ASSUMED_FRIENDLY;
+            case "DISPOSITION_HOSTILE":
+                return DISPOSITION_HOSTILE;
+            case "DISPOSITION_FRIENDLY":
+                return DISPOSITION_FRIENDLY;
+            case "DISPOSITION_UNKNOWN":
+                return DISPOSITION_UNKNOWN;
+            case "DISPOSITION_PENDING":
+                return DISPOSITION_PENDING;
+            case "DISPOSITION_NEUTRAL":
+                return DISPOSITION_NEUTRAL;
+            case "DISPOSITION_SUSPICIOUS":
+                return DISPOSITION_SUSPICIOUS;
+            default:
+                return new MilViewDisposition(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        DISPOSITION_UNKNOWN,
+
+        DISPOSITION_FRIENDLY,
+
+        DISPOSITION_HOSTILE,
+
+        DISPOSITION_SUSPICIOUS,
+
+        DISPOSITION_ASSUMED_FRIENDLY,
+
+        DISPOSITION_NEUTRAL,
+
+        DISPOSITION_PENDING,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitDispositionUnknown();
+
+        T visitDispositionFriendly();
+
+        T visitDispositionHostile();
+
+        T visitDispositionSuspicious();
+
+        T visitDispositionAssumedFriendly();
+
+        T visitDispositionNeutral();
+
+        T visitDispositionPending();
+
+        T visitUnknown(String unknownType);
     }
 }

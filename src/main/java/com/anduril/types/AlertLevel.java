@@ -3,26 +3,104 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum AlertLevel {
-    ALERT_LEVEL_INVALID("ALERT_LEVEL_INVALID"),
+public final class AlertLevel {
+    public static final AlertLevel ALERT_LEVEL_ADVISORY =
+            new AlertLevel(Value.ALERT_LEVEL_ADVISORY, "ALERT_LEVEL_ADVISORY");
 
-    ALERT_LEVEL_ADVISORY("ALERT_LEVEL_ADVISORY"),
+    public static final AlertLevel ALERT_LEVEL_CAUTION =
+            new AlertLevel(Value.ALERT_LEVEL_CAUTION, "ALERT_LEVEL_CAUTION");
 
-    ALERT_LEVEL_CAUTION("ALERT_LEVEL_CAUTION"),
+    public static final AlertLevel ALERT_LEVEL_INVALID =
+            new AlertLevel(Value.ALERT_LEVEL_INVALID, "ALERT_LEVEL_INVALID");
 
-    ALERT_LEVEL_WARNING("ALERT_LEVEL_WARNING");
+    public static final AlertLevel ALERT_LEVEL_WARNING =
+            new AlertLevel(Value.ALERT_LEVEL_WARNING, "ALERT_LEVEL_WARNING");
 
-    private final String value;
+    private final Value value;
 
-    AlertLevel(String value) {
+    private final String string;
+
+    AlertLevel(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other) || (other instanceof AlertLevel && this.string.equals(((AlertLevel) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case ALERT_LEVEL_ADVISORY:
+                return visitor.visitAlertLevelAdvisory();
+            case ALERT_LEVEL_CAUTION:
+                return visitor.visitAlertLevelCaution();
+            case ALERT_LEVEL_INVALID:
+                return visitor.visitAlertLevelInvalid();
+            case ALERT_LEVEL_WARNING:
+                return visitor.visitAlertLevelWarning();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static AlertLevel valueOf(String value) {
+        switch (value) {
+            case "ALERT_LEVEL_ADVISORY":
+                return ALERT_LEVEL_ADVISORY;
+            case "ALERT_LEVEL_CAUTION":
+                return ALERT_LEVEL_CAUTION;
+            case "ALERT_LEVEL_INVALID":
+                return ALERT_LEVEL_INVALID;
+            case "ALERT_LEVEL_WARNING":
+                return ALERT_LEVEL_WARNING;
+            default:
+                return new AlertLevel(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        ALERT_LEVEL_INVALID,
+
+        ALERT_LEVEL_ADVISORY,
+
+        ALERT_LEVEL_CAUTION,
+
+        ALERT_LEVEL_WARNING,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitAlertLevelInvalid();
+
+        T visitAlertLevelAdvisory();
+
+        T visitAlertLevelCaution();
+
+        T visitAlertLevelWarning();
+
+        T visitUnknown(String unknownType);
     }
 }

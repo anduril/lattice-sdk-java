@@ -3,30 +3,127 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum MilViewEnvironment {
-    ENVIRONMENT_UNKNOWN("ENVIRONMENT_UNKNOWN"),
+public final class MilViewEnvironment {
+    public static final MilViewEnvironment ENVIRONMENT_SURFACE =
+            new MilViewEnvironment(Value.ENVIRONMENT_SURFACE, "ENVIRONMENT_SURFACE");
 
-    ENVIRONMENT_AIR("ENVIRONMENT_AIR"),
+    public static final MilViewEnvironment ENVIRONMENT_AIR =
+            new MilViewEnvironment(Value.ENVIRONMENT_AIR, "ENVIRONMENT_AIR");
 
-    ENVIRONMENT_SURFACE("ENVIRONMENT_SURFACE"),
+    public static final MilViewEnvironment ENVIRONMENT_SUB_SURFACE =
+            new MilViewEnvironment(Value.ENVIRONMENT_SUB_SURFACE, "ENVIRONMENT_SUB_SURFACE");
 
-    ENVIRONMENT_SUB_SURFACE("ENVIRONMENT_SUB_SURFACE"),
+    public static final MilViewEnvironment ENVIRONMENT_LAND =
+            new MilViewEnvironment(Value.ENVIRONMENT_LAND, "ENVIRONMENT_LAND");
 
-    ENVIRONMENT_LAND("ENVIRONMENT_LAND"),
+    public static final MilViewEnvironment ENVIRONMENT_SPACE =
+            new MilViewEnvironment(Value.ENVIRONMENT_SPACE, "ENVIRONMENT_SPACE");
 
-    ENVIRONMENT_SPACE("ENVIRONMENT_SPACE");
+    public static final MilViewEnvironment ENVIRONMENT_UNKNOWN =
+            new MilViewEnvironment(Value.ENVIRONMENT_UNKNOWN, "ENVIRONMENT_UNKNOWN");
 
-    private final String value;
+    private final Value value;
 
-    MilViewEnvironment(String value) {
+    private final String string;
+
+    MilViewEnvironment(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof MilViewEnvironment && this.string.equals(((MilViewEnvironment) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case ENVIRONMENT_SURFACE:
+                return visitor.visitEnvironmentSurface();
+            case ENVIRONMENT_AIR:
+                return visitor.visitEnvironmentAir();
+            case ENVIRONMENT_SUB_SURFACE:
+                return visitor.visitEnvironmentSubSurface();
+            case ENVIRONMENT_LAND:
+                return visitor.visitEnvironmentLand();
+            case ENVIRONMENT_SPACE:
+                return visitor.visitEnvironmentSpace();
+            case ENVIRONMENT_UNKNOWN:
+                return visitor.visitEnvironmentUnknown();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static MilViewEnvironment valueOf(String value) {
+        switch (value) {
+            case "ENVIRONMENT_SURFACE":
+                return ENVIRONMENT_SURFACE;
+            case "ENVIRONMENT_AIR":
+                return ENVIRONMENT_AIR;
+            case "ENVIRONMENT_SUB_SURFACE":
+                return ENVIRONMENT_SUB_SURFACE;
+            case "ENVIRONMENT_LAND":
+                return ENVIRONMENT_LAND;
+            case "ENVIRONMENT_SPACE":
+                return ENVIRONMENT_SPACE;
+            case "ENVIRONMENT_UNKNOWN":
+                return ENVIRONMENT_UNKNOWN;
+            default:
+                return new MilViewEnvironment(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        ENVIRONMENT_UNKNOWN,
+
+        ENVIRONMENT_AIR,
+
+        ENVIRONMENT_SURFACE,
+
+        ENVIRONMENT_SUB_SURFACE,
+
+        ENVIRONMENT_LAND,
+
+        ENVIRONMENT_SPACE,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitEnvironmentUnknown();
+
+        T visitEnvironmentAir();
+
+        T visitEnvironmentSurface();
+
+        T visitEnvironmentSubSurface();
+
+        T visitEnvironmentLand();
+
+        T visitEnvironmentSpace();
+
+        T visitUnknown(String unknownType);
     }
 }

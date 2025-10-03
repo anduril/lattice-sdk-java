@@ -3,48 +3,220 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum TaskStatusStatus {
-    STATUS_INVALID("STATUS_INVALID"),
+public final class TaskStatusStatus {
+    public static final TaskStatusStatus STATUS_WILCO = new TaskStatusStatus(Value.STATUS_WILCO, "STATUS_WILCO");
 
-    STATUS_CREATED("STATUS_CREATED"),
+    public static final TaskStatusStatus STATUS_DONE_OK = new TaskStatusStatus(Value.STATUS_DONE_OK, "STATUS_DONE_OK");
 
-    STATUS_SCHEDULED_IN_MANAGER("STATUS_SCHEDULED_IN_MANAGER"),
+    public static final TaskStatusStatus STATUS_VERSION_REJECTED =
+            new TaskStatusStatus(Value.STATUS_VERSION_REJECTED, "STATUS_VERSION_REJECTED");
 
-    STATUS_SENT("STATUS_SENT"),
+    public static final TaskStatusStatus STATUS_MACHINE_RECEIPT =
+            new TaskStatusStatus(Value.STATUS_MACHINE_RECEIPT, "STATUS_MACHINE_RECEIPT");
 
-    STATUS_MACHINE_RECEIPT("STATUS_MACHINE_RECEIPT"),
+    public static final TaskStatusStatus STATUS_INVALID = new TaskStatusStatus(Value.STATUS_INVALID, "STATUS_INVALID");
 
-    STATUS_ACK("STATUS_ACK"),
+    public static final TaskStatusStatus STATUS_WAITING_FOR_UPDATE =
+            new TaskStatusStatus(Value.STATUS_WAITING_FOR_UPDATE, "STATUS_WAITING_FOR_UPDATE");
 
-    STATUS_WILCO("STATUS_WILCO"),
+    public static final TaskStatusStatus STATUS_SCHEDULED_IN_MANAGER =
+            new TaskStatusStatus(Value.STATUS_SCHEDULED_IN_MANAGER, "STATUS_SCHEDULED_IN_MANAGER");
 
-    STATUS_EXECUTING("STATUS_EXECUTING"),
+    public static final TaskStatusStatus STATUS_SENT = new TaskStatusStatus(Value.STATUS_SENT, "STATUS_SENT");
 
-    STATUS_WAITING_FOR_UPDATE("STATUS_WAITING_FOR_UPDATE"),
+    public static final TaskStatusStatus STATUS_CREATED = new TaskStatusStatus(Value.STATUS_CREATED, "STATUS_CREATED");
 
-    STATUS_DONE_OK("STATUS_DONE_OK"),
+    public static final TaskStatusStatus STATUS_EXECUTING =
+            new TaskStatusStatus(Value.STATUS_EXECUTING, "STATUS_EXECUTING");
 
-    STATUS_DONE_NOT_OK("STATUS_DONE_NOT_OK"),
+    public static final TaskStatusStatus STATUS_DONE_NOT_OK =
+            new TaskStatusStatus(Value.STATUS_DONE_NOT_OK, "STATUS_DONE_NOT_OK");
 
-    STATUS_REPLACED("STATUS_REPLACED"),
+    public static final TaskStatusStatus STATUS_ACK = new TaskStatusStatus(Value.STATUS_ACK, "STATUS_ACK");
 
-    STATUS_CANCEL_REQUESTED("STATUS_CANCEL_REQUESTED"),
+    public static final TaskStatusStatus STATUS_REPLACED =
+            new TaskStatusStatus(Value.STATUS_REPLACED, "STATUS_REPLACED");
 
-    STATUS_COMPLETE_REQUESTED("STATUS_COMPLETE_REQUESTED"),
+    public static final TaskStatusStatus STATUS_COMPLETE_REQUESTED =
+            new TaskStatusStatus(Value.STATUS_COMPLETE_REQUESTED, "STATUS_COMPLETE_REQUESTED");
 
-    STATUS_VERSION_REJECTED("STATUS_VERSION_REJECTED");
+    public static final TaskStatusStatus STATUS_CANCEL_REQUESTED =
+            new TaskStatusStatus(Value.STATUS_CANCEL_REQUESTED, "STATUS_CANCEL_REQUESTED");
 
-    private final String value;
+    private final Value value;
 
-    TaskStatusStatus(String value) {
+    private final String string;
+
+    TaskStatusStatus(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof TaskStatusStatus && this.string.equals(((TaskStatusStatus) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case STATUS_WILCO:
+                return visitor.visitStatusWilco();
+            case STATUS_DONE_OK:
+                return visitor.visitStatusDoneOk();
+            case STATUS_VERSION_REJECTED:
+                return visitor.visitStatusVersionRejected();
+            case STATUS_MACHINE_RECEIPT:
+                return visitor.visitStatusMachineReceipt();
+            case STATUS_INVALID:
+                return visitor.visitStatusInvalid();
+            case STATUS_WAITING_FOR_UPDATE:
+                return visitor.visitStatusWaitingForUpdate();
+            case STATUS_SCHEDULED_IN_MANAGER:
+                return visitor.visitStatusScheduledInManager();
+            case STATUS_SENT:
+                return visitor.visitStatusSent();
+            case STATUS_CREATED:
+                return visitor.visitStatusCreated();
+            case STATUS_EXECUTING:
+                return visitor.visitStatusExecuting();
+            case STATUS_DONE_NOT_OK:
+                return visitor.visitStatusDoneNotOk();
+            case STATUS_ACK:
+                return visitor.visitStatusAck();
+            case STATUS_REPLACED:
+                return visitor.visitStatusReplaced();
+            case STATUS_COMPLETE_REQUESTED:
+                return visitor.visitStatusCompleteRequested();
+            case STATUS_CANCEL_REQUESTED:
+                return visitor.visitStatusCancelRequested();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static TaskStatusStatus valueOf(String value) {
+        switch (value) {
+            case "STATUS_WILCO":
+                return STATUS_WILCO;
+            case "STATUS_DONE_OK":
+                return STATUS_DONE_OK;
+            case "STATUS_VERSION_REJECTED":
+                return STATUS_VERSION_REJECTED;
+            case "STATUS_MACHINE_RECEIPT":
+                return STATUS_MACHINE_RECEIPT;
+            case "STATUS_INVALID":
+                return STATUS_INVALID;
+            case "STATUS_WAITING_FOR_UPDATE":
+                return STATUS_WAITING_FOR_UPDATE;
+            case "STATUS_SCHEDULED_IN_MANAGER":
+                return STATUS_SCHEDULED_IN_MANAGER;
+            case "STATUS_SENT":
+                return STATUS_SENT;
+            case "STATUS_CREATED":
+                return STATUS_CREATED;
+            case "STATUS_EXECUTING":
+                return STATUS_EXECUTING;
+            case "STATUS_DONE_NOT_OK":
+                return STATUS_DONE_NOT_OK;
+            case "STATUS_ACK":
+                return STATUS_ACK;
+            case "STATUS_REPLACED":
+                return STATUS_REPLACED;
+            case "STATUS_COMPLETE_REQUESTED":
+                return STATUS_COMPLETE_REQUESTED;
+            case "STATUS_CANCEL_REQUESTED":
+                return STATUS_CANCEL_REQUESTED;
+            default:
+                return new TaskStatusStatus(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        STATUS_INVALID,
+
+        STATUS_CREATED,
+
+        STATUS_SCHEDULED_IN_MANAGER,
+
+        STATUS_SENT,
+
+        STATUS_MACHINE_RECEIPT,
+
+        STATUS_ACK,
+
+        STATUS_WILCO,
+
+        STATUS_EXECUTING,
+
+        STATUS_WAITING_FOR_UPDATE,
+
+        STATUS_DONE_OK,
+
+        STATUS_DONE_NOT_OK,
+
+        STATUS_REPLACED,
+
+        STATUS_CANCEL_REQUESTED,
+
+        STATUS_COMPLETE_REQUESTED,
+
+        STATUS_VERSION_REJECTED,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitStatusInvalid();
+
+        T visitStatusCreated();
+
+        T visitStatusScheduledInManager();
+
+        T visitStatusSent();
+
+        T visitStatusMachineReceipt();
+
+        T visitStatusAck();
+
+        T visitStatusWilco();
+
+        T visitStatusExecuting();
+
+        T visitStatusWaitingForUpdate();
+
+        T visitStatusDoneOk();
+
+        T visitStatusDoneNotOk();
+
+        T visitStatusReplaced();
+
+        T visitStatusCancelRequested();
+
+        T visitStatusCompleteRequested();
+
+        T visitStatusVersionRejected();
+
+        T visitUnknown(String unknownType);
     }
 }

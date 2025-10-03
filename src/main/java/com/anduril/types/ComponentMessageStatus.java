@@ -3,30 +3,128 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum ComponentMessageStatus {
-    HEALTH_STATUS_INVALID("HEALTH_STATUS_INVALID"),
+public final class ComponentMessageStatus {
+    public static final ComponentMessageStatus HEALTH_STATUS_HEALTHY =
+            new ComponentMessageStatus(Value.HEALTH_STATUS_HEALTHY, "HEALTH_STATUS_HEALTHY");
 
-    HEALTH_STATUS_HEALTHY("HEALTH_STATUS_HEALTHY"),
+    public static final ComponentMessageStatus HEALTH_STATUS_FAIL =
+            new ComponentMessageStatus(Value.HEALTH_STATUS_FAIL, "HEALTH_STATUS_FAIL");
 
-    HEALTH_STATUS_WARN("HEALTH_STATUS_WARN"),
+    public static final ComponentMessageStatus HEALTH_STATUS_INVALID =
+            new ComponentMessageStatus(Value.HEALTH_STATUS_INVALID, "HEALTH_STATUS_INVALID");
 
-    HEALTH_STATUS_FAIL("HEALTH_STATUS_FAIL"),
+    public static final ComponentMessageStatus HEALTH_STATUS_WARN =
+            new ComponentMessageStatus(Value.HEALTH_STATUS_WARN, "HEALTH_STATUS_WARN");
 
-    HEALTH_STATUS_OFFLINE("HEALTH_STATUS_OFFLINE"),
+    public static final ComponentMessageStatus HEALTH_STATUS_OFFLINE =
+            new ComponentMessageStatus(Value.HEALTH_STATUS_OFFLINE, "HEALTH_STATUS_OFFLINE");
 
-    HEALTH_STATUS_NOT_READY("HEALTH_STATUS_NOT_READY");
+    public static final ComponentMessageStatus HEALTH_STATUS_NOT_READY =
+            new ComponentMessageStatus(Value.HEALTH_STATUS_NOT_READY, "HEALTH_STATUS_NOT_READY");
 
-    private final String value;
+    private final Value value;
 
-    ComponentMessageStatus(String value) {
+    private final String string;
+
+    ComponentMessageStatus(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof ComponentMessageStatus
+                        && this.string.equals(((ComponentMessageStatus) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case HEALTH_STATUS_HEALTHY:
+                return visitor.visitHealthStatusHealthy();
+            case HEALTH_STATUS_FAIL:
+                return visitor.visitHealthStatusFail();
+            case HEALTH_STATUS_INVALID:
+                return visitor.visitHealthStatusInvalid();
+            case HEALTH_STATUS_WARN:
+                return visitor.visitHealthStatusWarn();
+            case HEALTH_STATUS_OFFLINE:
+                return visitor.visitHealthStatusOffline();
+            case HEALTH_STATUS_NOT_READY:
+                return visitor.visitHealthStatusNotReady();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static ComponentMessageStatus valueOf(String value) {
+        switch (value) {
+            case "HEALTH_STATUS_HEALTHY":
+                return HEALTH_STATUS_HEALTHY;
+            case "HEALTH_STATUS_FAIL":
+                return HEALTH_STATUS_FAIL;
+            case "HEALTH_STATUS_INVALID":
+                return HEALTH_STATUS_INVALID;
+            case "HEALTH_STATUS_WARN":
+                return HEALTH_STATUS_WARN;
+            case "HEALTH_STATUS_OFFLINE":
+                return HEALTH_STATUS_OFFLINE;
+            case "HEALTH_STATUS_NOT_READY":
+                return HEALTH_STATUS_NOT_READY;
+            default:
+                return new ComponentMessageStatus(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        HEALTH_STATUS_INVALID,
+
+        HEALTH_STATUS_HEALTHY,
+
+        HEALTH_STATUS_WARN,
+
+        HEALTH_STATUS_FAIL,
+
+        HEALTH_STATUS_OFFLINE,
+
+        HEALTH_STATUS_NOT_READY,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitHealthStatusInvalid();
+
+        T visitHealthStatusHealthy();
+
+        T visitHealthStatusWarn();
+
+        T visitHealthStatusFail();
+
+        T visitHealthStatusOffline();
+
+        T visitHealthStatusNotReady();
+
+        T visitUnknown(String unknownType);
     }
 }
