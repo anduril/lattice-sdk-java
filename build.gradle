@@ -48,7 +48,7 @@ java {
 
 group = 'com.anduril'
 
-version = '3.0.0'
+version = '3.1.0'
 
 jar {
     dependsOn(":generatePomFileForMavenPublication")
@@ -79,21 +79,21 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.anduril'
             artifactId = 'lattice-sdk'
-            version = '3.0.0'
+            version = '3.1.0'
             from components.java
             pom {
-                name = 'Anduril Industries, Inc.'
-                description = 'Anduril Lattice SDK for Java'
-                url = 'https://developer.anduril.com'
+                name = 'anduril'
+                description = 'The official SDK of anduril'
+                url = 'https://buildwithfern.com'
                 licenses {
                     license {
-                        name = 'Anduril Lattice Software Development Kit License Agreement'
+                        name = 'Custom License (LICENSE)'
                     }
                 }
                 developers {
                     developer {
-                        name = 'Anduril Industries, Inc.'
-                        email = 'lattice-developers@anduril.com'
+                        name = 'anduril'
+                        email = 'developers@anduril.com'
                     }
                 }
                 scm {
