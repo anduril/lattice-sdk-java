@@ -3,30 +3,128 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum PayloadConfigurationEffectiveEnvironmentItem {
-    ENVIRONMENT_UNKNOWN("ENVIRONMENT_UNKNOWN"),
+public final class PayloadConfigurationEffectiveEnvironmentItem {
+    public static final PayloadConfigurationEffectiveEnvironmentItem ENVIRONMENT_SURFACE =
+            new PayloadConfigurationEffectiveEnvironmentItem(Value.ENVIRONMENT_SURFACE, "ENVIRONMENT_SURFACE");
 
-    ENVIRONMENT_AIR("ENVIRONMENT_AIR"),
+    public static final PayloadConfigurationEffectiveEnvironmentItem ENVIRONMENT_AIR =
+            new PayloadConfigurationEffectiveEnvironmentItem(Value.ENVIRONMENT_AIR, "ENVIRONMENT_AIR");
 
-    ENVIRONMENT_SURFACE("ENVIRONMENT_SURFACE"),
+    public static final PayloadConfigurationEffectiveEnvironmentItem ENVIRONMENT_SUB_SURFACE =
+            new PayloadConfigurationEffectiveEnvironmentItem(Value.ENVIRONMENT_SUB_SURFACE, "ENVIRONMENT_SUB_SURFACE");
 
-    ENVIRONMENT_SUB_SURFACE("ENVIRONMENT_SUB_SURFACE"),
+    public static final PayloadConfigurationEffectiveEnvironmentItem ENVIRONMENT_LAND =
+            new PayloadConfigurationEffectiveEnvironmentItem(Value.ENVIRONMENT_LAND, "ENVIRONMENT_LAND");
 
-    ENVIRONMENT_LAND("ENVIRONMENT_LAND"),
+    public static final PayloadConfigurationEffectiveEnvironmentItem ENVIRONMENT_SPACE =
+            new PayloadConfigurationEffectiveEnvironmentItem(Value.ENVIRONMENT_SPACE, "ENVIRONMENT_SPACE");
 
-    ENVIRONMENT_SPACE("ENVIRONMENT_SPACE");
+    public static final PayloadConfigurationEffectiveEnvironmentItem ENVIRONMENT_UNKNOWN =
+            new PayloadConfigurationEffectiveEnvironmentItem(Value.ENVIRONMENT_UNKNOWN, "ENVIRONMENT_UNKNOWN");
 
-    private final String value;
+    private final Value value;
 
-    PayloadConfigurationEffectiveEnvironmentItem(String value) {
+    private final String string;
+
+    PayloadConfigurationEffectiveEnvironmentItem(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof PayloadConfigurationEffectiveEnvironmentItem
+                        && this.string.equals(((PayloadConfigurationEffectiveEnvironmentItem) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case ENVIRONMENT_SURFACE:
+                return visitor.visitEnvironmentSurface();
+            case ENVIRONMENT_AIR:
+                return visitor.visitEnvironmentAir();
+            case ENVIRONMENT_SUB_SURFACE:
+                return visitor.visitEnvironmentSubSurface();
+            case ENVIRONMENT_LAND:
+                return visitor.visitEnvironmentLand();
+            case ENVIRONMENT_SPACE:
+                return visitor.visitEnvironmentSpace();
+            case ENVIRONMENT_UNKNOWN:
+                return visitor.visitEnvironmentUnknown();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static PayloadConfigurationEffectiveEnvironmentItem valueOf(String value) {
+        switch (value) {
+            case "ENVIRONMENT_SURFACE":
+                return ENVIRONMENT_SURFACE;
+            case "ENVIRONMENT_AIR":
+                return ENVIRONMENT_AIR;
+            case "ENVIRONMENT_SUB_SURFACE":
+                return ENVIRONMENT_SUB_SURFACE;
+            case "ENVIRONMENT_LAND":
+                return ENVIRONMENT_LAND;
+            case "ENVIRONMENT_SPACE":
+                return ENVIRONMENT_SPACE;
+            case "ENVIRONMENT_UNKNOWN":
+                return ENVIRONMENT_UNKNOWN;
+            default:
+                return new PayloadConfigurationEffectiveEnvironmentItem(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        ENVIRONMENT_UNKNOWN,
+
+        ENVIRONMENT_AIR,
+
+        ENVIRONMENT_SURFACE,
+
+        ENVIRONMENT_SUB_SURFACE,
+
+        ENVIRONMENT_LAND,
+
+        ENVIRONMENT_SPACE,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitEnvironmentUnknown();
+
+        T visitEnvironmentAir();
+
+        T visitEnvironmentSurface();
+
+        T visitEnvironmentSubSurface();
+
+        T visitEnvironmentLand();
+
+        T visitEnvironmentSpace();
+
+        T visitUnknown(String unknownType);
     }
 }

@@ -3,24 +3,92 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum MediaItemType {
-    MEDIA_TYPE_INVALID("MEDIA_TYPE_INVALID"),
+public final class MediaItemType {
+    public static final MediaItemType MEDIA_TYPE_IMAGE = new MediaItemType(Value.MEDIA_TYPE_IMAGE, "MEDIA_TYPE_IMAGE");
 
-    MEDIA_TYPE_IMAGE("MEDIA_TYPE_IMAGE"),
+    public static final MediaItemType MEDIA_TYPE_VIDEO = new MediaItemType(Value.MEDIA_TYPE_VIDEO, "MEDIA_TYPE_VIDEO");
 
-    MEDIA_TYPE_VIDEO("MEDIA_TYPE_VIDEO");
+    public static final MediaItemType MEDIA_TYPE_INVALID =
+            new MediaItemType(Value.MEDIA_TYPE_INVALID, "MEDIA_TYPE_INVALID");
 
-    private final String value;
+    private final Value value;
 
-    MediaItemType(String value) {
+    private final String string;
+
+    MediaItemType(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof MediaItemType && this.string.equals(((MediaItemType) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case MEDIA_TYPE_IMAGE:
+                return visitor.visitMediaTypeImage();
+            case MEDIA_TYPE_VIDEO:
+                return visitor.visitMediaTypeVideo();
+            case MEDIA_TYPE_INVALID:
+                return visitor.visitMediaTypeInvalid();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static MediaItemType valueOf(String value) {
+        switch (value) {
+            case "MEDIA_TYPE_IMAGE":
+                return MEDIA_TYPE_IMAGE;
+            case "MEDIA_TYPE_VIDEO":
+                return MEDIA_TYPE_VIDEO;
+            case "MEDIA_TYPE_INVALID":
+                return MEDIA_TYPE_INVALID;
+            default:
+                return new MediaItemType(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        MEDIA_TYPE_INVALID,
+
+        MEDIA_TYPE_IMAGE,
+
+        MEDIA_TYPE_VIDEO,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitMediaTypeInvalid();
+
+        T visitMediaTypeImage();
+
+        T visitMediaTypeVideo();
+
+        T visitUnknown(String unknownType);
     }
 }

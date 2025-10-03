@@ -3,30 +3,128 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum SensorOperationalState {
-    OPERATIONAL_STATE_INVALID("OPERATIONAL_STATE_INVALID"),
+public final class SensorOperationalState {
+    public static final SensorOperationalState OPERATIONAL_STATE_INVALID =
+            new SensorOperationalState(Value.OPERATIONAL_STATE_INVALID, "OPERATIONAL_STATE_INVALID");
 
-    OPERATIONAL_STATE_OFF("OPERATIONAL_STATE_OFF"),
+    public static final SensorOperationalState OPERATIONAL_STATE_DENIED =
+            new SensorOperationalState(Value.OPERATIONAL_STATE_DENIED, "OPERATIONAL_STATE_DENIED");
 
-    OPERATIONAL_STATE_NON_OPERATIONAL("OPERATIONAL_STATE_NON_OPERATIONAL"),
+    public static final SensorOperationalState OPERATIONAL_STATE_DEGRADED =
+            new SensorOperationalState(Value.OPERATIONAL_STATE_DEGRADED, "OPERATIONAL_STATE_DEGRADED");
 
-    OPERATIONAL_STATE_DEGRADED("OPERATIONAL_STATE_DEGRADED"),
+    public static final SensorOperationalState OPERATIONAL_STATE_OPERATIONAL =
+            new SensorOperationalState(Value.OPERATIONAL_STATE_OPERATIONAL, "OPERATIONAL_STATE_OPERATIONAL");
 
-    OPERATIONAL_STATE_OPERATIONAL("OPERATIONAL_STATE_OPERATIONAL"),
+    public static final SensorOperationalState OPERATIONAL_STATE_NON_OPERATIONAL =
+            new SensorOperationalState(Value.OPERATIONAL_STATE_NON_OPERATIONAL, "OPERATIONAL_STATE_NON_OPERATIONAL");
 
-    OPERATIONAL_STATE_DENIED("OPERATIONAL_STATE_DENIED");
+    public static final SensorOperationalState OPERATIONAL_STATE_OFF =
+            new SensorOperationalState(Value.OPERATIONAL_STATE_OFF, "OPERATIONAL_STATE_OFF");
 
-    private final String value;
+    private final Value value;
 
-    SensorOperationalState(String value) {
+    private final String string;
+
+    SensorOperationalState(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof SensorOperationalState
+                        && this.string.equals(((SensorOperationalState) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case OPERATIONAL_STATE_INVALID:
+                return visitor.visitOperationalStateInvalid();
+            case OPERATIONAL_STATE_DENIED:
+                return visitor.visitOperationalStateDenied();
+            case OPERATIONAL_STATE_DEGRADED:
+                return visitor.visitOperationalStateDegraded();
+            case OPERATIONAL_STATE_OPERATIONAL:
+                return visitor.visitOperationalStateOperational();
+            case OPERATIONAL_STATE_NON_OPERATIONAL:
+                return visitor.visitOperationalStateNonOperational();
+            case OPERATIONAL_STATE_OFF:
+                return visitor.visitOperationalStateOff();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static SensorOperationalState valueOf(String value) {
+        switch (value) {
+            case "OPERATIONAL_STATE_INVALID":
+                return OPERATIONAL_STATE_INVALID;
+            case "OPERATIONAL_STATE_DENIED":
+                return OPERATIONAL_STATE_DENIED;
+            case "OPERATIONAL_STATE_DEGRADED":
+                return OPERATIONAL_STATE_DEGRADED;
+            case "OPERATIONAL_STATE_OPERATIONAL":
+                return OPERATIONAL_STATE_OPERATIONAL;
+            case "OPERATIONAL_STATE_NON_OPERATIONAL":
+                return OPERATIONAL_STATE_NON_OPERATIONAL;
+            case "OPERATIONAL_STATE_OFF":
+                return OPERATIONAL_STATE_OFF;
+            default:
+                return new SensorOperationalState(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        OPERATIONAL_STATE_INVALID,
+
+        OPERATIONAL_STATE_OFF,
+
+        OPERATIONAL_STATE_NON_OPERATIONAL,
+
+        OPERATIONAL_STATE_DEGRADED,
+
+        OPERATIONAL_STATE_OPERATIONAL,
+
+        OPERATIONAL_STATE_DENIED,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitOperationalStateInvalid();
+
+        T visitOperationalStateOff();
+
+        T visitOperationalStateNonOperational();
+
+        T visitOperationalStateDegraded();
+
+        T visitOperationalStateOperational();
+
+        T visitOperationalStateDenied();
+
+        T visitUnknown(String unknownType);
     }
 }

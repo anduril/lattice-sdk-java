@@ -3,30 +3,124 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum OntologyTemplate {
-    TEMPLATE_INVALID("TEMPLATE_INVALID"),
+public final class OntologyTemplate {
+    public static final OntologyTemplate TEMPLATE_ASSET = new OntologyTemplate(Value.TEMPLATE_ASSET, "TEMPLATE_ASSET");
 
-    TEMPLATE_TRACK("TEMPLATE_TRACK"),
+    public static final OntologyTemplate TEMPLATE_INVALID =
+            new OntologyTemplate(Value.TEMPLATE_INVALID, "TEMPLATE_INVALID");
 
-    TEMPLATE_SENSOR_POINT_OF_INTEREST("TEMPLATE_SENSOR_POINT_OF_INTEREST"),
+    public static final OntologyTemplate TEMPLATE_TRACK = new OntologyTemplate(Value.TEMPLATE_TRACK, "TEMPLATE_TRACK");
 
-    TEMPLATE_ASSET("TEMPLATE_ASSET"),
+    public static final OntologyTemplate TEMPLATE_GEO = new OntologyTemplate(Value.TEMPLATE_GEO, "TEMPLATE_GEO");
 
-    TEMPLATE_GEO("TEMPLATE_GEO"),
+    public static final OntologyTemplate TEMPLATE_SIGNAL_OF_INTEREST =
+            new OntologyTemplate(Value.TEMPLATE_SIGNAL_OF_INTEREST, "TEMPLATE_SIGNAL_OF_INTEREST");
 
-    TEMPLATE_SIGNAL_OF_INTEREST("TEMPLATE_SIGNAL_OF_INTEREST");
+    public static final OntologyTemplate TEMPLATE_SENSOR_POINT_OF_INTEREST =
+            new OntologyTemplate(Value.TEMPLATE_SENSOR_POINT_OF_INTEREST, "TEMPLATE_SENSOR_POINT_OF_INTEREST");
 
-    private final String value;
+    private final Value value;
 
-    OntologyTemplate(String value) {
+    private final String string;
+
+    OntologyTemplate(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof OntologyTemplate && this.string.equals(((OntologyTemplate) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case TEMPLATE_ASSET:
+                return visitor.visitTemplateAsset();
+            case TEMPLATE_INVALID:
+                return visitor.visitTemplateInvalid();
+            case TEMPLATE_TRACK:
+                return visitor.visitTemplateTrack();
+            case TEMPLATE_GEO:
+                return visitor.visitTemplateGeo();
+            case TEMPLATE_SIGNAL_OF_INTEREST:
+                return visitor.visitTemplateSignalOfInterest();
+            case TEMPLATE_SENSOR_POINT_OF_INTEREST:
+                return visitor.visitTemplateSensorPointOfInterest();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static OntologyTemplate valueOf(String value) {
+        switch (value) {
+            case "TEMPLATE_ASSET":
+                return TEMPLATE_ASSET;
+            case "TEMPLATE_INVALID":
+                return TEMPLATE_INVALID;
+            case "TEMPLATE_TRACK":
+                return TEMPLATE_TRACK;
+            case "TEMPLATE_GEO":
+                return TEMPLATE_GEO;
+            case "TEMPLATE_SIGNAL_OF_INTEREST":
+                return TEMPLATE_SIGNAL_OF_INTEREST;
+            case "TEMPLATE_SENSOR_POINT_OF_INTEREST":
+                return TEMPLATE_SENSOR_POINT_OF_INTEREST;
+            default:
+                return new OntologyTemplate(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        TEMPLATE_INVALID,
+
+        TEMPLATE_TRACK,
+
+        TEMPLATE_SENSOR_POINT_OF_INTEREST,
+
+        TEMPLATE_ASSET,
+
+        TEMPLATE_GEO,
+
+        TEMPLATE_SIGNAL_OF_INTEREST,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitTemplateInvalid();
+
+        T visitTemplateTrack();
+
+        T visitTemplateSensorPointOfInterest();
+
+        T visitTemplateAsset();
+
+        T visitTemplateGeo();
+
+        T visitTemplateSignalOfInterest();
+
+        T visitUnknown(String unknownType);
     }
 }

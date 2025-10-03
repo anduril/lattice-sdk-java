@@ -3,22 +3,83 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum AcmDetailsAcmType {
-    ACM_DETAIL_TYPE_INVALID("ACM_DETAIL_TYPE_INVALID"),
+public final class AcmDetailsAcmType {
+    public static final AcmDetailsAcmType ACM_DETAIL_TYPE_INVALID =
+            new AcmDetailsAcmType(Value.ACM_DETAIL_TYPE_INVALID, "ACM_DETAIL_TYPE_INVALID");
 
-    ACM_DETAIL_TYPE_LANDING_ZONE("ACM_DETAIL_TYPE_LANDING_ZONE");
+    public static final AcmDetailsAcmType ACM_DETAIL_TYPE_LANDING_ZONE =
+            new AcmDetailsAcmType(Value.ACM_DETAIL_TYPE_LANDING_ZONE, "ACM_DETAIL_TYPE_LANDING_ZONE");
 
-    private final String value;
+    private final Value value;
 
-    AcmDetailsAcmType(String value) {
+    private final String string;
+
+    AcmDetailsAcmType(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof AcmDetailsAcmType && this.string.equals(((AcmDetailsAcmType) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case ACM_DETAIL_TYPE_INVALID:
+                return visitor.visitAcmDetailTypeInvalid();
+            case ACM_DETAIL_TYPE_LANDING_ZONE:
+                return visitor.visitAcmDetailTypeLandingZone();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static AcmDetailsAcmType valueOf(String value) {
+        switch (value) {
+            case "ACM_DETAIL_TYPE_INVALID":
+                return ACM_DETAIL_TYPE_INVALID;
+            case "ACM_DETAIL_TYPE_LANDING_ZONE":
+                return ACM_DETAIL_TYPE_LANDING_ZONE;
+            default:
+                return new AcmDetailsAcmType(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        ACM_DETAIL_TYPE_INVALID,
+
+        ACM_DETAIL_TYPE_LANDING_ZONE,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitAcmDetailTypeInvalid();
+
+        T visitAcmDetailTypeLandingZone();
+
+        T visitUnknown(String unknownType);
     }
 }

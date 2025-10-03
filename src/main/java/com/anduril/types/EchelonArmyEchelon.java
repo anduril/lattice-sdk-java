@@ -3,40 +3,182 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum EchelonArmyEchelon {
-    ARMY_ECHELON_INVALID("ARMY_ECHELON_INVALID"),
+public final class EchelonArmyEchelon {
+    public static final EchelonArmyEchelon ARMY_ECHELON_SQUAD =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_SQUAD, "ARMY_ECHELON_SQUAD");
 
-    ARMY_ECHELON_FIRE_TEAM("ARMY_ECHELON_FIRE_TEAM"),
+    public static final EchelonArmyEchelon ARMY_ECHELON_BRIGADE =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_BRIGADE, "ARMY_ECHELON_BRIGADE");
 
-    ARMY_ECHELON_SQUAD("ARMY_ECHELON_SQUAD"),
+    public static final EchelonArmyEchelon ARMY_ECHELON_BATTALION =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_BATTALION, "ARMY_ECHELON_BATTALION");
 
-    ARMY_ECHELON_PLATOON("ARMY_ECHELON_PLATOON"),
+    public static final EchelonArmyEchelon ARMY_ECHELON_DIVISION =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_DIVISION, "ARMY_ECHELON_DIVISION");
 
-    ARMY_ECHELON_COMPANY("ARMY_ECHELON_COMPANY"),
+    public static final EchelonArmyEchelon ARMY_ECHELON_FIRE_TEAM =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_FIRE_TEAM, "ARMY_ECHELON_FIRE_TEAM");
 
-    ARMY_ECHELON_BATTALION("ARMY_ECHELON_BATTALION"),
+    public static final EchelonArmyEchelon ARMY_ECHELON_PLATOON =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_PLATOON, "ARMY_ECHELON_PLATOON");
 
-    ARMY_ECHELON_REGIMENT("ARMY_ECHELON_REGIMENT"),
+    public static final EchelonArmyEchelon ARMY_ECHELON_COMPANY =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_COMPANY, "ARMY_ECHELON_COMPANY");
 
-    ARMY_ECHELON_BRIGADE("ARMY_ECHELON_BRIGADE"),
+    public static final EchelonArmyEchelon ARMY_ECHELON_REGIMENT =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_REGIMENT, "ARMY_ECHELON_REGIMENT");
 
-    ARMY_ECHELON_DIVISION("ARMY_ECHELON_DIVISION"),
+    public static final EchelonArmyEchelon ARMY_ECHELON_ARMY =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_ARMY, "ARMY_ECHELON_ARMY");
 
-    ARMY_ECHELON_CORPS("ARMY_ECHELON_CORPS"),
+    public static final EchelonArmyEchelon ARMY_ECHELON_CORPS =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_CORPS, "ARMY_ECHELON_CORPS");
 
-    ARMY_ECHELON_ARMY("ARMY_ECHELON_ARMY");
+    public static final EchelonArmyEchelon ARMY_ECHELON_INVALID =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_INVALID, "ARMY_ECHELON_INVALID");
 
-    private final String value;
+    private final Value value;
 
-    EchelonArmyEchelon(String value) {
+    private final String string;
+
+    EchelonArmyEchelon(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof EchelonArmyEchelon && this.string.equals(((EchelonArmyEchelon) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case ARMY_ECHELON_SQUAD:
+                return visitor.visitArmyEchelonSquad();
+            case ARMY_ECHELON_BRIGADE:
+                return visitor.visitArmyEchelonBrigade();
+            case ARMY_ECHELON_BATTALION:
+                return visitor.visitArmyEchelonBattalion();
+            case ARMY_ECHELON_DIVISION:
+                return visitor.visitArmyEchelonDivision();
+            case ARMY_ECHELON_FIRE_TEAM:
+                return visitor.visitArmyEchelonFireTeam();
+            case ARMY_ECHELON_PLATOON:
+                return visitor.visitArmyEchelonPlatoon();
+            case ARMY_ECHELON_COMPANY:
+                return visitor.visitArmyEchelonCompany();
+            case ARMY_ECHELON_REGIMENT:
+                return visitor.visitArmyEchelonRegiment();
+            case ARMY_ECHELON_ARMY:
+                return visitor.visitArmyEchelonArmy();
+            case ARMY_ECHELON_CORPS:
+                return visitor.visitArmyEchelonCorps();
+            case ARMY_ECHELON_INVALID:
+                return visitor.visitArmyEchelonInvalid();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static EchelonArmyEchelon valueOf(String value) {
+        switch (value) {
+            case "ARMY_ECHELON_SQUAD":
+                return ARMY_ECHELON_SQUAD;
+            case "ARMY_ECHELON_BRIGADE":
+                return ARMY_ECHELON_BRIGADE;
+            case "ARMY_ECHELON_BATTALION":
+                return ARMY_ECHELON_BATTALION;
+            case "ARMY_ECHELON_DIVISION":
+                return ARMY_ECHELON_DIVISION;
+            case "ARMY_ECHELON_FIRE_TEAM":
+                return ARMY_ECHELON_FIRE_TEAM;
+            case "ARMY_ECHELON_PLATOON":
+                return ARMY_ECHELON_PLATOON;
+            case "ARMY_ECHELON_COMPANY":
+                return ARMY_ECHELON_COMPANY;
+            case "ARMY_ECHELON_REGIMENT":
+                return ARMY_ECHELON_REGIMENT;
+            case "ARMY_ECHELON_ARMY":
+                return ARMY_ECHELON_ARMY;
+            case "ARMY_ECHELON_CORPS":
+                return ARMY_ECHELON_CORPS;
+            case "ARMY_ECHELON_INVALID":
+                return ARMY_ECHELON_INVALID;
+            default:
+                return new EchelonArmyEchelon(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        ARMY_ECHELON_INVALID,
+
+        ARMY_ECHELON_FIRE_TEAM,
+
+        ARMY_ECHELON_SQUAD,
+
+        ARMY_ECHELON_PLATOON,
+
+        ARMY_ECHELON_COMPANY,
+
+        ARMY_ECHELON_BATTALION,
+
+        ARMY_ECHELON_REGIMENT,
+
+        ARMY_ECHELON_BRIGADE,
+
+        ARMY_ECHELON_DIVISION,
+
+        ARMY_ECHELON_CORPS,
+
+        ARMY_ECHELON_ARMY,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitArmyEchelonInvalid();
+
+        T visitArmyEchelonFireTeam();
+
+        T visitArmyEchelonSquad();
+
+        T visitArmyEchelonPlatoon();
+
+        T visitArmyEchelonCompany();
+
+        T visitArmyEchelonBattalion();
+
+        T visitArmyEchelonRegiment();
+
+        T visitArmyEchelonBrigade();
+
+        T visitArmyEchelonDivision();
+
+        T visitArmyEchelonCorps();
+
+        T visitArmyEchelonArmy();
+
+        T visitUnknown(String unknownType);
     }
 }

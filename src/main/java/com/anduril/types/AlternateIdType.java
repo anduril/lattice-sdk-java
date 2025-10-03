@@ -3,64 +3,313 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum AlternateIdType {
-    ALT_ID_TYPE_INVALID("ALT_ID_TYPE_INVALID"),
+public final class AlternateIdType {
+    public static final AlternateIdType ALT_ID_TYPE_LINK_16_JU =
+            new AlternateIdType(Value.ALT_ID_TYPE_LINK_16_JU, "ALT_ID_TYPE_LINK16_JU");
 
-    ALT_ID_TYPE_TRACK_ID_2("ALT_ID_TYPE_TRACK_ID_2"),
+    public static final AlternateIdType ALT_ID_TYPE_IBS_GID =
+            new AlternateIdType(Value.ALT_ID_TYPE_IBS_GID, "ALT_ID_TYPE_IBS_GID");
 
-    ALT_ID_TYPE_TRACK_ID_1("ALT_ID_TYPE_TRACK_ID_1"),
+    public static final AlternateIdType ALT_ID_TYPE_INVALID =
+            new AlternateIdType(Value.ALT_ID_TYPE_INVALID, "ALT_ID_TYPE_INVALID");
 
-    ALT_ID_TYPE_SPI_ID("ALT_ID_TYPE_SPI_ID"),
+    public static final AlternateIdType ALT_ID_TYPE_IMO_ID =
+            new AlternateIdType(Value.ALT_ID_TYPE_IMO_ID, "ALT_ID_TYPE_IMO_ID");
 
-    ALT_ID_TYPE_NITF_FILE_TITLE("ALT_ID_TYPE_NITF_FILE_TITLE"),
+    public static final AlternateIdType ALT_ID_TYPE_TRACK_REPO_ALERT_ID =
+            new AlternateIdType(Value.ALT_ID_TYPE_TRACK_REPO_ALERT_ID, "ALT_ID_TYPE_TRACK_REPO_ALERT_ID");
 
-    ALT_ID_TYPE_TRACK_REPO_ALERT_ID("ALT_ID_TYPE_TRACK_REPO_ALERT_ID"),
+    public static final AlternateIdType ALT_ID_TYPE_NCCT_MESSAGE_ID =
+            new AlternateIdType(Value.ALT_ID_TYPE_NCCT_MESSAGE_ID, "ALT_ID_TYPE_NCCT_MESSAGE_ID");
 
-    ALT_ID_TYPE_ASSET_ID("ALT_ID_TYPE_ASSET_ID"),
+    public static final AlternateIdType ALT_ID_TYPE_SERIAL_NUMBER =
+            new AlternateIdType(Value.ALT_ID_TYPE_SERIAL_NUMBER, "ALT_ID_TYPE_SERIAL_NUMBER");
 
-    ALT_ID_TYPE_LINK_16_TRACK_NUMBER("ALT_ID_TYPE_LINK16_TRACK_NUMBER"),
+    public static final AlternateIdType ALT_ID_TYPE_UNOOSA_NAME =
+            new AlternateIdType(Value.ALT_ID_TYPE_UNOOSA_NAME, "ALT_ID_TYPE_UNOOSA_NAME");
 
-    ALT_ID_TYPE_LINK_16_JU("ALT_ID_TYPE_LINK16_JU"),
+    public static final AlternateIdType ALT_ID_TYPE_TRACK_ID_1 =
+            new AlternateIdType(Value.ALT_ID_TYPE_TRACK_ID_1, "ALT_ID_TYPE_TRACK_ID_1");
 
-    ALT_ID_TYPE_NCCT_MESSAGE_ID("ALT_ID_TYPE_NCCT_MESSAGE_ID"),
+    public static final AlternateIdType ALT_ID_TYPE_VMF_TARGET_NUMBER =
+            new AlternateIdType(Value.ALT_ID_TYPE_VMF_TARGET_NUMBER, "ALT_ID_TYPE_VMF_TARGET_NUMBER");
 
-    ALT_ID_TYPE_CALLSIGN("ALT_ID_TYPE_CALLSIGN"),
+    public static final AlternateIdType ALT_ID_TYPE_UIC = new AlternateIdType(Value.ALT_ID_TYPE_UIC, "ALT_ID_TYPE_UIC");
 
-    ALT_ID_TYPE_MMSI_ID("ALT_ID_TYPE_MMSI_ID"),
+    public static final AlternateIdType ALT_ID_TYPE_LINK_16_TRACK_NUMBER =
+            new AlternateIdType(Value.ALT_ID_TYPE_LINK_16_TRACK_NUMBER, "ALT_ID_TYPE_LINK16_TRACK_NUMBER");
 
-    ALT_ID_TYPE_VMF_URN("ALT_ID_TYPE_VMF_URN"),
+    public static final AlternateIdType ALT_ID_TYPE_REGISTRATION_ID =
+            new AlternateIdType(Value.ALT_ID_TYPE_REGISTRATION_ID, "ALT_ID_TYPE_REGISTRATION_ID");
 
-    ALT_ID_TYPE_IMO_ID("ALT_ID_TYPE_IMO_ID"),
+    public static final AlternateIdType ALT_ID_TYPE_TRACK_ID_2 =
+            new AlternateIdType(Value.ALT_ID_TYPE_TRACK_ID_2, "ALT_ID_TYPE_TRACK_ID_2");
 
-    ALT_ID_TYPE_VMF_TARGET_NUMBER("ALT_ID_TYPE_VMF_TARGET_NUMBER"),
+    public static final AlternateIdType ALT_ID_TYPE_NITF_FILE_TITLE =
+            new AlternateIdType(Value.ALT_ID_TYPE_NITF_FILE_TITLE, "ALT_ID_TYPE_NITF_FILE_TITLE");
 
-    ALT_ID_TYPE_SERIAL_NUMBER("ALT_ID_TYPE_SERIAL_NUMBER"),
+    public static final AlternateIdType ALT_ID_TYPE_CALLSIGN =
+            new AlternateIdType(Value.ALT_ID_TYPE_CALLSIGN, "ALT_ID_TYPE_CALLSIGN");
 
-    ALT_ID_TYPE_REGISTRATION_ID("ALT_ID_TYPE_REGISTRATION_ID"),
+    public static final AlternateIdType ALT_ID_TYPE_VMF_URN =
+            new AlternateIdType(Value.ALT_ID_TYPE_VMF_URN, "ALT_ID_TYPE_VMF_URN");
 
-    ALT_ID_TYPE_IBS_GID("ALT_ID_TYPE_IBS_GID"),
+    public static final AlternateIdType ALT_ID_TYPE_UNOOSA_ID =
+            new AlternateIdType(Value.ALT_ID_TYPE_UNOOSA_ID, "ALT_ID_TYPE_UNOOSA_ID");
 
-    ALT_ID_TYPE_DODAAC("ALT_ID_TYPE_DODAAC"),
+    public static final AlternateIdType ALT_ID_TYPE_ASSET_ID =
+            new AlternateIdType(Value.ALT_ID_TYPE_ASSET_ID, "ALT_ID_TYPE_ASSET_ID");
 
-    ALT_ID_TYPE_UIC("ALT_ID_TYPE_UIC"),
+    public static final AlternateIdType ALT_ID_TYPE_SPI_ID =
+            new AlternateIdType(Value.ALT_ID_TYPE_SPI_ID, "ALT_ID_TYPE_SPI_ID");
 
-    ALT_ID_TYPE_NORAD_CAT_ID("ALT_ID_TYPE_NORAD_CAT_ID"),
+    public static final AlternateIdType ALT_ID_TYPE_DODAAC =
+            new AlternateIdType(Value.ALT_ID_TYPE_DODAAC, "ALT_ID_TYPE_DODAAC");
 
-    ALT_ID_TYPE_UNOOSA_NAME("ALT_ID_TYPE_UNOOSA_NAME"),
+    public static final AlternateIdType ALT_ID_TYPE_NORAD_CAT_ID =
+            new AlternateIdType(Value.ALT_ID_TYPE_NORAD_CAT_ID, "ALT_ID_TYPE_NORAD_CAT_ID");
 
-    ALT_ID_TYPE_UNOOSA_ID("ALT_ID_TYPE_UNOOSA_ID");
+    public static final AlternateIdType ALT_ID_TYPE_MMSI_ID =
+            new AlternateIdType(Value.ALT_ID_TYPE_MMSI_ID, "ALT_ID_TYPE_MMSI_ID");
 
-    private final String value;
+    private final Value value;
 
-    AlternateIdType(String value) {
+    private final String string;
+
+    AlternateIdType(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof AlternateIdType && this.string.equals(((AlternateIdType) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case ALT_ID_TYPE_LINK_16_JU:
+                return visitor.visitAltIdTypeLink16Ju();
+            case ALT_ID_TYPE_IBS_GID:
+                return visitor.visitAltIdTypeIbsGid();
+            case ALT_ID_TYPE_INVALID:
+                return visitor.visitAltIdTypeInvalid();
+            case ALT_ID_TYPE_IMO_ID:
+                return visitor.visitAltIdTypeImoId();
+            case ALT_ID_TYPE_TRACK_REPO_ALERT_ID:
+                return visitor.visitAltIdTypeTrackRepoAlertId();
+            case ALT_ID_TYPE_NCCT_MESSAGE_ID:
+                return visitor.visitAltIdTypeNcctMessageId();
+            case ALT_ID_TYPE_SERIAL_NUMBER:
+                return visitor.visitAltIdTypeSerialNumber();
+            case ALT_ID_TYPE_UNOOSA_NAME:
+                return visitor.visitAltIdTypeUnoosaName();
+            case ALT_ID_TYPE_TRACK_ID_1:
+                return visitor.visitAltIdTypeTrackId1();
+            case ALT_ID_TYPE_VMF_TARGET_NUMBER:
+                return visitor.visitAltIdTypeVmfTargetNumber();
+            case ALT_ID_TYPE_UIC:
+                return visitor.visitAltIdTypeUic();
+            case ALT_ID_TYPE_LINK_16_TRACK_NUMBER:
+                return visitor.visitAltIdTypeLink16TrackNumber();
+            case ALT_ID_TYPE_REGISTRATION_ID:
+                return visitor.visitAltIdTypeRegistrationId();
+            case ALT_ID_TYPE_TRACK_ID_2:
+                return visitor.visitAltIdTypeTrackId2();
+            case ALT_ID_TYPE_NITF_FILE_TITLE:
+                return visitor.visitAltIdTypeNitfFileTitle();
+            case ALT_ID_TYPE_CALLSIGN:
+                return visitor.visitAltIdTypeCallsign();
+            case ALT_ID_TYPE_VMF_URN:
+                return visitor.visitAltIdTypeVmfUrn();
+            case ALT_ID_TYPE_UNOOSA_ID:
+                return visitor.visitAltIdTypeUnoosaId();
+            case ALT_ID_TYPE_ASSET_ID:
+                return visitor.visitAltIdTypeAssetId();
+            case ALT_ID_TYPE_SPI_ID:
+                return visitor.visitAltIdTypeSpiId();
+            case ALT_ID_TYPE_DODAAC:
+                return visitor.visitAltIdTypeDodaac();
+            case ALT_ID_TYPE_NORAD_CAT_ID:
+                return visitor.visitAltIdTypeNoradCatId();
+            case ALT_ID_TYPE_MMSI_ID:
+                return visitor.visitAltIdTypeMmsiId();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static AlternateIdType valueOf(String value) {
+        switch (value) {
+            case "ALT_ID_TYPE_LINK16_JU":
+                return ALT_ID_TYPE_LINK_16_JU;
+            case "ALT_ID_TYPE_IBS_GID":
+                return ALT_ID_TYPE_IBS_GID;
+            case "ALT_ID_TYPE_INVALID":
+                return ALT_ID_TYPE_INVALID;
+            case "ALT_ID_TYPE_IMO_ID":
+                return ALT_ID_TYPE_IMO_ID;
+            case "ALT_ID_TYPE_TRACK_REPO_ALERT_ID":
+                return ALT_ID_TYPE_TRACK_REPO_ALERT_ID;
+            case "ALT_ID_TYPE_NCCT_MESSAGE_ID":
+                return ALT_ID_TYPE_NCCT_MESSAGE_ID;
+            case "ALT_ID_TYPE_SERIAL_NUMBER":
+                return ALT_ID_TYPE_SERIAL_NUMBER;
+            case "ALT_ID_TYPE_UNOOSA_NAME":
+                return ALT_ID_TYPE_UNOOSA_NAME;
+            case "ALT_ID_TYPE_TRACK_ID_1":
+                return ALT_ID_TYPE_TRACK_ID_1;
+            case "ALT_ID_TYPE_VMF_TARGET_NUMBER":
+                return ALT_ID_TYPE_VMF_TARGET_NUMBER;
+            case "ALT_ID_TYPE_UIC":
+                return ALT_ID_TYPE_UIC;
+            case "ALT_ID_TYPE_LINK16_TRACK_NUMBER":
+                return ALT_ID_TYPE_LINK_16_TRACK_NUMBER;
+            case "ALT_ID_TYPE_REGISTRATION_ID":
+                return ALT_ID_TYPE_REGISTRATION_ID;
+            case "ALT_ID_TYPE_TRACK_ID_2":
+                return ALT_ID_TYPE_TRACK_ID_2;
+            case "ALT_ID_TYPE_NITF_FILE_TITLE":
+                return ALT_ID_TYPE_NITF_FILE_TITLE;
+            case "ALT_ID_TYPE_CALLSIGN":
+                return ALT_ID_TYPE_CALLSIGN;
+            case "ALT_ID_TYPE_VMF_URN":
+                return ALT_ID_TYPE_VMF_URN;
+            case "ALT_ID_TYPE_UNOOSA_ID":
+                return ALT_ID_TYPE_UNOOSA_ID;
+            case "ALT_ID_TYPE_ASSET_ID":
+                return ALT_ID_TYPE_ASSET_ID;
+            case "ALT_ID_TYPE_SPI_ID":
+                return ALT_ID_TYPE_SPI_ID;
+            case "ALT_ID_TYPE_DODAAC":
+                return ALT_ID_TYPE_DODAAC;
+            case "ALT_ID_TYPE_NORAD_CAT_ID":
+                return ALT_ID_TYPE_NORAD_CAT_ID;
+            case "ALT_ID_TYPE_MMSI_ID":
+                return ALT_ID_TYPE_MMSI_ID;
+            default:
+                return new AlternateIdType(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        ALT_ID_TYPE_INVALID,
+
+        ALT_ID_TYPE_TRACK_ID_2,
+
+        ALT_ID_TYPE_TRACK_ID_1,
+
+        ALT_ID_TYPE_SPI_ID,
+
+        ALT_ID_TYPE_NITF_FILE_TITLE,
+
+        ALT_ID_TYPE_TRACK_REPO_ALERT_ID,
+
+        ALT_ID_TYPE_ASSET_ID,
+
+        ALT_ID_TYPE_LINK_16_TRACK_NUMBER,
+
+        ALT_ID_TYPE_LINK_16_JU,
+
+        ALT_ID_TYPE_NCCT_MESSAGE_ID,
+
+        ALT_ID_TYPE_CALLSIGN,
+
+        ALT_ID_TYPE_MMSI_ID,
+
+        ALT_ID_TYPE_VMF_URN,
+
+        ALT_ID_TYPE_IMO_ID,
+
+        ALT_ID_TYPE_VMF_TARGET_NUMBER,
+
+        ALT_ID_TYPE_SERIAL_NUMBER,
+
+        ALT_ID_TYPE_REGISTRATION_ID,
+
+        ALT_ID_TYPE_IBS_GID,
+
+        ALT_ID_TYPE_DODAAC,
+
+        ALT_ID_TYPE_UIC,
+
+        ALT_ID_TYPE_NORAD_CAT_ID,
+
+        ALT_ID_TYPE_UNOOSA_NAME,
+
+        ALT_ID_TYPE_UNOOSA_ID,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitAltIdTypeInvalid();
+
+        T visitAltIdTypeTrackId2();
+
+        T visitAltIdTypeTrackId1();
+
+        T visitAltIdTypeSpiId();
+
+        T visitAltIdTypeNitfFileTitle();
+
+        T visitAltIdTypeTrackRepoAlertId();
+
+        T visitAltIdTypeAssetId();
+
+        T visitAltIdTypeLink16TrackNumber();
+
+        T visitAltIdTypeLink16Ju();
+
+        T visitAltIdTypeNcctMessageId();
+
+        T visitAltIdTypeCallsign();
+
+        T visitAltIdTypeMmsiId();
+
+        T visitAltIdTypeVmfUrn();
+
+        T visitAltIdTypeImoId();
+
+        T visitAltIdTypeVmfTargetNumber();
+
+        T visitAltIdTypeSerialNumber();
+
+        T visitAltIdTypeRegistrationId();
+
+        T visitAltIdTypeIbsGid();
+
+        T visitAltIdTypeDodaac();
+
+        T visitAltIdTypeUic();
+
+        T visitAltIdTypeNoradCatId();
+
+        T visitAltIdTypeUnoosaName();
+
+        T visitAltIdTypeUnoosaId();
+
+        T visitUnknown(String unknownType);
     }
 }

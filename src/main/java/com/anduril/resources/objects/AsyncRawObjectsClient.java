@@ -114,15 +114,16 @@ public class AsyncRawObjectsClient {
                                 .build();
                         List<PathMetadata> result = parsedResponse.getPathMetadatas();
                         future.complete(new LatticeHttpResponse<>(
-                                new SyncPagingIterable<PathMetadata>(startingAfter.isPresent(), result, () -> {
-                                    try {
-                                        return listObjects(nextRequest, requestOptions)
-                                                .get()
-                                                .body();
-                                    } catch (InterruptedException | ExecutionException e) {
-                                        throw new RuntimeException(e);
-                                    }
-                                }),
+                                new SyncPagingIterable<PathMetadata>(
+                                        startingAfter.isPresent(), result, parsedResponse, () -> {
+                                            try {
+                                                return listObjects(nextRequest, requestOptions)
+                                                        .get()
+                                                        .body();
+                                            } catch (InterruptedException | ExecutionException e) {
+                                                throw new RuntimeException(e);
+                                            }
+                                        }),
                                 response));
                         return;
                     }
@@ -199,9 +200,6 @@ public class AsyncRawObjectsClient {
         if (request.getAcceptEncoding().isPresent()) {
             _requestBuilder.addHeader(
                     "Accept-Encoding", request.getAcceptEncoding().get().toString());
-        }
-        if (request.getPriority().isPresent()) {
-            _requestBuilder.addHeader("Priority", request.getPriority().get());
         }
         Request okhttpRequest = _requestBuilder.build();
         OkHttpClient client = clientOptions.httpClient();

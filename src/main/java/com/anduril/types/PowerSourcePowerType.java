@@ -3,26 +3,105 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum PowerSourcePowerType {
-    POWER_TYPE_INVALID("POWER_TYPE_INVALID"),
+public final class PowerSourcePowerType {
+    public static final PowerSourcePowerType POWER_TYPE_GAS =
+            new PowerSourcePowerType(Value.POWER_TYPE_GAS, "POWER_TYPE_GAS");
 
-    POWER_TYPE_UNKNOWN("POWER_TYPE_UNKNOWN"),
+    public static final PowerSourcePowerType POWER_TYPE_BATTERY =
+            new PowerSourcePowerType(Value.POWER_TYPE_BATTERY, "POWER_TYPE_BATTERY");
 
-    POWER_TYPE_GAS("POWER_TYPE_GAS"),
+    public static final PowerSourcePowerType POWER_TYPE_INVALID =
+            new PowerSourcePowerType(Value.POWER_TYPE_INVALID, "POWER_TYPE_INVALID");
 
-    POWER_TYPE_BATTERY("POWER_TYPE_BATTERY");
+    public static final PowerSourcePowerType POWER_TYPE_UNKNOWN =
+            new PowerSourcePowerType(Value.POWER_TYPE_UNKNOWN, "POWER_TYPE_UNKNOWN");
 
-    private final String value;
+    private final Value value;
 
-    PowerSourcePowerType(String value) {
+    private final String string;
+
+    PowerSourcePowerType(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof PowerSourcePowerType && this.string.equals(((PowerSourcePowerType) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case POWER_TYPE_GAS:
+                return visitor.visitPowerTypeGas();
+            case POWER_TYPE_BATTERY:
+                return visitor.visitPowerTypeBattery();
+            case POWER_TYPE_INVALID:
+                return visitor.visitPowerTypeInvalid();
+            case POWER_TYPE_UNKNOWN:
+                return visitor.visitPowerTypeUnknown();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static PowerSourcePowerType valueOf(String value) {
+        switch (value) {
+            case "POWER_TYPE_GAS":
+                return POWER_TYPE_GAS;
+            case "POWER_TYPE_BATTERY":
+                return POWER_TYPE_BATTERY;
+            case "POWER_TYPE_INVALID":
+                return POWER_TYPE_INVALID;
+            case "POWER_TYPE_UNKNOWN":
+                return POWER_TYPE_UNKNOWN;
+            default:
+                return new PowerSourcePowerType(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        POWER_TYPE_INVALID,
+
+        POWER_TYPE_UNKNOWN,
+
+        POWER_TYPE_GAS,
+
+        POWER_TYPE_BATTERY,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitPowerTypeInvalid();
+
+        T visitPowerTypeUnknown();
+
+        T visitPowerTypeGas();
+
+        T visitPowerTypeBattery();
+
+        T visitUnknown(String unknownType);
     }
 }

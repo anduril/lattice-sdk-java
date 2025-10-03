@@ -3,52 +3,254 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum ScanCharacteristicsScanType {
-    SCAN_TYPE_INVALID("SCAN_TYPE_INVALID"),
+public final class ScanCharacteristicsScanType {
+    public static final ScanCharacteristicsScanType SCAN_TYPE_SECTOR_CONICAL =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_SECTOR_CONICAL, "SCAN_TYPE_SECTOR_CONICAL");
 
-    SCAN_TYPE_CIRCULAR("SCAN_TYPE_CIRCULAR"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_INVALID =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_INVALID, "SCAN_TYPE_INVALID");
 
-    SCAN_TYPE_BIDIRECTIONAL_HORIZONTAL_SECTOR("SCAN_TYPE_BIDIRECTIONAL_HORIZONTAL_SECTOR"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_BIDIRECTIONAL_VERTICAL_SECTOR =
+            new ScanCharacteristicsScanType(
+                    Value.SCAN_TYPE_BIDIRECTIONAL_VERTICAL_SECTOR, "SCAN_TYPE_BIDIRECTIONAL_VERTICAL_SECTOR");
 
-    SCAN_TYPE_BIDIRECTIONAL_VERTICAL_SECTOR("SCAN_TYPE_BIDIRECTIONAL_VERTICAL_SECTOR"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_UNIDIRECTIONAL_VERTICAL_SECTOR =
+            new ScanCharacteristicsScanType(
+                    Value.SCAN_TYPE_UNIDIRECTIONAL_VERTICAL_SECTOR, "SCAN_TYPE_UNIDIRECTIONAL_VERTICAL_SECTOR");
 
-    SCAN_TYPE_NON_SCANNING("SCAN_TYPE_NON_SCANNING"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_LOBE_SWITCHING =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_LOBE_SWITCHING, "SCAN_TYPE_LOBE_SWITCHING");
 
-    SCAN_TYPE_IRREGULAR("SCAN_TYPE_IRREGULAR"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_AGILE_BEAM =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_AGILE_BEAM, "SCAN_TYPE_AGILE_BEAM");
 
-    SCAN_TYPE_CONICAL("SCAN_TYPE_CONICAL"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_RASTER =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_RASTER, "SCAN_TYPE_RASTER");
 
-    SCAN_TYPE_LOBE_SWITCHING("SCAN_TYPE_LOBE_SWITCHING"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_CIRCULAR =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_CIRCULAR, "SCAN_TYPE_CIRCULAR");
 
-    SCAN_TYPE_RASTER("SCAN_TYPE_RASTER"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_BIDIRECTIONAL_SECTOR =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_BIDIRECTIONAL_SECTOR, "SCAN_TYPE_BIDIRECTIONAL_SECTOR");
 
-    SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR("SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_IRREGULAR =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_IRREGULAR, "SCAN_TYPE_IRREGULAR");
 
-    SCAN_TYPE_CIRCULAR_CONICAL("SCAN_TYPE_CIRCULAR_CONICAL"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_CIRCULAR_CONICAL =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_CIRCULAR_CONICAL, "SCAN_TYPE_CIRCULAR_CONICAL");
 
-    SCAN_TYPE_SECTOR_CONICAL("SCAN_TYPE_SECTOR_CONICAL"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR =
+            new ScanCharacteristicsScanType(
+                    Value.SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR, "SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR");
 
-    SCAN_TYPE_AGILE_BEAM("SCAN_TYPE_AGILE_BEAM"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_UNIDIRECTIONAL_SECTOR =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_UNIDIRECTIONAL_SECTOR, "SCAN_TYPE_UNIDIRECTIONAL_SECTOR");
 
-    SCAN_TYPE_UNIDIRECTIONAL_VERTICAL_SECTOR("SCAN_TYPE_UNIDIRECTIONAL_VERTICAL_SECTOR"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTOR =
+            new ScanCharacteristicsScanType(
+                    Value.SCAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTOR, "SCAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTOR");
 
-    SCAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTOR("SCAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTOR"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_BIDIRECTIONAL_HORIZONTAL_SECTOR =
+            new ScanCharacteristicsScanType(
+                    Value.SCAN_TYPE_BIDIRECTIONAL_HORIZONTAL_SECTOR, "SCAN_TYPE_BIDIRECTIONAL_HORIZONTAL_SECTOR");
 
-    SCAN_TYPE_UNIDIRECTIONAL_SECTOR("SCAN_TYPE_UNIDIRECTIONAL_SECTOR"),
+    public static final ScanCharacteristicsScanType SCAN_TYPE_NON_SCANNING =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_NON_SCANNING, "SCAN_TYPE_NON_SCANNING");
 
-    SCAN_TYPE_BIDIRECTIONAL_SECTOR("SCAN_TYPE_BIDIRECTIONAL_SECTOR");
+    public static final ScanCharacteristicsScanType SCAN_TYPE_CONICAL =
+            new ScanCharacteristicsScanType(Value.SCAN_TYPE_CONICAL, "SCAN_TYPE_CONICAL");
 
-    private final String value;
+    private final Value value;
 
-    ScanCharacteristicsScanType(String value) {
+    private final String string;
+
+    ScanCharacteristicsScanType(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof ScanCharacteristicsScanType
+                        && this.string.equals(((ScanCharacteristicsScanType) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case SCAN_TYPE_SECTOR_CONICAL:
+                return visitor.visitScanTypeSectorConical();
+            case SCAN_TYPE_INVALID:
+                return visitor.visitScanTypeInvalid();
+            case SCAN_TYPE_BIDIRECTIONAL_VERTICAL_SECTOR:
+                return visitor.visitScanTypeBidirectionalVerticalSector();
+            case SCAN_TYPE_UNIDIRECTIONAL_VERTICAL_SECTOR:
+                return visitor.visitScanTypeUnidirectionalVerticalSector();
+            case SCAN_TYPE_LOBE_SWITCHING:
+                return visitor.visitScanTypeLobeSwitching();
+            case SCAN_TYPE_AGILE_BEAM:
+                return visitor.visitScanTypeAgileBeam();
+            case SCAN_TYPE_RASTER:
+                return visitor.visitScanTypeRaster();
+            case SCAN_TYPE_CIRCULAR:
+                return visitor.visitScanTypeCircular();
+            case SCAN_TYPE_BIDIRECTIONAL_SECTOR:
+                return visitor.visitScanTypeBidirectionalSector();
+            case SCAN_TYPE_IRREGULAR:
+                return visitor.visitScanTypeIrregular();
+            case SCAN_TYPE_CIRCULAR_CONICAL:
+                return visitor.visitScanTypeCircularConical();
+            case SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR:
+                return visitor.visitScanTypeCircularVerticalSector();
+            case SCAN_TYPE_UNIDIRECTIONAL_SECTOR:
+                return visitor.visitScanTypeUnidirectionalSector();
+            case SCAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTOR:
+                return visitor.visitScanTypeUnidirectionalHorizontalSector();
+            case SCAN_TYPE_BIDIRECTIONAL_HORIZONTAL_SECTOR:
+                return visitor.visitScanTypeBidirectionalHorizontalSector();
+            case SCAN_TYPE_NON_SCANNING:
+                return visitor.visitScanTypeNonScanning();
+            case SCAN_TYPE_CONICAL:
+                return visitor.visitScanTypeConical();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static ScanCharacteristicsScanType valueOf(String value) {
+        switch (value) {
+            case "SCAN_TYPE_SECTOR_CONICAL":
+                return SCAN_TYPE_SECTOR_CONICAL;
+            case "SCAN_TYPE_INVALID":
+                return SCAN_TYPE_INVALID;
+            case "SCAN_TYPE_BIDIRECTIONAL_VERTICAL_SECTOR":
+                return SCAN_TYPE_BIDIRECTIONAL_VERTICAL_SECTOR;
+            case "SCAN_TYPE_UNIDIRECTIONAL_VERTICAL_SECTOR":
+                return SCAN_TYPE_UNIDIRECTIONAL_VERTICAL_SECTOR;
+            case "SCAN_TYPE_LOBE_SWITCHING":
+                return SCAN_TYPE_LOBE_SWITCHING;
+            case "SCAN_TYPE_AGILE_BEAM":
+                return SCAN_TYPE_AGILE_BEAM;
+            case "SCAN_TYPE_RASTER":
+                return SCAN_TYPE_RASTER;
+            case "SCAN_TYPE_CIRCULAR":
+                return SCAN_TYPE_CIRCULAR;
+            case "SCAN_TYPE_BIDIRECTIONAL_SECTOR":
+                return SCAN_TYPE_BIDIRECTIONAL_SECTOR;
+            case "SCAN_TYPE_IRREGULAR":
+                return SCAN_TYPE_IRREGULAR;
+            case "SCAN_TYPE_CIRCULAR_CONICAL":
+                return SCAN_TYPE_CIRCULAR_CONICAL;
+            case "SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR":
+                return SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR;
+            case "SCAN_TYPE_UNIDIRECTIONAL_SECTOR":
+                return SCAN_TYPE_UNIDIRECTIONAL_SECTOR;
+            case "SCAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTOR":
+                return SCAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTOR;
+            case "SCAN_TYPE_BIDIRECTIONAL_HORIZONTAL_SECTOR":
+                return SCAN_TYPE_BIDIRECTIONAL_HORIZONTAL_SECTOR;
+            case "SCAN_TYPE_NON_SCANNING":
+                return SCAN_TYPE_NON_SCANNING;
+            case "SCAN_TYPE_CONICAL":
+                return SCAN_TYPE_CONICAL;
+            default:
+                return new ScanCharacteristicsScanType(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        SCAN_TYPE_INVALID,
+
+        SCAN_TYPE_CIRCULAR,
+
+        SCAN_TYPE_BIDIRECTIONAL_HORIZONTAL_SECTOR,
+
+        SCAN_TYPE_BIDIRECTIONAL_VERTICAL_SECTOR,
+
+        SCAN_TYPE_NON_SCANNING,
+
+        SCAN_TYPE_IRREGULAR,
+
+        SCAN_TYPE_CONICAL,
+
+        SCAN_TYPE_LOBE_SWITCHING,
+
+        SCAN_TYPE_RASTER,
+
+        SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR,
+
+        SCAN_TYPE_CIRCULAR_CONICAL,
+
+        SCAN_TYPE_SECTOR_CONICAL,
+
+        SCAN_TYPE_AGILE_BEAM,
+
+        SCAN_TYPE_UNIDIRECTIONAL_VERTICAL_SECTOR,
+
+        SCAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTOR,
+
+        SCAN_TYPE_UNIDIRECTIONAL_SECTOR,
+
+        SCAN_TYPE_BIDIRECTIONAL_SECTOR,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitScanTypeInvalid();
+
+        T visitScanTypeCircular();
+
+        T visitScanTypeBidirectionalHorizontalSector();
+
+        T visitScanTypeBidirectionalVerticalSector();
+
+        T visitScanTypeNonScanning();
+
+        T visitScanTypeIrregular();
+
+        T visitScanTypeConical();
+
+        T visitScanTypeLobeSwitching();
+
+        T visitScanTypeRaster();
+
+        T visitScanTypeCircularVerticalSector();
+
+        T visitScanTypeCircularConical();
+
+        T visitScanTypeSectorConical();
+
+        T visitScanTypeAgileBeam();
+
+        T visitScanTypeUnidirectionalVerticalSector();
+
+        T visitScanTypeUnidirectionalHorizontalSector();
+
+        T visitScanTypeUnidirectionalSector();
+
+        T visitScanTypeBidirectionalSector();
+
+        T visitUnknown(String unknownType);
     }
 }
