@@ -3,28 +3,117 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum ControlAreaDetailsType {
-    CONTROL_AREA_TYPE_INVALID("CONTROL_AREA_TYPE_INVALID"),
+public final class ControlAreaDetailsType {
+    public static final ControlAreaDetailsType CONTROL_AREA_TYPE_LOITER_ZONE =
+            new ControlAreaDetailsType(Value.CONTROL_AREA_TYPE_LOITER_ZONE, "CONTROL_AREA_TYPE_LOITER_ZONE");
 
-    CONTROL_AREA_TYPE_KEEP_IN_ZONE("CONTROL_AREA_TYPE_KEEP_IN_ZONE"),
+    public static final ControlAreaDetailsType CONTROL_AREA_TYPE_INVALID =
+            new ControlAreaDetailsType(Value.CONTROL_AREA_TYPE_INVALID, "CONTROL_AREA_TYPE_INVALID");
 
-    CONTROL_AREA_TYPE_KEEP_OUT_ZONE("CONTROL_AREA_TYPE_KEEP_OUT_ZONE"),
+    public static final ControlAreaDetailsType CONTROL_AREA_TYPE_DITCH_ZONE =
+            new ControlAreaDetailsType(Value.CONTROL_AREA_TYPE_DITCH_ZONE, "CONTROL_AREA_TYPE_DITCH_ZONE");
 
-    CONTROL_AREA_TYPE_DITCH_ZONE("CONTROL_AREA_TYPE_DITCH_ZONE"),
+    public static final ControlAreaDetailsType CONTROL_AREA_TYPE_KEEP_IN_ZONE =
+            new ControlAreaDetailsType(Value.CONTROL_AREA_TYPE_KEEP_IN_ZONE, "CONTROL_AREA_TYPE_KEEP_IN_ZONE");
 
-    CONTROL_AREA_TYPE_LOITER_ZONE("CONTROL_AREA_TYPE_LOITER_ZONE");
+    public static final ControlAreaDetailsType CONTROL_AREA_TYPE_KEEP_OUT_ZONE =
+            new ControlAreaDetailsType(Value.CONTROL_AREA_TYPE_KEEP_OUT_ZONE, "CONTROL_AREA_TYPE_KEEP_OUT_ZONE");
 
-    private final String value;
+    private final Value value;
 
-    ControlAreaDetailsType(String value) {
+    private final String string;
+
+    ControlAreaDetailsType(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof ControlAreaDetailsType
+                        && this.string.equals(((ControlAreaDetailsType) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case CONTROL_AREA_TYPE_LOITER_ZONE:
+                return visitor.visitControlAreaTypeLoiterZone();
+            case CONTROL_AREA_TYPE_INVALID:
+                return visitor.visitControlAreaTypeInvalid();
+            case CONTROL_AREA_TYPE_DITCH_ZONE:
+                return visitor.visitControlAreaTypeDitchZone();
+            case CONTROL_AREA_TYPE_KEEP_IN_ZONE:
+                return visitor.visitControlAreaTypeKeepInZone();
+            case CONTROL_AREA_TYPE_KEEP_OUT_ZONE:
+                return visitor.visitControlAreaTypeKeepOutZone();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static ControlAreaDetailsType valueOf(String value) {
+        switch (value) {
+            case "CONTROL_AREA_TYPE_LOITER_ZONE":
+                return CONTROL_AREA_TYPE_LOITER_ZONE;
+            case "CONTROL_AREA_TYPE_INVALID":
+                return CONTROL_AREA_TYPE_INVALID;
+            case "CONTROL_AREA_TYPE_DITCH_ZONE":
+                return CONTROL_AREA_TYPE_DITCH_ZONE;
+            case "CONTROL_AREA_TYPE_KEEP_IN_ZONE":
+                return CONTROL_AREA_TYPE_KEEP_IN_ZONE;
+            case "CONTROL_AREA_TYPE_KEEP_OUT_ZONE":
+                return CONTROL_AREA_TYPE_KEEP_OUT_ZONE;
+            default:
+                return new ControlAreaDetailsType(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        CONTROL_AREA_TYPE_INVALID,
+
+        CONTROL_AREA_TYPE_KEEP_IN_ZONE,
+
+        CONTROL_AREA_TYPE_KEEP_OUT_ZONE,
+
+        CONTROL_AREA_TYPE_DITCH_ZONE,
+
+        CONTROL_AREA_TYPE_LOITER_ZONE,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitControlAreaTypeInvalid();
+
+        T visitControlAreaTypeKeepInZone();
+
+        T visitControlAreaTypeKeepOutZone();
+
+        T visitControlAreaTypeDitchZone();
+
+        T visitControlAreaTypeLoiterZone();
+
+        T visitUnknown(String unknownType);
     }
 }

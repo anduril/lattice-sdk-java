@@ -3,24 +3,95 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum HealthConnectionStatus {
-    CONNECTION_STATUS_INVALID("CONNECTION_STATUS_INVALID"),
+public final class HealthConnectionStatus {
+    public static final HealthConnectionStatus CONNECTION_STATUS_OFFLINE =
+            new HealthConnectionStatus(Value.CONNECTION_STATUS_OFFLINE, "CONNECTION_STATUS_OFFLINE");
 
-    CONNECTION_STATUS_ONLINE("CONNECTION_STATUS_ONLINE"),
+    public static final HealthConnectionStatus CONNECTION_STATUS_ONLINE =
+            new HealthConnectionStatus(Value.CONNECTION_STATUS_ONLINE, "CONNECTION_STATUS_ONLINE");
 
-    CONNECTION_STATUS_OFFLINE("CONNECTION_STATUS_OFFLINE");
+    public static final HealthConnectionStatus CONNECTION_STATUS_INVALID =
+            new HealthConnectionStatus(Value.CONNECTION_STATUS_INVALID, "CONNECTION_STATUS_INVALID");
 
-    private final String value;
+    private final Value value;
 
-    HealthConnectionStatus(String value) {
+    private final String string;
+
+    HealthConnectionStatus(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof HealthConnectionStatus
+                        && this.string.equals(((HealthConnectionStatus) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case CONNECTION_STATUS_OFFLINE:
+                return visitor.visitConnectionStatusOffline();
+            case CONNECTION_STATUS_ONLINE:
+                return visitor.visitConnectionStatusOnline();
+            case CONNECTION_STATUS_INVALID:
+                return visitor.visitConnectionStatusInvalid();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static HealthConnectionStatus valueOf(String value) {
+        switch (value) {
+            case "CONNECTION_STATUS_OFFLINE":
+                return CONNECTION_STATUS_OFFLINE;
+            case "CONNECTION_STATUS_ONLINE":
+                return CONNECTION_STATUS_ONLINE;
+            case "CONNECTION_STATUS_INVALID":
+                return CONNECTION_STATUS_INVALID;
+            default:
+                return new HealthConnectionStatus(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        CONNECTION_STATUS_INVALID,
+
+        CONNECTION_STATUS_ONLINE,
+
+        CONNECTION_STATUS_OFFLINE,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitConnectionStatusInvalid();
+
+        T visitConnectionStatusOnline();
+
+        T visitConnectionStatusOffline();
+
+        T visitUnknown(String unknownType);
     }
 }

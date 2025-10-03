@@ -3,30 +3,127 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum OverrideStatus {
-    OVERRIDE_STATUS_INVALID("OVERRIDE_STATUS_INVALID"),
+public final class OverrideStatus {
+    public static final OverrideStatus OVERRIDE_STATUS_APPLIED =
+            new OverrideStatus(Value.OVERRIDE_STATUS_APPLIED, "OVERRIDE_STATUS_APPLIED");
 
-    OVERRIDE_STATUS_APPLIED("OVERRIDE_STATUS_APPLIED"),
+    public static final OverrideStatus OVERRIDE_STATUS_DELETION_PENDING =
+            new OverrideStatus(Value.OVERRIDE_STATUS_DELETION_PENDING, "OVERRIDE_STATUS_DELETION_PENDING");
 
-    OVERRIDE_STATUS_PENDING("OVERRIDE_STATUS_PENDING"),
+    public static final OverrideStatus OVERRIDE_STATUS_REJECTED =
+            new OverrideStatus(Value.OVERRIDE_STATUS_REJECTED, "OVERRIDE_STATUS_REJECTED");
 
-    OVERRIDE_STATUS_TIMEOUT("OVERRIDE_STATUS_TIMEOUT"),
+    public static final OverrideStatus OVERRIDE_STATUS_INVALID =
+            new OverrideStatus(Value.OVERRIDE_STATUS_INVALID, "OVERRIDE_STATUS_INVALID");
 
-    OVERRIDE_STATUS_REJECTED("OVERRIDE_STATUS_REJECTED"),
+    public static final OverrideStatus OVERRIDE_STATUS_TIMEOUT =
+            new OverrideStatus(Value.OVERRIDE_STATUS_TIMEOUT, "OVERRIDE_STATUS_TIMEOUT");
 
-    OVERRIDE_STATUS_DELETION_PENDING("OVERRIDE_STATUS_DELETION_PENDING");
+    public static final OverrideStatus OVERRIDE_STATUS_PENDING =
+            new OverrideStatus(Value.OVERRIDE_STATUS_PENDING, "OVERRIDE_STATUS_PENDING");
 
-    private final String value;
+    private final Value value;
 
-    OverrideStatus(String value) {
+    private final String string;
+
+    OverrideStatus(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof OverrideStatus && this.string.equals(((OverrideStatus) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case OVERRIDE_STATUS_APPLIED:
+                return visitor.visitOverrideStatusApplied();
+            case OVERRIDE_STATUS_DELETION_PENDING:
+                return visitor.visitOverrideStatusDeletionPending();
+            case OVERRIDE_STATUS_REJECTED:
+                return visitor.visitOverrideStatusRejected();
+            case OVERRIDE_STATUS_INVALID:
+                return visitor.visitOverrideStatusInvalid();
+            case OVERRIDE_STATUS_TIMEOUT:
+                return visitor.visitOverrideStatusTimeout();
+            case OVERRIDE_STATUS_PENDING:
+                return visitor.visitOverrideStatusPending();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static OverrideStatus valueOf(String value) {
+        switch (value) {
+            case "OVERRIDE_STATUS_APPLIED":
+                return OVERRIDE_STATUS_APPLIED;
+            case "OVERRIDE_STATUS_DELETION_PENDING":
+                return OVERRIDE_STATUS_DELETION_PENDING;
+            case "OVERRIDE_STATUS_REJECTED":
+                return OVERRIDE_STATUS_REJECTED;
+            case "OVERRIDE_STATUS_INVALID":
+                return OVERRIDE_STATUS_INVALID;
+            case "OVERRIDE_STATUS_TIMEOUT":
+                return OVERRIDE_STATUS_TIMEOUT;
+            case "OVERRIDE_STATUS_PENDING":
+                return OVERRIDE_STATUS_PENDING;
+            default:
+                return new OverrideStatus(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        OVERRIDE_STATUS_INVALID,
+
+        OVERRIDE_STATUS_APPLIED,
+
+        OVERRIDE_STATUS_PENDING,
+
+        OVERRIDE_STATUS_TIMEOUT,
+
+        OVERRIDE_STATUS_REJECTED,
+
+        OVERRIDE_STATUS_DELETION_PENDING,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitOverrideStatusInvalid();
+
+        T visitOverrideStatusApplied();
+
+        T visitOverrideStatusPending();
+
+        T visitOverrideStatusTimeout();
+
+        T visitOverrideStatusRejected();
+
+        T visitOverrideStatusDeletionPending();
+
+        T visitUnknown(String unknownType);
     }
 }

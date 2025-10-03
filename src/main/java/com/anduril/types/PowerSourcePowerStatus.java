@@ -3,30 +3,128 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum PowerSourcePowerStatus {
-    POWER_STATUS_INVALID("POWER_STATUS_INVALID"),
+public final class PowerSourcePowerStatus {
+    public static final PowerSourcePowerStatus POWER_STATUS_DISABLED =
+            new PowerSourcePowerStatus(Value.POWER_STATUS_DISABLED, "POWER_STATUS_DISABLED");
 
-    POWER_STATUS_UNKNOWN("POWER_STATUS_UNKNOWN"),
+    public static final PowerSourcePowerStatus POWER_STATUS_UNKNOWN =
+            new PowerSourcePowerStatus(Value.POWER_STATUS_UNKNOWN, "POWER_STATUS_UNKNOWN");
 
-    POWER_STATUS_NOT_PRESENT("POWER_STATUS_NOT_PRESENT"),
+    public static final PowerSourcePowerStatus POWER_STATUS_NOT_PRESENT =
+            new PowerSourcePowerStatus(Value.POWER_STATUS_NOT_PRESENT, "POWER_STATUS_NOT_PRESENT");
 
-    POWER_STATUS_OPERATING("POWER_STATUS_OPERATING"),
+    public static final PowerSourcePowerStatus POWER_STATUS_OPERATING =
+            new PowerSourcePowerStatus(Value.POWER_STATUS_OPERATING, "POWER_STATUS_OPERATING");
 
-    POWER_STATUS_DISABLED("POWER_STATUS_DISABLED"),
+    public static final PowerSourcePowerStatus POWER_STATUS_ERROR =
+            new PowerSourcePowerStatus(Value.POWER_STATUS_ERROR, "POWER_STATUS_ERROR");
 
-    POWER_STATUS_ERROR("POWER_STATUS_ERROR");
+    public static final PowerSourcePowerStatus POWER_STATUS_INVALID =
+            new PowerSourcePowerStatus(Value.POWER_STATUS_INVALID, "POWER_STATUS_INVALID");
 
-    private final String value;
+    private final Value value;
 
-    PowerSourcePowerStatus(String value) {
+    private final String string;
+
+    PowerSourcePowerStatus(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof PowerSourcePowerStatus
+                        && this.string.equals(((PowerSourcePowerStatus) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case POWER_STATUS_DISABLED:
+                return visitor.visitPowerStatusDisabled();
+            case POWER_STATUS_UNKNOWN:
+                return visitor.visitPowerStatusUnknown();
+            case POWER_STATUS_NOT_PRESENT:
+                return visitor.visitPowerStatusNotPresent();
+            case POWER_STATUS_OPERATING:
+                return visitor.visitPowerStatusOperating();
+            case POWER_STATUS_ERROR:
+                return visitor.visitPowerStatusError();
+            case POWER_STATUS_INVALID:
+                return visitor.visitPowerStatusInvalid();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static PowerSourcePowerStatus valueOf(String value) {
+        switch (value) {
+            case "POWER_STATUS_DISABLED":
+                return POWER_STATUS_DISABLED;
+            case "POWER_STATUS_UNKNOWN":
+                return POWER_STATUS_UNKNOWN;
+            case "POWER_STATUS_NOT_PRESENT":
+                return POWER_STATUS_NOT_PRESENT;
+            case "POWER_STATUS_OPERATING":
+                return POWER_STATUS_OPERATING;
+            case "POWER_STATUS_ERROR":
+                return POWER_STATUS_ERROR;
+            case "POWER_STATUS_INVALID":
+                return POWER_STATUS_INVALID;
+            default:
+                return new PowerSourcePowerStatus(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        POWER_STATUS_INVALID,
+
+        POWER_STATUS_UNKNOWN,
+
+        POWER_STATUS_NOT_PRESENT,
+
+        POWER_STATUS_OPERATING,
+
+        POWER_STATUS_DISABLED,
+
+        POWER_STATUS_ERROR,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitPowerStatusInvalid();
+
+        T visitPowerStatusUnknown();
+
+        T visitPowerStatusNotPresent();
+
+        T visitPowerStatusOperating();
+
+        T visitPowerStatusDisabled();
+
+        T visitPowerStatusError();
+
+        T visitUnknown(String unknownType);
     }
 }

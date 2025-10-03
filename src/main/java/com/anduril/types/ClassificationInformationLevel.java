@@ -3,30 +3,133 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum ClassificationInformationLevel {
-    CLASSIFICATION_LEVELS_INVALID("CLASSIFICATION_LEVELS_INVALID"),
+public final class ClassificationInformationLevel {
+    public static final ClassificationInformationLevel CLASSIFICATION_LEVELS_SECRET =
+            new ClassificationInformationLevel(Value.CLASSIFICATION_LEVELS_SECRET, "CLASSIFICATION_LEVELS_SECRET");
 
-    CLASSIFICATION_LEVELS_UNCLASSIFIED("CLASSIFICATION_LEVELS_UNCLASSIFIED"),
+    public static final ClassificationInformationLevel CLASSIFICATION_LEVELS_UNCLASSIFIED =
+            new ClassificationInformationLevel(
+                    Value.CLASSIFICATION_LEVELS_UNCLASSIFIED, "CLASSIFICATION_LEVELS_UNCLASSIFIED");
 
-    CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED("CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED"),
+    public static final ClassificationInformationLevel CLASSIFICATION_LEVELS_TOP_SECRET =
+            new ClassificationInformationLevel(
+                    Value.CLASSIFICATION_LEVELS_TOP_SECRET, "CLASSIFICATION_LEVELS_TOP_SECRET");
 
-    CLASSIFICATION_LEVELS_CONFIDENTIAL("CLASSIFICATION_LEVELS_CONFIDENTIAL"),
+    public static final ClassificationInformationLevel CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED =
+            new ClassificationInformationLevel(
+                    Value.CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED,
+                    "CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED");
 
-    CLASSIFICATION_LEVELS_SECRET("CLASSIFICATION_LEVELS_SECRET"),
+    public static final ClassificationInformationLevel CLASSIFICATION_LEVELS_INVALID =
+            new ClassificationInformationLevel(Value.CLASSIFICATION_LEVELS_INVALID, "CLASSIFICATION_LEVELS_INVALID");
 
-    CLASSIFICATION_LEVELS_TOP_SECRET("CLASSIFICATION_LEVELS_TOP_SECRET");
+    public static final ClassificationInformationLevel CLASSIFICATION_LEVELS_CONFIDENTIAL =
+            new ClassificationInformationLevel(
+                    Value.CLASSIFICATION_LEVELS_CONFIDENTIAL, "CLASSIFICATION_LEVELS_CONFIDENTIAL");
 
-    private final String value;
+    private final Value value;
 
-    ClassificationInformationLevel(String value) {
+    private final String string;
+
+    ClassificationInformationLevel(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof ClassificationInformationLevel
+                        && this.string.equals(((ClassificationInformationLevel) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case CLASSIFICATION_LEVELS_SECRET:
+                return visitor.visitClassificationLevelsSecret();
+            case CLASSIFICATION_LEVELS_UNCLASSIFIED:
+                return visitor.visitClassificationLevelsUnclassified();
+            case CLASSIFICATION_LEVELS_TOP_SECRET:
+                return visitor.visitClassificationLevelsTopSecret();
+            case CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED:
+                return visitor.visitClassificationLevelsControlledUnclassified();
+            case CLASSIFICATION_LEVELS_INVALID:
+                return visitor.visitClassificationLevelsInvalid();
+            case CLASSIFICATION_LEVELS_CONFIDENTIAL:
+                return visitor.visitClassificationLevelsConfidential();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static ClassificationInformationLevel valueOf(String value) {
+        switch (value) {
+            case "CLASSIFICATION_LEVELS_SECRET":
+                return CLASSIFICATION_LEVELS_SECRET;
+            case "CLASSIFICATION_LEVELS_UNCLASSIFIED":
+                return CLASSIFICATION_LEVELS_UNCLASSIFIED;
+            case "CLASSIFICATION_LEVELS_TOP_SECRET":
+                return CLASSIFICATION_LEVELS_TOP_SECRET;
+            case "CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED":
+                return CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED;
+            case "CLASSIFICATION_LEVELS_INVALID":
+                return CLASSIFICATION_LEVELS_INVALID;
+            case "CLASSIFICATION_LEVELS_CONFIDENTIAL":
+                return CLASSIFICATION_LEVELS_CONFIDENTIAL;
+            default:
+                return new ClassificationInformationLevel(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        CLASSIFICATION_LEVELS_INVALID,
+
+        CLASSIFICATION_LEVELS_UNCLASSIFIED,
+
+        CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED,
+
+        CLASSIFICATION_LEVELS_CONFIDENTIAL,
+
+        CLASSIFICATION_LEVELS_SECRET,
+
+        CLASSIFICATION_LEVELS_TOP_SECRET,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitClassificationLevelsInvalid();
+
+        T visitClassificationLevelsUnclassified();
+
+        T visitClassificationLevelsControlledUnclassified();
+
+        T visitClassificationLevelsConfidential();
+
+        T visitClassificationLevelsSecret();
+
+        T visitClassificationLevelsTopSecret();
+
+        T visitUnknown(String unknownType);
     }
 }

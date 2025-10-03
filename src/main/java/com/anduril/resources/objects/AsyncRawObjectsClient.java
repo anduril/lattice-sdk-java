@@ -114,15 +114,16 @@ public class AsyncRawObjectsClient {
                                 .build();
                         List<PathMetadata> result = parsedResponse.getPathMetadatas();
                         future.complete(new LatticeHttpResponse<>(
-                                new SyncPagingIterable<PathMetadata>(startingAfter.isPresent(), result, () -> {
-                                    try {
-                                        return listObjects(nextRequest, requestOptions)
-                                                .get()
-                                                .body();
-                                    } catch (InterruptedException | ExecutionException e) {
-                                        throw new RuntimeException(e);
-                                    }
-                                }),
+                                new SyncPagingIterable<PathMetadata>(
+                                        startingAfter.isPresent(), result, parsedResponse, () -> {
+                                            try {
+                                                return listObjects(nextRequest, requestOptions)
+                                                        .get()
+                                                        .body();
+                                            } catch (InterruptedException | ExecutionException e) {
+                                                throw new RuntimeException(e);
+                                            }
+                                        }),
                                 response));
                         return;
                     }

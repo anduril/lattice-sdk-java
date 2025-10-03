@@ -3,24 +3,98 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum CorrelationMetadataReplicationMode {
-    CORRELATION_REPLICATION_MODE_INVALID("CORRELATION_REPLICATION_MODE_INVALID"),
+public final class CorrelationMetadataReplicationMode {
+    public static final CorrelationMetadataReplicationMode CORRELATION_REPLICATION_MODE_LOCAL =
+            new CorrelationMetadataReplicationMode(
+                    Value.CORRELATION_REPLICATION_MODE_LOCAL, "CORRELATION_REPLICATION_MODE_LOCAL");
 
-    CORRELATION_REPLICATION_MODE_LOCAL("CORRELATION_REPLICATION_MODE_LOCAL"),
+    public static final CorrelationMetadataReplicationMode CORRELATION_REPLICATION_MODE_INVALID =
+            new CorrelationMetadataReplicationMode(
+                    Value.CORRELATION_REPLICATION_MODE_INVALID, "CORRELATION_REPLICATION_MODE_INVALID");
 
-    CORRELATION_REPLICATION_MODE_GLOBAL("CORRELATION_REPLICATION_MODE_GLOBAL");
+    public static final CorrelationMetadataReplicationMode CORRELATION_REPLICATION_MODE_GLOBAL =
+            new CorrelationMetadataReplicationMode(
+                    Value.CORRELATION_REPLICATION_MODE_GLOBAL, "CORRELATION_REPLICATION_MODE_GLOBAL");
 
-    private final String value;
+    private final Value value;
 
-    CorrelationMetadataReplicationMode(String value) {
+    private final String string;
+
+    CorrelationMetadataReplicationMode(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof CorrelationMetadataReplicationMode
+                        && this.string.equals(((CorrelationMetadataReplicationMode) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case CORRELATION_REPLICATION_MODE_LOCAL:
+                return visitor.visitCorrelationReplicationModeLocal();
+            case CORRELATION_REPLICATION_MODE_INVALID:
+                return visitor.visitCorrelationReplicationModeInvalid();
+            case CORRELATION_REPLICATION_MODE_GLOBAL:
+                return visitor.visitCorrelationReplicationModeGlobal();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static CorrelationMetadataReplicationMode valueOf(String value) {
+        switch (value) {
+            case "CORRELATION_REPLICATION_MODE_LOCAL":
+                return CORRELATION_REPLICATION_MODE_LOCAL;
+            case "CORRELATION_REPLICATION_MODE_INVALID":
+                return CORRELATION_REPLICATION_MODE_INVALID;
+            case "CORRELATION_REPLICATION_MODE_GLOBAL":
+                return CORRELATION_REPLICATION_MODE_GLOBAL;
+            default:
+                return new CorrelationMetadataReplicationMode(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        CORRELATION_REPLICATION_MODE_INVALID,
+
+        CORRELATION_REPLICATION_MODE_LOCAL,
+
+        CORRELATION_REPLICATION_MODE_GLOBAL,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitCorrelationReplicationModeInvalid();
+
+        T visitCorrelationReplicationModeLocal();
+
+        T visitCorrelationReplicationModeGlobal();
+
+        T visitUnknown(String unknownType);
     }
 }

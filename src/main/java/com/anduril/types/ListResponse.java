@@ -96,7 +96,9 @@ public final class ListResponse {
         @JsonSetter(value = "path_metadatas", nulls = Nulls.SKIP)
         public Builder pathMetadatas(List<PathMetadata> pathMetadatas) {
             this.pathMetadatas.clear();
-            this.pathMetadatas.addAll(pathMetadatas);
+            if (pathMetadatas != null) {
+                this.pathMetadatas.addAll(pathMetadatas);
+            }
             return this;
         }
 

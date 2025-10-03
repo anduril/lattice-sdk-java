@@ -3,28 +3,116 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum TaskErrorCode {
-    ERROR_CODE_INVALID("ERROR_CODE_INVALID"),
+public final class TaskErrorCode {
+    public static final TaskErrorCode ERROR_CODE_INVALID =
+            new TaskErrorCode(Value.ERROR_CODE_INVALID, "ERROR_CODE_INVALID");
 
-    ERROR_CODE_CANCELLED("ERROR_CODE_CANCELLED"),
+    public static final TaskErrorCode ERROR_CODE_CANCELLED =
+            new TaskErrorCode(Value.ERROR_CODE_CANCELLED, "ERROR_CODE_CANCELLED");
 
-    ERROR_CODE_REJECTED("ERROR_CODE_REJECTED"),
+    public static final TaskErrorCode ERROR_CODE_TIMEOUT =
+            new TaskErrorCode(Value.ERROR_CODE_TIMEOUT, "ERROR_CODE_TIMEOUT");
 
-    ERROR_CODE_TIMEOUT("ERROR_CODE_TIMEOUT"),
+    public static final TaskErrorCode ERROR_CODE_REJECTED =
+            new TaskErrorCode(Value.ERROR_CODE_REJECTED, "ERROR_CODE_REJECTED");
 
-    ERROR_CODE_FAILED("ERROR_CODE_FAILED");
+    public static final TaskErrorCode ERROR_CODE_FAILED =
+            new TaskErrorCode(Value.ERROR_CODE_FAILED, "ERROR_CODE_FAILED");
 
-    private final String value;
+    private final Value value;
 
-    TaskErrorCode(String value) {
+    private final String string;
+
+    TaskErrorCode(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof TaskErrorCode && this.string.equals(((TaskErrorCode) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case ERROR_CODE_INVALID:
+                return visitor.visitErrorCodeInvalid();
+            case ERROR_CODE_CANCELLED:
+                return visitor.visitErrorCodeCancelled();
+            case ERROR_CODE_TIMEOUT:
+                return visitor.visitErrorCodeTimeout();
+            case ERROR_CODE_REJECTED:
+                return visitor.visitErrorCodeRejected();
+            case ERROR_CODE_FAILED:
+                return visitor.visitErrorCodeFailed();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static TaskErrorCode valueOf(String value) {
+        switch (value) {
+            case "ERROR_CODE_INVALID":
+                return ERROR_CODE_INVALID;
+            case "ERROR_CODE_CANCELLED":
+                return ERROR_CODE_CANCELLED;
+            case "ERROR_CODE_TIMEOUT":
+                return ERROR_CODE_TIMEOUT;
+            case "ERROR_CODE_REJECTED":
+                return ERROR_CODE_REJECTED;
+            case "ERROR_CODE_FAILED":
+                return ERROR_CODE_FAILED;
+            default:
+                return new TaskErrorCode(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        ERROR_CODE_INVALID,
+
+        ERROR_CODE_CANCELLED,
+
+        ERROR_CODE_REJECTED,
+
+        ERROR_CODE_TIMEOUT,
+
+        ERROR_CODE_FAILED,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitErrorCodeInvalid();
+
+        T visitErrorCodeCancelled();
+
+        T visitErrorCodeRejected();
+
+        T visitErrorCodeTimeout();
+
+        T visitErrorCodeFailed();
+
+        T visitUnknown(String unknownType);
     }
 }

@@ -3,22 +3,84 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum OrbitMeanElementsMetadataRefFrame {
-    ECI_REFERENCE_FRAME_INVALID("ECI_REFERENCE_FRAME_INVALID"),
+public final class OrbitMeanElementsMetadataRefFrame {
+    public static final OrbitMeanElementsMetadataRefFrame ECI_REFERENCE_FRAME_INVALID =
+            new OrbitMeanElementsMetadataRefFrame(Value.ECI_REFERENCE_FRAME_INVALID, "ECI_REFERENCE_FRAME_INVALID");
 
-    ECI_REFERENCE_FRAME_TEME("ECI_REFERENCE_FRAME_TEME");
+    public static final OrbitMeanElementsMetadataRefFrame ECI_REFERENCE_FRAME_TEME =
+            new OrbitMeanElementsMetadataRefFrame(Value.ECI_REFERENCE_FRAME_TEME, "ECI_REFERENCE_FRAME_TEME");
 
-    private final String value;
+    private final Value value;
 
-    OrbitMeanElementsMetadataRefFrame(String value) {
+    private final String string;
+
+    OrbitMeanElementsMetadataRefFrame(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof OrbitMeanElementsMetadataRefFrame
+                        && this.string.equals(((OrbitMeanElementsMetadataRefFrame) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case ECI_REFERENCE_FRAME_INVALID:
+                return visitor.visitEciReferenceFrameInvalid();
+            case ECI_REFERENCE_FRAME_TEME:
+                return visitor.visitEciReferenceFrameTeme();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static OrbitMeanElementsMetadataRefFrame valueOf(String value) {
+        switch (value) {
+            case "ECI_REFERENCE_FRAME_INVALID":
+                return ECI_REFERENCE_FRAME_INVALID;
+            case "ECI_REFERENCE_FRAME_TEME":
+                return ECI_REFERENCE_FRAME_TEME;
+            default:
+                return new OrbitMeanElementsMetadataRefFrame(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        ECI_REFERENCE_FRAME_INVALID,
+
+        ECI_REFERENCE_FRAME_TEME,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitEciReferenceFrameInvalid();
+
+        T visitEciReferenceFrameTeme();
+
+        T visitUnknown(String unknownType);
     }
 }
