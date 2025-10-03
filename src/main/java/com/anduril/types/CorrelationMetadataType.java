@@ -3,24 +3,95 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum CorrelationMetadataType {
-    CORRELATION_TYPE_INVALID("CORRELATION_TYPE_INVALID"),
+public final class CorrelationMetadataType {
+    public static final CorrelationMetadataType CORRELATION_TYPE_INVALID =
+            new CorrelationMetadataType(Value.CORRELATION_TYPE_INVALID, "CORRELATION_TYPE_INVALID");
 
-    CORRELATION_TYPE_MANUAL("CORRELATION_TYPE_MANUAL"),
+    public static final CorrelationMetadataType CORRELATION_TYPE_MANUAL =
+            new CorrelationMetadataType(Value.CORRELATION_TYPE_MANUAL, "CORRELATION_TYPE_MANUAL");
 
-    CORRELATION_TYPE_AUTOMATED("CORRELATION_TYPE_AUTOMATED");
+    public static final CorrelationMetadataType CORRELATION_TYPE_AUTOMATED =
+            new CorrelationMetadataType(Value.CORRELATION_TYPE_AUTOMATED, "CORRELATION_TYPE_AUTOMATED");
 
-    private final String value;
+    private final Value value;
 
-    CorrelationMetadataType(String value) {
+    private final String string;
+
+    CorrelationMetadataType(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof CorrelationMetadataType
+                        && this.string.equals(((CorrelationMetadataType) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case CORRELATION_TYPE_INVALID:
+                return visitor.visitCorrelationTypeInvalid();
+            case CORRELATION_TYPE_MANUAL:
+                return visitor.visitCorrelationTypeManual();
+            case CORRELATION_TYPE_AUTOMATED:
+                return visitor.visitCorrelationTypeAutomated();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static CorrelationMetadataType valueOf(String value) {
+        switch (value) {
+            case "CORRELATION_TYPE_INVALID":
+                return CORRELATION_TYPE_INVALID;
+            case "CORRELATION_TYPE_MANUAL":
+                return CORRELATION_TYPE_MANUAL;
+            case "CORRELATION_TYPE_AUTOMATED":
+                return CORRELATION_TYPE_AUTOMATED;
+            default:
+                return new CorrelationMetadataType(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        CORRELATION_TYPE_INVALID,
+
+        CORRELATION_TYPE_MANUAL,
+
+        CORRELATION_TYPE_AUTOMATED,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitCorrelationTypeInvalid();
+
+        T visitCorrelationTypeManual();
+
+        T visitCorrelationTypeAutomated();
+
+        T visitUnknown(String unknownType);
     }
 }

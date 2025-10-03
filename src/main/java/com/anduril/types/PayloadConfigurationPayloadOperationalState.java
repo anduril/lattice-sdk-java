@@ -3,32 +3,146 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum PayloadConfigurationPayloadOperationalState {
-    PAYLOAD_OPERATIONAL_STATE_INVALID("PAYLOAD_OPERATIONAL_STATE_INVALID"),
+public final class PayloadConfigurationPayloadOperationalState {
+    public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_UNKNOWN =
+            new PayloadConfigurationPayloadOperationalState(
+                    Value.PAYLOAD_OPERATIONAL_STATE_UNKNOWN, "PAYLOAD_OPERATIONAL_STATE_UNKNOWN");
 
-    PAYLOAD_OPERATIONAL_STATE_OFF("PAYLOAD_OPERATIONAL_STATE_OFF"),
+    public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_DEGRADED =
+            new PayloadConfigurationPayloadOperationalState(
+                    Value.PAYLOAD_OPERATIONAL_STATE_DEGRADED, "PAYLOAD_OPERATIONAL_STATE_DEGRADED");
 
-    PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL("PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL"),
+    public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_OFF =
+            new PayloadConfigurationPayloadOperationalState(
+                    Value.PAYLOAD_OPERATIONAL_STATE_OFF, "PAYLOAD_OPERATIONAL_STATE_OFF");
 
-    PAYLOAD_OPERATIONAL_STATE_DEGRADED("PAYLOAD_OPERATIONAL_STATE_DEGRADED"),
+    public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE =
+            new PayloadConfigurationPayloadOperationalState(
+                    Value.PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE, "PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE");
 
-    PAYLOAD_OPERATIONAL_STATE_OPERATIONAL("PAYLOAD_OPERATIONAL_STATE_OPERATIONAL"),
+    public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL =
+            new PayloadConfigurationPayloadOperationalState(
+                    Value.PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL, "PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL");
 
-    PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE("PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE"),
+    public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_INVALID =
+            new PayloadConfigurationPayloadOperationalState(
+                    Value.PAYLOAD_OPERATIONAL_STATE_INVALID, "PAYLOAD_OPERATIONAL_STATE_INVALID");
 
-    PAYLOAD_OPERATIONAL_STATE_UNKNOWN("PAYLOAD_OPERATIONAL_STATE_UNKNOWN");
+    public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_OPERATIONAL =
+            new PayloadConfigurationPayloadOperationalState(
+                    Value.PAYLOAD_OPERATIONAL_STATE_OPERATIONAL, "PAYLOAD_OPERATIONAL_STATE_OPERATIONAL");
 
-    private final String value;
+    private final Value value;
 
-    PayloadConfigurationPayloadOperationalState(String value) {
+    private final String string;
+
+    PayloadConfigurationPayloadOperationalState(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof PayloadConfigurationPayloadOperationalState
+                        && this.string.equals(((PayloadConfigurationPayloadOperationalState) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case PAYLOAD_OPERATIONAL_STATE_UNKNOWN:
+                return visitor.visitPayloadOperationalStateUnknown();
+            case PAYLOAD_OPERATIONAL_STATE_DEGRADED:
+                return visitor.visitPayloadOperationalStateDegraded();
+            case PAYLOAD_OPERATIONAL_STATE_OFF:
+                return visitor.visitPayloadOperationalStateOff();
+            case PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE:
+                return visitor.visitPayloadOperationalStateOutOfService();
+            case PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL:
+                return visitor.visitPayloadOperationalStateNonOperational();
+            case PAYLOAD_OPERATIONAL_STATE_INVALID:
+                return visitor.visitPayloadOperationalStateInvalid();
+            case PAYLOAD_OPERATIONAL_STATE_OPERATIONAL:
+                return visitor.visitPayloadOperationalStateOperational();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static PayloadConfigurationPayloadOperationalState valueOf(String value) {
+        switch (value) {
+            case "PAYLOAD_OPERATIONAL_STATE_UNKNOWN":
+                return PAYLOAD_OPERATIONAL_STATE_UNKNOWN;
+            case "PAYLOAD_OPERATIONAL_STATE_DEGRADED":
+                return PAYLOAD_OPERATIONAL_STATE_DEGRADED;
+            case "PAYLOAD_OPERATIONAL_STATE_OFF":
+                return PAYLOAD_OPERATIONAL_STATE_OFF;
+            case "PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE":
+                return PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE;
+            case "PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL":
+                return PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL;
+            case "PAYLOAD_OPERATIONAL_STATE_INVALID":
+                return PAYLOAD_OPERATIONAL_STATE_INVALID;
+            case "PAYLOAD_OPERATIONAL_STATE_OPERATIONAL":
+                return PAYLOAD_OPERATIONAL_STATE_OPERATIONAL;
+            default:
+                return new PayloadConfigurationPayloadOperationalState(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        PAYLOAD_OPERATIONAL_STATE_INVALID,
+
+        PAYLOAD_OPERATIONAL_STATE_OFF,
+
+        PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL,
+
+        PAYLOAD_OPERATIONAL_STATE_DEGRADED,
+
+        PAYLOAD_OPERATIONAL_STATE_OPERATIONAL,
+
+        PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE,
+
+        PAYLOAD_OPERATIONAL_STATE_UNKNOWN,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitPayloadOperationalStateInvalid();
+
+        T visitPayloadOperationalStateOff();
+
+        T visitPayloadOperationalStateNonOperational();
+
+        T visitPayloadOperationalStateDegraded();
+
+        T visitPayloadOperationalStateOperational();
+
+        T visitPayloadOperationalStateOutOfService();
+
+        T visitPayloadOperationalStateUnknown();
+
+        T visitUnknown(String unknownType);
     }
 }

@@ -3,34 +3,147 @@
  */
 package com.anduril.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum GeoDetailsType {
-    GEO_TYPE_INVALID("GEO_TYPE_INVALID"),
+public final class GeoDetailsType {
+    public static final GeoDetailsType GEO_TYPE_GENERAL =
+            new GeoDetailsType(Value.GEO_TYPE_GENERAL, "GEO_TYPE_GENERAL");
 
-    GEO_TYPE_GENERAL("GEO_TYPE_GENERAL"),
+    public static final GeoDetailsType GEO_TYPE_INVALID =
+            new GeoDetailsType(Value.GEO_TYPE_INVALID, "GEO_TYPE_INVALID");
 
-    GEO_TYPE_HAZARD("GEO_TYPE_HAZARD"),
+    public static final GeoDetailsType GEO_TYPE_HAZARD = new GeoDetailsType(Value.GEO_TYPE_HAZARD, "GEO_TYPE_HAZARD");
 
-    GEO_TYPE_EMERGENCY("GEO_TYPE_EMERGENCY"),
+    public static final GeoDetailsType GEO_TYPE_BULLSEYE =
+            new GeoDetailsType(Value.GEO_TYPE_BULLSEYE, "GEO_TYPE_BULLSEYE");
 
-    GEO_TYPE_ENGAGEMENT_ZONE("GEO_TYPE_ENGAGEMENT_ZONE"),
+    public static final GeoDetailsType GEO_TYPE_ACM = new GeoDetailsType(Value.GEO_TYPE_ACM, "GEO_TYPE_ACM");
 
-    GEO_TYPE_CONTROL_AREA("GEO_TYPE_CONTROL_AREA"),
+    public static final GeoDetailsType GEO_TYPE_CONTROL_AREA =
+            new GeoDetailsType(Value.GEO_TYPE_CONTROL_AREA, "GEO_TYPE_CONTROL_AREA");
 
-    GEO_TYPE_BULLSEYE("GEO_TYPE_BULLSEYE"),
+    public static final GeoDetailsType GEO_TYPE_EMERGENCY =
+            new GeoDetailsType(Value.GEO_TYPE_EMERGENCY, "GEO_TYPE_EMERGENCY");
 
-    GEO_TYPE_ACM("GEO_TYPE_ACM");
+    public static final GeoDetailsType GEO_TYPE_ENGAGEMENT_ZONE =
+            new GeoDetailsType(Value.GEO_TYPE_ENGAGEMENT_ZONE, "GEO_TYPE_ENGAGEMENT_ZONE");
 
-    private final String value;
+    private final Value value;
 
-    GeoDetailsType(String value) {
+    private final String string;
+
+    GeoDetailsType(Value value, String string) {
         this.value = value;
+        this.string = string;
     }
 
-    @JsonValue
+    public Value getEnumValue() {
+        return value;
+    }
+
     @java.lang.Override
+    @JsonValue
     public String toString() {
-        return this.value;
+        return this.string;
+    }
+
+    @java.lang.Override
+    public boolean equals(Object other) {
+        return (this == other)
+                || (other instanceof GeoDetailsType && this.string.equals(((GeoDetailsType) other).string));
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        return this.string.hashCode();
+    }
+
+    public <T> T visit(Visitor<T> visitor) {
+        switch (value) {
+            case GEO_TYPE_GENERAL:
+                return visitor.visitGeoTypeGeneral();
+            case GEO_TYPE_INVALID:
+                return visitor.visitGeoTypeInvalid();
+            case GEO_TYPE_HAZARD:
+                return visitor.visitGeoTypeHazard();
+            case GEO_TYPE_BULLSEYE:
+                return visitor.visitGeoTypeBullseye();
+            case GEO_TYPE_ACM:
+                return visitor.visitGeoTypeAcm();
+            case GEO_TYPE_CONTROL_AREA:
+                return visitor.visitGeoTypeControlArea();
+            case GEO_TYPE_EMERGENCY:
+                return visitor.visitGeoTypeEmergency();
+            case GEO_TYPE_ENGAGEMENT_ZONE:
+                return visitor.visitGeoTypeEngagementZone();
+            case UNKNOWN:
+            default:
+                return visitor.visitUnknown(string);
+        }
+    }
+
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public static GeoDetailsType valueOf(String value) {
+        switch (value) {
+            case "GEO_TYPE_GENERAL":
+                return GEO_TYPE_GENERAL;
+            case "GEO_TYPE_INVALID":
+                return GEO_TYPE_INVALID;
+            case "GEO_TYPE_HAZARD":
+                return GEO_TYPE_HAZARD;
+            case "GEO_TYPE_BULLSEYE":
+                return GEO_TYPE_BULLSEYE;
+            case "GEO_TYPE_ACM":
+                return GEO_TYPE_ACM;
+            case "GEO_TYPE_CONTROL_AREA":
+                return GEO_TYPE_CONTROL_AREA;
+            case "GEO_TYPE_EMERGENCY":
+                return GEO_TYPE_EMERGENCY;
+            case "GEO_TYPE_ENGAGEMENT_ZONE":
+                return GEO_TYPE_ENGAGEMENT_ZONE;
+            default:
+                return new GeoDetailsType(Value.UNKNOWN, value);
+        }
+    }
+
+    public enum Value {
+        GEO_TYPE_INVALID,
+
+        GEO_TYPE_GENERAL,
+
+        GEO_TYPE_HAZARD,
+
+        GEO_TYPE_EMERGENCY,
+
+        GEO_TYPE_ENGAGEMENT_ZONE,
+
+        GEO_TYPE_CONTROL_AREA,
+
+        GEO_TYPE_BULLSEYE,
+
+        GEO_TYPE_ACM,
+
+        UNKNOWN
+    }
+
+    public interface Visitor<T> {
+        T visitGeoTypeInvalid();
+
+        T visitGeoTypeGeneral();
+
+        T visitGeoTypeHazard();
+
+        T visitGeoTypeEmergency();
+
+        T visitGeoTypeEngagementZone();
+
+        T visitGeoTypeControlArea();
+
+        T visitGeoTypeBullseye();
+
+        T visitGeoTypeAcm();
+
+        T visitUnknown(String unknownType);
     }
 }
