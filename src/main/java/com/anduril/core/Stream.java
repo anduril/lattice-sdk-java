@@ -24,7 +24,9 @@ import java.util.Scanner;
 public final class Stream<T> implements Iterable<T>, Closeable {
 
     private static final String NEWLINE = "\n";
+    private static final String DOUBLE_NEWLINE = "\n\n";
     private static final String DATA_PREFIX = "data:";
+    private static final String EVENT_PREFIX = "event:";
 
     public enum StreamType {
         JSON,
@@ -175,7 +177,8 @@ public final class Stream<T> implements Iterable<T>, Closeable {
         private boolean hasNextItem = false;
         private boolean endOfStream = false;
         private StringBuilder buffer = new StringBuilder();
-        private boolean prefixSeen = false;
+        private StringBuilder eventData = new StringBuilder();
+        private String eventType = null;
 
         private SSEIterator() {
             if (sseReader != null && !isStreamClosed()) {
@@ -223,38 +226,63 @@ public final class Stream<T> implements Iterable<T>, Closeable {
 
             try {
                 while (sseScanner.hasNextLine()) {
-                    String chunk = sseScanner.nextLine();
-                    buffer.append(chunk).append(NEWLINE);
-
-                    int terminatorIndex;
-                    while ((terminatorIndex = buffer.indexOf(messageTerminator)) >= 0) {
-                        String line = buffer.substring(0, terminatorIndex + messageTerminator.length());
-                        buffer.delete(0, terminatorIndex + messageTerminator.length());
-
-                        line = line.trim();
-                        if (line.isEmpty()) {
-                            continue;
+                    String line = sseScanner.nextLine();
+                    
+                    // Empty line indicates end of an event
+                    if (line.trim().isEmpty()) {
+                        if (eventData.length() > 0) {
+                            String data = eventData.toString().trim();
+                            if (!data.isEmpty()) {
+                                try {
+                                    nextItem = ObjectMappers.JSON_MAPPER.readValue(data, valueType);
+                                    hasNextItem = true;
+                                    eventData.setLength(0);
+                                    eventType = null;
+                                    return true;
+                                } catch (Exception parseEx) {
+                                    // Reset for next event if parsing failed
+                                    eventData.setLength(0);
+                                    eventType = null;
+                                }
+                            }
                         }
+                        continue;
+                    }
 
-                        if (!prefixSeen && line.startsWith(DATA_PREFIX)) {
-                            prefixSeen = true;
-                            line = line.substring(DATA_PREFIX.length()).trim();
-                        } else if (!prefixSeen) {
-                            continue;
+                    // Check for stream terminator
+                    if (streamTerminator != null && line.contains(streamTerminator)) {
+                        endOfStream = true;
+                        return false;
+                    }
+
+                    // Process event type lines
+                    if (line.startsWith(EVENT_PREFIX)) {
+                        eventType = line.substring(EVENT_PREFIX.length()).trim();
+                        continue;
+                    }
+
+                    // Process data lines
+                    if (line.startsWith(DATA_PREFIX)) {
+                        String dataContent = line.substring(DATA_PREFIX.length()).trim();
+                        if (eventData.length() > 0) {
+                            eventData.append("\n");
                         }
+                        eventData.append(dataContent);
+                    }
+                }
 
-                        if (streamTerminator != null && line.contains(streamTerminator)) {
-                            endOfStream = true;
-                            return false;
-                        }
-
+                // Process any remaining data if stream ends without a blank line
+                if (eventData.length() > 0) {
+                    String data = eventData.toString().trim();
+                    if (!data.isEmpty()) {
                         try {
-                            nextItem = ObjectMappers.JSON_MAPPER.readValue(line, valueType);
+                            nextItem = ObjectMappers.JSON_MAPPER.readValue(data, valueType);
                             hasNextItem = true;
-                            prefixSeen = false;
+                            eventData.setLength(0);
+                            eventType = null;
                             return true;
                         } catch (Exception parseEx) {
-                            continue;
+                            // Just continue if parsing failed
                         }
                     }
                 }
@@ -270,3 +298,4 @@ public final class Stream<T> implements Iterable<T>, Closeable {
         }
     }
 }
+
