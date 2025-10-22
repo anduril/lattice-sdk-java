@@ -34,7 +34,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>3.1.0</version>
+  <version>4.0.0</version>
 </dependency>
 ```
 
@@ -103,9 +103,9 @@ When the API returns a non-success status code (4xx or 5xx response), an API exc
 ```java
 import com.anduril.core.AndurilApiApiException;
 
-try {
+try{
     client.entities().longPollEntityEvents(...);
-} catch (AndurilApiApiException e) {
+} catch (AndurilApiApiException e){
     // Do something with the API exception...
 }
 ```
