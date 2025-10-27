@@ -34,7 +34,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>3.2.0</version>
+  <version>4.0.0</version>
 </dependency>
 ```
 
