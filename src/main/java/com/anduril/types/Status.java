@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.Nulls;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,33 +21,47 @@ import java.util.Optional;
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
 @JsonDeserialize(builder = Status.Builder.class)
 public final class Status {
-    private final Optional<String> platformActivity;
+    private final Optional<Integer> code;
 
-    private final Optional<String> role;
+    private final Optional<String> message;
+
+    private final Optional<List<GoogleProtobufAny>> details;
 
     private final Map<String, Object> additionalProperties;
 
-    private Status(Optional<String> platformActivity, Optional<String> role, Map<String, Object> additionalProperties) {
-        this.platformActivity = platformActivity;
-        this.role = role;
+    private Status(
+            Optional<Integer> code,
+            Optional<String> message,
+            Optional<List<GoogleProtobufAny>> details,
+            Map<String, Object> additionalProperties) {
+        this.code = code;
+        this.message = message;
+        this.details = details;
         this.additionalProperties = additionalProperties;
     }
 
     /**
-     * @return A string that describes the activity that the entity is performing.
-     * Examples include &quot;RECONNAISSANCE&quot;, &quot;INTERDICTION&quot;, &quot;RETURN TO BASE (RTB)&quot;, &quot;PREPARING FOR LAUNCH&quot;.
+     * @return The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
      */
-    @JsonProperty("platformActivity")
-    public Optional<String> getPlatformActivity() {
-        return platformActivity;
+    @JsonProperty("code")
+    public Optional<Integer> getCode() {
+        return code;
     }
 
     /**
-     * @return A human-readable string that describes the role the entity is currently performing. E.g. &quot;Team Member&quot;, &quot;Commander&quot;.
+     * @return A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
      */
-    @JsonProperty("role")
-    public Optional<String> getRole() {
-        return role;
+    @JsonProperty("message")
+    public Optional<String> getMessage() {
+        return message;
+    }
+
+    /**
+     * @return A list of messages that carry the error details.  There is a common set of message types for APIs to use.
+     */
+    @JsonProperty("details")
+    public Optional<List<GoogleProtobufAny>> getDetails() {
+        return details;
     }
 
     @java.lang.Override
@@ -61,12 +76,12 @@ public final class Status {
     }
 
     private boolean equalTo(Status other) {
-        return platformActivity.equals(other.platformActivity) && role.equals(other.role);
+        return code.equals(other.code) && message.equals(other.message) && details.equals(other.details);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.platformActivity, this.role);
+        return Objects.hash(this.code, this.message, this.details);
     }
 
     @java.lang.Override
@@ -80,9 +95,11 @@ public final class Status {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder {
-        private Optional<String> platformActivity = Optional.empty();
+        private Optional<Integer> code = Optional.empty();
 
-        private Optional<String> role = Optional.empty();
+        private Optional<String> message = Optional.empty();
+
+        private Optional<List<GoogleProtobufAny>> details = Optional.empty();
 
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
@@ -90,42 +107,56 @@ public final class Status {
         private Builder() {}
 
         public Builder from(Status other) {
-            platformActivity(other.getPlatformActivity());
-            role(other.getRole());
+            code(other.getCode());
+            message(other.getMessage());
+            details(other.getDetails());
             return this;
         }
 
         /**
-         * <p>A string that describes the activity that the entity is performing.
-         * Examples include &quot;RECONNAISSANCE&quot;, &quot;INTERDICTION&quot;, &quot;RETURN TO BASE (RTB)&quot;, &quot;PREPARING FOR LAUNCH&quot;.</p>
+         * <p>The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].</p>
          */
-        @JsonSetter(value = "platformActivity", nulls = Nulls.SKIP)
-        public Builder platformActivity(Optional<String> platformActivity) {
-            this.platformActivity = platformActivity;
+        @JsonSetter(value = "code", nulls = Nulls.SKIP)
+        public Builder code(Optional<Integer> code) {
+            this.code = code;
             return this;
         }
 
-        public Builder platformActivity(String platformActivity) {
-            this.platformActivity = Optional.ofNullable(platformActivity);
+        public Builder code(Integer code) {
+            this.code = Optional.ofNullable(code);
             return this;
         }
 
         /**
-         * <p>A human-readable string that describes the role the entity is currently performing. E.g. &quot;Team Member&quot;, &quot;Commander&quot;.</p>
+         * <p>A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.</p>
          */
-        @JsonSetter(value = "role", nulls = Nulls.SKIP)
-        public Builder role(Optional<String> role) {
-            this.role = role;
+        @JsonSetter(value = "message", nulls = Nulls.SKIP)
+        public Builder message(Optional<String> message) {
+            this.message = message;
             return this;
         }
 
-        public Builder role(String role) {
-            this.role = Optional.ofNullable(role);
+        public Builder message(String message) {
+            this.message = Optional.ofNullable(message);
+            return this;
+        }
+
+        /**
+         * <p>A list of messages that carry the error details.  There is a common set of message types for APIs to use.</p>
+         */
+        @JsonSetter(value = "details", nulls = Nulls.SKIP)
+        public Builder details(Optional<List<GoogleProtobufAny>> details) {
+            this.details = details;
+            return this;
+        }
+
+        public Builder details(List<GoogleProtobufAny> details) {
+            this.details = Optional.ofNullable(details);
             return this;
         }
 
         public Status build() {
-            return new Status(platformActivity, role, additionalProperties);
+            return new Status(code, message, details, additionalProperties);
         }
     }
 }
