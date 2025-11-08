@@ -34,7 +34,7 @@ public final class Relations {
     }
 
     /**
-     * @return Who or what, if anyone, this Task is currently assigned to.
+     * @return The system, user, or team assigned to the task.
      */
     @JsonProperty("assignee")
     public Optional<Principal> getAssignee() {
@@ -42,7 +42,7 @@ public final class Relations {
     }
 
     /**
-     * @return If this Task is a &quot;sub-Task&quot;, what is its parent, none if empty.
+     * @return Identifies the parent task if the task is a sub-task.
      */
     @JsonProperty("parentTaskId")
     public Optional<String> getParentTaskId() {
@@ -96,7 +96,7 @@ public final class Relations {
         }
 
         /**
-         * <p>Who or what, if anyone, this Task is currently assigned to.</p>
+         * <p>The system, user, or team assigned to the task.</p>
          */
         @JsonSetter(value = "assignee", nulls = Nulls.SKIP)
         public Builder assignee(Optional<Principal> assignee) {
@@ -110,7 +110,7 @@ public final class Relations {
         }
 
         /**
-         * <p>If this Task is a &quot;sub-Task&quot;, what is its parent, none if empty.</p>
+         * <p>Identifies the parent task if the task is a sub-task.</p>
          */
         @JsonSetter(value = "parentTaskId", nulls = Nulls.SKIP)
         public Builder parentTaskId(Optional<String> parentTaskId) {

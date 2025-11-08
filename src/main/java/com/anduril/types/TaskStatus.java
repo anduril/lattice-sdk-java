@@ -57,7 +57,7 @@ public final class TaskStatus {
     }
 
     /**
-     * @return Status of the Task.
+     * @return Status of the task.
      */
     @JsonProperty("status")
     public Optional<TaskStatusStatus> getStatus() {
@@ -65,7 +65,7 @@ public final class TaskStatus {
     }
 
     /**
-     * @return Any errors associated with the Task.
+     * @return Any errors associated with the task.
      */
     @JsonProperty("taskError")
     public Optional<TaskError> getTaskError() {
@@ -73,7 +73,7 @@ public final class TaskStatus {
     }
 
     /**
-     * @return Any incremental progress on the Task, should be from the tasks/v* /progress folder.
+     * @return Any incremental progress on the task, should be from the tasks/v* /progress folder.
      */
     @JsonProperty("progress")
     public Optional<GoogleProtobufAny> getProgress() {
@@ -81,7 +81,7 @@ public final class TaskStatus {
     }
 
     /**
-     * @return Any final result of the Task, should be from tasks/v* /result folder.
+     * @return Any final result of the task, should be from tasks/v* /result folder.
      */
     @JsonProperty("result")
     public Optional<GoogleProtobufAny> getResult() {
@@ -89,7 +89,7 @@ public final class TaskStatus {
     }
 
     /**
-     * @return Time the Task began execution, may not be known even for executing Tasks.
+     * @return Time the task began execution, may not be known even for executing Tasks.
      */
     @JsonProperty("startTime")
     public Optional<OffsetDateTime> getStartTime() {
@@ -97,7 +97,7 @@ public final class TaskStatus {
     }
 
     /**
-     * @return Any estimate for how the Task will progress, should be from tasks/v* /estimates folder.
+     * @return Any estimate for how the task will progress, should be from tasks/v* /estimates folder.
      */
     @JsonProperty("estimate")
     public Optional<GoogleProtobufAny> getEstimate() {
@@ -105,7 +105,7 @@ public final class TaskStatus {
     }
 
     /**
-     * @return Any allocated agents of the Task.
+     * @return Any allocated agents of the task.
      */
     @JsonProperty("allocation")
     public Optional<Allocation> getAllocation() {
@@ -187,7 +187,7 @@ public final class TaskStatus {
         }
 
         /**
-         * <p>Status of the Task.</p>
+         * <p>Status of the task.</p>
          */
         @JsonSetter(value = "status", nulls = Nulls.SKIP)
         public Builder status(Optional<TaskStatusStatus> status) {
@@ -201,7 +201,7 @@ public final class TaskStatus {
         }
 
         /**
-         * <p>Any errors associated with the Task.</p>
+         * <p>Any errors associated with the task.</p>
          */
         @JsonSetter(value = "taskError", nulls = Nulls.SKIP)
         public Builder taskError(Optional<TaskError> taskError) {
@@ -215,7 +215,7 @@ public final class TaskStatus {
         }
 
         /**
-         * <p>Any incremental progress on the Task, should be from the tasks/v* /progress folder.</p>
+         * <p>Any incremental progress on the task, should be from the tasks/v* /progress folder.</p>
          */
         @JsonSetter(value = "progress", nulls = Nulls.SKIP)
         public Builder progress(Optional<GoogleProtobufAny> progress) {
@@ -229,7 +229,7 @@ public final class TaskStatus {
         }
 
         /**
-         * <p>Any final result of the Task, should be from tasks/v* /result folder.</p>
+         * <p>Any final result of the task, should be from tasks/v* /result folder.</p>
          */
         @JsonSetter(value = "result", nulls = Nulls.SKIP)
         public Builder result(Optional<GoogleProtobufAny> result) {
@@ -243,7 +243,7 @@ public final class TaskStatus {
         }
 
         /**
-         * <p>Time the Task began execution, may not be known even for executing Tasks.</p>
+         * <p>Time the task began execution, may not be known even for executing Tasks.</p>
          */
         @JsonSetter(value = "startTime", nulls = Nulls.SKIP)
         public Builder startTime(Optional<OffsetDateTime> startTime) {
@@ -257,7 +257,7 @@ public final class TaskStatus {
         }
 
         /**
-         * <p>Any estimate for how the Task will progress, should be from tasks/v* /estimates folder.</p>
+         * <p>Any estimate for how the task will progress, should be from tasks/v* /estimates folder.</p>
          */
         @JsonSetter(value = "estimate", nulls = Nulls.SKIP)
         public Builder estimate(Optional<GoogleProtobufAny> estimate) {
@@ -271,7 +271,7 @@ public final class TaskStatus {
         }
 
         /**
-         * <p>Any allocated agents of the Task.</p>
+         * <p>Any allocated agents of the task.</p>
          */
         @JsonSetter(value = "allocation", nulls = Nulls.SKIP)
         public Builder allocation(Optional<Allocation> allocation) {

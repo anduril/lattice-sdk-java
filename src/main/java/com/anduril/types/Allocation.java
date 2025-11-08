@@ -31,7 +31,7 @@ public final class Allocation {
     }
 
     /**
-     * @return Agents actively being utilized in a Task.
+     * @return Agents actively being utilized in a task.
      */
     @JsonProperty("activeAgents")
     public Optional<List<Agent>> getActiveAgents() {
@@ -82,7 +82,7 @@ public final class Allocation {
         }
 
         /**
-         * <p>Agents actively being utilized in a Task.</p>
+         * <p>Agents actively being utilized in a task.</p>
          */
         @JsonSetter(value = "activeAgents", nulls = Nulls.SKIP)
         public Builder activeAgents(Optional<List<Agent>> activeAgents) {

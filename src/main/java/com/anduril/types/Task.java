@@ -90,7 +90,7 @@ public final class Task {
     }
 
     /**
-     * @return Version of this Task.
+     * @return Version of this task.
      */
     @JsonProperty("version")
     public Optional<TaskVersion> getVersion() {
@@ -98,7 +98,7 @@ public final class Task {
     }
 
     /**
-     * @return DEPRECATED: Human readable display name for this Task, should be short (&lt;100 chars).
+     * @return DEPRECATED: Human readable display name for this task, should be short (&lt;100 chars).
      */
     @JsonProperty("displayName")
     public Optional<String> getDisplayName() {
@@ -106,7 +106,7 @@ public final class Task {
     }
 
     /**
-     * @return Full Task parameterization.
+     * @return The path for the Protobuf task definition, and the complete task data.
      */
     @JsonProperty("specification")
     public Optional<GoogleProtobufAny> getSpecification() {
@@ -114,7 +114,7 @@ public final class Task {
     }
 
     /**
-     * @return Records who created this Task. This field will not change after the Task has been created.
+     * @return Records who created this task. This field will not change after the task has been created.
      */
     @JsonProperty("createdBy")
     public Optional<Principal> getCreatedBy() {
@@ -122,7 +122,7 @@ public final class Task {
     }
 
     /**
-     * @return Records who updated this Task last.
+     * @return Records who updated this task last.
      */
     @JsonProperty("lastUpdatedBy")
     public Optional<Principal> getLastUpdatedBy() {
@@ -138,7 +138,7 @@ public final class Task {
     }
 
     /**
-     * @return The status of this Task.
+     * @return The status of this task.
      */
     @JsonProperty("status")
     public Optional<TaskStatus> getStatus() {
@@ -146,7 +146,7 @@ public final class Task {
     }
 
     /**
-     * @return If the Task has been scheduled to execute, what time it should execute at.
+     * @return If the task has been scheduled to execute, what time it should execute at.
      */
     @JsonProperty("scheduledTime")
     public Optional<OffsetDateTime> getScheduledTime() {
@@ -154,7 +154,7 @@ public final class Task {
     }
 
     /**
-     * @return Any related Tasks associated with this, typically includes an assignee for this Task and/or a parent.
+     * @return Any related Tasks associated with this, typically includes an assignee for this task and/or a parent.
      */
     @JsonProperty("relations")
     public Optional<Relations> getRelations() {
@@ -162,7 +162,7 @@ public final class Task {
     }
 
     /**
-     * @return Longer, free form human readable description of this Task
+     * @return Longer, free form human readable description of this task
      */
     @JsonProperty("description")
     public Optional<String> getDescription() {
@@ -170,8 +170,8 @@ public final class Task {
     }
 
     /**
-     * @return If set, execution of this Task is managed elsewhere, not by Task Manager.
-     * In other words, Task manager will not attempt to update the assigned agent with execution instructions.
+     * @return If set, execution of this task is managed elsewhere, not by Task Manager.
+     * In other words, task manager will not attempt to update the assigned agent with execution instructions.
      */
     @JsonProperty("isExecutedElsewhere")
     public Optional<Boolean> getIsExecutedElsewhere() {
@@ -179,7 +179,7 @@ public final class Task {
     }
 
     /**
-     * @return Time of Task creation.
+     * @return Time of task creation.
      */
     @JsonProperty("createTime")
     public Optional<OffsetDateTime> getCreateTime() {
@@ -187,7 +187,7 @@ public final class Task {
     }
 
     /**
-     * @return If populated, designates this to be a replicated Task.
+     * @return If populated, designates this to be a replicated task.
      */
     @JsonProperty("replication")
     public Optional<Replication> getReplication() {
@@ -206,7 +206,7 @@ public final class Task {
     }
 
     /**
-     * @return The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
+     * @return The networked owner of this task. It is used to ensure that linear writes occur on the node responsible
      * for replication of task data to other nodes running Task Manager.
      */
     @JsonProperty("owner")
@@ -329,7 +329,7 @@ public final class Task {
         }
 
         /**
-         * <p>Version of this Task.</p>
+         * <p>Version of this task.</p>
          */
         @JsonSetter(value = "version", nulls = Nulls.SKIP)
         public Builder version(Optional<TaskVersion> version) {
@@ -343,7 +343,7 @@ public final class Task {
         }
 
         /**
-         * <p>DEPRECATED: Human readable display name for this Task, should be short (&lt;100 chars).</p>
+         * <p>DEPRECATED: Human readable display name for this task, should be short (&lt;100 chars).</p>
          */
         @JsonSetter(value = "displayName", nulls = Nulls.SKIP)
         public Builder displayName(Optional<String> displayName) {
@@ -357,7 +357,7 @@ public final class Task {
         }
 
         /**
-         * <p>Full Task parameterization.</p>
+         * <p>The path for the Protobuf task definition, and the complete task data.</p>
          */
         @JsonSetter(value = "specification", nulls = Nulls.SKIP)
         public Builder specification(Optional<GoogleProtobufAny> specification) {
@@ -371,7 +371,7 @@ public final class Task {
         }
 
         /**
-         * <p>Records who created this Task. This field will not change after the Task has been created.</p>
+         * <p>Records who created this task. This field will not change after the task has been created.</p>
          */
         @JsonSetter(value = "createdBy", nulls = Nulls.SKIP)
         public Builder createdBy(Optional<Principal> createdBy) {
@@ -385,7 +385,7 @@ public final class Task {
         }
 
         /**
-         * <p>Records who updated this Task last.</p>
+         * <p>Records who updated this task last.</p>
          */
         @JsonSetter(value = "lastUpdatedBy", nulls = Nulls.SKIP)
         public Builder lastUpdatedBy(Optional<Principal> lastUpdatedBy) {
@@ -413,7 +413,7 @@ public final class Task {
         }
 
         /**
-         * <p>The status of this Task.</p>
+         * <p>The status of this task.</p>
          */
         @JsonSetter(value = "status", nulls = Nulls.SKIP)
         public Builder status(Optional<TaskStatus> status) {
@@ -427,7 +427,7 @@ public final class Task {
         }
 
         /**
-         * <p>If the Task has been scheduled to execute, what time it should execute at.</p>
+         * <p>If the task has been scheduled to execute, what time it should execute at.</p>
          */
         @JsonSetter(value = "scheduledTime", nulls = Nulls.SKIP)
         public Builder scheduledTime(Optional<OffsetDateTime> scheduledTime) {
@@ -441,7 +441,7 @@ public final class Task {
         }
 
         /**
-         * <p>Any related Tasks associated with this, typically includes an assignee for this Task and/or a parent.</p>
+         * <p>Any related Tasks associated with this, typically includes an assignee for this task and/or a parent.</p>
          */
         @JsonSetter(value = "relations", nulls = Nulls.SKIP)
         public Builder relations(Optional<Relations> relations) {
@@ -455,7 +455,7 @@ public final class Task {
         }
 
         /**
-         * <p>Longer, free form human readable description of this Task</p>
+         * <p>Longer, free form human readable description of this task</p>
          */
         @JsonSetter(value = "description", nulls = Nulls.SKIP)
         public Builder description(Optional<String> description) {
@@ -469,8 +469,8 @@ public final class Task {
         }
 
         /**
-         * <p>If set, execution of this Task is managed elsewhere, not by Task Manager.
-         * In other words, Task manager will not attempt to update the assigned agent with execution instructions.</p>
+         * <p>If set, execution of this task is managed elsewhere, not by Task Manager.
+         * In other words, task manager will not attempt to update the assigned agent with execution instructions.</p>
          */
         @JsonSetter(value = "isExecutedElsewhere", nulls = Nulls.SKIP)
         public Builder isExecutedElsewhere(Optional<Boolean> isExecutedElsewhere) {
@@ -484,7 +484,7 @@ public final class Task {
         }
 
         /**
-         * <p>Time of Task creation.</p>
+         * <p>Time of task creation.</p>
          */
         @JsonSetter(value = "createTime", nulls = Nulls.SKIP)
         public Builder createTime(Optional<OffsetDateTime> createTime) {
@@ -498,7 +498,7 @@ public final class Task {
         }
 
         /**
-         * <p>If populated, designates this to be a replicated Task.</p>
+         * <p>If populated, designates this to be a replicated task.</p>
          */
         @JsonSetter(value = "replication", nulls = Nulls.SKIP)
         public Builder replication(Optional<Replication> replication) {
@@ -529,7 +529,7 @@ public final class Task {
         }
 
         /**
-         * <p>The networked owner of this Task. It is used to ensure that linear writes occur on the node responsible
+         * <p>The networked owner of this task. It is used to ensure that linear writes occur on the node responsible
          * for replication of task data to other nodes running Task Manager.</p>
          */
         @JsonSetter(value = "owner", nulls = Nulls.SKIP)

@@ -40,7 +40,7 @@ public final class TaskError {
     }
 
     /**
-     * @return Error code for Task error.
+     * @return Error code for task error.
      */
     @JsonProperty("code")
     public Optional<TaskErrorCode> getCode() {
@@ -113,7 +113,7 @@ public final class TaskError {
         }
 
         /**
-         * <p>Error code for Task error.</p>
+         * <p>Error code for task error.</p>
          */
         @JsonSetter(value = "code", nulls = Nulls.SKIP)
         public Builder code(Optional<TaskErrorCode> code) {

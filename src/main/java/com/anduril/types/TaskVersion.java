@@ -40,7 +40,7 @@ public final class TaskVersion {
     }
 
     /**
-     * @return The unique ID for this Task.
+     * @return The unique identifier for this task, used to distinguish it from all other tasks in the system.
      */
     @JsonProperty("taskId")
     public Optional<String> getTaskId() {
@@ -48,7 +48,8 @@ public final class TaskVersion {
     }
 
     /**
-     * @return Increments on definition (i.e. not TaskStatus) change. 0 is unset, starts at 1 on creation.
+     * @return Counter that increments on changes to the task definition.
+     * Unset (0) initially, starts at 1 on creation, and increments with each update to task fields.
      */
     @JsonProperty("definitionVersion")
     public Optional<Integer> getDefinitionVersion() {
@@ -56,7 +57,8 @@ public final class TaskVersion {
     }
 
     /**
-     * @return Increments on changes to TaskStatus. 0 is unset, starts at 1 on creation.
+     * @return Counter that increments on changes to TaskStatus.
+     * Unset (0) initially, starts at 1 on creation, and increments with each status update.
      */
     @JsonProperty("statusVersion")
     public Optional<Integer> getStatusVersion() {
@@ -115,7 +117,7 @@ public final class TaskVersion {
         }
 
         /**
-         * <p>The unique ID for this Task.</p>
+         * <p>The unique identifier for this task, used to distinguish it from all other tasks in the system.</p>
          */
         @JsonSetter(value = "taskId", nulls = Nulls.SKIP)
         public Builder taskId(Optional<String> taskId) {
@@ -129,7 +131,8 @@ public final class TaskVersion {
         }
 
         /**
-         * <p>Increments on definition (i.e. not TaskStatus) change. 0 is unset, starts at 1 on creation.</p>
+         * <p>Counter that increments on changes to the task definition.
+         * Unset (0) initially, starts at 1 on creation, and increments with each update to task fields.</p>
          */
         @JsonSetter(value = "definitionVersion", nulls = Nulls.SKIP)
         public Builder definitionVersion(Optional<Integer> definitionVersion) {
@@ -143,7 +146,8 @@ public final class TaskVersion {
         }
 
         /**
-         * <p>Increments on changes to TaskStatus. 0 is unset, starts at 1 on creation.</p>
+         * <p>Counter that increments on changes to TaskStatus.
+         * Unset (0) initially, starts at 1 on creation, and increments with each status update.</p>
          */
         @JsonSetter(value = "statusVersion", nulls = Nulls.SKIP)
         public Builder statusVersion(Optional<Integer> statusVersion) {

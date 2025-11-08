@@ -90,7 +90,7 @@ public final class TaskCreation {
     }
 
     /**
-     * @return Full set of task parameters.
+     * @return The path for the Protobuf task definition, and the complete task data.
      */
     @JsonProperty("specification")
     public Optional<GoogleProtobufAny> getSpecification() {
@@ -253,7 +253,7 @@ public final class TaskCreation {
         }
 
         /**
-         * <p>Full set of task parameters.</p>
+         * <p>The path for the Protobuf task definition, and the complete task data.</p>
          */
         @JsonSetter(value = "specification", nulls = Nulls.SKIP)
         public Builder specification(Optional<GoogleProtobufAny> specification) {

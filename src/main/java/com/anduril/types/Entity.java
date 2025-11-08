@@ -181,8 +181,8 @@ public final class Entity {
     }
 
     /**
-     * @return A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity Manager API
-     * automatically generates an ID when it creates the entity.
+     * @return A Globally Unique Identifier (GUID) for your entity. This is a required
+     * field.
      */
     @JsonProperty("entityId")
     public Optional<String> getEntityId() {
@@ -732,8 +732,8 @@ public final class Entity {
         }
 
         /**
-         * <p>A Globally Unique Identifier (GUID) for your entity. If this field is empty, the Entity Manager API
-         * automatically generates an ID when it creates the entity.</p>
+         * <p>A Globally Unique Identifier (GUID) for your entity. This is a required
+         * field.</p>
          */
         @JsonSetter(value = "entityId", nulls = Nulls.SKIP)
         public Builder entityId(Optional<String> entityId) {
