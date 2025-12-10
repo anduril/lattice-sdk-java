@@ -19,6 +19,8 @@ import com.anduril.errors.InsufficientStorageError;
 import com.anduril.errors.InternalServerError;
 import com.anduril.errors.NotFoundError;
 import com.anduril.errors.UnauthorizedError;
+import com.anduril.resources.objects.requests.DeleteObjectRequest;
+import com.anduril.resources.objects.requests.GetObjectMetadataRequest;
 import com.anduril.resources.objects.requests.GetObjectRequest;
 import com.anduril.resources.objects.requests.ListObjectsRequest;
 import com.anduril.types.ListResponse;
@@ -95,9 +97,10 @@ public class RawObjectsClient {
         }
         try (Response response = client.newCall(okhttpRequest).execute()) {
             ResponseBody responseBody = response.body();
+            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             if (response.isSuccessful()) {
                 ListResponse parsedResponse =
-                        ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), ListResponse.class);
+                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, ListResponse.class);
                 Optional<String> startingAfter = parsedResponse.getNextPageToken();
                 ListObjectsRequest nextRequest = ListObjectsRequest.builder()
                         .from(request)
@@ -111,7 +114,6 @@ public class RawObjectsClient {
                                         .body()),
                         response);
             }
-            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {
                 switch (response.code()) {
                     case 400:
@@ -127,11 +129,9 @@ public class RawObjectsClient {
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
             }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
-                    "Error with status code " + response.code(),
-                    response.code(),
-                    ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
-                    response);
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -168,10 +168,10 @@ public class RawObjectsClient {
                 .addHeader("Accept", "application/json");
         if (request.getAcceptEncoding().isPresent()) {
             _requestBuilder.addHeader(
-                    "Accept-Encoding", request.getAcceptEncoding().get().toString());
+                    "acceptEncoding", request.getAcceptEncoding().get().toString());
         }
         if (request.getPriority().isPresent()) {
-            _requestBuilder.addHeader("Priority", request.getPriority().get());
+            _requestBuilder.addHeader("priority", request.getPriority().get());
         }
         Request okhttpRequest = _requestBuilder.build();
         OkHttpClient client = clientOptions.httpClient();
@@ -203,11 +203,9 @@ public class RawObjectsClient {
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
             }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
-                    "Error with status code " + response.code(),
-                    response.code(),
-                    ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
-                    response);
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -242,11 +240,11 @@ public class RawObjectsClient {
         }
         try (Response response = client.newCall(okhttpRequest).execute()) {
             ResponseBody responseBody = response.body();
+            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             if (response.isSuccessful()) {
                 return new LatticeHttpResponse<>(
-                        ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), PathMetadata.class), response);
+                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, PathMetadata.class), response);
             }
-            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {
                 switch (response.code()) {
                     case 400:
@@ -268,11 +266,9 @@ public class RawObjectsClient {
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
             }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
-                    "Error with status code " + response.code(),
-                    response.code(),
-                    ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
-                    response);
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -297,24 +293,32 @@ public class RawObjectsClient {
      * Deletes an object from your environment given the objectPath path parameter.
      */
     public LatticeHttpResponse<Void> deleteObject(String objectPath) {
-        return deleteObject(objectPath, null);
+        return deleteObject(objectPath, DeleteObjectRequest.builder().build());
     }
 
     /**
      * Deletes an object from your environment given the objectPath path parameter.
      */
-    public LatticeHttpResponse<Void> deleteObject(String objectPath, RequestOptions requestOptions) {
+    public LatticeHttpResponse<Void> deleteObject(String objectPath, DeleteObjectRequest request) {
+        return deleteObject(objectPath, request, null);
+    }
+
+    /**
+     * Deletes an object from your environment given the objectPath path parameter.
+     */
+    public LatticeHttpResponse<Void> deleteObject(
+            String objectPath, DeleteObjectRequest request, RequestOptions requestOptions) {
         HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/objects")
                 .addPathSegment(objectPath)
                 .build();
-        Request okhttpRequest = new Request.Builder()
+        Request.Builder _requestBuilder = new Request.Builder()
                 .url(httpUrl)
                 .method("DELETE", null)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
-                .addHeader("Accept", "application/json")
-                .build();
+                .addHeader("Accept", "application/json");
+        Request okhttpRequest = _requestBuilder.build();
         OkHttpClient client = clientOptions.httpClient();
         if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
             client = clientOptions.httpClientWithTimeout(requestOptions);
@@ -343,11 +347,9 @@ public class RawObjectsClient {
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
             }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
-                    "Error with status code " + response.code(),
-                    response.code(),
-                    ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
-                    response);
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -357,24 +359,32 @@ public class RawObjectsClient {
      * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
      */
     public LatticeHttpResponse<Void> getObjectMetadata(String objectPath) {
-        return getObjectMetadata(objectPath, null);
+        return getObjectMetadata(objectPath, GetObjectMetadataRequest.builder().build());
     }
 
     /**
      * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
      */
-    public LatticeHttpResponse<Void> getObjectMetadata(String objectPath, RequestOptions requestOptions) {
+    public LatticeHttpResponse<Void> getObjectMetadata(String objectPath, GetObjectMetadataRequest request) {
+        return getObjectMetadata(objectPath, request, null);
+    }
+
+    /**
+     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
+     */
+    public LatticeHttpResponse<Void> getObjectMetadata(
+            String objectPath, GetObjectMetadataRequest request, RequestOptions requestOptions) {
         HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/objects")
                 .addPathSegment(objectPath)
                 .build();
-        Request okhttpRequest = new Request.Builder()
+        Request.Builder _requestBuilder = new Request.Builder()
                 .url(httpUrl)
                 .method("HEAD", null)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
-                .addHeader("Accept", "application/json")
-                .build();
+                .addHeader("Accept", "application/json");
+        Request okhttpRequest = _requestBuilder.build();
         OkHttpClient client = clientOptions.httpClient();
         if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
             client = clientOptions.httpClientWithTimeout(requestOptions);
@@ -400,11 +410,9 @@ public class RawObjectsClient {
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
             }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
-                    "Error with status code " + response.code(),
-                    response.code(),
-                    ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
-                    response);
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }

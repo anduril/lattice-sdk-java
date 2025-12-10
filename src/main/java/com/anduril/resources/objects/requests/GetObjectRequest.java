@@ -7,11 +7,9 @@ import com.anduril.core.ObjectMappers;
 import com.anduril.resources.objects.types.GetObjectRequestAcceptEncoding;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
-import com.fasterxml.jackson.annotation.Nulls;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +37,7 @@ public final class GetObjectRequest {
     /**
      * @return If set, Lattice will compress the response using the specified compression method. If the header is not defined, or the compression method is set to <code>identity</code>, no compression will be applied to the response.
      */
-    @JsonProperty("Accept-Encoding")
+    @JsonIgnore
     public Optional<GetObjectRequestAcceptEncoding> getAcceptEncoding() {
         return acceptEncoding;
     }
@@ -47,7 +45,7 @@ public final class GetObjectRequest {
     /**
      * @return Indicates a client's preference for the priority of the response. The value is a structured header as defined in RFC 9218. If you do not set the header, Lattice uses the default priority set for the environment. Incremental delivery directives are not supported and will be ignored.
      */
-    @JsonProperty("Priority")
+    @JsonIgnore
     public Optional<String> getPriority() {
         return priority;
     }
@@ -101,7 +99,6 @@ public final class GetObjectRequest {
         /**
          * <p>If set, Lattice will compress the response using the specified compression method. If the header is not defined, or the compression method is set to <code>identity</code>, no compression will be applied to the response.</p>
          */
-        @JsonSetter(value = "Accept-Encoding", nulls = Nulls.SKIP)
         public Builder acceptEncoding(Optional<GetObjectRequestAcceptEncoding> acceptEncoding) {
             this.acceptEncoding = acceptEncoding;
             return this;
@@ -115,7 +112,6 @@ public final class GetObjectRequest {
         /**
          * <p>Indicates a client's preference for the priority of the response. The value is a structured header as defined in RFC 9218. If you do not set the header, Lattice uses the default priority set for the environment. Incremental delivery directives are not supported and will be ignored.</p>
          */
-        @JsonSetter(value = "Priority", nulls = Nulls.SKIP)
         public Builder priority(Optional<String> priority) {
             this.priority = priority;
             return this;

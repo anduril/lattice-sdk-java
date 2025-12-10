@@ -8,6 +8,8 @@ import com.anduril.core.RequestOptions;
 import com.anduril.resources.entities.requests.EntityEventRequest;
 import com.anduril.resources.entities.requests.EntityOverride;
 import com.anduril.resources.entities.requests.EntityStreamRequest;
+import com.anduril.resources.entities.requests.GetEntityRequest;
+import com.anduril.resources.entities.requests.RemoveEntityOverrideRequest;
 import com.anduril.resources.entities.types.StreamEntitiesResponse;
 import com.anduril.types.Entity;
 import com.anduril.types.EntityEventResponse;
@@ -70,8 +72,13 @@ public class AsyncEntitiesClient {
         return this.rawClient.getEntity(entityId).thenApply(response -> response.body());
     }
 
-    public CompletableFuture<Entity> getEntity(String entityId, RequestOptions requestOptions) {
-        return this.rawClient.getEntity(entityId, requestOptions).thenApply(response -> response.body());
+    public CompletableFuture<Entity> getEntity(String entityId, GetEntityRequest request) {
+        return this.rawClient.getEntity(entityId, request).thenApply(response -> response.body());
+    }
+
+    public CompletableFuture<Entity> getEntity(
+            String entityId, GetEntityRequest request, RequestOptions requestOptions) {
+        return this.rawClient.getEntity(entityId, request, requestOptions).thenApply(response -> response.body());
     }
 
     /**
@@ -124,9 +131,17 @@ public class AsyncEntitiesClient {
      * This operation clears the override value from the specified field path on the entity.
      */
     public CompletableFuture<Entity> removeEntityOverride(
-            String entityId, String fieldPath, RequestOptions requestOptions) {
+            String entityId, String fieldPath, RemoveEntityOverrideRequest request) {
+        return this.rawClient.removeEntityOverride(entityId, fieldPath, request).thenApply(response -> response.body());
+    }
+
+    /**
+     * This operation clears the override value from the specified field path on the entity.
+     */
+    public CompletableFuture<Entity> removeEntityOverride(
+            String entityId, String fieldPath, RemoveEntityOverrideRequest request, RequestOptions requestOptions) {
         return this.rawClient
-                .removeEntityOverride(entityId, fieldPath, requestOptions)
+                .removeEntityOverride(entityId, fieldPath, request, requestOptions)
                 .thenApply(response -> response.body());
     }
 
@@ -162,21 +177,60 @@ public class AsyncEntitiesClient {
     }
 
     /**
-     * Establishes a persistent connection to stream entity events as they occur.
+     * Establishes a server-sent events (SSE) connection that streams entity data in real-time.
+     * This is a one-way connection from server to client that follows the SSE protocol with text/event-stream content type.
+     * <p>This endpoint enables clients to maintain a real-time view of the common operational picture (COP)
+     * by first streaming all pre-existing entities that match filter criteria, then continuously delivering
+     * updates as entities are created, modified, or deleted.</p>
+     * <p>The server first sends events with type PREEXISTING for all live entities matching the filter that existed before the stream was open,
+     * then streams CREATE events for newly created entities, UPDATE events when existing entities change, and DELETED events when entities are removed. The stream remains open
+     * indefinitely unless preExistingOnly is set to true.</p>
+     * <p>Heartbeat messages can be configured to maintain connection health and detect disconnects by setting the heartbeatIntervalMS
+     * parameter. These heartbeats help keep the connection alive and allow clients to verify the server is still responsive.</p>
+     * <p>Clients can optimize bandwidth usage by specifying which entity components they need populated using the componentsToInclude parameter.
+     * This allows receiving only relevant data instead of complete entities.</p>
+     * <p>The connection automatically recovers from temporary disconnections, resuming the stream where it left off. Unlike polling approaches,
+     * this provides real-time updates with minimal latency and reduced server load.</p>
      */
     public CompletableFuture<Iterable<StreamEntitiesResponse>> streamEntities() {
         return this.rawClient.streamEntities().thenApply(response -> response.body());
     }
 
     /**
-     * Establishes a persistent connection to stream entity events as they occur.
+     * Establishes a server-sent events (SSE) connection that streams entity data in real-time.
+     * This is a one-way connection from server to client that follows the SSE protocol with text/event-stream content type.
+     * <p>This endpoint enables clients to maintain a real-time view of the common operational picture (COP)
+     * by first streaming all pre-existing entities that match filter criteria, then continuously delivering
+     * updates as entities are created, modified, or deleted.</p>
+     * <p>The server first sends events with type PREEXISTING for all live entities matching the filter that existed before the stream was open,
+     * then streams CREATE events for newly created entities, UPDATE events when existing entities change, and DELETED events when entities are removed. The stream remains open
+     * indefinitely unless preExistingOnly is set to true.</p>
+     * <p>Heartbeat messages can be configured to maintain connection health and detect disconnects by setting the heartbeatIntervalMS
+     * parameter. These heartbeats help keep the connection alive and allow clients to verify the server is still responsive.</p>
+     * <p>Clients can optimize bandwidth usage by specifying which entity components they need populated using the componentsToInclude parameter.
+     * This allows receiving only relevant data instead of complete entities.</p>
+     * <p>The connection automatically recovers from temporary disconnections, resuming the stream where it left off. Unlike polling approaches,
+     * this provides real-time updates with minimal latency and reduced server load.</p>
      */
     public CompletableFuture<Iterable<StreamEntitiesResponse>> streamEntities(EntityStreamRequest request) {
         return this.rawClient.streamEntities(request).thenApply(response -> response.body());
     }
 
     /**
-     * Establishes a persistent connection to stream entity events as they occur.
+     * Establishes a server-sent events (SSE) connection that streams entity data in real-time.
+     * This is a one-way connection from server to client that follows the SSE protocol with text/event-stream content type.
+     * <p>This endpoint enables clients to maintain a real-time view of the common operational picture (COP)
+     * by first streaming all pre-existing entities that match filter criteria, then continuously delivering
+     * updates as entities are created, modified, or deleted.</p>
+     * <p>The server first sends events with type PREEXISTING for all live entities matching the filter that existed before the stream was open,
+     * then streams CREATE events for newly created entities, UPDATE events when existing entities change, and DELETED events when entities are removed. The stream remains open
+     * indefinitely unless preExistingOnly is set to true.</p>
+     * <p>Heartbeat messages can be configured to maintain connection health and detect disconnects by setting the heartbeatIntervalMS
+     * parameter. These heartbeats help keep the connection alive and allow clients to verify the server is still responsive.</p>
+     * <p>Clients can optimize bandwidth usage by specifying which entity components they need populated using the componentsToInclude parameter.
+     * This allows receiving only relevant data instead of complete entities.</p>
+     * <p>The connection automatically recovers from temporary disconnections, resuming the stream where it left off. Unlike polling approaches,
+     * this provides real-time updates with minimal latency and reduced server load.</p>
      */
     public CompletableFuture<Iterable<StreamEntitiesResponse>> streamEntities(
             EntityStreamRequest request, RequestOptions requestOptions) {

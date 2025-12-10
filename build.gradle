@@ -14,14 +14,13 @@ repositories {
 }
 
 dependencies {
-    api 'com.squareup.okhttp3:okhttp:4.12.0'
-    api 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
-    api 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.17.2'
-    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.2'
+    api 'com.squareup.okhttp3:okhttp:5.2.1'
+    api 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+    api 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.18.2'
+    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
-    testImplementation 'com.squareup.okhttp3:mockwebserver:4.12.0'
 }
 
 
@@ -48,7 +47,7 @@ java {
 
 group = 'com.anduril'
 
-version = '4.0.0'
+version = '5.0.0'
 
 jar {
     dependsOn(":generatePomFileForMavenPublication")
@@ -79,21 +78,21 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.anduril'
             artifactId = 'lattice-sdk'
-            version = '4.0.0'
+            version = '5.0.0'
             from components.java
             pom {
-                name = 'Anduril Industries, Inc.'
-                description = 'Anduril Lattice SDK for Java'
-                url = 'https://developer.anduril.com'
+                name = 'anduril'
+                description = 'The official SDK of anduril'
+                url = 'https://buildwithfern.com'
                 licenses {
                     license {
-                        name = 'Anduril Lattice Software Development Kit License Agreement'
+                        name = 'Custom License (LICENSE)'
                     }
                 }
                 developers {
                     developer {
-                        name = 'Anduril Industries, Inc.'
-                        email = 'lattice-developers@anduril.com'
+                        name = 'anduril'
+                        email = 'developers@anduril.com'
                     }
                 }
                 scm {

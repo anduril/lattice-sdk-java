@@ -6,6 +6,8 @@ package com.anduril.resources.objects;
 import com.anduril.core.ClientOptions;
 import com.anduril.core.RequestOptions;
 import com.anduril.core.pagination.SyncPagingIterable;
+import com.anduril.resources.objects.requests.DeleteObjectRequest;
+import com.anduril.resources.objects.requests.GetObjectMetadataRequest;
 import com.anduril.resources.objects.requests.GetObjectRequest;
 import com.anduril.resources.objects.requests.ListObjectsRequest;
 import com.anduril.types.PathMetadata;
@@ -113,8 +115,16 @@ public class AsyncObjectsClient {
     /**
      * Deletes an object from your environment given the objectPath path parameter.
      */
-    public CompletableFuture<Void> deleteObject(String objectPath, RequestOptions requestOptions) {
-        return this.rawClient.deleteObject(objectPath, requestOptions).thenApply(response -> response.body());
+    public CompletableFuture<Void> deleteObject(String objectPath, DeleteObjectRequest request) {
+        return this.rawClient.deleteObject(objectPath, request).thenApply(response -> response.body());
+    }
+
+    /**
+     * Deletes an object from your environment given the objectPath path parameter.
+     */
+    public CompletableFuture<Void> deleteObject(
+            String objectPath, DeleteObjectRequest request, RequestOptions requestOptions) {
+        return this.rawClient.deleteObject(objectPath, request, requestOptions).thenApply(response -> response.body());
     }
 
     /**
@@ -127,7 +137,17 @@ public class AsyncObjectsClient {
     /**
      * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
      */
-    public CompletableFuture<Void> getObjectMetadata(String objectPath, RequestOptions requestOptions) {
-        return this.rawClient.getObjectMetadata(objectPath, requestOptions).thenApply(response -> response.body());
+    public CompletableFuture<Void> getObjectMetadata(String objectPath, GetObjectMetadataRequest request) {
+        return this.rawClient.getObjectMetadata(objectPath, request).thenApply(response -> response.body());
+    }
+
+    /**
+     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
+     */
+    public CompletableFuture<Void> getObjectMetadata(
+            String objectPath, GetObjectMetadataRequest request, RequestOptions requestOptions) {
+        return this.rawClient
+                .getObjectMetadata(objectPath, request, requestOptions)
+                .thenApply(response -> response.body());
     }
 }

@@ -18,8 +18,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
-@JsonDeserialize(builder = TMat3.Builder.class)
-public final class TMat3 {
+@JsonDeserialize(builder = EntityManagerTMat3.Builder.class)
+public final class EntityManagerTMat3 {
     private final Optional<Float> mxx;
 
     private final Optional<Float> mxy;
@@ -34,7 +34,7 @@ public final class TMat3 {
 
     private final Map<String, Object> additionalProperties;
 
-    private TMat3(
+    private EntityManagerTMat3(
             Optional<Float> mxx,
             Optional<Float> mxy,
             Optional<Float> mxz,
@@ -84,7 +84,7 @@ public final class TMat3 {
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
-        return other instanceof TMat3 && equalTo((TMat3) other);
+        return other instanceof EntityManagerTMat3 && equalTo((EntityManagerTMat3) other);
     }
 
     @JsonAnyGetter
@@ -92,7 +92,7 @@ public final class TMat3 {
         return this.additionalProperties;
     }
 
-    private boolean equalTo(TMat3 other) {
+    private boolean equalTo(EntityManagerTMat3 other) {
         return mxx.equals(other.mxx)
                 && mxy.equals(other.mxy)
                 && mxz.equals(other.mxz)
@@ -134,7 +134,7 @@ public final class TMat3 {
 
         private Builder() {}
 
-        public Builder from(TMat3 other) {
+        public Builder from(EntityManagerTMat3 other) {
             mxx(other.getMxx());
             mxy(other.getMxy());
             mxz(other.getMxz());
@@ -210,8 +210,8 @@ public final class TMat3 {
             return this;
         }
 
-        public TMat3 build() {
-            return new TMat3(mxx, mxy, mxz, myy, myz, mzz, additionalProperties);
+        public EntityManagerTMat3 build() {
+            return new EntityManagerTMat3(mxx, mxy, mxz, myy, myz, mzz, additionalProperties);
         }
     }
 }

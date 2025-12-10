@@ -10,20 +10,20 @@ public final class LlaAltitudeReference {
     public static final LlaAltitudeReference ALTITUDE_REFERENCE_BELOW_SEA_SURFACE = new LlaAltitudeReference(
             Value.ALTITUDE_REFERENCE_BELOW_SEA_SURFACE, "ALTITUDE_REFERENCE_BELOW_SEA_SURFACE");
 
-    public static final LlaAltitudeReference ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS_84 = new LlaAltitudeReference(
-            Value.ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS_84, "ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS84");
-
-    public static final LlaAltitudeReference ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM_96 = new LlaAltitudeReference(
-            Value.ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM_96, "ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM96");
-
     public static final LlaAltitudeReference ALTITUDE_REFERENCE_ABOVE_SEA_FLOOR =
             new LlaAltitudeReference(Value.ALTITUDE_REFERENCE_ABOVE_SEA_FLOOR, "ALTITUDE_REFERENCE_ABOVE_SEA_FLOOR");
 
     public static final LlaAltitudeReference ALTITUDE_REFERENCE_BAROMETRIC =
             new LlaAltitudeReference(Value.ALTITUDE_REFERENCE_BAROMETRIC, "ALTITUDE_REFERENCE_BAROMETRIC");
 
+    public static final LlaAltitudeReference ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS84 = new LlaAltitudeReference(
+            Value.ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS84, "ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS84");
+
     public static final LlaAltitudeReference ALTITUDE_REFERENCE_INVALID =
             new LlaAltitudeReference(Value.ALTITUDE_REFERENCE_INVALID, "ALTITUDE_REFERENCE_INVALID");
+
+    public static final LlaAltitudeReference ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM96 = new LlaAltitudeReference(
+            Value.ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM96, "ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM96");
 
     public static final LlaAltitudeReference ALTITUDE_REFERENCE_UNKNOWN =
             new LlaAltitudeReference(Value.ALTITUDE_REFERENCE_UNKNOWN, "ALTITUDE_REFERENCE_UNKNOWN");
@@ -62,16 +62,16 @@ public final class LlaAltitudeReference {
         switch (value) {
             case ALTITUDE_REFERENCE_BELOW_SEA_SURFACE:
                 return visitor.visitAltitudeReferenceBelowSeaSurface();
-            case ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS_84:
-                return visitor.visitAltitudeReferenceHeightAboveWgs84();
-            case ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM_96:
-                return visitor.visitAltitudeReferenceHeightAboveEgm96();
             case ALTITUDE_REFERENCE_ABOVE_SEA_FLOOR:
                 return visitor.visitAltitudeReferenceAboveSeaFloor();
             case ALTITUDE_REFERENCE_BAROMETRIC:
                 return visitor.visitAltitudeReferenceBarometric();
+            case ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS84:
+                return visitor.visitAltitudeReferenceHeightAboveWgs84();
             case ALTITUDE_REFERENCE_INVALID:
                 return visitor.visitAltitudeReferenceInvalid();
+            case ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM96:
+                return visitor.visitAltitudeReferenceHeightAboveEgm96();
             case ALTITUDE_REFERENCE_UNKNOWN:
                 return visitor.visitAltitudeReferenceUnknown();
             case UNKNOWN:
@@ -85,16 +85,16 @@ public final class LlaAltitudeReference {
         switch (value) {
             case "ALTITUDE_REFERENCE_BELOW_SEA_SURFACE":
                 return ALTITUDE_REFERENCE_BELOW_SEA_SURFACE;
-            case "ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS84":
-                return ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS_84;
-            case "ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM96":
-                return ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM_96;
             case "ALTITUDE_REFERENCE_ABOVE_SEA_FLOOR":
                 return ALTITUDE_REFERENCE_ABOVE_SEA_FLOOR;
             case "ALTITUDE_REFERENCE_BAROMETRIC":
                 return ALTITUDE_REFERENCE_BAROMETRIC;
+            case "ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS84":
+                return ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS84;
             case "ALTITUDE_REFERENCE_INVALID":
                 return ALTITUDE_REFERENCE_INVALID;
+            case "ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM96":
+                return ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM96;
             case "ALTITUDE_REFERENCE_UNKNOWN":
                 return ALTITUDE_REFERENCE_UNKNOWN;
             default:
@@ -105,9 +105,9 @@ public final class LlaAltitudeReference {
     public enum Value {
         ALTITUDE_REFERENCE_INVALID,
 
-        ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS_84,
+        ALTITUDE_REFERENCE_HEIGHT_ABOVE_WGS84,
 
-        ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM_96,
+        ALTITUDE_REFERENCE_HEIGHT_ABOVE_EGM96,
 
         ALTITUDE_REFERENCE_UNKNOWN,
 
