@@ -31,7 +31,7 @@ public final class Replication {
     }
 
     /**
-     * @return Time by which this Task should be assumed to be stale.
+     * @return The time by which this task should be assumed to be stale.
      */
     @JsonProperty("staleTime")
     public Optional<OffsetDateTime> getStaleTime() {
@@ -82,7 +82,7 @@ public final class Replication {
         }
 
         /**
-         * <p>Time by which this Task should be assumed to be stale.</p>
+         * <p>The time by which this task should be assumed to be stale.</p>
          */
         @JsonSetter(value = "staleTime", nulls = Nulls.SKIP)
         public Builder staleTime(Optional<OffsetDateTime> staleTime) {

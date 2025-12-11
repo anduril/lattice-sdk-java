@@ -196,6 +196,9 @@ public class LatticeBuilder {
     protected void validateConfiguration() {}
 
     public Lattice build() {
+        if (token == null) {
+            throw new RuntimeException("Please provide token");
+        }
         validateConfiguration();
         return new Lattice(buildClientOptions());
     }

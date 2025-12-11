@@ -33,7 +33,7 @@ public final class TaskEntity {
     }
 
     /**
-     * @return The wrapped entity-manager entity.
+     * @return The wrapped entity.
      */
     @JsonProperty("entity")
     public Optional<Entity> getEntity() {
@@ -95,7 +95,7 @@ public final class TaskEntity {
         }
 
         /**
-         * <p>The wrapped entity-manager entity.</p>
+         * <p>The wrapped entity.</p>
          */
         @JsonSetter(value = "entity", nulls = Nulls.SKIP)
         public Builder entity(Optional<Entity> entity) {

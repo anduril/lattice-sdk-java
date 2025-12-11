@@ -20,17 +20,17 @@ import java.util.Optional;
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
 @JsonDeserialize(builder = LocationUncertainty.Builder.class)
 public final class LocationUncertainty {
-    private final Optional<TMat3> positionEnuCov;
+    private final Optional<EntityManagerTMat3> positionEnuCov;
 
-    private final Optional<TMat3> velocityEnuCov;
+    private final Optional<EntityManagerTMat3> velocityEnuCov;
 
     private final Optional<ErrorEllipse> positionErrorEllipse;
 
     private final Map<String, Object> additionalProperties;
 
     private LocationUncertainty(
-            Optional<TMat3> positionEnuCov,
-            Optional<TMat3> velocityEnuCov,
+            Optional<EntityManagerTMat3> positionEnuCov,
+            Optional<EntityManagerTMat3> velocityEnuCov,
             Optional<ErrorEllipse> positionErrorEllipse,
             Map<String, Object> additionalProperties) {
         this.positionEnuCov = positionEnuCov;
@@ -44,7 +44,7 @@ public final class LocationUncertainty {
      * only the diagonal of the matrix if the full covariance matrix is unknown.
      */
     @JsonProperty("positionEnuCov")
-    public Optional<TMat3> getPositionEnuCov() {
+    public Optional<EntityManagerTMat3> getPositionEnuCov() {
         return positionEnuCov;
     }
 
@@ -53,7 +53,7 @@ public final class LocationUncertainty {
      * only the diagonal of the matrix if the full covariance matrix is unknown.
      */
     @JsonProperty("velocityEnuCov")
-    public Optional<TMat3> getVelocityEnuCov() {
+    public Optional<EntityManagerTMat3> getVelocityEnuCov() {
         return velocityEnuCov;
     }
 
@@ -98,9 +98,9 @@ public final class LocationUncertainty {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder {
-        private Optional<TMat3> positionEnuCov = Optional.empty();
+        private Optional<EntityManagerTMat3> positionEnuCov = Optional.empty();
 
-        private Optional<TMat3> velocityEnuCov = Optional.empty();
+        private Optional<EntityManagerTMat3> velocityEnuCov = Optional.empty();
 
         private Optional<ErrorEllipse> positionErrorEllipse = Optional.empty();
 
@@ -121,12 +121,12 @@ public final class LocationUncertainty {
          * only the diagonal of the matrix if the full covariance matrix is unknown.</p>
          */
         @JsonSetter(value = "positionEnuCov", nulls = Nulls.SKIP)
-        public Builder positionEnuCov(Optional<TMat3> positionEnuCov) {
+        public Builder positionEnuCov(Optional<EntityManagerTMat3> positionEnuCov) {
             this.positionEnuCov = positionEnuCov;
             return this;
         }
 
-        public Builder positionEnuCov(TMat3 positionEnuCov) {
+        public Builder positionEnuCov(EntityManagerTMat3 positionEnuCov) {
             this.positionEnuCov = Optional.ofNullable(positionEnuCov);
             return this;
         }
@@ -136,12 +136,12 @@ public final class LocationUncertainty {
          * only the diagonal of the matrix if the full covariance matrix is unknown.</p>
          */
         @JsonSetter(value = "velocityEnuCov", nulls = Nulls.SKIP)
-        public Builder velocityEnuCov(Optional<TMat3> velocityEnuCov) {
+        public Builder velocityEnuCov(Optional<EntityManagerTMat3> velocityEnuCov) {
             this.velocityEnuCov = velocityEnuCov;
             return this;
         }
 
-        public Builder velocityEnuCov(TMat3 velocityEnuCov) {
+        public Builder velocityEnuCov(EntityManagerTMat3 velocityEnuCov) {
             this.velocityEnuCov = Optional.ofNullable(velocityEnuCov);
             return this;
         }

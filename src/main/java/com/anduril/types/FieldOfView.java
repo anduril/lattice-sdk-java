@@ -28,7 +28,7 @@ public final class FieldOfView {
 
     private final Optional<Position> projectedCenterRay;
 
-    private final Optional<Pose> centerRayPose;
+    private final Optional<EntityManagerPose> centerRayPose;
 
     private final Optional<Float> horizontalFov;
 
@@ -45,7 +45,7 @@ public final class FieldOfView {
             Optional<String> mountId,
             Optional<ProjectedFrustum> projectedFrustum,
             Optional<Position> projectedCenterRay,
-            Optional<Pose> centerRayPose,
+            Optional<EntityManagerPose> centerRayPose,
             Optional<Float> horizontalFov,
             Optional<Float> verticalFov,
             Optional<Float> range,
@@ -103,7 +103,7 @@ public final class FieldOfView {
      * frame when transformed by the quaternion contained in this pose.
      */
     @JsonProperty("centerRayPose")
-    public Optional<Pose> getCenterRayPose() {
+    public Optional<EntityManagerPose> getCenterRayPose() {
         return centerRayPose;
     }
 
@@ -197,7 +197,7 @@ public final class FieldOfView {
 
         private Optional<Position> projectedCenterRay = Optional.empty();
 
-        private Optional<Pose> centerRayPose = Optional.empty();
+        private Optional<EntityManagerPose> centerRayPose = Optional.empty();
 
         private Optional<Float> horizontalFov = Optional.empty();
 
@@ -289,12 +289,12 @@ public final class FieldOfView {
          * frame when transformed by the quaternion contained in this pose.</p>
          */
         @JsonSetter(value = "centerRayPose", nulls = Nulls.SKIP)
-        public Builder centerRayPose(Optional<Pose> centerRayPose) {
+        public Builder centerRayPose(Optional<EntityManagerPose> centerRayPose) {
             this.centerRayPose = centerRayPose;
             return this;
         }
 
-        public Builder centerRayPose(Pose centerRayPose) {
+        public Builder centerRayPose(EntityManagerPose centerRayPose) {
             this.centerRayPose = Optional.ofNullable(centerRayPose);
             return this;
         }

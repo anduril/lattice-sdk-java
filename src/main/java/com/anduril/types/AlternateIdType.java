@@ -7,9 +7,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class AlternateIdType {
-    public static final AlternateIdType ALT_ID_TYPE_LINK_16_JU =
-            new AlternateIdType(Value.ALT_ID_TYPE_LINK_16_JU, "ALT_ID_TYPE_LINK16_JU");
-
     public static final AlternateIdType ALT_ID_TYPE_IBS_GID =
             new AlternateIdType(Value.ALT_ID_TYPE_IBS_GID, "ALT_ID_TYPE_IBS_GID");
 
@@ -31,22 +28,13 @@ public final class AlternateIdType {
     public static final AlternateIdType ALT_ID_TYPE_UNOOSA_NAME =
             new AlternateIdType(Value.ALT_ID_TYPE_UNOOSA_NAME, "ALT_ID_TYPE_UNOOSA_NAME");
 
-    public static final AlternateIdType ALT_ID_TYPE_TRACK_ID_1 =
-            new AlternateIdType(Value.ALT_ID_TYPE_TRACK_ID_1, "ALT_ID_TYPE_TRACK_ID_1");
-
     public static final AlternateIdType ALT_ID_TYPE_VMF_TARGET_NUMBER =
             new AlternateIdType(Value.ALT_ID_TYPE_VMF_TARGET_NUMBER, "ALT_ID_TYPE_VMF_TARGET_NUMBER");
 
     public static final AlternateIdType ALT_ID_TYPE_UIC = new AlternateIdType(Value.ALT_ID_TYPE_UIC, "ALT_ID_TYPE_UIC");
 
-    public static final AlternateIdType ALT_ID_TYPE_LINK_16_TRACK_NUMBER =
-            new AlternateIdType(Value.ALT_ID_TYPE_LINK_16_TRACK_NUMBER, "ALT_ID_TYPE_LINK16_TRACK_NUMBER");
-
     public static final AlternateIdType ALT_ID_TYPE_REGISTRATION_ID =
             new AlternateIdType(Value.ALT_ID_TYPE_REGISTRATION_ID, "ALT_ID_TYPE_REGISTRATION_ID");
-
-    public static final AlternateIdType ALT_ID_TYPE_TRACK_ID_2 =
-            new AlternateIdType(Value.ALT_ID_TYPE_TRACK_ID_2, "ALT_ID_TYPE_TRACK_ID_2");
 
     public static final AlternateIdType ALT_ID_TYPE_NITF_FILE_TITLE =
             new AlternateIdType(Value.ALT_ID_TYPE_NITF_FILE_TITLE, "ALT_ID_TYPE_NITF_FILE_TITLE");
@@ -63,11 +51,23 @@ public final class AlternateIdType {
     public static final AlternateIdType ALT_ID_TYPE_ASSET_ID =
             new AlternateIdType(Value.ALT_ID_TYPE_ASSET_ID, "ALT_ID_TYPE_ASSET_ID");
 
+    public static final AlternateIdType ALT_ID_TYPE_TRACK_ID1 =
+            new AlternateIdType(Value.ALT_ID_TYPE_TRACK_ID1, "ALT_ID_TYPE_TRACK_ID_1");
+
     public static final AlternateIdType ALT_ID_TYPE_SPI_ID =
             new AlternateIdType(Value.ALT_ID_TYPE_SPI_ID, "ALT_ID_TYPE_SPI_ID");
 
     public static final AlternateIdType ALT_ID_TYPE_DODAAC =
             new AlternateIdType(Value.ALT_ID_TYPE_DODAAC, "ALT_ID_TYPE_DODAAC");
+
+    public static final AlternateIdType ALT_ID_TYPE_TRACK_ID2 =
+            new AlternateIdType(Value.ALT_ID_TYPE_TRACK_ID2, "ALT_ID_TYPE_TRACK_ID_2");
+
+    public static final AlternateIdType ALT_ID_TYPE_LINK16TRACK_NUMBER =
+            new AlternateIdType(Value.ALT_ID_TYPE_LINK16TRACK_NUMBER, "ALT_ID_TYPE_LINK16_TRACK_NUMBER");
+
+    public static final AlternateIdType ALT_ID_TYPE_LINK16JU =
+            new AlternateIdType(Value.ALT_ID_TYPE_LINK16JU, "ALT_ID_TYPE_LINK16_JU");
 
     public static final AlternateIdType ALT_ID_TYPE_NORAD_CAT_ID =
             new AlternateIdType(Value.ALT_ID_TYPE_NORAD_CAT_ID, "ALT_ID_TYPE_NORAD_CAT_ID");
@@ -107,8 +107,6 @@ public final class AlternateIdType {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
-            case ALT_ID_TYPE_LINK_16_JU:
-                return visitor.visitAltIdTypeLink16Ju();
             case ALT_ID_TYPE_IBS_GID:
                 return visitor.visitAltIdTypeIbsGid();
             case ALT_ID_TYPE_INVALID:
@@ -123,18 +121,12 @@ public final class AlternateIdType {
                 return visitor.visitAltIdTypeSerialNumber();
             case ALT_ID_TYPE_UNOOSA_NAME:
                 return visitor.visitAltIdTypeUnoosaName();
-            case ALT_ID_TYPE_TRACK_ID_1:
-                return visitor.visitAltIdTypeTrackId1();
             case ALT_ID_TYPE_VMF_TARGET_NUMBER:
                 return visitor.visitAltIdTypeVmfTargetNumber();
             case ALT_ID_TYPE_UIC:
                 return visitor.visitAltIdTypeUic();
-            case ALT_ID_TYPE_LINK_16_TRACK_NUMBER:
-                return visitor.visitAltIdTypeLink16TrackNumber();
             case ALT_ID_TYPE_REGISTRATION_ID:
                 return visitor.visitAltIdTypeRegistrationId();
-            case ALT_ID_TYPE_TRACK_ID_2:
-                return visitor.visitAltIdTypeTrackId2();
             case ALT_ID_TYPE_NITF_FILE_TITLE:
                 return visitor.visitAltIdTypeNitfFileTitle();
             case ALT_ID_TYPE_CALLSIGN:
@@ -145,10 +137,18 @@ public final class AlternateIdType {
                 return visitor.visitAltIdTypeUnoosaId();
             case ALT_ID_TYPE_ASSET_ID:
                 return visitor.visitAltIdTypeAssetId();
+            case ALT_ID_TYPE_TRACK_ID1:
+                return visitor.visitAltIdTypeTrackId1();
             case ALT_ID_TYPE_SPI_ID:
                 return visitor.visitAltIdTypeSpiId();
             case ALT_ID_TYPE_DODAAC:
                 return visitor.visitAltIdTypeDodaac();
+            case ALT_ID_TYPE_TRACK_ID2:
+                return visitor.visitAltIdTypeTrackId2();
+            case ALT_ID_TYPE_LINK16TRACK_NUMBER:
+                return visitor.visitAltIdTypeLink16TrackNumber();
+            case ALT_ID_TYPE_LINK16JU:
+                return visitor.visitAltIdTypeLink16Ju();
             case ALT_ID_TYPE_NORAD_CAT_ID:
                 return visitor.visitAltIdTypeNoradCatId();
             case ALT_ID_TYPE_MMSI_ID:
@@ -162,8 +162,6 @@ public final class AlternateIdType {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static AlternateIdType valueOf(String value) {
         switch (value) {
-            case "ALT_ID_TYPE_LINK16_JU":
-                return ALT_ID_TYPE_LINK_16_JU;
             case "ALT_ID_TYPE_IBS_GID":
                 return ALT_ID_TYPE_IBS_GID;
             case "ALT_ID_TYPE_INVALID":
@@ -178,18 +176,12 @@ public final class AlternateIdType {
                 return ALT_ID_TYPE_SERIAL_NUMBER;
             case "ALT_ID_TYPE_UNOOSA_NAME":
                 return ALT_ID_TYPE_UNOOSA_NAME;
-            case "ALT_ID_TYPE_TRACK_ID_1":
-                return ALT_ID_TYPE_TRACK_ID_1;
             case "ALT_ID_TYPE_VMF_TARGET_NUMBER":
                 return ALT_ID_TYPE_VMF_TARGET_NUMBER;
             case "ALT_ID_TYPE_UIC":
                 return ALT_ID_TYPE_UIC;
-            case "ALT_ID_TYPE_LINK16_TRACK_NUMBER":
-                return ALT_ID_TYPE_LINK_16_TRACK_NUMBER;
             case "ALT_ID_TYPE_REGISTRATION_ID":
                 return ALT_ID_TYPE_REGISTRATION_ID;
-            case "ALT_ID_TYPE_TRACK_ID_2":
-                return ALT_ID_TYPE_TRACK_ID_2;
             case "ALT_ID_TYPE_NITF_FILE_TITLE":
                 return ALT_ID_TYPE_NITF_FILE_TITLE;
             case "ALT_ID_TYPE_CALLSIGN":
@@ -200,10 +192,18 @@ public final class AlternateIdType {
                 return ALT_ID_TYPE_UNOOSA_ID;
             case "ALT_ID_TYPE_ASSET_ID":
                 return ALT_ID_TYPE_ASSET_ID;
+            case "ALT_ID_TYPE_TRACK_ID_1":
+                return ALT_ID_TYPE_TRACK_ID1;
             case "ALT_ID_TYPE_SPI_ID":
                 return ALT_ID_TYPE_SPI_ID;
             case "ALT_ID_TYPE_DODAAC":
                 return ALT_ID_TYPE_DODAAC;
+            case "ALT_ID_TYPE_TRACK_ID_2":
+                return ALT_ID_TYPE_TRACK_ID2;
+            case "ALT_ID_TYPE_LINK16_TRACK_NUMBER":
+                return ALT_ID_TYPE_LINK16TRACK_NUMBER;
+            case "ALT_ID_TYPE_LINK16_JU":
+                return ALT_ID_TYPE_LINK16JU;
             case "ALT_ID_TYPE_NORAD_CAT_ID":
                 return ALT_ID_TYPE_NORAD_CAT_ID;
             case "ALT_ID_TYPE_MMSI_ID":
@@ -216,9 +216,9 @@ public final class AlternateIdType {
     public enum Value {
         ALT_ID_TYPE_INVALID,
 
-        ALT_ID_TYPE_TRACK_ID_2,
+        ALT_ID_TYPE_TRACK_ID2,
 
-        ALT_ID_TYPE_TRACK_ID_1,
+        ALT_ID_TYPE_TRACK_ID1,
 
         ALT_ID_TYPE_SPI_ID,
 
@@ -228,9 +228,9 @@ public final class AlternateIdType {
 
         ALT_ID_TYPE_ASSET_ID,
 
-        ALT_ID_TYPE_LINK_16_TRACK_NUMBER,
+        ALT_ID_TYPE_LINK16TRACK_NUMBER,
 
-        ALT_ID_TYPE_LINK_16_JU,
+        ALT_ID_TYPE_LINK16JU,
 
         ALT_ID_TYPE_NCCT_MESSAGE_ID,
 

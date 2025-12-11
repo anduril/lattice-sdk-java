@@ -30,7 +30,7 @@ public final class ExecuteRequest {
     }
 
     /**
-     * @return Task to execute.
+     * @return The task to execute.
      */
     @JsonProperty("task")
     public Optional<Task> getTask() {
@@ -81,7 +81,7 @@ public final class ExecuteRequest {
         }
 
         /**
-         * <p>Task to execute.</p>
+         * <p>The task to execute.</p>
          */
         @JsonSetter(value = "task", nulls = Nulls.SKIP)
         public Builder task(Optional<Task> task) {

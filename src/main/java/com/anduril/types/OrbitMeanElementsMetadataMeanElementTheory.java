@@ -11,8 +11,8 @@ public final class OrbitMeanElementsMetadataMeanElementTheory {
             new OrbitMeanElementsMetadataMeanElementTheory(
                     Value.MEAN_ELEMENT_THEORY_INVALID, "MEAN_ELEMENT_THEORY_INVALID");
 
-    public static final OrbitMeanElementsMetadataMeanElementTheory MEAN_ELEMENT_THEORY_SGP_4 =
-            new OrbitMeanElementsMetadataMeanElementTheory(Value.MEAN_ELEMENT_THEORY_SGP_4, "MEAN_ELEMENT_THEORY_SGP4");
+    public static final OrbitMeanElementsMetadataMeanElementTheory MEAN_ELEMENT_THEORY_SGP4 =
+            new OrbitMeanElementsMetadataMeanElementTheory(Value.MEAN_ELEMENT_THEORY_SGP4, "MEAN_ELEMENT_THEORY_SGP4");
 
     private final Value value;
 
@@ -49,7 +49,7 @@ public final class OrbitMeanElementsMetadataMeanElementTheory {
         switch (value) {
             case MEAN_ELEMENT_THEORY_INVALID:
                 return visitor.visitMeanElementTheoryInvalid();
-            case MEAN_ELEMENT_THEORY_SGP_4:
+            case MEAN_ELEMENT_THEORY_SGP4:
                 return visitor.visitMeanElementTheorySgp4();
             case UNKNOWN:
             default:
@@ -63,7 +63,7 @@ public final class OrbitMeanElementsMetadataMeanElementTheory {
             case "MEAN_ELEMENT_THEORY_INVALID":
                 return MEAN_ELEMENT_THEORY_INVALID;
             case "MEAN_ELEMENT_THEORY_SGP4":
-                return MEAN_ELEMENT_THEORY_SGP_4;
+                return MEAN_ELEMENT_THEORY_SGP4;
             default:
                 return new OrbitMeanElementsMetadataMeanElementTheory(Value.UNKNOWN, value);
         }
@@ -72,7 +72,7 @@ public final class OrbitMeanElementsMetadataMeanElementTheory {
     public enum Value {
         MEAN_ELEMENT_THEORY_INVALID,
 
-        MEAN_ELEMENT_THEORY_SGP_4,
+        MEAN_ELEMENT_THEORY_SGP4,
 
         UNKNOWN
     }

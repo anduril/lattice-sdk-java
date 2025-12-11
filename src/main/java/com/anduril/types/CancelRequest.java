@@ -34,7 +34,7 @@ public final class CancelRequest {
     }
 
     /**
-     * @return ID of the Task to cancel.
+     * @return The unique task ID of the task to cancel.
      */
     @JsonProperty("taskId")
     public Optional<String> getTaskId() {
@@ -97,7 +97,7 @@ public final class CancelRequest {
         }
 
         /**
-         * <p>ID of the Task to cancel.</p>
+         * <p>The unique task ID of the task to cancel.</p>
          */
         @JsonSetter(value = "taskId", nulls = Nulls.SKIP)
         public Builder taskId(Optional<String> taskId) {

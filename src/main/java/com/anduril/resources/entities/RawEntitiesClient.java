@@ -20,6 +20,8 @@ import com.anduril.errors.UnauthorizedError;
 import com.anduril.resources.entities.requests.EntityEventRequest;
 import com.anduril.resources.entities.requests.EntityOverride;
 import com.anduril.resources.entities.requests.EntityStreamRequest;
+import com.anduril.resources.entities.requests.GetEntityRequest;
+import com.anduril.resources.entities.requests.RemoveEntityOverrideRequest;
 import com.anduril.resources.entities.types.StreamEntitiesResponse;
 import com.anduril.types.Entity;
 import com.anduril.types.EntityEventResponse;
@@ -97,11 +99,11 @@ public class RawEntitiesClient {
         }
         try (Response response = client.newCall(okhttpRequest).execute()) {
             ResponseBody responseBody = response.body();
+            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             if (response.isSuccessful()) {
                 return new LatticeHttpResponse<>(
-                        ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), Entity.class), response);
+                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Entity.class), response);
             }
-            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {
                 switch (response.code()) {
                     case 400:
@@ -114,43 +116,46 @@ public class RawEntitiesClient {
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
             }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
-                    "Error with status code " + response.code(),
-                    response.code(),
-                    ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
-                    response);
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
     }
 
     public LatticeHttpResponse<Entity> getEntity(String entityId) {
-        return getEntity(entityId, null);
+        return getEntity(entityId, GetEntityRequest.builder().build());
     }
 
-    public LatticeHttpResponse<Entity> getEntity(String entityId, RequestOptions requestOptions) {
+    public LatticeHttpResponse<Entity> getEntity(String entityId, GetEntityRequest request) {
+        return getEntity(entityId, request, null);
+    }
+
+    public LatticeHttpResponse<Entity> getEntity(
+            String entityId, GetEntityRequest request, RequestOptions requestOptions) {
         HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/entities")
                 .addPathSegment(entityId)
                 .build();
-        Request okhttpRequest = new Request.Builder()
+        Request.Builder _requestBuilder = new Request.Builder()
                 .url(httpUrl)
                 .method("GET", null)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
-                .addHeader("Accept", "application/json")
-                .build();
+                .addHeader("Accept", "application/json");
+        Request okhttpRequest = _requestBuilder.build();
         OkHttpClient client = clientOptions.httpClient();
         if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
             client = clientOptions.httpClientWithTimeout(requestOptions);
         }
         try (Response response = client.newCall(okhttpRequest).execute()) {
             ResponseBody responseBody = response.body();
+            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             if (response.isSuccessful()) {
                 return new LatticeHttpResponse<>(
-                        ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), Entity.class), response);
+                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Entity.class), response);
             }
-            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {
                 switch (response.code()) {
                     case 400:
@@ -166,11 +171,9 @@ public class RawEntitiesClient {
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
             }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
-                    "Error with status code " + response.code(),
-                    response.code(),
-                    ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
-                    response);
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -237,11 +240,11 @@ public class RawEntitiesClient {
         }
         try (Response response = client.newCall(okhttpRequest).execute()) {
             ResponseBody responseBody = response.body();
+            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             if (response.isSuccessful()) {
                 return new LatticeHttpResponse<>(
-                        ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), Entity.class), response);
+                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Entity.class), response);
             }
-            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {
                 switch (response.code()) {
                     case 400:
@@ -257,11 +260,9 @@ public class RawEntitiesClient {
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
             }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
-                    "Error with status code " + response.code(),
-                    response.code(),
-                    ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
-                    response);
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -271,14 +272,23 @@ public class RawEntitiesClient {
      * This operation clears the override value from the specified field path on the entity.
      */
     public LatticeHttpResponse<Entity> removeEntityOverride(String entityId, String fieldPath) {
-        return removeEntityOverride(entityId, fieldPath, null);
+        return removeEntityOverride(
+                entityId, fieldPath, RemoveEntityOverrideRequest.builder().build());
     }
 
     /**
      * This operation clears the override value from the specified field path on the entity.
      */
     public LatticeHttpResponse<Entity> removeEntityOverride(
-            String entityId, String fieldPath, RequestOptions requestOptions) {
+            String entityId, String fieldPath, RemoveEntityOverrideRequest request) {
+        return removeEntityOverride(entityId, fieldPath, request, null);
+    }
+
+    /**
+     * This operation clears the override value from the specified field path on the entity.
+     */
+    public LatticeHttpResponse<Entity> removeEntityOverride(
+            String entityId, String fieldPath, RemoveEntityOverrideRequest request, RequestOptions requestOptions) {
         HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/entities")
@@ -286,23 +296,23 @@ public class RawEntitiesClient {
                 .addPathSegments("override")
                 .addPathSegment(fieldPath)
                 .build();
-        Request okhttpRequest = new Request.Builder()
+        Request.Builder _requestBuilder = new Request.Builder()
                 .url(httpUrl)
                 .method("DELETE", null)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
-                .addHeader("Accept", "application/json")
-                .build();
+                .addHeader("Accept", "application/json");
+        Request okhttpRequest = _requestBuilder.build();
         OkHttpClient client = clientOptions.httpClient();
         if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
             client = clientOptions.httpClientWithTimeout(requestOptions);
         }
         try (Response response = client.newCall(okhttpRequest).execute()) {
             ResponseBody responseBody = response.body();
+            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             if (response.isSuccessful()) {
                 return new LatticeHttpResponse<>(
-                        ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), Entity.class), response);
+                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Entity.class), response);
             }
-            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {
                 switch (response.code()) {
                     case 400:
@@ -318,11 +328,9 @@ public class RawEntitiesClient {
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
             }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
-                    "Error with status code " + response.code(),
-                    response.code(),
-                    ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
-                    response);
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -380,12 +388,11 @@ public class RawEntitiesClient {
         }
         try (Response response = client.newCall(okhttpRequest).execute()) {
             ResponseBody responseBody = response.body();
+            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             if (response.isSuccessful()) {
                 return new LatticeHttpResponse<>(
-                        ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), EntityEventResponse.class),
-                        response);
+                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, EntityEventResponse.class), response);
             }
-            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {
                 switch (response.code()) {
                     case 400:
@@ -407,32 +414,69 @@ public class RawEntitiesClient {
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
             }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
-                    "Error with status code " + response.code(),
-                    response.code(),
-                    ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
-                    response);
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
     }
 
     /**
-     * Establishes a persistent connection to stream entity events as they occur.
+     * Establishes a server-sent events (SSE) connection that streams entity data in real-time.
+     * This is a one-way connection from server to client that follows the SSE protocol with text/event-stream content type.
+     * <p>This endpoint enables clients to maintain a real-time view of the common operational picture (COP)
+     * by first streaming all pre-existing entities that match filter criteria, then continuously delivering
+     * updates as entities are created, modified, or deleted.</p>
+     * <p>The server first sends events with type PREEXISTING for all live entities matching the filter that existed before the stream was open,
+     * then streams CREATE events for newly created entities, UPDATE events when existing entities change, and DELETED events when entities are removed. The stream remains open
+     * indefinitely unless preExistingOnly is set to true.</p>
+     * <p>Heartbeat messages can be configured to maintain connection health and detect disconnects by setting the heartbeatIntervalMS
+     * parameter. These heartbeats help keep the connection alive and allow clients to verify the server is still responsive.</p>
+     * <p>Clients can optimize bandwidth usage by specifying which entity components they need populated using the componentsToInclude parameter.
+     * This allows receiving only relevant data instead of complete entities.</p>
+     * <p>The connection automatically recovers from temporary disconnections, resuming the stream where it left off. Unlike polling approaches,
+     * this provides real-time updates with minimal latency and reduced server load.</p>
      */
     public LatticeHttpResponse<Iterable<StreamEntitiesResponse>> streamEntities() {
         return streamEntities(EntityStreamRequest.builder().build());
     }
 
     /**
-     * Establishes a persistent connection to stream entity events as they occur.
+     * Establishes a server-sent events (SSE) connection that streams entity data in real-time.
+     * This is a one-way connection from server to client that follows the SSE protocol with text/event-stream content type.
+     * <p>This endpoint enables clients to maintain a real-time view of the common operational picture (COP)
+     * by first streaming all pre-existing entities that match filter criteria, then continuously delivering
+     * updates as entities are created, modified, or deleted.</p>
+     * <p>The server first sends events with type PREEXISTING for all live entities matching the filter that existed before the stream was open,
+     * then streams CREATE events for newly created entities, UPDATE events when existing entities change, and DELETED events when entities are removed. The stream remains open
+     * indefinitely unless preExistingOnly is set to true.</p>
+     * <p>Heartbeat messages can be configured to maintain connection health and detect disconnects by setting the heartbeatIntervalMS
+     * parameter. These heartbeats help keep the connection alive and allow clients to verify the server is still responsive.</p>
+     * <p>Clients can optimize bandwidth usage by specifying which entity components they need populated using the componentsToInclude parameter.
+     * This allows receiving only relevant data instead of complete entities.</p>
+     * <p>The connection automatically recovers from temporary disconnections, resuming the stream where it left off. Unlike polling approaches,
+     * this provides real-time updates with minimal latency and reduced server load.</p>
      */
     public LatticeHttpResponse<Iterable<StreamEntitiesResponse>> streamEntities(EntityStreamRequest request) {
         return streamEntities(request, null);
     }
 
     /**
-     * Establishes a persistent connection to stream entity events as they occur.
+     * Establishes a server-sent events (SSE) connection that streams entity data in real-time.
+     * This is a one-way connection from server to client that follows the SSE protocol with text/event-stream content type.
+     * <p>This endpoint enables clients to maintain a real-time view of the common operational picture (COP)
+     * by first streaming all pre-existing entities that match filter criteria, then continuously delivering
+     * updates as entities are created, modified, or deleted.</p>
+     * <p>The server first sends events with type PREEXISTING for all live entities matching the filter that existed before the stream was open,
+     * then streams CREATE events for newly created entities, UPDATE events when existing entities change, and DELETED events when entities are removed. The stream remains open
+     * indefinitely unless preExistingOnly is set to true.</p>
+     * <p>Heartbeat messages can be configured to maintain connection health and detect disconnects by setting the heartbeatIntervalMS
+     * parameter. These heartbeats help keep the connection alive and allow clients to verify the server is still responsive.</p>
+     * <p>Clients can optimize bandwidth usage by specifying which entity components they need populated using the componentsToInclude parameter.
+     * This allows receiving only relevant data instead of complete entities.</p>
+     * <p>The connection automatically recovers from temporary disconnections, resuming the stream where it left off. Unlike polling approaches,
+     * this provides real-time updates with minimal latency and reduced server load.</p>
      */
     public LatticeHttpResponse<Iterable<StreamEntitiesResponse>> streamEntities(
             EntityStreamRequest request, RequestOptions requestOptions) {
@@ -478,11 +522,9 @@ public class RawEntitiesClient {
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
             }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
-                    "Error with status code " + response.code(),
-                    response.code(),
-                    ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
-                    response);
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
