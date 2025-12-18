@@ -6,10 +6,12 @@ package com.anduril.resources.tasks;
 import com.anduril.core.ClientOptions;
 import com.anduril.core.RequestOptions;
 import com.anduril.resources.tasks.requests.AgentListener;
+import com.anduril.resources.tasks.requests.AgentStreamRequest;
 import com.anduril.resources.tasks.requests.GetTaskRequest;
 import com.anduril.resources.tasks.requests.TaskCreation;
 import com.anduril.resources.tasks.requests.TaskQuery;
 import com.anduril.resources.tasks.requests.TaskStatusUpdate;
+import com.anduril.resources.tasks.types.ListenAsAgentStreamResponse;
 import com.anduril.types.AgentRequest;
 import com.anduril.types.Task;
 import com.anduril.types.TaskQueryResults;
@@ -274,5 +276,66 @@ public class AsyncTasksClient {
      */
     public CompletableFuture<AgentRequest> listenAsAgent(AgentListener request, RequestOptions requestOptions) {
         return this.rawClient.listenAsAgent(request, requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers tasks to taskable agents for execution
+     * using Server-Sent Events (SSE).
+     * <p>This method creates a connection from the Tasks API to an agent that streams relevant tasks to the listener agent. The agent receives a stream of tasks that match the entities specified by the tasks' selector criteria.</p>
+     * <p>The stream delivers three types of requests:</p>
+     * <ul>
+     * <li><code>ExecuteRequest</code>: Contains a new task for the agent to execute</li>
+     * <li><code>CancelRequest</code>: Indicates a task should be canceled</li>
+     * <li><code>CompleteRequest</code>: Indicates a task should be completed</li>
+     * </ul>
+     * <p>Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     * <p>This is recommended method for taskable agents to receive and process tasks in real-time.
+     * Agents should maintain connection to this stream and process incoming tasks according to their capabilities.</p>
+     * <p>When an agent receives a task, it should update the task status using the <code>UpdateStatus</code> endpoint
+     * to provide progress information back to Tasks API.</p>
+     */
+    public CompletableFuture<Iterable<ListenAsAgentStreamResponse>> listenAsAgentStream() {
+        return this.rawClient.listenAsAgentStream().thenApply(response -> response.body());
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers tasks to taskable agents for execution
+     * using Server-Sent Events (SSE).
+     * <p>This method creates a connection from the Tasks API to an agent that streams relevant tasks to the listener agent. The agent receives a stream of tasks that match the entities specified by the tasks' selector criteria.</p>
+     * <p>The stream delivers three types of requests:</p>
+     * <ul>
+     * <li><code>ExecuteRequest</code>: Contains a new task for the agent to execute</li>
+     * <li><code>CancelRequest</code>: Indicates a task should be canceled</li>
+     * <li><code>CompleteRequest</code>: Indicates a task should be completed</li>
+     * </ul>
+     * <p>Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     * <p>This is recommended method for taskable agents to receive and process tasks in real-time.
+     * Agents should maintain connection to this stream and process incoming tasks according to their capabilities.</p>
+     * <p>When an agent receives a task, it should update the task status using the <code>UpdateStatus</code> endpoint
+     * to provide progress information back to Tasks API.</p>
+     */
+    public CompletableFuture<Iterable<ListenAsAgentStreamResponse>> listenAsAgentStream(AgentStreamRequest request) {
+        return this.rawClient.listenAsAgentStream(request).thenApply(response -> response.body());
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers tasks to taskable agents for execution
+     * using Server-Sent Events (SSE).
+     * <p>This method creates a connection from the Tasks API to an agent that streams relevant tasks to the listener agent. The agent receives a stream of tasks that match the entities specified by the tasks' selector criteria.</p>
+     * <p>The stream delivers three types of requests:</p>
+     * <ul>
+     * <li><code>ExecuteRequest</code>: Contains a new task for the agent to execute</li>
+     * <li><code>CancelRequest</code>: Indicates a task should be canceled</li>
+     * <li><code>CompleteRequest</code>: Indicates a task should be completed</li>
+     * </ul>
+     * <p>Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     * <p>This is recommended method for taskable agents to receive and process tasks in real-time.
+     * Agents should maintain connection to this stream and process incoming tasks according to their capabilities.</p>
+     * <p>When an agent receives a task, it should update the task status using the <code>UpdateStatus</code> endpoint
+     * to provide progress information back to Tasks API.</p>
+     */
+    public CompletableFuture<Iterable<ListenAsAgentStreamResponse>> listenAsAgentStream(
+            AgentStreamRequest request, RequestOptions requestOptions) {
+        return this.rawClient.listenAsAgentStream(request, requestOptions).thenApply(response -> response.body());
     }
 }
