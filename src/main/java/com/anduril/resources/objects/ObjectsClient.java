@@ -40,6 +40,13 @@ public class ObjectsClient {
     /**
      * Lists objects in your environment. You can define a prefix to list a subset of your objects. If you do not set a prefix, Lattice returns all available objects. By default this endpoint will list local objects only.
      */
+    public SyncPagingIterable<PathMetadata> listObjects(RequestOptions requestOptions) {
+        return this.rawClient.listObjects(requestOptions).body();
+    }
+
+    /**
+     * Lists objects in your environment. You can define a prefix to list a subset of your objects. If you do not set a prefix, Lattice returns all available objects. By default this endpoint will list local objects only.
+     */
     public SyncPagingIterable<PathMetadata> listObjects(ListObjectsRequest request) {
         return this.rawClient.listObjects(request).body();
     }
@@ -56,6 +63,13 @@ public class ObjectsClient {
      */
     public InputStream getObject(String objectPath) {
         return this.rawClient.getObject(objectPath).body();
+    }
+
+    /**
+     * Fetches an object from your environment using the objectPath path parameter.
+     */
+    public InputStream getObject(String objectPath, RequestOptions requestOptions) {
+        return this.rawClient.getObject(objectPath, requestOptions).body();
     }
 
     /**
@@ -110,6 +124,13 @@ public class ObjectsClient {
     /**
      * Deletes an object from your environment given the objectPath path parameter.
      */
+    public void deleteObject(String objectPath, RequestOptions requestOptions) {
+        this.rawClient.deleteObject(objectPath, requestOptions).body();
+    }
+
+    /**
+     * Deletes an object from your environment given the objectPath path parameter.
+     */
     public void deleteObject(String objectPath, DeleteObjectRequest request) {
         this.rawClient.deleteObject(objectPath, request).body();
     }
@@ -126,6 +147,13 @@ public class ObjectsClient {
      */
     public void getObjectMetadata(String objectPath) {
         this.rawClient.getObjectMetadata(objectPath).body();
+    }
+
+    /**
+     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
+     */
+    public void getObjectMetadata(String objectPath, RequestOptions requestOptions) {
+        this.rawClient.getObjectMetadata(objectPath, requestOptions).body();
     }
 
     /**

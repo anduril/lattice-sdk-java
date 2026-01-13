@@ -6,6 +6,7 @@ package com.anduril;
 import com.anduril.core.ClientOptions;
 import com.anduril.core.Suppliers;
 import com.anduril.resources.entities.AsyncEntitiesClient;
+import com.anduril.resources.oauth.AsyncOauthClient;
 import com.anduril.resources.objects.AsyncObjectsClient;
 import com.anduril.resources.tasks.AsyncTasksClient;
 import java.util.function.Supplier;
@@ -19,11 +20,14 @@ public class AsyncLattice {
 
     protected final Supplier<AsyncObjectsClient> objectsClient;
 
+    protected final Supplier<AsyncOauthClient> oauthClient;
+
     public AsyncLattice(ClientOptions clientOptions) {
         this.clientOptions = clientOptions;
         this.entitiesClient = Suppliers.memoize(() -> new AsyncEntitiesClient(clientOptions));
         this.tasksClient = Suppliers.memoize(() -> new AsyncTasksClient(clientOptions));
         this.objectsClient = Suppliers.memoize(() -> new AsyncObjectsClient(clientOptions));
+        this.oauthClient = Suppliers.memoize(() -> new AsyncOauthClient(clientOptions));
     }
 
     public AsyncEntitiesClient entities() {
@@ -38,7 +42,26 @@ public class AsyncLattice {
         return this.objectsClient.get();
     }
 
-    public static AsyncLatticeBuilder builder() {
-        return new AsyncLatticeBuilder();
+    public AsyncOauthClient oauth() {
+        return this.oauthClient.get();
+    }
+
+    /**
+     * Creates a client builder using a pre-generated access token.
+     * @param token The access token to use for authentication
+     * @return A builder configured for token authentication
+     */
+    public static AsyncLatticeBuilder._TokenAuth withToken(String token) {
+        return AsyncLatticeBuilder.withToken(token);
+    }
+
+    /**
+     * Creates a client builder using OAuth client credentials.
+     * @param clientId The OAuth client ID
+     * @param clientSecret The OAuth client secret
+     * @return A builder configured for OAuth authentication
+     */
+    public static AsyncLatticeBuilder._CredentialsAuth withCredentials(String clientId, String clientSecret) {
+        return AsyncLatticeBuilder.withCredentials(clientId, clientSecret);
     }
 }
