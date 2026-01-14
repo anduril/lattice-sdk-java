@@ -5,6 +5,8 @@ package com.anduril;
 
 import com.anduril.core.ClientOptions;
 import com.anduril.core.Environment;
+import com.anduril.core.OAuthTokenSupplier;
+import com.anduril.resources.oauth.OauthClient;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -17,18 +19,32 @@ public class LatticeBuilder {
 
     private final Map<String, String> customHeaders = new HashMap<>();
 
-    private String token = null;
-
-    private Environment environment = Environment.DEFAULT;
+    protected Environment environment = Environment.DEFAULT;
 
     private OkHttpClient httpClient;
 
     /**
-     * Sets token
+     * Creates a builder that uses a pre-generated access token for authentication.
+     * Use this when you already have a valid access token and want to bypass
+     * the OAuth client credentials flow.
+     *
+     * @param token The access token to use for Authorization header
+     * @return A builder configured for token authentication
      */
-    public LatticeBuilder token(String token) {
-        this.token = token;
-        return this;
+    public static _TokenAuth withToken(String token) {
+        return new _TokenAuth(token);
+    }
+
+    /**
+     * Creates a builder that uses OAuth client credentials for authentication.
+     * The builder will automatically handle token acquisition and refresh.
+     *
+     * @param clientId The OAuth client ID
+     * @param clientSecret The OAuth client secret
+     * @return A builder configured for OAuth client credentials authentication
+     */
+    public static _CredentialsAuth withCredentials(String clientId, String clientSecret) {
+        return new _CredentialsAuth(clientId, clientSecret);
     }
 
     public LatticeBuilder environment(Environment environment) {
@@ -117,11 +133,7 @@ public class LatticeBuilder {
      * }
      * }</pre>
      */
-    protected void setAuthentication(ClientOptions.Builder builder) {
-        if (this.token != null) {
-            builder.addHeader("Authorization", "Bearer " + this.token);
-        }
-    }
+    protected void setAuthentication(ClientOptions.Builder builder) {}
 
     /**
      * Sets the request timeout configuration.
@@ -196,10 +208,44 @@ public class LatticeBuilder {
     protected void validateConfiguration() {}
 
     public Lattice build() {
-        if (token == null) {
-            throw new RuntimeException("Please provide token");
-        }
         validateConfiguration();
         return new Lattice(buildClientOptions());
+    }
+
+    public static final class _TokenAuth extends LatticeBuilder {
+        private final String token;
+
+        _TokenAuth(String token) {
+            this.token = token;
+        }
+
+        @Override
+        protected void setAuthentication(ClientOptions.Builder builder) {
+            builder.addHeader("Authorization", "Bearer " + this.token);
+        }
+    }
+
+    public static final class _CredentialsAuth extends LatticeBuilder {
+        private final String clientId;
+
+        private final String clientSecret;
+
+        _CredentialsAuth(String clientId, String clientSecret) {
+            this.clientId = clientId;
+            this.clientSecret = clientSecret;
+        }
+
+        @Override
+        public Lattice build() {
+            validateConfiguration();
+            ClientOptions baseOptions = buildClientOptions();
+            OauthClient authClient = new OauthClient(baseOptions);
+            OAuthTokenSupplier oAuthTokenSupplier =
+                    new OAuthTokenSupplier(this.clientId, this.clientSecret, authClient);
+            ClientOptions finalOptions = ClientOptions.Builder.from(baseOptions)
+                    .addHeader("Authorization", oAuthTokenSupplier)
+                    .build();
+            return new Lattice(finalOptions);
+        }
     }
 }

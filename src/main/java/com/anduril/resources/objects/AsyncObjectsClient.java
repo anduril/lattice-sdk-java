@@ -41,6 +41,13 @@ public class AsyncObjectsClient {
     /**
      * Lists objects in your environment. You can define a prefix to list a subset of your objects. If you do not set a prefix, Lattice returns all available objects. By default this endpoint will list local objects only.
      */
+    public CompletableFuture<SyncPagingIterable<PathMetadata>> listObjects(RequestOptions requestOptions) {
+        return this.rawClient.listObjects(requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Lists objects in your environment. You can define a prefix to list a subset of your objects. If you do not set a prefix, Lattice returns all available objects. By default this endpoint will list local objects only.
+     */
     public CompletableFuture<SyncPagingIterable<PathMetadata>> listObjects(ListObjectsRequest request) {
         return this.rawClient.listObjects(request).thenApply(response -> response.body());
     }
@@ -58,6 +65,13 @@ public class AsyncObjectsClient {
      */
     public CompletableFuture<InputStream> getObject(String objectPath) {
         return this.rawClient.getObject(objectPath).thenApply(response -> response.body());
+    }
+
+    /**
+     * Fetches an object from your environment using the objectPath path parameter.
+     */
+    public CompletableFuture<InputStream> getObject(String objectPath, RequestOptions requestOptions) {
+        return this.rawClient.getObject(objectPath, requestOptions).thenApply(response -> response.body());
     }
 
     /**
@@ -115,6 +129,13 @@ public class AsyncObjectsClient {
     /**
      * Deletes an object from your environment given the objectPath path parameter.
      */
+    public CompletableFuture<Void> deleteObject(String objectPath, RequestOptions requestOptions) {
+        return this.rawClient.deleteObject(objectPath, requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Deletes an object from your environment given the objectPath path parameter.
+     */
     public CompletableFuture<Void> deleteObject(String objectPath, DeleteObjectRequest request) {
         return this.rawClient.deleteObject(objectPath, request).thenApply(response -> response.body());
     }
@@ -132,6 +153,13 @@ public class AsyncObjectsClient {
      */
     public CompletableFuture<Void> getObjectMetadata(String objectPath) {
         return this.rawClient.getObjectMetadata(objectPath).thenApply(response -> response.body());
+    }
+
+    /**
+     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
+     */
+    public CompletableFuture<Void> getObjectMetadata(String objectPath, RequestOptions requestOptions) {
+        return this.rawClient.getObjectMetadata(objectPath, requestOptions).thenApply(response -> response.body());
     }
 
     /**
