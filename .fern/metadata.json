@@ -6,5 +6,5 @@
     "client-class-name": "Lattice",
     "package-prefix": "com.anduril"
   },
-  "sdkVersion": "6.0.0"
+  "sdkVersion": "5.1.0"
 }
