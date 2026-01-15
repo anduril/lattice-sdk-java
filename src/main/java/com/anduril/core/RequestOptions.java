@@ -10,8 +10,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 public final class RequestOptions {
-    private final String token;
-
     private final Optional<Integer> timeout;
 
     private final TimeUnit timeoutTimeUnit;
@@ -21,12 +19,10 @@ public final class RequestOptions {
     private final Map<String, Supplier<String>> headerSuppliers;
 
     private RequestOptions(
-            String token,
             Optional<Integer> timeout,
             TimeUnit timeoutTimeUnit,
             Map<String, String> headers,
             Map<String, Supplier<String>> headerSuppliers) {
-        this.token = token;
         this.timeout = timeout;
         this.timeoutTimeUnit = timeoutTimeUnit;
         this.headers = headers;
@@ -43,9 +39,6 @@ public final class RequestOptions {
 
     public Map<String, String> getHeaders() {
         Map<String, String> headers = new HashMap<>();
-        if (this.token != null) {
-            headers.put("Authorization", "Bearer " + this.token);
-        }
         headers.putAll(this.headers);
         this.headerSuppliers.forEach((key, supplier) -> {
             headers.put(key, supplier.get());
@@ -58,8 +51,6 @@ public final class RequestOptions {
     }
 
     public static class Builder {
-        private String token = null;
-
         private Optional<Integer> timeout = Optional.empty();
 
         private TimeUnit timeoutTimeUnit = TimeUnit.SECONDS;
@@ -67,11 +58,6 @@ public final class RequestOptions {
         private final Map<String, String> headers = new HashMap<>();
 
         private final Map<String, Supplier<String>> headerSuppliers = new HashMap<>();
-
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
 
         public Builder timeout(Integer timeout) {
             this.timeout = Optional.of(timeout);
@@ -95,7 +81,7 @@ public final class RequestOptions {
         }
 
         public RequestOptions build() {
-            return new RequestOptions(token, timeout, timeoutTimeUnit, headers, headerSuppliers);
+            return new RequestOptions(timeout, timeoutTimeUnit, headers, headerSuppliers);
         }
     }
 }
