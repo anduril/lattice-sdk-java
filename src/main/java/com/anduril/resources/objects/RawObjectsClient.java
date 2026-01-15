@@ -57,6 +57,13 @@ public class RawObjectsClient {
     /**
      * Lists objects in your environment. You can define a prefix to list a subset of your objects. If you do not set a prefix, Lattice returns all available objects. By default this endpoint will list local objects only.
      */
+    public LatticeHttpResponse<SyncPagingIterable<PathMetadata>> listObjects(RequestOptions requestOptions) {
+        return listObjects(ListObjectsRequest.builder().build(), requestOptions);
+    }
+
+    /**
+     * Lists objects in your environment. You can define a prefix to list a subset of your objects. If you do not set a prefix, Lattice returns all available objects. By default this endpoint will list local objects only.
+     */
     public LatticeHttpResponse<SyncPagingIterable<PathMetadata>> listObjects(ListObjectsRequest request) {
         return listObjects(request, null);
     }
@@ -147,6 +154,13 @@ public class RawObjectsClient {
     /**
      * Fetches an object from your environment using the objectPath path parameter.
      */
+    public LatticeHttpResponse<InputStream> getObject(String objectPath, RequestOptions requestOptions) {
+        return getObject(objectPath, GetObjectRequest.builder().build(), requestOptions);
+    }
+
+    /**
+     * Fetches an object from your environment using the objectPath path parameter.
+     */
     public LatticeHttpResponse<InputStream> getObject(String objectPath, GetObjectRequest request) {
         return getObject(objectPath, request, null);
     }
@@ -168,10 +182,10 @@ public class RawObjectsClient {
                 .addHeader("Accept", "application/json");
         if (request.getAcceptEncoding().isPresent()) {
             _requestBuilder.addHeader(
-                    "acceptEncoding", request.getAcceptEncoding().get().toString());
+                    "Accept-Encoding", request.getAcceptEncoding().get().toString());
         }
         if (request.getPriority().isPresent()) {
-            _requestBuilder.addHeader("priority", request.getPriority().get());
+            _requestBuilder.addHeader("Priority", request.getPriority().get());
         }
         Request okhttpRequest = _requestBuilder.build();
         OkHttpClient client = clientOptions.httpClient();
@@ -299,6 +313,13 @@ public class RawObjectsClient {
     /**
      * Deletes an object from your environment given the objectPath path parameter.
      */
+    public LatticeHttpResponse<Void> deleteObject(String objectPath, RequestOptions requestOptions) {
+        return deleteObject(objectPath, DeleteObjectRequest.builder().build(), requestOptions);
+    }
+
+    /**
+     * Deletes an object from your environment given the objectPath path parameter.
+     */
     public LatticeHttpResponse<Void> deleteObject(String objectPath, DeleteObjectRequest request) {
         return deleteObject(objectPath, request, null);
     }
@@ -360,6 +381,13 @@ public class RawObjectsClient {
      */
     public LatticeHttpResponse<Void> getObjectMetadata(String objectPath) {
         return getObjectMetadata(objectPath, GetObjectMetadataRequest.builder().build());
+    }
+
+    /**
+     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
+     */
+    public LatticeHttpResponse<Void> getObjectMetadata(String objectPath, RequestOptions requestOptions) {
+        return getObjectMetadata(objectPath, GetObjectMetadataRequest.builder().build(), requestOptions);
     }
 
     /**
