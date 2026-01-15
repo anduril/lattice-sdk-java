@@ -51,6 +51,18 @@ public class EntitiesClient {
      * then it will be created. Otherwise the entity will be updated. An entity will only be updated if its
      * provenance.sourceUpdateTime is greater than the provenance.sourceUpdateTime of the existing entity.</p>
      */
+    public Entity publishEntity(RequestOptions requestOptions) {
+        return this.rawClient.publishEntity(requestOptions).body();
+    }
+
+    /**
+     * Publish an entity for ingest into the Entities API. Entities created with this method are &quot;owned&quot; by the originator: other sources,
+     * such as the UI, may not edit or delete these entities. The server validates entities at API call time and
+     * returns an error if the entity is invalid.
+     * <p>An entity ID must be provided when calling this endpoint. If the entity referenced by the entity ID does not exist
+     * then it will be created. Otherwise the entity will be updated. An entity will only be updated if its
+     * provenance.sourceUpdateTime is greater than the provenance.sourceUpdateTime of the existing entity.</p>
+     */
     public Entity publishEntity(Entity request) {
         return this.rawClient.publishEntity(request).body();
     }
@@ -71,6 +83,10 @@ public class EntitiesClient {
         return this.rawClient.getEntity(entityId).body();
     }
 
+    public Entity getEntity(String entityId, RequestOptions requestOptions) {
+        return this.rawClient.getEntity(entityId, requestOptions).body();
+    }
+
     public Entity getEntity(String entityId, GetEntityRequest request) {
         return this.rawClient.getEntity(entityId, request).body();
     }
@@ -89,6 +105,20 @@ public class EntitiesClient {
      */
     public Entity overrideEntity(String entityId, String fieldPath) {
         return this.rawClient.overrideEntity(entityId, fieldPath).body();
+    }
+
+    /**
+     * Only fields marked with overridable can be overridden. Please refer to our documentation to see the comprehensive
+     * list of fields that can be overridden. The entity in the request body should only have a value set on the field
+     * specified in the field path parameter. Field paths are rooted in the base entity object and must be represented
+     * using lower_snake_case. Do not include &quot;entity&quot; in the field path.
+     * <p>Note that overrides are applied in an eventually consistent manner. If multiple overrides are created
+     * concurrently for the same field path, the last writer wins.</p>
+     */
+    public Entity overrideEntity(String entityId, String fieldPath, RequestOptions requestOptions) {
+        return this.rawClient
+                .overrideEntity(entityId, fieldPath, requestOptions)
+                .body();
     }
 
     /**
@@ -123,6 +153,15 @@ public class EntitiesClient {
      */
     public Entity removeEntityOverride(String entityId, String fieldPath) {
         return this.rawClient.removeEntityOverride(entityId, fieldPath).body();
+    }
+
+    /**
+     * This operation clears the override value from the specified field path on the entity.
+     */
+    public Entity removeEntityOverride(String entityId, String fieldPath, RequestOptions requestOptions) {
+        return this.rawClient
+                .removeEntityOverride(entityId, fieldPath, requestOptions)
+                .body();
     }
 
     /**
@@ -190,6 +229,26 @@ public class EntitiesClient {
      */
     public Iterable<StreamEntitiesResponse> streamEntities() {
         return this.rawClient.streamEntities().body();
+    }
+
+    /**
+     * Establishes a server-sent events (SSE) connection that streams entity data in real-time.
+     * This is a one-way connection from server to client that follows the SSE protocol with text/event-stream content type.
+     * <p>This endpoint enables clients to maintain a real-time view of the common operational picture (COP)
+     * by first streaming all pre-existing entities that match filter criteria, then continuously delivering
+     * updates as entities are created, modified, or deleted.</p>
+     * <p>The server first sends events with type PREEXISTING for all live entities matching the filter that existed before the stream was open,
+     * then streams CREATE events for newly created entities, UPDATE events when existing entities change, and DELETED events when entities are removed. The stream remains open
+     * indefinitely unless preExistingOnly is set to true.</p>
+     * <p>Heartbeat messages can be configured to maintain connection health and detect disconnects by setting the heartbeatIntervalMS
+     * parameter. These heartbeats help keep the connection alive and allow clients to verify the server is still responsive.</p>
+     * <p>Clients can optimize bandwidth usage by specifying which entity components they need populated using the componentsToInclude parameter.
+     * This allows receiving only relevant data instead of complete entities.</p>
+     * <p>The connection automatically recovers from temporary disconnections, resuming the stream where it left off. Unlike polling approaches,
+     * this provides real-time updates with minimal latency and reduced server load.</p>
+     */
+    public Iterable<StreamEntitiesResponse> streamEntities(RequestOptions requestOptions) {
+        return this.rawClient.streamEntities(requestOptions).body();
     }
 
     /**
