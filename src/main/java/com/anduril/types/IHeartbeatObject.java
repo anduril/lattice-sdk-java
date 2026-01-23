@@ -3,9 +3,8 @@
  */
 package com.anduril.types;
 
-import java.time.OffsetDateTime;
 import java.util.Optional;
 
 public interface IHeartbeatObject {
-    Optional<OffsetDateTime> getTimestamp();
+    Optional<String> getTimestamp();
 }

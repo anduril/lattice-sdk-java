@@ -345,7 +345,7 @@ client.entities().longPollEntityEvents(
 </dl>
 </details>
 
-<details><summary><code>client.entities.streamEntities(request) -> Iterable&amp;lt;StreamEntitiesResponse&amp;gt;</code></summary>
+<details><summary><code>client.entities.streamEntities(request) -> Iterable&lt;StreamEntitiesResponse&gt;</code></summary>
 <dl>
 <dd>
 
@@ -914,7 +914,7 @@ client.tasks().listenAsAgent(
 </details>
 
 ## Objects
-<details><summary><code>client.objects.listObjects() -> SyncPagingIterable&amp;lt;PathMetadata&amp;gt;</code></summary>
+<details><summary><code>client.objects.listObjects() -> SyncPagingIterable&lt;PathMetadata&gt;</code></summary>
 <dl>
 <dd>
 
@@ -1243,8 +1243,8 @@ client.objects().getObjectMetadata(
 </dl>
 </details>
 
-## OAuth2
-<details><summary><code>client.oAuth2.getToken(request) -> GetTokenResponse</code></summary>
+## oauth
+<details><summary><code>client.oauth.getToken(request) -> GetTokenResponse</code></summary>
 <dl>
 <dd>
 
@@ -1256,7 +1256,7 @@ client.objects().getObjectMetadata(
 <dl>
 <dd>
 
-Support the client credentials authorization flow
+Gets a new short-lived token using the specified client credentials
 </dd>
 </dl>
 </dd>
@@ -1271,7 +1271,7 @@ Support the client credentials authorization flow
 <dd>
 
 ```java
-client.oAuth2().getToken(
+client.oauth().getToken(
     GetTokenRequest
         .builder()
         .build()
