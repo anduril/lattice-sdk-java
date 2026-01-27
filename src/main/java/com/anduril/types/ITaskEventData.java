@@ -5,6 +5,6 @@ package com.anduril.types;
 
 import java.util.Optional;
 
-public interface IHeartbeatObject {
-    Optional<String> getTimestamp();
+public interface ITaskEventData {
+    Optional<TaskEventDataTaskEvent> getTaskEvent();
 }

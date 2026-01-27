@@ -6,7 +6,7 @@ package com.anduril;
 import com.anduril.core.ClientOptions;
 import com.anduril.core.Environment;
 import com.anduril.core.OAuthTokenSupplier;
-import com.anduril.resources.oauth2.OAuth2Client;
+import com.anduril.resources.oauth.OauthClient;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -249,7 +249,7 @@ public class AsyncLatticeBuilder {
         public AsyncLattice build() {
             validateConfiguration();
             ClientOptions baseOptions = buildClientOptions();
-            OAuth2Client authClient = new OAuth2Client(baseOptions);
+            OauthClient authClient = new OauthClient(baseOptions);
             OAuthTokenSupplier oAuthTokenSupplier =
                     new OAuthTokenSupplier(this.clientId, this.clientSecret, authClient);
             ClientOptions finalOptions = ClientOptions.Builder.from(baseOptions)

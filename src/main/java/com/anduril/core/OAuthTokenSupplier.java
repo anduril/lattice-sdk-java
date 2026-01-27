@@ -3,9 +3,9 @@
  */
 package com.anduril.core;
 
-import com.anduril.resources.oauth2.OAuth2Client;
-import com.anduril.resources.oauth2.requests.GetTokenRequest;
-import com.anduril.resources.oauth2.types.GetTokenResponse;
+import com.anduril.resources.oauth.OauthClient;
+import com.anduril.resources.oauth.requests.GetTokenRequest;
+import com.anduril.resources.oauth.types.GetTokenResponse;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.function.Supplier;
@@ -17,13 +17,13 @@ public final class OAuthTokenSupplier implements Supplier<String> {
 
     private final String clientSecret;
 
-    private final OAuth2Client authClient;
+    private final OauthClient authClient;
 
     private String accessToken;
 
     private Instant expiresAt;
 
-    public OAuthTokenSupplier(String clientId, String clientSecret, OAuth2Client authClient) {
+    public OAuthTokenSupplier(String clientId, String clientSecret, OauthClient authClient) {
         this.clientId = clientId;
         this.clientSecret = clientSecret;
         this.authClient = authClient;
