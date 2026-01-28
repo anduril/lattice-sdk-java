@@ -10,14 +10,20 @@ import com.anduril.core.LatticeHttpResponse;
 import com.anduril.core.MediaTypes;
 import com.anduril.core.ObjectMappers;
 import com.anduril.core.RequestOptions;
+import com.anduril.core.ResponseBodyReader;
+import com.anduril.core.Stream;
 import com.anduril.errors.BadRequestError;
 import com.anduril.errors.NotFoundError;
 import com.anduril.errors.UnauthorizedError;
 import com.anduril.resources.tasks.requests.AgentListener;
+import com.anduril.resources.tasks.requests.AgentStreamRequest;
 import com.anduril.resources.tasks.requests.GetTaskRequest;
 import com.anduril.resources.tasks.requests.TaskCreation;
 import com.anduril.resources.tasks.requests.TaskQuery;
 import com.anduril.resources.tasks.requests.TaskStatusUpdate;
+import com.anduril.resources.tasks.requests.TaskStreamRequest;
+import com.anduril.resources.tasks.types.StreamAsAgentResponse;
+import com.anduril.resources.tasks.types.StreamTasksResponse;
 import com.anduril.types.AgentRequest;
 import com.anduril.types.Task;
 import com.anduril.types.TaskQueryResults;
@@ -460,6 +466,90 @@ public class RawTasksClient {
     }
 
     /**
+     * Establishes a server streaming connection that delivers task updates in real-time using Server-Sent Events (SSE).
+     * <p>The stream delivers all existing non-terminal tasks when first connected, followed by real-time
+     * updates for task creation and status changes. Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     */
+    public LatticeHttpResponse<Iterable<StreamTasksResponse>> streamTasks() {
+        return streamTasks(TaskStreamRequest.builder().build());
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers task updates in real-time using Server-Sent Events (SSE).
+     * <p>The stream delivers all existing non-terminal tasks when first connected, followed by real-time
+     * updates for task creation and status changes. Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     */
+    public LatticeHttpResponse<Iterable<StreamTasksResponse>> streamTasks(RequestOptions requestOptions) {
+        return streamTasks(TaskStreamRequest.builder().build(), requestOptions);
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers task updates in real-time using Server-Sent Events (SSE).
+     * <p>The stream delivers all existing non-terminal tasks when first connected, followed by real-time
+     * updates for task creation and status changes. Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     */
+    public LatticeHttpResponse<Iterable<StreamTasksResponse>> streamTasks(TaskStreamRequest request) {
+        return streamTasks(request, null);
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers task updates in real-time using Server-Sent Events (SSE).
+     * <p>The stream delivers all existing non-terminal tasks when first connected, followed by real-time
+     * updates for task creation and status changes. Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     */
+    public LatticeHttpResponse<Iterable<StreamTasksResponse>> streamTasks(
+            TaskStreamRequest request, RequestOptions requestOptions) {
+        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+                .newBuilder()
+                .addPathSegments("api/v1/tasks/stream")
+                .build();
+        RequestBody body;
+        try {
+            body = RequestBody.create(
+                    ObjectMappers.JSON_MAPPER.writeValueAsBytes(request), MediaTypes.APPLICATION_JSON);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to serialize request", e);
+        }
+        Request okhttpRequest = new Request.Builder()
+                .url(httpUrl)
+                .method("POST", body)
+                .headers(Headers.of(clientOptions.headers(requestOptions)))
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "application/json")
+                .build();
+        OkHttpClient client = clientOptions.httpClient();
+        if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
+            client = clientOptions.httpClientWithTimeout(requestOptions);
+        }
+        try {
+            Response response = client.newCall(okhttpRequest).execute();
+            ResponseBody responseBody = response.body();
+            if (response.isSuccessful()) {
+                return new LatticeHttpResponse<>(
+                        Stream.fromSse(StreamTasksResponse.class, new ResponseBodyReader(response)), response);
+            }
+            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
+            try {
+                switch (response.code()) {
+                    case 400:
+                        throw new BadRequestError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class), response);
+                    case 401:
+                        throw new UnauthorizedError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class), response);
+                }
+            } catch (JsonProcessingException ignored) {
+                // unable to map error response, throwing generic error
+            }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
+            throw new LatticeApiException(
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (IOException e) {
+            throw new LatticeException("Network error executing HTTP request", e);
+        }
+    }
+
+    /**
      * Establishes a server streaming connection that delivers tasks to taskable agents for execution.
      * <p>This method creates a persistent connection from Tasks API to an agent, allowing the server
      * to push tasks to the agent as they become available. The agent receives a stream of tasks that
@@ -577,6 +667,134 @@ public class RawTasksClient {
                 return new LatticeHttpResponse<>(
                         ObjectMappers.JSON_MAPPER.readValue(responseBodyString, AgentRequest.class), response);
             }
+            try {
+                switch (response.code()) {
+                    case 400:
+                        throw new BadRequestError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class), response);
+                    case 401:
+                        throw new UnauthorizedError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class), response);
+                }
+            } catch (JsonProcessingException ignored) {
+                // unable to map error response, throwing generic error
+            }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
+            throw new LatticeApiException(
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (IOException e) {
+            throw new LatticeException("Network error executing HTTP request", e);
+        }
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers tasks to taskable agents for execution
+     * using Server-Sent Events (SSE).
+     * <p>This method creates a connection from the Tasks API to an agent that streams relevant tasks to the listener agent. The agent receives a stream of tasks that match the entities specified by the tasks' selector criteria.</p>
+     * <p>The stream delivers three types of requests:</p>
+     * <ul>
+     * <li><code>ExecuteRequest</code>: Contains a new task for the agent to execute</li>
+     * <li><code>CancelRequest</code>: Indicates a task should be canceled</li>
+     * <li><code>CompleteRequest</code>: Indicates a task should be completed</li>
+     * </ul>
+     * <p>Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     * <p>This is recommended method for taskable agents to receive and process tasks in real-time.
+     * Agents should maintain connection to this stream and process incoming tasks according to their capabilities.</p>
+     * <p>When an agent receives a task, it should update the task status using the <code>UpdateStatus</code> endpoint
+     * to provide progress information back to Tasks API.</p>
+     */
+    public LatticeHttpResponse<Iterable<StreamAsAgentResponse>> streamAsAgent() {
+        return streamAsAgent(AgentStreamRequest.builder().build());
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers tasks to taskable agents for execution
+     * using Server-Sent Events (SSE).
+     * <p>This method creates a connection from the Tasks API to an agent that streams relevant tasks to the listener agent. The agent receives a stream of tasks that match the entities specified by the tasks' selector criteria.</p>
+     * <p>The stream delivers three types of requests:</p>
+     * <ul>
+     * <li><code>ExecuteRequest</code>: Contains a new task for the agent to execute</li>
+     * <li><code>CancelRequest</code>: Indicates a task should be canceled</li>
+     * <li><code>CompleteRequest</code>: Indicates a task should be completed</li>
+     * </ul>
+     * <p>Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     * <p>This is recommended method for taskable agents to receive and process tasks in real-time.
+     * Agents should maintain connection to this stream and process incoming tasks according to their capabilities.</p>
+     * <p>When an agent receives a task, it should update the task status using the <code>UpdateStatus</code> endpoint
+     * to provide progress information back to Tasks API.</p>
+     */
+    public LatticeHttpResponse<Iterable<StreamAsAgentResponse>> streamAsAgent(RequestOptions requestOptions) {
+        return streamAsAgent(AgentStreamRequest.builder().build(), requestOptions);
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers tasks to taskable agents for execution
+     * using Server-Sent Events (SSE).
+     * <p>This method creates a connection from the Tasks API to an agent that streams relevant tasks to the listener agent. The agent receives a stream of tasks that match the entities specified by the tasks' selector criteria.</p>
+     * <p>The stream delivers three types of requests:</p>
+     * <ul>
+     * <li><code>ExecuteRequest</code>: Contains a new task for the agent to execute</li>
+     * <li><code>CancelRequest</code>: Indicates a task should be canceled</li>
+     * <li><code>CompleteRequest</code>: Indicates a task should be completed</li>
+     * </ul>
+     * <p>Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     * <p>This is recommended method for taskable agents to receive and process tasks in real-time.
+     * Agents should maintain connection to this stream and process incoming tasks according to their capabilities.</p>
+     * <p>When an agent receives a task, it should update the task status using the <code>UpdateStatus</code> endpoint
+     * to provide progress information back to Tasks API.</p>
+     */
+    public LatticeHttpResponse<Iterable<StreamAsAgentResponse>> streamAsAgent(AgentStreamRequest request) {
+        return streamAsAgent(request, null);
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers tasks to taskable agents for execution
+     * using Server-Sent Events (SSE).
+     * <p>This method creates a connection from the Tasks API to an agent that streams relevant tasks to the listener agent. The agent receives a stream of tasks that match the entities specified by the tasks' selector criteria.</p>
+     * <p>The stream delivers three types of requests:</p>
+     * <ul>
+     * <li><code>ExecuteRequest</code>: Contains a new task for the agent to execute</li>
+     * <li><code>CancelRequest</code>: Indicates a task should be canceled</li>
+     * <li><code>CompleteRequest</code>: Indicates a task should be completed</li>
+     * </ul>
+     * <p>Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     * <p>This is recommended method for taskable agents to receive and process tasks in real-time.
+     * Agents should maintain connection to this stream and process incoming tasks according to their capabilities.</p>
+     * <p>When an agent receives a task, it should update the task status using the <code>UpdateStatus</code> endpoint
+     * to provide progress information back to Tasks API.</p>
+     */
+    public LatticeHttpResponse<Iterable<StreamAsAgentResponse>> streamAsAgent(
+            AgentStreamRequest request, RequestOptions requestOptions) {
+        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+                .newBuilder()
+                .addPathSegments("api/v1/agent/stream")
+                .build();
+        RequestBody body;
+        try {
+            body = RequestBody.create(
+                    ObjectMappers.JSON_MAPPER.writeValueAsBytes(request), MediaTypes.APPLICATION_JSON);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to serialize request", e);
+        }
+        Request okhttpRequest = new Request.Builder()
+                .url(httpUrl)
+                .method("POST", body)
+                .headers(Headers.of(clientOptions.headers(requestOptions)))
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "application/json")
+                .build();
+        OkHttpClient client = clientOptions.httpClient();
+        if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
+            client = clientOptions.httpClientWithTimeout(requestOptions);
+        }
+        try {
+            Response response = client.newCall(okhttpRequest).execute();
+            ResponseBody responseBody = response.body();
+            if (response.isSuccessful()) {
+                return new LatticeHttpResponse<>(
+                        Stream.fromSse(StreamAsAgentResponse.class, new ResponseBodyReader(response)), response);
+            }
+            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {
                 switch (response.code()) {
                     case 400:

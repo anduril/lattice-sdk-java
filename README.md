@@ -13,6 +13,7 @@ The Lattice SDK Java library provides convenient access to the Lattice SDK APIs 
 - [Installation](#installation)
 - [Support](#support)
 - [Usage](#usage)
+- [Authentication](#authentication)
 - [Environments](#environments)
 - [Base Url](#base-url)
 - [Exception Handling](#exception-handling)
@@ -52,7 +53,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>5.1.0</version>
+  <version>5.2.0</version>
 </dependency>
 ```
 
@@ -85,6 +86,32 @@ public class Example {
     }
 }
 ```
+## Authentication
+
+This SDK supports two authentication methods:
+
+### Option 1: Direct Bearer Token
+
+If you already have a valid access token, you can use it directly:
+
+```java
+Lattice client = Lattice.builder()
+    .token("your-access-token")
+    .url("https://api.example.com")
+    .build();
+```
+
+### Option 2: OAuth Client Credentials
+
+The SDK can automatically handle token acquisition and refresh:
+
+```java
+Lattice client = Lattice.builder()
+    .credentials("client-id", "client-secret")
+    .url("https://api.example.com")
+    .build();
+```
+
 ## Authentication
 
 This SDK supports two authentication methods:

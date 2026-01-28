@@ -6,10 +6,14 @@ package com.anduril.resources.tasks;
 import com.anduril.core.ClientOptions;
 import com.anduril.core.RequestOptions;
 import com.anduril.resources.tasks.requests.AgentListener;
+import com.anduril.resources.tasks.requests.AgentStreamRequest;
 import com.anduril.resources.tasks.requests.GetTaskRequest;
 import com.anduril.resources.tasks.requests.TaskCreation;
 import com.anduril.resources.tasks.requests.TaskQuery;
 import com.anduril.resources.tasks.requests.TaskStatusUpdate;
+import com.anduril.resources.tasks.requests.TaskStreamRequest;
+import com.anduril.resources.tasks.types.StreamAsAgentResponse;
+import com.anduril.resources.tasks.types.StreamTasksResponse;
 import com.anduril.types.AgentRequest;
 import com.anduril.types.Task;
 import com.anduril.types.TaskQueryResults;
@@ -264,6 +268,42 @@ public class TasksClient {
     }
 
     /**
+     * Establishes a server streaming connection that delivers task updates in real-time using Server-Sent Events (SSE).
+     * <p>The stream delivers all existing non-terminal tasks when first connected, followed by real-time
+     * updates for task creation and status changes. Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     */
+    public Iterable<StreamTasksResponse> streamTasks() {
+        return this.rawClient.streamTasks().body();
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers task updates in real-time using Server-Sent Events (SSE).
+     * <p>The stream delivers all existing non-terminal tasks when first connected, followed by real-time
+     * updates for task creation and status changes. Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     */
+    public Iterable<StreamTasksResponse> streamTasks(RequestOptions requestOptions) {
+        return this.rawClient.streamTasks(requestOptions).body();
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers task updates in real-time using Server-Sent Events (SSE).
+     * <p>The stream delivers all existing non-terminal tasks when first connected, followed by real-time
+     * updates for task creation and status changes. Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     */
+    public Iterable<StreamTasksResponse> streamTasks(TaskStreamRequest request) {
+        return this.rawClient.streamTasks(request).body();
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers task updates in real-time using Server-Sent Events (SSE).
+     * <p>The stream delivers all existing non-terminal tasks when first connected, followed by real-time
+     * updates for task creation and status changes. Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     */
+    public Iterable<StreamTasksResponse> streamTasks(TaskStreamRequest request, RequestOptions requestOptions) {
+        return this.rawClient.streamTasks(request, requestOptions).body();
+    }
+
+    /**
      * Establishes a server streaming connection that delivers tasks to taskable agents for execution.
      * <p>This method creates a persistent connection from Tasks API to an agent, allowing the server
      * to push tasks to the agent as they become available. The agent receives a stream of tasks that
@@ -353,5 +393,85 @@ public class TasksClient {
      */
     public AgentRequest listenAsAgent(AgentListener request, RequestOptions requestOptions) {
         return this.rawClient.listenAsAgent(request, requestOptions).body();
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers tasks to taskable agents for execution
+     * using Server-Sent Events (SSE).
+     * <p>This method creates a connection from the Tasks API to an agent that streams relevant tasks to the listener agent. The agent receives a stream of tasks that match the entities specified by the tasks' selector criteria.</p>
+     * <p>The stream delivers three types of requests:</p>
+     * <ul>
+     * <li><code>ExecuteRequest</code>: Contains a new task for the agent to execute</li>
+     * <li><code>CancelRequest</code>: Indicates a task should be canceled</li>
+     * <li><code>CompleteRequest</code>: Indicates a task should be completed</li>
+     * </ul>
+     * <p>Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     * <p>This is recommended method for taskable agents to receive and process tasks in real-time.
+     * Agents should maintain connection to this stream and process incoming tasks according to their capabilities.</p>
+     * <p>When an agent receives a task, it should update the task status using the <code>UpdateStatus</code> endpoint
+     * to provide progress information back to Tasks API.</p>
+     */
+    public Iterable<StreamAsAgentResponse> streamAsAgent() {
+        return this.rawClient.streamAsAgent().body();
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers tasks to taskable agents for execution
+     * using Server-Sent Events (SSE).
+     * <p>This method creates a connection from the Tasks API to an agent that streams relevant tasks to the listener agent. The agent receives a stream of tasks that match the entities specified by the tasks' selector criteria.</p>
+     * <p>The stream delivers three types of requests:</p>
+     * <ul>
+     * <li><code>ExecuteRequest</code>: Contains a new task for the agent to execute</li>
+     * <li><code>CancelRequest</code>: Indicates a task should be canceled</li>
+     * <li><code>CompleteRequest</code>: Indicates a task should be completed</li>
+     * </ul>
+     * <p>Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     * <p>This is recommended method for taskable agents to receive and process tasks in real-time.
+     * Agents should maintain connection to this stream and process incoming tasks according to their capabilities.</p>
+     * <p>When an agent receives a task, it should update the task status using the <code>UpdateStatus</code> endpoint
+     * to provide progress information back to Tasks API.</p>
+     */
+    public Iterable<StreamAsAgentResponse> streamAsAgent(RequestOptions requestOptions) {
+        return this.rawClient.streamAsAgent(requestOptions).body();
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers tasks to taskable agents for execution
+     * using Server-Sent Events (SSE).
+     * <p>This method creates a connection from the Tasks API to an agent that streams relevant tasks to the listener agent. The agent receives a stream of tasks that match the entities specified by the tasks' selector criteria.</p>
+     * <p>The stream delivers three types of requests:</p>
+     * <ul>
+     * <li><code>ExecuteRequest</code>: Contains a new task for the agent to execute</li>
+     * <li><code>CancelRequest</code>: Indicates a task should be canceled</li>
+     * <li><code>CompleteRequest</code>: Indicates a task should be completed</li>
+     * </ul>
+     * <p>Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     * <p>This is recommended method for taskable agents to receive and process tasks in real-time.
+     * Agents should maintain connection to this stream and process incoming tasks according to their capabilities.</p>
+     * <p>When an agent receives a task, it should update the task status using the <code>UpdateStatus</code> endpoint
+     * to provide progress information back to Tasks API.</p>
+     */
+    public Iterable<StreamAsAgentResponse> streamAsAgent(AgentStreamRequest request) {
+        return this.rawClient.streamAsAgent(request).body();
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers tasks to taskable agents for execution
+     * using Server-Sent Events (SSE).
+     * <p>This method creates a connection from the Tasks API to an agent that streams relevant tasks to the listener agent. The agent receives a stream of tasks that match the entities specified by the tasks' selector criteria.</p>
+     * <p>The stream delivers three types of requests:</p>
+     * <ul>
+     * <li><code>ExecuteRequest</code>: Contains a new task for the agent to execute</li>
+     * <li><code>CancelRequest</code>: Indicates a task should be canceled</li>
+     * <li><code>CompleteRequest</code>: Indicates a task should be completed</li>
+     * </ul>
+     * <p>Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
+     * <p>This is recommended method for taskable agents to receive and process tasks in real-time.
+     * Agents should maintain connection to this stream and process incoming tasks according to their capabilities.</p>
+     * <p>When an agent receives a task, it should update the task status using the <code>UpdateStatus</code> endpoint
+     * to provide progress information back to Tasks API.</p>
+     */
+    public Iterable<StreamAsAgentResponse> streamAsAgent(AgentStreamRequest request, RequestOptions requestOptions) {
+        return this.rawClient.streamAsAgent(request, requestOptions).body();
     }
 }

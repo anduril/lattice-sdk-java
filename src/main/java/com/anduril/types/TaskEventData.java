@@ -18,29 +18,29 @@ import java.util.Objects;
 import java.util.Optional;
 
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
-@JsonDeserialize(builder = AgentStreamHeartbeatData.Builder.class)
-public final class AgentStreamHeartbeatData {
-    private final Optional<String> timestamp;
+@JsonDeserialize(builder = TaskEventData.Builder.class)
+public final class TaskEventData implements ITaskEventData {
+    private final Optional<TaskEventDataTaskEvent> taskEvent;
 
     private final Map<String, Object> additionalProperties;
 
-    private AgentStreamHeartbeatData(Optional<String> timestamp, Map<String, Object> additionalProperties) {
-        this.timestamp = timestamp;
+    private TaskEventData(Optional<TaskEventDataTaskEvent> taskEvent, Map<String, Object> additionalProperties) {
+        this.taskEvent = taskEvent;
         this.additionalProperties = additionalProperties;
     }
 
     /**
-     * @return The timestamp at which the heartbeat message was sent.
+     * @return The task event that occurred.
      */
-    @JsonProperty("timestamp")
-    public Optional<String> getTimestamp() {
-        return timestamp;
+    @JsonProperty("taskEvent")
+    public Optional<TaskEventDataTaskEvent> getTaskEvent() {
+        return taskEvent;
     }
 
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
-        return other instanceof AgentStreamHeartbeatData && equalTo((AgentStreamHeartbeatData) other);
+        return other instanceof TaskEventData && equalTo((TaskEventData) other);
     }
 
     @JsonAnyGetter
@@ -48,13 +48,13 @@ public final class AgentStreamHeartbeatData {
         return this.additionalProperties;
     }
 
-    private boolean equalTo(AgentStreamHeartbeatData other) {
-        return timestamp.equals(other.timestamp);
+    private boolean equalTo(TaskEventData other) {
+        return taskEvent.equals(other.taskEvent);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.timestamp);
+        return Objects.hash(this.taskEvent);
     }
 
     @java.lang.Override
@@ -68,34 +68,34 @@ public final class AgentStreamHeartbeatData {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder {
-        private Optional<String> timestamp = Optional.empty();
+        private Optional<TaskEventDataTaskEvent> taskEvent = Optional.empty();
 
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
 
-        public Builder from(AgentStreamHeartbeatData other) {
-            timestamp(other.getTimestamp());
+        public Builder from(TaskEventData other) {
+            taskEvent(other.getTaskEvent());
             return this;
         }
 
         /**
-         * <p>The timestamp at which the heartbeat message was sent.</p>
+         * <p>The task event that occurred.</p>
          */
-        @JsonSetter(value = "timestamp", nulls = Nulls.SKIP)
-        public Builder timestamp(Optional<String> timestamp) {
-            this.timestamp = timestamp;
+        @JsonSetter(value = "taskEvent", nulls = Nulls.SKIP)
+        public Builder taskEvent(Optional<TaskEventDataTaskEvent> taskEvent) {
+            this.taskEvent = taskEvent;
             return this;
         }
 
-        public Builder timestamp(String timestamp) {
-            this.timestamp = Optional.ofNullable(timestamp);
+        public Builder taskEvent(TaskEventDataTaskEvent taskEvent) {
+            this.taskEvent = Optional.ofNullable(taskEvent);
             return this;
         }
 
-        public AgentStreamHeartbeatData build() {
-            return new AgentStreamHeartbeatData(timestamp, additionalProperties);
+        public TaskEventData build() {
+            return new TaskEventData(taskEvent, additionalProperties);
         }
     }
 }

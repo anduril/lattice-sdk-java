@@ -18,13 +18,13 @@ import java.util.Objects;
 import java.util.Optional;
 
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
-@JsonDeserialize(builder = HeartbeatObject.Builder.class)
-public final class HeartbeatObject implements IHeartbeatObject {
+@JsonDeserialize(builder = StreamHeartbeat.Builder.class)
+public final class StreamHeartbeat implements IHeartbeatObject {
     private final Optional<String> timestamp;
 
     private final Map<String, Object> additionalProperties;
 
-    private HeartbeatObject(Optional<String> timestamp, Map<String, Object> additionalProperties) {
+    private StreamHeartbeat(Optional<String> timestamp, Map<String, Object> additionalProperties) {
         this.timestamp = timestamp;
         this.additionalProperties = additionalProperties;
     }
@@ -41,7 +41,7 @@ public final class HeartbeatObject implements IHeartbeatObject {
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
-        return other instanceof HeartbeatObject && equalTo((HeartbeatObject) other);
+        return other instanceof StreamHeartbeat && equalTo((StreamHeartbeat) other);
     }
 
     @JsonAnyGetter
@@ -49,7 +49,7 @@ public final class HeartbeatObject implements IHeartbeatObject {
         return this.additionalProperties;
     }
 
-    private boolean equalTo(HeartbeatObject other) {
+    private boolean equalTo(StreamHeartbeat other) {
         return timestamp.equals(other.timestamp);
     }
 
@@ -76,7 +76,7 @@ public final class HeartbeatObject implements IHeartbeatObject {
 
         private Builder() {}
 
-        public Builder from(HeartbeatObject other) {
+        public Builder from(StreamHeartbeat other) {
             timestamp(other.getTimestamp());
             return this;
         }
@@ -95,8 +95,8 @@ public final class HeartbeatObject implements IHeartbeatObject {
             return this;
         }
 
-        public HeartbeatObject build() {
-            return new HeartbeatObject(timestamp, additionalProperties);
+        public StreamHeartbeat build() {
+            return new StreamHeartbeat(timestamp, additionalProperties);
         }
     }
 }
