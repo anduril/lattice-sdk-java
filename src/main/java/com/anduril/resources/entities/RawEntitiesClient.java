@@ -23,6 +23,7 @@ import com.anduril.resources.entities.requests.EntityStreamRequest;
 import com.anduril.resources.entities.requests.GetEntityRequest;
 import com.anduril.resources.entities.requests.RemoveEntityOverrideRequest;
 import com.anduril.resources.entities.types.StreamEntitiesResponse;
+import com.anduril.resources.entity.types.Error;
 import com.anduril.types.Entity;
 import com.anduril.types.EntityEventResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -87,10 +88,14 @@ public class RawEntitiesClient {
      * provenance.sourceUpdateTime is greater than the provenance.sourceUpdateTime of the existing entity.</p>
      */
     public LatticeHttpResponse<Entity> publishEntity(Entity request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/entities")
-                .build();
+                .addPathSegments("api/v1/entities");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -99,7 +104,7 @@ public class RawEntitiesClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("PUT", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
@@ -150,13 +155,17 @@ public class RawEntitiesClient {
 
     public LatticeHttpResponse<Entity> getEntity(
             String entityId, GetEntityRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/entities")
-                .addPathSegment(entityId)
-                .build();
+                .addPathSegment(entityId);
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         Request.Builder _requestBuilder = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("GET", null)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Accept", "application/json");
@@ -242,13 +251,17 @@ public class RawEntitiesClient {
      */
     public LatticeHttpResponse<Entity> overrideEntity(
             String entityId, String fieldPath, EntityOverride request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/entities")
                 .addPathSegment(entityId)
                 .addPathSegments("override")
-                .addPathSegment(fieldPath)
-                .build();
+                .addPathSegment(fieldPath);
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -257,7 +270,7 @@ public class RawEntitiesClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("PUT", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
@@ -327,15 +340,19 @@ public class RawEntitiesClient {
      */
     public LatticeHttpResponse<Entity> removeEntityOverride(
             String entityId, String fieldPath, RemoveEntityOverrideRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/entities")
                 .addPathSegment(entityId)
                 .addPathSegments("override")
-                .addPathSegment(fieldPath)
-                .build();
+                .addPathSegment(fieldPath);
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         Request.Builder _requestBuilder = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("DELETE", null)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Accept", "application/json");
@@ -402,10 +419,14 @@ public class RawEntitiesClient {
      */
     public LatticeHttpResponse<EntityEventResponse> longPollEntityEvents(
             EntityEventRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/entities/events")
-                .build();
+                .addPathSegments("api/v1/entities/events");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -414,7 +435,7 @@ public class RawEntitiesClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
@@ -444,10 +465,10 @@ public class RawEntitiesClient {
                                 ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class), response);
                     case 408:
                         throw new RequestTimeoutError(
-                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class), response);
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Error.class), response);
                     case 429:
                         throw new TooManyRequestsError(
-                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class), response);
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Error.class), response);
                 }
             } catch (JsonProcessingException ignored) {
                 // unable to map error response, throwing generic error
@@ -538,10 +559,14 @@ public class RawEntitiesClient {
      */
     public LatticeHttpResponse<Iterable<StreamEntitiesResponse>> streamEntities(
             EntityStreamRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/entities/stream")
-                .build();
+                .addPathSegments("api/v1/entities/stream");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -550,11 +575,10 @@ public class RawEntitiesClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
-                .addHeader("Accept", "application/json")
                 .build();
         OkHttpClient client = clientOptions.httpClient();
         if (requestOptions != null && requestOptions.getTimeout().isPresent()) {

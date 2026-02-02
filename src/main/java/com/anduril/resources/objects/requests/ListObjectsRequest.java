@@ -29,6 +29,8 @@ public final class ListObjectsRequest {
 
     private final Optional<Boolean> allObjectsInMesh;
 
+    private final Optional<Integer> maxPageSize;
+
     private final Map<String, Object> additionalProperties;
 
     private ListObjectsRequest(
@@ -36,11 +38,13 @@ public final class ListObjectsRequest {
             Optional<OffsetDateTime> sinceTimestamp,
             Optional<String> pageToken,
             Optional<Boolean> allObjectsInMesh,
+            Optional<Integer> maxPageSize,
             Map<String, Object> additionalProperties) {
         this.prefix = prefix;
         this.sinceTimestamp = sinceTimestamp;
         this.pageToken = pageToken;
         this.allObjectsInMesh = allObjectsInMesh;
+        this.maxPageSize = maxPageSize;
         this.additionalProperties = additionalProperties;
     }
 
@@ -76,6 +80,14 @@ public final class ListObjectsRequest {
         return allObjectsInMesh;
     }
 
+    /**
+     * @return Sets the maximum number of items that should be returned on a single page.
+     */
+    @JsonProperty("maxPageSize")
+    public Optional<Integer> getMaxPageSize() {
+        return maxPageSize;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -91,12 +103,13 @@ public final class ListObjectsRequest {
         return prefix.equals(other.prefix)
                 && sinceTimestamp.equals(other.sinceTimestamp)
                 && pageToken.equals(other.pageToken)
-                && allObjectsInMesh.equals(other.allObjectsInMesh);
+                && allObjectsInMesh.equals(other.allObjectsInMesh)
+                && maxPageSize.equals(other.maxPageSize);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.prefix, this.sinceTimestamp, this.pageToken, this.allObjectsInMesh);
+        return Objects.hash(this.prefix, this.sinceTimestamp, this.pageToken, this.allObjectsInMesh, this.maxPageSize);
     }
 
     @java.lang.Override
@@ -118,6 +131,8 @@ public final class ListObjectsRequest {
 
         private Optional<Boolean> allObjectsInMesh = Optional.empty();
 
+        private Optional<Integer> maxPageSize = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -128,6 +143,7 @@ public final class ListObjectsRequest {
             sinceTimestamp(other.getSinceTimestamp());
             pageToken(other.getPageToken());
             allObjectsInMesh(other.getAllObjectsInMesh());
+            maxPageSize(other.getMaxPageSize());
             return this;
         }
 
@@ -187,8 +203,23 @@ public final class ListObjectsRequest {
             return this;
         }
 
+        /**
+         * <p>Sets the maximum number of items that should be returned on a single page.</p>
+         */
+        @JsonSetter(value = "maxPageSize", nulls = Nulls.SKIP)
+        public Builder maxPageSize(Optional<Integer> maxPageSize) {
+            this.maxPageSize = maxPageSize;
+            return this;
+        }
+
+        public Builder maxPageSize(Integer maxPageSize) {
+            this.maxPageSize = Optional.ofNullable(maxPageSize);
+            return this;
+        }
+
         public ListObjectsRequest build() {
-            return new ListObjectsRequest(prefix, sinceTimestamp, pageToken, allObjectsInMesh, additionalProperties);
+            return new ListObjectsRequest(
+                    prefix, sinceTimestamp, pageToken, allObjectsInMesh, maxPageSize, additionalProperties);
         }
     }
 }
