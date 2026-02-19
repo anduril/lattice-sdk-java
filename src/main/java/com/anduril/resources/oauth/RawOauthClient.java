@@ -41,10 +41,14 @@ public class RawOauthClient {
      * Gets a new short-lived token using the specified client credentials
      */
     public LatticeHttpResponse<GetTokenResponse> getToken(GetTokenRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/oauth/token")
-                .build();
+                .addPathSegments("api/v1/oauth/token");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         FormBody.Builder body = new FormBody.Builder();
         try {
             body.add("grant_type", String.valueOf(request.getGrantType()));
@@ -60,7 +64,7 @@ public class RawOauthClient {
             throw new RuntimeException(e);
         }
         Request.Builder _requestBuilder = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body.build())
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/x-www-form-urlencoded")
