@@ -30,6 +30,7 @@ import com.anduril.types.TaskQueryResults;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Headers;
@@ -94,10 +95,14 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<Task>> createTask(
             TaskCreation request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/tasks")
-                .build();
+                .addPathSegments("api/v1/tasks");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -106,7 +111,7 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
@@ -206,13 +211,17 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<Task>> getTask(
             String taskId, GetTaskRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/tasks")
-                .addPathSegment(taskId)
-                .build();
+                .addPathSegment(taskId);
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         Request.Builder _requestBuilder = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("GET", null)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Accept", "application/json");
@@ -324,12 +333,16 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<Task>> updateTaskStatus(
             String taskId, TaskStatusUpdate request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/tasks")
                 .addPathSegment(taskId)
-                .addPathSegments("status")
-                .build();
+                .addPathSegments("status");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -338,7 +351,7 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("PUT", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
@@ -475,10 +488,14 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<TaskQueryResults>> queryTasks(
             TaskQuery request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/tasks/query")
-                .build();
+                .addPathSegments("api/v1/tasks/query");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -487,7 +504,7 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
@@ -583,10 +600,14 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<Iterable<StreamTasksResponse>>> streamTasks(
             TaskStreamRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/tasks/stream")
-                .build();
+                .addPathSegments("api/v1/tasks/stream");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -595,16 +616,16 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
-                .addHeader("Accept", "application/json")
                 .build();
         OkHttpClient client = clientOptions.httpClient();
         if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
             client = clientOptions.httpClientWithTimeout(requestOptions);
         }
+        client = client.newBuilder().callTimeout(0, TimeUnit.SECONDS).build();
         CompletableFuture<LatticeHttpResponse<Iterable<StreamTasksResponse>>> future = new CompletableFuture<>();
         client.newCall(okhttpRequest).enqueue(new Callback() {
             @Override
@@ -613,7 +634,9 @@ public class AsyncRawTasksClient {
                     ResponseBody responseBody = response.body();
                     if (response.isSuccessful()) {
                         future.complete(new LatticeHttpResponse<>(
-                                Stream.fromSse(StreamTasksResponse.class, new ResponseBodyReader(response)), response));
+                                Stream.fromSseWithEventDiscrimination(
+                                        StreamTasksResponse.class, new ResponseBodyReader(response), "event"),
+                                response));
                         return;
                     }
                     String responseBodyString = responseBody != null ? responseBody.string() : "{}";
@@ -740,10 +763,14 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<AgentRequest>> listenAsAgent(
             AgentListener request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/agent/listen")
-                .build();
+                .addPathSegments("api/v1/agent/listen");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -752,7 +779,7 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
@@ -886,10 +913,14 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<Iterable<StreamAsAgentResponse>>> streamAsAgent(
             AgentStreamRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/agent/stream")
-                .build();
+                .addPathSegments("api/v1/agent/stream");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -898,16 +929,16 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
-                .addHeader("Accept", "application/json")
                 .build();
         OkHttpClient client = clientOptions.httpClient();
         if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
             client = clientOptions.httpClientWithTimeout(requestOptions);
         }
+        client = client.newBuilder().callTimeout(0, TimeUnit.SECONDS).build();
         CompletableFuture<LatticeHttpResponse<Iterable<StreamAsAgentResponse>>> future = new CompletableFuture<>();
         client.newCall(okhttpRequest).enqueue(new Callback() {
             @Override
@@ -916,7 +947,8 @@ public class AsyncRawTasksClient {
                     ResponseBody responseBody = response.body();
                     if (response.isSuccessful()) {
                         future.complete(new LatticeHttpResponse<>(
-                                Stream.fromSse(StreamAsAgentResponse.class, new ResponseBodyReader(response)),
+                                Stream.fromSseWithEventDiscrimination(
+                                        StreamAsAgentResponse.class, new ResponseBodyReader(response), "event"),
                                 response));
                         return;
                     }

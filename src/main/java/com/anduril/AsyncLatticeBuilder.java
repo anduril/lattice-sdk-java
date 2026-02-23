@@ -23,6 +23,8 @@ public class AsyncLatticeBuilder {
 
     private OkHttpClient httpClient;
 
+    private String server;
+
     /**
      * Creates a builder that uses a pre-generated access token for authentication.
      * Use this when you already have a valid access token and want to bypass
@@ -104,6 +106,11 @@ public class AsyncLatticeBuilder {
         return this;
     }
 
+    public AsyncLatticeBuilder server(String server) {
+        this.server = server;
+        return this;
+    }
+
     protected ClientOptions buildClientOptions() {
         ClientOptions.Builder builder = ClientOptions.builder();
         setEnvironment(builder);
@@ -125,6 +132,10 @@ public class AsyncLatticeBuilder {
      * @param builder The ClientOptions.Builder to configure
      */
     protected void setEnvironment(ClientOptions.Builder builder) {
+        if (this.server != null) {
+            String _server = this.server != null ? this.server : "example.developer.anduril.com";
+            this.environment = Environment.custom("https://{server}".replace("{server}", _server));
+        }
         builder.environment(this.environment);
     }
 

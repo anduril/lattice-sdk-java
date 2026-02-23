@@ -1,10 +1,10 @@
 {
-  "cliVersion": "3.51.2",
+  "cliVersion": "3.78.0",
   "generatorName": "fernapi/fern-java-sdk",
-  "generatorVersion": "3.29.1",
+  "generatorVersion": "3.38.0",
   "generatorConfig": {
     "client-class-name": "Lattice",
     "package-prefix": "com.anduril"
   },
-  "sdkVersion": "5.2.0"
+  "sdkVersion": "5.3.0"
 }
