@@ -5,6 +5,7 @@ package com.anduril;
 
 import com.anduril.core.ClientOptions;
 import com.anduril.core.Environment;
+import com.anduril.core.LogConfig;
 import com.anduril.core.OAuthTokenSupplier;
 import com.anduril.resources.oauth.OauthClient;
 import java.util.HashMap;
@@ -22,6 +23,10 @@ public class LatticeBuilder {
     protected Environment environment = Environment.DEFAULT;
 
     private OkHttpClient httpClient;
+
+    private Optional<LogConfig> logging = Optional.empty();
+
+    private String server;
 
     /**
      * Creates a builder that uses a pre-generated access token for authentication.
@@ -92,6 +97,14 @@ public class LatticeBuilder {
     }
 
     /**
+     * Configure logging for the SDK. Silent by default — no log output unless explicitly configured.
+     */
+    public LatticeBuilder logging(LogConfig logging) {
+        this.logging = Optional.of(logging);
+        return this;
+    }
+
+    /**
      * Add a custom header to be sent with all requests.
      * For headers that need to be computed dynamically or conditionally, use the setAdditional() method override instead.
      *
@@ -104,6 +117,11 @@ public class LatticeBuilder {
         return this;
     }
 
+    public LatticeBuilder server(String server) {
+        this.server = server;
+        return this;
+    }
+
     protected ClientOptions buildClientOptions() {
         ClientOptions.Builder builder = ClientOptions.builder();
         setEnvironment(builder);
@@ -111,6 +129,7 @@ public class LatticeBuilder {
         setHttpClient(builder);
         setTimeouts(builder);
         setRetries(builder);
+        setLogging(builder);
         for (Map.Entry<String, String> header : this.customHeaders.entrySet()) {
             builder.addHeader(header.getKey(), header.getValue());
         }
@@ -125,6 +144,10 @@ public class LatticeBuilder {
      * @param builder The ClientOptions.Builder to configure
      */
     protected void setEnvironment(ClientOptions.Builder builder) {
+        if (this.server != null) {
+            String _server = this.server != null ? this.server : "example.developer.anduril.com";
+            this.environment = Environment.custom("https://{server}".replace("{server}", _server));
+        }
         builder.environment(this.environment);
     }
 
@@ -178,6 +201,18 @@ public class LatticeBuilder {
     protected void setHttpClient(ClientOptions.Builder builder) {
         if (this.httpClient != null) {
             builder.httpClient(this.httpClient);
+        }
+    }
+
+    /**
+     * Sets the logging configuration for the SDK.
+     * Override this method to customize logging behavior.
+     *
+     * @param builder The ClientOptions.Builder to configure
+     */
+    protected void setLogging(ClientOptions.Builder builder) {
+        if (this.logging.isPresent()) {
+            builder.logging(this.logging.get());
         }
     }
 
