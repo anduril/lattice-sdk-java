@@ -82,6 +82,10 @@ public final class BadRequestErrorBody {
     public interface _FinalStage {
         BadRequestErrorBody build();
 
+        _FinalStage additionalProperty(String key, Object value);
+
+        _FinalStage additionalProperties(Map<String, Object> additionalProperties);
+
         _FinalStage errorDescription(Optional<String> errorDescription);
 
         _FinalStage errorDescription(String errorDescription);
@@ -128,6 +132,18 @@ public final class BadRequestErrorBody {
         @java.lang.Override
         public BadRequestErrorBody build() {
             return new BadRequestErrorBody(error, errorDescription, additionalProperties);
+        }
+
+        @java.lang.Override
+        public Builder additionalProperty(String key, Object value) {
+            this.additionalProperties.put(key, value);
+            return this;
+        }
+
+        @java.lang.Override
+        public Builder additionalProperties(Map<String, Object> additionalProperties) {
+            this.additionalProperties.putAll(additionalProperties);
+            return this;
         }
     }
 }

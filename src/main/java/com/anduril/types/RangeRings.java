@@ -189,5 +189,15 @@ public final class RangeRings {
         public RangeRings build() {
             return new RangeRings(minDistanceM, maxDistanceM, ringCount, ringLineColor, additionalProperties);
         }
+
+        public Builder additionalProperty(String key, Object value) {
+            this.additionalProperties.put(key, value);
+            return this;
+        }
+
+        public Builder additionalProperties(Map<String, Object> additionalProperties) {
+            this.additionalProperties.putAll(additionalProperties);
+            return this;
+        }
     }
 }

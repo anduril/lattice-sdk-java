@@ -53,7 +53,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>5.2.0</version>
+  <version>5.2.1</version>
 </dependency>
 ```
 
@@ -85,31 +85,6 @@ public class Example {
         );
     }
 }
-```
-## Authentication
-
-This SDK supports two authentication methods:
-
-### Option 1: Direct Bearer Token
-
-If you already have a valid access token, you can use it directly:
-
-```java
-Lattice client = Lattice.builder()
-    .token("your-access-token")
-    .url("https://api.example.com")
-    .build();
-```
-
-### Option 2: OAuth Client Credentials
-
-The SDK can automatically handle token acquisition and refresh:
-
-```java
-Lattice client = Lattice.builder()
-    .credentials("client-id", "client-secret")
-    .url("https://api.example.com")
-    .build();
 ```
 
 ## Authentication
@@ -288,3 +263,4 @@ System.out.println(response.headers().get("X-My-Header"));
 ## Reference
 
 A full reference for this library is available [here](https://github.com/anduril/lattice-sdk-java/blob/HEAD/./reference.md).
+
