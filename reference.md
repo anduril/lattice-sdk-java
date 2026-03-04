@@ -1161,6 +1161,14 @@ client.objects().listObjects(
     
 </dd>
 </dl>
+
+<dl>
+<dd>
+
+**maxPageSize:** `Optional<Integer>` — Sets the maximum number of items that should be returned on a single page.
+    
+</dd>
+</dl>
 </dd>
 </dl>
 
@@ -1490,3 +1498,4 @@ client.oauth().getToken(
 </dd>
 </dl>
 </details>
+

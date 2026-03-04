@@ -91,6 +91,10 @@ public final class EntityEventRequest {
     public interface _FinalStage {
         EntityEventRequest build();
 
+        _FinalStage additionalProperty(String key, Object value);
+
+        _FinalStage additionalProperties(Map<String, Object> additionalProperties);
+
         /**
          * <p>Maximum size of response batch. Defaults to 100. Must be between 1 and 2000 (inclusive).</p>
          */
@@ -152,6 +156,18 @@ public final class EntityEventRequest {
         @java.lang.Override
         public EntityEventRequest build() {
             return new EntityEventRequest(sessionToken, batchSize, additionalProperties);
+        }
+
+        @java.lang.Override
+        public Builder additionalProperty(String key, Object value) {
+            this.additionalProperties.put(key, value);
+            return this;
+        }
+
+        @java.lang.Override
+        public Builder additionalProperties(Map<String, Object> additionalProperties) {
+            this.additionalProperties.putAll(additionalProperties);
+            return this;
         }
     }
 }
