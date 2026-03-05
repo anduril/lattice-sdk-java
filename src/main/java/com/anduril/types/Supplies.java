@@ -21,13 +21,22 @@ import java.util.Optional;
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
 @JsonDeserialize(builder = Supplies.Builder.class)
 public final class Supplies {
+    private final Optional<List<Munition>> munitions;
+
     private final Optional<List<Fuel>> fuel;
 
     private final Map<String, Object> additionalProperties;
 
-    private Supplies(Optional<List<Fuel>> fuel, Map<String, Object> additionalProperties) {
+    private Supplies(
+            Optional<List<Munition>> munitions, Optional<List<Fuel>> fuel, Map<String, Object> additionalProperties) {
+        this.munitions = munitions;
         this.fuel = fuel;
         this.additionalProperties = additionalProperties;
+    }
+
+    @JsonProperty("munitions")
+    public Optional<List<Munition>> getMunitions() {
+        return munitions;
     }
 
     @JsonProperty("fuel")
@@ -47,12 +56,12 @@ public final class Supplies {
     }
 
     private boolean equalTo(Supplies other) {
-        return fuel.equals(other.fuel);
+        return munitions.equals(other.munitions) && fuel.equals(other.fuel);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.fuel);
+        return Objects.hash(this.munitions, this.fuel);
     }
 
     @java.lang.Override
@@ -66,6 +75,8 @@ public final class Supplies {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder {
+        private Optional<List<Munition>> munitions = Optional.empty();
+
         private Optional<List<Fuel>> fuel = Optional.empty();
 
         @JsonAnySetter
@@ -74,7 +85,19 @@ public final class Supplies {
         private Builder() {}
 
         public Builder from(Supplies other) {
+            munitions(other.getMunitions());
             fuel(other.getFuel());
+            return this;
+        }
+
+        @JsonSetter(value = "munitions", nulls = Nulls.SKIP)
+        public Builder munitions(Optional<List<Munition>> munitions) {
+            this.munitions = munitions;
+            return this;
+        }
+
+        public Builder munitions(List<Munition> munitions) {
+            this.munitions = Optional.ofNullable(munitions);
             return this;
         }
 
@@ -90,7 +113,17 @@ public final class Supplies {
         }
 
         public Supplies build() {
-            return new Supplies(fuel, additionalProperties);
+            return new Supplies(munitions, fuel, additionalProperties);
+        }
+
+        public Builder additionalProperty(String key, Object value) {
+            this.additionalProperties.put(key, value);
+            return this;
+        }
+
+        public Builder additionalProperties(Map<String, Object> additionalProperties) {
+            this.additionalProperties.putAll(additionalProperties);
+            return this;
         }
     }
 }

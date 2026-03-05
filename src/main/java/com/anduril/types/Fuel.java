@@ -61,7 +61,7 @@ public final class Fuel {
     }
 
     /**
-     * @return unique fuel identifier
+     * @return Unique fuel identifier
      */
     @JsonProperty("fuelId")
     public Optional<String> getFuelId() {
@@ -69,7 +69,7 @@ public final class Fuel {
     }
 
     /**
-     * @return long form name of the fuel source.
+     * @return Long form name of the fuel source.
      */
     @JsonProperty("name")
     public Optional<String> getName() {
@@ -77,7 +77,7 @@ public final class Fuel {
     }
 
     /**
-     * @return timestamp the information was reported
+     * @return Timestamp the information was reported
      */
     @JsonProperty("reportedDate")
     public Optional<OffsetDateTime> getReportedDate() {
@@ -85,7 +85,7 @@ public final class Fuel {
     }
 
     /**
-     * @return amount of gallons on hand
+     * @return Amount of gallons on hand
      */
     @JsonProperty("amountGallons")
     public Optional<Integer> getAmountGallons() {
@@ -93,7 +93,7 @@ public final class Fuel {
     }
 
     /**
-     * @return how much the asset is allowed to have available (in gallons)
+     * @return How much the asset is allowed to have available (in gallons)
      */
     @JsonProperty("maxAuthorizedCapacityGallons")
     public Optional<Integer> getMaxAuthorizedCapacityGallons() {
@@ -101,7 +101,7 @@ public final class Fuel {
     }
 
     /**
-     * @return minimum required for operations (in gallons)
+     * @return Minimum required for operations (in gallons)
      */
     @JsonProperty("operationalRequirementGallons")
     public Optional<Integer> getOperationalRequirementGallons() {
@@ -109,8 +109,8 @@ public final class Fuel {
     }
 
     /**
-     * @return fuel in a single asset may have different levels of classification
-     * use case: fuel for a SECRET asset while diesel fuel may be UNCLASSIFIED
+     * @return Fuel in a single asset may have different levels of classification
+     * Use case: fuel for a SECRET asset while diesel fuel may be UNCLASSIFIED
      */
     @JsonProperty("dataClassification")
     public Optional<Classification> getDataClassification() {
@@ -118,7 +118,7 @@ public final class Fuel {
     }
 
     /**
-     * @return source of information
+     * @return Source of information
      */
     @JsonProperty("dataSource")
     public Optional<String> getDataSource() {
@@ -205,7 +205,7 @@ public final class Fuel {
         }
 
         /**
-         * <p>unique fuel identifier</p>
+         * <p>Unique fuel identifier</p>
          */
         @JsonSetter(value = "fuelId", nulls = Nulls.SKIP)
         public Builder fuelId(Optional<String> fuelId) {
@@ -219,7 +219,7 @@ public final class Fuel {
         }
 
         /**
-         * <p>long form name of the fuel source.</p>
+         * <p>Long form name of the fuel source.</p>
          */
         @JsonSetter(value = "name", nulls = Nulls.SKIP)
         public Builder name(Optional<String> name) {
@@ -233,7 +233,7 @@ public final class Fuel {
         }
 
         /**
-         * <p>timestamp the information was reported</p>
+         * <p>Timestamp the information was reported</p>
          */
         @JsonSetter(value = "reportedDate", nulls = Nulls.SKIP)
         public Builder reportedDate(Optional<OffsetDateTime> reportedDate) {
@@ -247,7 +247,7 @@ public final class Fuel {
         }
 
         /**
-         * <p>amount of gallons on hand</p>
+         * <p>Amount of gallons on hand</p>
          */
         @JsonSetter(value = "amountGallons", nulls = Nulls.SKIP)
         public Builder amountGallons(Optional<Integer> amountGallons) {
@@ -261,7 +261,7 @@ public final class Fuel {
         }
 
         /**
-         * <p>how much the asset is allowed to have available (in gallons)</p>
+         * <p>How much the asset is allowed to have available (in gallons)</p>
          */
         @JsonSetter(value = "maxAuthorizedCapacityGallons", nulls = Nulls.SKIP)
         public Builder maxAuthorizedCapacityGallons(Optional<Integer> maxAuthorizedCapacityGallons) {
@@ -275,7 +275,7 @@ public final class Fuel {
         }
 
         /**
-         * <p>minimum required for operations (in gallons)</p>
+         * <p>Minimum required for operations (in gallons)</p>
          */
         @JsonSetter(value = "operationalRequirementGallons", nulls = Nulls.SKIP)
         public Builder operationalRequirementGallons(Optional<Integer> operationalRequirementGallons) {
@@ -289,8 +289,8 @@ public final class Fuel {
         }
 
         /**
-         * <p>fuel in a single asset may have different levels of classification
-         * use case: fuel for a SECRET asset while diesel fuel may be UNCLASSIFIED</p>
+         * <p>Fuel in a single asset may have different levels of classification
+         * Use case: fuel for a SECRET asset while diesel fuel may be UNCLASSIFIED</p>
          */
         @JsonSetter(value = "dataClassification", nulls = Nulls.SKIP)
         public Builder dataClassification(Optional<Classification> dataClassification) {
@@ -304,7 +304,7 @@ public final class Fuel {
         }
 
         /**
-         * <p>source of information</p>
+         * <p>Source of information</p>
          */
         @JsonSetter(value = "dataSource", nulls = Nulls.SKIP)
         public Builder dataSource(Optional<String> dataSource) {
@@ -328,6 +328,16 @@ public final class Fuel {
                     dataClassification,
                     dataSource,
                     additionalProperties);
+        }
+
+        public Builder additionalProperty(String key, Object value) {
+            this.additionalProperties.put(key, value);
+            return this;
+        }
+
+        public Builder additionalProperties(Map<String, Object> additionalProperties) {
+            this.additionalProperties.putAll(additionalProperties);
+            return this;
         }
     }
 }
