@@ -52,6 +52,10 @@ public final class Task {
 
     private final Optional<Owner> owner;
 
+    private final Optional<RetryStrategy> retryStrategy;
+
+    private final Optional<DeliveryState> deliveryState;
+
     private final Map<String, Object> additionalProperties;
 
     private Task(
@@ -70,6 +74,8 @@ public final class Task {
             Optional<Replication> replication,
             Optional<List<TaskEntity>> initialEntities,
             Optional<Owner> owner,
+            Optional<RetryStrategy> retryStrategy,
+            Optional<DeliveryState> deliveryState,
             Map<String, Object> additionalProperties) {
         this.version = version;
         this.displayName = displayName;
@@ -86,6 +92,8 @@ public final class Task {
         this.replication = replication;
         this.initialEntities = initialEntities;
         this.owner = owner;
+        this.retryStrategy = retryStrategy;
+        this.deliveryState = deliveryState;
         this.additionalProperties = additionalProperties;
     }
 
@@ -214,6 +222,22 @@ public final class Task {
         return owner;
     }
 
+    /**
+     * @return Sets an optional try strategy for tasks. Use this option to control how Lattice attempts to retry delivery of tasks to assets with intermittent access or network connectivity to your environment.
+     */
+    @JsonProperty("retryStrategy")
+    public Optional<RetryStrategy> getRetryStrategy() {
+        return retryStrategy;
+    }
+
+    /**
+     * @return The current delivery state of a task.
+     */
+    @JsonProperty("deliveryState")
+    public Optional<DeliveryState> getDeliveryState() {
+        return deliveryState;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -240,7 +264,9 @@ public final class Task {
                 && createTime.equals(other.createTime)
                 && replication.equals(other.replication)
                 && initialEntities.equals(other.initialEntities)
-                && owner.equals(other.owner);
+                && owner.equals(other.owner)
+                && retryStrategy.equals(other.retryStrategy)
+                && deliveryState.equals(other.deliveryState);
     }
 
     @java.lang.Override
@@ -260,7 +286,9 @@ public final class Task {
                 this.createTime,
                 this.replication,
                 this.initialEntities,
-                this.owner);
+                this.owner,
+                this.retryStrategy,
+                this.deliveryState);
     }
 
     @java.lang.Override
@@ -304,6 +332,10 @@ public final class Task {
 
         private Optional<Owner> owner = Optional.empty();
 
+        private Optional<RetryStrategy> retryStrategy = Optional.empty();
+
+        private Optional<DeliveryState> deliveryState = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -325,6 +357,8 @@ public final class Task {
             replication(other.getReplication());
             initialEntities(other.getInitialEntities());
             owner(other.getOwner());
+            retryStrategy(other.getRetryStrategy());
+            deliveryState(other.getDeliveryState());
             return this;
         }
 
@@ -543,6 +577,34 @@ public final class Task {
             return this;
         }
 
+        /**
+         * <p>Sets an optional try strategy for tasks. Use this option to control how Lattice attempts to retry delivery of tasks to assets with intermittent access or network connectivity to your environment.</p>
+         */
+        @JsonSetter(value = "retryStrategy", nulls = Nulls.SKIP)
+        public Builder retryStrategy(Optional<RetryStrategy> retryStrategy) {
+            this.retryStrategy = retryStrategy;
+            return this;
+        }
+
+        public Builder retryStrategy(RetryStrategy retryStrategy) {
+            this.retryStrategy = Optional.ofNullable(retryStrategy);
+            return this;
+        }
+
+        /**
+         * <p>The current delivery state of a task.</p>
+         */
+        @JsonSetter(value = "deliveryState", nulls = Nulls.SKIP)
+        public Builder deliveryState(Optional<DeliveryState> deliveryState) {
+            this.deliveryState = deliveryState;
+            return this;
+        }
+
+        public Builder deliveryState(DeliveryState deliveryState) {
+            this.deliveryState = Optional.ofNullable(deliveryState);
+            return this;
+        }
+
         public Task build() {
             return new Task(
                     version,
@@ -560,7 +622,19 @@ public final class Task {
                     replication,
                     initialEntities,
                     owner,
+                    retryStrategy,
+                    deliveryState,
                     additionalProperties);
+        }
+
+        public Builder additionalProperty(String key, Object value) {
+            this.additionalProperties.put(key, value);
+            return this;
+        }
+
+        public Builder additionalProperties(Map<String, Object> additionalProperties) {
+            this.additionalProperties.putAll(additionalProperties);
+            return this;
         }
     }
 }
