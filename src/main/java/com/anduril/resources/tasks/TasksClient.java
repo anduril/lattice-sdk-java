@@ -8,6 +8,7 @@ import com.anduril.core.RequestOptions;
 import com.anduril.resources.tasks.requests.AgentListener;
 import com.anduril.resources.tasks.requests.AgentStreamRequest;
 import com.anduril.resources.tasks.requests.GetTaskRequest;
+import com.anduril.resources.tasks.requests.TaskCancellation;
 import com.anduril.resources.tasks.requests.TaskCreation;
 import com.anduril.resources.tasks.requests.TaskQuery;
 import com.anduril.resources.tasks.requests.TaskStatusUpdate;
@@ -185,6 +186,90 @@ public class TasksClient {
      */
     public Task updateTaskStatus(String taskId, TaskStatusUpdate request, RequestOptions requestOptions) {
         return this.rawClient.updateTaskStatus(taskId, request, requestOptions).body();
+    }
+
+    /**
+     * Cancels a task by marking it for cancellation in the system.
+     * <p>This method initiates task cancellation based on the task's current state:</p>
+     * <ul>
+     * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
+     * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
+     * The agent is responsible for determining whether cancellation is possible and updating
+     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <ul>
+     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
+     * or the returned task object.</li>
+     * </ul>
+     * </li>
+     * </ul>
+     */
+    public Task cancelTask(String taskId) {
+        return this.rawClient.cancelTask(taskId).body();
+    }
+
+    /**
+     * Cancels a task by marking it for cancellation in the system.
+     * <p>This method initiates task cancellation based on the task's current state:</p>
+     * <ul>
+     * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
+     * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
+     * The agent is responsible for determining whether cancellation is possible and updating
+     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <ul>
+     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
+     * or the returned task object.</li>
+     * </ul>
+     * </li>
+     * </ul>
+     */
+    public Task cancelTask(String taskId, RequestOptions requestOptions) {
+        return this.rawClient.cancelTask(taskId, requestOptions).body();
+    }
+
+    /**
+     * Cancels a task by marking it for cancellation in the system.
+     * <p>This method initiates task cancellation based on the task's current state:</p>
+     * <ul>
+     * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
+     * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
+     * The agent is responsible for determining whether cancellation is possible and updating
+     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <ul>
+     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
+     * or the returned task object.</li>
+     * </ul>
+     * </li>
+     * </ul>
+     */
+    public Task cancelTask(String taskId, TaskCancellation request) {
+        return this.rawClient.cancelTask(taskId, request).body();
+    }
+
+    /**
+     * Cancels a task by marking it for cancellation in the system.
+     * <p>This method initiates task cancellation based on the task's current state:</p>
+     * <ul>
+     * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
+     * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
+     * The agent is responsible for determining whether cancellation is possible and updating
+     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <ul>
+     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
+     * or the returned task object.</li>
+     * </ul>
+     * </li>
+     * </ul>
+     */
+    public Task cancelTask(String taskId, TaskCancellation request, RequestOptions requestOptions) {
+        return this.rawClient.cancelTask(taskId, request, requestOptions).body();
     }
 
     /**
