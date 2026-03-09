@@ -159,5 +159,15 @@ public final class GeoEllipsoid {
         public GeoEllipsoid build() {
             return new GeoEllipsoid(forwardAxisM, sideAxisM, upAxisM, additionalProperties);
         }
+
+        public Builder additionalProperty(String key, Object value) {
+            this.additionalProperties.put(key, value);
+            return this;
+        }
+
+        public Builder additionalProperties(Map<String, Object> additionalProperties) {
+            this.additionalProperties.putAll(additionalProperties);
+            return this;
+        }
     }
 }

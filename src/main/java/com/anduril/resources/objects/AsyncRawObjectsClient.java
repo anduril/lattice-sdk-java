@@ -19,6 +19,7 @@ import com.anduril.errors.InsufficientStorageError;
 import com.anduril.errors.InternalServerError;
 import com.anduril.errors.NotFoundError;
 import com.anduril.errors.UnauthorizedError;
+import com.anduril.resources.object.types.Error;
 import com.anduril.resources.objects.requests.DeleteObjectRequest;
 import com.anduril.resources.objects.requests.GetObjectMetadataRequest;
 import com.anduril.resources.objects.requests.GetObjectRequest;
@@ -98,6 +99,15 @@ public class AsyncRawObjectsClient {
         if (request.getAllObjectsInMesh().isPresent()) {
             QueryStringMapper.addQueryParameter(
                     httpUrl, "allObjectsInMesh", request.getAllObjectsInMesh().get(), false);
+        }
+        if (request.getMaxPageSize().isPresent()) {
+            QueryStringMapper.addQueryParameter(
+                    httpUrl, "maxPageSize", request.getMaxPageSize().get(), false);
+        }
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
         }
         Request.Builder _requestBuilder = new Request.Builder()
                 .url(httpUrl.build())
@@ -203,13 +213,17 @@ public class AsyncRawObjectsClient {
      */
     public CompletableFuture<LatticeHttpResponse<InputStream>> getObject(
             String objectPath, GetObjectRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/objects")
-                .addPathSegment(objectPath)
-                .build();
+                .addPathSegment(objectPath);
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         Request.Builder _requestBuilder = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("GET", null)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Accept", "application/json");
@@ -291,14 +305,18 @@ public class AsyncRawObjectsClient {
      */
     public CompletableFuture<LatticeHttpResponse<PathMetadata>> uploadObject(
             String objectPath, InputStream request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/objects")
-                .addPathSegment(objectPath)
-                .build();
+                .addPathSegment(objectPath);
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body = new InputStreamRequestBody(MediaType.parse("application/octet-stream"), request);
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .build();
@@ -331,7 +349,7 @@ public class AsyncRawObjectsClient {
                                 return;
                             case 413:
                                 future.completeExceptionally(new ContentTooLargeError(
-                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
+                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Error.class),
                                         response));
                                 return;
                             case 500:
@@ -341,7 +359,7 @@ public class AsyncRawObjectsClient {
                                 return;
                             case 507:
                                 future.completeExceptionally(new InsufficientStorageError(
-                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
+                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Error.class),
                                         response));
                                 return;
                         }
@@ -406,13 +424,17 @@ public class AsyncRawObjectsClient {
      */
     public CompletableFuture<LatticeHttpResponse<Void>> deleteObject(
             String objectPath, DeleteObjectRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/objects")
-                .addPathSegment(objectPath)
-                .build();
+                .addPathSegment(objectPath);
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         Request.Builder _requestBuilder = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("DELETE", null)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Accept", "application/json");
@@ -502,13 +524,17 @@ public class AsyncRawObjectsClient {
      */
     public CompletableFuture<LatticeHttpResponse<Void>> getObjectMetadata(
             String objectPath, GetObjectMetadataRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/objects")
-                .addPathSegment(objectPath)
-                .build();
+                .addPathSegment(objectPath);
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         Request.Builder _requestBuilder = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("HEAD", null)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Accept", "application/json");
