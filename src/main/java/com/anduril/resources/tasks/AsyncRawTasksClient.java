@@ -18,6 +18,7 @@ import com.anduril.errors.UnauthorizedError;
 import com.anduril.resources.tasks.requests.AgentListener;
 import com.anduril.resources.tasks.requests.AgentStreamRequest;
 import com.anduril.resources.tasks.requests.GetTaskRequest;
+import com.anduril.resources.tasks.requests.TaskCancellation;
 import com.anduril.resources.tasks.requests.TaskCreation;
 import com.anduril.resources.tasks.requests.TaskQuery;
 import com.anduril.resources.tasks.requests.TaskStatusUpdate;
@@ -30,6 +31,7 @@ import com.anduril.types.TaskQueryResults;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Headers;
@@ -94,10 +96,14 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<Task>> createTask(
             TaskCreation request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/tasks")
-                .build();
+                .addPathSegments("api/v1/tasks");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -106,7 +112,7 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
@@ -206,13 +212,17 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<Task>> getTask(
             String taskId, GetTaskRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/tasks")
-                .addPathSegment(taskId)
-                .build();
+                .addPathSegment(taskId);
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         Request.Builder _requestBuilder = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("GET", null)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Accept", "application/json");
@@ -324,12 +334,16 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<Task>> updateTaskStatus(
             String taskId, TaskStatusUpdate request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/tasks")
                 .addPathSegment(taskId)
-                .addPathSegments("status")
-                .build();
+                .addPathSegments("status");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -338,7 +352,166 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
+                .method("PUT", body)
+                .headers(Headers.of(clientOptions.headers(requestOptions)))
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "application/json")
+                .build();
+        OkHttpClient client = clientOptions.httpClient();
+        if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
+            client = clientOptions.httpClientWithTimeout(requestOptions);
+        }
+        CompletableFuture<LatticeHttpResponse<Task>> future = new CompletableFuture<>();
+        client.newCall(okhttpRequest).enqueue(new Callback() {
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                try (ResponseBody responseBody = response.body()) {
+                    String responseBodyString = responseBody != null ? responseBody.string() : "{}";
+                    if (response.isSuccessful()) {
+                        future.complete(new LatticeHttpResponse<>(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Task.class), response));
+                        return;
+                    }
+                    try {
+                        switch (response.code()) {
+                            case 400:
+                                future.completeExceptionally(new BadRequestError(
+                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
+                                        response));
+                                return;
+                            case 401:
+                                future.completeExceptionally(new UnauthorizedError(
+                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
+                                        response));
+                                return;
+                            case 404:
+                                future.completeExceptionally(new NotFoundError(
+                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
+                                        response));
+                                return;
+                        }
+                    } catch (JsonProcessingException ignored) {
+                        // unable to map error response, throwing generic error
+                    }
+                    Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
+                    future.completeExceptionally(new LatticeApiException(
+                            "Error with status code " + response.code(), response.code(), errorBody, response));
+                    return;
+                } catch (IOException e) {
+                    future.completeExceptionally(new LatticeException("Network error executing HTTP request", e));
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                future.completeExceptionally(new LatticeException("Network error executing HTTP request", e));
+            }
+        });
+        return future;
+    }
+
+    /**
+     * Cancels a task by marking it for cancellation in the system.
+     * <p>This method initiates task cancellation based on the task's current state:</p>
+     * <ul>
+     * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
+     * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
+     * The agent is responsible for determining whether cancellation is possible and updating
+     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <ul>
+     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
+     * or the returned task object.</li>
+     * </ul>
+     * </li>
+     * </ul>
+     */
+    public CompletableFuture<LatticeHttpResponse<Task>> cancelTask(String taskId) {
+        return cancelTask(taskId, TaskCancellation.builder().build());
+    }
+
+    /**
+     * Cancels a task by marking it for cancellation in the system.
+     * <p>This method initiates task cancellation based on the task's current state:</p>
+     * <ul>
+     * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
+     * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
+     * The agent is responsible for determining whether cancellation is possible and updating
+     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <ul>
+     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
+     * or the returned task object.</li>
+     * </ul>
+     * </li>
+     * </ul>
+     */
+    public CompletableFuture<LatticeHttpResponse<Task>> cancelTask(String taskId, RequestOptions requestOptions) {
+        return cancelTask(taskId, TaskCancellation.builder().build(), requestOptions);
+    }
+
+    /**
+     * Cancels a task by marking it for cancellation in the system.
+     * <p>This method initiates task cancellation based on the task's current state:</p>
+     * <ul>
+     * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
+     * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
+     * The agent is responsible for determining whether cancellation is possible and updating
+     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <ul>
+     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
+     * or the returned task object.</li>
+     * </ul>
+     * </li>
+     * </ul>
+     */
+    public CompletableFuture<LatticeHttpResponse<Task>> cancelTask(String taskId, TaskCancellation request) {
+        return cancelTask(taskId, request, null);
+    }
+
+    /**
+     * Cancels a task by marking it for cancellation in the system.
+     * <p>This method initiates task cancellation based on the task's current state:</p>
+     * <ul>
+     * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
+     * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
+     * The agent is responsible for determining whether cancellation is possible and updating
+     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <ul>
+     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
+     * or the returned task object.</li>
+     * </ul>
+     * </li>
+     * </ul>
+     */
+    public CompletableFuture<LatticeHttpResponse<Task>> cancelTask(
+            String taskId, TaskCancellation request, RequestOptions requestOptions) {
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+                .newBuilder()
+                .addPathSegments("api/v1/tasks")
+                .addPathSegment(taskId)
+                .addPathSegments("cancel");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
+        RequestBody body;
+        try {
+            body = RequestBody.create(
+                    ObjectMappers.JSON_MAPPER.writeValueAsBytes(request), MediaTypes.APPLICATION_JSON);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to serialize request", e);
+        }
+        Request okhttpRequest = new Request.Builder()
+                .url(httpUrl.build())
                 .method("PUT", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
@@ -475,10 +648,14 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<TaskQueryResults>> queryTasks(
             TaskQuery request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/tasks/query")
-                .build();
+                .addPathSegments("api/v1/tasks/query");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -487,7 +664,7 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
@@ -583,10 +760,14 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<Iterable<StreamTasksResponse>>> streamTasks(
             TaskStreamRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/tasks/stream")
-                .build();
+                .addPathSegments("api/v1/tasks/stream");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -595,16 +776,16 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
-                .addHeader("Accept", "application/json")
                 .build();
         OkHttpClient client = clientOptions.httpClient();
         if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
             client = clientOptions.httpClientWithTimeout(requestOptions);
         }
+        client = client.newBuilder().callTimeout(0, TimeUnit.SECONDS).build();
         CompletableFuture<LatticeHttpResponse<Iterable<StreamTasksResponse>>> future = new CompletableFuture<>();
         client.newCall(okhttpRequest).enqueue(new Callback() {
             @Override
@@ -613,7 +794,9 @@ public class AsyncRawTasksClient {
                     ResponseBody responseBody = response.body();
                     if (response.isSuccessful()) {
                         future.complete(new LatticeHttpResponse<>(
-                                Stream.fromSse(StreamTasksResponse.class, new ResponseBodyReader(response)), response));
+                                Stream.fromSseWithEventDiscrimination(
+                                        StreamTasksResponse.class, new ResponseBodyReader(response), "event"),
+                                response));
                         return;
                     }
                     String responseBodyString = responseBody != null ? responseBody.string() : "{}";
@@ -740,10 +923,14 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<AgentRequest>> listenAsAgent(
             AgentListener request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/agent/listen")
-                .build();
+                .addPathSegments("api/v1/agent/listen");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -752,7 +939,7 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
@@ -886,10 +1073,14 @@ public class AsyncRawTasksClient {
      */
     public CompletableFuture<LatticeHttpResponse<Iterable<StreamAsAgentResponse>>> streamAsAgent(
             AgentStreamRequest request, RequestOptions requestOptions) {
-        HttpUrl httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
-                .addPathSegments("api/v1/agent/stream")
-                .build();
+                .addPathSegments("api/v1/agent/stream");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
         RequestBody body;
         try {
             body = RequestBody.create(
@@ -898,16 +1089,16 @@ public class AsyncRawTasksClient {
             throw new LatticeException("Failed to serialize request", e);
         }
         Request okhttpRequest = new Request.Builder()
-                .url(httpUrl)
+                .url(httpUrl.build())
                 .method("POST", body)
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Content-Type", "application/json")
-                .addHeader("Accept", "application/json")
                 .build();
         OkHttpClient client = clientOptions.httpClient();
         if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
             client = clientOptions.httpClientWithTimeout(requestOptions);
         }
+        client = client.newBuilder().callTimeout(0, TimeUnit.SECONDS).build();
         CompletableFuture<LatticeHttpResponse<Iterable<StreamAsAgentResponse>>> future = new CompletableFuture<>();
         client.newCall(okhttpRequest).enqueue(new Callback() {
             @Override
@@ -916,7 +1107,8 @@ public class AsyncRawTasksClient {
                     ResponseBody responseBody = response.body();
                     if (response.isSuccessful()) {
                         future.complete(new LatticeHttpResponse<>(
-                                Stream.fromSse(StreamAsAgentResponse.class, new ResponseBodyReader(response)),
+                                Stream.fromSseWithEventDiscrimination(
+                                        StreamAsAgentResponse.class, new ResponseBodyReader(response), "event"),
                                 response));
                         return;
                     }
