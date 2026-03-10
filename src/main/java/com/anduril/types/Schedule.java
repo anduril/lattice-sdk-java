@@ -160,5 +160,15 @@ public final class Schedule {
         public Schedule build() {
             return new Schedule(windows, scheduleId, scheduleType, additionalProperties);
         }
+
+        public Builder additionalProperty(String key, Object value) {
+            this.additionalProperties.put(key, value);
+            return this;
+        }
+
+        public Builder additionalProperties(Map<String, Object> additionalProperties) {
+            this.additionalProperties.putAll(additionalProperties);
+            return this;
+        }
     }
 }

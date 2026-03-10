@@ -24,12 +24,18 @@ public final class CancelRequest {
 
     private final Optional<Principal> assignee;
 
+    private final Optional<Principal> author;
+
     private final Map<String, Object> additionalProperties;
 
     private CancelRequest(
-            Optional<String> taskId, Optional<Principal> assignee, Map<String, Object> additionalProperties) {
+            Optional<String> taskId,
+            Optional<Principal> assignee,
+            Optional<Principal> author,
+            Map<String, Object> additionalProperties) {
         this.taskId = taskId;
         this.assignee = assignee;
+        this.author = author;
         this.additionalProperties = additionalProperties;
     }
 
@@ -50,6 +56,14 @@ public final class CancelRequest {
         return assignee;
     }
 
+    /**
+     * @return The principal that requested to cancel the task.
+     */
+    @JsonProperty("author")
+    public Optional<Principal> getAuthor() {
+        return author;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -62,12 +76,12 @@ public final class CancelRequest {
     }
 
     private boolean equalTo(CancelRequest other) {
-        return taskId.equals(other.taskId) && assignee.equals(other.assignee);
+        return taskId.equals(other.taskId) && assignee.equals(other.assignee) && author.equals(other.author);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.taskId, this.assignee);
+        return Objects.hash(this.taskId, this.assignee, this.author);
     }
 
     @java.lang.Override
@@ -85,6 +99,8 @@ public final class CancelRequest {
 
         private Optional<Principal> assignee = Optional.empty();
 
+        private Optional<Principal> author = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -93,6 +109,7 @@ public final class CancelRequest {
         public Builder from(CancelRequest other) {
             taskId(other.getTaskId());
             assignee(other.getAssignee());
+            author(other.getAuthor());
             return this;
         }
 
@@ -125,8 +142,32 @@ public final class CancelRequest {
             return this;
         }
 
+        /**
+         * <p>The principal that requested to cancel the task.</p>
+         */
+        @JsonSetter(value = "author", nulls = Nulls.SKIP)
+        public Builder author(Optional<Principal> author) {
+            this.author = author;
+            return this;
+        }
+
+        public Builder author(Principal author) {
+            this.author = Optional.ofNullable(author);
+            return this;
+        }
+
         public CancelRequest build() {
-            return new CancelRequest(taskId, assignee, additionalProperties);
+            return new CancelRequest(taskId, assignee, author, additionalProperties);
+        }
+
+        public Builder additionalProperty(String key, Object value) {
+            this.additionalProperties.put(key, value);
+            return this;
+        }
+
+        public Builder additionalProperties(Map<String, Object> additionalProperties) {
+            this.additionalProperties.putAll(additionalProperties);
+            return this;
         }
     }
 }

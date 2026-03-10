@@ -4,20 +4,21 @@
 package com.anduril.errors;
 
 import com.anduril.core.LatticeApiException;
+import com.anduril.resources.object.types.Error;
 import okhttp3.Response;
 
 public final class InsufficientStorageError extends LatticeApiException {
     /**
      * The body of the response that triggered the exception.
      */
-    private final Object body;
+    private final Error body;
 
-    public InsufficientStorageError(Object body) {
+    public InsufficientStorageError(Error body) {
         super("InsufficientStorageError", 507, body);
         this.body = body;
     }
 
-    public InsufficientStorageError(Object body, Response rawResponse) {
+    public InsufficientStorageError(Error body, Response rawResponse) {
         super("InsufficientStorageError", 507, body, rawResponse);
         this.body = body;
     }
@@ -26,7 +27,7 @@ public final class InsufficientStorageError extends LatticeApiException {
      * @return the body
      */
     @java.lang.Override
-    public Object body() {
+    public Error body() {
         return this.body;
     }
 }

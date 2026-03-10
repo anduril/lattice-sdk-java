@@ -253,5 +253,15 @@ public final class TransponderCodes {
             return new TransponderCodes(
                     mode1, mode2, mode3, mode4InterrogationResponse, mode5, modeS, additionalProperties);
         }
+
+        public Builder additionalProperty(String key, Object value) {
+            this.additionalProperties.put(key, value);
+            return this;
+        }
+
+        public Builder additionalProperties(Map<String, Object> additionalProperties) {
+            this.additionalProperties.putAll(additionalProperties);
+            return this;
+        }
     }
 }
