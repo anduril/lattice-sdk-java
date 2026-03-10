@@ -193,5 +193,15 @@ public final class CorrelationMembership {
         public CorrelationMembership build() {
             return new CorrelationMembership(correlationSetId, primary, nonPrimary, metadata, additionalProperties);
         }
+
+        public Builder additionalProperty(String key, Object value) {
+            this.additionalProperties.put(key, value);
+            return this;
+        }
+
+        public Builder additionalProperties(Map<String, Object> additionalProperties) {
+            this.additionalProperties.putAll(additionalProperties);
+            return this;
+        }
     }
 }

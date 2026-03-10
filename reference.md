@@ -736,6 +736,83 @@ is known are considered stale and ignored.
 </dl>
 </details>
 
+<details><summary><code>client.tasks.cancelTask(taskId, request) -> Task</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Cancels a task by marking it for cancellation in the system.
+
+This method initiates task cancellation based on the task's current state:
+- If the task has not been sent to an agent, it cancels immediately and transitions the task
+  to a terminal state (`STATUS_DONE_NOT_OK` with `ERROR_CODE_CANCELLED`).
+- If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of `DELIVERY_STATUS_PENDING_CANCEL`.
+  The agent is responsible for determining whether cancellation is possible and updating
+  the task status accordingly via the `UpdateStatus` endpoint:
+  - If the task can be cancelled, the agent should update the task status to `STATUS_DONE_NOT_OK`.
+  - If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using `UpdateStatus`
+    or the returned task object.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```java
+client.tasks().cancelTask(
+    "taskId",
+    TaskCancellation
+        .builder()
+        .build()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**taskId:** `String` — The ID of task to cancel
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**author:** `Optional<Principal>` — Who or what is requesting to cancel this task.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.tasks.queryTasks(request) -> TaskQueryResults</code></summary>
 <dl>
 <dd>
@@ -1161,6 +1238,14 @@ client.objects().listObjects(
     
 </dd>
 </dl>
+
+<dl>
+<dd>
+
+**maxPageSize:** `Optional<Integer>` — Sets the maximum number of items that should be returned on a single page.
+    
+</dd>
+</dl>
 </dd>
 </dl>
 
@@ -1490,3 +1575,4 @@ client.oauth().getToken(
 </dd>
 </dl>
 </details>
+
