@@ -40,7 +40,7 @@ public final class ClientOptions {
             {
                 put("User-Agent", "com.anduril:lattice-sdk/5.3.0");
                 put("X-Fern-Language", "JAVA");
-                put("X-Fern-SDK-Name", "com.anduril.fern:api-sdk");
+                put("X-Fern-SDK-Name", "com.anduril:lattice-sdk");
                 put("X-Fern-SDK-Version", "5.3.0");
             }
         });
