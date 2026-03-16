@@ -53,7 +53,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>5.3.0</version>
+  <version>5.3.1</version>
 </dependency>
 ```
 
