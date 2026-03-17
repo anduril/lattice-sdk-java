@@ -41,7 +41,7 @@ Add the dependency in your `build.gradle` file:
 
 ```groovy
 dependencies {
-  implementation 'com.anduril:lattice-sdk'
+  implementation 'com.anduril:lattice-sdk:5.3.1'
 }
 ```
 
@@ -123,7 +123,7 @@ import com.anduril.core.Environment;
 
 Lattice client = Lattice
     .builder()
-    .environment(Environment.Default)
+    .environment(Environment.DEFAULT)
     .build();
 ```
 
@@ -145,11 +145,11 @@ Lattice client = Lattice
 When the API returns a non-success status code (4xx or 5xx response), an API exception will be thrown.
 
 ```java
-import com.anduril.core.AndurilApiApiException;
+import com.anduril.core.LatticeApiException;
 
 try{
     client.entities().longPollEntityEvents(...);
-} catch (AndurilApiApiException e){
+} catch (LatticeApiException e){
     // Do something with the API exception...
 }
 ```
