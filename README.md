@@ -69,22 +69,13 @@ Instantiate and use the client with the following:
 package com.example.usage;
 
 import com.anduril.Lattice;
-import com.anduril.resources.entities.requests.EntityEventRequest;
 
-public class Example {
-    public static void main(String[] args) {
-        Lattice client = Lattice.withCredentials("<clientId>", "<clientSecret>")
-            .build()
-        ;
+Lattice client = Lattice
+    .builder()
+    .server("YOUR_SERVER")
+    .build();
 
-        client.entities().longPollEntityEvents(
-            EntityEventRequest
-                .builder()
-                .sessionToken("sessionToken")
-                .build()
-        );
-    }
-}
+client.entities().longPollEntityEvents(...);
 ```
 
 ## Authentication
@@ -254,7 +245,7 @@ The `withRawResponse()` method returns a raw client that wraps all responses wit
 (A normal client's `response` is identical to a raw client's `response.body()`.)
 
 ```java
-LongPollEntityEventsHttpResponse response = client.entities().withRawResponse().longPollEntityEvents(...);
+LatticeHttpResponse response = client.entities().withRawResponse().longPollEntityEvents(...);
 
 System.out.println(response.body());
 System.out.println(response.headers().get("X-My-Header"));
