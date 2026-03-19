@@ -109,6 +109,7 @@ public final class StreamEntitiesResponse {
     @JsonIgnoreProperties("event")
     private static final class HeartbeatValue implements Value {
         @JsonUnwrapped
+        @JsonIgnoreProperties(value = "event", allowSetters = true)
         private EntityStreamHeartbeat value;
 
         @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
@@ -148,6 +149,7 @@ public final class StreamEntitiesResponse {
     @JsonIgnoreProperties("event")
     private static final class EntityValue implements Value {
         @JsonUnwrapped
+        @JsonIgnoreProperties(value = "event", allowSetters = true)
         private EntityStreamEvent value;
 
         @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
