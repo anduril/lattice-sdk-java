@@ -13,8 +13,8 @@ public final class CorrelationMetadataType {
     public static final CorrelationMetadataType CORRELATION_TYPE_MANUAL =
             new CorrelationMetadataType(Value.CORRELATION_TYPE_MANUAL, "CORRELATION_TYPE_MANUAL");
 
-    public static final CorrelationMetadataType CORRELATION_TYPE_AUTOMATED =
-            new CorrelationMetadataType(Value.CORRELATION_TYPE_AUTOMATED, "CORRELATION_TYPE_AUTOMATED");
+    public static final CorrelationMetadataType CORRELATION_TYPE_5.4.0MATED =
+            new CorrelationMetadataType(Value.CORRELATION_TYPE_5.4.0MATED, "CORRELATION_TYPE_5.4.0MATED");
 
     private final Value value;
 
@@ -53,7 +53,7 @@ public final class CorrelationMetadataType {
                 return visitor.visitCorrelationTypeInvalid();
             case CORRELATION_TYPE_MANUAL:
                 return visitor.visitCorrelationTypeManual();
-            case CORRELATION_TYPE_AUTOMATED:
+            case CORRELATION_TYPE_5.4.0MATED:
                 return visitor.visitCorrelationTypeAutomated();
             case UNKNOWN:
             default:
@@ -68,8 +68,8 @@ public final class CorrelationMetadataType {
                 return CORRELATION_TYPE_INVALID;
             case "CORRELATION_TYPE_MANUAL":
                 return CORRELATION_TYPE_MANUAL;
-            case "CORRELATION_TYPE_AUTOMATED":
-                return CORRELATION_TYPE_AUTOMATED;
+            case "CORRELATION_TYPE_5.4.0MATED":
+                return CORRELATION_TYPE_5.4.0MATED;
             default:
                 return new CorrelationMetadataType(Value.UNKNOWN, value);
         }
@@ -80,7 +80,7 @@ public final class CorrelationMetadataType {
 
         CORRELATION_TYPE_MANUAL,
 
-        CORRELATION_TYPE_AUTOMATED,
+        CORRELATION_TYPE_5.4.0MATED,
 
         UNKNOWN
     }
