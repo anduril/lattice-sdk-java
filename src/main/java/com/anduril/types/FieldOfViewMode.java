@@ -16,8 +16,8 @@ public final class FieldOfViewMode {
     public static final FieldOfViewMode SENSOR_MODE_INVALID =
             new FieldOfViewMode(Value.SENSOR_MODE_INVALID, "SENSOR_MODE_INVALID");
 
-    public static final FieldOfViewMode SENSOR_MODE_AUTO =
-            new FieldOfViewMode(Value.SENSOR_MODE_AUTO, "SENSOR_MODE_AUTO");
+    public static final FieldOfViewMode SENSOR_MODE_5.4.0 =
+            new FieldOfViewMode(Value.SENSOR_MODE_5.4.0, "SENSOR_MODE_5.4.0");
 
     public static final FieldOfViewMode SENSOR_MODE_WEAPON_SUPPORT =
             new FieldOfViewMode(Value.SENSOR_MODE_WEAPON_SUPPORT, "SENSOR_MODE_WEAPON_SUPPORT");
@@ -63,7 +63,7 @@ public final class FieldOfViewMode {
                 return visitor.visitSensorModeMute();
             case SENSOR_MODE_INVALID:
                 return visitor.visitSensorModeInvalid();
-            case SENSOR_MODE_AUTO:
+            case SENSOR_MODE_5.4.0:
                 return visitor.visitSensorModeAuto();
             case SENSOR_MODE_WEAPON_SUPPORT:
                 return visitor.visitSensorModeWeaponSupport();
@@ -84,8 +84,8 @@ public final class FieldOfViewMode {
                 return SENSOR_MODE_MUTE;
             case "SENSOR_MODE_INVALID":
                 return SENSOR_MODE_INVALID;
-            case "SENSOR_MODE_AUTO":
-                return SENSOR_MODE_AUTO;
+            case "SENSOR_MODE_5.4.0":
+                return SENSOR_MODE_5.4.0;
             case "SENSOR_MODE_WEAPON_SUPPORT":
                 return SENSOR_MODE_WEAPON_SUPPORT;
             case "SENSOR_MODE_TRACK":
@@ -104,7 +104,7 @@ public final class FieldOfViewMode {
 
         SENSOR_MODE_WEAPON_SUPPORT,
 
-        SENSOR_MODE_AUTO,
+        SENSOR_MODE_5.4.0,
 
         SENSOR_MODE_MUTE,
 
