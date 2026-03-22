@@ -109,6 +109,7 @@ public final class StreamAsAgentResponse {
     @JsonIgnoreProperties("event")
     private static final class HeartbeatValue implements Value {
         @JsonUnwrapped
+        @JsonIgnoreProperties(value = "event", allowSetters = true)
         private StreamHeartbeat value;
 
         @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
@@ -148,6 +149,7 @@ public final class StreamAsAgentResponse {
     @JsonIgnoreProperties("event")
     private static final class AgentRequestValue implements Value {
         @JsonUnwrapped
+        @JsonIgnoreProperties(value = "event", allowSetters = true)
         private AgentStreamEvent value;
 
         @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
