@@ -6,9 +6,9 @@ package com.anduril.resources.objects.requests;
 import com.anduril.core.ObjectMappers;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.Nulls;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -51,7 +51,7 @@ public final class ListObjectsRequest {
     /**
      * @return Filters the objects based on the specified prefix path. If no path is specified, all objects are returned.
      */
-    @JsonProperty("prefix")
+    @JsonIgnore
     public Optional<String> getPrefix() {
         return prefix;
     }
@@ -59,7 +59,7 @@ public final class ListObjectsRequest {
     /**
      * @return Sets the age for the oldest objects to query across the environment.
      */
-    @JsonProperty("sinceTimestamp")
+    @JsonIgnore
     public Optional<OffsetDateTime> getSinceTimestamp() {
         return sinceTimestamp;
     }
@@ -67,7 +67,7 @@ public final class ListObjectsRequest {
     /**
      * @return Base64 and URL-encoded cursor returned by the service to continue paging.
      */
-    @JsonProperty("pageToken")
+    @JsonIgnore
     public Optional<String> getPageToken() {
         return pageToken;
     }
@@ -75,7 +75,7 @@ public final class ListObjectsRequest {
     /**
      * @return Lists objects across all environment nodes in a Lattice Mesh.
      */
-    @JsonProperty("allObjectsInMesh")
+    @JsonIgnore
     public Optional<Boolean> getAllObjectsInMesh() {
         return allObjectsInMesh;
     }
@@ -83,7 +83,7 @@ public final class ListObjectsRequest {
     /**
      * @return Sets the maximum number of items that should be returned on a single page.
      */
-    @JsonProperty("maxPageSize")
+    @JsonIgnore
     public Optional<Integer> getMaxPageSize() {
         return maxPageSize;
     }

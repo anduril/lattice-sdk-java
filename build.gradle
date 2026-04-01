@@ -47,7 +47,7 @@ java {
 
 group = 'com.anduril'
 
-version = '5.3.1'
+version = '5.4.0'
 
 jar {
     dependsOn(":generatePomFileForMavenPublication")
@@ -78,7 +78,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.anduril'
             artifactId = 'lattice-sdk'
-            version = '5.3.1'
+            version = '5.4.0'
             from components.java
             pom {
                 name = 'Anduril Industries, Inc.'

@@ -109,6 +109,7 @@ public final class StreamTasksResponse {
     @JsonIgnoreProperties("event")
     private static final class HeartbeatValue implements Value {
         @JsonUnwrapped
+        @JsonIgnoreProperties(value = "event", allowSetters = true)
         private StreamHeartbeat value;
 
         @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
@@ -148,6 +149,7 @@ public final class StreamTasksResponse {
     @JsonIgnoreProperties("event")
     private static final class TaskEventValue implements Value {
         @JsonUnwrapped
+        @JsonIgnoreProperties(value = "event", allowSetters = true)
         private TaskStreamEvent value;
 
         @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
