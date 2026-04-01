@@ -41,7 +41,7 @@ Add the dependency in your `build.gradle` file:
 
 ```groovy
 dependencies {
-  implementation 'com.anduril:lattice-sdk'
+  implementation 'com.anduril:lattice-sdk:5.4.0'
 }
 ```
 
@@ -53,7 +53,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>5.3.1</version>
+  <version>5.4.0</version>
 </dependency>
 ```
 
@@ -69,22 +69,13 @@ Instantiate and use the client with the following:
 package com.example.usage;
 
 import com.anduril.Lattice;
-import com.anduril.resources.entities.requests.EntityEventRequest;
 
-public class Example {
-    public static void main(String[] args) {
-        Lattice client = Lattice.withCredentials("<clientId>", "<clientSecret>")
-            .build()
-        ;
+Lattice client = Lattice
+    .builder()
+    .server("YOUR_SERVER")
+    .build();
 
-        client.entities().longPollEntityEvents(
-            EntityEventRequest
-                .builder()
-                .sessionToken("sessionToken")
-                .build()
-        );
-    }
-}
+client.entities().longPollEntityEvents(...);
 ```
 
 ## Authentication
@@ -145,11 +136,11 @@ Lattice client = Lattice
 When the API returns a non-success status code (4xx or 5xx response), an API exception will be thrown.
 
 ```java
-import com.anduril.core.AndurilApiApiException;
+import com.anduril.core.LatticeApiException;
 
 try{
     client.entities().longPollEntityEvents(...);
-} catch (AndurilApiApiException e){
+} catch (LatticeApiException e){
     // Do something with the API exception...
 }
 ```
@@ -254,7 +245,7 @@ The `withRawResponse()` method returns a raw client that wraps all responses wit
 (A normal client's `response` is identical to a raw client's `response.body()`.)
 
 ```java
-LongPollEntityEventsHttpResponse response = client.entities().withRawResponse().longPollEntityEvents(...);
+LatticeHttpResponse response = client.entities().withRawResponse().longPollEntityEvents(...);
 
 System.out.println(response.body());
 System.out.println(response.headers().get("X-My-Header"));
