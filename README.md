@@ -69,13 +69,22 @@ Instantiate and use the client with the following:
 package com.example.usage;
 
 import com.anduril.Lattice;
+import com.anduril.resources.entities.requests.EntityEventRequest;
 
-Lattice client = Lattice
-    .builder()
-    .server("YOUR_SERVER")
-    .build();
+public class Example {
+    public static void main(String[] args) {
+        Lattice client = Lattice.withCredentials("<clientId>", "<clientSecret>")
+            .build()
+        ;
 
-client.entities().longPollEntityEvents(...);
+        client.entities().longPollEntityEvents(
+            EntityEventRequest
+                .builder()
+                .sessionToken("sessionToken")
+                .build()
+        );
+    }
+}
 ```
 
 ## Authentication
