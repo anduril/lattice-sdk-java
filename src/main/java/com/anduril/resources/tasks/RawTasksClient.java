@@ -356,13 +356,12 @@ public class RawTasksClient {
      * <ul>
      * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
      * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
-     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
-     * The agent is responsible for determining whether cancellation is possible and updating
-     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent.
+     * The agent is then responsible for deciding whether cancellation is possible or not:
      * <ul>
-     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
-     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
-     * or the returned task object.</li>
+     * <li>If the task can be cancelled, the agent must use <code>UpdateTaskStatus</code> and set the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent must use <code>UpdateTaskStatus</code> to attach a <code>TaskError</code> to the task with the error code <code>ERROR_CODE_REJECTED</code>
+     * and a <code>message</code> explaining why the task cannot be cancelled.</li>
      * </ul>
      * </li>
      * </ul>
@@ -377,13 +376,12 @@ public class RawTasksClient {
      * <ul>
      * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
      * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
-     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
-     * The agent is responsible for determining whether cancellation is possible and updating
-     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent.
+     * The agent is then responsible for deciding whether cancellation is possible or not:
      * <ul>
-     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
-     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
-     * or the returned task object.</li>
+     * <li>If the task can be cancelled, the agent must use <code>UpdateTaskStatus</code> and set the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent must use <code>UpdateTaskStatus</code> to attach a <code>TaskError</code> to the task with the error code <code>ERROR_CODE_REJECTED</code>
+     * and a <code>message</code> explaining why the task cannot be cancelled.</li>
      * </ul>
      * </li>
      * </ul>
@@ -398,13 +396,12 @@ public class RawTasksClient {
      * <ul>
      * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
      * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
-     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
-     * The agent is responsible for determining whether cancellation is possible and updating
-     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent.
+     * The agent is then responsible for deciding whether cancellation is possible or not:
      * <ul>
-     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
-     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
-     * or the returned task object.</li>
+     * <li>If the task can be cancelled, the agent must use <code>UpdateTaskStatus</code> and set the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent must use <code>UpdateTaskStatus</code> to attach a <code>TaskError</code> to the task with the error code <code>ERROR_CODE_REJECTED</code>
+     * and a <code>message</code> explaining why the task cannot be cancelled.</li>
      * </ul>
      * </li>
      * </ul>
@@ -419,13 +416,12 @@ public class RawTasksClient {
      * <ul>
      * <li>If the task has not been sent to an agent, it cancels immediately and transitions the task
      * to a terminal state (<code>STATUS_DONE_NOT_OK</code> with <code>ERROR_CODE_CANCELLED</code>).</li>
-     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent with a delivery status of <code>DELIVERY_STATUS_PENDING_CANCEL</code>.
-     * The agent is responsible for determining whether cancellation is possible and updating
-     * the task status accordingly via the <code>UpdateStatus</code> endpoint:
+     * <li>If the task has already been sent to an agent, the cancellation request is routed to the agent.
+     * The agent is then responsible for deciding whether cancellation is possible or not:
      * <ul>
-     * <li>If the task can be cancelled, the agent should update the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
-     * <li>If the task cannot be cancelled, the agent should attach an error to the task stating why cancellation is not possible using <code>UpdateStatus</code>
-     * or the returned task object.</li>
+     * <li>If the task can be cancelled, the agent must use <code>UpdateTaskStatus</code> and set the task status to <code>STATUS_DONE_NOT_OK</code>.</li>
+     * <li>If the task cannot be cancelled, the agent must use <code>UpdateTaskStatus</code> to attach a <code>TaskError</code> to the task with the error code <code>ERROR_CODE_REJECTED</code>
+     * and a <code>message</code> explaining why the task cannot be cancelled.</li>
      * </ul>
      * </li>
      * </ul>
