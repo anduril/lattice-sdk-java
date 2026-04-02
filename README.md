@@ -41,7 +41,7 @@ Add the dependency in your `build.gradle` file:
 
 ```groovy
 dependencies {
-  implementation 'com.anduril:lattice-sdk:5.4.0'
+  implementation 'com.anduril:lattice-sdk:5.5.0'
 }
 ```
 
@@ -53,7 +53,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>5.4.0</version>
+  <version>5.5.0</version>
 </dependency>
 ```
 
@@ -69,22 +69,13 @@ Instantiate and use the client with the following:
 package com.example.usage;
 
 import com.anduril.Lattice;
-import com.anduril.resources.entities.requests.EntityEventRequest;
 
-public class Example {
-    public static void main(String[] args) {
-        Lattice client = Lattice.withCredentials("<clientId>", "<clientSecret>")
-            .build()
-        ;
+Lattice client = Lattice
+    .builder()
+    .server("YOUR_SERVER")
+    .build();
 
-        client.entities().longPollEntityEvents(
-            EntityEventRequest
-                .builder()
-                .sessionToken("sessionToken")
-                .build()
-        );
-    }
-}
+client.entities().longPollEntityEvents(...);
 ```
 
 ## Authentication

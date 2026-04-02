@@ -4,7 +4,9 @@
 package com.anduril.resources.tasks.requests;
 
 import com.anduril.core.ObjectMappers;
+import com.anduril.resources.tasks.types.TaskStreamRequestStatusFilter;
 import com.anduril.resources.tasks.types.TaskStreamRequestTaskType;
+import com.anduril.types.Principal;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -29,6 +31,14 @@ public final class TaskStreamRequest {
 
     private final Optional<TaskStreamRequestTaskType> taskType;
 
+    private final Optional<String> updateStartTime;
+
+    private final Optional<String> parentTaskId;
+
+    private final Optional<Principal> assignee;
+
+    private final Optional<TaskStreamRequestStatusFilter> statusFilter;
+
     private final Map<String, Object> additionalProperties;
 
     private TaskStreamRequest(
@@ -36,11 +46,19 @@ public final class TaskStreamRequest {
             Optional<Integer> rateLimit,
             Optional<Boolean> excludePreexistingTasks,
             Optional<TaskStreamRequestTaskType> taskType,
+            Optional<String> updateStartTime,
+            Optional<String> parentTaskId,
+            Optional<Principal> assignee,
+            Optional<TaskStreamRequestStatusFilter> statusFilter,
             Map<String, Object> additionalProperties) {
         this.heartbeatIntervalMs = heartbeatIntervalMs;
         this.rateLimit = rateLimit;
         this.excludePreexistingTasks = excludePreexistingTasks;
         this.taskType = taskType;
+        this.updateStartTime = updateStartTime;
+        this.parentTaskId = parentTaskId;
+        this.assignee = assignee;
+        this.statusFilter = statusFilter;
         this.additionalProperties = additionalProperties;
     }
 
@@ -78,6 +96,40 @@ public final class TaskStreamRequest {
         return taskType;
     }
 
+    /**
+     * @return If provided, returns tasks which have been updated since the given time.
+     */
+    @JsonProperty("updateStartTime")
+    public Optional<String> getUpdateStartTime() {
+        return updateStartTime;
+    }
+
+    /**
+     * @return A filter for tasks with a specific parent task ID.
+     * Note: This filter is mutually exclusive with all other filter fields (<code>updateStartTime</code>, <code>assignee</code>, <code>statusFilter</code>, <code>taskType</code>).
+     * Either provide <code>parentTaskId</code> or any combination of the other filters, but not both.
+     */
+    @JsonProperty("parentTaskId")
+    public Optional<String> getParentTaskId() {
+        return parentTaskId;
+    }
+
+    /**
+     * @return A filter for tasks assigned to a specific principal.
+     */
+    @JsonProperty("assignee")
+    public Optional<Principal> getAssignee() {
+        return assignee;
+    }
+
+    /**
+     * @return A filter for task statuses (inclusive or exclusive).
+     */
+    @JsonProperty("statusFilter")
+    public Optional<TaskStreamRequestStatusFilter> getStatusFilter() {
+        return statusFilter;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -93,12 +145,24 @@ public final class TaskStreamRequest {
         return heartbeatIntervalMs.equals(other.heartbeatIntervalMs)
                 && rateLimit.equals(other.rateLimit)
                 && excludePreexistingTasks.equals(other.excludePreexistingTasks)
-                && taskType.equals(other.taskType);
+                && taskType.equals(other.taskType)
+                && updateStartTime.equals(other.updateStartTime)
+                && parentTaskId.equals(other.parentTaskId)
+                && assignee.equals(other.assignee)
+                && statusFilter.equals(other.statusFilter);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.heartbeatIntervalMs, this.rateLimit, this.excludePreexistingTasks, this.taskType);
+        return Objects.hash(
+                this.heartbeatIntervalMs,
+                this.rateLimit,
+                this.excludePreexistingTasks,
+                this.taskType,
+                this.updateStartTime,
+                this.parentTaskId,
+                this.assignee,
+                this.statusFilter);
     }
 
     @java.lang.Override
@@ -120,6 +184,14 @@ public final class TaskStreamRequest {
 
         private Optional<TaskStreamRequestTaskType> taskType = Optional.empty();
 
+        private Optional<String> updateStartTime = Optional.empty();
+
+        private Optional<String> parentTaskId = Optional.empty();
+
+        private Optional<Principal> assignee = Optional.empty();
+
+        private Optional<TaskStreamRequestStatusFilter> statusFilter = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -130,6 +202,10 @@ public final class TaskStreamRequest {
             rateLimit(other.getRateLimit());
             excludePreexistingTasks(other.getExcludePreexistingTasks());
             taskType(other.getTaskType());
+            updateStartTime(other.getUpdateStartTime());
+            parentTaskId(other.getParentTaskId());
+            assignee(other.getAssignee());
+            statusFilter(other.getStatusFilter());
             return this;
         }
 
@@ -191,9 +267,75 @@ public final class TaskStreamRequest {
             return this;
         }
 
+        /**
+         * <p>If provided, returns tasks which have been updated since the given time.</p>
+         */
+        @JsonSetter(value = "updateStartTime", nulls = Nulls.SKIP)
+        public Builder updateStartTime(Optional<String> updateStartTime) {
+            this.updateStartTime = updateStartTime;
+            return this;
+        }
+
+        public Builder updateStartTime(String updateStartTime) {
+            this.updateStartTime = Optional.ofNullable(updateStartTime);
+            return this;
+        }
+
+        /**
+         * <p>A filter for tasks with a specific parent task ID.
+         * Note: This filter is mutually exclusive with all other filter fields (<code>updateStartTime</code>, <code>assignee</code>, <code>statusFilter</code>, <code>taskType</code>).
+         * Either provide <code>parentTaskId</code> or any combination of the other filters, but not both.</p>
+         */
+        @JsonSetter(value = "parentTaskId", nulls = Nulls.SKIP)
+        public Builder parentTaskId(Optional<String> parentTaskId) {
+            this.parentTaskId = parentTaskId;
+            return this;
+        }
+
+        public Builder parentTaskId(String parentTaskId) {
+            this.parentTaskId = Optional.ofNullable(parentTaskId);
+            return this;
+        }
+
+        /**
+         * <p>A filter for tasks assigned to a specific principal.</p>
+         */
+        @JsonSetter(value = "assignee", nulls = Nulls.SKIP)
+        public Builder assignee(Optional<Principal> assignee) {
+            this.assignee = assignee;
+            return this;
+        }
+
+        public Builder assignee(Principal assignee) {
+            this.assignee = Optional.ofNullable(assignee);
+            return this;
+        }
+
+        /**
+         * <p>A filter for task statuses (inclusive or exclusive).</p>
+         */
+        @JsonSetter(value = "statusFilter", nulls = Nulls.SKIP)
+        public Builder statusFilter(Optional<TaskStreamRequestStatusFilter> statusFilter) {
+            this.statusFilter = statusFilter;
+            return this;
+        }
+
+        public Builder statusFilter(TaskStreamRequestStatusFilter statusFilter) {
+            this.statusFilter = Optional.ofNullable(statusFilter);
+            return this;
+        }
+
         public TaskStreamRequest build() {
             return new TaskStreamRequest(
-                    heartbeatIntervalMs, rateLimit, excludePreexistingTasks, taskType, additionalProperties);
+                    heartbeatIntervalMs,
+                    rateLimit,
+                    excludePreexistingTasks,
+                    taskType,
+                    updateStartTime,
+                    parentTaskId,
+                    assignee,
+                    statusFilter,
+                    additionalProperties);
         }
 
         public Builder additionalProperty(String key, Object value) {
