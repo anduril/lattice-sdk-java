@@ -8,12 +8,14 @@ import com.anduril.core.RequestOptions;
 import com.anduril.resources.tasks.requests.AgentListener;
 import com.anduril.resources.tasks.requests.AgentStreamRequest;
 import com.anduril.resources.tasks.requests.GetTaskRequest;
+import com.anduril.resources.tasks.requests.ManualControlStreamRequest;
 import com.anduril.resources.tasks.requests.TaskCancellation;
 import com.anduril.resources.tasks.requests.TaskCreation;
 import com.anduril.resources.tasks.requests.TaskQuery;
 import com.anduril.resources.tasks.requests.TaskStatusUpdate;
 import com.anduril.resources.tasks.requests.TaskStreamRequest;
 import com.anduril.resources.tasks.types.StreamAsAgentResponse;
+import com.anduril.resources.tasks.types.StreamManualControlFramesResponse;
 import com.anduril.resources.tasks.types.StreamTasksResponse;
 import com.anduril.types.AgentRequest;
 import com.anduril.types.Task;
@@ -554,5 +556,74 @@ public class TasksClient {
      */
     public Iterable<StreamAsAgentResponse> streamAsAgent(AgentStreamRequest request, RequestOptions requestOptions) {
         return this.rawClient.streamAsAgent(request, requestOptions).body();
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers manual control frames to agents
+     * using server-sent events (SSE).
+     * <p>This endpoint streams manual control frames, for example, for joystick movements, for a specific task
+     * to the executing agent. The agent should open this stream before reporting <code>STATUS_EXECUTING</code>
+     * to ensure it is ready to receive control input when the operator begins sending frames.</p>
+     * <p>Each frame includes epoch and sequence metadata for handling concurrent control sessions
+     * and detecting stale or out-of-order frames. Heartbeat messages are sent periodically to
+     * maintain the connection.</p>
+     * <p>The stream terminates automatically when the task reaches a terminal state
+     * (<code>STATUS_DONE_OK</code> or <code>STATUS_DONE_NOT_OK</code>).</p>
+     */
+    public Iterable<StreamManualControlFramesResponse> streamManualControlFrames(String taskId) {
+        return this.rawClient.streamManualControlFrames(taskId).body();
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers manual control frames to agents
+     * using server-sent events (SSE).
+     * <p>This endpoint streams manual control frames, for example, for joystick movements, for a specific task
+     * to the executing agent. The agent should open this stream before reporting <code>STATUS_EXECUTING</code>
+     * to ensure it is ready to receive control input when the operator begins sending frames.</p>
+     * <p>Each frame includes epoch and sequence metadata for handling concurrent control sessions
+     * and detecting stale or out-of-order frames. Heartbeat messages are sent periodically to
+     * maintain the connection.</p>
+     * <p>The stream terminates automatically when the task reaches a terminal state
+     * (<code>STATUS_DONE_OK</code> or <code>STATUS_DONE_NOT_OK</code>).</p>
+     */
+    public Iterable<StreamManualControlFramesResponse> streamManualControlFrames(
+            String taskId, RequestOptions requestOptions) {
+        return this.rawClient.streamManualControlFrames(taskId, requestOptions).body();
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers manual control frames to agents
+     * using server-sent events (SSE).
+     * <p>This endpoint streams manual control frames, for example, for joystick movements, for a specific task
+     * to the executing agent. The agent should open this stream before reporting <code>STATUS_EXECUTING</code>
+     * to ensure it is ready to receive control input when the operator begins sending frames.</p>
+     * <p>Each frame includes epoch and sequence metadata for handling concurrent control sessions
+     * and detecting stale or out-of-order frames. Heartbeat messages are sent periodically to
+     * maintain the connection.</p>
+     * <p>The stream terminates automatically when the task reaches a terminal state
+     * (<code>STATUS_DONE_OK</code> or <code>STATUS_DONE_NOT_OK</code>).</p>
+     */
+    public Iterable<StreamManualControlFramesResponse> streamManualControlFrames(
+            String taskId, ManualControlStreamRequest request) {
+        return this.rawClient.streamManualControlFrames(taskId, request).body();
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers manual control frames to agents
+     * using server-sent events (SSE).
+     * <p>This endpoint streams manual control frames, for example, for joystick movements, for a specific task
+     * to the executing agent. The agent should open this stream before reporting <code>STATUS_EXECUTING</code>
+     * to ensure it is ready to receive control input when the operator begins sending frames.</p>
+     * <p>Each frame includes epoch and sequence metadata for handling concurrent control sessions
+     * and detecting stale or out-of-order frames. Heartbeat messages are sent periodically to
+     * maintain the connection.</p>
+     * <p>The stream terminates automatically when the task reaches a terminal state
+     * (<code>STATUS_DONE_OK</code> or <code>STATUS_DONE_NOT_OK</code>).</p>
+     */
+    public Iterable<StreamManualControlFramesResponse> streamManualControlFrames(
+            String taskId, ManualControlStreamRequest request, RequestOptions requestOptions) {
+        return this.rawClient
+                .streamManualControlFrames(taskId, request, requestOptions)
+                .body();
     }
 }
