@@ -1198,6 +1198,85 @@ client.tasks().streamAsAgent(
 </dl>
 </details>
 
+<details><summary><code>client.tasks.streamManualControlFrames(taskId, request) -> Iterable&amp;lt;StreamManualControlFramesResponse&amp;gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Establishes a server streaming connection that delivers manual control frames to agents
+using server-sent events (SSE).
+
+This endpoint streams manual control frames, for example, for joystick movements, for a specific task
+to the executing agent. The agent should open this stream before reporting `STATUS_EXECUTING`
+to ensure it is ready to receive control input when the operator begins sending frames.
+
+Each frame includes epoch and sequence metadata for handling concurrent control sessions
+and detecting stale or out-of-order frames. Heartbeat messages are sent periodically to
+maintain the connection.
+
+The stream terminates automatically when the task reaches a terminal state
+(`STATUS_DONE_OK` or `STATUS_DONE_NOT_OK`).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```java
+client.tasks().streamManualControlFrames(
+    "taskId",
+    ManualControlStreamRequest
+        .builder()
+        .build()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**taskId:** `String` — The ID of the manual control task to receive frames for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**heartbeatIntervalMs:** `Optional<Integer>` — The time interval, in milliseconds, that determines the frequency at which to send heartbeat events. Defaults to 30000 (30 seconds).
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Objects
 <details><summary><code>client.objects.listObjects() -> SyncPagingIterable&amp;lt;PathMetadata&amp;gt;</code></summary>
 <dl>

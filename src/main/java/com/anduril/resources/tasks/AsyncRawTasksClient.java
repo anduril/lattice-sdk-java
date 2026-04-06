@@ -18,12 +18,14 @@ import com.anduril.errors.UnauthorizedError;
 import com.anduril.resources.tasks.requests.AgentListener;
 import com.anduril.resources.tasks.requests.AgentStreamRequest;
 import com.anduril.resources.tasks.requests.GetTaskRequest;
+import com.anduril.resources.tasks.requests.ManualControlStreamRequest;
 import com.anduril.resources.tasks.requests.TaskCancellation;
 import com.anduril.resources.tasks.requests.TaskCreation;
 import com.anduril.resources.tasks.requests.TaskQuery;
 import com.anduril.resources.tasks.requests.TaskStatusUpdate;
 import com.anduril.resources.tasks.requests.TaskStreamRequest;
 import com.anduril.resources.tasks.types.StreamAsAgentResponse;
+import com.anduril.resources.tasks.types.StreamManualControlFramesResponse;
 import com.anduril.resources.tasks.types.StreamTasksResponse;
 import com.anduril.types.AgentRequest;
 import com.anduril.types.Task;
@@ -1105,6 +1107,153 @@ public class AsyncRawTasksClient {
                         future.complete(new LatticeHttpResponse<>(
                                 Stream.fromSseWithEventDiscrimination(
                                         StreamAsAgentResponse.class, new ResponseBodyReader(response), "event"),
+                                response));
+                        return;
+                    }
+                    String responseBodyString = responseBody != null ? responseBody.string() : "{}";
+                    try {
+                        switch (response.code()) {
+                            case 400:
+                                future.completeExceptionally(new BadRequestError(
+                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
+                                        response));
+                                return;
+                            case 401:
+                                future.completeExceptionally(new UnauthorizedError(
+                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
+                                        response));
+                                return;
+                        }
+                    } catch (JsonProcessingException ignored) {
+                        // unable to map error response, throwing generic error
+                    }
+                    Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
+                    future.completeExceptionally(new LatticeApiException(
+                            "Error with status code " + response.code(), response.code(), errorBody, response));
+                    return;
+                } catch (IOException e) {
+                    future.completeExceptionally(new LatticeException("Network error executing HTTP request", e));
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                future.completeExceptionally(new LatticeException("Network error executing HTTP request", e));
+            }
+        });
+        return future;
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers manual control frames to agents
+     * using server-sent events (SSE).
+     * <p>This endpoint streams manual control frames, for example, for joystick movements, for a specific task
+     * to the executing agent. The agent should open this stream before reporting <code>STATUS_EXECUTING</code>
+     * to ensure it is ready to receive control input when the operator begins sending frames.</p>
+     * <p>Each frame includes epoch and sequence metadata for handling concurrent control sessions
+     * and detecting stale or out-of-order frames. Heartbeat messages are sent periodically to
+     * maintain the connection.</p>
+     * <p>The stream terminates automatically when the task reaches a terminal state
+     * (<code>STATUS_DONE_OK</code> or <code>STATUS_DONE_NOT_OK</code>).</p>
+     */
+    public CompletableFuture<LatticeHttpResponse<Iterable<StreamManualControlFramesResponse>>>
+            streamManualControlFrames(String taskId) {
+        return streamManualControlFrames(
+                taskId, ManualControlStreamRequest.builder().build());
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers manual control frames to agents
+     * using server-sent events (SSE).
+     * <p>This endpoint streams manual control frames, for example, for joystick movements, for a specific task
+     * to the executing agent. The agent should open this stream before reporting <code>STATUS_EXECUTING</code>
+     * to ensure it is ready to receive control input when the operator begins sending frames.</p>
+     * <p>Each frame includes epoch and sequence metadata for handling concurrent control sessions
+     * and detecting stale or out-of-order frames. Heartbeat messages are sent periodically to
+     * maintain the connection.</p>
+     * <p>The stream terminates automatically when the task reaches a terminal state
+     * (<code>STATUS_DONE_OK</code> or <code>STATUS_DONE_NOT_OK</code>).</p>
+     */
+    public CompletableFuture<LatticeHttpResponse<Iterable<StreamManualControlFramesResponse>>>
+            streamManualControlFrames(String taskId, RequestOptions requestOptions) {
+        return streamManualControlFrames(
+                taskId, ManualControlStreamRequest.builder().build(), requestOptions);
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers manual control frames to agents
+     * using server-sent events (SSE).
+     * <p>This endpoint streams manual control frames, for example, for joystick movements, for a specific task
+     * to the executing agent. The agent should open this stream before reporting <code>STATUS_EXECUTING</code>
+     * to ensure it is ready to receive control input when the operator begins sending frames.</p>
+     * <p>Each frame includes epoch and sequence metadata for handling concurrent control sessions
+     * and detecting stale or out-of-order frames. Heartbeat messages are sent periodically to
+     * maintain the connection.</p>
+     * <p>The stream terminates automatically when the task reaches a terminal state
+     * (<code>STATUS_DONE_OK</code> or <code>STATUS_DONE_NOT_OK</code>).</p>
+     */
+    public CompletableFuture<LatticeHttpResponse<Iterable<StreamManualControlFramesResponse>>>
+            streamManualControlFrames(String taskId, ManualControlStreamRequest request) {
+        return streamManualControlFrames(taskId, request, null);
+    }
+
+    /**
+     * Establishes a server streaming connection that delivers manual control frames to agents
+     * using server-sent events (SSE).
+     * <p>This endpoint streams manual control frames, for example, for joystick movements, for a specific task
+     * to the executing agent. The agent should open this stream before reporting <code>STATUS_EXECUTING</code>
+     * to ensure it is ready to receive control input when the operator begins sending frames.</p>
+     * <p>Each frame includes epoch and sequence metadata for handling concurrent control sessions
+     * and detecting stale or out-of-order frames. Heartbeat messages are sent periodically to
+     * maintain the connection.</p>
+     * <p>The stream terminates automatically when the task reaches a terminal state
+     * (<code>STATUS_DONE_OK</code> or <code>STATUS_DONE_NOT_OK</code>).</p>
+     */
+    public CompletableFuture<LatticeHttpResponse<Iterable<StreamManualControlFramesResponse>>>
+            streamManualControlFrames(
+                    String taskId, ManualControlStreamRequest request, RequestOptions requestOptions) {
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+                .newBuilder()
+                .addPathSegments("api/v1/tasks")
+                .addPathSegment(taskId)
+                .addPathSegments("manual-control")
+                .addPathSegments("stream");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
+        RequestBody body;
+        try {
+            body = RequestBody.create(
+                    ObjectMappers.JSON_MAPPER.writeValueAsBytes(request), MediaTypes.APPLICATION_JSON);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to serialize request", e);
+        }
+        Request okhttpRequest = new Request.Builder()
+                .url(httpUrl.build())
+                .method("POST", body)
+                .headers(Headers.of(clientOptions.headers(requestOptions)))
+                .addHeader("Content-Type", "application/json")
+                .build();
+        OkHttpClient client = clientOptions.httpClient();
+        if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
+            client = clientOptions.httpClientWithTimeout(requestOptions);
+        }
+        client = client.newBuilder().callTimeout(0, TimeUnit.SECONDS).build();
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamManualControlFramesResponse>>> future =
+                new CompletableFuture<>();
+        client.newCall(okhttpRequest).enqueue(new Callback() {
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                try {
+                    ResponseBody responseBody = response.body();
+                    if (response.isSuccessful()) {
+                        future.complete(new LatticeHttpResponse<>(
+                                Stream.fromSseWithEventDiscrimination(
+                                        StreamManualControlFramesResponse.class,
+                                        new ResponseBodyReader(response),
+                                        "event"),
                                 response));
                         return;
                     }
