@@ -7,11 +7,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class ScheduleScheduleType {
-    public static final ScheduleScheduleType SCHEDULE_TYPE_ZONE_TEMP_ENABLED =
-            new ScheduleScheduleType(Value.SCHEDULE_TYPE_ZONE_TEMP_ENABLED, "SCHEDULE_TYPE_ZONE_TEMP_ENABLED");
-
     public static final ScheduleScheduleType SCHEDULE_TYPE_ZONE_ENABLED =
             new ScheduleScheduleType(Value.SCHEDULE_TYPE_ZONE_ENABLED, "SCHEDULE_TYPE_ZONE_ENABLED");
+
+    public static final ScheduleScheduleType SCHEDULE_TYPE_ZONE_TEMP_ENABLED =
+            new ScheduleScheduleType(Value.SCHEDULE_TYPE_ZONE_TEMP_ENABLED, "SCHEDULE_TYPE_ZONE_TEMP_ENABLED");
 
     public static final ScheduleScheduleType SCHEDULE_TYPE_INVALID =
             new ScheduleScheduleType(Value.SCHEDULE_TYPE_INVALID, "SCHEDULE_TYPE_INVALID");
@@ -48,10 +48,10 @@ public final class ScheduleScheduleType {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
-            case SCHEDULE_TYPE_ZONE_TEMP_ENABLED:
-                return visitor.visitScheduleTypeZoneTempEnabled();
             case SCHEDULE_TYPE_ZONE_ENABLED:
                 return visitor.visitScheduleTypeZoneEnabled();
+            case SCHEDULE_TYPE_ZONE_TEMP_ENABLED:
+                return visitor.visitScheduleTypeZoneTempEnabled();
             case SCHEDULE_TYPE_INVALID:
                 return visitor.visitScheduleTypeInvalid();
             case UNKNOWN:
@@ -63,10 +63,10 @@ public final class ScheduleScheduleType {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static ScheduleScheduleType valueOf(String value) {
         switch (value) {
-            case "SCHEDULE_TYPE_ZONE_TEMP_ENABLED":
-                return SCHEDULE_TYPE_ZONE_TEMP_ENABLED;
             case "SCHEDULE_TYPE_ZONE_ENABLED":
                 return SCHEDULE_TYPE_ZONE_ENABLED;
+            case "SCHEDULE_TYPE_ZONE_TEMP_ENABLED":
+                return SCHEDULE_TYPE_ZONE_TEMP_ENABLED;
             case "SCHEDULE_TYPE_INVALID":
                 return SCHEDULE_TYPE_INVALID;
             default:

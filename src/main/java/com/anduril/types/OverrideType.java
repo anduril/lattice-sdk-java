@@ -7,11 +7,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class OverrideType {
-    public static final OverrideType OVERRIDE_TYPE_INVALID =
-            new OverrideType(Value.OVERRIDE_TYPE_INVALID, "OVERRIDE_TYPE_INVALID");
-
     public static final OverrideType OVERRIDE_TYPE_POST_EXPIRY =
             new OverrideType(Value.OVERRIDE_TYPE_POST_EXPIRY, "OVERRIDE_TYPE_POST_EXPIRY");
+
+    public static final OverrideType OVERRIDE_TYPE_INVALID =
+            new OverrideType(Value.OVERRIDE_TYPE_INVALID, "OVERRIDE_TYPE_INVALID");
 
     public static final OverrideType OVERRIDE_TYPE_LIVE =
             new OverrideType(Value.OVERRIDE_TYPE_LIVE, "OVERRIDE_TYPE_LIVE");
@@ -47,10 +47,10 @@ public final class OverrideType {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
-            case OVERRIDE_TYPE_INVALID:
-                return visitor.visitOverrideTypeInvalid();
             case OVERRIDE_TYPE_POST_EXPIRY:
                 return visitor.visitOverrideTypePostExpiry();
+            case OVERRIDE_TYPE_INVALID:
+                return visitor.visitOverrideTypeInvalid();
             case OVERRIDE_TYPE_LIVE:
                 return visitor.visitOverrideTypeLive();
             case UNKNOWN:
@@ -62,10 +62,10 @@ public final class OverrideType {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static OverrideType valueOf(String value) {
         switch (value) {
-            case "OVERRIDE_TYPE_INVALID":
-                return OVERRIDE_TYPE_INVALID;
             case "OVERRIDE_TYPE_POST_EXPIRY":
                 return OVERRIDE_TYPE_POST_EXPIRY;
+            case "OVERRIDE_TYPE_INVALID":
+                return OVERRIDE_TYPE_INVALID;
             case "OVERRIDE_TYPE_LIVE":
                 return OVERRIDE_TYPE_LIVE;
             default:

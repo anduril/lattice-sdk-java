@@ -7,23 +7,23 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class EchelonArmyEchelon {
+    public static final EchelonArmyEchelon ARMY_ECHELON_BATTALION =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_BATTALION, "ARMY_ECHELON_BATTALION");
+
     public static final EchelonArmyEchelon ARMY_ECHELON_SQUAD =
             new EchelonArmyEchelon(Value.ARMY_ECHELON_SQUAD, "ARMY_ECHELON_SQUAD");
 
     public static final EchelonArmyEchelon ARMY_ECHELON_BRIGADE =
             new EchelonArmyEchelon(Value.ARMY_ECHELON_BRIGADE, "ARMY_ECHELON_BRIGADE");
 
-    public static final EchelonArmyEchelon ARMY_ECHELON_BATTALION =
-            new EchelonArmyEchelon(Value.ARMY_ECHELON_BATTALION, "ARMY_ECHELON_BATTALION");
+    public static final EchelonArmyEchelon ARMY_ECHELON_PLATOON =
+            new EchelonArmyEchelon(Value.ARMY_ECHELON_PLATOON, "ARMY_ECHELON_PLATOON");
 
     public static final EchelonArmyEchelon ARMY_ECHELON_DIVISION =
             new EchelonArmyEchelon(Value.ARMY_ECHELON_DIVISION, "ARMY_ECHELON_DIVISION");
 
     public static final EchelonArmyEchelon ARMY_ECHELON_FIRE_TEAM =
             new EchelonArmyEchelon(Value.ARMY_ECHELON_FIRE_TEAM, "ARMY_ECHELON_FIRE_TEAM");
-
-    public static final EchelonArmyEchelon ARMY_ECHELON_PLATOON =
-            new EchelonArmyEchelon(Value.ARMY_ECHELON_PLATOON, "ARMY_ECHELON_PLATOON");
 
     public static final EchelonArmyEchelon ARMY_ECHELON_COMPANY =
             new EchelonArmyEchelon(Value.ARMY_ECHELON_COMPANY, "ARMY_ECHELON_COMPANY");
@@ -72,18 +72,18 @@ public final class EchelonArmyEchelon {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
+            case ARMY_ECHELON_BATTALION:
+                return visitor.visitArmyEchelonBattalion();
             case ARMY_ECHELON_SQUAD:
                 return visitor.visitArmyEchelonSquad();
             case ARMY_ECHELON_BRIGADE:
                 return visitor.visitArmyEchelonBrigade();
-            case ARMY_ECHELON_BATTALION:
-                return visitor.visitArmyEchelonBattalion();
+            case ARMY_ECHELON_PLATOON:
+                return visitor.visitArmyEchelonPlatoon();
             case ARMY_ECHELON_DIVISION:
                 return visitor.visitArmyEchelonDivision();
             case ARMY_ECHELON_FIRE_TEAM:
                 return visitor.visitArmyEchelonFireTeam();
-            case ARMY_ECHELON_PLATOON:
-                return visitor.visitArmyEchelonPlatoon();
             case ARMY_ECHELON_COMPANY:
                 return visitor.visitArmyEchelonCompany();
             case ARMY_ECHELON_REGIMENT:
@@ -103,18 +103,18 @@ public final class EchelonArmyEchelon {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static EchelonArmyEchelon valueOf(String value) {
         switch (value) {
+            case "ARMY_ECHELON_BATTALION":
+                return ARMY_ECHELON_BATTALION;
             case "ARMY_ECHELON_SQUAD":
                 return ARMY_ECHELON_SQUAD;
             case "ARMY_ECHELON_BRIGADE":
                 return ARMY_ECHELON_BRIGADE;
-            case "ARMY_ECHELON_BATTALION":
-                return ARMY_ECHELON_BATTALION;
+            case "ARMY_ECHELON_PLATOON":
+                return ARMY_ECHELON_PLATOON;
             case "ARMY_ECHELON_DIVISION":
                 return ARMY_ECHELON_DIVISION;
             case "ARMY_ECHELON_FIRE_TEAM":
                 return ARMY_ECHELON_FIRE_TEAM;
-            case "ARMY_ECHELON_PLATOON":
-                return ARMY_ECHELON_PLATOON;
             case "ARMY_ECHELON_COMPANY":
                 return ARMY_ECHELON_COMPANY;
             case "ARMY_ECHELON_REGIMENT":

@@ -7,11 +7,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class DeliveryErrorCode {
-    public static final DeliveryErrorCode DELIVERY_ERROR_CODE_REJECTED =
-            new DeliveryErrorCode(Value.DELIVERY_ERROR_CODE_REJECTED, "DELIVERY_ERROR_CODE_REJECTED");
-
     public static final DeliveryErrorCode DELIVERY_ERROR_CODE_INVALID =
             new DeliveryErrorCode(Value.DELIVERY_ERROR_CODE_INVALID, "DELIVERY_ERROR_CODE_INVALID");
+
+    public static final DeliveryErrorCode DELIVERY_ERROR_CODE_REJECTED =
+            new DeliveryErrorCode(Value.DELIVERY_ERROR_CODE_REJECTED, "DELIVERY_ERROR_CODE_REJECTED");
 
     public static final DeliveryErrorCode DELIVERY_ERROR_CODE_UNAVAILABLE =
             new DeliveryErrorCode(Value.DELIVERY_ERROR_CODE_UNAVAILABLE, "DELIVERY_ERROR_CODE_UNAVAILABLE");
@@ -51,10 +51,10 @@ public final class DeliveryErrorCode {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
-            case DELIVERY_ERROR_CODE_REJECTED:
-                return visitor.visitDeliveryErrorCodeRejected();
             case DELIVERY_ERROR_CODE_INVALID:
                 return visitor.visitDeliveryErrorCodeInvalid();
+            case DELIVERY_ERROR_CODE_REJECTED:
+                return visitor.visitDeliveryErrorCodeRejected();
             case DELIVERY_ERROR_CODE_UNAVAILABLE:
                 return visitor.visitDeliveryErrorCodeUnavailable();
             case DELIVERY_ERROR_CODE_TIMEOUT:
@@ -68,10 +68,10 @@ public final class DeliveryErrorCode {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static DeliveryErrorCode valueOf(String value) {
         switch (value) {
-            case "DELIVERY_ERROR_CODE_REJECTED":
-                return DELIVERY_ERROR_CODE_REJECTED;
             case "DELIVERY_ERROR_CODE_INVALID":
                 return DELIVERY_ERROR_CODE_INVALID;
+            case "DELIVERY_ERROR_CODE_REJECTED":
+                return DELIVERY_ERROR_CODE_REJECTED;
             case "DELIVERY_ERROR_CODE_UNAVAILABLE":
                 return DELIVERY_ERROR_CODE_UNAVAILABLE;
             case "DELIVERY_ERROR_CODE_TIMEOUT":

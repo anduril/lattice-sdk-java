@@ -16,11 +16,11 @@ public final class OverrideStatus {
     public static final OverrideStatus OVERRIDE_STATUS_REJECTED =
             new OverrideStatus(Value.OVERRIDE_STATUS_REJECTED, "OVERRIDE_STATUS_REJECTED");
 
-    public static final OverrideStatus OVERRIDE_STATUS_INVALID =
-            new OverrideStatus(Value.OVERRIDE_STATUS_INVALID, "OVERRIDE_STATUS_INVALID");
-
     public static final OverrideStatus OVERRIDE_STATUS_TIMEOUT =
             new OverrideStatus(Value.OVERRIDE_STATUS_TIMEOUT, "OVERRIDE_STATUS_TIMEOUT");
+
+    public static final OverrideStatus OVERRIDE_STATUS_INVALID =
+            new OverrideStatus(Value.OVERRIDE_STATUS_INVALID, "OVERRIDE_STATUS_INVALID");
 
     public static final OverrideStatus OVERRIDE_STATUS_PENDING =
             new OverrideStatus(Value.OVERRIDE_STATUS_PENDING, "OVERRIDE_STATUS_PENDING");
@@ -63,10 +63,10 @@ public final class OverrideStatus {
                 return visitor.visitOverrideStatusDeletionPending();
             case OVERRIDE_STATUS_REJECTED:
                 return visitor.visitOverrideStatusRejected();
-            case OVERRIDE_STATUS_INVALID:
-                return visitor.visitOverrideStatusInvalid();
             case OVERRIDE_STATUS_TIMEOUT:
                 return visitor.visitOverrideStatusTimeout();
+            case OVERRIDE_STATUS_INVALID:
+                return visitor.visitOverrideStatusInvalid();
             case OVERRIDE_STATUS_PENDING:
                 return visitor.visitOverrideStatusPending();
             case UNKNOWN:
@@ -84,10 +84,10 @@ public final class OverrideStatus {
                 return OVERRIDE_STATUS_DELETION_PENDING;
             case "OVERRIDE_STATUS_REJECTED":
                 return OVERRIDE_STATUS_REJECTED;
-            case "OVERRIDE_STATUS_INVALID":
-                return OVERRIDE_STATUS_INVALID;
             case "OVERRIDE_STATUS_TIMEOUT":
                 return OVERRIDE_STATUS_TIMEOUT;
+            case "OVERRIDE_STATUS_INVALID":
+                return OVERRIDE_STATUS_INVALID;
             case "OVERRIDE_STATUS_PENDING":
                 return OVERRIDE_STATUS_PENDING;
             default:

@@ -14,13 +14,13 @@ public final class OntologyTemplate {
 
     public static final OntologyTemplate TEMPLATE_TRACK = new OntologyTemplate(Value.TEMPLATE_TRACK, "TEMPLATE_TRACK");
 
+    public static final OntologyTemplate TEMPLATE_SENSOR_POINT_OF_INTEREST =
+            new OntologyTemplate(Value.TEMPLATE_SENSOR_POINT_OF_INTEREST, "TEMPLATE_SENSOR_POINT_OF_INTEREST");
+
     public static final OntologyTemplate TEMPLATE_GEO = new OntologyTemplate(Value.TEMPLATE_GEO, "TEMPLATE_GEO");
 
     public static final OntologyTemplate TEMPLATE_SIGNAL_OF_INTEREST =
             new OntologyTemplate(Value.TEMPLATE_SIGNAL_OF_INTEREST, "TEMPLATE_SIGNAL_OF_INTEREST");
-
-    public static final OntologyTemplate TEMPLATE_SENSOR_POINT_OF_INTEREST =
-            new OntologyTemplate(Value.TEMPLATE_SENSOR_POINT_OF_INTEREST, "TEMPLATE_SENSOR_POINT_OF_INTEREST");
 
     private final Value value;
 
@@ -60,12 +60,12 @@ public final class OntologyTemplate {
                 return visitor.visitTemplateInvalid();
             case TEMPLATE_TRACK:
                 return visitor.visitTemplateTrack();
+            case TEMPLATE_SENSOR_POINT_OF_INTEREST:
+                return visitor.visitTemplateSensorPointOfInterest();
             case TEMPLATE_GEO:
                 return visitor.visitTemplateGeo();
             case TEMPLATE_SIGNAL_OF_INTEREST:
                 return visitor.visitTemplateSignalOfInterest();
-            case TEMPLATE_SENSOR_POINT_OF_INTEREST:
-                return visitor.visitTemplateSensorPointOfInterest();
             case UNKNOWN:
             default:
                 return visitor.visitUnknown(string);
@@ -81,12 +81,12 @@ public final class OntologyTemplate {
                 return TEMPLATE_INVALID;
             case "TEMPLATE_TRACK":
                 return TEMPLATE_TRACK;
+            case "TEMPLATE_SENSOR_POINT_OF_INTEREST":
+                return TEMPLATE_SENSOR_POINT_OF_INTEREST;
             case "TEMPLATE_GEO":
                 return TEMPLATE_GEO;
             case "TEMPLATE_SIGNAL_OF_INTEREST":
                 return TEMPLATE_SIGNAL_OF_INTEREST;
-            case "TEMPLATE_SENSOR_POINT_OF_INTEREST":
-                return TEMPLATE_SENSOR_POINT_OF_INTEREST;
             default:
                 return new OntologyTemplate(Value.UNKNOWN, value);
         }

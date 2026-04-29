@@ -7,13 +7,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class TransponderCodesMode4InterrogationResponse {
-    public static final TransponderCodesMode4InterrogationResponse INTERROGATION_RESPONSE_CORRECT =
-            new TransponderCodesMode4InterrogationResponse(
-                    Value.INTERROGATION_RESPONSE_CORRECT, "INTERROGATION_RESPONSE_CORRECT");
-
     public static final TransponderCodesMode4InterrogationResponse INTERROGATION_RESPONSE_INVALID =
             new TransponderCodesMode4InterrogationResponse(
                     Value.INTERROGATION_RESPONSE_INVALID, "INTERROGATION_RESPONSE_INVALID");
+
+    public static final TransponderCodesMode4InterrogationResponse INTERROGATION_RESPONSE_CORRECT =
+            new TransponderCodesMode4InterrogationResponse(
+                    Value.INTERROGATION_RESPONSE_CORRECT, "INTERROGATION_RESPONSE_CORRECT");
 
     public static final TransponderCodesMode4InterrogationResponse INTERROGATION_RESPONSE_INCORRECT =
             new TransponderCodesMode4InterrogationResponse(
@@ -56,10 +56,10 @@ public final class TransponderCodesMode4InterrogationResponse {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
-            case INTERROGATION_RESPONSE_CORRECT:
-                return visitor.visitInterrogationResponseCorrect();
             case INTERROGATION_RESPONSE_INVALID:
                 return visitor.visitInterrogationResponseInvalid();
+            case INTERROGATION_RESPONSE_CORRECT:
+                return visitor.visitInterrogationResponseCorrect();
             case INTERROGATION_RESPONSE_INCORRECT:
                 return visitor.visitInterrogationResponseIncorrect();
             case INTERROGATION_RESPONSE_NO_RESPONSE:
@@ -73,10 +73,10 @@ public final class TransponderCodesMode4InterrogationResponse {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static TransponderCodesMode4InterrogationResponse valueOf(String value) {
         switch (value) {
-            case "INTERROGATION_RESPONSE_CORRECT":
-                return INTERROGATION_RESPONSE_CORRECT;
             case "INTERROGATION_RESPONSE_INVALID":
                 return INTERROGATION_RESPONSE_INVALID;
+            case "INTERROGATION_RESPONSE_CORRECT":
+                return INTERROGATION_RESPONSE_CORRECT;
             case "INTERROGATION_RESPONSE_INCORRECT":
                 return INTERROGATION_RESPONSE_INCORRECT;
             case "INTERROGATION_RESPONSE_NO_RESPONSE":

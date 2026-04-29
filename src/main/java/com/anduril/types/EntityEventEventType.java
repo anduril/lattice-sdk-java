@@ -10,11 +10,11 @@ public final class EntityEventEventType {
     public static final EntityEventEventType EVENT_TYPE_PREEXISTING =
             new EntityEventEventType(Value.EVENT_TYPE_PREEXISTING, "EVENT_TYPE_PREEXISTING");
 
-    public static final EntityEventEventType EVENT_TYPE_INVALID =
-            new EntityEventEventType(Value.EVENT_TYPE_INVALID, "EVENT_TYPE_INVALID");
-
     public static final EntityEventEventType EVENT_TYPE_UPDATE =
             new EntityEventEventType(Value.EVENT_TYPE_UPDATE, "EVENT_TYPE_UPDATE");
+
+    public static final EntityEventEventType EVENT_TYPE_INVALID =
+            new EntityEventEventType(Value.EVENT_TYPE_INVALID, "EVENT_TYPE_INVALID");
 
     public static final EntityEventEventType EVENT_TYPE_POST_EXPIRY_OVERRIDE =
             new EntityEventEventType(Value.EVENT_TYPE_POST_EXPIRY_OVERRIDE, "EVENT_TYPE_POST_EXPIRY_OVERRIDE");
@@ -59,10 +59,10 @@ public final class EntityEventEventType {
         switch (value) {
             case EVENT_TYPE_PREEXISTING:
                 return visitor.visitEventTypePreexisting();
-            case EVENT_TYPE_INVALID:
-                return visitor.visitEventTypeInvalid();
             case EVENT_TYPE_UPDATE:
                 return visitor.visitEventTypeUpdate();
+            case EVENT_TYPE_INVALID:
+                return visitor.visitEventTypeInvalid();
             case EVENT_TYPE_POST_EXPIRY_OVERRIDE:
                 return visitor.visitEventTypePostExpiryOverride();
             case EVENT_TYPE_CREATED:
@@ -80,10 +80,10 @@ public final class EntityEventEventType {
         switch (value) {
             case "EVENT_TYPE_PREEXISTING":
                 return EVENT_TYPE_PREEXISTING;
-            case "EVENT_TYPE_INVALID":
-                return EVENT_TYPE_INVALID;
             case "EVENT_TYPE_UPDATE":
                 return EVENT_TYPE_UPDATE;
+            case "EVENT_TYPE_INVALID":
+                return EVENT_TYPE_INVALID;
             case "EVENT_TYPE_POST_EXPIRY_OVERRIDE":
                 return EVENT_TYPE_POST_EXPIRY_OVERRIDE;
             case "EVENT_TYPE_CREATED":

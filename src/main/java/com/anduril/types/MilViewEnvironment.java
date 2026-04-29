@@ -7,11 +7,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class MilViewEnvironment {
-    public static final MilViewEnvironment ENVIRONMENT_SURFACE =
-            new MilViewEnvironment(Value.ENVIRONMENT_SURFACE, "ENVIRONMENT_SURFACE");
-
     public static final MilViewEnvironment ENVIRONMENT_AIR =
             new MilViewEnvironment(Value.ENVIRONMENT_AIR, "ENVIRONMENT_AIR");
+
+    public static final MilViewEnvironment ENVIRONMENT_SURFACE =
+            new MilViewEnvironment(Value.ENVIRONMENT_SURFACE, "ENVIRONMENT_SURFACE");
 
     public static final MilViewEnvironment ENVIRONMENT_SUB_SURFACE =
             new MilViewEnvironment(Value.ENVIRONMENT_SUB_SURFACE, "ENVIRONMENT_SUB_SURFACE");
@@ -57,10 +57,10 @@ public final class MilViewEnvironment {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
-            case ENVIRONMENT_SURFACE:
-                return visitor.visitEnvironmentSurface();
             case ENVIRONMENT_AIR:
                 return visitor.visitEnvironmentAir();
+            case ENVIRONMENT_SURFACE:
+                return visitor.visitEnvironmentSurface();
             case ENVIRONMENT_SUB_SURFACE:
                 return visitor.visitEnvironmentSubSurface();
             case ENVIRONMENT_LAND:
@@ -78,10 +78,10 @@ public final class MilViewEnvironment {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static MilViewEnvironment valueOf(String value) {
         switch (value) {
-            case "ENVIRONMENT_SURFACE":
-                return ENVIRONMENT_SURFACE;
             case "ENVIRONMENT_AIR":
                 return ENVIRONMENT_AIR;
+            case "ENVIRONMENT_SURFACE":
+                return ENVIRONMENT_SURFACE;
             case "ENVIRONMENT_SUB_SURFACE":
                 return ENVIRONMENT_SUB_SURFACE;
             case "ENVIRONMENT_LAND":

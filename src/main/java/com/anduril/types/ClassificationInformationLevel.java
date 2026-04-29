@@ -18,17 +18,17 @@ public final class ClassificationInformationLevel {
             new ClassificationInformationLevel(
                     Value.CLASSIFICATION_LEVELS_TOP_SECRET, "CLASSIFICATION_LEVELS_TOP_SECRET");
 
-    public static final ClassificationInformationLevel CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED =
-            new ClassificationInformationLevel(
-                    Value.CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED,
-                    "CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED");
-
     public static final ClassificationInformationLevel CLASSIFICATION_LEVELS_INVALID =
             new ClassificationInformationLevel(Value.CLASSIFICATION_LEVELS_INVALID, "CLASSIFICATION_LEVELS_INVALID");
 
     public static final ClassificationInformationLevel CLASSIFICATION_LEVELS_CONFIDENTIAL =
             new ClassificationInformationLevel(
                     Value.CLASSIFICATION_LEVELS_CONFIDENTIAL, "CLASSIFICATION_LEVELS_CONFIDENTIAL");
+
+    public static final ClassificationInformationLevel CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED =
+            new ClassificationInformationLevel(
+                    Value.CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED,
+                    "CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED");
 
     private final Value value;
 
@@ -69,12 +69,12 @@ public final class ClassificationInformationLevel {
                 return visitor.visitClassificationLevelsUnclassified();
             case CLASSIFICATION_LEVELS_TOP_SECRET:
                 return visitor.visitClassificationLevelsTopSecret();
-            case CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED:
-                return visitor.visitClassificationLevelsControlledUnclassified();
             case CLASSIFICATION_LEVELS_INVALID:
                 return visitor.visitClassificationLevelsInvalid();
             case CLASSIFICATION_LEVELS_CONFIDENTIAL:
                 return visitor.visitClassificationLevelsConfidential();
+            case CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED:
+                return visitor.visitClassificationLevelsControlledUnclassified();
             case UNKNOWN:
             default:
                 return visitor.visitUnknown(string);
@@ -90,12 +90,12 @@ public final class ClassificationInformationLevel {
                 return CLASSIFICATION_LEVELS_UNCLASSIFIED;
             case "CLASSIFICATION_LEVELS_TOP_SECRET":
                 return CLASSIFICATION_LEVELS_TOP_SECRET;
-            case "CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED":
-                return CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED;
             case "CLASSIFICATION_LEVELS_INVALID":
                 return CLASSIFICATION_LEVELS_INVALID;
             case "CLASSIFICATION_LEVELS_CONFIDENTIAL":
                 return CLASSIFICATION_LEVELS_CONFIDENTIAL;
+            case "CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED":
+                return CLASSIFICATION_LEVELS_CONTROLLED_UNCLASSIFIED;
             default:
                 return new ClassificationInformationLevel(Value.UNKNOWN, value);
         }

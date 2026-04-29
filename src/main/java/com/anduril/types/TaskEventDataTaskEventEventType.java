@@ -10,11 +10,11 @@ public final class TaskEventDataTaskEventEventType {
     public static final TaskEventDataTaskEventEventType EVENT_TYPE_PREEXISTING =
             new TaskEventDataTaskEventEventType(Value.EVENT_TYPE_PREEXISTING, "EVENT_TYPE_PREEXISTING");
 
-    public static final TaskEventDataTaskEventEventType EVENT_TYPE_INVALID =
-            new TaskEventDataTaskEventEventType(Value.EVENT_TYPE_INVALID, "EVENT_TYPE_INVALID");
-
     public static final TaskEventDataTaskEventEventType EVENT_TYPE_UPDATE =
             new TaskEventDataTaskEventEventType(Value.EVENT_TYPE_UPDATE, "EVENT_TYPE_UPDATE");
+
+    public static final TaskEventDataTaskEventEventType EVENT_TYPE_INVALID =
+            new TaskEventDataTaskEventEventType(Value.EVENT_TYPE_INVALID, "EVENT_TYPE_INVALID");
 
     public static final TaskEventDataTaskEventEventType EVENT_TYPE_CREATED =
             new TaskEventDataTaskEventEventType(Value.EVENT_TYPE_CREATED, "EVENT_TYPE_CREATED");
@@ -54,10 +54,10 @@ public final class TaskEventDataTaskEventEventType {
         switch (value) {
             case EVENT_TYPE_PREEXISTING:
                 return visitor.visitEventTypePreexisting();
-            case EVENT_TYPE_INVALID:
-                return visitor.visitEventTypeInvalid();
             case EVENT_TYPE_UPDATE:
                 return visitor.visitEventTypeUpdate();
+            case EVENT_TYPE_INVALID:
+                return visitor.visitEventTypeInvalid();
             case EVENT_TYPE_CREATED:
                 return visitor.visitEventTypeCreated();
             case UNKNOWN:
@@ -71,10 +71,10 @@ public final class TaskEventDataTaskEventEventType {
         switch (value) {
             case "EVENT_TYPE_PREEXISTING":
                 return EVENT_TYPE_PREEXISTING;
-            case "EVENT_TYPE_INVALID":
-                return EVENT_TYPE_INVALID;
             case "EVENT_TYPE_UPDATE":
                 return EVENT_TYPE_UPDATE;
+            case "EVENT_TYPE_INVALID":
+                return EVENT_TYPE_INVALID;
             case "EVENT_TYPE_CREATED":
                 return EVENT_TYPE_CREATED;
             default:

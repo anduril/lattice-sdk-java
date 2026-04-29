@@ -7,11 +7,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class PayloadConfigurationEffectiveEnvironmentItem {
-    public static final PayloadConfigurationEffectiveEnvironmentItem ENVIRONMENT_SURFACE =
-            new PayloadConfigurationEffectiveEnvironmentItem(Value.ENVIRONMENT_SURFACE, "ENVIRONMENT_SURFACE");
-
     public static final PayloadConfigurationEffectiveEnvironmentItem ENVIRONMENT_AIR =
             new PayloadConfigurationEffectiveEnvironmentItem(Value.ENVIRONMENT_AIR, "ENVIRONMENT_AIR");
+
+    public static final PayloadConfigurationEffectiveEnvironmentItem ENVIRONMENT_SURFACE =
+            new PayloadConfigurationEffectiveEnvironmentItem(Value.ENVIRONMENT_SURFACE, "ENVIRONMENT_SURFACE");
 
     public static final PayloadConfigurationEffectiveEnvironmentItem ENVIRONMENT_SUB_SURFACE =
             new PayloadConfigurationEffectiveEnvironmentItem(Value.ENVIRONMENT_SUB_SURFACE, "ENVIRONMENT_SUB_SURFACE");
@@ -58,10 +58,10 @@ public final class PayloadConfigurationEffectiveEnvironmentItem {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
-            case ENVIRONMENT_SURFACE:
-                return visitor.visitEnvironmentSurface();
             case ENVIRONMENT_AIR:
                 return visitor.visitEnvironmentAir();
+            case ENVIRONMENT_SURFACE:
+                return visitor.visitEnvironmentSurface();
             case ENVIRONMENT_SUB_SURFACE:
                 return visitor.visitEnvironmentSubSurface();
             case ENVIRONMENT_LAND:
@@ -79,10 +79,10 @@ public final class PayloadConfigurationEffectiveEnvironmentItem {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static PayloadConfigurationEffectiveEnvironmentItem valueOf(String value) {
         switch (value) {
-            case "ENVIRONMENT_SURFACE":
-                return ENVIRONMENT_SURFACE;
             case "ENVIRONMENT_AIR":
                 return ENVIRONMENT_AIR;
+            case "ENVIRONMENT_SURFACE":
+                return ENVIRONMENT_SURFACE;
             case "ENVIRONMENT_SUB_SURFACE":
                 return ENVIRONMENT_SUB_SURFACE;
             case "ENVIRONMENT_LAND":
