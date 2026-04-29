@@ -13,11 +13,11 @@ public final class AlertLevel {
     public static final AlertLevel ALERT_LEVEL_CAUTION =
             new AlertLevel(Value.ALERT_LEVEL_CAUTION, "ALERT_LEVEL_CAUTION");
 
-    public static final AlertLevel ALERT_LEVEL_INVALID =
-            new AlertLevel(Value.ALERT_LEVEL_INVALID, "ALERT_LEVEL_INVALID");
-
     public static final AlertLevel ALERT_LEVEL_WARNING =
             new AlertLevel(Value.ALERT_LEVEL_WARNING, "ALERT_LEVEL_WARNING");
+
+    public static final AlertLevel ALERT_LEVEL_INVALID =
+            new AlertLevel(Value.ALERT_LEVEL_INVALID, "ALERT_LEVEL_INVALID");
 
     private final Value value;
 
@@ -54,10 +54,10 @@ public final class AlertLevel {
                 return visitor.visitAlertLevelAdvisory();
             case ALERT_LEVEL_CAUTION:
                 return visitor.visitAlertLevelCaution();
-            case ALERT_LEVEL_INVALID:
-                return visitor.visitAlertLevelInvalid();
             case ALERT_LEVEL_WARNING:
                 return visitor.visitAlertLevelWarning();
+            case ALERT_LEVEL_INVALID:
+                return visitor.visitAlertLevelInvalid();
             case UNKNOWN:
             default:
                 return visitor.visitUnknown(string);
@@ -71,10 +71,10 @@ public final class AlertLevel {
                 return ALERT_LEVEL_ADVISORY;
             case "ALERT_LEVEL_CAUTION":
                 return ALERT_LEVEL_CAUTION;
-            case "ALERT_LEVEL_INVALID":
-                return ALERT_LEVEL_INVALID;
             case "ALERT_LEVEL_WARNING":
                 return ALERT_LEVEL_WARNING;
+            case "ALERT_LEVEL_INVALID":
+                return ALERT_LEVEL_INVALID;
             default:
                 return new AlertLevel(Value.UNKNOWN, value);
         }

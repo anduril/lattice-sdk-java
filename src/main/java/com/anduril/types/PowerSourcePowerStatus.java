@@ -10,6 +10,9 @@ public final class PowerSourcePowerStatus {
     public static final PowerSourcePowerStatus POWER_STATUS_DISABLED =
             new PowerSourcePowerStatus(Value.POWER_STATUS_DISABLED, "POWER_STATUS_DISABLED");
 
+    public static final PowerSourcePowerStatus POWER_STATUS_ERROR =
+            new PowerSourcePowerStatus(Value.POWER_STATUS_ERROR, "POWER_STATUS_ERROR");
+
     public static final PowerSourcePowerStatus POWER_STATUS_UNKNOWN =
             new PowerSourcePowerStatus(Value.POWER_STATUS_UNKNOWN, "POWER_STATUS_UNKNOWN");
 
@@ -18,9 +21,6 @@ public final class PowerSourcePowerStatus {
 
     public static final PowerSourcePowerStatus POWER_STATUS_OPERATING =
             new PowerSourcePowerStatus(Value.POWER_STATUS_OPERATING, "POWER_STATUS_OPERATING");
-
-    public static final PowerSourcePowerStatus POWER_STATUS_ERROR =
-            new PowerSourcePowerStatus(Value.POWER_STATUS_ERROR, "POWER_STATUS_ERROR");
 
     public static final PowerSourcePowerStatus POWER_STATUS_INVALID =
             new PowerSourcePowerStatus(Value.POWER_STATUS_INVALID, "POWER_STATUS_INVALID");
@@ -60,14 +60,14 @@ public final class PowerSourcePowerStatus {
         switch (value) {
             case POWER_STATUS_DISABLED:
                 return visitor.visitPowerStatusDisabled();
+            case POWER_STATUS_ERROR:
+                return visitor.visitPowerStatusError();
             case POWER_STATUS_UNKNOWN:
                 return visitor.visitPowerStatusUnknown();
             case POWER_STATUS_NOT_PRESENT:
                 return visitor.visitPowerStatusNotPresent();
             case POWER_STATUS_OPERATING:
                 return visitor.visitPowerStatusOperating();
-            case POWER_STATUS_ERROR:
-                return visitor.visitPowerStatusError();
             case POWER_STATUS_INVALID:
                 return visitor.visitPowerStatusInvalid();
             case UNKNOWN:
@@ -81,14 +81,14 @@ public final class PowerSourcePowerStatus {
         switch (value) {
             case "POWER_STATUS_DISABLED":
                 return POWER_STATUS_DISABLED;
+            case "POWER_STATUS_ERROR":
+                return POWER_STATUS_ERROR;
             case "POWER_STATUS_UNKNOWN":
                 return POWER_STATUS_UNKNOWN;
             case "POWER_STATUS_NOT_PRESENT":
                 return POWER_STATUS_NOT_PRESENT;
             case "POWER_STATUS_OPERATING":
                 return POWER_STATUS_OPERATING;
-            case "POWER_STATUS_ERROR":
-                return POWER_STATUS_ERROR;
             case "POWER_STATUS_INVALID":
                 return POWER_STATUS_INVALID;
             default:

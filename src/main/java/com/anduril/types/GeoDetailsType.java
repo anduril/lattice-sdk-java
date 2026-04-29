@@ -10,15 +10,15 @@ public final class GeoDetailsType {
     public static final GeoDetailsType GEO_TYPE_GENERAL =
             new GeoDetailsType(Value.GEO_TYPE_GENERAL, "GEO_TYPE_GENERAL");
 
-    public static final GeoDetailsType GEO_TYPE_INVALID =
-            new GeoDetailsType(Value.GEO_TYPE_INVALID, "GEO_TYPE_INVALID");
-
-    public static final GeoDetailsType GEO_TYPE_HAZARD = new GeoDetailsType(Value.GEO_TYPE_HAZARD, "GEO_TYPE_HAZARD");
-
     public static final GeoDetailsType GEO_TYPE_BULLSEYE =
             new GeoDetailsType(Value.GEO_TYPE_BULLSEYE, "GEO_TYPE_BULLSEYE");
 
     public static final GeoDetailsType GEO_TYPE_ACM = new GeoDetailsType(Value.GEO_TYPE_ACM, "GEO_TYPE_ACM");
+
+    public static final GeoDetailsType GEO_TYPE_INVALID =
+            new GeoDetailsType(Value.GEO_TYPE_INVALID, "GEO_TYPE_INVALID");
+
+    public static final GeoDetailsType GEO_TYPE_HAZARD = new GeoDetailsType(Value.GEO_TYPE_HAZARD, "GEO_TYPE_HAZARD");
 
     public static final GeoDetailsType GEO_TYPE_CONTROL_AREA =
             new GeoDetailsType(Value.GEO_TYPE_CONTROL_AREA, "GEO_TYPE_CONTROL_AREA");
@@ -63,14 +63,14 @@ public final class GeoDetailsType {
         switch (value) {
             case GEO_TYPE_GENERAL:
                 return visitor.visitGeoTypeGeneral();
-            case GEO_TYPE_INVALID:
-                return visitor.visitGeoTypeInvalid();
-            case GEO_TYPE_HAZARD:
-                return visitor.visitGeoTypeHazard();
             case GEO_TYPE_BULLSEYE:
                 return visitor.visitGeoTypeBullseye();
             case GEO_TYPE_ACM:
                 return visitor.visitGeoTypeAcm();
+            case GEO_TYPE_INVALID:
+                return visitor.visitGeoTypeInvalid();
+            case GEO_TYPE_HAZARD:
+                return visitor.visitGeoTypeHazard();
             case GEO_TYPE_CONTROL_AREA:
                 return visitor.visitGeoTypeControlArea();
             case GEO_TYPE_EMERGENCY:
@@ -88,14 +88,14 @@ public final class GeoDetailsType {
         switch (value) {
             case "GEO_TYPE_GENERAL":
                 return GEO_TYPE_GENERAL;
-            case "GEO_TYPE_INVALID":
-                return GEO_TYPE_INVALID;
-            case "GEO_TYPE_HAZARD":
-                return GEO_TYPE_HAZARD;
             case "GEO_TYPE_BULLSEYE":
                 return GEO_TYPE_BULLSEYE;
             case "GEO_TYPE_ACM":
                 return GEO_TYPE_ACM;
+            case "GEO_TYPE_INVALID":
+                return GEO_TYPE_INVALID;
+            case "GEO_TYPE_HAZARD":
+                return GEO_TYPE_HAZARD;
             case "GEO_TYPE_CONTROL_AREA":
                 return GEO_TYPE_CONTROL_AREA;
             case "GEO_TYPE_EMERGENCY":

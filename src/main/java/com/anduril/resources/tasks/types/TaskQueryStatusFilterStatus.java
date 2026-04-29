@@ -31,26 +31,26 @@ public final class TaskQueryStatusFilterStatus {
     public static final TaskQueryStatusFilterStatus STATUS_SENT =
             new TaskQueryStatusFilterStatus(Value.STATUS_SENT, "STATUS_SENT");
 
+    public static final TaskQueryStatusFilterStatus STATUS_DONE_NOT_OK =
+            new TaskQueryStatusFilterStatus(Value.STATUS_DONE_NOT_OK, "STATUS_DONE_NOT_OK");
+
     public static final TaskQueryStatusFilterStatus STATUS_CREATED =
             new TaskQueryStatusFilterStatus(Value.STATUS_CREATED, "STATUS_CREATED");
 
     public static final TaskQueryStatusFilterStatus STATUS_EXECUTING =
             new TaskQueryStatusFilterStatus(Value.STATUS_EXECUTING, "STATUS_EXECUTING");
 
-    public static final TaskQueryStatusFilterStatus STATUS_DONE_NOT_OK =
-            new TaskQueryStatusFilterStatus(Value.STATUS_DONE_NOT_OK, "STATUS_DONE_NOT_OK");
-
     public static final TaskQueryStatusFilterStatus STATUS_ACK =
             new TaskQueryStatusFilterStatus(Value.STATUS_ACK, "STATUS_ACK");
+
+    public static final TaskQueryStatusFilterStatus STATUS_CANCEL_REQUESTED =
+            new TaskQueryStatusFilterStatus(Value.STATUS_CANCEL_REQUESTED, "STATUS_CANCEL_REQUESTED");
 
     public static final TaskQueryStatusFilterStatus STATUS_REPLACED =
             new TaskQueryStatusFilterStatus(Value.STATUS_REPLACED, "STATUS_REPLACED");
 
     public static final TaskQueryStatusFilterStatus STATUS_COMPLETE_REQUESTED =
             new TaskQueryStatusFilterStatus(Value.STATUS_COMPLETE_REQUESTED, "STATUS_COMPLETE_REQUESTED");
-
-    public static final TaskQueryStatusFilterStatus STATUS_CANCEL_REQUESTED =
-            new TaskQueryStatusFilterStatus(Value.STATUS_CANCEL_REQUESTED, "STATUS_CANCEL_REQUESTED");
 
     private final Value value;
 
@@ -101,20 +101,20 @@ public final class TaskQueryStatusFilterStatus {
                 return visitor.visitStatusScheduledInManager();
             case STATUS_SENT:
                 return visitor.visitStatusSent();
+            case STATUS_DONE_NOT_OK:
+                return visitor.visitStatusDoneNotOk();
             case STATUS_CREATED:
                 return visitor.visitStatusCreated();
             case STATUS_EXECUTING:
                 return visitor.visitStatusExecuting();
-            case STATUS_DONE_NOT_OK:
-                return visitor.visitStatusDoneNotOk();
             case STATUS_ACK:
                 return visitor.visitStatusAck();
+            case STATUS_CANCEL_REQUESTED:
+                return visitor.visitStatusCancelRequested();
             case STATUS_REPLACED:
                 return visitor.visitStatusReplaced();
             case STATUS_COMPLETE_REQUESTED:
                 return visitor.visitStatusCompleteRequested();
-            case STATUS_CANCEL_REQUESTED:
-                return visitor.visitStatusCancelRequested();
             case UNKNOWN:
             default:
                 return visitor.visitUnknown(string);
@@ -140,20 +140,20 @@ public final class TaskQueryStatusFilterStatus {
                 return STATUS_SCHEDULED_IN_MANAGER;
             case "STATUS_SENT":
                 return STATUS_SENT;
+            case "STATUS_DONE_NOT_OK":
+                return STATUS_DONE_NOT_OK;
             case "STATUS_CREATED":
                 return STATUS_CREATED;
             case "STATUS_EXECUTING":
                 return STATUS_EXECUTING;
-            case "STATUS_DONE_NOT_OK":
-                return STATUS_DONE_NOT_OK;
             case "STATUS_ACK":
                 return STATUS_ACK;
+            case "STATUS_CANCEL_REQUESTED":
+                return STATUS_CANCEL_REQUESTED;
             case "STATUS_REPLACED":
                 return STATUS_REPLACED;
             case "STATUS_COMPLETE_REQUESTED":
                 return STATUS_COMPLETE_REQUESTED;
-            case "STATUS_CANCEL_REQUESTED":
-                return STATUS_CANCEL_REQUESTED;
             default:
                 return new TaskQueryStatusFilterStatus(Value.UNKNOWN, value);
         }

@@ -7,10 +7,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class PayloadConfigurationPayloadOperationalState {
-    public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_UNKNOWN =
-            new PayloadConfigurationPayloadOperationalState(
-                    Value.PAYLOAD_OPERATIONAL_STATE_UNKNOWN, "PAYLOAD_OPERATIONAL_STATE_UNKNOWN");
-
     public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_DEGRADED =
             new PayloadConfigurationPayloadOperationalState(
                     Value.PAYLOAD_OPERATIONAL_STATE_DEGRADED, "PAYLOAD_OPERATIONAL_STATE_DEGRADED");
@@ -22,6 +18,10 @@ public final class PayloadConfigurationPayloadOperationalState {
     public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE =
             new PayloadConfigurationPayloadOperationalState(
                     Value.PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE, "PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE");
+
+    public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_UNKNOWN =
+            new PayloadConfigurationPayloadOperationalState(
+                    Value.PAYLOAD_OPERATIONAL_STATE_UNKNOWN, "PAYLOAD_OPERATIONAL_STATE_UNKNOWN");
 
     public static final PayloadConfigurationPayloadOperationalState PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL =
             new PayloadConfigurationPayloadOperationalState(
@@ -68,14 +68,14 @@ public final class PayloadConfigurationPayloadOperationalState {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
-            case PAYLOAD_OPERATIONAL_STATE_UNKNOWN:
-                return visitor.visitPayloadOperationalStateUnknown();
             case PAYLOAD_OPERATIONAL_STATE_DEGRADED:
                 return visitor.visitPayloadOperationalStateDegraded();
             case PAYLOAD_OPERATIONAL_STATE_OFF:
                 return visitor.visitPayloadOperationalStateOff();
             case PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE:
                 return visitor.visitPayloadOperationalStateOutOfService();
+            case PAYLOAD_OPERATIONAL_STATE_UNKNOWN:
+                return visitor.visitPayloadOperationalStateUnknown();
             case PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL:
                 return visitor.visitPayloadOperationalStateNonOperational();
             case PAYLOAD_OPERATIONAL_STATE_INVALID:
@@ -91,14 +91,14 @@ public final class PayloadConfigurationPayloadOperationalState {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static PayloadConfigurationPayloadOperationalState valueOf(String value) {
         switch (value) {
-            case "PAYLOAD_OPERATIONAL_STATE_UNKNOWN":
-                return PAYLOAD_OPERATIONAL_STATE_UNKNOWN;
             case "PAYLOAD_OPERATIONAL_STATE_DEGRADED":
                 return PAYLOAD_OPERATIONAL_STATE_DEGRADED;
             case "PAYLOAD_OPERATIONAL_STATE_OFF":
                 return PAYLOAD_OPERATIONAL_STATE_OFF;
             case "PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE":
                 return PAYLOAD_OPERATIONAL_STATE_OUT_OF_SERVICE;
+            case "PAYLOAD_OPERATIONAL_STATE_UNKNOWN":
+                return PAYLOAD_OPERATIONAL_STATE_UNKNOWN;
             case "PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL":
                 return PAYLOAD_OPERATIONAL_STATE_NON_OPERATIONAL;
             case "PAYLOAD_OPERATIONAL_STATE_INVALID":

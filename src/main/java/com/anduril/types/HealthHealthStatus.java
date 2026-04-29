@@ -10,12 +10,6 @@ public final class HealthHealthStatus {
     public static final HealthHealthStatus HEALTH_STATUS_HEALTHY =
             new HealthHealthStatus(Value.HEALTH_STATUS_HEALTHY, "HEALTH_STATUS_HEALTHY");
 
-    public static final HealthHealthStatus HEALTH_STATUS_FAIL =
-            new HealthHealthStatus(Value.HEALTH_STATUS_FAIL, "HEALTH_STATUS_FAIL");
-
-    public static final HealthHealthStatus HEALTH_STATUS_INVALID =
-            new HealthHealthStatus(Value.HEALTH_STATUS_INVALID, "HEALTH_STATUS_INVALID");
-
     public static final HealthHealthStatus HEALTH_STATUS_WARN =
             new HealthHealthStatus(Value.HEALTH_STATUS_WARN, "HEALTH_STATUS_WARN");
 
@@ -24,6 +18,12 @@ public final class HealthHealthStatus {
 
     public static final HealthHealthStatus HEALTH_STATUS_NOT_READY =
             new HealthHealthStatus(Value.HEALTH_STATUS_NOT_READY, "HEALTH_STATUS_NOT_READY");
+
+    public static final HealthHealthStatus HEALTH_STATUS_FAIL =
+            new HealthHealthStatus(Value.HEALTH_STATUS_FAIL, "HEALTH_STATUS_FAIL");
+
+    public static final HealthHealthStatus HEALTH_STATUS_INVALID =
+            new HealthHealthStatus(Value.HEALTH_STATUS_INVALID, "HEALTH_STATUS_INVALID");
 
     private final Value value;
 
@@ -59,16 +59,16 @@ public final class HealthHealthStatus {
         switch (value) {
             case HEALTH_STATUS_HEALTHY:
                 return visitor.visitHealthStatusHealthy();
-            case HEALTH_STATUS_FAIL:
-                return visitor.visitHealthStatusFail();
-            case HEALTH_STATUS_INVALID:
-                return visitor.visitHealthStatusInvalid();
             case HEALTH_STATUS_WARN:
                 return visitor.visitHealthStatusWarn();
             case HEALTH_STATUS_OFFLINE:
                 return visitor.visitHealthStatusOffline();
             case HEALTH_STATUS_NOT_READY:
                 return visitor.visitHealthStatusNotReady();
+            case HEALTH_STATUS_FAIL:
+                return visitor.visitHealthStatusFail();
+            case HEALTH_STATUS_INVALID:
+                return visitor.visitHealthStatusInvalid();
             case UNKNOWN:
             default:
                 return visitor.visitUnknown(string);
@@ -80,16 +80,16 @@ public final class HealthHealthStatus {
         switch (value) {
             case "HEALTH_STATUS_HEALTHY":
                 return HEALTH_STATUS_HEALTHY;
-            case "HEALTH_STATUS_FAIL":
-                return HEALTH_STATUS_FAIL;
-            case "HEALTH_STATUS_INVALID":
-                return HEALTH_STATUS_INVALID;
             case "HEALTH_STATUS_WARN":
                 return HEALTH_STATUS_WARN;
             case "HEALTH_STATUS_OFFLINE":
                 return HEALTH_STATUS_OFFLINE;
             case "HEALTH_STATUS_NOT_READY":
                 return HEALTH_STATUS_NOT_READY;
+            case "HEALTH_STATUS_FAIL":
+                return HEALTH_STATUS_FAIL;
+            case "HEALTH_STATUS_INVALID":
+                return HEALTH_STATUS_INVALID;
             default:
                 return new HealthHealthStatus(Value.UNKNOWN, value);
         }

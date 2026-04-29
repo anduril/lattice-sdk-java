@@ -7,11 +7,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class HealthConnectionStatus {
-    public static final HealthConnectionStatus CONNECTION_STATUS_OFFLINE =
-            new HealthConnectionStatus(Value.CONNECTION_STATUS_OFFLINE, "CONNECTION_STATUS_OFFLINE");
-
     public static final HealthConnectionStatus CONNECTION_STATUS_ONLINE =
             new HealthConnectionStatus(Value.CONNECTION_STATUS_ONLINE, "CONNECTION_STATUS_ONLINE");
+
+    public static final HealthConnectionStatus CONNECTION_STATUS_OFFLINE =
+            new HealthConnectionStatus(Value.CONNECTION_STATUS_OFFLINE, "CONNECTION_STATUS_OFFLINE");
 
     public static final HealthConnectionStatus CONNECTION_STATUS_INVALID =
             new HealthConnectionStatus(Value.CONNECTION_STATUS_INVALID, "CONNECTION_STATUS_INVALID");
@@ -49,10 +49,10 @@ public final class HealthConnectionStatus {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
-            case CONNECTION_STATUS_OFFLINE:
-                return visitor.visitConnectionStatusOffline();
             case CONNECTION_STATUS_ONLINE:
                 return visitor.visitConnectionStatusOnline();
+            case CONNECTION_STATUS_OFFLINE:
+                return visitor.visitConnectionStatusOffline();
             case CONNECTION_STATUS_INVALID:
                 return visitor.visitConnectionStatusInvalid();
             case UNKNOWN:
@@ -64,10 +64,10 @@ public final class HealthConnectionStatus {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static HealthConnectionStatus valueOf(String value) {
         switch (value) {
-            case "CONNECTION_STATUS_OFFLINE":
-                return CONNECTION_STATUS_OFFLINE;
             case "CONNECTION_STATUS_ONLINE":
                 return CONNECTION_STATUS_ONLINE;
+            case "CONNECTION_STATUS_OFFLINE":
+                return CONNECTION_STATUS_OFFLINE;
             case "CONNECTION_STATUS_INVALID":
                 return CONNECTION_STATUS_INVALID;
             default:

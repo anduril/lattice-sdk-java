@@ -7,11 +7,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class ControlAreaDetailsType {
-    public static final ControlAreaDetailsType CONTROL_AREA_TYPE_LOITER_ZONE =
-            new ControlAreaDetailsType(Value.CONTROL_AREA_TYPE_LOITER_ZONE, "CONTROL_AREA_TYPE_LOITER_ZONE");
-
     public static final ControlAreaDetailsType CONTROL_AREA_TYPE_INVALID =
             new ControlAreaDetailsType(Value.CONTROL_AREA_TYPE_INVALID, "CONTROL_AREA_TYPE_INVALID");
+
+    public static final ControlAreaDetailsType CONTROL_AREA_TYPE_LOITER_ZONE =
+            new ControlAreaDetailsType(Value.CONTROL_AREA_TYPE_LOITER_ZONE, "CONTROL_AREA_TYPE_LOITER_ZONE");
 
     public static final ControlAreaDetailsType CONTROL_AREA_TYPE_DITCH_ZONE =
             new ControlAreaDetailsType(Value.CONTROL_AREA_TYPE_DITCH_ZONE, "CONTROL_AREA_TYPE_DITCH_ZONE");
@@ -55,10 +55,10 @@ public final class ControlAreaDetailsType {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
-            case CONTROL_AREA_TYPE_LOITER_ZONE:
-                return visitor.visitControlAreaTypeLoiterZone();
             case CONTROL_AREA_TYPE_INVALID:
                 return visitor.visitControlAreaTypeInvalid();
+            case CONTROL_AREA_TYPE_LOITER_ZONE:
+                return visitor.visitControlAreaTypeLoiterZone();
             case CONTROL_AREA_TYPE_DITCH_ZONE:
                 return visitor.visitControlAreaTypeDitchZone();
             case CONTROL_AREA_TYPE_KEEP_IN_ZONE:
@@ -74,10 +74,10 @@ public final class ControlAreaDetailsType {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static ControlAreaDetailsType valueOf(String value) {
         switch (value) {
-            case "CONTROL_AREA_TYPE_LOITER_ZONE":
-                return CONTROL_AREA_TYPE_LOITER_ZONE;
             case "CONTROL_AREA_TYPE_INVALID":
                 return CONTROL_AREA_TYPE_INVALID;
+            case "CONTROL_AREA_TYPE_LOITER_ZONE":
+                return CONTROL_AREA_TYPE_LOITER_ZONE;
             case "CONTROL_AREA_TYPE_DITCH_ZONE":
                 return CONTROL_AREA_TYPE_DITCH_ZONE;
             case "CONTROL_AREA_TYPE_KEEP_IN_ZONE":

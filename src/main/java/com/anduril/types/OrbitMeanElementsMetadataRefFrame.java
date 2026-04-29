@@ -7,11 +7,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public final class OrbitMeanElementsMetadataRefFrame {
-    public static final OrbitMeanElementsMetadataRefFrame ECI_REFERENCE_FRAME_INVALID =
-            new OrbitMeanElementsMetadataRefFrame(Value.ECI_REFERENCE_FRAME_INVALID, "ECI_REFERENCE_FRAME_INVALID");
-
     public static final OrbitMeanElementsMetadataRefFrame ECI_REFERENCE_FRAME_TEME =
             new OrbitMeanElementsMetadataRefFrame(Value.ECI_REFERENCE_FRAME_TEME, "ECI_REFERENCE_FRAME_TEME");
+
+    public static final OrbitMeanElementsMetadataRefFrame ECI_REFERENCE_FRAME_INVALID =
+            new OrbitMeanElementsMetadataRefFrame(Value.ECI_REFERENCE_FRAME_INVALID, "ECI_REFERENCE_FRAME_INVALID");
 
     private final Value value;
 
@@ -46,10 +46,10 @@ public final class OrbitMeanElementsMetadataRefFrame {
 
     public <T> T visit(Visitor<T> visitor) {
         switch (value) {
-            case ECI_REFERENCE_FRAME_INVALID:
-                return visitor.visitEciReferenceFrameInvalid();
             case ECI_REFERENCE_FRAME_TEME:
                 return visitor.visitEciReferenceFrameTeme();
+            case ECI_REFERENCE_FRAME_INVALID:
+                return visitor.visitEciReferenceFrameInvalid();
             case UNKNOWN:
             default:
                 return visitor.visitUnknown(string);
@@ -59,10 +59,10 @@ public final class OrbitMeanElementsMetadataRefFrame {
     @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
     public static OrbitMeanElementsMetadataRefFrame valueOf(String value) {
         switch (value) {
-            case "ECI_REFERENCE_FRAME_INVALID":
-                return ECI_REFERENCE_FRAME_INVALID;
             case "ECI_REFERENCE_FRAME_TEME":
                 return ECI_REFERENCE_FRAME_TEME;
+            case "ECI_REFERENCE_FRAME_INVALID":
+                return ECI_REFERENCE_FRAME_INVALID;
             default:
                 return new OrbitMeanElementsMetadataRefFrame(Value.UNKNOWN, value);
         }
