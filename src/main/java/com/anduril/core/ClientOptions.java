@@ -38,10 +38,10 @@ public final class ClientOptions {
         this.headers.putAll(headers);
         this.headers.putAll(new HashMap<String, String>() {
             {
-                put("User-Agent", "com.anduril:lattice-sdk/5.7.1");
+                put("User-Agent", "com.anduril:lattice-sdk/5.8.0");
                 put("X-Fern-Language", "JAVA");
                 put("X-Fern-SDK-Name", "com.anduril:lattice-sdk");
-                put("X-Fern-SDK-Version", "5.7.1");
+                put("X-Fern-SDK-Version", "5.8.0");
             }
         });
         this.headerSuppliers = headerSuppliers;

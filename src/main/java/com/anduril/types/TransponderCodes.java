@@ -32,6 +32,8 @@ public final class TransponderCodes {
 
     private final Optional<ModeS> modeS;
 
+    private final Optional<Integer> modeCAltitudeFt;
+
     private final Map<String, Object> additionalProperties;
 
     private TransponderCodes(
@@ -41,6 +43,7 @@ public final class TransponderCodes {
             Optional<TransponderCodesMode4InterrogationResponse> mode4InterrogationResponse,
             Optional<Mode5> mode5,
             Optional<ModeS> modeS,
+            Optional<Integer> modeCAltitudeFt,
             Map<String, Object> additionalProperties) {
         this.mode1 = mode1;
         this.mode2 = mode2;
@@ -48,6 +51,7 @@ public final class TransponderCodes {
         this.mode4InterrogationResponse = mode4InterrogationResponse;
         this.mode5 = mode5;
         this.modeS = modeS;
+        this.modeCAltitudeFt = modeCAltitudeFt;
         this.additionalProperties = additionalProperties;
     }
 
@@ -99,6 +103,15 @@ public final class TransponderCodes {
         return modeS;
     }
 
+    /**
+     * @return The Mode C altitude reported by the transponder in feet. Mode C provides pressure altitude
+     * in 100-foot increments up to 10,000 feet MSL. A zero value indicates No Statement.
+     */
+    @JsonProperty("modeCAltitudeFt")
+    public Optional<Integer> getModeCAltitudeFt() {
+        return modeCAltitudeFt;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -116,13 +129,20 @@ public final class TransponderCodes {
                 && mode3.equals(other.mode3)
                 && mode4InterrogationResponse.equals(other.mode4InterrogationResponse)
                 && mode5.equals(other.mode5)
-                && modeS.equals(other.modeS);
+                && modeS.equals(other.modeS)
+                && modeCAltitudeFt.equals(other.modeCAltitudeFt);
     }
 
     @java.lang.Override
     public int hashCode() {
         return Objects.hash(
-                this.mode1, this.mode2, this.mode3, this.mode4InterrogationResponse, this.mode5, this.modeS);
+                this.mode1,
+                this.mode2,
+                this.mode3,
+                this.mode4InterrogationResponse,
+                this.mode5,
+                this.modeS,
+                this.modeCAltitudeFt);
     }
 
     @java.lang.Override
@@ -148,6 +168,8 @@ public final class TransponderCodes {
 
         private Optional<ModeS> modeS = Optional.empty();
 
+        private Optional<Integer> modeCAltitudeFt = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -160,6 +182,7 @@ public final class TransponderCodes {
             mode4InterrogationResponse(other.getMode4InterrogationResponse());
             mode5(other.getMode5());
             modeS(other.getModeS());
+            modeCAltitudeFt(other.getModeCAltitudeFt());
             return this;
         }
 
@@ -249,9 +272,31 @@ public final class TransponderCodes {
             return this;
         }
 
+        /**
+         * <p>The Mode C altitude reported by the transponder in feet. Mode C provides pressure altitude
+         * in 100-foot increments up to 10,000 feet MSL. A zero value indicates No Statement.</p>
+         */
+        @JsonSetter(value = "modeCAltitudeFt", nulls = Nulls.SKIP)
+        public Builder modeCAltitudeFt(Optional<Integer> modeCAltitudeFt) {
+            this.modeCAltitudeFt = modeCAltitudeFt;
+            return this;
+        }
+
+        public Builder modeCAltitudeFt(Integer modeCAltitudeFt) {
+            this.modeCAltitudeFt = Optional.ofNullable(modeCAltitudeFt);
+            return this;
+        }
+
         public TransponderCodes build() {
             return new TransponderCodes(
-                    mode1, mode2, mode3, mode4InterrogationResponse, mode5, modeS, additionalProperties);
+                    mode1,
+                    mode2,
+                    mode3,
+                    mode4InterrogationResponse,
+                    mode5,
+                    modeS,
+                    modeCAltitudeFt,
+                    additionalProperties);
         }
 
         public Builder additionalProperty(String key, Object value) {
