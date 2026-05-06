@@ -104,8 +104,8 @@ public final class TransponderCodes {
     }
 
     /**
-     * @return The Mode C altitude reported by the transponder in feet. Mode C provides pressure altitude
-     * in 100-foot increments up to 10,000 feet MSL. A zero value indicates No Statement.
+     * @return The Mode C altitude reported by the transponder in feet. Mode C provides pressure altitude in 100-foot increments up
+     * to 10,000 feet MSL. Valid altitudes include 0 ft (sea level). An unset field indicates no Mode C response was received.
      */
     @JsonProperty("modeCAltitudeFt")
     public Optional<Integer> getModeCAltitudeFt() {
@@ -273,8 +273,8 @@ public final class TransponderCodes {
         }
 
         /**
-         * <p>The Mode C altitude reported by the transponder in feet. Mode C provides pressure altitude
-         * in 100-foot increments up to 10,000 feet MSL. A zero value indicates No Statement.</p>
+         * <p>The Mode C altitude reported by the transponder in feet. Mode C provides pressure altitude in 100-foot increments up
+         * to 10,000 feet MSL. Valid altitudes include 0 ft (sea level). An unset field indicates no Mode C response was received.</p>
          */
         @JsonSetter(value = "modeCAltitudeFt", nulls = Nulls.SKIP)
         public Builder modeCAltitudeFt(Optional<Integer> modeCAltitudeFt) {
