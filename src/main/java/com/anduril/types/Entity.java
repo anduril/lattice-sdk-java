@@ -390,7 +390,7 @@ public final class Entity {
     }
 
     /**
-     * @return A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S interrogations. These are related to ADS-B modes.
+     * @return A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S, C interrogations. These are related to ADS-B modes.
      */
     @JsonProperty("transponderCodes")
     public Optional<TransponderCodes> getTransponderCodes() {
@@ -1085,7 +1085,7 @@ public final class Entity {
         }
 
         /**
-         * <p>A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S interrogations. These are related to ADS-B modes.</p>
+         * <p>A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S, C interrogations. These are related to ADS-B modes.</p>
          */
         @JsonSetter(value = "transponderCodes", nulls = Nulls.SKIP)
         public Builder transponderCodes(Optional<TransponderCodes> transponderCodes) {
