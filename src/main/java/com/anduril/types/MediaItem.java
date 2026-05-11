@@ -20,6 +20,8 @@ import java.util.Optional;
 @JsonInclude(JsonInclude.Include.NON_ABSENT)
 @JsonDeserialize(builder = MediaItem.Builder.class)
 public final class MediaItem {
+    private final Optional<String> itemIdentifier;
+
     private final Optional<MediaItemType> type;
 
     private final Optional<String> relativePath;
@@ -27,12 +29,27 @@ public final class MediaItem {
     private final Map<String, Object> additionalProperties;
 
     private MediaItem(
-            Optional<MediaItemType> type, Optional<String> relativePath, Map<String, Object> additionalProperties) {
+            Optional<String> itemIdentifier,
+            Optional<MediaItemType> type,
+            Optional<String> relativePath,
+            Map<String, Object> additionalProperties) {
+        this.itemIdentifier = itemIdentifier;
         this.type = type;
         this.relativePath = relativePath;
         this.additionalProperties = additionalProperties;
     }
 
+    /**
+     * @return A unique identifier for this mediaItem.
+     */
+    @JsonProperty("itemIdentifier")
+    public Optional<String> getItemIdentifier() {
+        return itemIdentifier;
+    }
+
+    /**
+     * @return The type of media for this item.
+     */
     @JsonProperty("type")
     public Optional<MediaItemType> getType() {
         return type;
@@ -58,12 +75,14 @@ public final class MediaItem {
     }
 
     private boolean equalTo(MediaItem other) {
-        return type.equals(other.type) && relativePath.equals(other.relativePath);
+        return itemIdentifier.equals(other.itemIdentifier)
+                && type.equals(other.type)
+                && relativePath.equals(other.relativePath);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.type, this.relativePath);
+        return Objects.hash(this.itemIdentifier, this.type, this.relativePath);
     }
 
     @java.lang.Override
@@ -77,6 +96,8 @@ public final class MediaItem {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static final class Builder {
+        private Optional<String> itemIdentifier = Optional.empty();
+
         private Optional<MediaItemType> type = Optional.empty();
 
         private Optional<String> relativePath = Optional.empty();
@@ -87,11 +108,29 @@ public final class MediaItem {
         private Builder() {}
 
         public Builder from(MediaItem other) {
+            itemIdentifier(other.getItemIdentifier());
             type(other.getType());
             relativePath(other.getRelativePath());
             return this;
         }
 
+        /**
+         * <p>A unique identifier for this mediaItem.</p>
+         */
+        @JsonSetter(value = "itemIdentifier", nulls = Nulls.SKIP)
+        public Builder itemIdentifier(Optional<String> itemIdentifier) {
+            this.itemIdentifier = itemIdentifier;
+            return this;
+        }
+
+        public Builder itemIdentifier(String itemIdentifier) {
+            this.itemIdentifier = Optional.ofNullable(itemIdentifier);
+            return this;
+        }
+
+        /**
+         * <p>The type of media for this item.</p>
+         */
         @JsonSetter(value = "type", nulls = Nulls.SKIP)
         public Builder type(Optional<MediaItemType> type) {
             this.type = type;
@@ -118,7 +157,7 @@ public final class MediaItem {
         }
 
         public MediaItem build() {
-            return new MediaItem(type, relativePath, additionalProperties);
+            return new MediaItem(itemIdentifier, type, relativePath, additionalProperties);
         }
 
         public Builder additionalProperty(String key, Object value) {
