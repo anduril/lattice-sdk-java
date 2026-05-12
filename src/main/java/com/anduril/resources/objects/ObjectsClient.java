@@ -9,7 +9,9 @@ import com.anduril.core.pagination.SyncPagingIterable;
 import com.anduril.resources.objects.requests.DeleteObjectRequest;
 import com.anduril.resources.objects.requests.GetObjectMetadataRequest;
 import com.anduril.resources.objects.requests.GetObjectRequest;
+import com.anduril.resources.objects.requests.ListDeletedObjectsRequest;
 import com.anduril.resources.objects.requests.ListObjectsRequest;
+import com.anduril.types.DeletedObjectEntry;
 import com.anduril.types.PathMetadata;
 import java.io.InputStream;
 
@@ -56,6 +58,51 @@ public class ObjectsClient {
      */
     public SyncPagingIterable<PathMetadata> listObjects(ListObjectsRequest request, RequestOptions requestOptions) {
         return this.rawClient.listObjects(request, requestOptions).body();
+    }
+
+    /**
+     * Returns paginated records of force-distributed objects deleted on the
+     * local node. Useful for operators diagnosing why an object visible on
+     * one node is missing on another. Each record identifies the exact
+     * <code>(path, checksum)</code> pair suppressed from re-sync by the distribution
+     * manager. Node-scoped: each node returns only its own records.
+     */
+    public SyncPagingIterable<DeletedObjectEntry> listDeletedObjects() {
+        return this.rawClient.listDeletedObjects().body();
+    }
+
+    /**
+     * Returns paginated records of force-distributed objects deleted on the
+     * local node. Useful for operators diagnosing why an object visible on
+     * one node is missing on another. Each record identifies the exact
+     * <code>(path, checksum)</code> pair suppressed from re-sync by the distribution
+     * manager. Node-scoped: each node returns only its own records.
+     */
+    public SyncPagingIterable<DeletedObjectEntry> listDeletedObjects(RequestOptions requestOptions) {
+        return this.rawClient.listDeletedObjects(requestOptions).body();
+    }
+
+    /**
+     * Returns paginated records of force-distributed objects deleted on the
+     * local node. Useful for operators diagnosing why an object visible on
+     * one node is missing on another. Each record identifies the exact
+     * <code>(path, checksum)</code> pair suppressed from re-sync by the distribution
+     * manager. Node-scoped: each node returns only its own records.
+     */
+    public SyncPagingIterable<DeletedObjectEntry> listDeletedObjects(ListDeletedObjectsRequest request) {
+        return this.rawClient.listDeletedObjects(request).body();
+    }
+
+    /**
+     * Returns paginated records of force-distributed objects deleted on the
+     * local node. Useful for operators diagnosing why an object visible on
+     * one node is missing on another. Each record identifies the exact
+     * <code>(path, checksum)</code> pair suppressed from re-sync by the distribution
+     * manager. Node-scoped: each node returns only its own records.
+     */
+    public SyncPagingIterable<DeletedObjectEntry> listDeletedObjects(
+            ListDeletedObjectsRequest request, RequestOptions requestOptions) {
+        return this.rawClient.listDeletedObjects(request, requestOptions).body();
     }
 
     /**

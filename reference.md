@@ -1368,6 +1368,76 @@ client.objects().listObjects(
 </dl>
 </details>
 
+<details><summary><code>client.objects.listDeletedObjects() -> SyncPagingIterable&amp;lt;DeletedObjectEntry&amp;gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns paginated records of force-distributed objects deleted on the
+local node. Useful for operators diagnosing why an object visible on
+one node is missing on another. Each record identifies the exact
+`(path, checksum)` pair suppressed from re-sync by the distribution
+manager. Node-scoped: each node returns only its own records.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```java
+client.objects().listDeletedObjects(
+    ListDeletedObjectsRequest
+        .builder()
+        .build()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**pageToken:** `Optional<String>` — Opaque cursor returned by a prior response to continue paging.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**maxPageSize:** `Optional<Integer>` — Maximum number of records to return in a single response. Server enforces an upper bound.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.objects.getObject(objectPath) -> InputStream</code></summary>
 <dl>
 <dd>

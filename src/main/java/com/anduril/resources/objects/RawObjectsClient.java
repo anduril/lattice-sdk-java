@@ -23,7 +23,10 @@ import com.anduril.resources.object.types.Error;
 import com.anduril.resources.objects.requests.DeleteObjectRequest;
 import com.anduril.resources.objects.requests.GetObjectMetadataRequest;
 import com.anduril.resources.objects.requests.GetObjectRequest;
+import com.anduril.resources.objects.requests.ListDeletedObjectsRequest;
 import com.anduril.resources.objects.requests.ListObjectsRequest;
+import com.anduril.types.DeletedObjectEntry;
+import com.anduril.types.ListDeletedObjectsResponse;
 import com.anduril.types.ListResponse;
 import com.anduril.types.PathMetadata;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -127,6 +130,118 @@ public class RawObjectsClient {
                 return new LatticeHttpResponse<>(
                         new SyncPagingIterable<PathMetadata>(
                                 startingAfter.isPresent(), result, parsedResponse, () -> listObjects(
+                                                nextRequest, requestOptions)
+                                        .body()),
+                        response);
+            }
+            try {
+                switch (response.code()) {
+                    case 400:
+                        throw new BadRequestError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class), response);
+                    case 401:
+                        throw new UnauthorizedError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class), response);
+                    case 500:
+                        throw new InternalServerError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class), response);
+                }
+            } catch (JsonProcessingException ignored) {
+                // unable to map error response, throwing generic error
+            }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
+            throw new LatticeApiException(
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (IOException e) {
+            throw new LatticeException("Network error executing HTTP request", e);
+        }
+    }
+
+    /**
+     * Returns paginated records of force-distributed objects deleted on the
+     * local node. Useful for operators diagnosing why an object visible on
+     * one node is missing on another. Each record identifies the exact
+     * <code>(path, checksum)</code> pair suppressed from re-sync by the distribution
+     * manager. Node-scoped: each node returns only its own records.
+     */
+    public LatticeHttpResponse<SyncPagingIterable<DeletedObjectEntry>> listDeletedObjects() {
+        return listDeletedObjects(ListDeletedObjectsRequest.builder().build());
+    }
+
+    /**
+     * Returns paginated records of force-distributed objects deleted on the
+     * local node. Useful for operators diagnosing why an object visible on
+     * one node is missing on another. Each record identifies the exact
+     * <code>(path, checksum)</code> pair suppressed from re-sync by the distribution
+     * manager. Node-scoped: each node returns only its own records.
+     */
+    public LatticeHttpResponse<SyncPagingIterable<DeletedObjectEntry>> listDeletedObjects(
+            RequestOptions requestOptions) {
+        return listDeletedObjects(ListDeletedObjectsRequest.builder().build(), requestOptions);
+    }
+
+    /**
+     * Returns paginated records of force-distributed objects deleted on the
+     * local node. Useful for operators diagnosing why an object visible on
+     * one node is missing on another. Each record identifies the exact
+     * <code>(path, checksum)</code> pair suppressed from re-sync by the distribution
+     * manager. Node-scoped: each node returns only its own records.
+     */
+    public LatticeHttpResponse<SyncPagingIterable<DeletedObjectEntry>> listDeletedObjects(
+            ListDeletedObjectsRequest request) {
+        return listDeletedObjects(request, null);
+    }
+
+    /**
+     * Returns paginated records of force-distributed objects deleted on the
+     * local node. Useful for operators diagnosing why an object visible on
+     * one node is missing on another. Each record identifies the exact
+     * <code>(path, checksum)</code> pair suppressed from re-sync by the distribution
+     * manager. Node-scoped: each node returns only its own records.
+     */
+    public LatticeHttpResponse<SyncPagingIterable<DeletedObjectEntry>> listDeletedObjects(
+            ListDeletedObjectsRequest request, RequestOptions requestOptions) {
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+                .newBuilder()
+                .addPathSegments("api/v1/debug/deleted-objects");
+        if (request.getPageToken().isPresent()) {
+            QueryStringMapper.addQueryParameter(
+                    httpUrl, "pageToken", request.getPageToken().get(), false);
+        }
+        if (request.getMaxPageSize().isPresent()) {
+            QueryStringMapper.addQueryParameter(
+                    httpUrl, "maxPageSize", request.getMaxPageSize().get(), false);
+        }
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
+        Request.Builder _requestBuilder = new Request.Builder()
+                .url(httpUrl.build())
+                .method("GET", null)
+                .headers(Headers.of(clientOptions.headers(requestOptions)))
+                .addHeader("Accept", "application/json");
+        Request okhttpRequest = _requestBuilder.build();
+        OkHttpClient client = clientOptions.httpClient();
+        if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
+            client = clientOptions.httpClientWithTimeout(requestOptions);
+        }
+        try (Response response = client.newCall(okhttpRequest).execute()) {
+            ResponseBody responseBody = response.body();
+            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
+            if (response.isSuccessful()) {
+                ListDeletedObjectsResponse parsedResponse =
+                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, ListDeletedObjectsResponse.class);
+                Optional<String> startingAfter = parsedResponse.getNextPageToken();
+                ListDeletedObjectsRequest nextRequest = ListDeletedObjectsRequest.builder()
+                        .from(request)
+                        .pageToken(startingAfter)
+                        .build();
+                List<DeletedObjectEntry> result = parsedResponse.getDeletedObjects();
+                return new LatticeHttpResponse<>(
+                        new SyncPagingIterable<DeletedObjectEntry>(
+                                startingAfter.isPresent(), result, parsedResponse, () -> listDeletedObjects(
                                                 nextRequest, requestOptions)
                                         .body()),
                         response);
