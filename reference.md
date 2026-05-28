@@ -1186,7 +1186,7 @@ client.tasks().streamAsAgent(
 <dl>
 <dd>
 
-**heartbeatIntervalMs:** `Optional<Integer>` — The time interval, defined in seconds, that determines the frequency at which to send heartbeat events. Defaults to 30s.
+**heartbeatIntervalMs:** `Optional<Integer>` — The time interval, in milliseconds, that determines the frequency at which to send heartbeat events. Defaults to 30000 (30 seconds).
     
 </dd>
 </dl>

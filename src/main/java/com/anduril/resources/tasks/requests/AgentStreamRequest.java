@@ -45,7 +45,7 @@ public final class AgentStreamRequest {
     }
 
     /**
-     * @return The time interval, defined in seconds, that determines the frequency at which to send heartbeat events. Defaults to 30s.
+     * @return The time interval, in milliseconds, that determines the frequency at which to send heartbeat events. Defaults to 30000 (30 seconds).
      */
     @JsonProperty("heartbeatIntervalMs")
     public Optional<Integer> getHeartbeatIntervalMs() {
@@ -113,7 +113,7 @@ public final class AgentStreamRequest {
         }
 
         /**
-         * <p>The time interval, defined in seconds, that determines the frequency at which to send heartbeat events. Defaults to 30s.</p>
+         * <p>The time interval, in milliseconds, that determines the frequency at which to send heartbeat events. Defaults to 30000 (30 seconds).</p>
          */
         @JsonSetter(value = "heartbeatIntervalMs", nulls = Nulls.SKIP)
         public Builder heartbeatIntervalMs(Optional<Integer> heartbeatIntervalMs) {
