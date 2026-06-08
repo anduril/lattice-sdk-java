@@ -700,8 +700,7 @@ public class AsyncRawEntitiesClient {
                     ResponseBody responseBody = response.body();
                     if (response.isSuccessful()) {
                         future.complete(new LatticeHttpResponse<>(
-                                Stream.fromSseWithEventDiscrimination(
-                                        StreamEntitiesResponse.class, new ResponseBodyReader(response), "event"),
+                                Stream.fromSse(StreamEntitiesResponse.class, new ResponseBodyReader(response)),
                                 response));
                         return;
                     }

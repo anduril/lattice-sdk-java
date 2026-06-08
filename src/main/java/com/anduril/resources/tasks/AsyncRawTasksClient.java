@@ -792,9 +792,7 @@ public class AsyncRawTasksClient {
                     ResponseBody responseBody = response.body();
                     if (response.isSuccessful()) {
                         future.complete(new LatticeHttpResponse<>(
-                                Stream.fromSseWithEventDiscrimination(
-                                        StreamTasksResponse.class, new ResponseBodyReader(response), "event"),
-                                response));
+                                Stream.fromSse(StreamTasksResponse.class, new ResponseBodyReader(response)), response));
                         return;
                     }
                     String responseBodyString = responseBody != null ? responseBody.string() : "{}";
@@ -1105,8 +1103,7 @@ public class AsyncRawTasksClient {
                     ResponseBody responseBody = response.body();
                     if (response.isSuccessful()) {
                         future.complete(new LatticeHttpResponse<>(
-                                Stream.fromSseWithEventDiscrimination(
-                                        StreamAsAgentResponse.class, new ResponseBodyReader(response), "event"),
+                                Stream.fromSse(StreamAsAgentResponse.class, new ResponseBodyReader(response)),
                                 response));
                         return;
                     }
@@ -1250,10 +1247,8 @@ public class AsyncRawTasksClient {
                     ResponseBody responseBody = response.body();
                     if (response.isSuccessful()) {
                         future.complete(new LatticeHttpResponse<>(
-                                Stream.fromSseWithEventDiscrimination(
-                                        StreamManualControlFramesResponse.class,
-                                        new ResponseBodyReader(response),
-                                        "event"),
+                                Stream.fromSse(
+                                        StreamManualControlFramesResponse.class, new ResponseBodyReader(response)),
                                 response));
                         return;
                     }
