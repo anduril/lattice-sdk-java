@@ -591,9 +591,7 @@ public class RawEntitiesClient {
             ResponseBody responseBody = response.body();
             if (response.isSuccessful()) {
                 return new LatticeHttpResponse<>(
-                        Stream.fromSseWithEventDiscrimination(
-                                StreamEntitiesResponse.class, new ResponseBodyReader(response), "event"),
-                        response);
+                        Stream.fromSse(StreamEntitiesResponse.class, new ResponseBodyReader(response)), response);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {

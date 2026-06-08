@@ -686,9 +686,7 @@ public class RawTasksClient {
             ResponseBody responseBody = response.body();
             if (response.isSuccessful()) {
                 return new LatticeHttpResponse<>(
-                        Stream.fromSseWithEventDiscrimination(
-                                StreamTasksResponse.class, new ResponseBodyReader(response), "event"),
-                        response);
+                        Stream.fromSse(StreamTasksResponse.class, new ResponseBodyReader(response)), response);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {
@@ -962,9 +960,7 @@ public class RawTasksClient {
             ResponseBody responseBody = response.body();
             if (response.isSuccessful()) {
                 return new LatticeHttpResponse<>(
-                        Stream.fromSseWithEventDiscrimination(
-                                StreamAsAgentResponse.class, new ResponseBodyReader(response), "event"),
-                        response);
+                        Stream.fromSse(StreamAsAgentResponse.class, new ResponseBodyReader(response)), response);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
             try {
@@ -1087,8 +1083,7 @@ public class RawTasksClient {
             ResponseBody responseBody = response.body();
             if (response.isSuccessful()) {
                 return new LatticeHttpResponse<>(
-                        Stream.fromSseWithEventDiscrimination(
-                                StreamManualControlFramesResponse.class, new ResponseBodyReader(response), "event"),
+                        Stream.fromSse(StreamManualControlFramesResponse.class, new ResponseBodyReader(response)),
                         response);
             }
             String responseBodyString = responseBody != null ? responseBody.string() : "{}";
