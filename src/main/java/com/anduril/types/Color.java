@@ -44,7 +44,7 @@ public final class Color {
     }
 
     /**
-     * @return The amount of red in the color as a value in the interval [0, 1].
+     * @return The amount of red in the color as a value in the interval [0, 255].
      */
     @JsonProperty("red")
     public Optional<Float> getRed() {
@@ -52,7 +52,7 @@ public final class Color {
     }
 
     /**
-     * @return The amount of green in the color as a value in the interval [0, 1].
+     * @return The amount of green in the color as a value in the interval [0, 255].
      */
     @JsonProperty("green")
     public Optional<Float> getGreen() {
@@ -60,7 +60,7 @@ public final class Color {
     }
 
     /**
-     * @return The amount of blue in the color as a value in the interval [0, 1].
+     * @return The amount of blue in the color as a value in the interval [0, 255].
      */
     @JsonProperty("blue")
     public Optional<Float> getBlue() {
@@ -139,7 +139,7 @@ public final class Color {
         }
 
         /**
-         * <p>The amount of red in the color as a value in the interval [0, 1].</p>
+         * <p>The amount of red in the color as a value in the interval [0, 255].</p>
          */
         @JsonSetter(value = "red", nulls = Nulls.SKIP)
         public Builder red(Optional<Float> red) {
@@ -153,7 +153,7 @@ public final class Color {
         }
 
         /**
-         * <p>The amount of green in the color as a value in the interval [0, 1].</p>
+         * <p>The amount of green in the color as a value in the interval [0, 255].</p>
          */
         @JsonSetter(value = "green", nulls = Nulls.SKIP)
         public Builder green(Optional<Float> green) {
@@ -167,7 +167,7 @@ public final class Color {
         }
 
         /**
-         * <p>The amount of blue in the color as a value in the interval [0, 1].</p>
+         * <p>The amount of blue in the color as a value in the interval [0, 255].</p>
          */
         @JsonSetter(value = "blue", nulls = Nulls.SKIP)
         public Builder blue(Optional<Float> blue) {
