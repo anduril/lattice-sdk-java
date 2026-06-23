@@ -26,16 +26,20 @@ public final class GeoDetails {
 
     private final Optional<AcmDetails> acm;
 
+    private final Optional<GeoVisualDetails> visualDetails;
+
     private final Map<String, Object> additionalProperties;
 
     private GeoDetails(
             Optional<GeoDetailsType> type,
             Optional<ControlAreaDetails> controlArea,
             Optional<AcmDetails> acm,
+            Optional<GeoVisualDetails> visualDetails,
             Map<String, Object> additionalProperties) {
         this.type = type;
         this.controlArea = controlArea;
         this.acm = acm;
+        this.visualDetails = visualDetails;
         this.additionalProperties = additionalProperties;
     }
 
@@ -54,6 +58,11 @@ public final class GeoDetails {
         return acm;
     }
 
+    @JsonProperty("visualDetails")
+    public Optional<GeoVisualDetails> getVisualDetails() {
+        return visualDetails;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -66,12 +75,15 @@ public final class GeoDetails {
     }
 
     private boolean equalTo(GeoDetails other) {
-        return type.equals(other.type) && controlArea.equals(other.controlArea) && acm.equals(other.acm);
+        return type.equals(other.type)
+                && controlArea.equals(other.controlArea)
+                && acm.equals(other.acm)
+                && visualDetails.equals(other.visualDetails);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.type, this.controlArea, this.acm);
+        return Objects.hash(this.type, this.controlArea, this.acm, this.visualDetails);
     }
 
     @java.lang.Override
@@ -91,6 +103,8 @@ public final class GeoDetails {
 
         private Optional<AcmDetails> acm = Optional.empty();
 
+        private Optional<GeoVisualDetails> visualDetails = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -100,6 +114,7 @@ public final class GeoDetails {
             type(other.getType());
             controlArea(other.getControlArea());
             acm(other.getAcm());
+            visualDetails(other.getVisualDetails());
             return this;
         }
 
@@ -136,8 +151,19 @@ public final class GeoDetails {
             return this;
         }
 
+        @JsonSetter(value = "visualDetails", nulls = Nulls.SKIP)
+        public Builder visualDetails(Optional<GeoVisualDetails> visualDetails) {
+            this.visualDetails = visualDetails;
+            return this;
+        }
+
+        public Builder visualDetails(GeoVisualDetails visualDetails) {
+            this.visualDetails = Optional.ofNullable(visualDetails);
+            return this;
+        }
+
         public GeoDetails build() {
-            return new GeoDetails(type, controlArea, acm, additionalProperties);
+            return new GeoDetails(type, controlArea, acm, visualDetails, additionalProperties);
         }
 
         public Builder additionalProperty(String key, Object value) {
