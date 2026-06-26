@@ -4,6 +4,7 @@
 package com.anduril.resources.entities.requests;
 
 import com.anduril.core.ObjectMappers;
+import com.anduril.types.Statement;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -27,16 +28,20 @@ public final class EntityStreamRequest {
 
     private final Optional<List<String>> componentsToInclude;
 
+    private final Optional<Statement> filter;
+
     private final Map<String, Object> additionalProperties;
 
     private EntityStreamRequest(
             Optional<Integer> heartbeatIntervalMs,
             Optional<Boolean> preExistingOnly,
             Optional<List<String>> componentsToInclude,
+            Optional<Statement> filter,
             Map<String, Object> additionalProperties) {
         this.heartbeatIntervalMs = heartbeatIntervalMs;
         this.preExistingOnly = preExistingOnly;
         this.componentsToInclude = componentsToInclude;
+        this.filter = filter;
         this.additionalProperties = additionalProperties;
     }
 
@@ -64,6 +69,17 @@ public final class EntityStreamRequest {
         return componentsToInclude;
     }
 
+    /**
+     * @return Optional root of a Statement filter expression tree. If provided, only entities matching
+     * the filter are streamed. Applied dynamically: an entity that begins matching is delivered
+     * as a CREATE, and one that stops matching is delivered as a DELETE. Mirrors the filter on
+     * the gRPC StreamEntityComponents endpoint.
+     */
+    @JsonProperty("filter")
+    public Optional<Statement> getFilter() {
+        return filter;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -78,12 +94,13 @@ public final class EntityStreamRequest {
     private boolean equalTo(EntityStreamRequest other) {
         return heartbeatIntervalMs.equals(other.heartbeatIntervalMs)
                 && preExistingOnly.equals(other.preExistingOnly)
-                && componentsToInclude.equals(other.componentsToInclude);
+                && componentsToInclude.equals(other.componentsToInclude)
+                && filter.equals(other.filter);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.heartbeatIntervalMs, this.preExistingOnly, this.componentsToInclude);
+        return Objects.hash(this.heartbeatIntervalMs, this.preExistingOnly, this.componentsToInclude, this.filter);
     }
 
     @java.lang.Override
@@ -103,6 +120,8 @@ public final class EntityStreamRequest {
 
         private Optional<List<String>> componentsToInclude = Optional.empty();
 
+        private Optional<Statement> filter = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -112,6 +131,7 @@ public final class EntityStreamRequest {
             heartbeatIntervalMs(other.getHeartbeatIntervalMs());
             preExistingOnly(other.getPreExistingOnly());
             componentsToInclude(other.getComponentsToInclude());
+            filter(other.getFilter());
             return this;
         }
 
@@ -157,9 +177,26 @@ public final class EntityStreamRequest {
             return this;
         }
 
+        /**
+         * <p>Optional root of a Statement filter expression tree. If provided, only entities matching
+         * the filter are streamed. Applied dynamically: an entity that begins matching is delivered
+         * as a CREATE, and one that stops matching is delivered as a DELETE. Mirrors the filter on
+         * the gRPC StreamEntityComponents endpoint.</p>
+         */
+        @JsonSetter(value = "filter", nulls = Nulls.SKIP)
+        public Builder filter(Optional<Statement> filter) {
+            this.filter = filter;
+            return this;
+        }
+
+        public Builder filter(Statement filter) {
+            this.filter = Optional.ofNullable(filter);
+            return this;
+        }
+
         public EntityStreamRequest build() {
             return new EntityStreamRequest(
-                    heartbeatIntervalMs, preExistingOnly, componentsToInclude, additionalProperties);
+                    heartbeatIntervalMs, preExistingOnly, componentsToInclude, filter, additionalProperties);
         }
 
         public Builder additionalProperty(String key, Object value) {
