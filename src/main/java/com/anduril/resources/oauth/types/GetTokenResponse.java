@@ -224,7 +224,6 @@ public final class GetTokenResponse {
 
         /**
          * <p>The access token</p>
-         * <p>The access token</p>
          * @return Reference to {@code this} so that method calls can be chained together.
          */
         @java.lang.Override
@@ -235,7 +234,6 @@ public final class GetTokenResponse {
         }
 
         /**
-         * <p>The type of token (typically &quot;Bearer&quot;)</p>
          * <p>The type of token (typically &quot;Bearer&quot;)</p>
          * @return Reference to {@code this} so that method calls can be chained together.
          */

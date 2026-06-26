@@ -100,7 +100,6 @@ public final class TaskStreamRequestTaskTypeTaskTypePrefix {
 
         /**
          * <p>Prefix string to match task types. Any task with a type that starts with this prefix will be included.</p>
-         * <p>Prefix string to match task types. Any task with a type that starts with this prefix will be included.</p>
          * @return Reference to {@code this} so that method calls can be chained together.
          */
         @java.lang.Override

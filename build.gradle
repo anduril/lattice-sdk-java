@@ -1,9 +1,19 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        if (JavaVersion.current().isJava11Compatible()) {
+            classpath 'cl.franciscosolis:SonatypeCentralUpload:1.0.3'
+        }
+    }
+}
+
 plugins {
     id 'java-library'
     id 'maven-publish'
     id 'com.diffplug.spotless' version '6.11.0'
     id 'signing'
-    id 'cl.franciscosolis.sonatype-central-upload' version '1.0.3'
 }
 
 repositories {
@@ -47,7 +57,7 @@ java {
 
 group = 'com.anduril'
 
-version = '5.14.0'
+version = '5.15.0'
 
 jar {
     dependsOn(":generatePomFileForMavenPublication")
@@ -78,7 +88,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.anduril'
             artifactId = 'lattice-sdk'
-            version = '5.14.0'
+            version = '5.15.0'
             from components.java
             pom {
                 name = 'Anduril Industries, Inc.'
@@ -105,19 +115,25 @@ publishing {
     }
 }
 
-sonatypeCentralUpload {
-    username = "$System.env.MAVEN_USERNAME"
-    password = "$System.env.MAVEN_PASSWORD"
+if (JavaVersion.current().isJava11Compatible()) {
+    apply plugin: 'cl.franciscosolis.sonatype-central-upload'
 
-    archives = files(
-        "$buildDir/libs/lattice-sdk-" + version + ".jar",
-        "$buildDir/libs/lattice-sdk-" + version + "-sources.jar",
-        "$buildDir/libs/lattice-sdk-" + version + "-javadoc.jar"
-    )
+    sonatypeCentralUpload {
+        username = "$System.env.MAVEN_USERNAME"
+        password = "$System.env.MAVEN_PASSWORD"
 
-    pom = file("$buildDir/publications/maven/pom-default.xml")
-    signingKey = "$System.env.MAVEN_SIGNATURE_SECRET_KEY"
-    signingKeyPassphrase = "$System.env.MAVEN_SIGNATURE_PASSWORD"
+        archives = files(
+            "$buildDir/libs/lattice-sdk-" + version + ".jar",
+            "$buildDir/libs/lattice-sdk-" + version + "-sources.jar",
+            "$buildDir/libs/lattice-sdk-" + version + "-javadoc.jar"
+        )
+
+        pom = file("$buildDir/publications/maven/pom-default.xml")
+        signingKey = "$System.env.MAVEN_SIGNATURE_SECRET_KEY"
+        signingKeyPassphrase = "$System.env.MAVEN_SIGNATURE_PASSWORD"
+    }
+
+    sonatypeCentralUpload.dependsOn build
 }
 
 signing {
@@ -127,5 +143,3 @@ signing {
     useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
     sign publishing.publications.maven
 }
-
-sonatypeCentralUpload.dependsOn build

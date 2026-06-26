@@ -138,13 +138,6 @@ public final class ContentIdentifier {
          * <li>Non-ASCII characters such as accents or symbols
          * Paths must not start with a leading space.</li>
          * </ul>
-         * <p>A valid path must not contain the following:</p>
-         * <ul>
-         * <li>Spaces or Tabs</li>
-         * <li>Special characters other than underscore (_), dash (-), period (.) and slash (/)</li>
-         * <li>Non-ASCII characters such as accents or symbols
-         * Paths must not start with a leading space.</li>
-         * </ul>
          * @return Reference to {@code this} so that method calls can be chained together.
          */
         @java.lang.Override
@@ -155,7 +148,6 @@ public final class ContentIdentifier {
         }
 
         /**
-         * <p>The SHA-256 checksum of this object.</p>
          * <p>The SHA-256 checksum of this object.</p>
          * @return Reference to {@code this} so that method calls can be chained together.
          */
