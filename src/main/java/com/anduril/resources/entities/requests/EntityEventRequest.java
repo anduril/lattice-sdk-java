@@ -123,7 +123,6 @@ public final class EntityEventRequest {
 
         /**
          * <p>Long-poll session identifier. Leave empty to start a new polling session.</p>
-         * <p>Long-poll session identifier. Leave empty to start a new polling session.</p>
          * @return Reference to {@code this} so that method calls can be chained together.
          */
         @java.lang.Override
