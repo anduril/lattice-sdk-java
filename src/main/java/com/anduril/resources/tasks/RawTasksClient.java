@@ -151,6 +151,8 @@ public class RawTasksClient {
             Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
                     "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to deserialize response: " + e.getMessage(), e);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -254,6 +256,8 @@ public class RawTasksClient {
             Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
                     "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to deserialize response: " + e.getMessage(), e);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -375,6 +379,8 @@ public class RawTasksClient {
             Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
                     "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to deserialize response: " + e.getMessage(), e);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -520,6 +526,8 @@ public class RawTasksClient {
             Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
                     "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to deserialize response: " + e.getMessage(), e);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -662,6 +670,8 @@ public class RawTasksClient {
             Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
                     "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to deserialize response: " + e.getMessage(), e);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -759,6 +769,8 @@ public class RawTasksClient {
             Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
                     "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to deserialize response: " + e.getMessage(), e);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -910,6 +922,8 @@ public class RawTasksClient {
             Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
                     "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to deserialize response: " + e.getMessage(), e);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -1051,6 +1065,8 @@ public class RawTasksClient {
             Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
                     "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to deserialize response: " + e.getMessage(), e);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
@@ -1184,6 +1200,8 @@ public class RawTasksClient {
             Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
             throw new LatticeApiException(
                     "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to deserialize response: " + e.getMessage(), e);
         } catch (IOException e) {
             throw new LatticeException("Network error executing HTTP request", e);
         }
