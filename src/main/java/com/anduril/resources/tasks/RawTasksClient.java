@@ -535,19 +535,16 @@ public class RawTasksClient {
 
     /**
      * Searches for Tasks that match specified filtering criteria and returns matching tasks in paginated form.
-     * <p>This method allows filtering tasks based on multiple criteria including:</p>
+     * <p>This method allows filtering tasks based on the following criteria:</p>
      * <ul>
-     * <li>Parent task relationships</li>
-     * <li>Task status (with inclusive or exclusive filtering)</li>
-     * <li>Update time ranges</li>
-     * <li>Task view (manager or agent perspective)</li>
-     * <li>Task assignee</li>
-     * <li>Task type (via exact URL matches or prefix matching)</li>
+     * <li>Parent-task relationships.</li>
+     * <li>Task status with inclusive or exclusive filtering.</li>
+     * <li>Update time ranges.</li>
      * </ul>
-     * <p>Results are returned in pages. When more results are available than can be returned in a single
-     * response, a page_token is provided that can be used in subsequent requests to retrieve the next
+     * <p>Lattice returns the results in pages. When more results are available than can be returned in a single
+     * response, a <code>page_token</code> is provided. Use the <code>page_token</code> in subsequent requests to retrieve the next
      * set of results.</p>
-     * <p>By default, this returns the latest task version for each matching task from the manager's perspective.</p>
+     * <p>By default, this returns the latest task version for each matching task.</p>
      */
     public LatticeHttpResponse<TaskQueryResults> queryTasks() {
         return queryTasks(TaskQuery.builder().build());
@@ -555,19 +552,16 @@ public class RawTasksClient {
 
     /**
      * Searches for Tasks that match specified filtering criteria and returns matching tasks in paginated form.
-     * <p>This method allows filtering tasks based on multiple criteria including:</p>
+     * <p>This method allows filtering tasks based on the following criteria:</p>
      * <ul>
-     * <li>Parent task relationships</li>
-     * <li>Task status (with inclusive or exclusive filtering)</li>
-     * <li>Update time ranges</li>
-     * <li>Task view (manager or agent perspective)</li>
-     * <li>Task assignee</li>
-     * <li>Task type (via exact URL matches or prefix matching)</li>
+     * <li>Parent-task relationships.</li>
+     * <li>Task status with inclusive or exclusive filtering.</li>
+     * <li>Update time ranges.</li>
      * </ul>
-     * <p>Results are returned in pages. When more results are available than can be returned in a single
-     * response, a page_token is provided that can be used in subsequent requests to retrieve the next
+     * <p>Lattice returns the results in pages. When more results are available than can be returned in a single
+     * response, a <code>page_token</code> is provided. Use the <code>page_token</code> in subsequent requests to retrieve the next
      * set of results.</p>
-     * <p>By default, this returns the latest task version for each matching task from the manager's perspective.</p>
+     * <p>By default, this returns the latest task version for each matching task.</p>
      */
     public LatticeHttpResponse<TaskQueryResults> queryTasks(RequestOptions requestOptions) {
         return queryTasks(TaskQuery.builder().build(), requestOptions);
@@ -575,19 +569,16 @@ public class RawTasksClient {
 
     /**
      * Searches for Tasks that match specified filtering criteria and returns matching tasks in paginated form.
-     * <p>This method allows filtering tasks based on multiple criteria including:</p>
+     * <p>This method allows filtering tasks based on the following criteria:</p>
      * <ul>
-     * <li>Parent task relationships</li>
-     * <li>Task status (with inclusive or exclusive filtering)</li>
-     * <li>Update time ranges</li>
-     * <li>Task view (manager or agent perspective)</li>
-     * <li>Task assignee</li>
-     * <li>Task type (via exact URL matches or prefix matching)</li>
+     * <li>Parent-task relationships.</li>
+     * <li>Task status with inclusive or exclusive filtering.</li>
+     * <li>Update time ranges.</li>
      * </ul>
-     * <p>Results are returned in pages. When more results are available than can be returned in a single
-     * response, a page_token is provided that can be used in subsequent requests to retrieve the next
+     * <p>Lattice returns the results in pages. When more results are available than can be returned in a single
+     * response, a <code>page_token</code> is provided. Use the <code>page_token</code> in subsequent requests to retrieve the next
      * set of results.</p>
-     * <p>By default, this returns the latest task version for each matching task from the manager's perspective.</p>
+     * <p>By default, this returns the latest task version for each matching task.</p>
      */
     public LatticeHttpResponse<TaskQueryResults> queryTasks(TaskQuery request) {
         return queryTasks(request, null);
@@ -595,19 +586,16 @@ public class RawTasksClient {
 
     /**
      * Searches for Tasks that match specified filtering criteria and returns matching tasks in paginated form.
-     * <p>This method allows filtering tasks based on multiple criteria including:</p>
+     * <p>This method allows filtering tasks based on the following criteria:</p>
      * <ul>
-     * <li>Parent task relationships</li>
-     * <li>Task status (with inclusive or exclusive filtering)</li>
-     * <li>Update time ranges</li>
-     * <li>Task view (manager or agent perspective)</li>
-     * <li>Task assignee</li>
-     * <li>Task type (via exact URL matches or prefix matching)</li>
+     * <li>Parent-task relationships.</li>
+     * <li>Task status with inclusive or exclusive filtering.</li>
+     * <li>Update time ranges.</li>
      * </ul>
-     * <p>Results are returned in pages. When more results are available than can be returned in a single
-     * response, a page_token is provided that can be used in subsequent requests to retrieve the next
+     * <p>Lattice returns the results in pages. When more results are available than can be returned in a single
+     * response, a <code>page_token</code> is provided. Use the <code>page_token</code> in subsequent requests to retrieve the next
      * set of results.</p>
-     * <p>By default, this returns the latest task version for each matching task from the manager's perspective.</p>
+     * <p>By default, this returns the latest task version for each matching task.</p>
      */
     public LatticeHttpResponse<TaskQueryResults> queryTasks(TaskQuery request, RequestOptions requestOptions) {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())

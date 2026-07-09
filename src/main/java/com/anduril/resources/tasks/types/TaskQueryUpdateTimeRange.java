@@ -34,7 +34,7 @@ public final class TaskQueryUpdateTimeRange {
     }
 
     /**
-     * @return If provided, returns Tasks only updated after this time.
+     * @return If provided, returns tasks only updated after this time.
      */
     @JsonProperty("startTime")
     public Optional<String> getStartTime() {
@@ -42,7 +42,7 @@ public final class TaskQueryUpdateTimeRange {
     }
 
     /**
-     * @return If provided, returns Tasks only updated before this time.
+     * @return If provided, returns tasks only updated before this time.
      */
     @JsonProperty("endTime")
     public Optional<String> getEndTime() {
@@ -96,7 +96,7 @@ public final class TaskQueryUpdateTimeRange {
         }
 
         /**
-         * <p>If provided, returns Tasks only updated after this time.</p>
+         * <p>If provided, returns tasks only updated after this time.</p>
          */
         @JsonSetter(value = "startTime", nulls = Nulls.SKIP)
         public Builder startTime(Optional<String> startTime) {
@@ -110,7 +110,7 @@ public final class TaskQueryUpdateTimeRange {
         }
 
         /**
-         * <p>If provided, returns Tasks only updated before this time.</p>
+         * <p>If provided, returns tasks only updated before this time.</p>
          */
         @JsonSetter(value = "endTime", nulls = Nulls.SKIP)
         public Builder endTime(Optional<String> endTime) {
