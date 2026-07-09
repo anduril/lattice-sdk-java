@@ -31,7 +31,7 @@ public final class TaskQueryStatusFilter {
     }
 
     /**
-     * @return Status of the Task to filter by, inclusive.
+     * @return Status of the task to filter by, inclusive.
      */
     @JsonProperty("status")
     public Optional<TaskQueryStatusFilterStatus> getStatus() {
@@ -82,7 +82,7 @@ public final class TaskQueryStatusFilter {
         }
 
         /**
-         * <p>Status of the Task to filter by, inclusive.</p>
+         * <p>Status of the task to filter by, inclusive.</p>
          */
         @JsonSetter(value = "status", nulls = Nulls.SKIP)
         public Builder status(Optional<TaskQueryStatusFilterStatus> status) {

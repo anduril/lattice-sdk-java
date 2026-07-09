@@ -54,8 +54,8 @@ public final class TaskQuery {
     }
 
     /**
-     * @return If present matches Tasks with this parent Task ID.
-     * Note: this is mutually exclusive with all other query parameters, for example, either provide parent task ID, or
+     * @return If present matches tasks with this parent task ID.
+     * This is mutually exclusive with all other query parameters, for example, either provide parent task ID, or
      * any of the remaining parameters, but not both.
      */
     @JsonProperty("parentTaskId")
@@ -69,7 +69,7 @@ public final class TaskQuery {
     }
 
     /**
-     * @return If provided, only provides Tasks updated within the time range.
+     * @return If provided, only provides tasks updated within the time range.
      */
     @JsonProperty("updateTimeRange")
     public Optional<TaskQueryUpdateTimeRange> getUpdateTimeRange() {
@@ -146,8 +146,8 @@ public final class TaskQuery {
         }
 
         /**
-         * <p>If present matches Tasks with this parent Task ID.
-         * Note: this is mutually exclusive with all other query parameters, for example, either provide parent task ID, or
+         * <p>If present matches tasks with this parent task ID.
+         * This is mutually exclusive with all other query parameters, for example, either provide parent task ID, or
          * any of the remaining parameters, but not both.</p>
          */
         @JsonSetter(value = "parentTaskId", nulls = Nulls.SKIP)
@@ -173,7 +173,7 @@ public final class TaskQuery {
         }
 
         /**
-         * <p>If provided, only provides Tasks updated within the time range.</p>
+         * <p>If provided, only provides tasks updated within the time range.</p>
          */
         @JsonSetter(value = "updateTimeRange", nulls = Nulls.SKIP)
         public Builder updateTimeRange(Optional<TaskQueryUpdateTimeRange> updateTimeRange) {
