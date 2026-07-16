@@ -1,14 +1,14 @@
 {
-  "cliVersion": "5.68.0",
+  "cliVersion": "5.75.0",
   "generatorName": "fernapi/fern-java-sdk",
-  "generatorVersion": "4.13.3",
+  "generatorVersion": "4.14.4",
   "generatorConfig": {
     "client-class-name": "Lattice",
     "package-prefix": "com.anduril"
   },
-  "originGitCommit": "8321bd837c4be3b7b8cb046c8c7e8b0e898ce550",
+  "originGitCommit": "4999fd7a01ac9b12158b89b220c932e4149a13ba",
   "originGitCommitIsDirty": false,
   "invokedBy": "manual",
-  "requestedVersion": "5.18.0",
-  "sdkVersion": "5.18.0"
+  "requestedVersion": "5.19.0",
+  "sdkVersion": "5.19.0"
 }
