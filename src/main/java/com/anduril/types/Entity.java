@@ -39,6 +39,8 @@ public final class Entity {
 
     private final Optional<LocationUncertainty> locationUncertainty;
 
+    private final Optional<Kinematics> kinematics;
+
     private final Optional<GeoShape> geoShape;
 
     private final Optional<GeoDetails> geoDetails;
@@ -109,6 +111,7 @@ public final class Entity {
             Optional<Status> status,
             Optional<Location> location,
             Optional<LocationUncertainty> locationUncertainty,
+            Optional<Kinematics> kinematics,
             Optional<GeoShape> geoShape,
             Optional<GeoDetails> geoDetails,
             Optional<Aliases> aliases,
@@ -148,6 +151,7 @@ public final class Entity {
         this.status = status;
         this.location = location;
         this.locationUncertainty = locationUncertainty;
+        this.kinematics = kinematics;
         this.geoShape = geoShape;
         this.geoDetails = geoDetails;
         this.aliases = aliases;
@@ -252,7 +256,9 @@ public final class Entity {
     }
 
     /**
-     * @return Geospatial data related to the entity, including its position, kinematics, and orientation.
+     * @return Geospatial data related to the entity, including its position, kinematics, and orientation. Populate either
+     * this field (and <code>location_uncertainty</code>) or <code>kinematics</code>, not both. Populating both can lead to conflicting or
+     * inconsistent kinematics data for the entity.
      */
     @JsonProperty("location")
     public Optional<Location> getLocation() {
@@ -265,6 +271,16 @@ public final class Entity {
     @JsonProperty("locationUncertainty")
     public Optional<LocationUncertainty> getLocationUncertainty() {
         return locationUncertainty;
+    }
+
+    /**
+     * @return Kinematics data related to the entity to a higher degree of granularity than Location. This is preferred for Track Entities.
+     * Populate either <code>location</code>/<code>location_uncertainty</code> or this field, not both.
+     * Populating both can lead to conflicting or inconsistent kinematics data for the entity.
+     */
+    @JsonProperty("kinematics")
+    public Optional<Kinematics> getKinematics() {
+        return kinematics;
     }
 
     /**
@@ -523,6 +539,7 @@ public final class Entity {
                 && status.equals(other.status)
                 && location.equals(other.location)
                 && locationUncertainty.equals(other.locationUncertainty)
+                && kinematics.equals(other.kinematics)
                 && geoShape.equals(other.geoShape)
                 && geoDetails.equals(other.geoDetails)
                 && aliases.equals(other.aliases)
@@ -566,6 +583,7 @@ public final class Entity {
                 this.status,
                 this.location,
                 this.locationUncertainty,
+                this.kinematics,
                 this.geoShape,
                 this.geoDetails,
                 this.aliases,
@@ -625,6 +643,8 @@ public final class Entity {
         private Optional<Location> location = Optional.empty();
 
         private Optional<LocationUncertainty> locationUncertainty = Optional.empty();
+
+        private Optional<Kinematics> kinematics = Optional.empty();
 
         private Optional<GeoShape> geoShape = Optional.empty();
 
@@ -699,6 +719,7 @@ public final class Entity {
             status(other.getStatus());
             location(other.getLocation());
             locationUncertainty(other.getLocationUncertainty());
+            kinematics(other.getKinematics());
             geoShape(other.getGeoShape());
             geoDetails(other.getGeoDetails());
             aliases(other.getAliases());
@@ -845,7 +866,9 @@ public final class Entity {
         }
 
         /**
-         * <p>Geospatial data related to the entity, including its position, kinematics, and orientation.</p>
+         * <p>Geospatial data related to the entity, including its position, kinematics, and orientation. Populate either
+         * this field (and <code>location_uncertainty</code>) or <code>kinematics</code>, not both. Populating both can lead to conflicting or
+         * inconsistent kinematics data for the entity.</p>
          */
         @JsonSetter(value = "location", nulls = Nulls.SKIP)
         public Builder location(Optional<Location> location) {
@@ -869,6 +892,22 @@ public final class Entity {
 
         public Builder locationUncertainty(LocationUncertainty locationUncertainty) {
             this.locationUncertainty = Optional.ofNullable(locationUncertainty);
+            return this;
+        }
+
+        /**
+         * <p>Kinematics data related to the entity to a higher degree of granularity than Location. This is preferred for Track Entities.
+         * Populate either <code>location</code>/<code>location_uncertainty</code> or this field, not both.
+         * Populating both can lead to conflicting or inconsistent kinematics data for the entity.</p>
+         */
+        @JsonSetter(value = "kinematics", nulls = Nulls.SKIP)
+        public Builder kinematics(Optional<Kinematics> kinematics) {
+            this.kinematics = kinematics;
+            return this;
+        }
+
+        public Builder kinematics(Kinematics kinematics) {
+            this.kinematics = Optional.ofNullable(kinematics);
             return this;
         }
 
@@ -1292,6 +1331,7 @@ public final class Entity {
                     status,
                     location,
                     locationUncertainty,
+                    kinematics,
                     geoShape,
                     geoDetails,
                     aliases,
