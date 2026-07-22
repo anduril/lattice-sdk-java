@@ -176,7 +176,15 @@ public class LatticeBuilder {
     protected void setEnvironment(ClientOptions.Builder builder) {
         if (this.server != null) {
             String _server = this.server != null ? this.server : "example.developer.anduril.com";
-            this.environment = Environment.custom("https://{server}".replace("{server}", _server));
+            String _urlTemplate = null;
+            if (this.environment == null) {
+                _urlTemplate = "https://{server}";
+            } else if (this.environment.equals(Environment.DEFAULT)) {
+                _urlTemplate = "https://{server}";
+            }
+            if (_urlTemplate != null) {
+                this.environment = Environment.custom(_urlTemplate.replace("{server}", _server));
+            }
         }
         builder.environment(this.environment);
     }
