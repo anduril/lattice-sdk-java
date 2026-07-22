@@ -1,5 +1,7 @@
 # Changelog
 
+## [5.21.0] - 2026-07-22
+
 ## [5.20.0] - 2026-07-21
 ### Added
 - **`Entity.getKinematics()`** and **`Entity.Builder.kinematics()`** — supply higher-granularity kinematics data, preferred for Track Entities over `location`/`locationUncertainty`.
