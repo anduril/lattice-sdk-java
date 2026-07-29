@@ -4,9 +4,11 @@
 package com.anduril.resources.tasks.requests;
 
 import com.anduril.core.ObjectMappers;
+import com.anduril.types.DeliveryConstraints;
 import com.anduril.types.GoogleProtobufAny;
 import com.anduril.types.Principal;
 import com.anduril.types.Relations;
+import com.anduril.types.RetryStrategy;
 import com.anduril.types.TaskEntity;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -41,6 +43,10 @@ public final class TaskCreation {
 
     private final Optional<List<TaskEntity>> initialEntities;
 
+    private final Optional<RetryStrategy> retryStrategy;
+
+    private final Optional<DeliveryConstraints> deliveryConstraints;
+
     private final Map<String, Object> additionalProperties;
 
     private TaskCreation(
@@ -52,6 +58,8 @@ public final class TaskCreation {
             Optional<Relations> relations,
             Optional<Boolean> isExecutedElsewhere,
             Optional<List<TaskEntity>> initialEntities,
+            Optional<RetryStrategy> retryStrategy,
+            Optional<DeliveryConstraints> deliveryConstraints,
             Map<String, Object> additionalProperties) {
         this.taskId = taskId;
         this.displayName = displayName;
@@ -61,6 +69,8 @@ public final class TaskCreation {
         this.relations = relations;
         this.isExecutedElsewhere = isExecutedElsewhere;
         this.initialEntities = initialEntities;
+        this.retryStrategy = retryStrategy;
+        this.deliveryConstraints = deliveryConstraints;
         this.additionalProperties = additionalProperties;
     }
 
@@ -130,6 +140,22 @@ public final class TaskCreation {
         return initialEntities;
     }
 
+    /**
+     * @return Any retry strategy for task execution or update.
+     */
+    @JsonProperty("retryStrategy")
+    public Optional<RetryStrategy> getRetryStrategy() {
+        return retryStrategy;
+    }
+
+    /**
+     * @return Any scheduling constraints for Lattice delivery of the task.
+     */
+    @JsonProperty("deliveryConstraints")
+    public Optional<DeliveryConstraints> getDeliveryConstraints() {
+        return deliveryConstraints;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -149,7 +175,9 @@ public final class TaskCreation {
                 && author.equals(other.author)
                 && relations.equals(other.relations)
                 && isExecutedElsewhere.equals(other.isExecutedElsewhere)
-                && initialEntities.equals(other.initialEntities);
+                && initialEntities.equals(other.initialEntities)
+                && retryStrategy.equals(other.retryStrategy)
+                && deliveryConstraints.equals(other.deliveryConstraints);
     }
 
     @java.lang.Override
@@ -162,7 +190,9 @@ public final class TaskCreation {
                 this.author,
                 this.relations,
                 this.isExecutedElsewhere,
-                this.initialEntities);
+                this.initialEntities,
+                this.retryStrategy,
+                this.deliveryConstraints);
     }
 
     @java.lang.Override
@@ -192,6 +222,10 @@ public final class TaskCreation {
 
         private Optional<List<TaskEntity>> initialEntities = Optional.empty();
 
+        private Optional<RetryStrategy> retryStrategy = Optional.empty();
+
+        private Optional<DeliveryConstraints> deliveryConstraints = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -206,6 +240,8 @@ public final class TaskCreation {
             relations(other.getRelations());
             isExecutedElsewhere(other.getIsExecutedElsewhere());
             initialEntities(other.getInitialEntities());
+            retryStrategy(other.getRetryStrategy());
+            deliveryConstraints(other.getDeliveryConstraints());
             return this;
         }
 
@@ -323,6 +359,34 @@ public final class TaskCreation {
             return this;
         }
 
+        /**
+         * <p>Any retry strategy for task execution or update.</p>
+         */
+        @JsonSetter(value = "retryStrategy", nulls = Nulls.SKIP)
+        public Builder retryStrategy(Optional<RetryStrategy> retryStrategy) {
+            this.retryStrategy = retryStrategy;
+            return this;
+        }
+
+        public Builder retryStrategy(RetryStrategy retryStrategy) {
+            this.retryStrategy = Optional.ofNullable(retryStrategy);
+            return this;
+        }
+
+        /**
+         * <p>Any scheduling constraints for Lattice delivery of the task.</p>
+         */
+        @JsonSetter(value = "deliveryConstraints", nulls = Nulls.SKIP)
+        public Builder deliveryConstraints(Optional<DeliveryConstraints> deliveryConstraints) {
+            this.deliveryConstraints = deliveryConstraints;
+            return this;
+        }
+
+        public Builder deliveryConstraints(DeliveryConstraints deliveryConstraints) {
+            this.deliveryConstraints = Optional.ofNullable(deliveryConstraints);
+            return this;
+        }
+
         public TaskCreation build() {
             return new TaskCreation(
                     taskId,
@@ -333,6 +397,8 @@ public final class TaskCreation {
                     relations,
                     isExecutedElsewhere,
                     initialEntities,
+                    retryStrategy,
+                    deliveryConstraints,
                     additionalProperties);
         }
 
