@@ -41,6 +41,8 @@ public final class Signal {
 
     private final Optional<ScanCharacteristics> scanCharacteristics;
 
+    private final Optional<Measurement> receivedSignalStrengthDbm;
+
     private final Map<String, Object> additionalProperties;
 
     private Signal(
@@ -54,6 +56,7 @@ public final class Signal {
             Optional<Double> pulseWidthS,
             Optional<PulseRepetitionInterval> pulseRepetitionInterval,
             Optional<ScanCharacteristics> scanCharacteristics,
+            Optional<Measurement> receivedSignalStrengthDbm,
             Map<String, Object> additionalProperties) {
         this.frequencyCenter = frequencyCenter;
         this.frequencyRange = frequencyRange;
@@ -65,6 +68,7 @@ public final class Signal {
         this.pulseWidthS = pulseWidthS;
         this.pulseRepetitionInterval = pulseRepetitionInterval;
         this.scanCharacteristics = scanCharacteristics;
+        this.receivedSignalStrengthDbm = receivedSignalStrengthDbm;
         this.additionalProperties = additionalProperties;
     }
 
@@ -136,6 +140,14 @@ public final class Signal {
         return scanCharacteristics;
     }
 
+    /**
+     * @return Indicates the received signal strength (RSSI) of this signal in decibels relative to one milliwatt (dBm).
+     */
+    @JsonProperty("receivedSignalStrengthDbm")
+    public Optional<Measurement> getReceivedSignalStrengthDbm() {
+        return receivedSignalStrengthDbm;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -157,7 +169,8 @@ public final class Signal {
                 && emitterNotations.equals(other.emitterNotations)
                 && pulseWidthS.equals(other.pulseWidthS)
                 && pulseRepetitionInterval.equals(other.pulseRepetitionInterval)
-                && scanCharacteristics.equals(other.scanCharacteristics);
+                && scanCharacteristics.equals(other.scanCharacteristics)
+                && receivedSignalStrengthDbm.equals(other.receivedSignalStrengthDbm);
     }
 
     @java.lang.Override
@@ -172,7 +185,8 @@ public final class Signal {
                 this.emitterNotations,
                 this.pulseWidthS,
                 this.pulseRepetitionInterval,
-                this.scanCharacteristics);
+                this.scanCharacteristics,
+                this.receivedSignalStrengthDbm);
     }
 
     @java.lang.Override
@@ -206,6 +220,8 @@ public final class Signal {
 
         private Optional<ScanCharacteristics> scanCharacteristics = Optional.empty();
 
+        private Optional<Measurement> receivedSignalStrengthDbm = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -222,6 +238,7 @@ public final class Signal {
             pulseWidthS(other.getPulseWidthS());
             pulseRepetitionInterval(other.getPulseRepetitionInterval());
             scanCharacteristics(other.getScanCharacteristics());
+            receivedSignalStrengthDbm(other.getReceivedSignalStrengthDbm());
             return this;
         }
 
@@ -353,6 +370,20 @@ public final class Signal {
             return this;
         }
 
+        /**
+         * <p>Indicates the received signal strength (RSSI) of this signal in decibels relative to one milliwatt (dBm).</p>
+         */
+        @JsonSetter(value = "receivedSignalStrengthDbm", nulls = Nulls.SKIP)
+        public Builder receivedSignalStrengthDbm(Optional<Measurement> receivedSignalStrengthDbm) {
+            this.receivedSignalStrengthDbm = receivedSignalStrengthDbm;
+            return this;
+        }
+
+        public Builder receivedSignalStrengthDbm(Measurement receivedSignalStrengthDbm) {
+            this.receivedSignalStrengthDbm = Optional.ofNullable(receivedSignalStrengthDbm);
+            return this;
+        }
+
         public Signal build() {
             return new Signal(
                     frequencyCenter,
@@ -365,6 +396,7 @@ public final class Signal {
                     pulseWidthS,
                     pulseRepetitionInterval,
                     scanCharacteristics,
+                    receivedSignalStrengthDbm,
                     additionalProperties);
         }
 
