@@ -546,14 +546,14 @@ public class AsyncRawObjectsClient {
     }
 
     /**
-     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
+     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or when it arrived on the node holding it (last_updated_at).
      */
     public CompletableFuture<LatticeHttpResponse<Void>> getObjectMetadata(String objectPath) {
         return getObjectMetadata(objectPath, GetObjectMetadataRequest.builder().build());
     }
 
     /**
-     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
+     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or when it arrived on the node holding it (last_updated_at).
      */
     public CompletableFuture<LatticeHttpResponse<Void>> getObjectMetadata(
             String objectPath, RequestOptions requestOptions) {
@@ -561,7 +561,7 @@ public class AsyncRawObjectsClient {
     }
 
     /**
-     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
+     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or when it arrived on the node holding it (last_updated_at).
      */
     public CompletableFuture<LatticeHttpResponse<Void>> getObjectMetadata(
             String objectPath, GetObjectMetadataRequest request) {
@@ -569,7 +569,7 @@ public class AsyncRawObjectsClient {
     }
 
     /**
-     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or its latest update timestamp (last_updated_at).
+     * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or when it arrived on the node holding it (last_updated_at).
      */
     public CompletableFuture<LatticeHttpResponse<Void>> getObjectMetadata(
             String objectPath, GetObjectMetadataRequest request, RequestOptions requestOptions) {

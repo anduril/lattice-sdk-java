@@ -57,7 +57,8 @@ public final class ListObjectsRequest {
     }
 
     /**
-     * @return Sets the age for the oldest objects to query across the environment.
+     * @return Filters out objects whose <code>last_updated_at</code> is earlier than this timestamp.
+     * <p><code>last_updated_at</code> records when an object arrived on the node that holds it, so this filter selects objects that arrived since the given time. It is not the time the object was authored: a copy that reaches a node later carries the later arrival time.</p>
      */
     @JsonProperty("sinceTimestamp")
     public Optional<OffsetDateTime> getSinceTimestamp() {
@@ -65,7 +66,7 @@ public final class ListObjectsRequest {
     }
 
     /**
-     * @return Base64 and URL-encoded cursor returned by the service to continue paging.
+     * @return Opaque cursor for continuing the same list request. Start a new listing without the previous cursor if any query parameter or listing scope changes.
      */
     @JsonProperty("pageToken")
     public Optional<String> getPageToken() {
@@ -73,7 +74,7 @@ public final class ListObjectsRequest {
     }
 
     /**
-     * @return Lists objects across all environment nodes in a Lattice Mesh.
+     * @return Lists objects across all environment nodes in a Lattice Mesh. When false or unset, only objects held by the local node are returned.
      */
     @JsonProperty("allObjectsInMesh")
     public Optional<Boolean> getAllObjectsInMesh() {
@@ -162,7 +163,8 @@ public final class ListObjectsRequest {
         }
 
         /**
-         * <p>Sets the age for the oldest objects to query across the environment.</p>
+         * <p>Filters out objects whose <code>last_updated_at</code> is earlier than this timestamp.</p>
+         * <p><code>last_updated_at</code> records when an object arrived on the node that holds it, so this filter selects objects that arrived since the given time. It is not the time the object was authored: a copy that reaches a node later carries the later arrival time.</p>
          */
         @JsonSetter(value = "sinceTimestamp", nulls = Nulls.SKIP)
         public Builder sinceTimestamp(Optional<OffsetDateTime> sinceTimestamp) {
@@ -176,7 +178,7 @@ public final class ListObjectsRequest {
         }
 
         /**
-         * <p>Base64 and URL-encoded cursor returned by the service to continue paging.</p>
+         * <p>Opaque cursor for continuing the same list request. Start a new listing without the previous cursor if any query parameter or listing scope changes.</p>
          */
         @JsonSetter(value = "pageToken", nulls = Nulls.SKIP)
         public Builder pageToken(Optional<String> pageToken) {
@@ -190,7 +192,7 @@ public final class ListObjectsRequest {
         }
 
         /**
-         * <p>Lists objects across all environment nodes in a Lattice Mesh.</p>
+         * <p>Lists objects across all environment nodes in a Lattice Mesh. When false or unset, only objects held by the local node are returned.</p>
          */
         @JsonSetter(value = "allObjectsInMesh", nulls = Nulls.SKIP)
         public Builder allObjectsInMesh(Optional<Boolean> allObjectsInMesh) {

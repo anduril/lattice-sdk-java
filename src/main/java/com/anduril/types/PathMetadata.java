@@ -55,6 +55,10 @@ public final class PathMetadata {
         return sizeBytes;
     }
 
+    /**
+     * @return When this object arrived on the node that holds it, according to that node's clock. Because an object is never modified in place, this is effectively the time the object was created on that node.
+     * <p>The value is local to the node holding the object and may differ when the same object is held on multiple nodes. It is not propagated from the node where the object originated.</p>
+     */
     @JsonProperty("last_updated_at")
     public OffsetDateTime getLastUpdatedAt() {
         return lastUpdatedAt;
@@ -108,6 +112,10 @@ public final class PathMetadata {
     }
 
     public interface LastUpdatedAtStage {
+        /**
+         * <p>When this object arrived on the node that holds it, according to that node's clock. Because an object is never modified in place, this is effectively the time the object was created on that node.</p>
+         * <p>The value is local to the node holding the object and may differ when the same object is held on multiple nodes. It is not propagated from the node where the object originated.</p>
+         */
         _FinalStage lastUpdatedAt(@NotNull OffsetDateTime lastUpdatedAt);
     }
 
@@ -162,6 +170,11 @@ public final class PathMetadata {
             return this;
         }
 
+        /**
+         * <p>When this object arrived on the node that holds it, according to that node's clock. Because an object is never modified in place, this is effectively the time the object was created on that node.</p>
+         * <p>The value is local to the node holding the object and may differ when the same object is held on multiple nodes. It is not propagated from the node where the object originated.</p>
+         * @return Reference to {@code this} so that method calls can be chained together.
+         */
         @java.lang.Override
         @JsonSetter("last_updated_at")
         public _FinalStage lastUpdatedAt(@NotNull OffsetDateTime lastUpdatedAt) {
