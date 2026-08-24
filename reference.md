@@ -1500,7 +1500,7 @@ Uploads an object. The object must be 1 GiB or smaller.
 <dd>
 
 ```java
-client.objects().uploadObject("".getBytes());
+client.objects().uploadObject("objectPath", "".getBytes());
 ```
 </dd>
 </dl>
