@@ -49,8 +49,11 @@ public final class CreateIngressStreamResponse {
     }
 
     /**
-     * @return Connection details for an MPEG-TS push. Only returned when MPEG-TS ingress is
-     * enabled for the deployment and the request selected mpeg_ts.
+     * @return Connection details for an MPEG-TS push. Only returned when the request selected
+     * mpeg_ts and MPEG-TS ingress is enabled for the deployment. MPEG-TS ingress is
+     * supported only at the edge, in closed networks; in a cloud environment reached over
+     * the public internet it may be disabled per deployment, in which case the create
+     * request is rejected and this field is never populated.
      */
     @JsonProperty("mpegTs")
     public Optional<MpegTsIngress> getMpegTs() {
@@ -127,8 +130,11 @@ public final class CreateIngressStreamResponse {
         }
 
         /**
-         * <p>Connection details for an MPEG-TS push. Only returned when MPEG-TS ingress is
-         * enabled for the deployment and the request selected mpeg_ts.</p>
+         * <p>Connection details for an MPEG-TS push. Only returned when the request selected
+         * mpeg_ts and MPEG-TS ingress is enabled for the deployment. MPEG-TS ingress is
+         * supported only at the edge, in closed networks; in a cloud environment reached over
+         * the public internet it may be disabled per deployment, in which case the create
+         * request is rejected and this field is never populated.</p>
          */
         @JsonSetter(value = "mpegTs", nulls = Nulls.SKIP)
         public Builder mpegTs(Optional<MpegTsIngress> mpegTs) {
