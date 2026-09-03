@@ -9,6 +9,7 @@ import com.anduril.resources.entities.AsyncEntitiesClient;
 import com.anduril.resources.oauth.AsyncOauthClient;
 import com.anduril.resources.objects.AsyncObjectsClient;
 import com.anduril.resources.tasks.AsyncTasksClient;
+import com.anduril.resources.video.AsyncVideoClient;
 import java.util.function.Supplier;
 
 public class AsyncLattice {
@@ -22,12 +23,15 @@ public class AsyncLattice {
 
     protected final Supplier<AsyncOauthClient> oauthClient;
 
+    protected final Supplier<AsyncVideoClient> videoClient;
+
     public AsyncLattice(ClientOptions clientOptions) {
         this.clientOptions = clientOptions;
         this.entitiesClient = Suppliers.memoize(() -> new AsyncEntitiesClient(clientOptions));
         this.tasksClient = Suppliers.memoize(() -> new AsyncTasksClient(clientOptions));
         this.objectsClient = Suppliers.memoize(() -> new AsyncObjectsClient(clientOptions));
         this.oauthClient = Suppliers.memoize(() -> new AsyncOauthClient(clientOptions));
+        this.videoClient = Suppliers.memoize(() -> new AsyncVideoClient(clientOptions));
     }
 
     public AsyncEntitiesClient entities() {
@@ -44,6 +48,10 @@ public class AsyncLattice {
 
     public AsyncOauthClient oauth() {
         return this.oauthClient.get();
+    }
+
+    public AsyncVideoClient video() {
+        return this.videoClient.get();
     }
 
     /**
