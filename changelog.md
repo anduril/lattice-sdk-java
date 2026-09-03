@@ -2,6 +2,14 @@
 
 ## [5.24.0] - 2026-09-03
 
+**Added**
+
+- video() accessor on Lattice and AsyncLattice returning VideoClient/AsyncVideoClient for video stream management.
+- Video clients — new VideoClient, AsyncVideoClient, RawVideoClient, and AsyncRawVideoClient for managing live video ingress and egress streams, with synchronous, CompletableFuture, and raw LatticeHttpResponse variants.
+- Ingress and egress stream operations — list, create, get, and delete methods for both ingress and egress streams, each with request and RequestOptions overloads.
+- Stream types and settings — IngressStream, EgressStream, request/response wrappers, the IngressStreamStatus lifecycle enum, and transport types (RtspIngress, SrtIngress, MpegTsIngress, RtspSettings, SrtSettings with optional AES passphrase, etc.).
+- Error and status types — video error types (BadRequestError, UnauthorizedError, NotFoundError, ConflictError, and more) plus GoogleRpcStatus and GoogleProtobufAny for error payloads.
+
 ## [5.23.2] - 2026-08-24
 
 ## [5.23.1] - 2026-08-21
