@@ -2,6 +2,19 @@
 
 ## [6.0.0] - 2026-09-03
 
+### Breaking Changes
+- **`VideoClient.video()`** and **`AsyncVideoClient.video()`** — nested `video()` sub-client accessors removed; call stream methods directly on the video client (e.g., `client.video().listEgressStreams()`).
+- **Video request classes** — moved from `com.anduril.resources.video.video.requests` to `com.anduril.resources.video.requests`; update your imports.
+
+### Added
+- **Egress and ingress stream methods** — `listEgressStreams`, `createEgressStream`, `getEgressStream`, `deleteEgressStream` and their ingress equivalents added directly to `VideoClient` and `AsyncVideoClient`.
+- **`withRawResponse()`** — added to the video clients for accessing HTTP metadata such as headers.
+- **`DeliveryErrorCode.DELIVERY_ERROR_CODE_NOT_ACKNOWLEDGED`** — new enum value with matching `visitDeliveryErrorCodeNotAcknowledged()` visitor method.
+- **`PlatformSubcomponents`** — new type introduced, along with optional fields `DeliveryConstraints.requireAcknowledgement` and `GroupDetails.platformSubcomponents`.
+
+### Changed
+- **MPEG-TS ingress documentation** — clarified that it is supported only at the edge in closed networks and may be disabled in cloud deployments.
+
 ## [5.24.0] - 2026-09-03
 
 **Added**
