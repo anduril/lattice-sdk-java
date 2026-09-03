@@ -9,6 +9,7 @@ import com.anduril.resources.entities.EntitiesClient;
 import com.anduril.resources.oauth.OauthClient;
 import com.anduril.resources.objects.ObjectsClient;
 import com.anduril.resources.tasks.TasksClient;
+import com.anduril.resources.video.VideoClient;
 import java.util.function.Supplier;
 
 public class Lattice {
@@ -22,12 +23,15 @@ public class Lattice {
 
     protected final Supplier<OauthClient> oauthClient;
 
+    protected final Supplier<VideoClient> videoClient;
+
     public Lattice(ClientOptions clientOptions) {
         this.clientOptions = clientOptions;
         this.entitiesClient = Suppliers.memoize(() -> new EntitiesClient(clientOptions));
         this.tasksClient = Suppliers.memoize(() -> new TasksClient(clientOptions));
         this.objectsClient = Suppliers.memoize(() -> new ObjectsClient(clientOptions));
         this.oauthClient = Suppliers.memoize(() -> new OauthClient(clientOptions));
+        this.videoClient = Suppliers.memoize(() -> new VideoClient(clientOptions));
     }
 
     public EntitiesClient entities() {
@@ -44,6 +48,10 @@ public class Lattice {
 
     public OauthClient oauth() {
         return this.oauthClient.get();
+    }
+
+    public VideoClient video() {
+        return this.videoClient.get();
     }
 
     /**
