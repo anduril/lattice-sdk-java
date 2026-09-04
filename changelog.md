@@ -2,6 +2,14 @@
 
 ## [6.0.0] - 2026-09-04
 
+### Breaking Changes
+- **`VideoClient`** and **`AsyncVideoClient`** — all egress/ingress stream operations (`listEgressStreams`, `createEgressStream`, `getEgressStream`, `deleteEgressStream` and ingress equivalents) removed with no replacement; migrate off these clients.
+- **`client.video().video()`** — nested accessor removed; call stream methods directly, e.g. `client.video().listEgressStreams()`.
+- **Video request types**, **`RawVideoClient`** — moved from `com.anduril.resources.video.video` and `.video.requests` to `com.anduril.resources.video` and `.requests`; update imports.
+
+### Added
+- **`withRawResponse()`** — added on `VideoClient` and `AsyncVideoClient` to return a raw client exposing HTTP metadata such as headers.
+
 ## [5.24.0] - 2026-09-03
 
 **Added**
