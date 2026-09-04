@@ -13,6 +13,9 @@ public final class DeliveryErrorCode {
     public static final DeliveryErrorCode DELIVERY_ERROR_CODE_REJECTED =
             new DeliveryErrorCode(Value.DELIVERY_ERROR_CODE_REJECTED, "DELIVERY_ERROR_CODE_REJECTED");
 
+    public static final DeliveryErrorCode DELIVERY_ERROR_CODE_NOT_ACKNOWLEDGED =
+            new DeliveryErrorCode(Value.DELIVERY_ERROR_CODE_NOT_ACKNOWLEDGED, "DELIVERY_ERROR_CODE_NOT_ACKNOWLEDGED");
+
     public static final DeliveryErrorCode DELIVERY_ERROR_CODE_UNAVAILABLE =
             new DeliveryErrorCode(Value.DELIVERY_ERROR_CODE_UNAVAILABLE, "DELIVERY_ERROR_CODE_UNAVAILABLE");
 
@@ -55,6 +58,8 @@ public final class DeliveryErrorCode {
                 return visitor.visitDeliveryErrorCodeInvalid();
             case DELIVERY_ERROR_CODE_REJECTED:
                 return visitor.visitDeliveryErrorCodeRejected();
+            case DELIVERY_ERROR_CODE_NOT_ACKNOWLEDGED:
+                return visitor.visitDeliveryErrorCodeNotAcknowledged();
             case DELIVERY_ERROR_CODE_UNAVAILABLE:
                 return visitor.visitDeliveryErrorCodeUnavailable();
             case DELIVERY_ERROR_CODE_TIMEOUT:
@@ -72,6 +77,8 @@ public final class DeliveryErrorCode {
                 return DELIVERY_ERROR_CODE_INVALID;
             case "DELIVERY_ERROR_CODE_REJECTED":
                 return DELIVERY_ERROR_CODE_REJECTED;
+            case "DELIVERY_ERROR_CODE_NOT_ACKNOWLEDGED":
+                return DELIVERY_ERROR_CODE_NOT_ACKNOWLEDGED;
             case "DELIVERY_ERROR_CODE_UNAVAILABLE":
                 return DELIVERY_ERROR_CODE_UNAVAILABLE;
             case "DELIVERY_ERROR_CODE_TIMEOUT":
@@ -90,6 +97,8 @@ public final class DeliveryErrorCode {
 
         DELIVERY_ERROR_CODE_REJECTED,
 
+        DELIVERY_ERROR_CODE_NOT_ACKNOWLEDGED,
+
         UNKNOWN
     }
 
@@ -101,6 +110,8 @@ public final class DeliveryErrorCode {
         T visitDeliveryErrorCodeTimeout();
 
         T visitDeliveryErrorCodeRejected();
+
+        T visitDeliveryErrorCodeNotAcknowledged();
 
         T visitUnknown(String unknownType);
     }
