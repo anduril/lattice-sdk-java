@@ -4,7 +4,7 @@
 package com.anduril.resources.video.errors;
 
 import com.anduril.core.LatticeApiException;
-import com.anduril.resources.video.types.GoogleRpcStatus;
+import com.anduril.types.GoogleRpcStatus;
 import okhttp3.Response;
 
 public final class BadRequestError extends LatticeApiException {

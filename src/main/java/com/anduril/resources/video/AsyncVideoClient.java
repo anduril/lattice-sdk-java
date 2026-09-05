@@ -4,21 +4,319 @@
 package com.anduril.resources.video;
 
 import com.anduril.core.ClientOptions;
-import com.anduril.core.Suppliers;
-import java.util.function.Supplier;
+import com.anduril.core.RequestOptions;
+import com.anduril.resources.video.requests.CreateEgressStreamRequest;
+import com.anduril.resources.video.requests.CreateIngressStreamRequest;
+import com.anduril.resources.video.requests.DeleteEgressStreamRequest;
+import com.anduril.resources.video.requests.DeleteIngressStreamRequest;
+import com.anduril.resources.video.requests.GetEgressStreamRequest;
+import com.anduril.resources.video.requests.GetIngressStreamRequest;
+import com.anduril.resources.video.requests.ListEgressStreamsRequest;
+import com.anduril.resources.video.requests.ListIngressStreamsRequest;
+import com.anduril.types.CreateEgressStreamResponse;
+import com.anduril.types.CreateIngressStreamResponse;
+import com.anduril.types.DeleteEgressStreamResponse;
+import com.anduril.types.DeleteIngressStreamResponse;
+import com.anduril.types.GetEgressStreamResponse;
+import com.anduril.types.GetIngressStreamResponse;
+import com.anduril.types.ListEgressStreamsResponse;
+import com.anduril.types.ListIngressStreamsResponse;
+import java.util.concurrent.CompletableFuture;
 
 public class AsyncVideoClient {
     protected final ClientOptions clientOptions;
 
-    protected final Supplier<com.anduril.resources.video.video.AsyncVideoClient> videoClient;
+    private final AsyncRawVideoClient rawClient;
 
     public AsyncVideoClient(ClientOptions clientOptions) {
         this.clientOptions = clientOptions;
-        this.videoClient =
-                Suppliers.memoize(() -> new com.anduril.resources.video.video.AsyncVideoClient(clientOptions));
+        this.rawClient = new AsyncRawVideoClient(clientOptions);
     }
 
-    public com.anduril.resources.video.video.AsyncVideoClient video() {
-        return this.videoClient.get();
+    /**
+     * Get responses with HTTP metadata like headers
+     */
+    public AsyncRawVideoClient withRawResponse() {
+        return this.rawClient;
+    }
+
+    /**
+     * Returns a list of active egress stream objects.
+     * Results are ordered by egress stream create time. If the
+     * egress backend is unreachable, the listed streams might be stale or degraded.
+     */
+    public CompletableFuture<ListEgressStreamsResponse> listEgressStreams() {
+        return this.rawClient.listEgressStreams().thenApply(response -> response.body());
+    }
+
+    /**
+     * Returns a list of active egress stream objects.
+     * Results are ordered by egress stream create time. If the
+     * egress backend is unreachable, the listed streams might be stale or degraded.
+     */
+    public CompletableFuture<ListEgressStreamsResponse> listEgressStreams(RequestOptions requestOptions) {
+        return this.rawClient.listEgressStreams(requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Returns a list of active egress stream objects.
+     * Results are ordered by egress stream create time. If the
+     * egress backend is unreachable, the listed streams might be stale or degraded.
+     */
+    public CompletableFuture<ListEgressStreamsResponse> listEgressStreams(ListEgressStreamsRequest request) {
+        return this.rawClient.listEgressStreams(request).thenApply(response -> response.body());
+    }
+
+    /**
+     * Returns a list of active egress stream objects.
+     * Results are ordered by egress stream create time. If the
+     * egress backend is unreachable, the listed streams might be stale or degraded.
+     */
+    public CompletableFuture<ListEgressStreamsResponse> listEgressStreams(
+            ListEgressStreamsRequest request, RequestOptions requestOptions) {
+        return this.rawClient.listEgressStreams(request, requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Creates an egress stream that publishes a live stream to a downstream consumer.
+     * A stream in <code>STREAM_STATUS_UNAVAILABLE</code> is rejected as not-live.
+     */
+    public CompletableFuture<CreateEgressStreamResponse> createEgressStream() {
+        return this.rawClient.createEgressStream().thenApply(response -> response.body());
+    }
+
+    /**
+     * Creates an egress stream that publishes a live stream to a downstream consumer.
+     * A stream in <code>STREAM_STATUS_UNAVAILABLE</code> is rejected as not-live.
+     */
+    public CompletableFuture<CreateEgressStreamResponse> createEgressStream(RequestOptions requestOptions) {
+        return this.rawClient.createEgressStream(requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Creates an egress stream that publishes a live stream to a downstream consumer.
+     * A stream in <code>STREAM_STATUS_UNAVAILABLE</code> is rejected as not-live.
+     */
+    public CompletableFuture<CreateEgressStreamResponse> createEgressStream(CreateEgressStreamRequest request) {
+        return this.rawClient.createEgressStream(request).thenApply(response -> response.body());
+    }
+
+    /**
+     * Creates an egress stream that publishes a live stream to a downstream consumer.
+     * A stream in <code>STREAM_STATUS_UNAVAILABLE</code> is rejected as not-live.
+     */
+    public CompletableFuture<CreateEgressStreamResponse> createEgressStream(
+            CreateEgressStreamRequest request, RequestOptions requestOptions) {
+        return this.rawClient.createEgressStream(request, requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Retrieves an egress stream object and its associated metadata.
+     */
+    public CompletableFuture<GetEgressStreamResponse> getEgressStream(String egressId) {
+        return this.rawClient.getEgressStream(egressId).thenApply(response -> response.body());
+    }
+
+    /**
+     * Retrieves an egress stream object and its associated metadata.
+     */
+    public CompletableFuture<GetEgressStreamResponse> getEgressStream(String egressId, RequestOptions requestOptions) {
+        return this.rawClient.getEgressStream(egressId, requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Retrieves an egress stream object and its associated metadata.
+     */
+    public CompletableFuture<GetEgressStreamResponse> getEgressStream(String egressId, GetEgressStreamRequest request) {
+        return this.rawClient.getEgressStream(egressId, request).thenApply(response -> response.body());
+    }
+
+    /**
+     * Retrieves an egress stream object and its associated metadata.
+     */
+    public CompletableFuture<GetEgressStreamResponse> getEgressStream(
+            String egressId, GetEgressStreamRequest request, RequestOptions requestOptions) {
+        return this.rawClient.getEgressStream(egressId, request, requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Deletes the egress stream for a live stream. Returns <code>NOT_FOUND</code> if no matching active
+     * egress stream exists.
+     */
+    public CompletableFuture<DeleteEgressStreamResponse> deleteEgressStream(String egressId) {
+        return this.rawClient.deleteEgressStream(egressId).thenApply(response -> response.body());
+    }
+
+    /**
+     * Deletes the egress stream for a live stream. Returns <code>NOT_FOUND</code> if no matching active
+     * egress stream exists.
+     */
+    public CompletableFuture<DeleteEgressStreamResponse> deleteEgressStream(
+            String egressId, RequestOptions requestOptions) {
+        return this.rawClient.deleteEgressStream(egressId, requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Deletes the egress stream for a live stream. Returns <code>NOT_FOUND</code> if no matching active
+     * egress stream exists.
+     */
+    public CompletableFuture<DeleteEgressStreamResponse> deleteEgressStream(
+            String egressId, DeleteEgressStreamRequest request) {
+        return this.rawClient.deleteEgressStream(egressId, request).thenApply(response -> response.body());
+    }
+
+    /**
+     * Deletes the egress stream for a live stream. Returns <code>NOT_FOUND</code> if no matching active
+     * egress stream exists.
+     */
+    public CompletableFuture<DeleteEgressStreamResponse> deleteEgressStream(
+            String egressId, DeleteEgressStreamRequest request, RequestOptions requestOptions) {
+        return this.rawClient
+                .deleteEgressStream(egressId, request, requestOptions)
+                .thenApply(response -> response.body());
+    }
+
+    /**
+     * Returns a list of top level ingress stream objects, including ingress streams and internal
+     * Anduril streams. Will only return active streams.
+     * Results are ordered by ingress stream create time.
+     */
+    public CompletableFuture<ListIngressStreamsResponse> listIngressStreams() {
+        return this.rawClient.listIngressStreams().thenApply(response -> response.body());
+    }
+
+    /**
+     * Returns a list of top level ingress stream objects, including ingress streams and internal
+     * Anduril streams. Will only return active streams.
+     * Results are ordered by ingress stream create time.
+     */
+    public CompletableFuture<ListIngressStreamsResponse> listIngressStreams(RequestOptions requestOptions) {
+        return this.rawClient.listIngressStreams(requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Returns a list of top level ingress stream objects, including ingress streams and internal
+     * Anduril streams. Will only return active streams.
+     * Results are ordered by ingress stream create time.
+     */
+    public CompletableFuture<ListIngressStreamsResponse> listIngressStreams(ListIngressStreamsRequest request) {
+        return this.rawClient.listIngressStreams(request).thenApply(response -> response.body());
+    }
+
+    /**
+     * Returns a list of top level ingress stream objects, including ingress streams and internal
+     * Anduril streams. Will only return active streams.
+     * Results are ordered by ingress stream create time.
+     */
+    public CompletableFuture<ListIngressStreamsResponse> listIngressStreams(
+            ListIngressStreamsRequest request, RequestOptions requestOptions) {
+        return this.rawClient.listIngressStreams(request, requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Creates a video ingress stream, returning metadata that you can use to stream live video to
+     * Lattice. Exactly one of <code>rtsp</code> or <code>srt</code> must be set on the request.
+     */
+    public CompletableFuture<CreateIngressStreamResponse> createIngressStream() {
+        return this.rawClient.createIngressStream().thenApply(response -> response.body());
+    }
+
+    /**
+     * Creates a video ingress stream, returning metadata that you can use to stream live video to
+     * Lattice. Exactly one of <code>rtsp</code> or <code>srt</code> must be set on the request.
+     */
+    public CompletableFuture<CreateIngressStreamResponse> createIngressStream(RequestOptions requestOptions) {
+        return this.rawClient.createIngressStream(requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Creates a video ingress stream, returning metadata that you can use to stream live video to
+     * Lattice. Exactly one of <code>rtsp</code> or <code>srt</code> must be set on the request.
+     */
+    public CompletableFuture<CreateIngressStreamResponse> createIngressStream(CreateIngressStreamRequest request) {
+        return this.rawClient.createIngressStream(request).thenApply(response -> response.body());
+    }
+
+    /**
+     * Creates a video ingress stream, returning metadata that you can use to stream live video to
+     * Lattice. Exactly one of <code>rtsp</code> or <code>srt</code> must be set on the request.
+     */
+    public CompletableFuture<CreateIngressStreamResponse> createIngressStream(
+            CreateIngressStreamRequest request, RequestOptions requestOptions) {
+        return this.rawClient.createIngressStream(request, requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Retrieves a top level ingress stream object and its associated metadata. This includes
+     * ingress streams and internal Anduril streams.
+     */
+    public CompletableFuture<GetIngressStreamResponse> getIngressStream(String ingressId) {
+        return this.rawClient.getIngressStream(ingressId).thenApply(response -> response.body());
+    }
+
+    /**
+     * Retrieves a top level ingress stream object and its associated metadata. This includes
+     * ingress streams and internal Anduril streams.
+     */
+    public CompletableFuture<GetIngressStreamResponse> getIngressStream(
+            String ingressId, RequestOptions requestOptions) {
+        return this.rawClient.getIngressStream(ingressId, requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Retrieves a top level ingress stream object and its associated metadata. This includes
+     * ingress streams and internal Anduril streams.
+     */
+    public CompletableFuture<GetIngressStreamResponse> getIngressStream(
+            String ingressId, GetIngressStreamRequest request) {
+        return this.rawClient.getIngressStream(ingressId, request).thenApply(response -> response.body());
+    }
+
+    /**
+     * Retrieves a top level ingress stream object and its associated metadata. This includes
+     * ingress streams and internal Anduril streams.
+     */
+    public CompletableFuture<GetIngressStreamResponse> getIngressStream(
+            String ingressId, GetIngressStreamRequest request, RequestOptions requestOptions) {
+        return this.rawClient
+                .getIngressStream(ingressId, request, requestOptions)
+                .thenApply(response -> response.body());
+    }
+
+    /**
+     * Deletes a video ingress stream and transitions the stream to <code>STREAM_STATUS_ARCHIVED</code>.
+     * Any egress streams consuming this stream will be stopped automatically.
+     */
+    public CompletableFuture<DeleteIngressStreamResponse> deleteIngressStream(String ingressId) {
+        return this.rawClient.deleteIngressStream(ingressId).thenApply(response -> response.body());
+    }
+
+    /**
+     * Deletes a video ingress stream and transitions the stream to <code>STREAM_STATUS_ARCHIVED</code>.
+     * Any egress streams consuming this stream will be stopped automatically.
+     */
+    public CompletableFuture<DeleteIngressStreamResponse> deleteIngressStream(
+            String ingressId, RequestOptions requestOptions) {
+        return this.rawClient.deleteIngressStream(ingressId, requestOptions).thenApply(response -> response.body());
+    }
+
+    /**
+     * Deletes a video ingress stream and transitions the stream to <code>STREAM_STATUS_ARCHIVED</code>.
+     * Any egress streams consuming this stream will be stopped automatically.
+     */
+    public CompletableFuture<DeleteIngressStreamResponse> deleteIngressStream(
+            String ingressId, DeleteIngressStreamRequest request) {
+        return this.rawClient.deleteIngressStream(ingressId, request).thenApply(response -> response.body());
+    }
+
+    /**
+     * Deletes a video ingress stream and transitions the stream to <code>STREAM_STATUS_ARCHIVED</code>.
+     * Any egress streams consuming this stream will be stopped automatically.
+     */
+    public CompletableFuture<DeleteIngressStreamResponse> deleteIngressStream(
+            String ingressId, DeleteIngressStreamRequest request, RequestOptions requestOptions) {
+        return this.rawClient
+                .deleteIngressStream(ingressId, request, requestOptions)
+                .thenApply(response -> response.body());
     }
 }

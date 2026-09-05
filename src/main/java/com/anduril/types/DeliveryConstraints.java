@@ -25,14 +25,18 @@ public final class DeliveryConstraints {
 
     private final Optional<OffsetDateTime> deliverBefore;
 
+    private final Optional<Boolean> requireAcknowledgement;
+
     private final Map<String, Object> additionalProperties;
 
     private DeliveryConstraints(
             Optional<OffsetDateTime> deliverAfter,
             Optional<OffsetDateTime> deliverBefore,
+            Optional<Boolean> requireAcknowledgement,
             Map<String, Object> additionalProperties) {
         this.deliverAfter = deliverAfter;
         this.deliverBefore = deliverBefore;
+        this.requireAcknowledgement = requireAcknowledgement;
         this.additionalProperties = additionalProperties;
     }
 
@@ -55,6 +59,20 @@ public final class DeliveryConstraints {
         return deliverBefore;
     }
 
+    /**
+     * @return Requires the agent to acknowledge the request before Lattice considers it delivered.
+     * Without this, a request sent over a streaming agent connection is marked delivered as soon
+     * as the send returns, which only proves it reached a local buffer and not that the agent
+     * received it. With this set, the task is not marked delivered until the agent reports a
+     * status confirming receipt; Lattice re-sends until it does, and eventually fails delivery
+     * with DELIVERY_ERROR_CODE_NOT_ACKNOWLEDGED. Requires deliver_before, which bounds that
+     * retrying.
+     */
+    @JsonProperty("requireAcknowledgement")
+    public Optional<Boolean> getRequireAcknowledgement() {
+        return requireAcknowledgement;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -67,12 +85,14 @@ public final class DeliveryConstraints {
     }
 
     private boolean equalTo(DeliveryConstraints other) {
-        return deliverAfter.equals(other.deliverAfter) && deliverBefore.equals(other.deliverBefore);
+        return deliverAfter.equals(other.deliverAfter)
+                && deliverBefore.equals(other.deliverBefore)
+                && requireAcknowledgement.equals(other.requireAcknowledgement);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.deliverAfter, this.deliverBefore);
+        return Objects.hash(this.deliverAfter, this.deliverBefore, this.requireAcknowledgement);
     }
 
     @java.lang.Override
@@ -90,6 +110,8 @@ public final class DeliveryConstraints {
 
         private Optional<OffsetDateTime> deliverBefore = Optional.empty();
 
+        private Optional<Boolean> requireAcknowledgement = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -98,6 +120,7 @@ public final class DeliveryConstraints {
         public Builder from(DeliveryConstraints other) {
             deliverAfter(other.getDeliverAfter());
             deliverBefore(other.getDeliverBefore());
+            requireAcknowledgement(other.getRequireAcknowledgement());
             return this;
         }
 
@@ -132,8 +155,28 @@ public final class DeliveryConstraints {
             return this;
         }
 
+        /**
+         * <p>Requires the agent to acknowledge the request before Lattice considers it delivered.
+         * Without this, a request sent over a streaming agent connection is marked delivered as soon
+         * as the send returns, which only proves it reached a local buffer and not that the agent
+         * received it. With this set, the task is not marked delivered until the agent reports a
+         * status confirming receipt; Lattice re-sends until it does, and eventually fails delivery
+         * with DELIVERY_ERROR_CODE_NOT_ACKNOWLEDGED. Requires deliver_before, which bounds that
+         * retrying.</p>
+         */
+        @JsonSetter(value = "requireAcknowledgement", nulls = Nulls.SKIP)
+        public Builder requireAcknowledgement(Optional<Boolean> requireAcknowledgement) {
+            this.requireAcknowledgement = requireAcknowledgement;
+            return this;
+        }
+
+        public Builder requireAcknowledgement(Boolean requireAcknowledgement) {
+            this.requireAcknowledgement = Optional.ofNullable(requireAcknowledgement);
+            return this;
+        }
+
         public DeliveryConstraints build() {
-            return new DeliveryConstraints(deliverAfter, deliverBefore, additionalProperties);
+            return new DeliveryConstraints(deliverAfter, deliverBefore, requireAcknowledgement, additionalProperties);
         }
 
         public Builder additionalProperty(String key, Object value) {
