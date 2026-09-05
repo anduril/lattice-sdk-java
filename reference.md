@@ -1721,7 +1721,7 @@ client.oauth().getToken(
 </details>
 
 ## Video
-<details><summary><code>client.video.video.listEgressStreams() -> ListEgressStreamsResponse</code></summary>
+<details><summary><code>client.video.listEgressStreams() -> ListEgressStreamsResponse</code></summary>
 <dl>
 <dd>
 
@@ -1750,7 +1750,7 @@ Returns a list of active egress stream objects.
 <dd>
 
 ```java
-client.video().video().listEgressStreams(
+client.video().listEgressStreams(
     ListEgressStreamsRequest
         .builder()
         .build()
@@ -1798,7 +1798,7 @@ To retrieve the next page, pass the `next_page_token` from the previous
 </dl>
 </details>
 
-<details><summary><code>client.video.video.createEgressStream(request) -> CreateEgressStreamResponse</code></summary>
+<details><summary><code>client.video.createEgressStream(request) -> CreateEgressStreamResponse</code></summary>
 <dl>
 <dd>
 
@@ -1826,7 +1826,7 @@ Creates an egress stream that publishes a live stream to a downstream consumer.
 <dd>
 
 ```java
-client.video().video().createEgressStream(
+client.video().createEgressStream(
     CreateEgressStreamRequest
         .builder()
         .build()
@@ -1873,7 +1873,7 @@ client.video().video().createEgressStream(
 </dl>
 </details>
 
-<details><summary><code>client.video.video.getEgressStream(egressId) -> GetEgressStreamResponse</code></summary>
+<details><summary><code>client.video.getEgressStream(egressId) -> GetEgressStreamResponse</code></summary>
 <dl>
 <dd>
 
@@ -1900,7 +1900,7 @@ Retrieves an egress stream object and its associated metadata.
 <dd>
 
 ```java
-client.video().video().getEgressStream(
+client.video().getEgressStream(
     "egressId",
     GetEgressStreamRequest
         .builder()
@@ -1932,7 +1932,7 @@ client.video().video().getEgressStream(
 </dl>
 </details>
 
-<details><summary><code>client.video.video.deleteEgressStream(egressId) -> DeleteEgressStreamResponse</code></summary>
+<details><summary><code>client.video.deleteEgressStream(egressId) -> DeleteEgressStreamResponse</code></summary>
 <dl>
 <dd>
 
@@ -1960,7 +1960,7 @@ Deletes the egress stream for a live stream. Returns `NOT_FOUND` if no matching 
 <dd>
 
 ```java
-client.video().video().deleteEgressStream(
+client.video().deleteEgressStream(
     "egressId",
     DeleteEgressStreamRequest
         .builder()
@@ -1992,7 +1992,7 @@ client.video().video().deleteEgressStream(
 </dl>
 </details>
 
-<details><summary><code>client.video.video.listIngressStreams() -> ListIngressStreamsResponse</code></summary>
+<details><summary><code>client.video.listIngressStreams() -> ListIngressStreamsResponse</code></summary>
 <dl>
 <dd>
 
@@ -2021,7 +2021,7 @@ Returns a list of top level ingress stream objects, including ingress streams an
 <dd>
 
 ```java
-client.video().video().listIngressStreams(
+client.video().listIngressStreams(
     ListIngressStreamsRequest
         .builder()
         .build()
@@ -2069,7 +2069,7 @@ To retrieve the next page, pass the `next_page_token` from the previous
 </dl>
 </details>
 
-<details><summary><code>client.video.video.createIngressStream(request) -> CreateIngressStreamResponse</code></summary>
+<details><summary><code>client.video.createIngressStream(request) -> CreateIngressStreamResponse</code></summary>
 <dl>
 <dd>
 
@@ -2097,7 +2097,7 @@ Creates a video ingress stream, returning metadata that you can use to stream li
 <dd>
 
 ```java
-client.video().video().createIngressStream(
+client.video().createIngressStream(
     CreateIngressStreamRequest
         .builder()
         .build()
@@ -2153,9 +2153,12 @@ Human-readable title for the stream. A title is required: surrounding whitespace
 Receive an MPEG-TS push from the producer. The service allocates a UDP port and
  returns the URL the producer must push to in CreateIngressStreamResponse.
 
- MPEG-TS ingress may be disabled per deployment. When it is disabled, a request
- that selects mpeg_ts is rejected with a gRPC error rather than accepted, so
- callers should be prepared to fall back to another protocol.
+ MPEG-TS ingress is supported only at the edge, in closed networks. When Lattice
+ runs in a cloud environment reached over the public internet, MPEG-TS ingress may
+ be disabled per deployment. When it is disabled, a request that selects mpeg_ts is
+ rejected with a gRPC error rather than accepted, so callers should be prepared to
+ fall back to RTSP or SRT. An MPEG-TS stream created at the edge can still be listed
+ and inspected on the IngressStream read model even when cloud ingress is disabled.
     
 </dd>
 </dl>
@@ -2186,7 +2189,7 @@ Receive an SRT push from the producer. The service returns a URL and session_id
 </dl>
 </details>
 
-<details><summary><code>client.video.video.getIngressStream(ingressId) -> GetIngressStreamResponse</code></summary>
+<details><summary><code>client.video.getIngressStream(ingressId) -> GetIngressStreamResponse</code></summary>
 <dl>
 <dd>
 
@@ -2214,7 +2217,7 @@ Retrieves a top level ingress stream object and its associated metadata. This in
 <dd>
 
 ```java
-client.video().video().getIngressStream(
+client.video().getIngressStream(
     "ingressId",
     GetIngressStreamRequest
         .builder()
@@ -2246,7 +2249,7 @@ client.video().video().getIngressStream(
 </dl>
 </details>
 
-<details><summary><code>client.video.video.deleteIngressStream(ingressId) -> DeleteIngressStreamResponse</code></summary>
+<details><summary><code>client.video.deleteIngressStream(ingressId) -> DeleteIngressStreamResponse</code></summary>
 <dl>
 <dd>
 
@@ -2274,7 +2277,7 @@ Deletes a video ingress stream and transitions the stream to `STREAM_STATUS_ARCH
 <dd>
 
 ```java
-client.video().video().deleteIngressStream(
+client.video().deleteIngressStream(
     "ingressId",
     DeleteIngressStreamRequest
         .builder()
