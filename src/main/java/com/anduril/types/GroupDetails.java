@@ -22,12 +22,19 @@ import java.util.Optional;
 public final class GroupDetails {
     private final Optional<Team> team;
 
+    private final Optional<PlatformSubcomponents> platformSubcomponents;
+
     private final Optional<Echelon> echelon;
 
     private final Map<String, Object> additionalProperties;
 
-    private GroupDetails(Optional<Team> team, Optional<Echelon> echelon, Map<String, Object> additionalProperties) {
+    private GroupDetails(
+            Optional<Team> team,
+            Optional<PlatformSubcomponents> platformSubcomponents,
+            Optional<Echelon> echelon,
+            Map<String, Object> additionalProperties) {
         this.team = team;
+        this.platformSubcomponents = platformSubcomponents;
         this.echelon = echelon;
         this.additionalProperties = additionalProperties;
     }
@@ -35,6 +42,11 @@ public final class GroupDetails {
     @JsonProperty("team")
     public Optional<Team> getTeam() {
         return team;
+    }
+
+    @JsonProperty("platformSubcomponents")
+    public Optional<PlatformSubcomponents> getPlatformSubcomponents() {
+        return platformSubcomponents;
     }
 
     @JsonProperty("echelon")
@@ -54,12 +66,14 @@ public final class GroupDetails {
     }
 
     private boolean equalTo(GroupDetails other) {
-        return team.equals(other.team) && echelon.equals(other.echelon);
+        return team.equals(other.team)
+                && platformSubcomponents.equals(other.platformSubcomponents)
+                && echelon.equals(other.echelon);
     }
 
     @java.lang.Override
     public int hashCode() {
-        return Objects.hash(this.team, this.echelon);
+        return Objects.hash(this.team, this.platformSubcomponents, this.echelon);
     }
 
     @java.lang.Override
@@ -75,6 +89,8 @@ public final class GroupDetails {
     public static final class Builder {
         private Optional<Team> team = Optional.empty();
 
+        private Optional<PlatformSubcomponents> platformSubcomponents = Optional.empty();
+
         private Optional<Echelon> echelon = Optional.empty();
 
         @JsonAnySetter
@@ -84,6 +100,7 @@ public final class GroupDetails {
 
         public Builder from(GroupDetails other) {
             team(other.getTeam());
+            platformSubcomponents(other.getPlatformSubcomponents());
             echelon(other.getEchelon());
             return this;
         }
@@ -99,6 +116,17 @@ public final class GroupDetails {
             return this;
         }
 
+        @JsonSetter(value = "platformSubcomponents", nulls = Nulls.SKIP)
+        public Builder platformSubcomponents(Optional<PlatformSubcomponents> platformSubcomponents) {
+            this.platformSubcomponents = platformSubcomponents;
+            return this;
+        }
+
+        public Builder platformSubcomponents(PlatformSubcomponents platformSubcomponents) {
+            this.platformSubcomponents = Optional.ofNullable(platformSubcomponents);
+            return this;
+        }
+
         @JsonSetter(value = "echelon", nulls = Nulls.SKIP)
         public Builder echelon(Optional<Echelon> echelon) {
             this.echelon = echelon;
@@ -111,7 +139,7 @@ public final class GroupDetails {
         }
 
         public GroupDetails build() {
-            return new GroupDetails(team, echelon, additionalProperties);
+            return new GroupDetails(team, platformSubcomponents, echelon, additionalProperties);
         }
 
         public Builder additionalProperty(String key, Object value) {
