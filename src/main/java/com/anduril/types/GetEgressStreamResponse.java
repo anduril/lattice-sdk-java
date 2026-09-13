@@ -30,7 +30,7 @@ public final class GetEgressStreamResponse {
     }
 
     /**
-     * @return The egress stream corresponding to the requested <code>egress_id</code>.
+     * @return The egress stream corresponding to the requested <code>egressId</code>.
      */
     @JsonProperty("egressStream")
     public Optional<EgressStream> getEgressStream() {
@@ -81,7 +81,7 @@ public final class GetEgressStreamResponse {
         }
 
         /**
-         * <p>The egress stream corresponding to the requested <code>egress_id</code>.</p>
+         * <p>The egress stream corresponding to the requested <code>egressId</code>.</p>
          */
         @JsonSetter(value = "egressStream", nulls = Nulls.SKIP)
         public Builder egressStream(Optional<EgressStream> egressStream) {

@@ -55,10 +55,10 @@ public final class CreateIngressStreamRequest {
      * is a group prefix (organization, platform, or asset) followed by a specific identifier
      * using underscore or dot as a separator, for example, <code>drone_1</code>, <code>vessel_2</code>, or
      * <code>teamalpha.drone1</code>.
-     * <p>When supplied, an ingress_id must be between 4 and 36 characters long and use only
+     * <p>When supplied, an ingressId must be between 4 and 36 characters long and use only
      * printable ASCII characters with no spaces; the 36-character ceiling leaves room for a
      * full GUID. A value outside that length range, or one containing spaces, control
-     * characters, or non-ASCII characters, is rejected, as is an ingress_id that another
+     * characters, or non-ASCII characters, is rejected, as is an ingressId that another
      * ingress stream is already using.</p>
      */
     @JsonProperty("ingressId")
@@ -81,7 +81,7 @@ public final class CreateIngressStreamRequest {
      * returns the URL the producer must push to in CreateIngressStreamResponse.
      * <p>MPEG-TS ingress is supported only at the edge, in closed networks. When Lattice
      * runs in a cloud environment reached over the public internet, MPEG-TS ingress may
-     * be disabled per deployment. When it is disabled, a request that selects mpeg_ts is
+     * be disabled per deployment. When it is disabled, a request that selects <code>mpegTs</code> is
      * rejected with a gRPC error rather than accepted, so callers should be prepared to
      * fall back to RTSP or SRT. An MPEG-TS stream created at the edge can still be listed
      * and inspected on the IngressStream read model even when cloud ingress is disabled.</p>
@@ -100,7 +100,7 @@ public final class CreateIngressStreamRequest {
     }
 
     /**
-     * @return Receive an SRT push from the producer. The service returns a URL and session_id
+     * @return Receive an SRT push from the producer. The service returns a URL and sessionId
      * in CreateIngressStreamResponse.
      */
     @JsonProperty("srt")
@@ -173,10 +173,10 @@ public final class CreateIngressStreamRequest {
          * is a group prefix (organization, platform, or asset) followed by a specific identifier
          * using underscore or dot as a separator, for example, <code>drone_1</code>, <code>vessel_2</code>, or
          * <code>teamalpha.drone1</code>.</p>
-         * <p>When supplied, an ingress_id must be between 4 and 36 characters long and use only
+         * <p>When supplied, an ingressId must be between 4 and 36 characters long and use only
          * printable ASCII characters with no spaces; the 36-character ceiling leaves room for a
          * full GUID. A value outside that length range, or one containing spaces, control
-         * characters, or non-ASCII characters, is rejected, as is an ingress_id that another
+         * characters, or non-ASCII characters, is rejected, as is an ingressId that another
          * ingress stream is already using.</p>
          */
         @JsonSetter(value = "ingressId", nulls = Nulls.SKIP)
@@ -211,7 +211,7 @@ public final class CreateIngressStreamRequest {
          * returns the URL the producer must push to in CreateIngressStreamResponse.</p>
          * <p>MPEG-TS ingress is supported only at the edge, in closed networks. When Lattice
          * runs in a cloud environment reached over the public internet, MPEG-TS ingress may
-         * be disabled per deployment. When it is disabled, a request that selects mpeg_ts is
+         * be disabled per deployment. When it is disabled, a request that selects <code>mpegTs</code> is
          * rejected with a gRPC error rather than accepted, so callers should be prepared to
          * fall back to RTSP or SRT. An MPEG-TS stream created at the edge can still be listed
          * and inspected on the IngressStream read model even when cloud ingress is disabled.</p>
@@ -242,7 +242,7 @@ public final class CreateIngressStreamRequest {
         }
 
         /**
-         * <p>Receive an SRT push from the producer. The service returns a URL and session_id
+         * <p>Receive an SRT push from the producer. The service returns a URL and sessionId
          * in CreateIngressStreamResponse.</p>
          */
         @JsonSetter(value = "srt", nulls = Nulls.SKIP)

@@ -5,6 +5,7 @@ package com.anduril.resources.tasks.requests;
 
 import com.anduril.core.ObjectMappers;
 import com.anduril.types.DeliveryConstraints;
+import com.anduril.types.ExecutionConstraints;
 import com.anduril.types.GoogleProtobufAny;
 import com.anduril.types.Principal;
 import com.anduril.types.Relations;
@@ -47,6 +48,8 @@ public final class TaskCreation {
 
     private final Optional<DeliveryConstraints> deliveryConstraints;
 
+    private final Optional<ExecutionConstraints> executionConstraints;
+
     private final Map<String, Object> additionalProperties;
 
     private TaskCreation(
@@ -60,6 +63,7 @@ public final class TaskCreation {
             Optional<List<TaskEntity>> initialEntities,
             Optional<RetryStrategy> retryStrategy,
             Optional<DeliveryConstraints> deliveryConstraints,
+            Optional<ExecutionConstraints> executionConstraints,
             Map<String, Object> additionalProperties) {
         this.taskId = taskId;
         this.displayName = displayName;
@@ -71,6 +75,7 @@ public final class TaskCreation {
         this.initialEntities = initialEntities;
         this.retryStrategy = retryStrategy;
         this.deliveryConstraints = deliveryConstraints;
+        this.executionConstraints = executionConstraints;
         this.additionalProperties = additionalProperties;
     }
 
@@ -149,11 +154,19 @@ public final class TaskCreation {
     }
 
     /**
-     * @return Any scheduling constraints for Lattice delivery of the task.
+     * @return Describes scheduling constraints for Lattice when delivering the task to the agent.
      */
     @JsonProperty("deliveryConstraints")
     public Optional<DeliveryConstraints> getDeliveryConstraints() {
         return deliveryConstraints;
+    }
+
+    /**
+     * @return Describes scheduling constraints for the agent executing the task after it has been delivered.
+     */
+    @JsonProperty("executionConstraints")
+    public Optional<ExecutionConstraints> getExecutionConstraints() {
+        return executionConstraints;
     }
 
     @java.lang.Override
@@ -177,7 +190,8 @@ public final class TaskCreation {
                 && isExecutedElsewhere.equals(other.isExecutedElsewhere)
                 && initialEntities.equals(other.initialEntities)
                 && retryStrategy.equals(other.retryStrategy)
-                && deliveryConstraints.equals(other.deliveryConstraints);
+                && deliveryConstraints.equals(other.deliveryConstraints)
+                && executionConstraints.equals(other.executionConstraints);
     }
 
     @java.lang.Override
@@ -192,7 +206,8 @@ public final class TaskCreation {
                 this.isExecutedElsewhere,
                 this.initialEntities,
                 this.retryStrategy,
-                this.deliveryConstraints);
+                this.deliveryConstraints,
+                this.executionConstraints);
     }
 
     @java.lang.Override
@@ -226,6 +241,8 @@ public final class TaskCreation {
 
         private Optional<DeliveryConstraints> deliveryConstraints = Optional.empty();
 
+        private Optional<ExecutionConstraints> executionConstraints = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -242,6 +259,7 @@ public final class TaskCreation {
             initialEntities(other.getInitialEntities());
             retryStrategy(other.getRetryStrategy());
             deliveryConstraints(other.getDeliveryConstraints());
+            executionConstraints(other.getExecutionConstraints());
             return this;
         }
 
@@ -374,7 +392,7 @@ public final class TaskCreation {
         }
 
         /**
-         * <p>Any scheduling constraints for Lattice delivery of the task.</p>
+         * <p>Describes scheduling constraints for Lattice when delivering the task to the agent.</p>
          */
         @JsonSetter(value = "deliveryConstraints", nulls = Nulls.SKIP)
         public Builder deliveryConstraints(Optional<DeliveryConstraints> deliveryConstraints) {
@@ -384,6 +402,20 @@ public final class TaskCreation {
 
         public Builder deliveryConstraints(DeliveryConstraints deliveryConstraints) {
             this.deliveryConstraints = Optional.ofNullable(deliveryConstraints);
+            return this;
+        }
+
+        /**
+         * <p>Describes scheduling constraints for the agent executing the task after it has been delivered.</p>
+         */
+        @JsonSetter(value = "executionConstraints", nulls = Nulls.SKIP)
+        public Builder executionConstraints(Optional<ExecutionConstraints> executionConstraints) {
+            this.executionConstraints = executionConstraints;
+            return this;
+        }
+
+        public Builder executionConstraints(ExecutionConstraints executionConstraints) {
+            this.executionConstraints = Optional.ofNullable(executionConstraints);
             return this;
         }
 
@@ -399,6 +431,7 @@ public final class TaskCreation {
                     initialEntities,
                     retryStrategy,
                     deliveryConstraints,
+                    executionConstraints,
                     additionalProperties);
         }
 

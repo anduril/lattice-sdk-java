@@ -41,7 +41,7 @@ public final class CreateIngressStreamResponse {
 
     /**
      * @return Identifier of the newly created ingress stream. Echoes the caller-supplied
-     * <code>ingress_id</code> if one was provided, otherwise a service-generated GUID.
+     * <code>ingressId</code> if one was provided, otherwise a service-generated GUID.
      */
     @JsonProperty("ingressId")
     public Optional<String> getIngressId() {
@@ -50,7 +50,7 @@ public final class CreateIngressStreamResponse {
 
     /**
      * @return Connection details for an MPEG-TS push. Only returned when the request selected
-     * mpeg_ts and MPEG-TS ingress is enabled for the deployment. MPEG-TS ingress is
+     * <code>mpegTs</code> and MPEG-TS ingress is enabled for the deployment. MPEG-TS ingress is
      * supported only at the edge, in closed networks; in a cloud environment reached over
      * the public internet it may be disabled per deployment, in which case the create
      * request is rejected and this field is never populated.
@@ -116,7 +116,7 @@ public final class CreateIngressStreamResponse {
 
         /**
          * <p>Identifier of the newly created ingress stream. Echoes the caller-supplied
-         * <code>ingress_id</code> if one was provided, otherwise a service-generated GUID.</p>
+         * <code>ingressId</code> if one was provided, otherwise a service-generated GUID.</p>
          */
         @JsonSetter(value = "ingressId", nulls = Nulls.SKIP)
         public Builder ingressId(Optional<String> ingressId) {
@@ -131,7 +131,7 @@ public final class CreateIngressStreamResponse {
 
         /**
          * <p>Connection details for an MPEG-TS push. Only returned when the request selected
-         * mpeg_ts and MPEG-TS ingress is enabled for the deployment. MPEG-TS ingress is
+         * <code>mpegTs</code> and MPEG-TS ingress is enabled for the deployment. MPEG-TS ingress is
          * supported only at the edge, in closed networks; in a cloud environment reached over
          * the public internet it may be disabled per deployment, in which case the create
          * request is rejected and this field is never populated.</p>
