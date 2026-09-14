@@ -56,6 +56,8 @@ public final class Task {
 
     private final Optional<DeliveryState> deliveryState;
 
+    private final Optional<ExecutionConstraints> executionConstraints;
+
     private final Map<String, Object> additionalProperties;
 
     private Task(
@@ -76,6 +78,7 @@ public final class Task {
             Optional<Owner> owner,
             Optional<RetryStrategy> retryStrategy,
             Optional<DeliveryState> deliveryState,
+            Optional<ExecutionConstraints> executionConstraints,
             Map<String, Object> additionalProperties) {
         this.version = version;
         this.displayName = displayName;
@@ -94,6 +97,7 @@ public final class Task {
         this.owner = owner;
         this.retryStrategy = retryStrategy;
         this.deliveryState = deliveryState;
+        this.executionConstraints = executionConstraints;
         this.additionalProperties = additionalProperties;
     }
 
@@ -238,6 +242,14 @@ public final class Task {
         return deliveryState;
     }
 
+    /**
+     * @return Any execution-related scheduling constraints for the agent after task delivery.
+     */
+    @JsonProperty("executionConstraints")
+    public Optional<ExecutionConstraints> getExecutionConstraints() {
+        return executionConstraints;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -266,7 +278,8 @@ public final class Task {
                 && initialEntities.equals(other.initialEntities)
                 && owner.equals(other.owner)
                 && retryStrategy.equals(other.retryStrategy)
-                && deliveryState.equals(other.deliveryState);
+                && deliveryState.equals(other.deliveryState)
+                && executionConstraints.equals(other.executionConstraints);
     }
 
     @java.lang.Override
@@ -288,7 +301,8 @@ public final class Task {
                 this.initialEntities,
                 this.owner,
                 this.retryStrategy,
-                this.deliveryState);
+                this.deliveryState,
+                this.executionConstraints);
     }
 
     @java.lang.Override
@@ -336,6 +350,8 @@ public final class Task {
 
         private Optional<DeliveryState> deliveryState = Optional.empty();
 
+        private Optional<ExecutionConstraints> executionConstraints = Optional.empty();
+
         @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -359,6 +375,7 @@ public final class Task {
             owner(other.getOwner());
             retryStrategy(other.getRetryStrategy());
             deliveryState(other.getDeliveryState());
+            executionConstraints(other.getExecutionConstraints());
             return this;
         }
 
@@ -605,6 +622,20 @@ public final class Task {
             return this;
         }
 
+        /**
+         * <p>Any execution-related scheduling constraints for the agent after task delivery.</p>
+         */
+        @JsonSetter(value = "executionConstraints", nulls = Nulls.SKIP)
+        public Builder executionConstraints(Optional<ExecutionConstraints> executionConstraints) {
+            this.executionConstraints = executionConstraints;
+            return this;
+        }
+
+        public Builder executionConstraints(ExecutionConstraints executionConstraints) {
+            this.executionConstraints = Optional.ofNullable(executionConstraints);
+            return this;
+        }
+
         public Task build() {
             return new Task(
                     version,
@@ -624,6 +655,7 @@ public final class Task {
                     owner,
                     retryStrategy,
                     deliveryState,
+                    executionConstraints,
                     additionalProperties);
         }
 
