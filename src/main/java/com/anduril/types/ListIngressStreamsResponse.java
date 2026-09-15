@@ -37,7 +37,7 @@ public final class ListIngressStreamsResponse {
     }
 
     /**
-     * @return The ingress streams on this page. Up to <code>page_size</code> entries
+     * @return The ingress streams on this page. Up to <code>pageSize</code> entries
      * (defaults to 50, capped at 100). Ordered by ingress stream create time.
      */
     @JsonProperty("ingressStreams")
@@ -46,7 +46,7 @@ public final class ListIngressStreamsResponse {
     }
 
     /**
-     * @return Pass this back as <code>page_token</code> to retrieve the next page.
+     * @return Pass this back as <code>pageToken</code> to retrieve the next page.
      * Empty when there are no more pages.
      */
     @JsonProperty("nextPageToken")
@@ -101,7 +101,7 @@ public final class ListIngressStreamsResponse {
         }
 
         /**
-         * <p>The ingress streams on this page. Up to <code>page_size</code> entries
+         * <p>The ingress streams on this page. Up to <code>pageSize</code> entries
          * (defaults to 50, capped at 100). Ordered by ingress stream create time.</p>
          */
         @JsonSetter(value = "ingressStreams", nulls = Nulls.SKIP)
@@ -116,7 +116,7 @@ public final class ListIngressStreamsResponse {
         }
 
         /**
-         * <p>Pass this back as <code>page_token</code> to retrieve the next page.
+         * <p>Pass this back as <code>pageToken</code> to retrieve the next page.
          * Empty when there are no more pages.</p>
          */
         @JsonSetter(value = "nextPageToken", nulls = Nulls.SKIP)
