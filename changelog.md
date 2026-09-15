@@ -2,6 +2,13 @@
 
 ## [6.1.0] - 2026-09-15
 
+### Added
+- **`ExecutionConstraints`** type with `startAfter` and `completeBefore` timestamps describing when an agent may execute a task after delivery.
+- **`executionConstraints`** optional field added to `TaskCreation` requests and `Task` responses.
+
+### Changed
+- **Documentation** across video streaming and task APIs now references camelCase field names (`nextPageToken`, `pageSize`, `ingressId`, `mpegTs`, `sessionId`) instead of snake_case.
+
 ## [6.0.0] - 2026-09-04
 
 ### Breaking Changes
