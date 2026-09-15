@@ -30,7 +30,7 @@ public final class GetIngressStreamResponse {
     }
 
     /**
-     * @return The ingress stream corresponding to the requested <code>ingress_id</code>.
+     * @return The ingress stream corresponding to the requested <code>ingressId</code>.
      */
     @JsonProperty("ingressStream")
     public Optional<IngressStream> getIngressStream() {
@@ -81,7 +81,7 @@ public final class GetIngressStreamResponse {
         }
 
         /**
-         * <p>The ingress stream corresponding to the requested <code>ingress_id</code>.</p>
+         * <p>The ingress stream corresponding to the requested <code>ingressId</code>.</p>
          */
         @JsonSetter(value = "ingressStream", nulls = Nulls.SKIP)
         public Builder ingressStream(Optional<IngressStream> ingressStream) {
