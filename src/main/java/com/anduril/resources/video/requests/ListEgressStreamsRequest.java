@@ -43,7 +43,7 @@ public final class ListEgressStreamsRequest {
     }
 
     /**
-     * @return To retrieve the next page, pass the <code>next_page_token</code> from the previous
+     * @return To retrieve the next page, pass the <code>nextPageToken</code> from the previous
      * response. Leave empty for the first page.
      * <p>Keep the rest of the request identical between pages, otherwise the
      * server may reject it.</p>
@@ -115,7 +115,7 @@ public final class ListEgressStreamsRequest {
         }
 
         /**
-         * <p>To retrieve the next page, pass the <code>next_page_token</code> from the previous
+         * <p>To retrieve the next page, pass the <code>nextPageToken</code> from the previous
          * response. Leave empty for the first page.</p>
          * <p>Keep the rest of the request identical between pages, otherwise the
          * server may reject it.</p>
