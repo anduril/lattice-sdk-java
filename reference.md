@@ -589,7 +589,15 @@ task. For example, an entity Objective, an entity Keep In Zone, etc.
 <dl>
 <dd>
 
-**deliveryConstraints:** `Optional<DeliveryConstraints>` — Any scheduling constraints for Lattice delivery of the task.
+**deliveryConstraints:** `Optional<DeliveryConstraints>` — Describes scheduling constraints for Lattice when delivering the task to the agent.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**executionConstraints:** `Optional<ExecutionConstraints>` — Describes scheduling constraints for the agent executing the task after it has been delivered.
     
 </dd>
 </dl>
@@ -1782,7 +1790,7 @@ Desired number of egress streams per page. Defaults to 50 if left blank,
 
 **pageToken:** `Optional<String>` 
 
-To retrieve the next page, pass the `next_page_token` from the previous
+To retrieve the next page, pass the `nextPageToken` from the previous
  response. Leave empty for the first page.
 
  Keep the rest of the request identical between pages, otherwise the
@@ -2053,7 +2061,7 @@ Desired number of ingress streams per page. Defaults to 50 if left blank,
 
 **pageToken:** `Optional<String>` 
 
-To retrieve the next page, pass the `next_page_token` from the previous
+To retrieve the next page, pass the `nextPageToken` from the previous
  response. Leave empty for the first page.
 
  Keep the rest of the request identical between pages, otherwise the
@@ -2124,10 +2132,10 @@ Caller-supplied identifier for the new stream. If omitted, the service generates
  using underscore or dot as a separator, for example, `drone_1`, `vessel_2`, or
  `teamalpha.drone1`.
 
- When supplied, an ingress_id must be between 4 and 36 characters long and use only
+ When supplied, an ingressId must be between 4 and 36 characters long and use only
  printable ASCII characters with no spaces; the 36-character ceiling leaves room for a
  full GUID. A value outside that length range, or one containing spaces, control
- characters, or non-ASCII characters, is rejected, as is an ingress_id that another
+ characters, or non-ASCII characters, is rejected, as is an ingressId that another
  ingress stream is already using.
     
 </dd>
@@ -2155,7 +2163,7 @@ Receive an MPEG-TS push from the producer. The service allocates a UDP port and
 
  MPEG-TS ingress is supported only at the edge, in closed networks. When Lattice
  runs in a cloud environment reached over the public internet, MPEG-TS ingress may
- be disabled per deployment. When it is disabled, a request that selects mpeg_ts is
+ be disabled per deployment. When it is disabled, a request that selects `mpegTs` is
  rejected with a gRPC error rather than accepted, so callers should be prepared to
  fall back to RTSP or SRT. An MPEG-TS stream created at the edge can still be listed
  and inspected on the IngressStream read model even when cloud ingress is disabled.
@@ -2176,7 +2184,7 @@ Receive an MPEG-TS push from the producer. The service allocates a UDP port and
 
 **srt:** `Optional<SrtSettings>` 
 
-Receive an SRT push from the producer. The service returns a URL and session_id
+Receive an SRT push from the producer. The service returns a URL and sessionId
  in CreateIngressStreamResponse.
     
 </dd>
