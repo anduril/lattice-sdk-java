@@ -2,6 +2,13 @@
 
 ## [6.1.0] - 2026-09-15
 
+### Added
+- **`ExecutionConstraints`** — new type with `startAfter` and `completeBefore` fields describing when an agent may execute a delivered task.
+- **`executionConstraints`** — optional field added to `TaskCreation` and `Task` for agent-side execution scheduling constraints.
+
+### Changed
+- **Documentation** — field references updated to camelCase naming (`nextPageToken`, `ingressId`, `pageSize`, `mpegTs`, `sessionId`) in Javadoc and reference docs.
+
 ## [6.0.0] - 2026-09-04
 
 ### Breaking Changes
