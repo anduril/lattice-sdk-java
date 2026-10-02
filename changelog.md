@@ -1,5 +1,14 @@
 # Changelog
 
+## [6.2.0] - 2026-10-02
+### Added
+- **`AutoCloseable`** — `Lattice` and `AsyncLattice` now implement `AutoCloseable` with a `close()` method that disconnects tracked WebSockets and shuts down the SDK-owned HTTP client.
+- **`ClientOptions`** — new `close()`, `isClosed()`, `registerWebSocket()`, and `unregisterWebSocket()` methods, plus tracking of whether the SDK owns the underlying `OkHttpClient`.
+- **`TaskStatus.getLastUpdateTime()`** — new optional `lastUpdateTime` field recording the last time a task status changed, with corresponding builder methods.
+
+### Changed
+- **`RetryInterceptor`** — the OkHttp call timeout is now suspended during backoff and applied per attempt rather than across the whole retry loop, and responses are buffered so they remain usable after a retried attempt fails.
+
 ## [6.1.0] - 2026-09-15
 
 ### Added
