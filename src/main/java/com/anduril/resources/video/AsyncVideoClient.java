@@ -4,6 +4,7 @@
 package com.anduril.resources.video;
 
 import com.anduril.core.ClientOptions;
+import com.anduril.core.LatticeHttpResponse;
 import com.anduril.core.RequestOptions;
 import com.anduril.resources.video.requests.CreateEgressStreamRequest;
 import com.anduril.resources.video.requests.CreateIngressStreamRequest;
@@ -46,7 +47,15 @@ public class AsyncVideoClient {
      * egress backend is unreachable, the listed streams might be stale or degraded.
      */
     public CompletableFuture<ListEgressStreamsResponse> listEgressStreams() {
-        return this.rawClient.listEgressStreams().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<ListEgressStreamsResponse>> rawFuture =
+                this.rawClient.listEgressStreams();
+        CompletableFuture<ListEgressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -55,7 +64,15 @@ public class AsyncVideoClient {
      * egress backend is unreachable, the listed streams might be stale or degraded.
      */
     public CompletableFuture<ListEgressStreamsResponse> listEgressStreams(RequestOptions requestOptions) {
-        return this.rawClient.listEgressStreams(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<ListEgressStreamsResponse>> rawFuture =
+                this.rawClient.listEgressStreams(requestOptions);
+        CompletableFuture<ListEgressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -64,7 +81,15 @@ public class AsyncVideoClient {
      * egress backend is unreachable, the listed streams might be stale or degraded.
      */
     public CompletableFuture<ListEgressStreamsResponse> listEgressStreams(ListEgressStreamsRequest request) {
-        return this.rawClient.listEgressStreams(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<ListEgressStreamsResponse>> rawFuture =
+                this.rawClient.listEgressStreams(request);
+        CompletableFuture<ListEgressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -74,7 +99,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<ListEgressStreamsResponse> listEgressStreams(
             ListEgressStreamsRequest request, RequestOptions requestOptions) {
-        return this.rawClient.listEgressStreams(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<ListEgressStreamsResponse>> rawFuture =
+                this.rawClient.listEgressStreams(request, requestOptions);
+        CompletableFuture<ListEgressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -82,7 +115,15 @@ public class AsyncVideoClient {
      * A stream in <code>STREAM_STATUS_UNAVAILABLE</code> is rejected as not-live.
      */
     public CompletableFuture<CreateEgressStreamResponse> createEgressStream() {
-        return this.rawClient.createEgressStream().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<CreateEgressStreamResponse>> rawFuture =
+                this.rawClient.createEgressStream();
+        CompletableFuture<CreateEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -90,7 +131,15 @@ public class AsyncVideoClient {
      * A stream in <code>STREAM_STATUS_UNAVAILABLE</code> is rejected as not-live.
      */
     public CompletableFuture<CreateEgressStreamResponse> createEgressStream(RequestOptions requestOptions) {
-        return this.rawClient.createEgressStream(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<CreateEgressStreamResponse>> rawFuture =
+                this.rawClient.createEgressStream(requestOptions);
+        CompletableFuture<CreateEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -98,7 +147,15 @@ public class AsyncVideoClient {
      * A stream in <code>STREAM_STATUS_UNAVAILABLE</code> is rejected as not-live.
      */
     public CompletableFuture<CreateEgressStreamResponse> createEgressStream(CreateEgressStreamRequest request) {
-        return this.rawClient.createEgressStream(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<CreateEgressStreamResponse>> rawFuture =
+                this.rawClient.createEgressStream(request);
+        CompletableFuture<CreateEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -107,28 +164,60 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<CreateEgressStreamResponse> createEgressStream(
             CreateEgressStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient.createEgressStream(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<CreateEgressStreamResponse>> rawFuture =
+                this.rawClient.createEgressStream(request, requestOptions);
+        CompletableFuture<CreateEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Retrieves an egress stream object and its associated metadata.
      */
     public CompletableFuture<GetEgressStreamResponse> getEgressStream(String egressId) {
-        return this.rawClient.getEgressStream(egressId).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<GetEgressStreamResponse>> rawFuture =
+                this.rawClient.getEgressStream(egressId);
+        CompletableFuture<GetEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Retrieves an egress stream object and its associated metadata.
      */
     public CompletableFuture<GetEgressStreamResponse> getEgressStream(String egressId, RequestOptions requestOptions) {
-        return this.rawClient.getEgressStream(egressId, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<GetEgressStreamResponse>> rawFuture =
+                this.rawClient.getEgressStream(egressId, requestOptions);
+        CompletableFuture<GetEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Retrieves an egress stream object and its associated metadata.
      */
     public CompletableFuture<GetEgressStreamResponse> getEgressStream(String egressId, GetEgressStreamRequest request) {
-        return this.rawClient.getEgressStream(egressId, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<GetEgressStreamResponse>> rawFuture =
+                this.rawClient.getEgressStream(egressId, request);
+        CompletableFuture<GetEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -136,7 +225,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<GetEgressStreamResponse> getEgressStream(
             String egressId, GetEgressStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient.getEgressStream(egressId, request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<GetEgressStreamResponse>> rawFuture =
+                this.rawClient.getEgressStream(egressId, request, requestOptions);
+        CompletableFuture<GetEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -144,7 +241,15 @@ public class AsyncVideoClient {
      * egress stream exists.
      */
     public CompletableFuture<DeleteEgressStreamResponse> deleteEgressStream(String egressId) {
-        return this.rawClient.deleteEgressStream(egressId).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<DeleteEgressStreamResponse>> rawFuture =
+                this.rawClient.deleteEgressStream(egressId);
+        CompletableFuture<DeleteEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -153,7 +258,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<DeleteEgressStreamResponse> deleteEgressStream(
             String egressId, RequestOptions requestOptions) {
-        return this.rawClient.deleteEgressStream(egressId, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<DeleteEgressStreamResponse>> rawFuture =
+                this.rawClient.deleteEgressStream(egressId, requestOptions);
+        CompletableFuture<DeleteEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -162,7 +275,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<DeleteEgressStreamResponse> deleteEgressStream(
             String egressId, DeleteEgressStreamRequest request) {
-        return this.rawClient.deleteEgressStream(egressId, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<DeleteEgressStreamResponse>> rawFuture =
+                this.rawClient.deleteEgressStream(egressId, request);
+        CompletableFuture<DeleteEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -171,9 +292,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<DeleteEgressStreamResponse> deleteEgressStream(
             String egressId, DeleteEgressStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient
-                .deleteEgressStream(egressId, request, requestOptions)
-                .thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<DeleteEgressStreamResponse>> rawFuture =
+                this.rawClient.deleteEgressStream(egressId, request, requestOptions);
+        CompletableFuture<DeleteEgressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -182,7 +309,15 @@ public class AsyncVideoClient {
      * Results are ordered by ingress stream create time.
      */
     public CompletableFuture<ListIngressStreamsResponse> listIngressStreams() {
-        return this.rawClient.listIngressStreams().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<ListIngressStreamsResponse>> rawFuture =
+                this.rawClient.listIngressStreams();
+        CompletableFuture<ListIngressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -191,7 +326,15 @@ public class AsyncVideoClient {
      * Results are ordered by ingress stream create time.
      */
     public CompletableFuture<ListIngressStreamsResponse> listIngressStreams(RequestOptions requestOptions) {
-        return this.rawClient.listIngressStreams(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<ListIngressStreamsResponse>> rawFuture =
+                this.rawClient.listIngressStreams(requestOptions);
+        CompletableFuture<ListIngressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -200,7 +343,15 @@ public class AsyncVideoClient {
      * Results are ordered by ingress stream create time.
      */
     public CompletableFuture<ListIngressStreamsResponse> listIngressStreams(ListIngressStreamsRequest request) {
-        return this.rawClient.listIngressStreams(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<ListIngressStreamsResponse>> rawFuture =
+                this.rawClient.listIngressStreams(request);
+        CompletableFuture<ListIngressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -210,7 +361,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<ListIngressStreamsResponse> listIngressStreams(
             ListIngressStreamsRequest request, RequestOptions requestOptions) {
-        return this.rawClient.listIngressStreams(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<ListIngressStreamsResponse>> rawFuture =
+                this.rawClient.listIngressStreams(request, requestOptions);
+        CompletableFuture<ListIngressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -218,7 +377,15 @@ public class AsyncVideoClient {
      * Lattice. Exactly one of <code>rtsp</code> or <code>srt</code> must be set on the request.
      */
     public CompletableFuture<CreateIngressStreamResponse> createIngressStream() {
-        return this.rawClient.createIngressStream().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<CreateIngressStreamResponse>> rawFuture =
+                this.rawClient.createIngressStream();
+        CompletableFuture<CreateIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -226,7 +393,15 @@ public class AsyncVideoClient {
      * Lattice. Exactly one of <code>rtsp</code> or <code>srt</code> must be set on the request.
      */
     public CompletableFuture<CreateIngressStreamResponse> createIngressStream(RequestOptions requestOptions) {
-        return this.rawClient.createIngressStream(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<CreateIngressStreamResponse>> rawFuture =
+                this.rawClient.createIngressStream(requestOptions);
+        CompletableFuture<CreateIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -234,7 +409,15 @@ public class AsyncVideoClient {
      * Lattice. Exactly one of <code>rtsp</code> or <code>srt</code> must be set on the request.
      */
     public CompletableFuture<CreateIngressStreamResponse> createIngressStream(CreateIngressStreamRequest request) {
-        return this.rawClient.createIngressStream(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<CreateIngressStreamResponse>> rawFuture =
+                this.rawClient.createIngressStream(request);
+        CompletableFuture<CreateIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -243,7 +426,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<CreateIngressStreamResponse> createIngressStream(
             CreateIngressStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient.createIngressStream(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<CreateIngressStreamResponse>> rawFuture =
+                this.rawClient.createIngressStream(request, requestOptions);
+        CompletableFuture<CreateIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -251,7 +442,15 @@ public class AsyncVideoClient {
      * ingress streams and internal Anduril streams.
      */
     public CompletableFuture<GetIngressStreamResponse> getIngressStream(String ingressId) {
-        return this.rawClient.getIngressStream(ingressId).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<GetIngressStreamResponse>> rawFuture =
+                this.rawClient.getIngressStream(ingressId);
+        CompletableFuture<GetIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -260,7 +459,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<GetIngressStreamResponse> getIngressStream(
             String ingressId, RequestOptions requestOptions) {
-        return this.rawClient.getIngressStream(ingressId, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<GetIngressStreamResponse>> rawFuture =
+                this.rawClient.getIngressStream(ingressId, requestOptions);
+        CompletableFuture<GetIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -269,7 +476,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<GetIngressStreamResponse> getIngressStream(
             String ingressId, GetIngressStreamRequest request) {
-        return this.rawClient.getIngressStream(ingressId, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<GetIngressStreamResponse>> rawFuture =
+                this.rawClient.getIngressStream(ingressId, request);
+        CompletableFuture<GetIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -278,9 +493,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<GetIngressStreamResponse> getIngressStream(
             String ingressId, GetIngressStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient
-                .getIngressStream(ingressId, request, requestOptions)
-                .thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<GetIngressStreamResponse>> rawFuture =
+                this.rawClient.getIngressStream(ingressId, request, requestOptions);
+        CompletableFuture<GetIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -288,7 +509,15 @@ public class AsyncVideoClient {
      * Any egress streams consuming this stream will be stopped automatically.
      */
     public CompletableFuture<DeleteIngressStreamResponse> deleteIngressStream(String ingressId) {
-        return this.rawClient.deleteIngressStream(ingressId).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<DeleteIngressStreamResponse>> rawFuture =
+                this.rawClient.deleteIngressStream(ingressId);
+        CompletableFuture<DeleteIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -297,7 +526,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<DeleteIngressStreamResponse> deleteIngressStream(
             String ingressId, RequestOptions requestOptions) {
-        return this.rawClient.deleteIngressStream(ingressId, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<DeleteIngressStreamResponse>> rawFuture =
+                this.rawClient.deleteIngressStream(ingressId, requestOptions);
+        CompletableFuture<DeleteIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -306,7 +543,15 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<DeleteIngressStreamResponse> deleteIngressStream(
             String ingressId, DeleteIngressStreamRequest request) {
-        return this.rawClient.deleteIngressStream(ingressId, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<DeleteIngressStreamResponse>> rawFuture =
+                this.rawClient.deleteIngressStream(ingressId, request);
+        CompletableFuture<DeleteIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -315,8 +560,14 @@ public class AsyncVideoClient {
      */
     public CompletableFuture<DeleteIngressStreamResponse> deleteIngressStream(
             String ingressId, DeleteIngressStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient
-                .deleteIngressStream(ingressId, request, requestOptions)
-                .thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<DeleteIngressStreamResponse>> rawFuture =
+                this.rawClient.deleteIngressStream(ingressId, request, requestOptions);
+        CompletableFuture<DeleteIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 }

@@ -1,5 +1,21 @@
 # Changelog
 
+## [6.2.0] - 2026-10-10
+### Added
+- **`AutoCloseable`** — `Lattice` and `AsyncLattice` now implement `AutoCloseable` for try-with-resources release of SDK-owned HTTP and WebSocket clients.
+- **`RequestOptions` body properties** — new `addBodyProperty()` and `bodyProperties()` builder methods, backed by a core `BodyProperties` utility, merge extra properties into JSON and form-urlencoded request bodies.
+- **`ClientOptions.close()`** and **`isClosed()`** — release client-owned resources, shutting down the dispatcher and connection pool only when the SDK created the `OkHttpClient`, with WebSocket tracking via `registerWebSocket()` and `unregisterWebSocket()`.
+- **SSE event discrimination** — new `Stream.fromSseWithEventDiscrimination` factory and `parseEventLevelUnion` overload accepting an `envelopeEvents` set for event-level union discrimination.
+- **`lastUpdateTime`** — optional field added to `TaskStatus` recording when the task status last changed.
+
+### Changed
+- **Async cancellation** — cancelling a returned `CompletableFuture` now cancels the underlying HTTP call across all async clients (objects, tasks, video, raw variants).
+- **Async retry handling** — async object, task, and video operations now route through `RetryInterceptor`, scheduling retries off OkHttp dispatcher threads and cancelling promptly while waiting to retry.
+- **Request body merging** — `RequestOptions` body properties are now merged into JSON bodies, OAuth form parameters, and DELETE request bodies across all entities, tasks, streams, and video operations.
+
+### Fixed
+- **`listObjects`** — pagination now stops correctly when the next-page token is empty instead of attempting another page.
+
 ## [6.1.0] - 2026-09-15
 
 ### Added
