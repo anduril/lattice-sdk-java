@@ -4,6 +4,7 @@
 package com.anduril.resources.oauth;
 
 import com.anduril.core.ClientOptions;
+import com.anduril.core.LatticeHttpResponse;
 import com.anduril.core.RequestOptions;
 import com.anduril.resources.oauth.requests.GetTokenRequest;
 import com.anduril.resources.oauth.types.GetTokenResponse;
@@ -30,13 +31,28 @@ public class AsyncOauthClient {
      * Gets a new short-lived token using the specified client credentials
      */
     public CompletableFuture<GetTokenResponse> getToken(GetTokenRequest request) {
-        return this.rawClient.getToken(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<GetTokenResponse>> rawFuture = this.rawClient.getToken(request);
+        CompletableFuture<GetTokenResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Gets a new short-lived token using the specified client credentials
      */
     public CompletableFuture<GetTokenResponse> getToken(GetTokenRequest request, RequestOptions requestOptions) {
-        return this.rawClient.getToken(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<GetTokenResponse>> rawFuture =
+                this.rawClient.getToken(request, requestOptions);
+        CompletableFuture<GetTokenResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 }

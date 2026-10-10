@@ -22,6 +22,7 @@ The Lattice SDK Java library provides convenient access to the Lattice SDK APIs 
   - [Retries](#retries)
   - [Timeouts](#timeouts)
   - [Custom Headers](#custom-headers)
+  - [Additional Body Properties](#additional-body-properties)
   - [Access Raw Response Data](#access-raw-response-data)
 - [Reference](#reference)
 
@@ -41,7 +42,7 @@ Add the dependency in your `build.gradle` file:
 
 ```groovy
 dependencies {
-  implementation 'com.anduril:lattice-sdk:6.1.0'
+  implementation 'com.anduril:lattice-sdk:6.2.0'
 }
 ```
 
@@ -53,7 +54,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>6.1.0</version>
+  <version>6.2.0</version>
 </dependency>
 ```
 
@@ -114,7 +115,7 @@ import com.anduril.core.Environment;
 
 Lattice client = Lattice
     .builder()
-    .environment(Environment.Default)
+    .environment(Environment.DEFAULT)
     .build();
 ```
 
@@ -242,6 +243,25 @@ client.entities().longPollEntityEvents(
     RequestOptions
         .builder()
         .addHeader("X-Request-Header", "request-value")
+        .build()
+);
+```
+
+### Additional Body Properties
+
+If you need to send a request body property that is not yet part of the SDK (for example, a beta field),
+use the `addBodyProperty` request option. Properties are sent with the key exactly as given and override
+any property with the same key; for endpoints without a request body, they are sent as a JSON body.
+This is supported for JSON and form-urlencoded request bodies, but not for multipart (file upload) requests.
+
+```java
+import com.anduril.core.RequestOptions;
+
+client.entities().longPollEntityEvents(
+    ...,
+    RequestOptions
+        .builder()
+        .addBodyProperty("extra_field", "extra-value")
         .build()
 );
 ```
