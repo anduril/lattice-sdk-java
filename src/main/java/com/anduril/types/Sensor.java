@@ -168,7 +168,6 @@ public final class Sensor {
 
         private Optional<List<FieldOfView>> fieldsOfView = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -289,6 +288,20 @@ public final class Sensor {
                     lastDetectionTimestamp,
                     fieldsOfView,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("sensorId")
+                    || key.equalsIgnoreCase("operationalState")
+                    || key.equalsIgnoreCase("sensorType")
+                    || key.equalsIgnoreCase("sensorDescription")
+                    || key.equalsIgnoreCase("rfConfiguraton")
+                    || key.equalsIgnoreCase("lastDetectionTimestamp")
+                    || key.equalsIgnoreCase("fieldsOfView")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

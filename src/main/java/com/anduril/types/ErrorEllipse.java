@@ -117,7 +117,6 @@ public final class ErrorEllipse {
 
         private Optional<Double> orientationD = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -188,6 +187,17 @@ public final class ErrorEllipse {
 
         public ErrorEllipse build() {
             return new ErrorEllipse(probability, semiMajorAxisM, semiMinorAxisM, orientationD, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("probability")
+                    || key.equalsIgnoreCase("semiMajorAxisM")
+                    || key.equalsIgnoreCase("semiMinorAxisM")
+                    || key.equalsIgnoreCase("orientationD")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

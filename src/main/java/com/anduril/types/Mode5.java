@@ -102,7 +102,6 @@ public final class Mode5 {
 
         private Optional<Integer> mode5PlatformId = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -159,6 +158,16 @@ public final class Mode5 {
 
         public Mode5 build() {
             return new Mode5(mode5InterrogationResponse, mode5, mode5PlatformId, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("mode5InterrogationResponse")
+                    || key.equalsIgnoreCase("mode5")
+                    || key.equalsIgnoreCase("mode5PlatformId")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

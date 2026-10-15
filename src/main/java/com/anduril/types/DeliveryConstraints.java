@@ -112,7 +112,6 @@ public final class DeliveryConstraints {
 
         private Optional<Boolean> requireAcknowledgement = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -177,6 +176,16 @@ public final class DeliveryConstraints {
 
         public DeliveryConstraints build() {
             return new DeliveryConstraints(deliverAfter, deliverBefore, requireAcknowledgement, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("deliverAfter")
+                    || key.equalsIgnoreCase("deliverBefore")
+                    || key.equalsIgnoreCase("requireAcknowledgement")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

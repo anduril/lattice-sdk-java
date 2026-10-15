@@ -187,7 +187,6 @@ public final class Fuel {
 
         private Optional<String> dataSource = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -328,6 +327,21 @@ public final class Fuel {
                     dataClassification,
                     dataSource,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("fuelId")
+                    || key.equalsIgnoreCase("name")
+                    || key.equalsIgnoreCase("reportedDate")
+                    || key.equalsIgnoreCase("amountGallons")
+                    || key.equalsIgnoreCase("maxAuthorizedCapacityGallons")
+                    || key.equalsIgnoreCase("operationalRequirementGallons")
+                    || key.equalsIgnoreCase("dataClassification")
+                    || key.equalsIgnoreCase("dataSource")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

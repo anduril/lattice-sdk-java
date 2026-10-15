@@ -206,7 +206,6 @@ public final class GetTokenResponse {
 
         private Optional<Integer> expiresIn = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -328,6 +327,19 @@ public final class GetTokenResponse {
         public GetTokenResponse build() {
             return new GetTokenResponse(
                     accessToken, tokenType, expiresIn, refreshExpiresIn, notBeforePolicy, scope, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("access_token")
+                    || key.equalsIgnoreCase("token_type")
+                    || key.equalsIgnoreCase("expires_in")
+                    || key.equalsIgnoreCase("refresh_expires_in")
+                    || key.equalsIgnoreCase("not-before-policy")
+                    || key.equalsIgnoreCase("scope")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         @java.lang.Override

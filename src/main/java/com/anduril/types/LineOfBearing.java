@@ -102,7 +102,6 @@ public final class LineOfBearing {
 
         private Optional<Measurement> maxRangeM = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -158,6 +157,16 @@ public final class LineOfBearing {
 
         public LineOfBearing build() {
             return new LineOfBearing(angleOfArrival, rangeEstimateM, maxRangeM, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("angleOfArrival")
+                    || key.equalsIgnoreCase("rangeEstimateM")
+                    || key.equalsIgnoreCase("maxRangeM")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

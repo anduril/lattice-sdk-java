@@ -117,7 +117,6 @@ public final class Statement {
 
         private Optional<Predicate> predicate = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -188,6 +187,18 @@ public final class Statement {
 
         public Statement build() {
             return new Statement(and, or, not, list, predicate, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("and")
+                    || key.equalsIgnoreCase("or")
+                    || key.equalsIgnoreCase("not")
+                    || key.equalsIgnoreCase("list")
+                    || key.equalsIgnoreCase("predicate")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

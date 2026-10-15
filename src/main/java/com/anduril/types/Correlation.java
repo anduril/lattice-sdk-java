@@ -124,7 +124,6 @@ public final class Correlation {
 
         private Optional<Decorrelation> decorrelation = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -202,6 +201,17 @@ public final class Correlation {
 
         public Correlation build() {
             return new Correlation(primary, secondary, membership, decorrelation, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("primary")
+                    || key.equalsIgnoreCase("secondary")
+                    || key.equalsIgnoreCase("membership")
+                    || key.equalsIgnoreCase("decorrelation")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

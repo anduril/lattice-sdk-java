@@ -118,7 +118,6 @@ public final class TaskQuery {
 
         private Optional<TaskQueryUpdateTimeRange> updateTimeRange = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -188,6 +187,17 @@ public final class TaskQuery {
 
         public TaskQuery build() {
             return new TaskQuery(pageToken, parentTaskId, statusFilter, updateTimeRange, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("pageToken")
+                    || key.equalsIgnoreCase("parentTaskId")
+                    || key.equalsIgnoreCase("statusFilter")
+                    || key.equalsIgnoreCase("updateTimeRange")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

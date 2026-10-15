@@ -72,7 +72,6 @@ public final class TaskStreamRequestTaskTypeTaskTypeUrls {
     public static final class Builder {
         private List<String> taskTypeUrls = new ArrayList<>();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -108,6 +107,14 @@ public final class TaskStreamRequestTaskTypeTaskTypeUrls {
 
         public TaskStreamRequestTaskTypeTaskTypeUrls build() {
             return new TaskStreamRequestTaskTypeTaskTypeUrls(taskTypeUrls, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("taskTypeUrls")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

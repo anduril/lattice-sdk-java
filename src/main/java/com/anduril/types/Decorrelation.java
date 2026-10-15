@@ -92,7 +92,6 @@ public final class Decorrelation {
 
         private Optional<List<DecorrelatedSingle>> decorrelatedEntities = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -138,6 +137,14 @@ public final class Decorrelation {
 
         public Decorrelation build() {
             return new Decorrelation(all, decorrelatedEntities, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("all") || key.equalsIgnoreCase("decorrelatedEntities")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

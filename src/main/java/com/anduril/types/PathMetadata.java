@@ -142,7 +142,6 @@ public final class PathMetadata {
 
         private Optional<OffsetDateTime> expiryTime = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -198,6 +197,17 @@ public final class PathMetadata {
         @java.lang.Override
         public PathMetadata build() {
             return new PathMetadata(contentIdentifier, sizeBytes, lastUpdatedAt, expiryTime, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("content_identifier")
+                    || key.equalsIgnoreCase("size_bytes")
+                    || key.equalsIgnoreCase("last_updated_at")
+                    || key.equalsIgnoreCase("expiry_time")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         @java.lang.Override

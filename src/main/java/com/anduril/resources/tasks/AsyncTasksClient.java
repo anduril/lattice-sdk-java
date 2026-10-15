@@ -4,6 +4,7 @@
 package com.anduril.resources.tasks;
 
 import com.anduril.core.ClientOptions;
+import com.anduril.core.LatticeHttpResponse;
 import com.anduril.core.RequestOptions;
 import com.anduril.resources.tasks.requests.AgentListener;
 import com.anduril.resources.tasks.requests.AgentStreamRequest;
@@ -48,7 +49,14 @@ public class AsyncTasksClient {
      * through other Tasks API endpoints.</p>
      */
     public CompletableFuture<Task> createTask() {
-        return this.rawClient.createTask().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.createTask();
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -60,7 +68,14 @@ public class AsyncTasksClient {
      * through other Tasks API endpoints.</p>
      */
     public CompletableFuture<Task> createTask(RequestOptions requestOptions) {
-        return this.rawClient.createTask(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.createTask(requestOptions);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -72,7 +87,14 @@ public class AsyncTasksClient {
      * through other Tasks API endpoints.</p>
      */
     public CompletableFuture<Task> createTask(TaskCreation request) {
-        return this.rawClient.createTask(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.createTask(request);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -84,7 +106,14 @@ public class AsyncTasksClient {
      * through other Tasks API endpoints.</p>
      */
     public CompletableFuture<Task> createTask(TaskCreation request, RequestOptions requestOptions) {
-        return this.rawClient.createTask(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.createTask(request, requestOptions);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -96,7 +125,14 @@ public class AsyncTasksClient {
      * perspective.</p>
      */
     public CompletableFuture<Task> getTask(String taskId) {
-        return this.rawClient.getTask(taskId).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.getTask(taskId);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -108,7 +144,14 @@ public class AsyncTasksClient {
      * perspective.</p>
      */
     public CompletableFuture<Task> getTask(String taskId, RequestOptions requestOptions) {
-        return this.rawClient.getTask(taskId, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.getTask(taskId, requestOptions);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -120,7 +163,14 @@ public class AsyncTasksClient {
      * perspective.</p>
      */
     public CompletableFuture<Task> getTask(String taskId, GetTaskRequest request) {
-        return this.rawClient.getTask(taskId, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.getTask(taskId, request);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -132,7 +182,15 @@ public class AsyncTasksClient {
      * perspective.</p>
      */
     public CompletableFuture<Task> getTask(String taskId, GetTaskRequest request, RequestOptions requestOptions) {
-        return this.rawClient.getTask(taskId, request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture =
+                this.rawClient.getTask(taskId, request, requestOptions);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -146,7 +204,14 @@ public class AsyncTasksClient {
      * reaches these states, no further updates are allowed.</p>
      */
     public CompletableFuture<Task> updateTaskStatus(String taskId) {
-        return this.rawClient.updateTaskStatus(taskId).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.updateTaskStatus(taskId);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -160,7 +225,15 @@ public class AsyncTasksClient {
      * reaches these states, no further updates are allowed.</p>
      */
     public CompletableFuture<Task> updateTaskStatus(String taskId, RequestOptions requestOptions) {
-        return this.rawClient.updateTaskStatus(taskId, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture =
+                this.rawClient.updateTaskStatus(taskId, requestOptions);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -174,7 +247,14 @@ public class AsyncTasksClient {
      * reaches these states, no further updates are allowed.</p>
      */
     public CompletableFuture<Task> updateTaskStatus(String taskId, TaskStatusUpdate request) {
-        return this.rawClient.updateTaskStatus(taskId, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.updateTaskStatus(taskId, request);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -189,7 +269,15 @@ public class AsyncTasksClient {
      */
     public CompletableFuture<Task> updateTaskStatus(
             String taskId, TaskStatusUpdate request, RequestOptions requestOptions) {
-        return this.rawClient.updateTaskStatus(taskId, request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture =
+                this.rawClient.updateTaskStatus(taskId, request, requestOptions);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -209,7 +297,14 @@ public class AsyncTasksClient {
      * </ul>
      */
     public CompletableFuture<Task> cancelTask(String taskId) {
-        return this.rawClient.cancelTask(taskId).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.cancelTask(taskId);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -229,7 +324,14 @@ public class AsyncTasksClient {
      * </ul>
      */
     public CompletableFuture<Task> cancelTask(String taskId, RequestOptions requestOptions) {
-        return this.rawClient.cancelTask(taskId, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.cancelTask(taskId, requestOptions);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -249,7 +351,14 @@ public class AsyncTasksClient {
      * </ul>
      */
     public CompletableFuture<Task> cancelTask(String taskId, TaskCancellation request) {
-        return this.rawClient.cancelTask(taskId, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture = this.rawClient.cancelTask(taskId, request);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -269,7 +378,15 @@ public class AsyncTasksClient {
      * </ul>
      */
     public CompletableFuture<Task> cancelTask(String taskId, TaskCancellation request, RequestOptions requestOptions) {
-        return this.rawClient.cancelTask(taskId, request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Task>> rawFuture =
+                this.rawClient.cancelTask(taskId, request, requestOptions);
+        CompletableFuture<Task> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -286,7 +403,14 @@ public class AsyncTasksClient {
      * <p>By default, this returns the latest task version for each matching task.</p>
      */
     public CompletableFuture<TaskQueryResults> queryTasks() {
-        return this.rawClient.queryTasks().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<TaskQueryResults>> rawFuture = this.rawClient.queryTasks();
+        CompletableFuture<TaskQueryResults> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -303,7 +427,14 @@ public class AsyncTasksClient {
      * <p>By default, this returns the latest task version for each matching task.</p>
      */
     public CompletableFuture<TaskQueryResults> queryTasks(RequestOptions requestOptions) {
-        return this.rawClient.queryTasks(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<TaskQueryResults>> rawFuture = this.rawClient.queryTasks(requestOptions);
+        CompletableFuture<TaskQueryResults> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -320,7 +451,14 @@ public class AsyncTasksClient {
      * <p>By default, this returns the latest task version for each matching task.</p>
      */
     public CompletableFuture<TaskQueryResults> queryTasks(TaskQuery request) {
-        return this.rawClient.queryTasks(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<TaskQueryResults>> rawFuture = this.rawClient.queryTasks(request);
+        CompletableFuture<TaskQueryResults> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -337,7 +475,15 @@ public class AsyncTasksClient {
      * <p>By default, this returns the latest task version for each matching task.</p>
      */
     public CompletableFuture<TaskQueryResults> queryTasks(TaskQuery request, RequestOptions requestOptions) {
-        return this.rawClient.queryTasks(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<TaskQueryResults>> rawFuture =
+                this.rawClient.queryTasks(request, requestOptions);
+        CompletableFuture<TaskQueryResults> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -346,7 +492,14 @@ public class AsyncTasksClient {
      * updates for task creation and status changes. Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
      */
     public CompletableFuture<Iterable<StreamTasksResponse>> streamTasks() {
-        return this.rawClient.streamTasks().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamTasksResponse>>> rawFuture = this.rawClient.streamTasks();
+        CompletableFuture<Iterable<StreamTasksResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -355,7 +508,15 @@ public class AsyncTasksClient {
      * updates for task creation and status changes. Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
      */
     public CompletableFuture<Iterable<StreamTasksResponse>> streamTasks(RequestOptions requestOptions) {
-        return this.rawClient.streamTasks(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamTasksResponse>>> rawFuture =
+                this.rawClient.streamTasks(requestOptions);
+        CompletableFuture<Iterable<StreamTasksResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -364,7 +525,15 @@ public class AsyncTasksClient {
      * updates for task creation and status changes. Additionally, heartbeat messages are sent periodically to maintain the connection.</p>
      */
     public CompletableFuture<Iterable<StreamTasksResponse>> streamTasks(TaskStreamRequest request) {
-        return this.rawClient.streamTasks(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamTasksResponse>>> rawFuture =
+                this.rawClient.streamTasks(request);
+        CompletableFuture<Iterable<StreamTasksResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -374,7 +543,15 @@ public class AsyncTasksClient {
      */
     public CompletableFuture<Iterable<StreamTasksResponse>> streamTasks(
             TaskStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient.streamTasks(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamTasksResponse>>> rawFuture =
+                this.rawClient.streamTasks(request, requestOptions);
+        CompletableFuture<Iterable<StreamTasksResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -397,7 +574,14 @@ public class AsyncTasksClient {
      * period you will be expected to reinitiate a new request.</p>
      */
     public CompletableFuture<AgentRequest> listenAsAgent() {
-        return this.rawClient.listenAsAgent().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<AgentRequest>> rawFuture = this.rawClient.listenAsAgent();
+        CompletableFuture<AgentRequest> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -420,7 +604,14 @@ public class AsyncTasksClient {
      * period you will be expected to reinitiate a new request.</p>
      */
     public CompletableFuture<AgentRequest> listenAsAgent(RequestOptions requestOptions) {
-        return this.rawClient.listenAsAgent(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<AgentRequest>> rawFuture = this.rawClient.listenAsAgent(requestOptions);
+        CompletableFuture<AgentRequest> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -443,7 +634,14 @@ public class AsyncTasksClient {
      * period you will be expected to reinitiate a new request.</p>
      */
     public CompletableFuture<AgentRequest> listenAsAgent(AgentListener request) {
-        return this.rawClient.listenAsAgent(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<AgentRequest>> rawFuture = this.rawClient.listenAsAgent(request);
+        CompletableFuture<AgentRequest> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -466,7 +664,15 @@ public class AsyncTasksClient {
      * period you will be expected to reinitiate a new request.</p>
      */
     public CompletableFuture<AgentRequest> listenAsAgent(AgentListener request, RequestOptions requestOptions) {
-        return this.rawClient.listenAsAgent(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<AgentRequest>> rawFuture =
+                this.rawClient.listenAsAgent(request, requestOptions);
+        CompletableFuture<AgentRequest> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -486,7 +692,15 @@ public class AsyncTasksClient {
      * to provide progress information back to Tasks API.</p>
      */
     public CompletableFuture<Iterable<StreamAsAgentResponse>> streamAsAgent() {
-        return this.rawClient.streamAsAgent().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamAsAgentResponse>>> rawFuture =
+                this.rawClient.streamAsAgent();
+        CompletableFuture<Iterable<StreamAsAgentResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -506,7 +720,15 @@ public class AsyncTasksClient {
      * to provide progress information back to Tasks API.</p>
      */
     public CompletableFuture<Iterable<StreamAsAgentResponse>> streamAsAgent(RequestOptions requestOptions) {
-        return this.rawClient.streamAsAgent(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamAsAgentResponse>>> rawFuture =
+                this.rawClient.streamAsAgent(requestOptions);
+        CompletableFuture<Iterable<StreamAsAgentResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -526,7 +748,15 @@ public class AsyncTasksClient {
      * to provide progress information back to Tasks API.</p>
      */
     public CompletableFuture<Iterable<StreamAsAgentResponse>> streamAsAgent(AgentStreamRequest request) {
-        return this.rawClient.streamAsAgent(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamAsAgentResponse>>> rawFuture =
+                this.rawClient.streamAsAgent(request);
+        CompletableFuture<Iterable<StreamAsAgentResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -547,7 +777,15 @@ public class AsyncTasksClient {
      */
     public CompletableFuture<Iterable<StreamAsAgentResponse>> streamAsAgent(
             AgentStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient.streamAsAgent(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamAsAgentResponse>>> rawFuture =
+                this.rawClient.streamAsAgent(request, requestOptions);
+        CompletableFuture<Iterable<StreamAsAgentResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -563,7 +801,16 @@ public class AsyncTasksClient {
      * (<code>STATUS_DONE_OK</code> or <code>STATUS_DONE_NOT_OK</code>).</p>
      */
     public CompletableFuture<Iterable<StreamManualControlFramesResponse>> streamManualControlFrames(String taskId) {
-        return this.rawClient.streamManualControlFrames(taskId).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamManualControlFramesResponse>>> rawFuture =
+                this.rawClient.streamManualControlFrames(taskId);
+        CompletableFuture<Iterable<StreamManualControlFramesResponse>> future =
+                rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -580,7 +827,16 @@ public class AsyncTasksClient {
      */
     public CompletableFuture<Iterable<StreamManualControlFramesResponse>> streamManualControlFrames(
             String taskId, RequestOptions requestOptions) {
-        return this.rawClient.streamManualControlFrames(taskId, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamManualControlFramesResponse>>> rawFuture =
+                this.rawClient.streamManualControlFrames(taskId, requestOptions);
+        CompletableFuture<Iterable<StreamManualControlFramesResponse>> future =
+                rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -597,7 +853,16 @@ public class AsyncTasksClient {
      */
     public CompletableFuture<Iterable<StreamManualControlFramesResponse>> streamManualControlFrames(
             String taskId, ManualControlStreamRequest request) {
-        return this.rawClient.streamManualControlFrames(taskId, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamManualControlFramesResponse>>> rawFuture =
+                this.rawClient.streamManualControlFrames(taskId, request);
+        CompletableFuture<Iterable<StreamManualControlFramesResponse>> future =
+                rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -614,8 +879,15 @@ public class AsyncTasksClient {
      */
     public CompletableFuture<Iterable<StreamManualControlFramesResponse>> streamManualControlFrames(
             String taskId, ManualControlStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient
-                .streamManualControlFrames(taskId, request, requestOptions)
-                .thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamManualControlFramesResponse>>> rawFuture =
+                this.rawClient.streamManualControlFrames(taskId, request, requestOptions);
+        CompletableFuture<Iterable<StreamManualControlFramesResponse>> future =
+                rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 }

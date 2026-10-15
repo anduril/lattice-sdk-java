@@ -117,7 +117,6 @@ public final class RelationshipType {
 
         private Optional<ActiveTarget> activeTarget = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -189,6 +188,18 @@ public final class RelationshipType {
         public RelationshipType build() {
             return new RelationshipType(
                     trackedBy, groupChild, groupParent, mergedFrom, activeTarget, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("trackedBy")
+                    || key.equalsIgnoreCase("groupChild")
+                    || key.equalsIgnoreCase("groupParent")
+                    || key.equalsIgnoreCase("mergedFrom")
+                    || key.equalsIgnoreCase("activeTarget")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -93,7 +93,6 @@ public final class MilView {
 
         private Optional<MilViewNationality> nationality = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -140,6 +139,16 @@ public final class MilView {
 
         public MilView build() {
             return new MilView(disposition, environment, nationality, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("disposition")
+                    || key.equalsIgnoreCase("environment")
+                    || key.equalsIgnoreCase("nationality")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

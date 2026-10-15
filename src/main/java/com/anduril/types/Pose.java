@@ -97,7 +97,6 @@ public final class Pose {
 
         private Optional<Quaternion> attEnu = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -152,6 +151,14 @@ public final class Pose {
 
         public Pose build() {
             return new Pose(pos, attEnu, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("pos") || key.equalsIgnoreCase("attEnu")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

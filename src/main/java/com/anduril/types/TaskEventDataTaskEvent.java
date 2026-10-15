@@ -86,7 +86,6 @@ public final class TaskEventDataTaskEvent {
 
         private Optional<Task> task = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -127,6 +126,14 @@ public final class TaskEventDataTaskEvent {
 
         public TaskEventDataTaskEvent build() {
             return new TaskEventDataTaskEvent(eventType, task, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("eventType") || key.equalsIgnoreCase("task")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

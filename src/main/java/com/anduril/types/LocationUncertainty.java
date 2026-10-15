@@ -104,7 +104,6 @@ public final class LocationUncertainty {
 
         private Optional<ErrorEllipse> positionErrorEllipse = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -162,6 +161,16 @@ public final class LocationUncertainty {
 
         public LocationUncertainty build() {
             return new LocationUncertainty(positionEnuCov, velocityEnuCov, positionErrorEllipse, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("positionEnuCov")
+                    || key.equalsIgnoreCase("velocityEnuCov")
+                    || key.equalsIgnoreCase("positionErrorEllipse")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -117,7 +117,6 @@ public final class ProjectedFrustum {
 
         private Optional<Position> bottomLeft = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -188,6 +187,17 @@ public final class ProjectedFrustum {
 
         public ProjectedFrustum build() {
             return new ProjectedFrustum(upperLeft, upperRight, bottomRight, bottomLeft, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("upperLeft")
+                    || key.equalsIgnoreCase("upperRight")
+                    || key.equalsIgnoreCase("bottomRight")
+                    || key.equalsIgnoreCase("bottomLeft")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

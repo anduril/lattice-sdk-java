@@ -70,7 +70,6 @@ public final class Orbit {
     public static final class Builder {
         private Optional<OrbitMeanElements> orbitMeanElements = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -96,6 +95,14 @@ public final class Orbit {
 
         public Orbit build() {
             return new Orbit(orbitMeanElements, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("orbitMeanElements")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

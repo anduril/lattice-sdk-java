@@ -170,7 +170,6 @@ public final class Override {
 
         private Optional<OffsetDateTime> requestTimestamp = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -294,6 +293,20 @@ public final class Override {
                     type,
                     requestTimestamp,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("requestId")
+                    || key.equalsIgnoreCase("fieldPath")
+                    || key.equalsIgnoreCase("maskedFieldValue")
+                    || key.equalsIgnoreCase("status")
+                    || key.equalsIgnoreCase("provenance")
+                    || key.equalsIgnoreCase("type")
+                    || key.equalsIgnoreCase("requestTimestamp")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

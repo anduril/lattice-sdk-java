@@ -84,7 +84,6 @@ public final class GeoVisualDetails {
 
         private Optional<Color> lineColor = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -125,6 +124,14 @@ public final class GeoVisualDetails {
 
         public GeoVisualDetails build() {
             return new GeoVisualDetails(fillColor, lineColor, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("fillColor") || key.equalsIgnoreCase("lineColor")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

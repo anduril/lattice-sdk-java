@@ -88,7 +88,6 @@ public final class ListIngressStreamsRequest {
 
         private Optional<String> pageToken = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -133,6 +132,14 @@ public final class ListIngressStreamsRequest {
 
         public ListIngressStreamsRequest build() {
             return new ListIngressStreamsRequest(pageSize, pageToken, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("pageSize") || key.equalsIgnoreCase("pageToken")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

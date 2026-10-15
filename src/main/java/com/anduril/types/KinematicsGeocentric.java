@@ -173,7 +173,6 @@ public final class KinematicsGeocentric {
 
         private Optional<OffsetDateTime> measurementTime = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -300,6 +299,20 @@ public final class KinematicsGeocentric {
                     attitudeEcef,
                     measurementTime,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("location")
+                    || key.equalsIgnoreCase("locationUncertaintyEcef")
+                    || key.equalsIgnoreCase("velocityEcefMPerS")
+                    || key.equalsIgnoreCase("velocityUncertaintyEcef")
+                    || key.equalsIgnoreCase("accelerationMPerS2")
+                    || key.equalsIgnoreCase("attitudeEcef")
+                    || key.equalsIgnoreCase("measurementTime")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

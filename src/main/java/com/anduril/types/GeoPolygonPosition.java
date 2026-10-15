@@ -86,7 +86,6 @@ public final class GeoPolygonPosition {
 
         private Optional<Float> heightM = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -129,6 +128,14 @@ public final class GeoPolygonPosition {
 
         public GeoPolygonPosition build() {
             return new GeoPolygonPosition(position, heightM, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("position") || key.equalsIgnoreCase("heightM")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {
