@@ -137,7 +137,6 @@ public final class Alert {
 
         private Optional<List<AlertCondition>> activeConditions = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -226,6 +225,18 @@ public final class Alert {
 
         public Alert build() {
             return new Alert(alertCode, description, level, activatedTime, activeConditions, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("alertCode")
+                    || key.equalsIgnoreCase("description")
+                    || key.equalsIgnoreCase("level")
+                    || key.equalsIgnoreCase("activatedTime")
+                    || key.equalsIgnoreCase("activeConditions")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

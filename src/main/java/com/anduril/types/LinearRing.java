@@ -68,7 +68,6 @@ public final class LinearRing {
     public static final class Builder {
         private Optional<List<GeoPolygonPosition>> positions = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -91,6 +90,14 @@ public final class LinearRing {
 
         public LinearRing build() {
             return new LinearRing(positions, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("positions")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -35,6 +35,8 @@ public final class TaskStatus {
 
     private final Optional<Allocation> allocation;
 
+    private final Optional<OffsetDateTime> lastUpdateTime;
+
     private final Map<String, Object> additionalProperties;
 
     private TaskStatus(
@@ -45,6 +47,7 @@ public final class TaskStatus {
             Optional<OffsetDateTime> startTime,
             Optional<GoogleProtobufAny> estimate,
             Optional<Allocation> allocation,
+            Optional<OffsetDateTime> lastUpdateTime,
             Map<String, Object> additionalProperties) {
         this.status = status;
         this.taskError = taskError;
@@ -53,6 +56,7 @@ public final class TaskStatus {
         this.startTime = startTime;
         this.estimate = estimate;
         this.allocation = allocation;
+        this.lastUpdateTime = lastUpdateTime;
         this.additionalProperties = additionalProperties;
     }
 
@@ -112,6 +116,15 @@ public final class TaskStatus {
         return allocation;
     }
 
+    /**
+     * @return Last time the task status changed.
+     * Used to guard against out of order updates.
+     */
+    @JsonProperty("lastUpdateTime")
+    public Optional<OffsetDateTime> getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -130,7 +143,8 @@ public final class TaskStatus {
                 && result.equals(other.result)
                 && startTime.equals(other.startTime)
                 && estimate.equals(other.estimate)
-                && allocation.equals(other.allocation);
+                && allocation.equals(other.allocation)
+                && lastUpdateTime.equals(other.lastUpdateTime);
     }
 
     @java.lang.Override
@@ -142,7 +156,8 @@ public final class TaskStatus {
                 this.result,
                 this.startTime,
                 this.estimate,
-                this.allocation);
+                this.allocation,
+                this.lastUpdateTime);
     }
 
     @java.lang.Override
@@ -170,7 +185,8 @@ public final class TaskStatus {
 
         private Optional<Allocation> allocation = Optional.empty();
 
-        @JsonAnySetter
+        private Optional<OffsetDateTime> lastUpdateTime = Optional.empty();
+
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -183,6 +199,7 @@ public final class TaskStatus {
             startTime(other.getStartTime());
             estimate(other.getEstimate());
             allocation(other.getAllocation());
+            lastUpdateTime(other.getLastUpdateTime());
             return this;
         }
 
@@ -284,9 +301,47 @@ public final class TaskStatus {
             return this;
         }
 
+        /**
+         * <p>Last time the task status changed.
+         * Used to guard against out of order updates.</p>
+         */
+        @JsonSetter(value = "lastUpdateTime", nulls = Nulls.SKIP)
+        public Builder lastUpdateTime(Optional<OffsetDateTime> lastUpdateTime) {
+            this.lastUpdateTime = lastUpdateTime;
+            return this;
+        }
+
+        public Builder lastUpdateTime(OffsetDateTime lastUpdateTime) {
+            this.lastUpdateTime = Optional.ofNullable(lastUpdateTime);
+            return this;
+        }
+
         public TaskStatus build() {
             return new TaskStatus(
-                    status, taskError, progress, result, startTime, estimate, allocation, additionalProperties);
+                    status,
+                    taskError,
+                    progress,
+                    result,
+                    startTime,
+                    estimate,
+                    allocation,
+                    lastUpdateTime,
+                    additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("status")
+                    || key.equalsIgnoreCase("taskError")
+                    || key.equalsIgnoreCase("progress")
+                    || key.equalsIgnoreCase("result")
+                    || key.equalsIgnoreCase("startTime")
+                    || key.equalsIgnoreCase("estimate")
+                    || key.equalsIgnoreCase("allocation")
+                    || key.equalsIgnoreCase("lastUpdateTime")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

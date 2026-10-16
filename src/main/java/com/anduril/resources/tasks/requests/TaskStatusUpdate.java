@@ -104,7 +104,6 @@ public final class TaskStatusUpdate {
 
         private Optional<Principal> author = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -160,6 +159,16 @@ public final class TaskStatusUpdate {
 
         public TaskStatusUpdate build() {
             return new TaskStatusUpdate(statusVersion, newStatus, author, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("statusVersion")
+                    || key.equalsIgnoreCase("newStatus")
+                    || key.equalsIgnoreCase("author")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

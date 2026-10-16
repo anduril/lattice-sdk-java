@@ -85,7 +85,6 @@ public final class GetObjectRequest {
 
         private Optional<String> priority = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -124,6 +123,11 @@ public final class GetObjectRequest {
 
         public GetObjectRequest build() {
             return new GetObjectRequest(acceptEncoding, priority, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

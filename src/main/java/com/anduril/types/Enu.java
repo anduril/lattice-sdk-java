@@ -87,7 +87,6 @@ public final class Enu {
 
         private Optional<Double> u = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -134,6 +133,14 @@ public final class Enu {
 
         public Enu build() {
             return new Enu(e, n, u, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("e") || key.equalsIgnoreCase("n") || key.equalsIgnoreCase("u")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

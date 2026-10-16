@@ -134,7 +134,6 @@ public final class ListObjectsRequest {
 
         private Optional<Integer> maxPageSize = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -222,6 +221,18 @@ public final class ListObjectsRequest {
         public ListObjectsRequest build() {
             return new ListObjectsRequest(
                     prefix, sinceTimestamp, pageToken, allObjectsInMesh, maxPageSize, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("prefix")
+                    || key.equalsIgnoreCase("sinceTimestamp")
+                    || key.equalsIgnoreCase("pageToken")
+                    || key.equalsIgnoreCase("allObjectsInMesh")
+                    || key.equalsIgnoreCase("maxPageSize")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

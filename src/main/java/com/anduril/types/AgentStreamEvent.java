@@ -96,7 +96,6 @@ public final class AgentStreamEvent implements IAgentTaskRequest {
 
         private Optional<CompleteRequest> completeRequest = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -143,6 +142,16 @@ public final class AgentStreamEvent implements IAgentTaskRequest {
 
         public AgentStreamEvent build() {
             return new AgentStreamEvent(executeRequest, cancelRequest, completeRequest, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("executeRequest")
+                    || key.equalsIgnoreCase("cancelRequest")
+                    || key.equalsIgnoreCase("completeRequest")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

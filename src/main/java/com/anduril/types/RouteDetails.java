@@ -87,7 +87,6 @@ public final class RouteDetails {
 
         private Optional<OffsetDateTime> estimatedArrivalTime = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -128,6 +127,14 @@ public final class RouteDetails {
 
         public RouteDetails build() {
             return new RouteDetails(destinationName, estimatedArrivalTime, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("destinationName") || key.equalsIgnoreCase("estimatedArrivalTime")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -78,7 +78,6 @@ public final class UInt32Range {
 
         private Optional<Integer> upperBound = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -113,6 +112,14 @@ public final class UInt32Range {
 
         public UInt32Range build() {
             return new UInt32Range(lowerBound, upperBound, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("lowerBound") || key.equalsIgnoreCase("upperBound")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -93,7 +93,6 @@ public final class OrbitMeanElements {
 
         private Optional<TleParameters> tleParameters = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -140,6 +139,16 @@ public final class OrbitMeanElements {
 
         public OrbitMeanElements build() {
             return new OrbitMeanElements(metadata, meanKeplerianElements, tleParameters, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("metadata")
+                    || key.equalsIgnoreCase("meanKeplerianElements")
+                    || key.equalsIgnoreCase("tleParameters")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -172,7 +172,6 @@ public final class PowerLevel {
 
         private Optional<Double> consumptionRateLPerS = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -299,6 +298,20 @@ public final class PowerLevel {
                     runTimeToEmptyMins,
                     consumptionRateLPerS,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("capacity")
+                    || key.equalsIgnoreCase("remaining")
+                    || key.equalsIgnoreCase("percentRemaining")
+                    || key.equalsIgnoreCase("voltage")
+                    || key.equalsIgnoreCase("currentAmps")
+                    || key.equalsIgnoreCase("runTimeToEmptyMins")
+                    || key.equalsIgnoreCase("consumptionRateLPerS")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

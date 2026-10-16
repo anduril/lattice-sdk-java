@@ -135,7 +135,6 @@ public final class NumericType {
 
         private Optional<String> uint64Value = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -219,6 +218,19 @@ public final class NumericType {
         public NumericType build() {
             return new NumericType(
                     doubleValue, floatValue, int32Value, int64Value, uint32Value, uint64Value, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("doubleValue")
+                    || key.equalsIgnoreCase("floatValue")
+                    || key.equalsIgnoreCase("int32Value")
+                    || key.equalsIgnoreCase("int64Value")
+                    || key.equalsIgnoreCase("uint32Value")
+                    || key.equalsIgnoreCase("uint64Value")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

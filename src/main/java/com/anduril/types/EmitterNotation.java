@@ -81,7 +81,6 @@ public final class EmitterNotation {
 
         private Optional<Double> confidence = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -119,6 +118,14 @@ public final class EmitterNotation {
 
         public EmitterNotation build() {
             return new EmitterNotation(emitterNotation, confidence, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("emitterNotation") || key.equalsIgnoreCase("confidence")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

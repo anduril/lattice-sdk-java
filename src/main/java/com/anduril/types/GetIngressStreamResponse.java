@@ -70,7 +70,6 @@ public final class GetIngressStreamResponse {
     public static final class Builder {
         private Optional<IngressStream> ingressStream = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -96,6 +95,14 @@ public final class GetIngressStreamResponse {
 
         public GetIngressStreamResponse build() {
             return new GetIngressStreamResponse(ingressStream, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("ingressStream")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

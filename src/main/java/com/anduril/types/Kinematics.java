@@ -87,7 +87,6 @@ public final class Kinematics {
 
         private Optional<KinematicsGeocentric> kinematicsGeocentric = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -128,6 +127,14 @@ public final class Kinematics {
 
         public Kinematics build() {
             return new Kinematics(kinematicsGeodetic, kinematicsGeocentric, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("kinematicsGeodetic") || key.equalsIgnoreCase("kinematicsGeocentric")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

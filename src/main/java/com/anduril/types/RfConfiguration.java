@@ -87,7 +87,6 @@ public final class RfConfiguration {
 
         private Optional<List<BandwidthRange>> bandwidthRangeHz = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -128,6 +127,14 @@ public final class RfConfiguration {
 
         public RfConfiguration build() {
             return new RfConfiguration(frequencyRangeHz, bandwidthRangeHz, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("frequencyRangeHz") || key.equalsIgnoreCase("bandwidthRangeHz")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

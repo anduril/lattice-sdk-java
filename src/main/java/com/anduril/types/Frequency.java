@@ -70,7 +70,6 @@ public final class Frequency {
     public static final class Builder {
         private Optional<Measurement> frequencyHz = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -96,6 +95,14 @@ public final class Frequency {
 
         public Frequency build() {
             return new Frequency(frequencyHz, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("frequencyHz")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

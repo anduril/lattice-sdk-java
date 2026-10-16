@@ -135,7 +135,6 @@ public final class PowerSource {
 
         private Optional<Boolean> offloadable = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -223,6 +222,18 @@ public final class PowerSource {
 
         public PowerSource build() {
             return new PowerSource(powerStatus, powerType, powerLevel, messages, offloadable, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("powerStatus")
+                    || key.equalsIgnoreCase("powerType")
+                    || key.equalsIgnoreCase("powerLevel")
+                    || key.equalsIgnoreCase("messages")
+                    || key.equalsIgnoreCase("offloadable")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

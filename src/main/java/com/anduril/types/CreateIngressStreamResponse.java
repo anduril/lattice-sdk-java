@@ -102,7 +102,6 @@ public final class CreateIngressStreamResponse {
 
         private Optional<SrtIngress> srt = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -160,6 +159,14 @@ public final class CreateIngressStreamResponse {
 
         public CreateIngressStreamResponse build() {
             return new CreateIngressStreamResponse(ingressId, mpegTs, srt, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("ingressId") || key.equalsIgnoreCase("mpegTs") || key.equalsIgnoreCase("srt")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

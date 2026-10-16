@@ -87,7 +87,6 @@ public final class EntityOverride {
 
         private Optional<Provenance> provenance = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -129,6 +128,14 @@ public final class EntityOverride {
 
         public EntityOverride build() {
             return new EntityOverride(entity, provenance, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("entity") || key.equalsIgnoreCase("provenance")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

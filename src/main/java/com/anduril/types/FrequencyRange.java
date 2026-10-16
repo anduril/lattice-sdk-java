@@ -87,7 +87,6 @@ public final class FrequencyRange {
 
         private Optional<Frequency> maximumFrequencyHz = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -128,6 +127,14 @@ public final class FrequencyRange {
 
         public FrequencyRange build() {
             return new FrequencyRange(minimumFrequencyHz, maximumFrequencyHz, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("minimumFrequencyHz") || key.equalsIgnoreCase("maximumFrequencyHz")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

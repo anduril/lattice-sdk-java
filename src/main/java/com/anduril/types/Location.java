@@ -132,7 +132,6 @@ public final class Location {
 
         private Optional<Quaternion> attitudeEnu = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -218,6 +217,18 @@ public final class Location {
 
         public Location build() {
             return new Location(position, velocityEnu, speedMps, acceleration, attitudeEnu, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("position")
+                    || key.equalsIgnoreCase("velocityEnu")
+                    || key.equalsIgnoreCase("speedMps")
+                    || key.equalsIgnoreCase("acceleration")
+                    || key.equalsIgnoreCase("attitudeEnu")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

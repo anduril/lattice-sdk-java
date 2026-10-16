@@ -70,7 +70,6 @@ public final class TaskEventData implements ITaskEventData {
     public static final class Builder {
         private Optional<TaskEventDataTaskEvent> taskEvent = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -96,6 +95,14 @@ public final class TaskEventData implements ITaskEventData {
 
         public TaskEventData build() {
             return new TaskEventData(taskEvent, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("taskEvent")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

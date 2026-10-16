@@ -83,7 +83,6 @@ public final class SrtEgress {
 
         private Optional<String> sessionId = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -124,6 +123,14 @@ public final class SrtEgress {
 
         public SrtEgress build() {
             return new SrtEgress(url, sessionId, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("url") || key.equalsIgnoreCase("sessionId")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {
