@@ -67,7 +67,6 @@ public final class ControlAreaDetails {
     public static final class Builder {
         private Optional<ControlAreaDetailsType> type = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -90,6 +89,14 @@ public final class ControlAreaDetails {
 
         public ControlAreaDetails build() {
             return new ControlAreaDetails(type, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("type")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

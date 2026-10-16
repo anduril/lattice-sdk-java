@@ -79,7 +79,6 @@ public final class Supplies {
 
         private Optional<List<Fuel>> fuel = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -114,6 +113,14 @@ public final class Supplies {
 
         public Supplies build() {
             return new Supplies(munitions, fuel, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("munitions") || key.equalsIgnoreCase("fuel")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

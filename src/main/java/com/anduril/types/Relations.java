@@ -84,7 +84,6 @@ public final class Relations {
 
         private Optional<String> parentTaskId = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -125,6 +124,14 @@ public final class Relations {
 
         public Relations build() {
             return new Relations(assignee, parentTaskId, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("assignee") || key.equalsIgnoreCase("parentTaskId")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

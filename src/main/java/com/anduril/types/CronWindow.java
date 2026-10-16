@@ -93,7 +93,6 @@ public final class CronWindow {
 
         private Optional<String> durationMillis = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -141,6 +140,14 @@ public final class CronWindow {
 
         public CronWindow build() {
             return new CronWindow(cronExpression, durationMillis, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("cronExpression") || key.equalsIgnoreCase("durationMillis")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

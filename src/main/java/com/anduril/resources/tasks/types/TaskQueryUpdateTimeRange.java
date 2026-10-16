@@ -84,7 +84,6 @@ public final class TaskQueryUpdateTimeRange {
 
         private Optional<String> endTime = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -125,6 +124,14 @@ public final class TaskQueryUpdateTimeRange {
 
         public TaskQueryUpdateTimeRange build() {
             return new TaskQueryUpdateTimeRange(startTime, endTime, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("startTime") || key.equalsIgnoreCase("endTime")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

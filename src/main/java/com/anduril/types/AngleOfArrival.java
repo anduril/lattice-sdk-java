@@ -92,7 +92,6 @@ public final class AngleOfArrival {
 
         private Optional<TMat2> bearingElevationCovarianceRad2 = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -138,6 +137,14 @@ public final class AngleOfArrival {
 
         public AngleOfArrival build() {
             return new AngleOfArrival(relativePose, bearingElevationCovarianceRad2, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("relativePose") || key.equalsIgnoreCase("bearingElevationCovarianceRad2")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

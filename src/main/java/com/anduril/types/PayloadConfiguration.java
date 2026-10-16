@@ -139,7 +139,6 @@ public final class PayloadConfiguration {
 
         private Optional<String> payloadDescription = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -234,6 +233,18 @@ public final class PayloadConfiguration {
                     payloadOperationalState,
                     payloadDescription,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("capabilityId")
+                    || key.equalsIgnoreCase("quantity")
+                    || key.equalsIgnoreCase("effectiveEnvironment")
+                    || key.equalsIgnoreCase("payloadOperationalState")
+                    || key.equalsIgnoreCase("payloadDescription")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

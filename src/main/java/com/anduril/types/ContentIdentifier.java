@@ -118,7 +118,6 @@ public final class ContentIdentifier {
 
         private String checksum;
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -161,6 +160,14 @@ public final class ContentIdentifier {
         @java.lang.Override
         public ContentIdentifier build() {
             return new ContentIdentifier(path, checksum, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("path") || key.equalsIgnoreCase("checksum")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         @java.lang.Override

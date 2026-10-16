@@ -151,7 +151,6 @@ public final class OrbitMeanElementsMetadata {
 
         private Optional<OrbitMeanElementsMetadataMeanElementTheory> meanElementTheory = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -256,6 +255,19 @@ public final class OrbitMeanElementsMetadata {
                     refFrameEpoch,
                     meanElementTheory,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("creationDate")
+                    || key.equalsIgnoreCase("originator")
+                    || key.equalsIgnoreCase("messageId")
+                    || key.equalsIgnoreCase("refFrame")
+                    || key.equalsIgnoreCase("refFrameEpoch")
+                    || key.equalsIgnoreCase("meanElementTheory")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

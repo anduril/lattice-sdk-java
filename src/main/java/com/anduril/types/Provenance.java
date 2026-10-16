@@ -136,7 +136,6 @@ public final class Provenance {
 
         private Optional<String> sourceDescription = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -225,6 +224,18 @@ public final class Provenance {
         public Provenance build() {
             return new Provenance(
                     integrationName, dataType, sourceId, sourceUpdateTime, sourceDescription, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("integrationName")
+                    || key.equalsIgnoreCase("dataType")
+                    || key.equalsIgnoreCase("sourceId")
+                    || key.equalsIgnoreCase("sourceUpdateTime")
+                    || key.equalsIgnoreCase("sourceDescription")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

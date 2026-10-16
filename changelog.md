@@ -1,5 +1,23 @@
 # Changelog
 
+## [6.2.0] - 2026-10-16
+### Added
+- **`AutoCloseable`** — `Lattice`, `AsyncLattice`, and `ClientOptions` now implement resource cleanup via `close()`, releasing WebSocket connections and SDK-owned OkHttp dispatchers/HTTP clients.
+- **`RequestOptions` body properties** — new `addBodyProperty`/`bodyProperties` builder methods plus the `BodyProperties` utility merge extra properties into JSON and form-urlencoded request bodies.
+- **SSE event discrimination** — `Stream.fromSseWithEventDiscrimination` and `SseEventParser.parseEventLevelUnion()` now support event-level discrimination over envelope events.
+- **`RetryInterceptor.newAsyncCall`** — schedules retries off OkHttp's dispatcher threads for immediate cancellation response without holding dispatcher slots.
+- **`lastUpdateTime`** — optional field added to `TaskStatus` recording when the task status last changed.
+
+### Changed
+- **Async operations** — cancelling a returned `CompletableFuture` now cancels the underlying HTTP call across all clients.
+- **`RequestOptions` body properties** — request bodies (including form-encoded and `DELETE` requests) now merge additional body properties supplied via `RequestOptions`.
+- **`additionalProperties`** — JSON deserialization no longer captures known request/response fields into `additionalProperties`.
+- **Async retries** — asynchronous requests now honor retry behavior via the retry interceptor.
+- **Pagination** — `hasNext` now treats an empty starting-after token as the end of results.
+
+### Fixed
+- **Retry and SSE handling** — retried responses are buffered to stay usable, call timeouts apply per-attempt, and `LogLevel.fromString`/header redaction use `Locale.ROOT` for locale-independent casing.
+
 ## [6.1.0] - 2026-09-15
 
 ### Added

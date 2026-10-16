@@ -80,7 +80,6 @@ public final class BandwidthRange {
 
         private Optional<Bandwidth> maximumBandwidth = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -115,6 +114,14 @@ public final class BandwidthRange {
 
         public BandwidthRange build() {
             return new BandwidthRange(minimumBandwidth, maximumBandwidth, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("minimumBandwidth") || key.equalsIgnoreCase("maximumBandwidth")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

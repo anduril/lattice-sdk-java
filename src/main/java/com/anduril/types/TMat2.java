@@ -91,7 +91,6 @@ public final class TMat2 {
 
         private Optional<Double> myy = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -138,6 +137,14 @@ public final class TMat2 {
 
         public TMat2 build() {
             return new TMat2(mxx, mxy, myy, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("mxx") || key.equalsIgnoreCase("mxy") || key.equalsIgnoreCase("myy")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

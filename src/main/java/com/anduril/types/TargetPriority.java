@@ -86,7 +86,6 @@ public final class TargetPriority {
 
         private Optional<Threat> threat = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -127,6 +126,14 @@ public final class TargetPriority {
 
         public TargetPriority build() {
             return new TargetPriority(highValueTarget, threat, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("highValueTarget") || key.equalsIgnoreCase("threat")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

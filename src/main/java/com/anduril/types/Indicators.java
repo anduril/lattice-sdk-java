@@ -136,7 +136,6 @@ public final class Indicators {
 
         private Optional<Boolean> starred = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -226,6 +225,19 @@ public final class Indicators {
 
         public Indicators build() {
             return new Indicators(simulated, exercise, emergency, c2, egressable, starred, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("simulated")
+                    || key.equalsIgnoreCase("exercise")
+                    || key.equalsIgnoreCase("emergency")
+                    || key.equalsIgnoreCase("c2")
+                    || key.equalsIgnoreCase("egressable")
+                    || key.equalsIgnoreCase("starred")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

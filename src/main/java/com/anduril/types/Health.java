@@ -141,7 +141,6 @@ public final class Health {
 
         private Optional<List<Alert>> activeAlerts = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -234,6 +233,18 @@ public final class Health {
         public Health build() {
             return new Health(
                     connectionStatus, healthStatus, components, updateTime, activeAlerts, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("connectionStatus")
+                    || key.equalsIgnoreCase("healthStatus")
+                    || key.equalsIgnoreCase("components")
+                    || key.equalsIgnoreCase("updateTime")
+                    || key.equalsIgnoreCase("activeAlerts")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

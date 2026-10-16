@@ -161,7 +161,6 @@ public final class Tracked {
 
         private Optional<LineOfBearing> lineOfBearing = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -276,6 +275,19 @@ public final class Tracked {
                     lastMeasurementTime,
                     lineOfBearing,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("trackQualityWrapper")
+                    || key.equalsIgnoreCase("sensorHits")
+                    || key.equalsIgnoreCase("numberOfObjects")
+                    || key.equalsIgnoreCase("radarCrossSection")
+                    || key.equalsIgnoreCase("lastMeasurementTime")
+                    || key.equalsIgnoreCase("lineOfBearing")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

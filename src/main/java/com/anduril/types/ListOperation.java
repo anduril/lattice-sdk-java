@@ -104,7 +104,6 @@ public final class ListOperation {
 
         private Optional<Statement> statement = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -162,6 +161,16 @@ public final class ListOperation {
 
         public ListOperation build() {
             return new ListOperation(listPath, listComparator, statement, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("listPath")
+                    || key.equalsIgnoreCase("listComparator")
+                    || key.equalsIgnoreCase("statement")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

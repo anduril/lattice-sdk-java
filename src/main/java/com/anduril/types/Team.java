@@ -81,7 +81,6 @@ public final class Team {
 
         private Optional<List<Agent>> members = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -119,6 +118,14 @@ public final class Team {
 
         public Team build() {
             return new Team(entityId, members, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("entityId") || key.equalsIgnoreCase("members")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

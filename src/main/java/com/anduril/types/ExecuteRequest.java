@@ -70,7 +70,6 @@ public final class ExecuteRequest {
     public static final class Builder {
         private Optional<Task> task = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -96,6 +95,14 @@ public final class ExecuteRequest {
 
         public ExecuteRequest build() {
             return new ExecuteRequest(task, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("task")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -3,6 +3,7 @@
  */
 package com.anduril.resources.objects;
 
+import com.anduril.core.BodyProperties;
 import com.anduril.core.ClientOptions;
 import com.anduril.core.InputStreamRequestBody;
 import com.anduril.core.LatticeApiException;
@@ -136,9 +137,11 @@ public class RawObjectsClient {
                 List<PathMetadata> result = parsedResponse.getPathMetadatas();
                 return new LatticeHttpResponse<>(
                         new SyncPagingIterable<PathMetadata>(
-                                startingAfter.isPresent(), result, parsedResponse, () -> listObjects(
-                                                nextRequest, requestOptions)
-                                        .body()),
+                                startingAfter.isPresent()
+                                        && !startingAfter.get().isEmpty(),
+                                result,
+                                parsedResponse,
+                                () -> listObjects(nextRequest, requestOptions).body()),
                         response);
             }
             try {
@@ -392,7 +395,10 @@ public class RawObjectsClient {
         }
         Request.Builder _requestBuilder = new Request.Builder()
                 .url(httpUrl.build())
-                .method("DELETE", null)
+                .method(
+                        "DELETE",
+                        BodyProperties.toRequestBody(
+                                requestOptions != null ? requestOptions.getBodyProperties() : null, null))
                 .headers(Headers.of(clientOptions.headers(requestOptions)))
                 .addHeader("Accept", "application/json");
         Request okhttpRequest = _requestBuilder.build();

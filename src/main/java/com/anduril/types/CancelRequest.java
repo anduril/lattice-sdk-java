@@ -101,7 +101,6 @@ public final class CancelRequest {
 
         private Optional<Principal> author = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -158,6 +157,14 @@ public final class CancelRequest {
 
         public CancelRequest build() {
             return new CancelRequest(taskId, assignee, author, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("taskId") || key.equalsIgnoreCase("assignee") || key.equalsIgnoreCase("author")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

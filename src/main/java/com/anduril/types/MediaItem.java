@@ -102,7 +102,6 @@ public final class MediaItem {
 
         private Optional<String> relativePath = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -158,6 +157,16 @@ public final class MediaItem {
 
         public MediaItem build() {
             return new MediaItem(itemIdentifier, type, relativePath, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("itemIdentifier")
+                    || key.equalsIgnoreCase("type")
+                    || key.equalsIgnoreCase("relativePath")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

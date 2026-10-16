@@ -214,7 +214,6 @@ public final class TleParameters {
 
         private Optional<Double> agom = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -383,6 +382,23 @@ public final class TleParameters {
                     meanMotionDdot,
                     agom,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("ephemerisType")
+                    || key.equalsIgnoreCase("classificationType")
+                    || key.equalsIgnoreCase("noradCatId")
+                    || key.equalsIgnoreCase("elementSetNo")
+                    || key.equalsIgnoreCase("revAtEpoch")
+                    || key.equalsIgnoreCase("bstar")
+                    || key.equalsIgnoreCase("bterm")
+                    || key.equalsIgnoreCase("meanMotionDot")
+                    || key.equalsIgnoreCase("meanMotionDdot")
+                    || key.equalsIgnoreCase("agom")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

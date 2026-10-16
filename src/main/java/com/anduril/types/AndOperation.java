@@ -80,7 +80,6 @@ public final class AndOperation {
 
         private Optional<StatementSet> statementSet = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -115,6 +114,14 @@ public final class AndOperation {
 
         public AndOperation build() {
             return new AndOperation(predicateSet, statementSet, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("predicateSet") || key.equalsIgnoreCase("statementSet")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

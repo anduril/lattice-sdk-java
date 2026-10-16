@@ -102,7 +102,6 @@ public final class DeliveryState {
 
         private Optional<DeliveryConstraints> deliveryConstraints = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -158,6 +157,16 @@ public final class DeliveryState {
 
         public DeliveryState build() {
             return new DeliveryState(status, error, deliveryConstraints, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("status")
+                    || key.equalsIgnoreCase("error")
+                    || key.equalsIgnoreCase("deliveryConstraints")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -4,6 +4,7 @@
 package com.anduril.resources.entities;
 
 import com.anduril.core.ClientOptions;
+import com.anduril.core.LatticeHttpResponse;
 import com.anduril.core.RequestOptions;
 import com.anduril.resources.entities.requests.EntityEventRequest;
 import com.anduril.resources.entities.requests.EntityOverride;
@@ -41,7 +42,14 @@ public class AsyncEntitiesClient {
      * provenance.sourceUpdateTime is greater than the provenance.sourceUpdateTime of the existing entity.</p>
      */
     public CompletableFuture<Entity> publishEntity() {
-        return this.rawClient.publishEntity().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture = this.rawClient.publishEntity();
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -53,7 +61,14 @@ public class AsyncEntitiesClient {
      * provenance.sourceUpdateTime is greater than the provenance.sourceUpdateTime of the existing entity.</p>
      */
     public CompletableFuture<Entity> publishEntity(RequestOptions requestOptions) {
-        return this.rawClient.publishEntity(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture = this.rawClient.publishEntity(requestOptions);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -65,7 +80,14 @@ public class AsyncEntitiesClient {
      * provenance.sourceUpdateTime is greater than the provenance.sourceUpdateTime of the existing entity.</p>
      */
     public CompletableFuture<Entity> publishEntity(Entity request) {
-        return this.rawClient.publishEntity(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture = this.rawClient.publishEntity(request);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -77,24 +99,61 @@ public class AsyncEntitiesClient {
      * provenance.sourceUpdateTime is greater than the provenance.sourceUpdateTime of the existing entity.</p>
      */
     public CompletableFuture<Entity> publishEntity(Entity request, RequestOptions requestOptions) {
-        return this.rawClient.publishEntity(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture =
+                this.rawClient.publishEntity(request, requestOptions);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     public CompletableFuture<Entity> getEntity(String entityId) {
-        return this.rawClient.getEntity(entityId).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture = this.rawClient.getEntity(entityId);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     public CompletableFuture<Entity> getEntity(String entityId, RequestOptions requestOptions) {
-        return this.rawClient.getEntity(entityId, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture = this.rawClient.getEntity(entityId, requestOptions);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     public CompletableFuture<Entity> getEntity(String entityId, GetEntityRequest request) {
-        return this.rawClient.getEntity(entityId, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture = this.rawClient.getEntity(entityId, request);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     public CompletableFuture<Entity> getEntity(
             String entityId, GetEntityRequest request, RequestOptions requestOptions) {
-        return this.rawClient.getEntity(entityId, request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture =
+                this.rawClient.getEntity(entityId, request, requestOptions);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -106,7 +165,14 @@ public class AsyncEntitiesClient {
      * concurrently for the same field path, the last writer wins.</p>
      */
     public CompletableFuture<Entity> overrideEntity(String entityId, String fieldPath) {
-        return this.rawClient.overrideEntity(entityId, fieldPath).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture = this.rawClient.overrideEntity(entityId, fieldPath);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -118,9 +184,15 @@ public class AsyncEntitiesClient {
      * concurrently for the same field path, the last writer wins.</p>
      */
     public CompletableFuture<Entity> overrideEntity(String entityId, String fieldPath, RequestOptions requestOptions) {
-        return this.rawClient
-                .overrideEntity(entityId, fieldPath, requestOptions)
-                .thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture =
+                this.rawClient.overrideEntity(entityId, fieldPath, requestOptions);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -132,7 +204,15 @@ public class AsyncEntitiesClient {
      * concurrently for the same field path, the last writer wins.</p>
      */
     public CompletableFuture<Entity> overrideEntity(String entityId, String fieldPath, EntityOverride request) {
-        return this.rawClient.overrideEntity(entityId, fieldPath, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture =
+                this.rawClient.overrideEntity(entityId, fieldPath, request);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -145,16 +225,30 @@ public class AsyncEntitiesClient {
      */
     public CompletableFuture<Entity> overrideEntity(
             String entityId, String fieldPath, EntityOverride request, RequestOptions requestOptions) {
-        return this.rawClient
-                .overrideEntity(entityId, fieldPath, request, requestOptions)
-                .thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture =
+                this.rawClient.overrideEntity(entityId, fieldPath, request, requestOptions);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * This operation clears the override value from the specified field path on the entity.
      */
     public CompletableFuture<Entity> removeEntityOverride(String entityId, String fieldPath) {
-        return this.rawClient.removeEntityOverride(entityId, fieldPath).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture =
+                this.rawClient.removeEntityOverride(entityId, fieldPath);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -162,9 +256,15 @@ public class AsyncEntitiesClient {
      */
     public CompletableFuture<Entity> removeEntityOverride(
             String entityId, String fieldPath, RequestOptions requestOptions) {
-        return this.rawClient
-                .removeEntityOverride(entityId, fieldPath, requestOptions)
-                .thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture =
+                this.rawClient.removeEntityOverride(entityId, fieldPath, requestOptions);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -172,7 +272,15 @@ public class AsyncEntitiesClient {
      */
     public CompletableFuture<Entity> removeEntityOverride(
             String entityId, String fieldPath, RemoveEntityOverrideRequest request) {
-        return this.rawClient.removeEntityOverride(entityId, fieldPath, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture =
+                this.rawClient.removeEntityOverride(entityId, fieldPath, request);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -180,9 +288,15 @@ public class AsyncEntitiesClient {
      */
     public CompletableFuture<Entity> removeEntityOverride(
             String entityId, String fieldPath, RemoveEntityOverrideRequest request, RequestOptions requestOptions) {
-        return this.rawClient
-                .removeEntityOverride(entityId, fieldPath, request, requestOptions)
-                .thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Entity>> rawFuture =
+                this.rawClient.removeEntityOverride(entityId, fieldPath, request, requestOptions);
+        CompletableFuture<Entity> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -197,7 +311,15 @@ public class AsyncEntitiesClient {
      * In this case you must start a new session by sending a request with an empty session token.
      */
     public CompletableFuture<EntityEventResponse> longPollEntityEvents(EntityEventRequest request) {
-        return this.rawClient.longPollEntityEvents(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<EntityEventResponse>> rawFuture =
+                this.rawClient.longPollEntityEvents(request);
+        CompletableFuture<EntityEventResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -213,7 +335,15 @@ public class AsyncEntitiesClient {
      */
     public CompletableFuture<EntityEventResponse> longPollEntityEvents(
             EntityEventRequest request, RequestOptions requestOptions) {
-        return this.rawClient.longPollEntityEvents(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<EntityEventResponse>> rawFuture =
+                this.rawClient.longPollEntityEvents(request, requestOptions);
+        CompletableFuture<EntityEventResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -233,7 +363,15 @@ public class AsyncEntitiesClient {
      * this provides real-time updates with minimal latency and reduced server load.</p>
      */
     public CompletableFuture<Iterable<StreamEntitiesResponse>> streamEntities() {
-        return this.rawClient.streamEntities().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamEntitiesResponse>>> rawFuture =
+                this.rawClient.streamEntities();
+        CompletableFuture<Iterable<StreamEntitiesResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -253,7 +391,15 @@ public class AsyncEntitiesClient {
      * this provides real-time updates with minimal latency and reduced server load.</p>
      */
     public CompletableFuture<Iterable<StreamEntitiesResponse>> streamEntities(RequestOptions requestOptions) {
-        return this.rawClient.streamEntities(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamEntitiesResponse>>> rawFuture =
+                this.rawClient.streamEntities(requestOptions);
+        CompletableFuture<Iterable<StreamEntitiesResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -273,7 +419,15 @@ public class AsyncEntitiesClient {
      * this provides real-time updates with minimal latency and reduced server load.</p>
      */
     public CompletableFuture<Iterable<StreamEntitiesResponse>> streamEntities(EntityStreamRequest request) {
-        return this.rawClient.streamEntities(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamEntitiesResponse>>> rawFuture =
+                this.rawClient.streamEntities(request);
+        CompletableFuture<Iterable<StreamEntitiesResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -294,6 +448,14 @@ public class AsyncEntitiesClient {
      */
     public CompletableFuture<Iterable<StreamEntitiesResponse>> streamEntities(
             EntityStreamRequest request, RequestOptions requestOptions) {
-        return this.rawClient.streamEntities(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Iterable<StreamEntitiesResponse>>> rawFuture =
+                this.rawClient.streamEntities(request, requestOptions);
+        CompletableFuture<Iterable<StreamEntitiesResponse>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 }

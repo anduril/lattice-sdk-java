@@ -111,7 +111,6 @@ public final class EgressStream {
 
         private Optional<SrtEgress> srt = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -176,6 +175,17 @@ public final class EgressStream {
 
         public EgressStream build() {
             return new EgressStream(egressId, ingressId, rtsp, srt, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("egressId")
+                    || key.equalsIgnoreCase("ingressId")
+                    || key.equalsIgnoreCase("rtsp")
+                    || key.equalsIgnoreCase("srt")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

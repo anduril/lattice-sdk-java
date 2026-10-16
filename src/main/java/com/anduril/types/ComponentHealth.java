@@ -135,7 +135,6 @@ public final class ComponentHealth {
 
         private Optional<OffsetDateTime> updateTime = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -222,6 +221,18 @@ public final class ComponentHealth {
 
         public ComponentHealth build() {
             return new ComponentHealth(id, name, health, messages, updateTime, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("id")
+                    || key.equalsIgnoreCase("name")
+                    || key.equalsIgnoreCase("health")
+                    || key.equalsIgnoreCase("messages")
+                    || key.equalsIgnoreCase("updateTime")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

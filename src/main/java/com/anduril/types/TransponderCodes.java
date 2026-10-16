@@ -170,7 +170,6 @@ public final class TransponderCodes {
 
         private Optional<Integer> modeCAltitudeFt = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -297,6 +296,20 @@ public final class TransponderCodes {
                     modeS,
                     modeCAltitudeFt,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("mode1")
+                    || key.equalsIgnoreCase("mode2")
+                    || key.equalsIgnoreCase("mode3")
+                    || key.equalsIgnoreCase("mode4InterrogationResponse")
+                    || key.equalsIgnoreCase("mode5")
+                    || key.equalsIgnoreCase("modeS")
+                    || key.equalsIgnoreCase("modeCAltitudeFt")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

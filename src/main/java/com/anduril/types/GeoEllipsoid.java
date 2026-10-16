@@ -102,7 +102,6 @@ public final class GeoEllipsoid {
 
         private Optional<Double> upAxisM = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -158,6 +157,16 @@ public final class GeoEllipsoid {
 
         public GeoEllipsoid build() {
             return new GeoEllipsoid(forwardAxisM, sideAxisM, upAxisM, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("forwardAxisM")
+                    || key.equalsIgnoreCase("sideAxisM")
+                    || key.equalsIgnoreCase("upAxisM")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

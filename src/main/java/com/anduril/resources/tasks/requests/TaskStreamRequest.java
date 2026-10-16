@@ -192,7 +192,6 @@ public final class TaskStreamRequest {
 
         private Optional<TaskStreamRequestStatusFilter> statusFilter = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -336,6 +335,21 @@ public final class TaskStreamRequest {
                     assignee,
                     statusFilter,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("heartbeatIntervalMs")
+                    || key.equalsIgnoreCase("rateLimit")
+                    || key.equalsIgnoreCase("excludePreexistingTasks")
+                    || key.equalsIgnoreCase("taskType")
+                    || key.equalsIgnoreCase("updateStartTime")
+                    || key.equalsIgnoreCase("parentTaskId")
+                    || key.equalsIgnoreCase("assignee")
+                    || key.equalsIgnoreCase("statusFilter")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

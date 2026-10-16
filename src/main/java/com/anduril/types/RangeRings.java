@@ -117,7 +117,6 @@ public final class RangeRings {
 
         private Optional<Color> ringLineColor = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -188,6 +187,17 @@ public final class RangeRings {
 
         public RangeRings build() {
             return new RangeRings(minDistanceM, maxDistanceM, ringCount, ringLineColor, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("minDistanceM")
+                    || key.equalsIgnoreCase("maxDistanceM")
+                    || key.equalsIgnoreCase("ringCount")
+                    || key.equalsIgnoreCase("ringLineColor")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

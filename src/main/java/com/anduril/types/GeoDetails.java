@@ -105,7 +105,6 @@ public final class GeoDetails {
 
         private Optional<GeoVisualDetails> visualDetails = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -164,6 +163,17 @@ public final class GeoDetails {
 
         public GeoDetails build() {
             return new GeoDetails(type, controlArea, acm, visualDetails, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("type")
+                    || key.equalsIgnoreCase("controlArea")
+                    || key.equalsIgnoreCase("acm")
+                    || key.equalsIgnoreCase("visualDetails")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

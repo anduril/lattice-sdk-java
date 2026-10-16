@@ -117,7 +117,6 @@ public final class GeoShape {
 
         private Optional<GeoEllipsoid> ellipsoid = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -188,6 +187,18 @@ public final class GeoShape {
 
         public GeoShape build() {
             return new GeoShape(point, line, polygon, ellipse, ellipsoid, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("point")
+                    || key.equalsIgnoreCase("line")
+                    || key.equalsIgnoreCase("polygon")
+                    || key.equalsIgnoreCase("ellipse")
+                    || key.equalsIgnoreCase("ellipsoid")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

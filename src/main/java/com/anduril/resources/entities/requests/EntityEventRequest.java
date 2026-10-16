@@ -109,7 +109,6 @@ public final class EntityEventRequest {
 
         private Optional<Integer> batchSize = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -155,6 +154,14 @@ public final class EntityEventRequest {
         @java.lang.Override
         public EntityEventRequest build() {
             return new EntityEventRequest(sessionToken, batchSize, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("sessionToken") || key.equalsIgnoreCase("batchSize")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         @java.lang.Override

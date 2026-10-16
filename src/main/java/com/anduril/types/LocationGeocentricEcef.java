@@ -102,7 +102,6 @@ public final class LocationGeocentricEcef {
 
         private Optional<Double> zMeters = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -160,6 +159,14 @@ public final class LocationGeocentricEcef {
 
         public LocationGeocentricEcef build() {
             return new LocationGeocentricEcef(xMeters, yMeters, zMeters, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("xMeters") || key.equalsIgnoreCase("yMeters") || key.equalsIgnoreCase("zMeters")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {
