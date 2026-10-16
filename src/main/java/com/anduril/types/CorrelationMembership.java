@@ -119,7 +119,6 @@ public final class CorrelationMembership {
 
         private Optional<CorrelationMetadata> metadata = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -192,6 +191,17 @@ public final class CorrelationMembership {
 
         public CorrelationMembership build() {
             return new CorrelationMembership(correlationSetId, primary, nonPrimary, metadata, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("correlationSetId")
+                    || key.equalsIgnoreCase("primary")
+                    || key.equalsIgnoreCase("nonPrimary")
+                    || key.equalsIgnoreCase("metadata")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -71,7 +71,6 @@ public final class PrimaryCorrelation {
     public static final class Builder {
         private Optional<List<String>> secondaryEntityIds = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -97,6 +96,14 @@ public final class PrimaryCorrelation {
 
         public PrimaryCorrelation build() {
             return new PrimaryCorrelation(secondaryEntityIds, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("secondaryEntityIds")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

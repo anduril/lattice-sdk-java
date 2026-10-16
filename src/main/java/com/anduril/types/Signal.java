@@ -222,7 +222,6 @@ public final class Signal {
 
         private Optional<Measurement> receivedSignalStrengthDbm = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -398,6 +397,24 @@ public final class Signal {
                     scanCharacteristics,
                     receivedSignalStrengthDbm,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("frequencyCenter")
+                    || key.equalsIgnoreCase("frequencyRange")
+                    || key.equalsIgnoreCase("bandwidthHz")
+                    || key.equalsIgnoreCase("signalToNoiseRatio")
+                    || key.equalsIgnoreCase("lineOfBearing")
+                    || key.equalsIgnoreCase("fixed")
+                    || key.equalsIgnoreCase("emitterNotations")
+                    || key.equalsIgnoreCase("pulseWidthS")
+                    || key.equalsIgnoreCase("pulseRepetitionInterval")
+                    || key.equalsIgnoreCase("scanCharacteristics")
+                    || key.equalsIgnoreCase("receivedSignalStrengthDbm")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

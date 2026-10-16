@@ -109,7 +109,6 @@ public final class Principal {
 
         private Optional<Principal> onBehalfOf = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -172,6 +171,17 @@ public final class Principal {
 
         public Principal build() {
             return new Principal(system, user, team, onBehalfOf, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("system")
+                    || key.equalsIgnoreCase("user")
+                    || key.equalsIgnoreCase("team")
+                    || key.equalsIgnoreCase("onBehalfOf")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -90,7 +90,6 @@ public final class GeoPolygon {
 
         private Optional<Boolean> isRectangle = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -136,6 +135,14 @@ public final class GeoPolygon {
 
         public GeoPolygon build() {
             return new GeoPolygon(rings, isRectangle, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("rings") || key.equalsIgnoreCase("isRectangle")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -122,7 +122,6 @@ public final class Lla {
 
         private Optional<LlaAltitudeReference> altitudeReference = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -198,6 +197,18 @@ public final class Lla {
 
         public Lla build() {
             return new Lla(lon, lat, alt, is2D, altitudeReference, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("lon")
+                    || key.equalsIgnoreCase("lat")
+                    || key.equalsIgnoreCase("alt")
+                    || key.equalsIgnoreCase("is2d")
+                    || key.equalsIgnoreCase("altitudeReference")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

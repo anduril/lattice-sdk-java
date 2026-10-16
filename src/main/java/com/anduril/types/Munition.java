@@ -102,7 +102,6 @@ public final class Munition {
 
         private Optional<Integer> quantityUnits = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -158,6 +157,16 @@ public final class Munition {
 
         public Munition build() {
             return new Munition(munitionId, name, quantityUnits, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("munitionId")
+                    || key.equalsIgnoreCase("name")
+                    || key.equalsIgnoreCase("quantityUnits")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

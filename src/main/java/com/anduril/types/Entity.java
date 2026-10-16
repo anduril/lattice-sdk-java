@@ -704,7 +704,6 @@ public final class Entity {
 
         private Optional<Symbology> symbology = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -1362,6 +1361,52 @@ public final class Entity {
                     orbit,
                     symbology,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("entityId")
+                    || key.equalsIgnoreCase("description")
+                    || key.equalsIgnoreCase("isLive")
+                    || key.equalsIgnoreCase("createdTime")
+                    || key.equalsIgnoreCase("expiryTime")
+                    || key.equalsIgnoreCase("noExpiry")
+                    || key.equalsIgnoreCase("status")
+                    || key.equalsIgnoreCase("location")
+                    || key.equalsIgnoreCase("locationUncertainty")
+                    || key.equalsIgnoreCase("kinematics")
+                    || key.equalsIgnoreCase("geoShape")
+                    || key.equalsIgnoreCase("geoDetails")
+                    || key.equalsIgnoreCase("aliases")
+                    || key.equalsIgnoreCase("tracked")
+                    || key.equalsIgnoreCase("correlation")
+                    || key.equalsIgnoreCase("milView")
+                    || key.equalsIgnoreCase("ontology")
+                    || key.equalsIgnoreCase("sensors")
+                    || key.equalsIgnoreCase("payloads")
+                    || key.equalsIgnoreCase("powerState")
+                    || key.equalsIgnoreCase("provenance")
+                    || key.equalsIgnoreCase("overrides")
+                    || key.equalsIgnoreCase("indicators")
+                    || key.equalsIgnoreCase("targetPriority")
+                    || key.equalsIgnoreCase("signal")
+                    || key.equalsIgnoreCase("transponderCodes")
+                    || key.equalsIgnoreCase("dataClassification")
+                    || key.equalsIgnoreCase("taskCatalog")
+                    || key.equalsIgnoreCase("media")
+                    || key.equalsIgnoreCase("relationships")
+                    || key.equalsIgnoreCase("visualDetails")
+                    || key.equalsIgnoreCase("dimensions")
+                    || key.equalsIgnoreCase("routeDetails")
+                    || key.equalsIgnoreCase("schedules")
+                    || key.equalsIgnoreCase("health")
+                    || key.equalsIgnoreCase("groupDetails")
+                    || key.equalsIgnoreCase("supplies")
+                    || key.equalsIgnoreCase("orbit")
+                    || key.equalsIgnoreCase("symbology")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

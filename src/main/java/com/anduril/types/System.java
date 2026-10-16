@@ -106,7 +106,6 @@ public final class System {
 
         private Optional<Boolean> managesOwnScheduling = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -166,6 +165,16 @@ public final class System {
 
         public System build() {
             return new System(serviceName, entityId, managesOwnScheduling, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("serviceName")
+                    || key.equalsIgnoreCase("entityId")
+                    || key.equalsIgnoreCase("managesOwnScheduling")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

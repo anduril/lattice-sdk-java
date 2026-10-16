@@ -94,7 +94,6 @@ public final class EntityStreamEvent implements IEntityEvent {
 
         private Optional<Entity> entity = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -141,6 +140,14 @@ public final class EntityStreamEvent implements IEntityEvent {
 
         public EntityStreamEvent build() {
             return new EntityStreamEvent(eventType, time, entity, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("eventType") || key.equalsIgnoreCase("time") || key.equalsIgnoreCase("entity")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

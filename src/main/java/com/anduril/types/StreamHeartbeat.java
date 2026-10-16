@@ -71,7 +71,6 @@ public final class StreamHeartbeat implements IHeartbeatObject {
     public static final class Builder {
         private Optional<String> timestamp = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -97,6 +96,14 @@ public final class StreamHeartbeat implements IHeartbeatObject {
 
         public StreamHeartbeat build() {
             return new StreamHeartbeat(timestamp, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("timestamp")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

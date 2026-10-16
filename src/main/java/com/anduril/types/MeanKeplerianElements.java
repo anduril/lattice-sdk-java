@@ -199,7 +199,6 @@ public final class MeanKeplerianElements {
 
         private Optional<Double> gm = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -352,6 +351,22 @@ public final class MeanKeplerianElements {
                     meanAnomalyDeg,
                     gm,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("epoch")
+                    || key.equalsIgnoreCase("semiMajorAxisKm")
+                    || key.equalsIgnoreCase("meanMotion")
+                    || key.equalsIgnoreCase("eccentricity")
+                    || key.equalsIgnoreCase("inclinationDeg")
+                    || key.equalsIgnoreCase("raOfAscNodeDeg")
+                    || key.equalsIgnoreCase("argOfPericenterDeg")
+                    || key.equalsIgnoreCase("meanAnomalyDeg")
+                    || key.equalsIgnoreCase("gm")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

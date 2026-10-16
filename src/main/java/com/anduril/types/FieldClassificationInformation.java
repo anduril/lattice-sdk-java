@@ -89,7 +89,6 @@ public final class FieldClassificationInformation {
 
         private Optional<ClassificationInformation> classificationInformation = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -133,6 +132,14 @@ public final class FieldClassificationInformation {
 
         public FieldClassificationInformation build() {
             return new FieldClassificationInformation(fieldPath, classificationInformation, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("fieldPath") || key.equalsIgnoreCase("classificationInformation")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -105,7 +105,6 @@ public final class Predicate {
 
         private Optional<PredicateComparator> comparator = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -166,6 +165,16 @@ public final class Predicate {
 
         public Predicate build() {
             return new Predicate(fieldPath, value, comparator, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("fieldPath")
+                    || key.equalsIgnoreCase("value")
+                    || key.equalsIgnoreCase("comparator")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -102,7 +102,6 @@ public final class Ontology {
 
         private Optional<OntologyTemplate> template = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -158,6 +157,16 @@ public final class Ontology {
 
         public Ontology build() {
             return new Ontology(platformType, specificType, template, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("platformType")
+                    || key.equalsIgnoreCase("specificType")
+                    || key.equalsIgnoreCase("template")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

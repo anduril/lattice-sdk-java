@@ -125,7 +125,6 @@ public final class LocationGeodetic {
 
         private Optional<List<Altitude>> additionalAltitudes = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -203,6 +202,17 @@ public final class LocationGeodetic {
         public LocationGeodetic build() {
             return new LocationGeodetic(
                     latitudeDegrees, longitudeDegrees, universalAltitudeHae, additionalAltitudes, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("latitudeDegrees")
+                    || key.equalsIgnoreCase("longitudeDegrees")
+                    || key.equalsIgnoreCase("universalAltitudeHae")
+                    || key.equalsIgnoreCase("additionalAltitudes")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

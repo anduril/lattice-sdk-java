@@ -129,7 +129,6 @@ public final class EntityManagerTMat3 {
 
         private Optional<Float> mzz = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -212,6 +211,19 @@ public final class EntityManagerTMat3 {
 
         public EntityManagerTMat3 build() {
             return new EntityManagerTMat3(mxx, mxy, mxz, myy, myz, mzz, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("mxx")
+                    || key.equalsIgnoreCase("mxy")
+                    || key.equalsIgnoreCase("mxz")
+                    || key.equalsIgnoreCase("myy")
+                    || key.equalsIgnoreCase("myz")
+                    || key.equalsIgnoreCase("mzz")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

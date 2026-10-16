@@ -67,7 +67,6 @@ public final class Echelon {
     public static final class Builder {
         private Optional<EchelonArmyEchelon> armyEchelon = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -90,6 +89,14 @@ public final class Echelon {
 
         public Echelon build() {
             return new Echelon(armyEchelon, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("armyEchelon")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

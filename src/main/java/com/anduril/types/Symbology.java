@@ -67,7 +67,6 @@ public final class Symbology {
     public static final class Builder {
         private Optional<MilStd2525C> milStd2525C = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -90,6 +89,14 @@ public final class Symbology {
 
         public Symbology build() {
             return new Symbology(milStd2525C, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("milStd2525C")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

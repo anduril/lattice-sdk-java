@@ -4,6 +4,7 @@
 package com.anduril.resources.objects;
 
 import com.anduril.core.ClientOptions;
+import com.anduril.core.LatticeHttpResponse;
 import com.anduril.core.RequestOptions;
 import com.anduril.core.pagination.SyncPagingIterable;
 import com.anduril.resources.objects.requests.DeleteObjectRequest;
@@ -35,21 +36,45 @@ public class AsyncObjectsClient {
      * Lists objects in your environment. You can define a prefix to list a subset of your objects. If you do not set a prefix, Lattice returns all available objects. By default this endpoint will list local objects only.
      */
     public CompletableFuture<SyncPagingIterable<PathMetadata>> listObjects() {
-        return this.rawClient.listObjects().thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<SyncPagingIterable<PathMetadata>>> rawFuture =
+                this.rawClient.listObjects();
+        CompletableFuture<SyncPagingIterable<PathMetadata>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Lists objects in your environment. You can define a prefix to list a subset of your objects. If you do not set a prefix, Lattice returns all available objects. By default this endpoint will list local objects only.
      */
     public CompletableFuture<SyncPagingIterable<PathMetadata>> listObjects(RequestOptions requestOptions) {
-        return this.rawClient.listObjects(requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<SyncPagingIterable<PathMetadata>>> rawFuture =
+                this.rawClient.listObjects(requestOptions);
+        CompletableFuture<SyncPagingIterable<PathMetadata>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Lists objects in your environment. You can define a prefix to list a subset of your objects. If you do not set a prefix, Lattice returns all available objects. By default this endpoint will list local objects only.
      */
     public CompletableFuture<SyncPagingIterable<PathMetadata>> listObjects(ListObjectsRequest request) {
-        return this.rawClient.listObjects(request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<SyncPagingIterable<PathMetadata>>> rawFuture =
+                this.rawClient.listObjects(request);
+        CompletableFuture<SyncPagingIterable<PathMetadata>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -57,28 +82,58 @@ public class AsyncObjectsClient {
      */
     public CompletableFuture<SyncPagingIterable<PathMetadata>> listObjects(
             ListObjectsRequest request, RequestOptions requestOptions) {
-        return this.rawClient.listObjects(request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<SyncPagingIterable<PathMetadata>>> rawFuture =
+                this.rawClient.listObjects(request, requestOptions);
+        CompletableFuture<SyncPagingIterable<PathMetadata>> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Fetches an object from your environment using the objectPath path parameter.
      */
     public CompletableFuture<InputStream> getObject(String objectPath) {
-        return this.rawClient.getObject(objectPath).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<InputStream>> rawFuture = this.rawClient.getObject(objectPath);
+        CompletableFuture<InputStream> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Fetches an object from your environment using the objectPath path parameter.
      */
     public CompletableFuture<InputStream> getObject(String objectPath, RequestOptions requestOptions) {
-        return this.rawClient.getObject(objectPath, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<InputStream>> rawFuture =
+                this.rawClient.getObject(objectPath, requestOptions);
+        CompletableFuture<InputStream> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Fetches an object from your environment using the objectPath path parameter.
      */
     public CompletableFuture<InputStream> getObject(String objectPath, GetObjectRequest request) {
-        return this.rawClient.getObject(objectPath, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<InputStream>> rawFuture = this.rawClient.getObject(objectPath, request);
+        CompletableFuture<InputStream> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -86,14 +141,30 @@ public class AsyncObjectsClient {
      */
     public CompletableFuture<InputStream> getObject(
             String objectPath, GetObjectRequest request, RequestOptions requestOptions) {
-        return this.rawClient.getObject(objectPath, request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<InputStream>> rawFuture =
+                this.rawClient.getObject(objectPath, request, requestOptions);
+        CompletableFuture<InputStream> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Uploads an object. The object must be 1 GiB or smaller.
      */
     public CompletableFuture<PathMetadata> uploadObject(String objectPath, InputStream request) {
-        return this.rawClient.uploadObject(objectPath, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<PathMetadata>> rawFuture =
+                this.rawClient.uploadObject(objectPath, request);
+        CompletableFuture<PathMetadata> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -101,14 +172,30 @@ public class AsyncObjectsClient {
      */
     public CompletableFuture<PathMetadata> uploadObject(
             String objectPath, InputStream request, RequestOptions requestOptions) {
-        return this.rawClient.uploadObject(objectPath, request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<PathMetadata>> rawFuture =
+                this.rawClient.uploadObject(objectPath, request, requestOptions);
+        CompletableFuture<PathMetadata> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Uploads an object. The object must be 1 GiB or smaller.
      */
     public CompletableFuture<PathMetadata> uploadObject(String objectPath, byte[] request) {
-        return this.rawClient.uploadObject(objectPath, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<PathMetadata>> rawFuture =
+                this.rawClient.uploadObject(objectPath, request);
+        CompletableFuture<PathMetadata> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -116,28 +203,58 @@ public class AsyncObjectsClient {
      */
     public CompletableFuture<PathMetadata> uploadObject(
             String objectPath, byte[] request, RequestOptions requestOptions) {
-        return this.rawClient.uploadObject(objectPath, request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<PathMetadata>> rawFuture =
+                this.rawClient.uploadObject(objectPath, request, requestOptions);
+        CompletableFuture<PathMetadata> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Deletes an object from your environment given the objectPath path parameter.
      */
     public CompletableFuture<Void> deleteObject(String objectPath) {
-        return this.rawClient.deleteObject(objectPath).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Void>> rawFuture = this.rawClient.deleteObject(objectPath);
+        CompletableFuture<Void> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Deletes an object from your environment given the objectPath path parameter.
      */
     public CompletableFuture<Void> deleteObject(String objectPath, RequestOptions requestOptions) {
-        return this.rawClient.deleteObject(objectPath, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Void>> rawFuture =
+                this.rawClient.deleteObject(objectPath, requestOptions);
+        CompletableFuture<Void> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Deletes an object from your environment given the objectPath path parameter.
      */
     public CompletableFuture<Void> deleteObject(String objectPath, DeleteObjectRequest request) {
-        return this.rawClient.deleteObject(objectPath, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Void>> rawFuture = this.rawClient.deleteObject(objectPath, request);
+        CompletableFuture<Void> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -145,28 +262,58 @@ public class AsyncObjectsClient {
      */
     public CompletableFuture<Void> deleteObject(
             String objectPath, DeleteObjectRequest request, RequestOptions requestOptions) {
-        return this.rawClient.deleteObject(objectPath, request, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Void>> rawFuture =
+                this.rawClient.deleteObject(objectPath, request, requestOptions);
+        CompletableFuture<Void> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or when it arrived on the node holding it (last_updated_at).
      */
     public CompletableFuture<Void> getObjectMetadata(String objectPath) {
-        return this.rawClient.getObjectMetadata(objectPath).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Void>> rawFuture = this.rawClient.getObjectMetadata(objectPath);
+        CompletableFuture<Void> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or when it arrived on the node holding it (last_updated_at).
      */
     public CompletableFuture<Void> getObjectMetadata(String objectPath, RequestOptions requestOptions) {
-        return this.rawClient.getObjectMetadata(objectPath, requestOptions).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Void>> rawFuture =
+                this.rawClient.getObjectMetadata(objectPath, requestOptions);
+        CompletableFuture<Void> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
      * Returns metadata for a specified object path. Use this to fetch metadata such as object size (size_bytes), its expiry time (expiry_time), or when it arrived on the node holding it (last_updated_at).
      */
     public CompletableFuture<Void> getObjectMetadata(String objectPath, GetObjectMetadataRequest request) {
-        return this.rawClient.getObjectMetadata(objectPath, request).thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Void>> rawFuture = this.rawClient.getObjectMetadata(objectPath, request);
+        CompletableFuture<Void> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 
     /**
@@ -174,8 +321,14 @@ public class AsyncObjectsClient {
      */
     public CompletableFuture<Void> getObjectMetadata(
             String objectPath, GetObjectMetadataRequest request, RequestOptions requestOptions) {
-        return this.rawClient
-                .getObjectMetadata(objectPath, request, requestOptions)
-                .thenApply(response -> response.body());
+        CompletableFuture<LatticeHttpResponse<Void>> rawFuture =
+                this.rawClient.getObjectMetadata(objectPath, request, requestOptions);
+        CompletableFuture<Void> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
     }
 }

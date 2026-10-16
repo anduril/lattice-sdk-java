@@ -352,7 +352,6 @@ public final class Task {
 
         private Optional<ExecutionConstraints> executionConstraints = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -657,6 +656,31 @@ public final class Task {
                     deliveryState,
                     executionConstraints,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("version")
+                    || key.equalsIgnoreCase("displayName")
+                    || key.equalsIgnoreCase("specification")
+                    || key.equalsIgnoreCase("createdBy")
+                    || key.equalsIgnoreCase("lastUpdatedBy")
+                    || key.equalsIgnoreCase("lastUpdateTime")
+                    || key.equalsIgnoreCase("status")
+                    || key.equalsIgnoreCase("scheduledTime")
+                    || key.equalsIgnoreCase("relations")
+                    || key.equalsIgnoreCase("description")
+                    || key.equalsIgnoreCase("isExecutedElsewhere")
+                    || key.equalsIgnoreCase("createTime")
+                    || key.equalsIgnoreCase("replication")
+                    || key.equalsIgnoreCase("initialEntities")
+                    || key.equalsIgnoreCase("owner")
+                    || key.equalsIgnoreCase("retryStrategy")
+                    || key.equalsIgnoreCase("deliveryState")
+                    || key.equalsIgnoreCase("executionConstraints")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

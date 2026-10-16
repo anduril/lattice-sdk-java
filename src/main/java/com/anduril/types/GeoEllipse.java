@@ -117,7 +117,6 @@ public final class GeoEllipse {
 
         private Optional<Double> heightM = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -188,6 +187,17 @@ public final class GeoEllipse {
 
         public GeoEllipse build() {
             return new GeoEllipse(semiMajorAxisM, semiMinorAxisM, orientationD, heightM, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("semiMajorAxisM")
+                    || key.equalsIgnoreCase("semiMinorAxisM")
+                    || key.equalsIgnoreCase("orientationD")
+                    || key.equalsIgnoreCase("heightM")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

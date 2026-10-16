@@ -108,7 +108,6 @@ public final class CorrelationMetadata {
 
         private Optional<CorrelationMetadataType> type = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -170,6 +169,16 @@ public final class CorrelationMetadata {
 
         public CorrelationMetadata build() {
             return new CorrelationMetadata(provenance, replicationMode, type, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("provenance")
+                    || key.equalsIgnoreCase("replicationMode")
+                    || key.equalsIgnoreCase("type")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

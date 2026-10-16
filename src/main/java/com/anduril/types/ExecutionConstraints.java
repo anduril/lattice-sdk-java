@@ -87,7 +87,6 @@ public final class ExecutionConstraints {
 
         private Optional<OffsetDateTime> completeBefore = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -128,6 +127,14 @@ public final class ExecutionConstraints {
 
         public ExecutionConstraints build() {
             return new ExecutionConstraints(startAfter, completeBefore, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("startAfter") || key.equalsIgnoreCase("completeBefore")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

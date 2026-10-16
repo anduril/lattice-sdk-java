@@ -207,7 +207,6 @@ public final class FieldOfView {
 
         private Optional<FieldOfViewMode> mode = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -369,6 +368,22 @@ public final class FieldOfView {
                     range,
                     mode,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("fovId")
+                    || key.equalsIgnoreCase("mountId")
+                    || key.equalsIgnoreCase("projectedFrustum")
+                    || key.equalsIgnoreCase("projectedCenterRay")
+                    || key.equalsIgnoreCase("centerRayPose")
+                    || key.equalsIgnoreCase("horizontalFov")
+                    || key.equalsIgnoreCase("verticalFov")
+                    || key.equalsIgnoreCase("range")
+                    || key.equalsIgnoreCase("mode")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

@@ -125,7 +125,6 @@ public final class Color {
 
         private Optional<Float> alpha = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -204,6 +203,17 @@ public final class Color {
 
         public Color build() {
             return new Color(red, green, blue, alpha, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("red")
+                    || key.equalsIgnoreCase("green")
+                    || key.equalsIgnoreCase("blue")
+                    || key.equalsIgnoreCase("alpha")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

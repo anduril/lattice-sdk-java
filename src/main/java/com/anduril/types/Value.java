@@ -187,7 +187,6 @@ public final class Value {
 
         private Optional<RangeType> rangeType = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -329,6 +328,23 @@ public final class Value {
                     listType,
                     rangeType,
                     additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("booleanType")
+                    || key.equalsIgnoreCase("numericType")
+                    || key.equalsIgnoreCase("stringType")
+                    || key.equalsIgnoreCase("enumType")
+                    || key.equalsIgnoreCase("timestampType")
+                    || key.equalsIgnoreCase("boundedShapeType")
+                    || key.equalsIgnoreCase("positionType")
+                    || key.equalsIgnoreCase("headingType")
+                    || key.equalsIgnoreCase("listType")
+                    || key.equalsIgnoreCase("rangeType")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

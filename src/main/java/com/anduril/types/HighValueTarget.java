@@ -121,7 +121,6 @@ public final class HighValueTarget {
 
         private Optional<Boolean> isHighPayoffTarget = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -196,6 +195,17 @@ public final class HighValueTarget {
         public HighValueTarget build() {
             return new HighValueTarget(
                     isHighValueTarget, targetPriority, targetMatches, isHighPayoffTarget, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("isHighValueTarget")
+                    || key.equalsIgnoreCase("targetPriority")
+                    || key.equalsIgnoreCase("targetMatches")
+                    || key.equalsIgnoreCase("isHighPayoffTarget")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

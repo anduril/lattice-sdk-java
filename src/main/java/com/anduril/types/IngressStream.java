@@ -195,7 +195,6 @@ public final class IngressStream {
 
         private Optional<List<String>> egressIds = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -334,6 +333,22 @@ public final class IngressStream {
         public IngressStream build() {
             return new IngressStream(
                     ingressId, title, status, mpegTs, rtsp, srt, createdAt, updatedAt, egressIds, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("ingressId")
+                    || key.equalsIgnoreCase("title")
+                    || key.equalsIgnoreCase("status")
+                    || key.equalsIgnoreCase("mpegTs")
+                    || key.equalsIgnoreCase("rtsp")
+                    || key.equalsIgnoreCase("srt")
+                    || key.equalsIgnoreCase("createdAt")
+                    || key.equalsIgnoreCase("updatedAt")
+                    || key.equalsIgnoreCase("egressIds")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

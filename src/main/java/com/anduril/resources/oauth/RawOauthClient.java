@@ -3,6 +3,7 @@
  */
 package com.anduril.resources.oauth;
 
+import com.anduril.core.BodyProperties;
 import com.anduril.core.ClientOptions;
 import com.anduril.core.LatticeApiException;
 import com.anduril.core.LatticeException;
@@ -16,6 +17,8 @@ import com.anduril.resources.oauth.requests.GetTokenRequest;
 import com.anduril.resources.oauth.types.GetTokenResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import okhttp3.FormBody;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
@@ -52,14 +55,18 @@ public class RawOauthClient {
         }
         FormBody.Builder body = new FormBody.Builder();
         try {
-            body.add("grant_type", String.valueOf(request.getGrantType()));
+            Map<String, Object> formParams = new LinkedHashMap<>();
+            formParams.put("grant_type", request.getGrantType());
             if (request.getClientId().isPresent()) {
-                body.add("client_id", String.valueOf(request.getClientId().get()));
+                formParams.put("client_id", request.getClientId().get());
             }
             if (request.getClientSecret().isPresent()) {
-                body.add(
-                        "client_secret",
-                        String.valueOf(request.getClientSecret().get()));
+                formParams.put("client_secret", request.getClientSecret().get());
+            }
+            for (Map.Entry<String, Object> entry : BodyProperties.mergeFormParams(
+                            formParams, requestOptions != null ? requestOptions.getBodyProperties() : null)
+                    .entrySet()) {
+                body.add(entry.getKey(), String.valueOf(entry.getValue()));
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

@@ -142,7 +142,6 @@ public final class Altitude {
 
         private Optional<AltitudeAboveGroundLevel> agl = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -237,6 +236,20 @@ public final class Altitude {
 
         public Altitude build() {
             return new Altitude(haeWgs84, asf, bss, pressureSdp, pressureAmsl, egm96Amsl, agl, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("haeWgs84")
+                    || key.equalsIgnoreCase("asf")
+                    || key.equalsIgnoreCase("bss")
+                    || key.equalsIgnoreCase("pressureSdp")
+                    || key.equalsIgnoreCase("pressureAmsl")
+                    || key.equalsIgnoreCase("egm96Amsl")
+                    || key.equalsIgnoreCase("agl")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

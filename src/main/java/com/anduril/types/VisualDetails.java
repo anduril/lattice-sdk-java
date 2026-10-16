@@ -70,7 +70,6 @@ public final class VisualDetails {
     public static final class Builder {
         private Optional<RangeRings> rangeRings = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -96,6 +95,14 @@ public final class VisualDetails {
 
         public VisualDetails build() {
             return new VisualDetails(rangeRings, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("rangeRings")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

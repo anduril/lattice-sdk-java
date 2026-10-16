@@ -84,7 +84,6 @@ public final class AcmDetails {
 
         private Optional<String> acmDescription = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -123,6 +122,14 @@ public final class AcmDetails {
 
         public AcmDetails build() {
             return new AcmDetails(acmType, acmDescription, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("acmType") || key.equalsIgnoreCase("acmDescription")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

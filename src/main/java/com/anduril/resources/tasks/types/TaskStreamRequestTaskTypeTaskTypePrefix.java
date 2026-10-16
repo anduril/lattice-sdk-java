@@ -87,7 +87,6 @@ public final class TaskStreamRequestTaskTypeTaskTypePrefix {
     public static final class Builder implements TaskTypePrefixStage, _FinalStage {
         private String taskTypePrefix;
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -112,6 +111,14 @@ public final class TaskStreamRequestTaskTypeTaskTypePrefix {
         @java.lang.Override
         public TaskStreamRequestTaskTypeTaskTypePrefix build() {
             return new TaskStreamRequestTaskTypeTaskTypePrefix(taskTypePrefix, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("taskTypePrefix")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         @java.lang.Override

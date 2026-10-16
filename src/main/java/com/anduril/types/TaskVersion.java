@@ -104,7 +104,6 @@ public final class TaskVersion {
 
         private Optional<Integer> statusVersion = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -162,6 +161,16 @@ public final class TaskVersion {
 
         public TaskVersion build() {
             return new TaskVersion(taskId, definitionVersion, statusVersion, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("taskId")
+                    || key.equalsIgnoreCase("definitionVersion")
+                    || key.equalsIgnoreCase("statusVersion")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {

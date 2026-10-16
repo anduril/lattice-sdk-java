@@ -80,7 +80,6 @@ public final class ScanCharacteristics {
 
         private Optional<Double> scanPeriodS = Optional.empty();
 
-        @JsonAnySetter
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -115,6 +114,14 @@ public final class ScanCharacteristics {
 
         public ScanCharacteristics build() {
             return new ScanCharacteristics(scanType, scanPeriodS, additionalProperties);
+        }
+
+        @JsonAnySetter
+        private void putAdditionalPropertyFromJson(String key, Object value) {
+            if (key.equalsIgnoreCase("scanType") || key.equalsIgnoreCase("scanPeriodS")) {
+                return;
+            }
+            this.additionalProperties.put(key, value);
         }
 
         public Builder additionalProperty(String key, Object value) {
