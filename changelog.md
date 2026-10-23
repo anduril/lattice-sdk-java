@@ -1,5 +1,13 @@
 # Changelog
 
+## [6.3.0] - 2026-10-23
+### Added
+- **`endTime`** — optional field added to `TaskStatus` recording when the task finished execution.
+- **`PathSegments`** — new core utility whose `validate` method rejects dot-segment path parameter values.
+
+### Changed
+- **Path parameter validation** — entities, objects, tasks, and video clients now throw `IllegalArgumentException` when a path parameter is "." or "..", instead of sending the request to an unintended endpoint.
+
 ## [6.2.0] - 2026-10-16
 ### Added
 - **`AutoCloseable`** — `Lattice`, `AsyncLattice`, and `ClientOptions` now implement resource cleanup via `close()`, releasing WebSocket connections and SDK-owned OkHttp dispatchers/HTTP clients.
