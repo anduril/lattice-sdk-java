@@ -10,6 +10,7 @@ import com.anduril.core.LatticeException;
 import com.anduril.core.LatticeHttpResponse;
 import com.anduril.core.MediaTypes;
 import com.anduril.core.ObjectMappers;
+import com.anduril.core.PathSegments;
 import com.anduril.core.RequestOptions;
 import com.anduril.core.ResponseBodyReader;
 import com.anduril.core.RetryInterceptor;
@@ -209,7 +210,7 @@ public class RawTasksClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/tasks")
-                .addPathSegment(taskId);
+                .addPathSegment(PathSegments.validate(taskId));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);
@@ -323,7 +324,7 @@ public class RawTasksClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/tasks")
-                .addPathSegment(taskId)
+                .addPathSegment(PathSegments.validate(taskId))
                 .addPathSegments("status");
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
@@ -472,7 +473,7 @@ public class RawTasksClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/tasks")
-                .addPathSegment(taskId)
+                .addPathSegment(PathSegments.validate(taskId))
                 .addPathSegments("cancel");
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
@@ -1144,7 +1145,7 @@ public class RawTasksClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/tasks")
-                .addPathSegment(taskId)
+                .addPathSegment(PathSegments.validate(taskId))
                 .addPathSegments("manual-control")
                 .addPathSegments("stream");
         if (requestOptions != null) {
