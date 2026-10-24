@@ -37,6 +37,8 @@ public final class TaskStatus {
 
     private final Optional<OffsetDateTime> lastUpdateTime;
 
+    private final Optional<OffsetDateTime> endTime;
+
     private final Map<String, Object> additionalProperties;
 
     private TaskStatus(
@@ -48,6 +50,7 @@ public final class TaskStatus {
             Optional<GoogleProtobufAny> estimate,
             Optional<Allocation> allocation,
             Optional<OffsetDateTime> lastUpdateTime,
+            Optional<OffsetDateTime> endTime,
             Map<String, Object> additionalProperties) {
         this.status = status;
         this.taskError = taskError;
@@ -57,6 +60,7 @@ public final class TaskStatus {
         this.estimate = estimate;
         this.allocation = allocation;
         this.lastUpdateTime = lastUpdateTime;
+        this.endTime = endTime;
         this.additionalProperties = additionalProperties;
     }
 
@@ -125,6 +129,14 @@ public final class TaskStatus {
         return lastUpdateTime;
     }
 
+    /**
+     * @return Time the Task finished execution.
+     */
+    @JsonProperty("endTime")
+    public Optional<OffsetDateTime> getEndTime() {
+        return endTime;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -144,7 +156,8 @@ public final class TaskStatus {
                 && startTime.equals(other.startTime)
                 && estimate.equals(other.estimate)
                 && allocation.equals(other.allocation)
-                && lastUpdateTime.equals(other.lastUpdateTime);
+                && lastUpdateTime.equals(other.lastUpdateTime)
+                && endTime.equals(other.endTime);
     }
 
     @java.lang.Override
@@ -157,7 +170,8 @@ public final class TaskStatus {
                 this.startTime,
                 this.estimate,
                 this.allocation,
-                this.lastUpdateTime);
+                this.lastUpdateTime,
+                this.endTime);
     }
 
     @java.lang.Override
@@ -187,6 +201,8 @@ public final class TaskStatus {
 
         private Optional<OffsetDateTime> lastUpdateTime = Optional.empty();
 
+        private Optional<OffsetDateTime> endTime = Optional.empty();
+
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -200,6 +216,7 @@ public final class TaskStatus {
             estimate(other.getEstimate());
             allocation(other.getAllocation());
             lastUpdateTime(other.getLastUpdateTime());
+            endTime(other.getEndTime());
             return this;
         }
 
@@ -316,6 +333,20 @@ public final class TaskStatus {
             return this;
         }
 
+        /**
+         * <p>Time the Task finished execution.</p>
+         */
+        @JsonSetter(value = "endTime", nulls = Nulls.SKIP)
+        public Builder endTime(Optional<OffsetDateTime> endTime) {
+            this.endTime = endTime;
+            return this;
+        }
+
+        public Builder endTime(OffsetDateTime endTime) {
+            this.endTime = Optional.ofNullable(endTime);
+            return this;
+        }
+
         public TaskStatus build() {
             return new TaskStatus(
                     status,
@@ -326,6 +357,7 @@ public final class TaskStatus {
                     estimate,
                     allocation,
                     lastUpdateTime,
+                    endTime,
                     additionalProperties);
         }
 
@@ -338,7 +370,8 @@ public final class TaskStatus {
                     || key.equalsIgnoreCase("startTime")
                     || key.equalsIgnoreCase("estimate")
                     || key.equalsIgnoreCase("allocation")
-                    || key.equalsIgnoreCase("lastUpdateTime")) {
+                    || key.equalsIgnoreCase("lastUpdateTime")
+                    || key.equalsIgnoreCase("endTime")) {
                 return;
             }
             this.additionalProperties.put(key, value);
