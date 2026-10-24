@@ -10,6 +10,7 @@ import com.anduril.core.LatticeApiException;
 import com.anduril.core.LatticeException;
 import com.anduril.core.LatticeHttpResponse;
 import com.anduril.core.ObjectMappers;
+import com.anduril.core.PathSegments;
 import com.anduril.core.QueryStringMapper;
 import com.anduril.core.RequestOptions;
 import com.anduril.core.ResponseBodyInputStream;
@@ -240,7 +241,7 @@ public class AsyncRawObjectsClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/objects")
-                .addPathSegment(objectPath);
+                .addPathSegment(PathSegments.validate(objectPath));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);
@@ -350,7 +351,7 @@ public class AsyncRawObjectsClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/objects")
-                .addPathSegment(objectPath);
+                .addPathSegment(PathSegments.validate(objectPath));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);
@@ -487,7 +488,7 @@ public class AsyncRawObjectsClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/objects")
-                .addPathSegment(objectPath);
+                .addPathSegment(PathSegments.validate(objectPath));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);
@@ -608,7 +609,7 @@ public class AsyncRawObjectsClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/objects")
-                .addPathSegment(objectPath);
+                .addPathSegment(PathSegments.validate(objectPath));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);

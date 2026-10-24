@@ -10,6 +10,7 @@ import com.anduril.core.LatticeException;
 import com.anduril.core.LatticeHttpResponse;
 import com.anduril.core.MediaTypes;
 import com.anduril.core.ObjectMappers;
+import com.anduril.core.PathSegments;
 import com.anduril.core.QueryStringMapper;
 import com.anduril.core.RequestOptions;
 import com.anduril.core.RetryInterceptor;
@@ -380,7 +381,7 @@ public class AsyncRawVideoClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/video/egress_streams")
-                .addPathSegment(egressId);
+                .addPathSegment(PathSegments.validate(egressId));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);
@@ -509,7 +510,7 @@ public class AsyncRawVideoClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/video/egress_streams")
-                .addPathSegment(egressId);
+                .addPathSegment(PathSegments.validate(egressId));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);
@@ -937,7 +938,7 @@ public class AsyncRawVideoClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/video/ingress_streams")
-                .addPathSegment(ingressId);
+                .addPathSegment(PathSegments.validate(ingressId));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);
@@ -1068,7 +1069,7 @@ public class AsyncRawVideoClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/video/ingress_streams")
-                .addPathSegment(ingressId);
+                .addPathSegment(PathSegments.validate(ingressId));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);
