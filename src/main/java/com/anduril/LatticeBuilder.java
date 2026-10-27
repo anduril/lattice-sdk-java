@@ -18,6 +18,8 @@ public class LatticeBuilder {
 
     private Optional<Integer> maxRetries = Optional.empty();
 
+    private Optional<Integer> maxConcurrentRequests = Optional.empty();
+
     private Optional<Long> initialRetryDelayMillis = Optional.empty();
 
     private Optional<Long> maxRetryDelayMillis = Optional.empty();
@@ -95,6 +97,14 @@ public class LatticeBuilder {
     }
 
     /**
+     * Caps the number of in-flight requests (sync and async) the client will have at once. Unlimited unless set; must be positive.
+     */
+    public LatticeBuilder maxConcurrentRequests(int maxConcurrentRequests) {
+        this.maxConcurrentRequests = Optional.of(maxConcurrentRequests);
+        return this;
+    }
+
+    /**
      * Sets the initial delay (in milliseconds) used for exponential backoff between retries. Defaults to 1000 milliseconds.
      */
     public LatticeBuilder initialRetryDelayMillis(long initialRetryDelayMillis) {
@@ -159,6 +169,7 @@ public class LatticeBuilder {
         setHttpClient(builder);
         setTimeouts(builder);
         setRetries(builder);
+        setConcurrencyLimit(builder);
         setLogging(builder);
         for (Map.Entry<String, String> header : this.customHeaders.entrySet()) {
             builder.addHeader(header.getKey(), header.getValue());
@@ -236,6 +247,18 @@ public class LatticeBuilder {
         }
         if (this.retryJitterFactor.isPresent()) {
             builder.retryJitterFactor(this.retryJitterFactor.get());
+        }
+    }
+
+    /**
+     * Applies the in-flight request cap, if one was configured.
+     * Override this method to customize concurrency limiting.
+     *
+     * @param builder The ClientOptions.Builder to configure
+     */
+    protected void setConcurrencyLimit(ClientOptions.Builder builder) {
+        if (this.maxConcurrentRequests.isPresent()) {
+            builder.maxConcurrentRequests(this.maxConcurrentRequests.get());
         }
     }
 
@@ -348,6 +371,8 @@ public class LatticeBuilder {
 
         private Optional<Integer> maxRetries = Optional.empty();
 
+        private Optional<Integer> maxConcurrentRequests = Optional.empty();
+
         private Optional<Long> initialRetryDelayMillis = Optional.empty();
 
         private Optional<Long> maxRetryDelayMillis = Optional.empty();
@@ -381,6 +406,14 @@ public class LatticeBuilder {
          */
         public _Builder maxRetries(int maxRetries) {
             this.maxRetries = Optional.of(maxRetries);
+            return this;
+        }
+
+        /**
+         * Caps the number of in-flight requests (sync and async) the client will have at once. Unlimited unless set; must be positive.
+         */
+        public _Builder maxConcurrentRequests(int maxConcurrentRequests) {
+            this.maxConcurrentRequests = Optional.of(maxConcurrentRequests);
             return this;
         }
 
@@ -446,6 +479,9 @@ public class LatticeBuilder {
             if (this.maxRetries.isPresent()) {
                 auth.maxRetries(this.maxRetries.get());
             }
+            if (this.maxConcurrentRequests.isPresent()) {
+                auth.maxConcurrentRequests(this.maxConcurrentRequests.get());
+            }
             if (this.initialRetryDelayMillis.isPresent()) {
                 auth.initialRetryDelayMillis(this.initialRetryDelayMillis.get());
             }
@@ -482,6 +518,9 @@ public class LatticeBuilder {
             }
             if (this.maxRetries.isPresent()) {
                 auth.maxRetries(this.maxRetries.get());
+            }
+            if (this.maxConcurrentRequests.isPresent()) {
+                auth.maxConcurrentRequests(this.maxConcurrentRequests.get());
             }
             if (this.initialRetryDelayMillis.isPresent()) {
                 auth.initialRetryDelayMillis(this.initialRetryDelayMillis.get());
