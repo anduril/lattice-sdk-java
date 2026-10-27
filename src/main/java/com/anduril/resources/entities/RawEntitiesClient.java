@@ -10,6 +10,7 @@ import com.anduril.core.LatticeException;
 import com.anduril.core.LatticeHttpResponse;
 import com.anduril.core.MediaTypes;
 import com.anduril.core.ObjectMappers;
+import com.anduril.core.PathSegments;
 import com.anduril.core.RequestOptions;
 import com.anduril.core.ResponseBodyReader;
 import com.anduril.core.RetryInterceptor;
@@ -174,7 +175,7 @@ public class RawEntitiesClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/entities")
-                .addPathSegment(entityId);
+                .addPathSegment(PathSegments.validate(entityId));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);
@@ -281,9 +282,9 @@ public class RawEntitiesClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/entities")
-                .addPathSegment(entityId)
+                .addPathSegment(PathSegments.validate(entityId))
                 .addPathSegments("override")
-                .addPathSegment(fieldPath);
+                .addPathSegment(PathSegments.validate(fieldPath));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);
@@ -383,9 +384,9 @@ public class RawEntitiesClient {
         HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
                 .newBuilder()
                 .addPathSegments("api/v1/entities")
-                .addPathSegment(entityId)
+                .addPathSegment(PathSegments.validate(entityId))
                 .addPathSegments("override")
-                .addPathSegment(fieldPath);
+                .addPathSegment(PathSegments.validate(fieldPath));
         if (requestOptions != null) {
             requestOptions.getQueryParameters().forEach((_key, _value) -> {
                 httpUrl.addQueryParameter(_key, _value);

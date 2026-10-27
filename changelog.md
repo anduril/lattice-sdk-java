@@ -1,5 +1,16 @@
 # Changelog
 
+## [6.3.0] - 2026-10-27
+### Added
+- **`maxConcurrentRequests`** — new option on `LatticeBuilder`, `AsyncLatticeBuilder`, and `ClientOptions.Builder` that caps in-flight requests across sync and async clients, holding each slot until the response body is closed and bounding the wait by the call timeout.
+- **`ConcurrencyLimitingInterceptor`** — new OkHttp interceptor that enforces the concurrency cap, releases each permit when the response body is closed, and honors call cancellation and timeouts while waiting.
+- **`setConcurrencyLimit`** — new protected builder hook that lets subclasses customize how the concurrency limit is applied.
+- **`PathSegments.validate`** — new utility that rejects `.` and `..` path parameter values so requests cannot be redirected to unintended endpoints.
+- **`TaskStatus.endTime`** — new optional field recording when a task finished execution.
+
+### Changed
+- **Path parameters** — IDs and paths passed to the entities, objects, tasks, and video clients (e.g. `entityId`, `objectPath`, `taskId`) are now validated before being added to request URLs, and `.` or `..` values are rejected.
+
 ## [6.2.0] - 2026-10-16
 ### Added
 - **`AutoCloseable`** — `Lattice`, `AsyncLattice`, and `ClientOptions` now implement resource cleanup via `close()`, releasing WebSocket connections and SDK-owned OkHttp dispatchers/HTTP clients.
