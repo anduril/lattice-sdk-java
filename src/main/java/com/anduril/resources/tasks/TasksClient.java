@@ -8,6 +8,7 @@ import com.anduril.core.RequestOptions;
 import com.anduril.resources.tasks.requests.AgentListener;
 import com.anduril.resources.tasks.requests.AgentStreamRequest;
 import com.anduril.resources.tasks.requests.GetTaskRequest;
+import com.anduril.resources.tasks.requests.ManualControlFrameRequest;
 import com.anduril.resources.tasks.requests.ManualControlStreamRequest;
 import com.anduril.resources.tasks.requests.TaskCancellation;
 import com.anduril.resources.tasks.requests.TaskCreation;
@@ -20,6 +21,7 @@ import com.anduril.resources.tasks.types.StreamTasksResponse;
 import com.anduril.types.AgentRequest;
 import com.anduril.types.Task;
 import com.anduril.types.TaskQueryResults;
+import java.util.Map;
 
 public class TasksClient {
     protected final ClientOptions clientOptions;
@@ -612,6 +614,37 @@ public class TasksClient {
             String taskId, ManualControlStreamRequest request, RequestOptions requestOptions) {
         return this.rawClient
                 .streamManualControlFrames(taskId, request, requestOptions)
+                .body();
+    }
+
+    /**
+     * Sends a single manual control frame, for example, joystick input, for a manual control task.
+     * <p>Call this endpoint repeatedly to control the asset executing the task. Lattice forwards each
+     * frame to the executing agent, which receives it using the stream manual control frames endpoint.
+     * The task must be in <code>STATUS_EXECUTING</code>.</p>
+     * <p>The client manages the control session. When it begins controlling, it generates a
+     * <code>sessionEpochMicros</code> and includes it in every request, along with a <code>sequence</code> that increases
+     * with each frame. A higher epoch replaces the current session, which allows another operator to
+     * take over control. A lower epoch is rejected as stale.</p>
+     */
+    public Map<String, Object> sendManualControlFrame(String taskId, ManualControlFrameRequest request) {
+        return this.rawClient.sendManualControlFrame(taskId, request).body();
+    }
+
+    /**
+     * Sends a single manual control frame, for example, joystick input, for a manual control task.
+     * <p>Call this endpoint repeatedly to control the asset executing the task. Lattice forwards each
+     * frame to the executing agent, which receives it using the stream manual control frames endpoint.
+     * The task must be in <code>STATUS_EXECUTING</code>.</p>
+     * <p>The client manages the control session. When it begins controlling, it generates a
+     * <code>sessionEpochMicros</code> and includes it in every request, along with a <code>sequence</code> that increases
+     * with each frame. A higher epoch replaces the current session, which allows another operator to
+     * take over control. A lower epoch is rejected as stale.</p>
+     */
+    public Map<String, Object> sendManualControlFrame(
+            String taskId, ManualControlFrameRequest request, RequestOptions requestOptions) {
+        return this.rawClient
+                .sendManualControlFrame(taskId, request, requestOptions)
                 .body();
     }
 }

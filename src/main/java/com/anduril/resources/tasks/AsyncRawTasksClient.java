@@ -16,11 +16,14 @@ import com.anduril.core.ResponseBodyReader;
 import com.anduril.core.RetryInterceptor;
 import com.anduril.core.Stream;
 import com.anduril.errors.BadRequestError;
+import com.anduril.errors.ConflictError;
 import com.anduril.errors.NotFoundError;
 import com.anduril.errors.UnauthorizedError;
+import com.anduril.resources.task.types.Error;
 import com.anduril.resources.tasks.requests.AgentListener;
 import com.anduril.resources.tasks.requests.AgentStreamRequest;
 import com.anduril.resources.tasks.requests.GetTaskRequest;
+import com.anduril.resources.tasks.requests.ManualControlFrameRequest;
 import com.anduril.resources.tasks.requests.ManualControlStreamRequest;
 import com.anduril.resources.tasks.requests.TaskCancellation;
 import com.anduril.resources.tasks.requests.TaskCreation;
@@ -34,7 +37,9 @@ import com.anduril.types.AgentRequest;
 import com.anduril.types.Task;
 import com.anduril.types.TaskQueryResults;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 import okhttp3.Call;
@@ -1424,6 +1429,138 @@ public class AsyncRawTasksClient {
                             case 401:
                                 future.completeExceptionally(new UnauthorizedError(
                                         ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
+                                        response));
+                                return;
+                        }
+                    } catch (JsonProcessingException ignored) {
+                        // unable to map error response, throwing generic error
+                    }
+                    Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
+                    future.completeExceptionally(new LatticeApiException(
+                            "Error with status code " + response.code(), response.code(), errorBody, response));
+                    return;
+                } catch (JsonProcessingException e) {
+                    future.completeExceptionally(
+                            new LatticeException("Failed to deserialize response: " + e.getMessage(), e));
+                } catch (IOException e) {
+                    future.completeExceptionally(new LatticeException("Network error executing HTTP request", e));
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                future.completeExceptionally(new LatticeException("Network error executing HTTP request", e));
+            }
+        });
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                okhttpCall.cancel();
+            }
+        });
+        return future;
+    }
+
+    /**
+     * Sends a single manual control frame, for example, joystick input, for a manual control task.
+     * <p>Call this endpoint repeatedly to control the asset executing the task. Lattice forwards each
+     * frame to the executing agent, which receives it using the stream manual control frames endpoint.
+     * The task must be in <code>STATUS_EXECUTING</code>.</p>
+     * <p>The client manages the control session. When it begins controlling, it generates a
+     * <code>sessionEpochMicros</code> and includes it in every request, along with a <code>sequence</code> that increases
+     * with each frame. A higher epoch replaces the current session, which allows another operator to
+     * take over control. A lower epoch is rejected as stale.</p>
+     */
+    public CompletableFuture<LatticeHttpResponse<Map<String, Object>>> sendManualControlFrame(
+            String taskId, ManualControlFrameRequest request) {
+        return sendManualControlFrame(taskId, request, null);
+    }
+
+    /**
+     * Sends a single manual control frame, for example, joystick input, for a manual control task.
+     * <p>Call this endpoint repeatedly to control the asset executing the task. Lattice forwards each
+     * frame to the executing agent, which receives it using the stream manual control frames endpoint.
+     * The task must be in <code>STATUS_EXECUTING</code>.</p>
+     * <p>The client manages the control session. When it begins controlling, it generates a
+     * <code>sessionEpochMicros</code> and includes it in every request, along with a <code>sequence</code> that increases
+     * with each frame. A higher epoch replaces the current session, which allows another operator to
+     * take over control. A lower epoch is rejected as stale.</p>
+     */
+    public CompletableFuture<LatticeHttpResponse<Map<String, Object>>> sendManualControlFrame(
+            String taskId, ManualControlFrameRequest request, RequestOptions requestOptions) {
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+                .newBuilder()
+                .addPathSegments("api/v1/tasks")
+                .addPathSegment(PathSegments.validate(taskId))
+                .addPathSegments("manual-control")
+                .addPathSegments("frames");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
+        RequestBody body;
+        try {
+            body = RequestBody.create(
+                    ObjectMappers.JSON_MAPPER.writeValueAsBytes(BodyProperties.merge(
+                            request, requestOptions != null ? requestOptions.getBodyProperties() : null)),
+                    MediaTypes.APPLICATION_JSON);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to serialize request", e);
+        }
+        Request okhttpRequest = new Request.Builder()
+                .url(httpUrl.build())
+                .method("POST", body)
+                .headers(Headers.of(clientOptions.headers(requestOptions)))
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "application/json")
+                .build();
+        OkHttpClient client = clientOptions.httpClient();
+        if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
+            client = clientOptions.httpClientWithTimeout(requestOptions);
+        }
+        if (requestOptions != null && requestOptions.getMaxRetries().isPresent()) {
+            okhttpRequest = okhttpRequest
+                    .newBuilder()
+                    .tag(
+                            RetryInterceptor.MaxRetriesOverride.class,
+                            new RetryInterceptor.MaxRetriesOverride(
+                                    requestOptions.getMaxRetries().get()))
+                    .build();
+        }
+        CompletableFuture<LatticeHttpResponse<Map<String, Object>>> future = new CompletableFuture<>();
+        RetryInterceptor.AsyncCall okhttpCall = RetryInterceptor.newAsyncCall(client, okhttpRequest);
+        okhttpCall.enqueue(new Callback() {
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                try (ResponseBody responseBody = response.body()) {
+                    String responseBodyString = responseBody != null ? responseBody.string() : "{}";
+                    if (response.isSuccessful()) {
+                        future.complete(new LatticeHttpResponse<>(
+                                ObjectMappers.JSON_MAPPER.readValue(
+                                        responseBodyString, new TypeReference<Map<String, Object>>() {}),
+                                response));
+                        return;
+                    }
+                    try {
+                        switch (response.code()) {
+                            case 400:
+                                future.completeExceptionally(new BadRequestError(
+                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
+                                        response));
+                                return;
+                            case 401:
+                                future.completeExceptionally(new UnauthorizedError(
+                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
+                                        response));
+                                return;
+                            case 404:
+                                future.completeExceptionally(new NotFoundError(
+                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Object.class),
+                                        response));
+                                return;
+                            case 409:
+                                future.completeExceptionally(new ConflictError(
+                                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, Error.class),
                                         response));
                                 return;
                         }
