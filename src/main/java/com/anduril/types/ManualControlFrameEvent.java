@@ -59,8 +59,8 @@ public final class ManualControlFrameEvent implements IManualControlFrame {
 
     /**
      * @return Unix timestamp in microseconds identifying the control session.
-     * Increments each time a client opens a new stream for this task.
-     * Agents should ignore frames with a lower epoch to handle stale streams
+     * Increases each time a client starts a new control session for this task.
+     * Agents should ignore frames with a lower epoch to handle stale sessions
      * or operator handoffs.
      */
     @JsonProperty("epochMicros")
@@ -70,7 +70,7 @@ public final class ManualControlFrameEvent implements IManualControlFrame {
     }
 
     /**
-     * @return The sequence number for a stream, incremented for each frame.
+     * @return The sequence number of this frame within a control session, incremented for each frame.
      * Agents can use this to detect out-of-order delivery within the same epoch.
      */
     @JsonProperty("sequence")
@@ -173,8 +173,8 @@ public final class ManualControlFrameEvent implements IManualControlFrame {
 
         /**
          * <p>Unix timestamp in microseconds identifying the control session.
-         * Increments each time a client opens a new stream for this task.
-         * Agents should ignore frames with a lower epoch to handle stale streams
+         * Increases each time a client starts a new control session for this task.
+         * Agents should ignore frames with a lower epoch to handle stale sessions
          * or operator handoffs.</p>
          */
         @JsonSetter(value = "epochMicros", nulls = Nulls.SKIP)
@@ -189,7 +189,7 @@ public final class ManualControlFrameEvent implements IManualControlFrame {
         }
 
         /**
-         * <p>The sequence number for a stream, incremented for each frame.
+         * <p>The sequence number of this frame within a control session, incremented for each frame.
          * Agents can use this to detect out-of-order delivery within the same epoch.</p>
          */
         @JsonSetter(value = "sequence", nulls = Nulls.SKIP)

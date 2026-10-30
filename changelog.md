@@ -1,5 +1,14 @@
 # Changelog
 
+## [6.4.0] - 2026-10-30
+### Added
+- **`sendManualControlFrame`** — new method on `TasksClient`, `AsyncTasksClient`, and their raw variants that sends a single manual control frame (e.g. joystick input) to the agent executing a task in `STATUS_EXECUTING`.
+- **`ManualControlFrameRequest`** — new request type for manual control frames with a required `sessionEpochMicros` session identifier, an optional `sequence` number for detecting out-of-order delivery, and an optional `specification` payload passed through to the agent.
+- **`ConflictError`** — new exception thrown for HTTP 409 responses that exposes a typed `Error` body, such as when a manual control frame is rejected for a stale session epoch.
+
+### Changed
+- **`ManualControlFrame` / `ManualControlFrameEvent`** — documentation for `epochMicros` and `sequence` now describes them in terms of control sessions rather than streams.
+
 ## [6.3.0] - 2026-10-27
 ### Added
 - **`maxConcurrentRequests`** — new option on `LatticeBuilder`, `AsyncLatticeBuilder`, and `ClientOptions.Builder` that caps in-flight requests across sync and async clients, holding each slot until the response body is closed and bounding the wait by the call timeout.

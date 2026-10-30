@@ -1311,6 +1311,110 @@ client.tasks().streamManualControlFrames(
 </dl>
 </details>
 
+<details><summary><code>client.tasks.sendManualControlFrame(taskId, request) -> Map&amp;lt;String, Object&amp;gt;</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Sends a single manual control frame, for example, joystick input, for a manual control task.
+
+Call this endpoint repeatedly to control the asset executing the task. Lattice forwards each
+frame to the executing agent, which receives it using the stream manual control frames endpoint.
+The task must be in `STATUS_EXECUTING`.
+
+The client manages the control session. When it begins controlling, it generates a
+`sessionEpochMicros` and includes it in every request, along with a `sequence` that increases
+with each frame. A higher epoch replaces the current session, which allows another operator to
+take over control. A lower epoch is rejected as stale.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```java
+client.tasks().sendManualControlFrame(
+    "taskId",
+    ManualControlFrameRequest
+        .builder()
+        .sessionEpochMicros("sessionEpochMicros")
+        .build()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**taskId:** `String` — The ID of the manual control task to send the frame for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sessionEpochMicros:** `String` 
+
+Unix timestamp in microseconds identifying the control session. The client generates this
+value when it begins a control session, and includes the same value in every request for
+that session. Higher values replace previous sessions. Lower values are rejected as stale.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sequence:** `Optional<String>` 
+
+The sequence number of this frame within the current session. The client must increase it
+with each frame so that agents can detect out-of-order delivery. Reset it to 1 when starting a
+new session.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**specification:** `Optional<GoogleProtobufAny>` 
+
+The control instructions for this frame. The format is specific to the task, and is passed
+through to the agent without being inspected by Lattice.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Objects
 <details><summary><code>client.objects.listObjects() -> SyncPagingIterable&amp;lt;PathMetadata&amp;gt;</code></summary>
 <dl>

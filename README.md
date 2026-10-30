@@ -42,7 +42,7 @@ Add the dependency in your `build.gradle` file:
 
 ```groovy
 dependencies {
-  implementation 'com.anduril:lattice-sdk:6.3.0'
+  implementation 'com.anduril:lattice-sdk:6.4.0'
 }
 ```
 
@@ -54,7 +54,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>6.3.0</version>
+  <version>6.4.0</version>
 </dependency>
 ```
 
