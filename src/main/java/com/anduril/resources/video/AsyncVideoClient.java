@@ -14,6 +14,7 @@ import com.anduril.resources.video.requests.GetEgressStreamRequest;
 import com.anduril.resources.video.requests.GetIngressStreamRequest;
 import com.anduril.resources.video.requests.ListEgressStreamsRequest;
 import com.anduril.resources.video.requests.ListIngressStreamsRequest;
+import com.anduril.resources.video.requests.QueryIngressStreamsRequest;
 import com.anduril.types.CreateEgressStreamResponse;
 import com.anduril.types.CreateIngressStreamResponse;
 import com.anduril.types.DeleteEgressStreamResponse;
@@ -22,6 +23,7 @@ import com.anduril.types.GetEgressStreamResponse;
 import com.anduril.types.GetIngressStreamResponse;
 import com.anduril.types.ListEgressStreamsResponse;
 import com.anduril.types.ListIngressStreamsResponse;
+import com.anduril.types.QueryIngressStreamsResponse;
 import java.util.concurrent.CompletableFuture;
 
 public class AsyncVideoClient {
@@ -429,6 +431,79 @@ public class AsyncVideoClient {
         CompletableFuture<LatticeHttpResponse<CreateIngressStreamResponse>> rawFuture =
                 this.rawClient.createIngressStream(request, requestOptions);
         CompletableFuture<CreateIngressStreamResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public CompletableFuture<QueryIngressStreamsResponse> queryIngressStreams() {
+        CompletableFuture<LatticeHttpResponse<QueryIngressStreamsResponse>> rawFuture =
+                this.rawClient.queryIngressStreams();
+        CompletableFuture<QueryIngressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public CompletableFuture<QueryIngressStreamsResponse> queryIngressStreams(RequestOptions requestOptions) {
+        CompletableFuture<LatticeHttpResponse<QueryIngressStreamsResponse>> rawFuture =
+                this.rawClient.queryIngressStreams(requestOptions);
+        CompletableFuture<QueryIngressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public CompletableFuture<QueryIngressStreamsResponse> queryIngressStreams(QueryIngressStreamsRequest request) {
+        CompletableFuture<LatticeHttpResponse<QueryIngressStreamsResponse>> rawFuture =
+                this.rawClient.queryIngressStreams(request);
+        CompletableFuture<QueryIngressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
+        future.whenComplete((result_, throwable_) -> {
+            if (future.isCancelled()) {
+                rawFuture.cancel(true);
+            }
+        });
+        return future;
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public CompletableFuture<QueryIngressStreamsResponse> queryIngressStreams(
+            QueryIngressStreamsRequest request, RequestOptions requestOptions) {
+        CompletableFuture<LatticeHttpResponse<QueryIngressStreamsResponse>> rawFuture =
+                this.rawClient.queryIngressStreams(request, requestOptions);
+        CompletableFuture<QueryIngressStreamsResponse> future = rawFuture.thenApply(response -> response.body());
         future.whenComplete((result_, throwable_) -> {
             if (future.isCancelled()) {
                 rawFuture.cancel(true);
