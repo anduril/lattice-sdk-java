@@ -30,6 +30,7 @@ import com.anduril.resources.video.requests.GetEgressStreamRequest;
 import com.anduril.resources.video.requests.GetIngressStreamRequest;
 import com.anduril.resources.video.requests.ListEgressStreamsRequest;
 import com.anduril.resources.video.requests.ListIngressStreamsRequest;
+import com.anduril.resources.video.requests.QueryIngressStreamsRequest;
 import com.anduril.types.CreateEgressStreamResponse;
 import com.anduril.types.CreateIngressStreamResponse;
 import com.anduril.types.DeleteEgressStreamResponse;
@@ -39,6 +40,7 @@ import com.anduril.types.GetIngressStreamResponse;
 import com.anduril.types.GoogleRpcStatus;
 import com.anduril.types.ListEgressStreamsResponse;
 import com.anduril.types.ListIngressStreamsResponse;
+import com.anduril.types.QueryIngressStreamsResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.io.IOException;
 import okhttp3.Headers;
@@ -711,6 +713,125 @@ public class RawVideoClient {
                                 response);
                     case 429:
                         throw new TooManyRequestsError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, GoogleRpcStatus.class),
+                                response);
+                    case 503:
+                        throw new ServiceUnavailableError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, GoogleRpcStatus.class),
+                                response);
+                }
+            } catch (JsonProcessingException ignored) {
+                // unable to map error response, throwing generic error
+            }
+            Object errorBody = ObjectMappers.parseErrorBody(responseBodyString);
+            throw new LatticeApiException(
+                    "Error with status code " + response.code(), response.code(), errorBody, response);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to deserialize response: " + e.getMessage(), e);
+        } catch (IOException e) {
+            throw new LatticeException("Network error executing HTTP request", e);
+        }
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public LatticeHttpResponse<QueryIngressStreamsResponse> queryIngressStreams() {
+        return queryIngressStreams(QueryIngressStreamsRequest.builder().build());
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public LatticeHttpResponse<QueryIngressStreamsResponse> queryIngressStreams(RequestOptions requestOptions) {
+        return queryIngressStreams(QueryIngressStreamsRequest.builder().build(), requestOptions);
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public LatticeHttpResponse<QueryIngressStreamsResponse> queryIngressStreams(QueryIngressStreamsRequest request) {
+        return queryIngressStreams(request, null);
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public LatticeHttpResponse<QueryIngressStreamsResponse> queryIngressStreams(
+            QueryIngressStreamsRequest request, RequestOptions requestOptions) {
+        HttpUrl.Builder httpUrl = HttpUrl.parse(this.clientOptions.environment().getUrl())
+                .newBuilder()
+                .addPathSegments("api/v1/video/ingress_streams/query");
+        if (requestOptions != null) {
+            requestOptions.getQueryParameters().forEach((_key, _value) -> {
+                httpUrl.addQueryParameter(_key, _value);
+            });
+        }
+        RequestBody body;
+        try {
+            body = RequestBody.create(
+                    ObjectMappers.JSON_MAPPER.writeValueAsBytes(BodyProperties.merge(
+                            request, requestOptions != null ? requestOptions.getBodyProperties() : null)),
+                    MediaTypes.APPLICATION_JSON);
+        } catch (JsonProcessingException e) {
+            throw new LatticeException("Failed to serialize request", e);
+        }
+        Request okhttpRequest = new Request.Builder()
+                .url(httpUrl.build())
+                .method("POST", body)
+                .headers(Headers.of(clientOptions.headers(requestOptions)))
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "application/json")
+                .build();
+        OkHttpClient client = clientOptions.httpClient();
+        if (requestOptions != null && requestOptions.getTimeout().isPresent()) {
+            client = clientOptions.httpClientWithTimeout(requestOptions);
+        }
+        if (requestOptions != null && requestOptions.getMaxRetries().isPresent()) {
+            okhttpRequest = okhttpRequest
+                    .newBuilder()
+                    .tag(
+                            RetryInterceptor.MaxRetriesOverride.class,
+                            new RetryInterceptor.MaxRetriesOverride(
+                                    requestOptions.getMaxRetries().get()))
+                    .build();
+        }
+        try (Response response = client.newCall(okhttpRequest).execute()) {
+            ResponseBody responseBody = response.body();
+            String responseBodyString = responseBody != null ? responseBody.string() : "{}";
+            if (response.isSuccessful()) {
+                return new LatticeHttpResponse<>(
+                        ObjectMappers.JSON_MAPPER.readValue(responseBodyString, QueryIngressStreamsResponse.class),
+                        response);
+            }
+            try {
+                switch (response.code()) {
+                    case 400:
+                        throw new BadRequestError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, GoogleRpcStatus.class),
+                                response);
+                    case 401:
+                        throw new UnauthorizedError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, GoogleRpcStatus.class),
+                                response);
+                    case 403:
+                        throw new ForbiddenError(
+                                ObjectMappers.JSON_MAPPER.readValue(responseBodyString, GoogleRpcStatus.class),
+                                response);
+                    case 500:
+                        throw new InternalServerError(
                                 ObjectMappers.JSON_MAPPER.readValue(responseBodyString, GoogleRpcStatus.class),
                                 response);
                     case 503:

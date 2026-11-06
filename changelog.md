@@ -1,5 +1,16 @@
 # Changelog
 
+## [6.5.0] - 2026-11-06
+### Added
+- **`queryIngressStreams`** — new method on `VideoClient`, `AsyncVideoClient`, and their raw variants that returns ingress streams newest first (API-created before mesh-discovered) using the new `QueryIngressStreamsRequest`/`QueryIngressStreamsResponse` types with token pagination (`pageSize` default 50, max 100) and an `IngressStreamFilter` that matches on `creator`, `ingressId`, `title`, or `statuses` via the new `CreatorFilter`, `StringFilter` (exact, prefix, or contains), and `IngressStreamFilterStatusesItem` types.
+- **`retryOnStatusCodes`** — new option on `LatticeBuilder`, `AsyncLatticeBuilder`, the OAuth builder, and `ClientOptions.Builder` that limits automatic retries to the given HTTP status codes instead of the default 408, 429, and 5xx.
+- **`retryDelays`** — new option on the same builders that sets an explicit `List<Duration>` retry schedule whose length replaces `maxRetries` and whose delays replace exponential backoff without jitter, while `Retry-After` and `X-RateLimit-Reset` headers still take precedence.
+- **`RetryInterceptor`** — new constructor overloads accept `Optional<Set<Integer>>` status codes and an `Optional<List<Duration>>` retry schedule, and retry settings now also apply when a custom `OkHttpClient` is supplied.
+- **`Sensor.cameraConfiguration`** — new optional field on camera sensors exposing a `CameraConfiguration` with an optional `zoomPercentage` from 0 (fully zoomed out) to 100 (fully zoomed in).
+
+### Changed
+- **`CreateIngressStreamRequest.ingressId` / `IngressStream.createdAt`** — documentation now lists the allowed `ingressId` characters (letters, digits, `.`, `_`, `-`, `/`) and clarifies that `createdAt` for mesh-discovered streams reflects when Video Manager first saw the stream.
+
 ## [6.4.0] - 2026-10-30
 ### Added
 - **`sendManualControlFrame`** — new method on `TasksClient`, `AsyncTasksClient`, and their raw variants that sends a single manual control frame (e.g. joystick input) to the agent executing a task in `STATUS_EXECUTING`.
