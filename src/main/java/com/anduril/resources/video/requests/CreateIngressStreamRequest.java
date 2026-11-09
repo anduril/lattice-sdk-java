@@ -56,10 +56,10 @@ public final class CreateIngressStreamRequest {
      * using underscore or dot as a separator, for example, <code>drone_1</code>, <code>vessel_2</code>, or
      * <code>teamalpha.drone1</code>.
      * <p>When supplied, an ingressId must be between 4 and 36 characters long and use only
-     * printable ASCII characters with no spaces; the 36-character ceiling leaves room for a
-     * full GUID. A value outside that length range, or one containing spaces, control
-     * characters, or non-ASCII characters, is rejected, as is an ingressId that another
-     * ingress stream is already using.</p>
+     * letters, digits, and the characters <code>.</code>, <code>_</code>, <code>-</code>, and <code>/</code>. The 36-character ceiling
+     * leaves room for a full GUID. A value outside that length range, or one containing
+     * any other character, is rejected, as is an ingressId that another ingress stream is
+     * already using.</p>
      */
     @JsonProperty("ingressId")
     public Optional<String> getIngressId() {
@@ -173,10 +173,10 @@ public final class CreateIngressStreamRequest {
          * using underscore or dot as a separator, for example, <code>drone_1</code>, <code>vessel_2</code>, or
          * <code>teamalpha.drone1</code>.</p>
          * <p>When supplied, an ingressId must be between 4 and 36 characters long and use only
-         * printable ASCII characters with no spaces; the 36-character ceiling leaves room for a
-         * full GUID. A value outside that length range, or one containing spaces, control
-         * characters, or non-ASCII characters, is rejected, as is an ingressId that another
-         * ingress stream is already using.</p>
+         * letters, digits, and the characters <code>.</code>, <code>_</code>, <code>-</code>, and <code>/</code>. The 36-character ceiling
+         * leaves room for a full GUID. A value outside that length range, or one containing
+         * any other character, is rejected, as is an ingressId that another ingress stream is
+         * already using.</p>
          */
         @JsonSetter(value = "ingressId", nulls = Nulls.SKIP)
         public Builder ingressId(Optional<String> ingressId) {

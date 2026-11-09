@@ -36,6 +36,8 @@ public final class Sensor {
 
     private final Optional<List<FieldOfView>> fieldsOfView;
 
+    private final Optional<CameraConfiguration> cameraConfiguration;
+
     private final Map<String, Object> additionalProperties;
 
     private Sensor(
@@ -46,6 +48,7 @@ public final class Sensor {
             Optional<RfConfiguration> rfConfiguraton,
             Optional<OffsetDateTime> lastDetectionTimestamp,
             Optional<List<FieldOfView>> fieldsOfView,
+            Optional<CameraConfiguration> cameraConfiguration,
             Map<String, Object> additionalProperties) {
         this.sensorId = sensorId;
         this.operationalState = operationalState;
@@ -54,6 +57,7 @@ public final class Sensor {
         this.rfConfiguraton = rfConfiguraton;
         this.lastDetectionTimestamp = lastDetectionTimestamp;
         this.fieldsOfView = fieldsOfView;
+        this.cameraConfiguration = cameraConfiguration;
         this.additionalProperties = additionalProperties;
     }
 
@@ -110,6 +114,14 @@ public final class Sensor {
         return fieldsOfView;
     }
 
+    /**
+     * @return Camera zoom state, for camera sensors.
+     */
+    @JsonProperty("cameraConfiguration")
+    public Optional<CameraConfiguration> getCameraConfiguration() {
+        return cameraConfiguration;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -128,7 +140,8 @@ public final class Sensor {
                 && sensorDescription.equals(other.sensorDescription)
                 && rfConfiguraton.equals(other.rfConfiguraton)
                 && lastDetectionTimestamp.equals(other.lastDetectionTimestamp)
-                && fieldsOfView.equals(other.fieldsOfView);
+                && fieldsOfView.equals(other.fieldsOfView)
+                && cameraConfiguration.equals(other.cameraConfiguration);
     }
 
     @java.lang.Override
@@ -140,7 +153,8 @@ public final class Sensor {
                 this.sensorDescription,
                 this.rfConfiguraton,
                 this.lastDetectionTimestamp,
-                this.fieldsOfView);
+                this.fieldsOfView,
+                this.cameraConfiguration);
     }
 
     @java.lang.Override
@@ -168,6 +182,8 @@ public final class Sensor {
 
         private Optional<List<FieldOfView>> fieldsOfView = Optional.empty();
 
+        private Optional<CameraConfiguration> cameraConfiguration = Optional.empty();
+
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -180,6 +196,7 @@ public final class Sensor {
             rfConfiguraton(other.getRfConfiguraton());
             lastDetectionTimestamp(other.getLastDetectionTimestamp());
             fieldsOfView(other.getFieldsOfView());
+            cameraConfiguration(other.getCameraConfiguration());
             return this;
         }
 
@@ -278,6 +295,20 @@ public final class Sensor {
             return this;
         }
 
+        /**
+         * <p>Camera zoom state, for camera sensors.</p>
+         */
+        @JsonSetter(value = "cameraConfiguration", nulls = Nulls.SKIP)
+        public Builder cameraConfiguration(Optional<CameraConfiguration> cameraConfiguration) {
+            this.cameraConfiguration = cameraConfiguration;
+            return this;
+        }
+
+        public Builder cameraConfiguration(CameraConfiguration cameraConfiguration) {
+            this.cameraConfiguration = Optional.ofNullable(cameraConfiguration);
+            return this;
+        }
+
         public Sensor build() {
             return new Sensor(
                     sensorId,
@@ -287,6 +318,7 @@ public final class Sensor {
                     rfConfiguraton,
                     lastDetectionTimestamp,
                     fieldsOfView,
+                    cameraConfiguration,
                     additionalProperties);
         }
 
@@ -298,7 +330,8 @@ public final class Sensor {
                     || key.equalsIgnoreCase("sensorDescription")
                     || key.equalsIgnoreCase("rfConfiguraton")
                     || key.equalsIgnoreCase("lastDetectionTimestamp")
-                    || key.equalsIgnoreCase("fieldsOfView")) {
+                    || key.equalsIgnoreCase("fieldsOfView")
+                    || key.equalsIgnoreCase("cameraConfiguration")) {
                 return;
             }
             this.additionalProperties.put(key, value);

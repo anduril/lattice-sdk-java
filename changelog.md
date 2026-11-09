@@ -1,5 +1,16 @@
 # Changelog
 
+## [6.5.0] - 2026-11-09
+### Added
+- **`retryOnStatusCodes`** — new option on `LatticeBuilder`, `AsyncLatticeBuilder`, their authenticated builders, and `ClientOptions.Builder` that limits automatic retries to the given HTTP status codes instead of the default 408, 429 and 5xx.
+- **`retryDelays`** — new option on the same builders that sets an explicit `List<Duration>` retry schedule, where the list size replaces `maxRetries` and exponential backoff, delays are applied without jitter, and `Retry-After` / `X-RateLimit-Reset` headers still take precedence.
+- **`RetryInterceptor`** — new constructor overloads accepting `Optional<Set<Integer>>` retry status codes and an `Optional<List<Duration>>` retry schedule.
+- **`CameraConfiguration`** — new type with an optional `zoomPercentage` field (0 fully zoomed out to 100 fully zoomed in), exposed through the new optional `Sensor.cameraConfiguration` field for camera sensors.
+
+### Changed
+- **Custom `OkHttpClient`** — when a custom HTTP client is supplied, any existing `RetryInterceptor` on it is now rebuilt with the configured retry settings.
+- **`CreateIngressStreamRequest.ingressId`** — documentation now specifies that only letters, digits, `.`, `_`, `-` and `/` are allowed.
+
 ## [6.4.0] - 2026-10-30
 ### Added
 - **`sendManualControlFrame`** — new method on `TasksClient`, `AsyncTasksClient`, and their raw variants that sends a single manual control frame (e.g. joystick input) to the agent executing a task in `STATUS_EXECUTING`.
