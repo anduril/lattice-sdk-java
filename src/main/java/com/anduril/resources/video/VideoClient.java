@@ -13,6 +13,7 @@ import com.anduril.resources.video.requests.GetEgressStreamRequest;
 import com.anduril.resources.video.requests.GetIngressStreamRequest;
 import com.anduril.resources.video.requests.ListEgressStreamsRequest;
 import com.anduril.resources.video.requests.ListIngressStreamsRequest;
+import com.anduril.resources.video.requests.QueryIngressStreamsRequest;
 import com.anduril.types.CreateEgressStreamResponse;
 import com.anduril.types.CreateIngressStreamResponse;
 import com.anduril.types.DeleteEgressStreamResponse;
@@ -21,6 +22,7 @@ import com.anduril.types.GetEgressStreamResponse;
 import com.anduril.types.GetIngressStreamResponse;
 import com.anduril.types.ListEgressStreamsResponse;
 import com.anduril.types.ListIngressStreamsResponse;
+import com.anduril.types.QueryIngressStreamsResponse;
 
 public class VideoClient {
     protected final ClientOptions clientOptions;
@@ -241,6 +243,47 @@ public class VideoClient {
     public CreateIngressStreamResponse createIngressStream(
             CreateIngressStreamRequest request, RequestOptions requestOptions) {
         return this.rawClient.createIngressStream(request, requestOptions).body();
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public QueryIngressStreamsResponse queryIngressStreams() {
+        return this.rawClient.queryIngressStreams().body();
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public QueryIngressStreamsResponse queryIngressStreams(RequestOptions requestOptions) {
+        return this.rawClient.queryIngressStreams(requestOptions).body();
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public QueryIngressStreamsResponse queryIngressStreams(QueryIngressStreamsRequest request) {
+        return this.rawClient.queryIngressStreams(request).body();
+    }
+
+    /**
+     * Returns the ingress streams that match the filter, newest first. Streams
+     * created through this API come first, then streams discovered on the mesh, and
+     * each group starts with its newest stream. For a discovered stream, &quot;created&quot;
+     * means when Video Manager first saw it.
+     */
+    public QueryIngressStreamsResponse queryIngressStreams(
+            QueryIngressStreamsRequest request, RequestOptions requestOptions) {
+        return this.rawClient.queryIngressStreams(request, requestOptions).body();
     }
 
     /**

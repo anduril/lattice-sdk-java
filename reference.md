@@ -2301,6 +2301,91 @@ Receive an SRT push from the producer. The service returns a URL and sessionId
 </dl>
 </details>
 
+<details><summary><code>client.video.queryIngressStreams(request) -> QueryIngressStreamsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns the ingress streams that match the filter, newest first. Streams
+ created through this API come first, then streams discovered on the mesh, and
+ each group starts with its newest stream. For a discovered stream, "created"
+ means when Video Manager first saw it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```java
+client.video().queryIngressStreams(
+    QueryIngressStreamsRequest
+        .builder()
+        .build()
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**pageSize:** `Optional<Integer>` 
+
+How many streams to return per page. Defaults to 50, and values above 100
+ count as 100. A page can contain fewer streams than you asked for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pageToken:** `Optional<String>` 
+
+To get the next page, pass the `nextPageToken` from the previous response.
+ Leave it empty for the first page. Send the same filter on every page: the
+ server rejects a token if the filter changed, or if the token came from
+ ListIngressStreams.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Optional<IngressStreamFilter>` — Which streams to return. Leave it out to return every stream you can see.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.video.getIngressStream(ingressId) -> GetIngressStreamResponse</code></summary>
 <dl>
 <dd>
