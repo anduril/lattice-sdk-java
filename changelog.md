@@ -1,5 +1,16 @@
 # Changelog
 
+## [6.6.0] - 2026-11-14
+### Added
+- **`queryIngressStreams`** — new method on `VideoClient`, `AsyncVideoClient` and their raw variants that returns ingress streams matching an optional filter, newest first, with API-created streams listed before mesh-discovered ones.
+- **`QueryIngressStreamsRequest`** / **`QueryIngressStreamsResponse`** — new paginated request and response types with optional `pageSize` (default 50, max 100), `pageToken`/`nextPageToken` and returned `ingressStreams`.
+- **`IngressStreamFilter`** — new filter by optional `creator`, `ingressId`, `title` and `statuses` criteria, supported by the new `CreatorFilter` (`owned` flag, requires valid credentials) and a reusable `StringFilter` with mutually exclusive `exact`, `prefix` and `contains` matching.
+- **`IngressStreamFilterStatusesItem`** — new forward-compatible enum of stream statuses (live, inactive, unavailable, archived, unspecified) used for status filtering.
+- **`TaskCreation.suppressDelivery`** — new optional field that stores a task as `STATUS_SENT` without delivering it, for reporting a task the assignee already holds; it requires an assignee and cannot be combined with `isExecutedElsewhere`.
+
+### Changed
+- **`IngressStream.createdAt`** — documentation now explains that for mesh-discovered streams this is when Video Manager first saw the stream, and the value can reset if Video Manager restarts.
+
 ## [6.5.0] - 2026-11-09
 ### Added
 - **`retryOnStatusCodes`** — new option on `LatticeBuilder`, `AsyncLatticeBuilder`, their authenticated builders, and `ClientOptions.Builder` that limits automatic retries to the given HTTP status codes instead of the default 408, 429 and 5xx.

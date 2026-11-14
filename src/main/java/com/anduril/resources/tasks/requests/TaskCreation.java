@@ -50,6 +50,8 @@ public final class TaskCreation {
 
     private final Optional<ExecutionConstraints> executionConstraints;
 
+    private final Optional<Boolean> suppressDelivery;
+
     private final Map<String, Object> additionalProperties;
 
     private TaskCreation(
@@ -64,6 +66,7 @@ public final class TaskCreation {
             Optional<RetryStrategy> retryStrategy,
             Optional<DeliveryConstraints> deliveryConstraints,
             Optional<ExecutionConstraints> executionConstraints,
+            Optional<Boolean> suppressDelivery,
             Map<String, Object> additionalProperties) {
         this.taskId = taskId;
         this.displayName = displayName;
@@ -76,6 +79,7 @@ public final class TaskCreation {
         this.retryStrategy = retryStrategy;
         this.deliveryConstraints = deliveryConstraints;
         this.executionConstraints = executionConstraints;
+        this.suppressDelivery = suppressDelivery;
         this.additionalProperties = additionalProperties;
     }
 
@@ -169,6 +173,17 @@ public final class TaskCreation {
         return executionConstraints;
     }
 
+    /**
+     * @return If set, then the service will not deliver this request. Useful for reporting a task
+     * that the assignee already holds. Requires an assignee, and cannot be combined with
+     * isExecutedElsewhere. The task is stored with STATUS_SENT. A later cancel is delivered
+     * as expected.
+     */
+    @JsonProperty("suppressDelivery")
+    public Optional<Boolean> getSuppressDelivery() {
+        return suppressDelivery;
+    }
+
     @java.lang.Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -191,7 +206,8 @@ public final class TaskCreation {
                 && initialEntities.equals(other.initialEntities)
                 && retryStrategy.equals(other.retryStrategy)
                 && deliveryConstraints.equals(other.deliveryConstraints)
-                && executionConstraints.equals(other.executionConstraints);
+                && executionConstraints.equals(other.executionConstraints)
+                && suppressDelivery.equals(other.suppressDelivery);
     }
 
     @java.lang.Override
@@ -207,7 +223,8 @@ public final class TaskCreation {
                 this.initialEntities,
                 this.retryStrategy,
                 this.deliveryConstraints,
-                this.executionConstraints);
+                this.executionConstraints,
+                this.suppressDelivery);
     }
 
     @java.lang.Override
@@ -243,6 +260,8 @@ public final class TaskCreation {
 
         private Optional<ExecutionConstraints> executionConstraints = Optional.empty();
 
+        private Optional<Boolean> suppressDelivery = Optional.empty();
+
         private Map<String, Object> additionalProperties = new HashMap<>();
 
         private Builder() {}
@@ -259,6 +278,7 @@ public final class TaskCreation {
             retryStrategy(other.getRetryStrategy());
             deliveryConstraints(other.getDeliveryConstraints());
             executionConstraints(other.getExecutionConstraints());
+            suppressDelivery(other.getSuppressDelivery());
             return this;
         }
 
@@ -418,6 +438,23 @@ public final class TaskCreation {
             return this;
         }
 
+        /**
+         * <p>If set, then the service will not deliver this request. Useful for reporting a task
+         * that the assignee already holds. Requires an assignee, and cannot be combined with
+         * isExecutedElsewhere. The task is stored with STATUS_SENT. A later cancel is delivered
+         * as expected.</p>
+         */
+        @JsonSetter(value = "suppressDelivery", nulls = Nulls.SKIP)
+        public Builder suppressDelivery(Optional<Boolean> suppressDelivery) {
+            this.suppressDelivery = suppressDelivery;
+            return this;
+        }
+
+        public Builder suppressDelivery(Boolean suppressDelivery) {
+            this.suppressDelivery = Optional.ofNullable(suppressDelivery);
+            return this;
+        }
+
         public TaskCreation build() {
             return new TaskCreation(
                     taskId,
@@ -431,6 +468,7 @@ public final class TaskCreation {
                     retryStrategy,
                     deliveryConstraints,
                     executionConstraints,
+                    suppressDelivery,
                     additionalProperties);
         }
 
@@ -446,7 +484,8 @@ public final class TaskCreation {
                     || key.equalsIgnoreCase("initialEntities")
                     || key.equalsIgnoreCase("retryStrategy")
                     || key.equalsIgnoreCase("deliveryConstraints")
-                    || key.equalsIgnoreCase("executionConstraints")) {
+                    || key.equalsIgnoreCase("executionConstraints")
+                    || key.equalsIgnoreCase("suppressDelivery")) {
                 return;
             }
             this.additionalProperties.put(key, value);

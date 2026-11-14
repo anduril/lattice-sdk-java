@@ -105,7 +105,9 @@ public final class IngressStream {
     }
 
     /**
-     * @return Wall-clock time the stream was created.
+     * @return When the stream was created. For a stream discovered on the mesh rather than
+     * created through this API, this is when Video Manager first saw it, which can
+     * reset if Video Manager restarts.
      */
     @JsonProperty("createdAt")
     public Optional<OffsetDateTime> getCreatedAt() {
@@ -288,7 +290,9 @@ public final class IngressStream {
         }
 
         /**
-         * <p>Wall-clock time the stream was created.</p>
+         * <p>When the stream was created. For a stream discovered on the mesh rather than
+         * created through this API, this is when Video Manager first saw it, which can
+         * reset if Video Manager restarts.</p>
          */
         @JsonSetter(value = "createdAt", nulls = Nulls.SKIP)
         public Builder createdAt(Optional<OffsetDateTime> createdAt) {
