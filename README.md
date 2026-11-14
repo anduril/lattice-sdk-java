@@ -42,7 +42,7 @@ Add the dependency in your `build.gradle` file:
 
 ```groovy
 dependencies {
-  implementation 'com.anduril:lattice-sdk:6.5.0'
+  implementation 'com.anduril:lattice-sdk:6.6.0'
 }
 ```
 
@@ -54,7 +54,7 @@ Add the dependency in your `pom.xml` file:
 <dependency>
   <groupId>com.anduril</groupId>
   <artifactId>lattice-sdk</artifactId>
-  <version>6.5.0</version>
+  <version>6.6.0</version>
 </dependency>
 ```
 
@@ -115,6 +115,7 @@ import com.anduril.core.Environment;
 
 Lattice client = Lattice
     .builder()
+    .credentials("<clientId>", "<clientSecret>")
     .environment(Environment.DEFAULT)
     .build();
 ```
@@ -128,6 +129,7 @@ import com.anduril.Lattice;
 
 Lattice client = Lattice
     .builder()
+    .credentials("<clientId>", "<clientSecret>")
     .url("https://example.com")
     .build();
 ```
@@ -161,6 +163,7 @@ OkHttpClient customClient = ...;
 
 Lattice client = Lattice
     .builder()
+    .credentials("<clientId>", "<clientSecret>")
     .httpClient(customClient)
     .build();
 ```
@@ -173,19 +176,12 @@ retry limit (default: 2). Before defaulting to exponential backoff, the SDK will
 the `Retry-After` header (as either in seconds or as an HTTP date), and then the `X-RateLimit-Reset` header
 (as a Unix timestamp in epoch seconds); failing both of those, it will fall back to exponential backoff.
 
-Which status codes are retried depends on the `retry-status-codes` generator configuration:
+A request is deemed retryable when any of the following HTTP status codes is returned:
 
-**`legacy`** (current default): retries on
 - [408](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/408) (Timeout)
 - [429](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) (Too Many Requests)
 - [5XX](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses) (All server errors, including 500)
 
-**`recommended`**: retries on
-- [408](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/408) (Timeout)
-- [429](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) (Too Many Requests)
-- [502](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502) (Bad Gateway)
-- [503](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503) (Service Unavailable)
-- [504](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504) (Gateway Timeout)
 
 Use the `maxRetries` client option to configure this behavior.
 
@@ -194,6 +190,7 @@ import com.anduril.Lattice;
 
 Lattice client = Lattice
     .builder()
+    .credentials("<clientId>", "<clientSecret>")
     .maxRetries(1)
     .build();
 ```
@@ -208,6 +205,7 @@ import com.anduril.core.RequestOptions;
 // Client level
 Lattice client = Lattice
     .builder()
+    .credentials("<clientId>", "<clientSecret>")
     .timeout(60)
     .build();
 
@@ -232,6 +230,7 @@ import com.anduril.core.RequestOptions;
 // Client level
 Lattice client = Lattice
     .builder()
+    .credentials("<clientId>", "<clientSecret>")
     .addHeader("X-Custom-Header", "custom-value")
     .addHeader("X-Request-Id", "abc-123")
     .build();
