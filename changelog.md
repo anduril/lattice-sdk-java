@@ -1,5 +1,15 @@
 # Changelog
 
+## [6.6.0] - 2026-11-26
+### Added
+- **`TaskCreation.suppressDelivery`** — new optional field that stores a task with `STATUS_SENT` without delivering it; it is intended for reporting tasks the assignee already holds, requires an assignee, and cannot be combined with `isExecutedElsewhere`.
+
+### Changed
+- **`BasePage.hasNext()`** — now reflects only whether the server indicated another page, so an empty page that carries a next-page cursor no longer ends pagination.
+
+### Fixed
+- **`SyncPagingIterable`** — iteration now skips empty intermediate pages instead of stopping early when a cursor-paginated API returns a page with no items.
+
 ## [6.5.0] - 2026-11-09
 ### Added
 - **`retryOnStatusCodes`** — new option on `LatticeBuilder`, `AsyncLatticeBuilder`, their authenticated builders, and `ClientOptions.Builder` that limits automatic retries to the given HTTP status codes instead of the default 408, 429 and 5xx.

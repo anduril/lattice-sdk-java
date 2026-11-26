@@ -364,6 +364,13 @@ public class AsyncLatticeBuilder {
      */
     protected void validateConfiguration() {}
 
+    /**
+     * Whether this builder authenticates with a token, which replaces every other auth scheme.
+     */
+    protected boolean usesTokenAuth() {
+        return false;
+    }
+
     public AsyncLattice build() {
         validateConfiguration();
         return new AsyncLattice(buildClientOptions());
@@ -379,6 +386,11 @@ public class AsyncLatticeBuilder {
         @Override
         protected void setAuthentication(ClientOptions.Builder builder) {
             builder.addHeader("Authorization", "Bearer " + this.token);
+        }
+
+        @Override
+        protected boolean usesTokenAuth() {
+            return true;
         }
     }
 
