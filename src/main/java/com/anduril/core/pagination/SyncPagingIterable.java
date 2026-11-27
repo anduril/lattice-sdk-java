@@ -39,9 +39,12 @@ public class SyncPagingIterable<T> extends SyncPage<T> implements Iterable<T> {
                 if (itemsIterator.hasNext()) {
                     return true;
                 }
-                if (currentPage.hasNext()) {
+                // Skip over empty pages: one can still be followed by a page with items.
+                while (currentPage.hasNext()) {
                     advancePage();
-                    return itemsIterator.hasNext();
+                    if (itemsIterator.hasNext()) {
+                        return true;
+                    }
                 }
                 return false;
             }

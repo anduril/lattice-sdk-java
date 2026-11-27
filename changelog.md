@@ -1,5 +1,15 @@
 # Changelog
 
+## [6.6.0] - 2026-11-27
+### Added
+- **`TaskCreation.suppressDelivery`** — new optional field and builder methods that tell the service not to deliver the task, useful for reporting a task the assignee already holds; it requires an assignee, cannot be combined with `isExecutedElsewhere`, and stores the task with `STATUS_SENT`.
+- **`usesTokenAuth()`** — new protected hook on `LatticeBuilder` and `AsyncLatticeBuilder` that reports whether the builder authenticates with a token, which replaces every other auth scheme.
+
+### Changed
+- **`BasePage.hasNext()`** — now returns true whenever the API provides a next-page cursor, even if the current page is empty, so manual page loops may now encounter empty pages.
+- **`SyncPagingIterable`** — iteration now skips over empty pages instead of stopping early, so all items behind empty cursor-paginated pages are returned.
+- **Jackson dependencies** — `jackson-databind`, `jackson-datatype-jdk8` and `jackson-datatype-jsr310` are upgraded to 2.18.12.
+
 ## [6.5.0] - 2026-11-09
 ### Added
 - **`retryOnStatusCodes`** — new option on `LatticeBuilder`, `AsyncLatticeBuilder`, their authenticated builders, and `ClientOptions.Builder` that limits automatic retries to the given HTTP status codes instead of the default 408, 429 and 5xx.

@@ -601,6 +601,19 @@ task. For example, an entity Objective, an entity Keep In Zone, etc.
     
 </dd>
 </dl>
+
+<dl>
+<dd>
+
+**suppressDelivery:** `Optional<Boolean>` 
+
+If set, then the service will not deliver this request. Useful for reporting a task
+that the assignee already holds. Requires an assignee, and cannot be combined with
+isExecutedElsewhere. The task is stored with STATUS_SENT. A later cancel is delivered
+as expected.
+    
+</dd>
+</dl>
 </dd>
 </dl>
 

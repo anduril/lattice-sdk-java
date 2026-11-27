@@ -17,8 +17,12 @@ public abstract class BasePage<T> {
         this.response = response;
     }
 
+    /**
+     * Whether another page can be fetched. An empty page is not necessarily the last one: a cursor-paginated
+     * API can return no items together with a cursor for the next page.
+     */
     public boolean hasNext() {
-        return !items.isEmpty() && hasNext;
+        return hasNext;
     }
 
     public List<T> getItems() {
